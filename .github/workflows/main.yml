@@ -8,14 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: # 顯式宣告權限
+    permissions:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # 更新到 v4
+        uses: actions/checkout@v4  # 升級到 v4 解決警告
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # 更新到 v5
+        uses: actions/setup-python@v5 # 升級到 v5 解決警告
         with:
           python-version: '3.9'
 
@@ -31,5 +31,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data.json
-          # 如果沒有變動就不提交，避免報錯
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update earnings data" && git push)
