@@ -5,8 +5,13 @@ import json
 import time
 from datetime import datetime, date
 
-# 🚨 請確保 GitHub Secrets 已設定 FMP_API_KEY
+# --- 1. 檢查 API Key 是否存在 ---
 FMP_API_KEY = os.environ.get("FMP_API_KEY")
+if not FMP_API_KEY:
+    print("🔴 致命錯誤：在 GitHub Secrets 中找不到 FMP_API_KEY。")
+    exit(1) # 直接中止程式
+else:
+    print("🟢 成功讀取 API Key。")
 
 companies = {
     "NVDA": "輝達 (Nvidia)",
@@ -19,50 +24,42 @@ companies = {
 }
 
 def get_sec_history_from_fmp(ticker):
-    """透過 FMP 獲取 SEC 官方歷史財報連結 (強化版)"""
     history = []
     try:
-        # 不在 URL 篩選 type，先拿最近所有的文件再到下面過濾
         url = f"https://financialmodelingprep.com/api/v3/sec_filings/{ticker}?page=0&apikey={FMP_API_KEY}"
-        res = requests.get(url, timeout=10)
+        print(f"   [FMP] 正在向 FMP 請求 {ticker} 的歷史財報...")
+        res = requests.get(url, timeout=15)
         
         if res.status_code == 200:
             filings = res.json()
-            print(f"正在檢查 {ticker} 的最近申報紀錄...")
-            
+            if not filings:
+                print(f"   🟡 [FMP] {ticker}: FMP 返回了空列表，可能暫無數據。")
+                return []
+
+            print(f"   🟢 [FMP] 成功獲取 {ticker} 的申報列表，共 {len(filings)} 筆。")
             for filing in filings:
                 form_type = filing.get('type', '')
-                # 只要是 10-Q 或 10-K (包含修正案 /A)
                 if "10-Q" in form_type or "10-K" in form_type:
                     filing_date = filing.get('fillingDate', '').split(' ')[0]
                     final_link = filing.get('finalLink')
                     
                     if final_link:
-                        # 顯示名稱美化
                         display_form = "Q4 / 年報 (10-K)" if "10-K" in form_type else "季報 (10-Q)"
-                        if "/A" in form_type:
-                            display_form += " (修正案)"
+                        if "/A" in form_type: display_form += " (修正案)"
                         
-                        # 生成互動閱讀器連結
                         ix_link = final_link.replace("https://www.sec.gov/Archives/", "https://www.sec.gov/ix?doc=/Archives/")
-                        
-                        history.append({
-                            "type": display_form,
-                            "date": filing_date,
-                            "html_url": final_link,
-                            "ix_url": ix_link
-                        })
+                        history.append({"type": display_form, "date": filing_date, "html_url": final_link, "ix_url": ix_link})
                 
-                # 抓滿 5 份就停
-                if len(history) == 5:
-                    break
-            
-            if not history:
-                print(f"警告：{ticker} 沒找到任何 10-Q 或 10-K")
+                if len(history) == 5: break
         else:
-            print(f"FMP API 回報錯誤: {res.status_code}")
+            print(f"   🔴 [FMP] API 錯誤: {ticker} 返回狀態碼 {res.status_code}。")
+            print(f"   🔴 [FMP] 錯誤內容: {res.text[:100]}") # 印出前 100 字錯誤訊息
+            return []
+            
     except Exception as e:
-        print(f"抓取 {ticker} 發生例外: {e}")
+        print(f"   🔴 [FMP] 請求 {ticker} 時發生例外錯誤: {e}")
+        return []
+        
     return history
 
 def get_tracker_data():
@@ -70,24 +67,33 @@ def get_tracker_data():
     today = date.today()
     
     for ticker, chinese_name in companies.items():
+        print(f"\n--- 開始處理 {ticker} ---")
         try:
-            # 1. 抓取日期倒數
+            # 1. 抓取日期倒數 (yfinance)
+            print(f"   [yfinance] 正在獲取 {ticker} 的財報日期...")
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
-            final_date = None
             
-            if calendar is not None and 'Earnings Date' in calendar:
+            if calendar is None or 'Earnings Date' not in calendar:
+                print(f"   🟡 [yfinance] {ticker}: yfinance 未返回財報日期。")
+                final_date = None
+            else:
                 potential_dates = calendar['Earnings Date']
+                final_date = None
                 for d in potential_dates:
                     d_date = d.date() if isinstance(d, datetime) else d
                     if d_date >= today and d_date.year <= today.year + 1:
                         final_date = d_date
                         break
-            
+                if final_date:
+                    print(f"   🟢 [yfinance] {ticker}: 找到下一個財報日 {final_date}")
+                else:
+                    print(f"   🟡 [yfinance] {ticker}: 未找到有效的未來財報日。")
+
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
 
-            # 2. 抓取歷史財報
+            # 2. 抓取歷史財報 (FMP API)
             sec_history = get_sec_history_from_fmp(ticker)
 
             results.append({
@@ -97,21 +103,18 @@ def get_tracker_data():
                 "days_left": days_remaining,
                 "history": sec_history
             })
-            print(f"✅ {ticker} 完成同步，歷史件數: {len(sec_history)}")
             
         except Exception as e:
-            print(f"❌ {ticker} 發生錯誤: {e}")
+            print(f"   🔴 [yfinance] 抓取 {ticker} 時發生嚴重錯誤: {e}")
             
     return results
 
 if __name__ == "__main__":
-    if not FMP_API_KEY:
-        print("錯誤：找不到 API Key，請檢查 GitHub Secrets!")
-    else:
-        data = get_tracker_data()
-        output = {
-            "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            "companies": data
-        }
-        with open('data.json', 'w', encoding='utf-8') as f:
-            json.dump(output, f, ensure_ascii=False, indent=4)
+    data = get_tracker_data()
+    output = {
+        "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        "companies": data
+    }
+    with open('data.json', 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=4)
+    print("\n--- 所有公司處理完畢，已生成 data.json ---")
