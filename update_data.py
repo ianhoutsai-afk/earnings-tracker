@@ -5,79 +5,73 @@ import json
 import time
 from datetime import datetime, date
 
-# 🚨 安全寫法：從 GitHub 環境變數中讀取，不寫死在代碼中！
+# 🚨 請確保 GitHub Secrets 已設定 FMP_API_KEY
 FMP_API_KEY = os.environ.get("FMP_API_KEY")
 
-if not FMP_API_KEY:
-    print("警告：找不到 API Key，請檢查 GitHub Secrets 設定！")
-    
 companies = {
-    "NVDA": {"name": "輝達 (Nvidia)", "cik": "0000104581"},
-    "AAPL": {"name": "蘋果 (Apple)", "cik": "0000320193"},
-    "MSFT": {"name": "微軟 (Microsoft)", "cik": "0000078901"},
-    "AMZN": {"name": "亞馬遜 (Amazon)", "cik": "0000101872"},
-    "GOOGL": {"name": "Alphabet (Google)", "cik": "0001652044"},
-    "META": {"name": "Meta (Facebook)", "cik": "0001326801"},
-    "TSLA": {"name": "特斯拉 (Tesla)", "cik": "0001318605"}
+    "NVDA": "輝達 (Nvidia)",
+    "AAPL": "蘋果 (Apple)",
+    "MSFT": "微軟 (Microsoft)",
+    "AMZN": "亞馬遜 (Amazon)",
+    "GOOGL": "Alphabet (Google)",
+    "META": "Meta (Facebook)",
+    "TSLA": "特斯拉 (Tesla)"
 }
 
-# 嚴格遵守 SEC 規範的 User-Agent
-headers = {
-    'User-Agent': 'M7_Financial_Research_Project (contact.me@gmail.com)',
-    'Accept-Encoding': 'gzip, deflate',
-    'Host': 'data.sec.gov'
-}
-
-def get_sec_history(cik):
+def get_sec_history_from_fmp(ticker):
+    """透過 FMP 獲取 SEC 官方歷史財報連結 (強化版)"""
     history = []
     try:
-        url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-        # 設定 timeout 防止卡死
-        res = requests.get(url, headers=headers, timeout=10)
+        # 不在 URL 篩選 type，先拿最近所有的文件再到下面過濾
+        url = f"https://financialmodelingprep.com/api/v3/sec_filings/{ticker}?page=0&apikey={FMP_API_KEY}"
+        res = requests.get(url, timeout=10)
         
         if res.status_code == 200:
-            data = res.json()
-            filings = data.get("filings", {}).get("recent", {})
+            filings = res.json()
+            print(f"正在檢查 {ticker} 的最近申報紀錄...")
             
-            form_list = filings.get("form", [])
-            for i in range(len(form_list)):
-                form_type = form_list[i]
-                if form_type in ["10-Q", "10-K"]:
-                    acc_num = filings["accessionNumber"][i]
-                    acc_num_no_dash = acc_num.replace("-", "")
-                    doc_name = filings["primaryDocument"][i]
-                    filing_date = filings["filingDate"][i]
+            for filing in filings:
+                form_type = filing.get('type', '')
+                # 只要是 10-Q 或 10-K (包含修正案 /A)
+                if "10-Q" in form_type or "10-K" in form_type:
+                    filing_date = filing.get('fillingDate', '').split(' ')[0]
+                    final_link = filing.get('finalLink')
                     
-                    display_form = "Q4 / 年報 (10-K)" if form_type == "10-K" else "季報 (10-Q)"
-                    
-                    html_url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc_num_no_dash}/{doc_name}"
-                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{int(cik)}/{acc_num_no_dash}/{doc_name}"
-                    
-                    history.append({
-                        "type": display_form,
-                        "date": filing_date,
-                        "html_url": html_url,
-                        "ix_url": ix_url
-                    })
-                    
-                    if len(history) == 5:
-                        break
+                    if final_link:
+                        # 顯示名稱美化
+                        display_form = "Q4 / 年報 (10-K)" if "10-K" in form_type else "季報 (10-Q)"
+                        if "/A" in form_type:
+                            display_form += " (修正案)"
+                        
+                        # 生成互動閱讀器連結
+                        ix_link = final_link.replace("https://www.sec.gov/Archives/", "https://www.sec.gov/ix?doc=/Archives/")
+                        
+                        history.append({
+                            "type": display_form,
+                            "date": filing_date,
+                            "html_url": final_link,
+                            "ix_url": ix_link
+                        })
+                
+                # 抓滿 5 份就停
+                if len(history) == 5:
+                    break
+            
+            if not history:
+                print(f"警告：{ticker} 沒找到任何 10-Q 或 10-K")
         else:
-            print(f"SEC 拒絕連線，狀態碼: {res.status_code}")
+            print(f"FMP API 回報錯誤: {res.status_code}")
     except Exception as e:
-        print(f"抓取 SEC CIK {cik} 發生例外錯誤: {e}")
+        print(f"抓取 {ticker} 發生例外: {e}")
     return history
 
 def get_tracker_data():
     results = []
     today = date.today()
     
-    for ticker, info in companies.items():
-        chinese_name = info["name"]
-        cik = info["cik"]
-        
+    for ticker, chinese_name in companies.items():
         try:
-            # 1. 抓取日期
+            # 1. 抓取日期倒數
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
             final_date = None
@@ -90,16 +84,11 @@ def get_tracker_data():
                         final_date = d_date
                         break
             
-            if not final_date:
-                earnings_date_str = "官方公佈中"
-                days_remaining = "N/A"
-            else:
-                earnings_date_str = final_date.strftime('%Y-%m-%d')
-                days_remaining = (final_date - today).days
+            earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
+            days_remaining = (final_date - today).days if final_date else "N/A"
 
-            # 2. 抓取歷史財報 (加上 0.5 秒延遲，避免被 SEC 封鎖)
-            time.sleep(0.5) 
-            sec_history = get_sec_history(cik)
+            # 2. 抓取歷史財報
+            sec_history = get_sec_history_from_fmp(ticker)
 
             results.append({
                 "ticker": ticker,
@@ -108,18 +97,21 @@ def get_tracker_data():
                 "days_left": days_remaining,
                 "history": sec_history
             })
-            print(f"✅ 完成: {ticker} (找到 {len(sec_history)} 筆 SEC 紀錄)")
+            print(f"✅ {ticker} 完成同步，歷史件數: {len(sec_history)}")
             
         except Exception as e:
-            print(f"❌ {ticker} 出錯: {e}")
+            print(f"❌ {ticker} 發生錯誤: {e}")
             
     return results
 
 if __name__ == "__main__":
-    data = get_tracker_data()
-    output = {
-        "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        "companies": data
-    }
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(output, f, ensure_ascii=False, indent=4)
+    if not FMP_API_KEY:
+        print("錯誤：找不到 API Key，請檢查 GitHub Secrets!")
+    else:
+        data = get_tracker_data()
+        output = {
+            "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "companies": data
+        }
+        with open('data.json', 'w', encoding='utf-8') as f:
+            json.dump(output, f, ensure_ascii=False, indent=4)
