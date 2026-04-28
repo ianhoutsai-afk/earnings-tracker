@@ -3,94 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>M7 財報追蹤</title>
-    
-    <!-- iOS 加入主螢幕設定 -->
+    <title>M7 財報觀測站</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="M7 財報">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2830/2830305.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 讓網頁在手機上長按不跳出選單，更像 App */
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        body { -webkit-tap-highlight-color: transparent; }
-    </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans">
     <div class="max-w-md mx-auto min-h-screen bg-white shadow-xl flex flex-col">
-        <!-- 標題欄 -->
-        <header class="bg-slate-900 p-6 pt-12 text-white sticky top-0 z-10">
+        <!-- 頂部導航 -->
+        <header class="bg-slate-900 p-6 pt-10 text-white sticky top-0 z-10">
             <div class="flex justify-between items-end">
                 <div>
-                    <h1 class="text-2xl font-extrabold tracking-tight">M7 Tracker</h1>
-                    <p class="text-slate-400 text-xs mt-1">Magnificent Seven Earnings</p>
+                    <h1 class="text-xl font-black tracking-tight text-indigo-400">RESEARCH</h1>
+                    <p class="text-xs text-slate-400">Magnificent Seven Expectations</p>
                 </div>
                 <div class="text-right">
-                    <p class="text-[10px] uppercase text-slate-500 font-bold">Last Update</p>
-                    <p id="update-time" class="text-xs text-slate-300">Loading...</p>
+                    <p class="text-[9px] uppercase text-slate-500 font-bold">Updated</p>
+                    <p id="update-time" class="text-xs text-slate-300">--:--</p>
                 </div>
             </div>
         </header>
 
-        <!-- 列表內容 -->
+        <!-- 數據清單 -->
         <main id="list" class="flex-grow divide-y divide-gray-100">
-            <div class="p-10 text-center text-gray-400">正在獲取最新數據...</div>
+            <div class="p-10 text-center text-gray-400">正在分析市場數據...</div>
         </main>
         
-        <footer class="p-8 text-center border-t border-gray-50 bg-gray-50">
-            <p class="text-xs text-gray-400 leading-relaxed">
-                數據由 Yahoo Finance 提供<br>
-                每日自動更新一次
-            </p>
+        <footer class="p-8 text-center bg-gray-50 border-t border-gray-100">
+            <p class="text-[10px] text-gray-400 tracking-widest uppercase">Fundamental Analysis Tracker</p>
         </footer>
     </div>
 
     <script>
         async function loadData() {
             try {
-                // 讀取產出的 data.json
                 const response = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await response.json();
-                
-                // 格式化更新時間
                 document.getElementById('update-time').innerText = data.last_updated.split(' ')[0];
                 
                 const listHtml = data.companies.map(c => {
-                    // 根據天數決定顏色
-                    let dayColor = "text-emerald-600";
-                    let dayBg = "bg-emerald-50";
+                    // 計算天數顏色
+                    let dayStyle = "text-slate-400 bg-slate-50";
                     if (typeof c.days_left === 'number') {
-                        if (c.days_left <= 7) { dayColor = "text-red-600"; dayBg = "bg-red-50"; }
-                        else if (c.days_left <= 14) { dayColor = "text-orange-600"; dayBg = "bg-orange-50"; }
+                        if (c.days_left <= 7) dayStyle = "text-rose-600 bg-rose-50";
+                        else if (c.days_left <= 14) dayStyle = "text-amber-600 bg-amber-50";
                     }
 
                     return `
-                    <div class="p-5 active:bg-gray-50 transition-colors">
-                        <div class="flex justify-between items-start">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <div class="flex items-center gap-2">
-                                    <span class="font-black text-xl tracking-tighter">${c.ticker}</span>
-                                    <span class="px-1.5 py-0.5 rounded bg-gray-100 text-[10px] font-bold text-gray-500">${c.name}</span>
-                                </div>
-                                <div class="mt-3">
-                                    <a href="${c.ir_link}" target="_blank" class="text-xs font-bold text-blue-600 hover:underline inline-flex items-center">
-                                        OFFICIAL IR SITE
-                                        <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                    </a>
-                                </div>
+                                <h2 class="text-2xl font-black tracking-tighter text-slate-800">${c.ticker}</h2>
+                                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-tighter">${c.name}</p>
                             </div>
                             <div class="text-right">
-                                <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Next Earnings</div>
-                                <div class="text-lg font-bold text-slate-800">${c.date}</div>
-                                <div class="mt-1 inline-block px-2 py-0.5 rounded-full ${dayBg} ${dayColor} text-[11px] font-black">
+                                <span class="text-[10px] font-black px-2 py-1 rounded-full ${dayStyle}">
                                     ${typeof c.days_left === 'number' 
-                                        ? (c.days_left > 0 ? 'IN ' + c.days_left + ' DAYS' : (c.days_left == 0 ? 'TODAY' : 'PASSED'))
-                                        : 'TBD'}
-                                </div>
+                                        ? (c.days_left > 0 ? 'IN ' + c.days_left + ' DAYS' : (c.days_left == 0 ? 'RELEASE TODAY' : 'RECENTLY RELEASED'))
+                                        : 'PENDING'}
+                                </span>
                             </div>
+                        </div>
+                        
+                        <!-- 預期數據卡片 -->
+                        <div class="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-lg overflow-hidden">
+                            <div class="bg-white p-3">
+                                <p class="text-[9px] font-black text-slate-400 uppercase mb-1">EST. EPS</p>
+                                <p class="text-sm font-bold text-slate-700">${c.eps_estimate}</p>
+                            </div>
+                            <div class="bg-white p-3">
+                                <p class="text-[9px] font-black text-slate-400 uppercase mb-1">EST. REVENUE</p>
+                                <p class="text-sm font-bold text-slate-700">${c.rev_estimate}</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex justify-between items-end">
+                            <div class="text-[11px]">
+                                <span class="text-slate-400 font-bold uppercase">Next Date:</span>
+                                <span class="text-slate-700 font-bold ml-1">${c.date}</span>
+                            </div>
+                            <a href="${c.ir_link}" target="_blank" class="text-[10px] font-extrabold text-indigo-600 border-b-2 border-indigo-100 hover:border-indigo-600 transition-all">
+                                IR SITE ↗
+                            </a>
                         </div>
                     </div>
                     `;
@@ -98,11 +92,7 @@
                 
                 document.getElementById('list').innerHTML = listHtml;
             } catch (e) {
-                document.getElementById('list').innerHTML = `
-                    <div class="p-10 text-center">
-                        <p class="text-gray-400 text-sm">數據尚未就緒</p>
-                        <p class="text-xs text-gray-300 mt-2">請確保 GitHub Actions 至少運行過一次</p>
-                    </div>`;
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-gray-400 text-xs">等待數據同步中...</div>';
             }
         }
         loadData();
