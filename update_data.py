@@ -1,9 +1,9 @@
 import yfinance as yf
 import requests
 import json
+import time
 from datetime import datetime, date
 
-# 1. 基礎設定：Ticker 與對應的 SEC 專屬代碼 (CIK)
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "0000104581"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "0000320193"},
@@ -14,38 +14,36 @@ companies = {
     "TSLA": {"name": "特斯拉 (Tesla)", "cik": "0001318605"}
 }
 
-# SEC 要求必須提供 User-Agent (表明身分)，否則會被阻擋
+# 嚴格遵守 SEC 規範的 User-Agent
 headers = {
-    'User-Agent': 'M7_Tracker_App/1.0 (contact@example.com)'
+    'User-Agent': 'M7_Financial_Research_Project (contact.me@gmail.com)',
+    'Accept-Encoding': 'gzip, deflate',
+    'Host': 'data.sec.gov'
 }
 
 def get_sec_history(cik):
-    """從 SEC EDGAR 抓取最近 5 季的 10-Q 和 10-K"""
     history = []
     try:
         url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-        res = requests.get(url, headers=headers)
+        # 設定 timeout 防止卡死
+        res = requests.get(url, headers=headers, timeout=10)
+        
         if res.status_code == 200:
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
             
-            # 遍歷所有文件，找出 10-Q 和 10-K
-            for i in range(len(filings.get("form", []))):
-                form_type = filings["form"][i]
+            form_list = filings.get("form", [])
+            for i in range(len(form_list)):
+                form_type = form_list[i]
                 if form_type in ["10-Q", "10-K"]:
-                    # 解析資料
                     acc_num = filings["accessionNumber"][i]
                     acc_num_no_dash = acc_num.replace("-", "")
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     
-                    # 重新命名 10-K 讓使用者容易理解
                     display_form = "Q4 / 年報 (10-K)" if form_type == "10-K" else "季報 (10-Q)"
                     
-                    # 生成兩種連結
-                    # 1. 手機友善的純 HTML 格式
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc_num_no_dash}/{doc_name}"
-                    # 2. 電腦友善的互動式閱讀器
                     ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{int(cik)}/{acc_num_no_dash}/{doc_name}"
                     
                     history.append({
@@ -55,11 +53,12 @@ def get_sec_history(cik):
                         "ix_url": ix_url
                     })
                     
-                    # 只要最新的 5 筆
                     if len(history) == 5:
                         break
+        else:
+            print(f"SEC 拒絕連線，狀態碼: {res.status_code}")
     except Exception as e:
-        print(f"抓取 SEC CIK {cik} 失敗: {e}")
+        print(f"抓取 SEC CIK {cik} 發生例外錯誤: {e}")
     return history
 
 def get_tracker_data():
@@ -71,7 +70,7 @@ def get_tracker_data():
         cik = info["cik"]
         
         try:
-            # --- 1. 處理倒數計時 (yfinance) ---
+            # 1. 抓取日期
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
             final_date = None
@@ -91,7 +90,8 @@ def get_tracker_data():
                 earnings_date_str = final_date.strftime('%Y-%m-%d')
                 days_remaining = (final_date - today).days
 
-            # --- 2. 處理 SEC 歷史財報 ---
+            # 2. 抓取歷史財報 (加上 0.5 秒延遲，避免被 SEC 封鎖)
+            time.sleep(0.5) 
             sec_history = get_sec_history(cik)
 
             results.append({
@@ -101,10 +101,10 @@ def get_tracker_data():
                 "days_left": days_remaining,
                 "history": sec_history
             })
-            print(f"✅ 完成同步: {ticker} (包含 {len(sec_history)} 筆歷史財報)")
+            print(f"✅ 完成: {ticker} (找到 {len(sec_history)} 筆 SEC 紀錄)")
             
         except Exception as e:
-            print(f"❌ {ticker} 處理出錯: {e}")
+            print(f"❌ {ticker} 出錯: {e}")
             
     return results
 
