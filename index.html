@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M7 財報倒數</title>
+    <title>財報追蹤網站</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 font-sans">
     <div class="max-w-md mx-auto min-h-screen bg-white shadow-2xl">
-        <!-- 頂部標題 -->
-        <header class="bg-indigo-700 p-8 text-white">
-            <h1 class="text-2xl font-black tracking-widest">科技七巨頭</h1>
-            <p class="text-indigo-200 text-xs font-bold tracking-widest mt-1">財報發布倒數追蹤</p>
+        <!-- 頂部標題：已更新為財報追蹤網站並移除小標題 -->
+        <header class="bg-indigo-700 p-6 flex items-center justify-center">
+            <h1 class="text-xl font-bold tracking-widest text-white">財報追蹤網站</h1>
         </header>
 
         <!-- 列表區塊 -->
@@ -36,24 +35,19 @@
                 document.getElementById('update-time').innerText = "最後更新: " + data.last_updated;
 
                 const html = data.companies.map(c => {
-                    // 根據天數設定顏色
                     let colorClass = "text-slate-800";
                     let bgClass = "bg-slate-100";
-                    let statusText = "待定";
                     let countNumber = "--";
                     
                     if (typeof c.days_left === 'number') {
                         countNumber = c.days_left;
                         if (c.days_left === 0) {
-                            statusText = "今日發布";
                             colorClass = "text-white"; bgClass = "bg-rose-500 animate-pulse";
                         } else if (c.days_left > 0) {
-                            statusText = `倒數 ${c.days_left} 天`;
                             if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; }
                             else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; }
                             else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; }
                         } else {
-                            statusText = "已發布";
                             colorClass = "text-slate-400"; bgClass = "bg-slate-50";
                         }
                     }
@@ -75,7 +69,7 @@
                         <div class="text-center">
                             <!-- 倒數區塊 -->
                             <div class="${bgClass} ${colorClass} rounded-xl px-4 py-3 min-w-[85px] border border-white/50 shadow-sm">
-                                <p class="text-xs font-black mb-1 opacity-80">${c.days_left === 0 ? 'STATUS' : '倒數天數'}</p>
+                                <p class="text-xs font-black mb-1 opacity-80">${c.days_left === 0 ? '今日' : '倒數天數'}</p>
                                 <p class="text-3xl font-black leading-none">
                                     ${countNumber}
                                 </p>
@@ -90,7 +84,7 @@
                 }).join('');
                 document.getElementById('list').innerHTML = html;
             } catch (e) {
-                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">無法載入數據，請檢查 GitHub Actions 是否執行成功。</div>';
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">無法載入數據，請等待自動更新。</div>';
             }
         }
         loadData();
