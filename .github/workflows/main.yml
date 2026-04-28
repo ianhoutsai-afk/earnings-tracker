@@ -24,9 +24,9 @@ jobs:
           pip install yfinance requests
 
       - name: Run update script
-              env:
-                FMP_API_KEY: ${{ secrets.FMP_API_KEY }}  # 從保險箱拿出鑰匙
-              run: python update_data.py
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}  # 從保險箱拿出鑰匙
+        run: python update_data.py
 
       - name: Commit and push if changed
         run: |
