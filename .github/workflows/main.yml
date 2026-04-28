@@ -12,21 +12,19 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # 升級到 v4 解決警告
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # 升級到 v5 解決警告
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
       - name: Install dependencies
         run: |
-          pip install yfinance requests
+          pip install yfinance # 只安裝 yfinance
 
       - name: Run update script
-        env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}  # 從保險箱拿出鑰匙
-        run: python update_data.py
+        run: python update_data.py # 移除 env 設定
 
       - name: Commit and push if changed
         run: |
