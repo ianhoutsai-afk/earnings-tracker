@@ -2,7 +2,6 @@ import yfinance as yf
 import json
 from datetime import datetime, date
 
-# 七巨頭清單
 tickers = {
     "NVDA": "輝達 (Nvidia)",
     "AAPL": "蘋果 (Apple)",
@@ -13,7 +12,6 @@ tickers = {
     "TSLA": "特斯拉 (Tesla)"
 }
 
-# 投資者關係連結
 ir_links = {
     "NVDA": "https://investor.nvidia.com/financial-reports/default.aspx",
     "AAPL": "https://investor.apple.com/investor-relations/default.aspx",
@@ -31,40 +29,31 @@ def get_earnings_data():
     for ticker_symbol, chinese_name in tickers.items():
         try:
             ticker = yf.Ticker(ticker_symbol)
-            info = ticker.info # 獲取公司概況與預估數據
-            
-            # --- 獲取預估數據 ---
-            # 預估 EPS
-            eps_est = info.get('forwardEps', 'N/A')
-            
-            # 預估營收 (處理成 B 為單位)
-            rev_est_raw = info.get('revenueEstimateAvg')
-            if rev_est_raw and isinstance(rev_est_raw, (int, float)):
-                rev_est = f"${round(rev_est_raw / 1e9, 2)}B"
-            else:
-                rev_est = "N/A"
-            
-            # --- 獲取財報日期 ---
             calendar = ticker.calendar
+            
             earnings_date_str = "待公佈"
             days_remaining = "N/A"
             
             if calendar is not None and 'Earnings Date' in calendar:
                 raw_date = calendar['Earnings Date'][0]
                 target_date = raw_date.date() if isinstance(raw_date, datetime) else raw_date
-                earnings_date_str = target_date.strftime('%Y-%m-%d')
-                days_remaining = (target_date - today).days
+                
+                # 過濾邏輯：如果日期遠大於一年（例如 2026），則設為待公佈
+                if target_date.year > 2025:
+                    earnings_date_str = "待公佈"
+                    days_remaining = "N/A"
+                else:
+                    earnings_date_str = target_date.strftime('%Y-%m-%d')
+                    days_remaining = (target_date - today).days
 
             results.append({
                 "ticker": ticker_symbol,
                 "name": chinese_name,
-                "eps_estimate": eps_est,
-                "rev_estimate": rev_est,
                 "date": earnings_date_str,
                 "days_left": days_remaining,
                 "ir_link": ir_links[ticker_symbol]
             })
-            print(f"已同步: {ticker_symbol}")
+            print(f"成功抓取 {ticker_symbol}")
             
         except Exception as e:
             print(f"抓取 {ticker_symbol} 時出錯: {e}")
@@ -77,6 +66,5 @@ if __name__ == "__main__":
         "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         "companies": data
     }
-    
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=4)
