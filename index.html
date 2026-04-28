@@ -3,76 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M7 財報倒數時鐘</title>
+    <title>M7 財報倒數</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .countdown-number { font-family: 'Monaco', monospace; }
-    </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 font-sans">
     <div class="max-w-md mx-auto min-h-screen bg-white shadow-2xl">
+        <!-- 頂部標題 -->
         <header class="bg-indigo-700 p-8 text-white">
-            <h1 class="text-3xl font-black tracking-tighter">EARNINGS</h1>
-            <p class="text-indigo-200 text-xs font-bold tracking-widest uppercase mt-1">Magnificent Seven Countdown</p>
+            <h1 class="text-2xl font-black tracking-widest">科技七巨頭</h1>
+            <p class="text-indigo-200 text-xs font-bold tracking-widest mt-1">財報發布倒數追蹤</p>
         </header>
 
+        <!-- 列表區塊 -->
         <div id="list" class="divide-y divide-slate-100">
-            <!-- 數據填入 -->
+            <div class="p-10 text-center text-slate-400 text-sm">數據加載中...</div>
         </div>
 
-        <footer class="p-6 text-center">
-            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                Data refreshed every 24 hours
+        <!-- 底部更新時間 -->
+        <footer class="p-6 text-center border-t border-slate-100 mt-4">
+            <p class="text-[10px] text-slate-400 font-bold tracking-widest">
+                每 24 小時自動更新
             </p>
-            <p id="update-time" class="text-[10px] text-slate-300"></p>
+            <p id="update-time" class="text-[10px] text-slate-300 mt-1"></p>
         </footer>
     </div>
 
     <script>
         async function loadData() {
-            const res = await fetch('./data.json?t=' + new Date().getTime());
-            const data = await res.json();
-            document.getElementById('update-time').innerText = "Last Update: " + data.last_updated;
+            try {
+                const res = await fetch('./data.json?t=' + new Date().getTime());
+                const data = await res.json();
+                document.getElementById('update-time').innerText = "最後更新: " + data.last_updated;
 
-            const html = data.companies.map(c => {
-                let colorClass = "text-slate-900";
-                let bgClass = "bg-slate-100";
-                
-                if (typeof c.days_left === 'number') {
-                    if (c.days_left <= 7) { colorClass = "text-white"; bgClass = "bg-rose-500 animate-pulse"; }
-                    else if (c.days_left <= 14) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; }
-                    else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; }
-                }
-
-                return `
-                <div class="p-6 flex justify-between items-center">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl font-black tracking-tighter">${c.ticker}</span>
-                        </div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">${c.name}</p>
-                        <div class="mt-4">
-                            <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Expected Date</p>
-                            <p class="text-sm font-bold text-slate-700">${c.date}</p>
-                            <p class="text-[9px] font-bold text-indigo-400 mt-1">${c.status}</p>
-                        </div>
-                    </div>
+                const html = data.companies.map(c => {
+                    // 根據天數設定顏色
+                    let colorClass = "text-slate-800";
+                    let bgClass = "bg-slate-100";
+                    let statusText = "待定";
+                    let countNumber = "--";
                     
-                    <div class="text-center">
-                        <div class="${bgClass} ${colorClass} rounded-xl px-4 py-3 min-w-[80px]">
-                            <p class="text-xs font-black uppercase leading-none mb-1 opacity-70">Days</p>
-                            <p class="text-3xl font-black countdown-number leading-none">
-                                ${typeof c.days_left === 'number' ? c.days_left : '--'}
-                            </p>
+                    if (typeof c.days_left === 'number') {
+                        countNumber = c.days_left;
+                        if (c.days_left === 0) {
+                            statusText = "今日發布";
+                            colorClass = "text-white"; bgClass = "bg-rose-500 animate-pulse";
+                        } else if (c.days_left > 0) {
+                            statusText = `倒數 ${c.days_left} 天`;
+                            if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; }
+                            else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; }
+                            else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; }
+                        } else {
+                            statusText = "已發布";
+                            colorClass = "text-slate-400"; bgClass = "bg-slate-50";
+                        }
+                    }
+
+                    return `
+                    <div class="p-6 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl font-black tracking-tighter">${c.ticker}</span>
+                            </div>
+                            <p class="text-[11px] font-bold text-slate-400 uppercase">${c.name}</p>
+                            
+                            <div class="mt-4">
+                                <p class="text-[10px] font-bold text-slate-400 tracking-widest">預計發布日</p>
+                                <p class="text-sm font-bold text-slate-800">${c.date}</p>
+                            </div>
                         </div>
-                        <a href="${c.ir_link}" target="_blank" class="mt-3 inline-block text-[9px] font-black text-slate-300 hover:text-indigo-500 transition-colors uppercase tracking-widest">
-                            IR Website ↗
-                        </a>
+                        
+                        <div class="text-center">
+                            <!-- 倒數區塊 -->
+                            <div class="${bgClass} ${colorClass} rounded-xl px-4 py-3 min-w-[85px] border border-white/50 shadow-sm">
+                                <p class="text-xs font-black mb-1 opacity-80">${c.days_left === 0 ? 'STATUS' : '倒數天數'}</p>
+                                <p class="text-3xl font-black leading-none">
+                                    ${countNumber}
+                                </p>
+                            </div>
+                            <!-- 官網連結 -->
+                            <a href="${c.ir_link}" target="_blank" class="mt-3 inline-block text-[10px] font-bold text-blue-500 hover:text-blue-700 transition-colors">
+                                官方財報網 ↗
+                            </a>
+                        </div>
                     </div>
-                </div>
-                `;
-            }).join('');
-            document.getElementById('list').innerHTML = html;
+                    `;
+                }).join('');
+                document.getElementById('list').innerHTML = html;
+            } catch (e) {
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">無法載入數據，請檢查 GitHub Actions 是否執行成功。</div>';
+            }
         }
         loadData();
     </script>
