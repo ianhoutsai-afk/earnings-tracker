@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M7 財報追蹤</title>
+    <!-- PWA 手機加入主螢幕設定 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2830/2830305.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div class="max-w-md mx-auto min-h-screen bg-white shadow-lg">
+        <header class="bg-blue-600 p-6 text-white text-center">
+            <h1 class="text-xl font-bold italic">Tech Seven Earnings</h1>
+            <p class="text-xs opacity-80 mt-1">最後更新：<span id="update-time">讀取中...</span></p>
+        </header>
+
+        <main id="list" class="divide-y divide-gray-100">
+            <!-- 數據會載入到這裡 -->
+            <div class="p-10 text-center text-gray-400">數據加載中...</div>
+        </main>
+        
+        <footer class="p-6 text-center text-xs text-gray-400">
+            數據來源：Yahoo Finance / 每日自動更新
+        </footer>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                // 讀取剛剛 Python 生成的 data.json
+                const response = await fetch('./data.json?t=' + new Date().getTime());
+                const data = await response.json();
+                
+                document.getElementById('update-time').innerText = data.last_updated;
+                
+                const listHtml = data.companies.map(c => `
+                    <div class="p-5 flex justify-between items-center hover:bg-gray-50">
+                        <div>
+                            <div class="flex items-center">
+                                <span class="font-bold text-lg">${c.ticker}</span>
+                                <span class="ml-2 text-sm text-gray-500">${c.name}</span>
+                            </div>
+                            <div class="mt-1 text-sm text-blue-500">
+                                <a href="${c.ir_link}" target="_blank">查看官方財報列表 ↗</a>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Next Date</div>
+                            <div class="text-md font-semibold">${c.date}</div>
+                            <div class="${c.days_left <= 7 ? 'text-red-500' : 'text-green-600'} text-xs font-bold mt-1">
+                                ${c.days_left > 0 ? '剩餘 ' + c.days_left + ' 天' : (c.days_left == 0 ? '今天發布!' : '即將更新')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.getElementById('list').innerHTML = listHtml;
+            } catch (e) {
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center">尚未產生數據，請等待第一次自動運行。</div>';
+            }
+        }
+        loadData();
+    </script>
+</body>
+</html>
