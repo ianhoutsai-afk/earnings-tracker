@@ -1,6 +1,6 @@
 import yfinance as yf
 import json
-from datetime import datetime
+from datetime import datetime, date
 
 # 七巨頭股票代碼與中文名稱
 tickers = {
@@ -13,7 +13,7 @@ tickers = {
     "TSLA": "特斯拉 (Tesla)"
 }
 
-# 投資者關係網站連結 (SEC 列表或官網)
+# 投資者關係網站連結
 ir_links = {
     "NVDA": "https://investor.nvidia.com/financial-reports/default.aspx",
     "AAPL": "https://investor.apple.com/investor-relations/default.aspx",
@@ -26,30 +26,50 @@ ir_links = {
 
 def get_earnings_data():
     results = []
+    today = date.today()
+    
     for ticker_symbol, chinese_name in tickers.items():
-        ticker = yf.Ticker(ticker_symbol)
-        
-        # 抓取財報日曆
-        calendar = ticker.calendar
-        earnings_date = "待公佈"
-        days_remaining = "N/A"
-        
-        if calendar is not None and 'Earnings Date' in calendar:
-            # 獲取下一個財報日期
-            date_obj = calendar['Earnings Date'][0]
-            earnings_date = date_obj.strftime('%Y-%m-%d')
+        try:
+            ticker = yf.Ticker(ticker_symbol)
+            calendar = ticker.calendar
             
-            # 計算剩餘天數
-            delta = date_obj.date() - datetime.now().date()
-            days_remaining = delta.days
+            earnings_date_str = "待公佈"
+            days_remaining = "N/A"
+            
+            if calendar is not None and 'Earnings Date' in calendar:
+                # 獲取原始日期物件
+                raw_date = calendar['Earnings Date'][0]
+                
+                # 核心修正：檢查 raw_date 是 datetime 還是 date
+                if isinstance(raw_date, datetime):
+                    target_date = raw_date.date()
+                else:
+                    target_date = raw_date
+                
+                earnings_date_str = target_date.strftime('%Y-%m-%d')
+                
+                # 計算天數差
+                delta = target_date - today
+                days_remaining = delta.days
 
-        results.append({
-            "ticker": ticker_symbol,
-            "name": chinese_name,
-            "date": earnings_date,
-            "days_left": days_remaining,
-            "ir_link": ir_links[ticker_symbol]
-        })
+            results.append({
+                "ticker": ticker_symbol,
+                "name": chinese_name,
+                "date": earnings_date_str,
+                "days_left": days_remaining,
+                "ir_link": ir_links[ticker_symbol]
+            })
+            print(f"成功抓取 {ticker_symbol}: {earnings_date_str}")
+            
+        except Exception as e:
+            print(f"抓取 {ticker_symbol} 時出錯: {e}")
+            results.append({
+                "ticker": ticker_symbol,
+                "name": chinese_name,
+                "date": "錯誤",
+                "days_left": "N/A",
+                "ir_link": ir_links[ticker_symbol]
+            })
     
     return results
 
@@ -62,3 +82,4 @@ if __name__ == "__main__":
     
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=4)
+    print("data.json 已更新完成")
