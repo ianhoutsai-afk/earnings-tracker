@@ -1,9 +1,11 @@
 {
-    "last_updated": "2026-04-28 08:29:00",
+    "last_updated": "2026-04-28 09:01:00",
     "companies": [
         {
             "ticker": "NVDA",
             "name": "輝達 (Nvidia)",
+            "eps_estimate": 11.23918,
+            "rev_estimate": "N/A",
             "date": "2026-05-20",
             "days_left": 22,
             "ir_link": "https://investor.nvidia.com/financial-reports/default.aspx"
@@ -11,6 +13,8 @@
         {
             "ticker": "AAPL",
             "name": "蘋果 (Apple)",
+            "eps_estimate": 9.3519,
+            "rev_estimate": "N/A",
             "date": "2026-04-30",
             "days_left": 2,
             "ir_link": "https://investor.apple.com/investor-relations/default.aspx"
@@ -18,6 +22,8 @@
         {
             "ticker": "MSFT",
             "name": "微軟 (Microsoft)",
+            "eps_estimate": 18.91769,
+            "rev_estimate": "N/A",
             "date": "2026-04-29",
             "days_left": 1,
             "ir_link": "https://www.microsoft.com/en-us/investor"
@@ -25,6 +31,8 @@
         {
             "ticker": "AMZN",
             "name": "亞馬遜 (Amazon)",
+            "eps_estimate": 9.45787,
+            "rev_estimate": "N/A",
             "date": "2026-04-29",
             "days_left": 1,
             "ir_link": "https://ir.aboutamazon.com/overview/default.aspx"
@@ -32,6 +40,8 @@
         {
             "ticker": "GOOGL",
             "name": "Alphabet (Google)",
+            "eps_estimate": 13.5281,
+            "rev_estimate": "N/A",
             "date": "2026-04-29",
             "days_left": 1,
             "ir_link": "https://abc.xyz/investor/"
@@ -39,6 +49,8 @@
         {
             "ticker": "META",
             "name": "Meta (Facebook)",
+            "eps_estimate": 36.06,
+            "rev_estimate": "N/A",
             "date": "2026-04-29",
             "days_left": 1,
             "ir_link": "https://investor.fb.com/home/default.aspx"
@@ -46,6 +58,8 @@
         {
             "ticker": "TSLA",
             "name": "特斯拉 (Tesla)",
+            "eps_estimate": 2.53536,
+            "rev_estimate": "N/A",
             "date": "2026-07-22",
             "days_left": 85,
             "ir_link": "https://ir.tesla.com"
