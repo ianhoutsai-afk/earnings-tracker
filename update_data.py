@@ -4,6 +4,12 @@ import json
 import time
 from datetime import datetime, date
 
+# 🚨 安全寫法：從 GitHub 環境變數中讀取，不寫死在代碼中！
+FMP_API_KEY = os.environ.get("FMP_API_KEY")
+
+if not FMP_API_KEY:
+    print("警告：找不到 API Key，請檢查 GitHub Secrets 設定！")
+    
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "0000104581"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "0000320193"},
