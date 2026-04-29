@@ -5,6 +5,7 @@ import json
 import time
 from datetime import datetime, date
 
+# 1. 核心設定 (使用正確的 CIK)
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
@@ -15,13 +16,38 @@ companies = {
     "TSLA": {"name": "特斯拉 (Tesla)", "cik": "1318605"}
 }
 
+# 偽裝瀏覽器 Header
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
 }
 
-def get_sec_history_anchor(cik):
-    """使用深度錨點法標記季度：以最近的 10-K 為 Q4 基準點"""
-    history_all = []
+def get_simple_quarter_label(form_type, filing_date):
+    """最簡單的月份對照法，確保標籤一定會出現"""
+    if "10-K" in form_type:
+        return "Q4 / 年報 (10-K)"
+    
+    if "10-Q" in form_type:
+        try:
+            # 提取月份 (例如 '2024-11-20' -> 11)
+            month = int(filing_date.split('-')[1])
+            
+            # 定義簡單的月份映射 (美股通用發布時間)
+            # 1月: Q3 | 2-4月: 通常是年報 | 5-7月: Q1 | 8-10月: Q2 | 11-12月: Q3
+            if month == 1: return "Q3 季報 (10-Q)"
+            if 5 <= month <= 7: return "Q1 季報 (10-Q)"
+            if 8 <= month <= 10: return "Q2 季報 (10-Q)"
+            if 11 <= month <= 12: return "Q3 季報 (10-Q)"
+            
+            return "季報 (10-Q)" # 兜底
+        except:
+            return "季報 (10-Q)"
+            
+    return "財報文件"
+
+def get_sec_history_stable(cik):
+    """回歸最穩定的偽裝瀏覽器抓取方式"""
+    history = []
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
@@ -31,63 +57,25 @@ def get_sec_history_anchor(cik):
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
             
-            # 1. 提取所有 10-Q 和 10-K，保持最新在前
-            raw_list = []
             for i in range(len(filings.get("form", []))):
                 form_type = filings["form"][i]
                 if "10-Q" in form_type or "10-K" in form_type:
-                    raw_list.append({
-                        "form": form_type,
-                        "acc_num": filings["accessionNumber"][i].replace("-", ""),
-                        "doc_name": filings["primaryDocument"][i],
-                        "date": filings["filingDate"][i]
-                    })
-            
-            if not raw_list: return []
-
-            # 2. 尋找最近的一份 10-K 作為錨點 (Index 0 是最新的)
-            anchor_idx = -1
-            for idx, f in enumerate(raw_list):
-                if "10-K" in f["form"]:
-                    anchor_idx = idx
-                    break
-            
-            final_history = []
-            # 3. 處理最近的 5 筆 (raw_list[:5])
-            for idx in range(min(5, len(raw_list))):
-                f = raw_list[idx]
-                form_type = f["form"]
-                
-                if "10-K" in form_type:
-                    label = "Q4 / 年報 (10-K)"
-                else:
-                    # 如果有錨點，根據相對位置標記
-                    if anchor_idx != -1:
-                        if idx < anchor_idx:
-                            # 錨點之後的文件 -> Q1, Q2, Q3
-                            q_num = (idx % 3) + 1
-                            label = f"Q{q_num} 季報 (10-Q)"
-                        else:
-                            # 錨點之前的文件 -> 倒推 Q3, Q2, Q1
-                            # 計算與錨點的距離
-                            dist = anchor_idx - idx
-                            q_num = 4 - (dist % 3 + 1) if dist % 3 != 0 else 3
-                            # 簡化處理：既然是 10-K 之前的，且在最近 5 筆內，通常是 Q3
-                            label = "Q3 季報 (10-Q)" 
-                    else:
-                        label = "季報 (10-Q)"
-                
-                if "/A" in form_type: label += " (修正)"
-                
-                html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                
-                final_history.append({"type": label, "date": f["date"], "html_url": html_url, "ix_url": ix_url})
-                
-            return final_history
+                    acc_num = filings["accessionNumber"][i].replace("-", "")
+                    doc_name = filings["primaryDocument"][i]
+                    filing_date = filings["filingDate"][i]
+                    
+                    # 呼叫簡單標籤函數
+                    display_form = get_simple_quarter_label(form_type, filing_date)
+                    if "/A" in form_type: display_form += " (修正)"
+                    
+                    html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    
+                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
+                    if len(history) == 5: break
     except Exception as e:
         print(f"🔴 SEC CIK {cik} 錯誤: {e}")
-    return []
+    return history
 
 def get_tracker_data():
     results = []
@@ -109,7 +97,9 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            sec_history = get_sec_history_anchor(info["cik"])
+            
+            # 使用最穩定的抓取函數
+            sec_history = get_sec_history_stable(info["cik"])
             time.sleep(0.2)
 
             results.append({
