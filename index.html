@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>財報追蹤網站</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // 這是控制下拉選單展開/收合的核心 JavaScript 函式
+        function toggleHistory(ticker) {
+            const el = document.getElementById('history-' + ticker);
+            const button = document.getElementById('button-' + ticker);
+            const arrow = button.querySelector('svg');
+
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden'); // 移除 hidden 讓它顯示
+                arrow.style.transform = 'rotate(180deg)'; // 箭頭轉上去
+            } else {
+                el.classList.add('hidden'); // 加上 hidden 讓它隱藏
+                arrow.style.transform = 'rotate(0deg)'; // 箭頭轉回來
+            }
+        }
+    </script>
 </head>
 <body class="bg-slate-50 font-sans">
     <div class="max-w-md mx-auto min-h-screen bg-white shadow-2xl">
@@ -13,7 +29,7 @@
         </header>
 
         <div id="list" class="divide-y divide-slate-100">
-            <div class="p-10 text-center text-slate-400 text-sm">正在獲取最新財報日...</div>
+            <div class="p-10 text-center text-slate-400 text-sm">正在與 SEC 數據庫連線中...</div>
         </div>
 
         <footer class="p-6 text-center border-t border-slate-100 mt-4">
@@ -29,46 +45,77 @@
                 document.getElementById('update-time').innerText = "最後更新於: " + data.last_updated;
 
                 const html = data.companies.map(c => {
-                    let colorClass = "text-slate-800";
-                    let bgClass = "bg-slate-100";
-                    let countNumber = "--";
-                    
+                    // 天數顏色判斷
+                    let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
                     if (typeof c.days_left === 'number') {
                         countNumber = c.days_left;
                         if (c.days_left === 0) { colorClass = "text-white"; bgClass = "bg-rose-500 animate-pulse"; }
                         else if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; }
+                        else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; }
                         else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; }
                     }
 
-                    return `
-                    <div class="p-6 flex justify-between items-center hover:bg-slate-50 transition-colors">
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl font-black tracking-tighter">${c.ticker}</span>
+                    // 渲染歷史財報列表
+                    let historyHtml = '<p class="text-xs text-slate-400 p-4">無法獲取歷史財報，請稍後再試。</p>';
+                    if (c.history && c.history.length > 0) {
+                        historyHtml = c.history.map(h => `
+                            <div class="py-3 flex items-center justify-between border-b border-slate-100 last:border-0">
+                                <div>
+                                    <p class="text-xs font-bold text-slate-700">${h.type}</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200">
+                                        📱 手機版
+                                    </a>
+                                    <a href="${h.ix_url}" target="_blank" class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-[9px] font-bold hover:bg-indigo-100">
+                                        💻 電腦版
+                                    </a>
+                                </div>
                             </div>
-                            <p class="text-[11px] font-bold text-slate-400 uppercase">${c.name}</p>
-                            
-                            <div class="mt-4">
-                                <p class="text-[10px] font-bold text-slate-400 tracking-widest">預計發布日</p>
-                                <p class="text-sm font-bold text-slate-800">${c.date}</p>
+                        `).join('');
+                    }
+
+                    return `
+                    <div class="flex flex-col">
+                        <!-- 上半部：倒數計時介面 -->
+                        <div class="p-6 flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-black tracking-tighter">${c.ticker}</span>
+                                <p class="text-[11px] font-bold text-slate-400 uppercase">${c.name}</p>
+                                <div class="mt-4">
+                                    <p class="text-[10px] font-bold text-slate-400 tracking-widest">預計發布日</p>
+                                    <p class="text-sm font-bold text-slate-800">${c.date}</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="${bgClass} ${colorClass} rounded-xl px-4 py-3 min-w-[85px] border border-transparent shadow-sm">
+                                    <p class="text-xs font-black mb-1 opacity-80">${c.days_left === 0 ? '今日發布' : '倒數天數'}</p>
+                                    <p class="text-3xl font-black leading-none">${countNumber}</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="text-center">
-                            <div class="${bgClass} ${colorClass} rounded-xl px-4 py-3 min-w-[85px] border border-transparent shadow-sm">
-                                <p class="text-xs font-black mb-1 opacity-80">${c.days_left === 0 ? '今日發布' : '倒數天數'}</p>
-                                <p class="text-3xl font-black leading-none">${countNumber}</p>
+                        <!-- 展開按鈕 -->
+                        <div class="px-6 pb-4">
+                            <button id="button-${c.ticker}" onclick="toggleHistory('${c.ticker}')" class="w-full py-2 bg-slate-100 text-slate-500 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors flex justify-center items-center gap-1">
+                                歷史財報查詢 (SEC)
+                                <svg class="w-3 h-3 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                        </div>
+
+                        <!-- 預設隱藏的歷史財報區塊 -->
+                        <div id="history-${c.ticker}" class="hidden px-6 pb-6 bg-slate-50">
+                            <div class="border border-slate-200 rounded-lg p-3 bg-white shadow-inner">
+                                ${historyHtml}
                             </div>
-                            <a href="${c.ir_link}" target="_blank" class="mt-3 inline-block text-[10px] font-bold text-blue-500 hover:text-blue-700">
-                                官方網站 ↗
-                            </a>
                         </div>
                     </div>
                     `;
                 }).join('');
                 document.getElementById('list').innerHTML = html;
             } catch (e) {
-                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">數據等待更新中...</div>';
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">無法載入數據，請檢查更新狀態。</div>';
             }
         }
         loadData();
