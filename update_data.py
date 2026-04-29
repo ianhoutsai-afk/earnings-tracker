@@ -5,7 +5,6 @@ import json
 import time
 from datetime import datetime, date
 
-# 核心設定
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
@@ -20,70 +19,75 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 }
 
-def get_quarter_by_fye(form_type, report_date_str, fye_str):
-    """
-    根據財政年度結束日 (FYE) 和報告日精確計算季度
-    """
-    if not report_date_str or not fye_str:
-        return "季報" if "10-Q" in form_type else "年報"
-    
-    if "10-K" in form_type:
-        return "Q4 / 年報 (10-K)"
-    
-    try:
-        # 提取月份
-        report_month = int(report_date_str.split('-')[1])
-        fye_month = int(fye_str.split('-')[1])
-        
-        # 計算月份差 (模 12)
-        diff = (report_month - fye_month) % 12
-        
-        # 根據月份差映射季度
-        if 1 <= diff <= 4:
-            return "Q1 季報 (10-Q)"
-        elif 5 <= diff <= 7:
-            return "Q2 季報 (10-Q)"
-        elif 8 <= diff <= 10:
-            return "Q3 季報 (10-Q)"
-        else:
-            return "季報 (10-Q)" # 兜底
-    except:
-        return "季報 (10-Q)"
-
-def get_sec_history_final(cik):
-    history = []
+def get_sec_history_anchor(cik):
+    """使用深度錨點法標記季度：以最近的 10-K 為 Q4 基準點"""
+    history_all = []
     padded_cik = cik.zfill(10)
     try:
-        # 1. 獲取公司基本資訊（包含財政年度結束日 fiscalYearEnd）
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
         res = requests.get(url, headers=headers, timeout=15)
         
         if res.status_code == 200:
             data = res.json()
-            # 獲取官方定義的財政年度結束日
-            fye = data.get("fiscalYearEnd", "12-31") 
             filings = data.get("filings", {}).get("recent", {})
             
+            # 1. 提取所有 10-Q 和 10-K，保持最新在前
+            raw_list = []
             for i in range(len(filings.get("form", []))):
                 form_type = filings["form"][i]
                 if "10-Q" in form_type or "10-K" in form_type:
-                    acc_num = filings["accessionNumber"][i].replace("-", "")
-                    doc_name = filings["primaryDocument"][i]
-                    filing_date = filings["filingDate"][i]
-                    report_date = filings["reportDate"][i]
-                    
-                    # 使用財政年度基準計算季度
-                    display_form = get_quarter_by_fye(form_type, report_date, fye)
-                    if "/A" in form_type: display_form += " (修正)"
-                    
-                    html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    
-                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
-                    if len(history) == 5: break
+                    raw_list.append({
+                        "form": form_type,
+                        "acc_num": filings["accessionNumber"][i].replace("-", ""),
+                        "doc_name": filings["primaryDocument"][i],
+                        "date": filings["filingDate"][i]
+                    })
+            
+            if not raw_list: return []
+
+            # 2. 尋找最近的一份 10-K 作為錨點 (Index 0 是最新的)
+            anchor_idx = -1
+            for idx, f in enumerate(raw_list):
+                if "10-K" in f["form"]:
+                    anchor_idx = idx
+                    break
+            
+            final_history = []
+            # 3. 處理最近的 5 筆 (raw_list[:5])
+            for idx in range(min(5, len(raw_list))):
+                f = raw_list[idx]
+                form_type = f["form"]
+                
+                if "10-K" in form_type:
+                    label = "Q4 / 年報 (10-K)"
+                else:
+                    # 如果有錨點，根據相對位置標記
+                    if anchor_idx != -1:
+                        if idx < anchor_idx:
+                            # 錨點之後的文件 -> Q1, Q2, Q3
+                            q_num = (idx % 3) + 1
+                            label = f"Q{q_num} 季報 (10-Q)"
+                        else:
+                            # 錨點之前的文件 -> 倒推 Q3, Q2, Q1
+                            # 計算與錨點的距離
+                            dist = anchor_idx - idx
+                            q_num = 4 - (dist % 3 + 1) if dist % 3 != 0 else 3
+                            # 簡化處理：既然是 10-K 之前的，且在最近 5 筆內，通常是 Q3
+                            label = "Q3 季報 (10-Q)" 
+                    else:
+                        label = "季報 (10-Q)"
+                
+                if "/A" in form_type: label += " (修正)"
+                
+                html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
+                ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
+                
+                final_history.append({"type": label, "date": f["date"], "html_url": html_url, "ix_url": ix_url})
+                
+            return final_history
     except Exception as e:
         print(f"🔴 SEC CIK {cik} 錯誤: {e}")
-    return history
+    return []
 
 def get_tracker_data():
     results = []
@@ -105,7 +109,7 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            sec_history = get_sec_history_final(info["cik"])
+            sec_history = get_sec_history_anchor(info["cik"])
             time.sleep(0.2)
 
             results.append({
