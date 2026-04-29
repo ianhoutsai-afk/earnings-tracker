@@ -5,6 +5,7 @@ import json
 import time
 from datetime import datetime, date
 
+# 1. 核心設定
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
@@ -22,7 +23,6 @@ headers = {
 def get_quarter_label(form_type, report_date_str):
     """
     基於報告期結束日 (Report Date) 的絕對映射法
-    這是 SEC 判定季度的唯一標準
     """
     if not report_date_str:
         return "季報" if "10-Q" in form_type else "年報"
@@ -31,7 +31,7 @@ def get_quarter_label(form_type, report_date_str):
         return "Q4 / 年報 (10-K)"
     
     try:
-        # 提取報告期結束日的月份 (例如 '2024-09-30' -> 9)
+        # 提取報告期結束日的月份
         month = int(report_date_str.split('-')[1])
         
         # 絕大多數美股公司的標準報告期結束月份
@@ -40,9 +40,7 @@ def get_quarter_label(form_type, report_date_str):
         if month == 9: return "Q3 季報 (10-Q)"
         if month == 12: return "Q4 / 年報 (10-K)"
         
-        # 針對財政年度不同的公司 (如 NVDA)
-        # 如果不符合標準月，則根據月份差大致推算
-        # 這裡提供一個通用兜底邏輯
+        # 針對財政年度不同的公司 (如 NVDA) 的兜底邏輯
         if month in [4, 5]: return "Q1 季報 (10-Q)"
         if month in [7, 8]: return "Q2 季報 (10-Q)"
         if month in [10, 11]: return "Q3 季報 (10-Q)"
@@ -68,9 +66,8 @@ def get_sec_history_final(cik):
                     acc_num = filings["accessionNumber"][i].replace("-", "")
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
-                    report_date = filings["reportDate"][i] # 使用報告期結束日
+                    report_date = filings["reportDate"][i]
                     
-                    # 使用 reportDate 進行絕對映射
                     display_form = get_quarter_label(form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
                     
@@ -102,12 +99,15 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
+            sec_history = get_sec_// 10-K a fix
             sec_history = get_sec_history_final(info["cik"])
             time.sleep(0.2)
 
             results.append({
-                "ticker": ticker, "name": info["name"], "date": earnings_date_str,
-                "days_left": days_remaining, "history": sec_//- 10-K
+                "ticker": ticker, 
+                "name": info["name"], 
+                "date": earnings_date_str,
+                "days_left": days_remaining, 
                 "history": sec_history
             })
             print(f"✅ {ticker} 同步成功")
