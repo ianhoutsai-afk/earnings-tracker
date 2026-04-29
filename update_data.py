@@ -21,9 +21,7 @@ headers = {
 }
 
 def get_quarter_label(form_type, report_date_str):
-    """
-    基於報告期結束日 (Report Date) 的絕對映射法
-    """
+    """根據報告期結束日 (Report Date) 的絕對映射法"""
     if not report_date_str:
         return "季報" if "10-Q" in form_type else "年報"
     
@@ -34,7 +32,7 @@ def get_quarter_label(form_type, report_date_str):
         # 提取報告期結束日的月份
         month = int(report_date_str.split('-')[1])
         
-        # 絕大多數美股公司的標準報告期結束月份
+        # 絕大多數美股公司的標準報告期結束月份映射
         if month == 3: return "Q1 季報 (10-Q)"
         if month == 6: return "Q2 季報 (10-Q)"
         if month == 9: return "Q3 季報 (10-Q)"
@@ -99,7 +97,8 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            sec_history = get_sec_// 10-K a fix
+            
+            # 獲取歷史財報
             sec_history = get_sec_history_final(info["cik"])
             time.sleep(0.2)
 
