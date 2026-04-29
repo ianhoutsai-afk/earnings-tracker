@@ -20,83 +20,78 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 }
 
-def get_sec_history_professional(cik):
+def get_quarter_by_fye(form_type, report_date_str, fye_str):
     """
-    基於 SEC 報告期 (Period of Report) 的順序標記法
-    確保 Q1, Q2, Q3 標記 100% 準確，且 Q4 併入年報
+    根據財政年度結束日 (FYE) 和報告日精確計算季度
     """
-    history_all = []
+    if not report_date_str or not fye_str:
+        return "季報" if "10-Q" in form_type else "年報"
+    
+    if "10-K" in form_type:
+        return "Q4 / 年報 (10-K)"
+    
+    try:
+        # 提取月份
+        report_month = int(report_date_str.split('-')[1])
+        fye_month = int(fye_str.split('-')[1])
+        
+        # 計算月份差 (模 12)
+        diff = (report_month - fye_month) % 12
+        
+        # 根據月份差映射季度
+        if 1 <= diff <= 4:
+            return "Q1 季報 (10-Q)"
+        elif 5 <= diff <= 7:
+            return "Q2 季報 (10-Q)"
+        elif 8 <= diff <= 10:
+            return "Q3 季報 (10-Q)"
+        else:
+            return "季報 (10-Q)" # 兜底
+    except:
+        return "季報 (10-Q)"
+
+def get_sec_history_final(cik):
+    history = []
     padded_cik = cik.zfill(10)
     try:
+        # 1. 獲取公司基本資訊（包含財政年度結束日 fiscalYearEnd）
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
         res = requests.get(url, headers=headers, timeout=15)
         
         if res.status_code == 200:
             data = res.json()
+            # 獲取官方定義的財政年度結束日
+            fye = data.get("fiscalYearEnd", "12-31") 
             filings = data.get("filings", {}).get("recent", {})
             
-            # 1. 提取所有 10-Q 和 10-K，並包含 reportDate
-            raw_list = []
             for i in range(len(filings.get("form", []))):
                 form_type = filings["form"][i]
                 if "10-Q" in form_type or "10-K" in form_type:
-                    raw_list.append({
-                        "form": form_type,
-                        "acc_num": filings["accessionNumber"][i].replace("-", ""),
-                        "doc_name": filings["primaryDocument"][i],
-                        "filing_date": filings["filingDate"][i],
-                        "report_date": filings["reportDate"][i] # 這就是 Period of Report
-                    })
-            
-            # 2. 按報告期 (report_date) 從舊到新排序
-            # 這樣我們可以根據 10-K 作為錨點來計算 Q1, Q2, Q3
-            raw_list.sort(key=lambda x: x["report_date"])
-            
-            q_counter = 0 # 季度計數器
-            final_history = []
-            
-            for f in raw_list:
-                if "10-K" in f["form"]:
-                    q_counter = 0 # 遇到年報，重置計數器
-                    label = "Q4 / 年報 (10-K)"
-                elif "10-Q" in f["form"]:
-                    q_counter += 1
-                    # 根據順序標記 Q1, Q2, Q3
-                    if q_counter == 1: label = "Q1 季報 (10-Q)"
-                    elif q_counter == 2: label = "Q2 季報 (10-Q)"
-                    elif q_counter >= 3: label = "Q3 季報 (10-Q)"
-                    else: label = "季報 (10-Q)"
-                else:
-                    continue
-                
-                if "/A" in f["form"]: label += " (修正)"
-                
-                # 生成連結
-                html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                
-                final_history.append({
-                    "type": label,
-                    "date": f["filing_date"],
-                    "html_url": html_url,
-                    "ix_url": ix_url
-                })
-            
-            # 3. 取最近的 5 筆，並翻轉回 (最新在前)
-            return final_history[-5:][::-1]
-            
+                    acc_num = filings["accessionNumber"][i].replace("-", "")
+                    doc_name = filings["primaryDocument"][i]
+                    filing_date = filings["filingDate"][i]
+                    report_date = filings["reportDate"][i]
+                    
+                    # 使用財政年度基準計算季度
+                    display_form = get_quarter_by_fye(form_type, report_date, fye)
+                    if "/A" in form_type: display_form += " (修正)"
+                    
+                    html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    
+                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
+                    if len(history) == 5: break
     except Exception as e:
         print(f"🔴 SEC CIK {cik} 錯誤: {e}")
-    return []
+    return history
 
 def get_tracker_data():
     results = []
     today = date.today()
     
     for ticker, info in companies.items():
-        print(f"正在處理 {ticker}...")
+        print(f"正在同步 {ticker}...")
         try:
-            # 1. 抓取日期倒數 (yfinance)
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
             final_date = None
@@ -110,9 +105,7 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-
-            # 2. 抓取歷史財報 (使用基於 Report Date 的順序法)
-            sec_history = get_sec_history_professional(info["cik"])
+            sec_history = get_sec_history_final(info["cik"])
             time.sleep(0.2)
 
             results.append({
