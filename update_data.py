@@ -5,7 +5,6 @@ import json
 import time
 from datetime import datetime, date
 
-# 1. 核心設定 (使用正確的 CIK)
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
@@ -16,37 +15,43 @@ companies = {
     "TSLA": {"name": "特斯拉 (Tesla)", "cik": "1318605"}
 }
 
-# 偽裝瀏覽器 Header
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-    'Accept-Language': 'en-US,en;q=0.9',
 }
 
-def get_simple_quarter_label(form_type, filing_date):
-    """最簡單的月份對照法，確保標籤一定會出現"""
+def get_quarter_label(form_type, report_date_str):
+    """
+    基於報告期結束日 (Report Date) 的絕對映射法
+    這是 SEC 判定季度的唯一標準
+    """
+    if not report_date_str:
+        return "季報" if "10-Q" in form_type else "年報"
+    
     if "10-K" in form_type:
         return "Q4 / 年報 (10-K)"
     
-    if "10-Q" in form_type:
-        try:
-            # 提取月份 (例如 '2024-11-20' -> 11)
-            month = int(filing_date.split('-')[1])
-            
-            # 定義簡單的月份映射 (美股通用發布時間)
-            # 1月: Q3 | 2-4月: 通常是年報 | 5-7月: Q1 | 8-10月: Q2 | 11-12月: Q3
-            if month == 1: return "Q3 季報 (10-Q)"
-            if 5 <= month <= 7: return "Q1 季報 (10-Q)"
-            if 8 <= month <= 10: return "Q2 季報 (10-Q)"
-            if 11 <= month <= 12: return "Q3 季報 (10-Q)"
-            
-            return "季報 (10-Q)" # 兜底
-        except:
-            return "季報 (10-Q)"
-            
-    return "財報文件"
+    try:
+        # 提取報告期結束日的月份 (例如 '2024-09-30' -> 9)
+        month = int(report_date_str.split('-')[1])
+        
+        # 絕大多數美股公司的標準報告期結束月份
+        if month == 3: return "Q1 季報 (10-Q)"
+        if month == 6: return "Q2 季報 (10-Q)"
+        if month == 9: return "Q3 季報 (10-Q)"
+        if month == 12: return "Q4 / 年報 (10-K)"
+        
+        # 針對財政年度不同的公司 (如 NVDA)
+        # 如果不符合標準月，則根據月份差大致推算
+        # 這裡提供一個通用兜底邏輯
+        if month in [4, 5]: return "Q1 季報 (10-Q)"
+        if month in [7, 8]: return "Q2 季報 (10-Q)"
+        if month in [10, 11]: return "Q3 季報 (10-Q)"
+        
+        return "季報 (10-Q)"
+    except:
+        return "季報 (10-Q)"
 
-def get_sec_history_stable(cik):
-    """回歸最穩定的偽裝瀏覽器抓取方式"""
+def get_sec_history_final(cik):
     history = []
     padded_cik = cik.zfill(10)
     try:
@@ -63,9 +68,10 @@ def get_sec_history_stable(cik):
                     acc_num = filings["accessionNumber"][i].replace("-", "")
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
+                    report_date = filings["reportDate"][i] # 使用報告期結束日
                     
-                    # 呼叫簡單標籤函數
-                    display_form = get_simple_quarter_label(form_type, filing_date)
+                    # 使用 reportDate 進行絕對映射
+                    display_form = get_quarter_label(form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
                     
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
@@ -82,7 +88,6 @@ def get_tracker_data():
     today = date.today()
     
     for ticker, info in companies.items():
-        print(f"正在同步 {ticker}...")
         try:
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
@@ -97,16 +102,15 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            
-            # 使用最穩定的抓取函數
-            sec_history = get_sec_history_stable(info["cik"])
+            sec_history = get_sec_history_final(info["cik"])
             time.sleep(0.2)
 
             results.append({
                 "ticker": ticker, "name": info["name"], "date": earnings_date_str,
-                "days_left": days_remaining, "history": sec_history
+                "days_left": days_remaining, "history": sec_//- 10-K
+                "history": sec_history
             })
-            
+            print(f"✅ {ticker} 同步成功")
         except Exception as e:
             print(f"❌ {ticker} 出錯: {e}")
             
