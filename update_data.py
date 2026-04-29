@@ -21,23 +21,26 @@ headers = {
 }
 
 def get_quarter_label(form_type, filing_date):
-    """根據文件類型和發布日期推算季度"""
+    """根據文件類型和發布日期精確映射季度"""
     if "10-K" in form_type:
         return "Q4 / 年報 (10-K)"
     
     if "10-Q" in form_type:
-        # 提取月份
         try:
+            # 提取月份 (例如 '2024-05-15' -> 5)
             month = int(filing_date.split('-')[1])
-            # 根據美股通用發布週期推算季度
-            if 4 <= month <= 7:
-                return "Q1 季報 (10-Q)"
-            elif 8 <= month <= 10:
-                return "Q2 季報 (10-Q)"
-            elif 11 <= month <= 1 or month == 1: # 跨年處理
-                return "Q3 季報 (10-Q)"
-            else:
-                return "季報 (10-Q)" # 若日期異常則顯示通用名稱
+            
+            # 建立月份與季度的精確映射表
+            # Q1 通常在 4,5,6,7 月發布
+            # Q2 通常在 8,9,10 月發布
+            # Q3 通常在 11,12,1 月發布
+            month_to_quarter = {
+                4: "Q1 季報 (10-Q)", 5: "Q1 季報 (10-Q)", 6: "Q1 季報 (10-Q)", 7: "Q1 季報 (10-Q)",
+                8: "Q2 季報 (10-Q)", 9: "Q2 季報 (10-Q)", 10: "Q2 季報 (10-Q)",
+                11: "Q3 季報 (10-Q)", 12: "Q3 季報 (10-Q)", 1: "Q3 季報 (10-Q)"
+            }
+            
+            return month_to_quarter.get(month, "季報 (10-Q)")
         except:
             return "季報 (10-Q)"
             
@@ -61,7 +64,7 @@ def get_sec_history_final(cik):
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     
-                    # --- 使用新邏輯標記季度 ---
+                    # 使用修正後的映射邏輯
                     display_form = get_quarter_label(form_type, filing_date)
                     if "/A" in form_type: display_form += " (修正)"
                     
@@ -79,7 +82,7 @@ def get_tracker_data():
     today = date.today()
     
     for ticker, info in companies.items():
-        print(f"\n--- 正在處理 {ticker} ---")
+        print(f"正在處理 {ticker}...")
         try:
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
@@ -102,7 +105,6 @@ def get_tracker_data():
                 "ticker": ticker, "name": info["name"], "date": earnings_date_str,
                 "days_left": days_remaining, "history": sec_history
             })
-            print(f"✅ {ticker} 完成同步。")
             
         except Exception as e:
             print(f"❌ {ticker} 出錯: {e}")
