@@ -7,10 +7,10 @@ from datetime import datetime, date
 
 # 1. 核心設定：Ticker 與 CIK
 companies = {
-    "NVDA": {"name": "輝達 (Nvidia)", "cik": "104581"},
+    "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
-    "MSFT": {"name": "微軟 (Microsoft)", "cik": "78901"},
-    "AMZN": {"name": "亞馬遜 (Amazon)", "cik": "101872"},
+    "MSFT": {"name": "微軟 (Microsoft)", "cik": "789019"},
+    "AMZN": {"name": "亞馬遜 (Amazon)", "cik": "1018724"},
     "GOOGL": {"name": "Alphabet (Google)", "cik": "1652044"},
     "META": {"name": "Meta (Facebook)", "cik": "1326801"},
     "TSLA": {"name": "特斯拉 (Tesla)", "cik": "1318605"}
