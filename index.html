@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>財報追蹤網站</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleHistory(ticker) {
-            const el = document.getElementById('history-' + ticker);
-            const button = document.getElementById('button-' + ticker);
-            const arrow = button.querySelector('svg');
+<script>
+    // 修改後的「手風琴」展開邏輯
+    function toggleHistory(ticker) {
+        const targetEl = document.getElementById('history-' + ticker);
+        const targetButton = document.getElementById('button-' + ticker);
+        const targetArrow = targetButton.querySelector('svg');
+        
+        // 1. 記錄目標目前是否已經是開啟狀態 (為了實現點擊同一個按鈕可以關閉)
+        const isAlreadyOpen = !targetEl.classList.contains('hidden');
 
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                arrow.style.transform = 'rotate(180deg)';
-            } else {
-                el.classList.add('hidden');
-                arrow.style.transform = 'rotate(0deg)';
-            }
+        // 2. 強制關閉所有已展開的歷史區塊
+        document.querySelectorAll('[id^="history-"]').forEach(el => {
+            el.classList.add('hidden');
+        });
+
+        // 3. 重置所有按鈕的箭頭方向
+        document.querySelectorAll('[id^="button-"] svg').forEach(svg => {
+            svg.style.transform = 'rotate(0deg)';
+        });
+
+        // 4. 如果目標原本是關閉的，則將其開啟
+        if (!isAlreadyOpen) {
+            targetEl.classList.remove('hidden');
+            targetArrow.style.transform = 'rotate(180deg)';
         }
-    </script>
+    }
+</script>
 </head>
 <body class="bg-slate-100 font-sans transition-all">
     <!-- 容器：手機端 max-w-md, 電腦端 max-w-7xl -->
