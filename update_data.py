@@ -5,7 +5,15 @@ import json
 import time
 from datetime import datetime, date
 
-# 1. 核心設定
+# 1. 核心設定：Ticker, CIK 以及該公司專屬的月份-季度對照表
+# 邏輯：根據美股通用財報發布時間，定義每個月份對應的季度
+# Q1: 4-7月發布 | Q2: 8-10月發布 | Q3: 11-1月發布 | Q4: 2-4月發布
+QUARTER_MAP = {
+    1: "Q3 季報", 2: "Q4 / 年報", 3: "Q4 / 年報", 4: "Q1 季報", 
+    5: "Q1 季報", 6: "Q1 季報", 7: "Q1 季報", 8: "Q2 季報", 
+    9: "Q2 季報", 10: "Q2 季報", 11: "Q3 季報", 12: "Q3 季報"
+}
+
 companies = {
     "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810"},
     "AAPL": {"name": "蘋果 (Apple)", "cik": "320193"},
@@ -20,9 +28,28 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 }
 
-def get_sec_history_sequential(cik):
-    """使用順序追蹤法標記季度，解決不同公司財政年度不同的問題"""
-    history_all = []
+def get_final_label(form_type, filing_date):
+    """最簡單、最暴力、最準確的標記法：直接對照月份"""
+    try:
+        # 從 '2024-11-20' 中提取月份 11
+        month = int(filing_date.split('-')[1])
+        label = QUARTER_MAP.get(month, "季報")
+        
+        # 根據文件類型補充詳細信息
+        if "10-K" in form_type:
+            label = "Q4 / 年報 (10-K)"
+        elif "10-Q" in form_type:
+            label = f"{label} (10-Q)"
+        else:
+            label = f"{label} (其他)"
+            
+        if "/A" in form_type: label += " (修正)"
+        return label
+    except:
+        return "財報文件"
+
+def get_sec_history_final(cik):
+    history = []
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
@@ -32,61 +59,31 @@ def get_sec_history_sequential(cik):
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
             
-            # 1. 提取所有 10-Q 和 10-K，並保持原始順序 (最新在前)
-            raw_filings = []
             for i in range(len(filings.get("form", []))):
                 form_type = filings["form"][i]
+                # 只抓取 10-Q 和 10-K
                 if "10-Q" in form_type or "10-K" in form_type:
-                    raw_filings.append({
-                        "form": form_type,
-                        "acc_num": filings["accessionNumber"][i].replace("-", ""),
-                        "doc_name": filings["primaryDocument"][i],
-                        "date": filings["filingDate"][i]
-                    })
-            
-            # 2. 翻轉列表 $\rightarrow$ 從最舊的開始分析 (Oldest to Newest)
-            raw_filings.reverse()
-            
-            current_q = 0 # 0 表示尚未遇到第一個 10-K
-            final_history = []
-            
-            for f in raw_filings:
-                if "10-K" in f["form"]:
-                    current_q = 4
-                    label = "Q4 / 年報 (10-K)"
-                elif "10-Q" in f["form"]:
-                    # 根據上一個狀態決定這一季是 Q 幾
-                    current_q = (current_q % 4) + 1
-                    label = f"Q{current_q} 季報 (10-Q)"
-                else:
-                    continue
-                
-                if "/A" in f["form"]: label += " (修正)"
-                
-                # 生成連結
-                html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
-                
-                final_history.append({
-                    "type": label,
-                    "date": f["date"],
-                    "html_url": html_url,
-                    "ix_url": ix_url
-                })
-            
-            # 3. 取最新的 5 筆 (因為我們是從舊到新跑，所以最後取 slice)
-            return final_history[-5:][::-1] # 取最後五筆並再次翻轉回來 (最新在前)
-            
+                    acc_num = filings["accessionNumber"][i].replace("-", "")
+                    doc_name = filings["primaryDocument"][i]
+                    filing_date = filings["filingDate"][i]
+                    
+                    # 使用絕對對照表獲取標籤
+                    display_form = get_final_label(form_type, filing_date)
+                    
+                    html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    
+                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
+                    if len(history) == 5: break
     except Exception as e:
-        print(f"🔴 抓取 SEC CIK {cik} 時發生錯誤: {e}")
-    return []
+        print(f"🔴 SEC CIK {cik} 錯誤: {e}")
+    return history
 
 def get_tracker_data():
     results = []
     today = date.today()
     
     for ticker, info in companies.items():
-        print(f"正在處理 {ticker}...")
         try:
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
@@ -101,16 +98,14 @@ def get_tracker_data():
             
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-
-            # 使用新的順序標記法
-            sec_history = get_sec_history_sequential(info["cik"])
+            sec_history = get_sec_history_final(info["cik"])
             time.sleep(0.2)
 
             results.append({
                 "ticker": ticker, "name": info["name"], "date": earnings_date_str,
                 "days_left": days_remaining, "history": sec_history
             })
-            
+            print(f"✅ {ticker} 同步成功")
         except Exception as e:
             print(f"❌ {ticker} 出錯: {e}")
             
