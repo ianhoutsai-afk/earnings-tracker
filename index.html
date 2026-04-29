@@ -6,28 +6,36 @@
     <title>財報追蹤網站</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 自定義過渡動畫，讓展開更絲滑 */
+        /* 核心動畫設定 */
         .history-panel {
-            transition: all 0.3s ease-in-out;
             max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
             overflow: hidden;
         }
         .history-panel.open {
-            max-height: 500px; /* 設定一個足夠大的高度 */
+            max-height: 1000px; /* 給一個足夠大的值，確保內容能全部顯示 */
+            opacity: 1;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+        .rotate-0 {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
 <body class="bg-slate-50 font-sans">
     <div class="max-w-5xl mx-auto px-4 py-8">
-        <!-- 頂部標題 -->
         <header class="mb-8 text-center">
             <h1 class="text-3xl font-black tracking-tighter text-slate-900">財報追蹤網站</h1>
             <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Magnificent Seven Earnings Monitor</p>
         </header>
 
-        <!-- 數據表格容器 -->
         <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
-            <!-- 表格頭部 (電腦端顯示) -->
+            <!-- 表格頭部 -->
             <div class="hidden md:grid grid-cols-5 bg-slate-900 text-white p-4 text-xs font-bold uppercase tracking-wider">
                 <div class="col-span-1">公司 / Ticker</div>
                 <div class="col-span-1 text-center">預計發布日</div>
@@ -51,24 +59,30 @@
         function toggleHistory(ticker) {
             const targetPanel = document.getElementById('history-' + ticker);
             const targetButton = document.getElementById('button-' + ticker);
+            const targetArrow = targetButton.querySelector('svg');
+            
             const isAlreadyOpen = targetPanel.classList.contains('open');
 
-            // 1. 強制關閉所有展開的面板
+            // 1. 關閉所有其他面板 (實現單一展開)
             document.querySelectorAll('.history-panel').forEach(panel => {
                 panel.classList.remove('open');
             });
             document.querySelectorAll('.btn-toggle').forEach(btn => {
-                btn.innerHTML = '查看歷史財報 ▾';
+                btn.innerHTML = '歷史財報查詢 ▾';
                 btn.classList.remove('bg-indigo-100', 'text-indigo-600');
                 btn.classList.add('bg-slate-100', 'text-slate-500');
+                const arrow = btn.querySelector('svg');
+                if (arrow) arrow.classList.replace('rotate-180', 'rotate-0');
             });
 
-            // 2. 如果之前是關閉的，則打開它
+            // 2. 開啟目標面板
             if (!isAlreadyOpen) {
                 targetPanel.classList.add('open');
                 targetButton.innerHTML = '收起歷史財報 ▴';
                 targetButton.classList.remove('bg-slate-100', 'text-slate-500');
                 targetButton.classList.add('bg-indigo-100', 'text-indigo-600');
+                const arrow = targetButton.querySelector('svg');
+                if (arrow) arrow.classList.replace('rotate-0', 'rotate-180');
             }
         }
 
@@ -103,7 +117,7 @@
                                     <div class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg shadow-sm">
                                         <div>
                                             <p class="text-xs font-bold text-slate-700">${h.type}</p>
-                                            <p class="text-[10px] text-slate-400">發布於 ${h.date}</p>
+                                            <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
                                         </div>
                                         <div class="flex gap-1">
                                             <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200 transition-colors">📱 手機</a>
@@ -117,7 +131,6 @@
 
                     return `
                     <div class="flex flex-col">
-                        <!-- 表格行 -->
                         <div class="grid grid-cols-1 md:grid-cols-5 p-4 md:p-5 items-center hover:bg-slate-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}">
                             <div class="col-span-1 flex items-center gap-3">
                                 <span class="text-xl font-black tracking-tighter">${c.ticker}</span>
@@ -132,12 +145,10 @@
                             </div>
                             <div class="col-span-1 text-right">
                                 <button id="button-${c.ticker}" onclick="toggleHistory('${c.ticker}')" class="btn-toggle px-3 py-1.5 bg-slate-100 text-slate-500 rounded-lg text-[10px] font-bold hover:bg-slate-200 transition-all">
-                                    歷史財報查詢 ▾
+                                    歷史財報查詢 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
                             </div>
                         </div>
-                        
-                        <!-- 展開面板 -->
                         <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200">
                             ${historyHtml}
                         </div>
