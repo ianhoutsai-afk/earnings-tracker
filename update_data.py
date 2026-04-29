@@ -20,34 +20,9 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 }
 
-def get_quarter_label(form_type, filing_date):
-    """根據文件類型和發布日期精確映射季度"""
-    if "10-K" in form_type:
-        return "Q4 / 年報 (10-K)"
-    
-    if "10-Q" in form_type:
-        try:
-            # 提取月份 (例如 '2024-05-15' -> 5)
-            month = int(filing_date.split('-')[1])
-            
-            # 建立月份與季度的精確映射表
-            # Q1 通常在 4,5,6,7 月發布
-            # Q2 通常在 8,9,10 月發布
-            # Q3 通常在 11,12,1 月發布
-            month_to_quarter = {
-                4: "Q1 季報 (10-Q)", 5: "Q1 季報 (10-Q)", 6: "Q1 季報 (10-Q)", 7: "Q1 季報 (10-Q)",
-                8: "Q2 季報 (10-Q)", 9: "Q2 季報 (10-Q)", 10: "Q2 季報 (10-Q)",
-                11: "Q3 季報 (10-Q)", 12: "Q3 季報 (10-Q)", 1: "Q3 季報 (10-Q)"
-            }
-            
-            return month_to_quarter.get(month, "季報 (10-Q)")
-        except:
-            return "季報 (10-Q)"
-            
-    return "其他申報"
-
-def get_sec_history_final(cik):
-    history = []
+def get_sec_history_sequential(cik):
+    """使用順序追蹤法標記季度，解決不同公司財政年度不同的問題"""
+    history_all = []
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
@@ -57,25 +32,54 @@ def get_sec_history_final(cik):
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
             
+            # 1. 提取所有 10-Q 和 10-K，並保持原始順序 (最新在前)
+            raw_filings = []
             for i in range(len(filings.get("form", []))):
                 form_type = filings["form"][i]
                 if "10-Q" in form_type or "10-K" in form_type:
-                    acc_num = filings["accessionNumber"][i].replace("-", "")
-                    doc_name = filings["primaryDocument"][i]
-                    filing_date = filings["filingDate"][i]
-                    
-                    # 使用修正後的映射邏輯
-                    display_form = get_quarter_label(form_type, filing_date)
-                    if "/A" in form_type: display_form += " (修正)"
-                    
-                    html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    
-                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
-                    if len(history) == 5: break
+                    raw_filings.append({
+                        "form": form_type,
+                        "acc_num": filings["accessionNumber"][i].replace("-", ""),
+                        "doc_name": filings["primaryDocument"][i],
+                        "date": filings["filingDate"][i]
+                    })
+            
+            # 2. 翻轉列表 $\rightarrow$ 從最舊的開始分析 (Oldest to Newest)
+            raw_filings.reverse()
+            
+            current_q = 0 # 0 表示尚未遇到第一個 10-K
+            final_history = []
+            
+            for f in raw_filings:
+                if "10-K" in f["form"]:
+                    current_q = 4
+                    label = "Q4 / 年報 (10-K)"
+                elif "10-Q" in f["form"]:
+                    # 根據上一個狀態決定這一季是 Q 幾
+                    current_q = (current_q % 4) + 1
+                    label = f"Q{current_q} 季報 (10-Q)"
+                else:
+                    continue
+                
+                if "/A" in f["form"]: label += " (修正)"
+                
+                # 生成連結
+                html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
+                ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{f['acc_num']}/{f['doc_name']}"
+                
+                final_history.append({
+                    "type": label,
+                    "date": f["date"],
+                    "html_url": html_url,
+                    "ix_url": ix_url
+                })
+            
+            # 3. 取最新的 5 筆 (因為我們是從舊到新跑，所以最後取 slice)
+            return final_history[-5:][::-1] # 取最後五筆並再次翻轉回來 (最新在前)
+            
     except Exception as e:
         print(f"🔴 抓取 SEC CIK {cik} 時發生錯誤: {e}")
-    return history
+    return []
 
 def get_tracker_data():
     results = []
@@ -98,7 +102,8 @@ def get_tracker_data():
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
 
-            sec_history = get_sec_history_final(info["cik"])
+            # 使用新的順序標記法
+            sec_history = get_sec_history_sequential(info["cik"])
             time.sleep(0.2)
 
             results.append({
