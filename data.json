@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-04-29 05:30:41",
+    "last_updated": "2026-04-30 00:39:33",
     "companies": [
         {
             "ticker": "NVDA",
             "name": "輝達 (Nvidia)",
             "date": "2026-05-20",
-            "days_left": 21,
+            "days_left": 20,
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -43,7 +43,7 @@
             "ticker": "AAPL",
             "name": "蘋果 (Apple)",
             "date": "2026-04-30",
-            "days_left": 1,
+            "days_left": 0,
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -80,9 +80,15 @@
         {
             "ticker": "MSFT",
             "name": "微軟 (Microsoft)",
-            "date": "2026-04-29",
-            "days_left": 0,
+            "date": "官方公佈中",
+            "days_left": "N/A",
             "history": [
+                {
+                    "type": "Q1 季報 (10-Q)",
+                    "date": "2026-04-29",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm"
+                },
                 {
                     "type": "Q4 / 年報 (10-K)",
                     "date": "2026-01-28",
@@ -106,20 +112,14 @@
                     "date": "2025-04-30",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025061046/msft-20250331.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/789019/000095017025061046/msft-20250331.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K)",
-                    "date": "2025-01-29",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025010491/msft-20241231.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/789019/000095017025010491/msft-20241231.htm"
                 }
             ]
         },
         {
             "ticker": "AMZN",
             "name": "亞馬遜 (Amazon)",
-            "date": "2026-04-29",
-            "days_left": 0,
+            "date": "官方公佈中",
+            "days_left": "N/A",
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -156,8 +156,8 @@
         {
             "ticker": "GOOGL",
             "name": "Alphabet (Google)",
-            "date": "2026-04-29",
-            "days_left": 0,
+            "date": "官方公佈中",
+            "days_left": "N/A",
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -194,8 +194,8 @@
         {
             "ticker": "META",
             "name": "Meta (Facebook)",
-            "date": "2026-04-29",
-            "days_left": 0,
+            "date": "官方公佈中",
+            "days_left": "N/A",
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -233,7 +233,7 @@
             "ticker": "TSLA",
             "name": "特斯拉 (Tesla)",
             "date": "2026-07-22",
-            "days_left": 84,
+            "days_left": 83,
             "history": [
                 {
                     "type": "Q1 季報 (10-Q)",
