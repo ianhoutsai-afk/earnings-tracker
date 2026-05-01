@@ -53,13 +53,19 @@
             </div>
         </div>
 
+        <!-- 修改後的 Footer：增加更新週期提示 -->
         <footer class="mt-8 text-center">
-            <p id="update-time" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest"></p>
+            <div class="flex items-center justify-center gap-2">
+                <p id="update-time" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest"></p>
+                <span id="update-status" class="px-2 py-0.5 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full text-[9px] font-black uppercase tracking-tighter transition-all">
+                    🔄 每小時自動更新
+                </span>
+            </div>
         </footer>
     </div>
 
     <script>
-        // 1. 單獨切換某個卡片 (不再關閉其他卡片)
+        // 1. 單獨切換某個卡片
         function toggleHistory(ticker) {
             const targetPanel = document.getElementById('history-' + ticker);
             const targetButton = document.getElementById('button-' + ticker);
@@ -108,11 +114,36 @@
             });
         }
 
+        // 新增：檢查更新狀態的函數
+        function checkUpdateHealth(lastUpdatedStr) {
+            const statusBadge = document.getElementById('update-status');
+            try {
+                // 處理日期格式，將 2023-10-27 14:00:00 轉為 JS 可讀格式
+                const lastDate = new Date(lastUpdatedStr.replace(/-/g, '/'));
+                const now = new Date();
+                const diffMinutes = Math.floor((now - lastDate) / 60000);
+
+                if (diffMinutes > 70) { // 如果超過 70 分鐘未更新
+                    statusBadge.innerText = "⚠️ 更新延遲中";
+                    statusBadge.classList.replace('bg-indigo-50', 'bg-rose-50');
+                    statusBadge.classList.replace('text-indigo-600', 'text-rose-600');
+                    statusBadge.classList.replace('border-indigo-100', 'border-rose-100');
+                }
+            } catch (e) {
+                console.error("時間解析錯誤:", e);
+            }
+        }
+
         async function loadData() {
             try {
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
+                
+                // 更新最後更新時間
                 document.getElementById('update-time').innerText = "Last Updated: " + data.last_updated;
+                
+                // 檢查更新健康狀態
+                checkUpdateHealth(data.last_updated);
 
                 const html = data.companies.map((c, index) => {
                     let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
