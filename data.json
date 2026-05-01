@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-05-01T13:22:14.344964+00:00",
+    "last_updated": "2026-05-01T14:57:47.375374+00:00",
     "companies": [
         {
             "ticker": "NVDA",
@@ -46,6 +46,12 @@
             "days_left": 90,
             "history": [
                 {
+                    "type": "Q1 季報 (10-Q)",
+                    "date": "2026-05-01",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm"
+                },
+                {
                     "type": "Q4 / 年報 (10-K)",
                     "date": "2026-01-30",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm",
@@ -68,12 +74,6 @@
                     "date": "2025-05-02",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K)",
-                    "date": "2025-01-31",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000008/aapl-20241228.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/320193/000032019325000008/aapl-20241228.htm"
                 }
             ]
         },
