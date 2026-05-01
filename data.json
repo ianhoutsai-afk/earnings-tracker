@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-04-30 02:47:00",
+    "last_updated": "2026-05-01 02:53:11",
     "companies": [
         {
             "ticker": "NVDA",
             "name": "輝達 (Nvidia)",
             "date": "2026-05-20",
-            "days_left": 20,
+            "days_left": 19,
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -42,8 +42,8 @@
         {
             "ticker": "AAPL",
             "name": "蘋果 (Apple)",
-            "date": "2026-04-30",
-            "days_left": 0,
+            "date": "官方公佈中",
+            "days_left": "N/A",
             "history": [
                 {
                     "type": "Q4 / 年報 (10-K)",
@@ -80,8 +80,8 @@
         {
             "ticker": "MSFT",
             "name": "微軟 (Microsoft)",
-            "date": "官方公佈中",
-            "days_left": "N/A",
+            "date": "2026-07-29",
+            "days_left": 89,
             "history": [
                 {
                     "type": "Q1 季報 (10-Q)",
@@ -118,9 +118,15 @@
         {
             "ticker": "AMZN",
             "name": "亞馬遜 (Amazon)",
-            "date": "官方公佈中",
-            "days_left": "N/A",
+            "date": "2026-07-30",
+            "days_left": 90,
             "history": [
+                {
+                    "type": "Q1 季報 (10-Q)",
+                    "date": "2026-04-30",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm"
+                },
                 {
                     "type": "Q4 / 年報 (10-K)",
                     "date": "2026-02-06",
@@ -144,21 +150,21 @@
                     "date": "2025-05-02",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000036/amzn-20250331.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1018724/000101872425000036/amzn-20250331.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K)",
-                    "date": "2025-02-07",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm"
                 }
             ]
         },
         {
             "ticker": "GOOGL",
             "name": "Alphabet (Google)",
-            "date": "官方公佈中",
-            "days_left": "N/A",
+            "date": "2026-07-23",
+            "days_left": 83,
             "history": [
+                {
+                    "type": "Q1 季報 (10-Q)",
+                    "date": "2026-04-30",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm"
+                },
                 {
                     "type": "Q4 / 年報 (10-K)",
                     "date": "2026-02-05",
@@ -182,21 +188,21 @@
                     "date": "2025-04-25",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K)",
-                    "date": "2025-02-05",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm"
                 }
             ]
         },
         {
             "ticker": "META",
             "name": "Meta (Facebook)",
-            "date": "官方公佈中",
-            "days_left": "N/A",
+            "date": "2026-07-29",
+            "days_left": 89,
             "history": [
+                {
+                    "type": "Q1 季報 (10-Q)",
+                    "date": "2026-04-30",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm"
+                },
                 {
                     "type": "Q4 / 年報 (10-K)",
                     "date": "2026-01-29",
@@ -220,12 +226,6 @@
                     "date": "2025-05-01",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000054/meta-20250331.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1326801/000132680125000054/meta-20250331.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K)",
-                    "date": "2025-01-30",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm"
                 }
             ]
         },
@@ -233,8 +233,14 @@
             "ticker": "TSLA",
             "name": "特斯拉 (Tesla)",
             "date": "2026-07-22",
-            "days_left": 83,
+            "days_left": 82,
             "history": [
+                {
+                    "type": "Q4 / 年報 (10-K) (修正)",
+                    "date": "2026-04-30",
+                    "html_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926053166/tm2611837d1_10ka.htm",
+                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1318605/000110465926053166/tm2611837d1_10ka.htm"
+                },
                 {
                     "type": "Q1 季報 (10-Q)",
                     "date": "2026-04-23",
@@ -258,12 +264,6 @@
                     "date": "2025-07-24",
                     "html_url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm",
                     "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm"
-                },
-                {
-                    "type": "Q4 / 年報 (10-K) (修正)",
-                    "date": "2025-04-30",
-                    "html_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465925042659/tm252787d2_10ka.htm",
-                    "ix_url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1318605/000110465925042659/tm252787d2_10ka.htm"
                 }
             ]
         }
