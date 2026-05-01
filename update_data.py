@@ -125,7 +125,8 @@ if __name__ == "__main__":
     start_time = time.time()
     data = get_tracker_data()
     output = {
-        "last_updated": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        from datetime import datetime, timezone
+        "last_updated": datetime.now(timezone.utc).isoformat(),
         "companies": data
     }
     with open('data.json', 'w', encoding='utf-8') as f:
