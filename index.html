@@ -53,7 +53,6 @@
             </div>
         </div>
 
-        <!-- 修改後的 Footer：增加更新週期提示 -->
         <footer class="mt-8 text-center">
             <div class="flex items-center justify-center gap-2">
                 <p id="update-time" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest"></p>
@@ -65,14 +64,11 @@
     </div>
 
     <script>
-        // 1. 單獨切換某個卡片
         function toggleHistory(ticker) {
             const targetPanel = document.getElementById('history-' + ticker);
             const targetButton = document.getElementById('button-' + ticker);
             const targetArrow = targetButton.querySelector('svg');
-            
             const isOpen = targetPanel.classList.toggle('open');
-            
             if (isOpen) {
                 targetButton.innerHTML = '收起歷史財報 ▴';
                 targetButton.classList.replace('bg-slate-100', 'bg-indigo-100');
@@ -86,11 +82,8 @@
             }
         }
 
-        // 2. 一鍵全部展開
         function expandAll() {
-            document.querySelectorAll('.history-panel').forEach(panel => {
-                panel.classList.add('open');
-            });
+            document.querySelectorAll('.history-panel').forEach(panel => panel.classList.add('open'));
             document.querySelectorAll('.btn-toggle').forEach(btn => {
                 btn.innerHTML = '收起歷史財報 ▴';
                 btn.classList.replace('bg-slate-100', 'bg-indigo-100');
@@ -100,11 +93,8 @@
             });
         }
 
-        // 3. 一鍵全部折疊
         function collapseAll() {
-            document.querySelectorAll('.history-panel').forEach(panel => {
-                panel.classList.remove('open');
-            });
+            document.querySelectorAll('.history-panel').forEach(panel => panel.classList.remove('open'));
             document.querySelectorAll('.btn-toggle').forEach(btn => {
                 btn.innerHTML = '歷史財報查詢 ▾';
                 btn.classList.replace('bg-indigo-100', 'bg-slate-100');
@@ -114,16 +104,27 @@
             });
         }
 
-        // 新增：檢查更新狀態的函數
+        // 新增：根據用户所在地自动调整时间
+        function formatLocalTime(utcString) {
+            const date = new Date(utcString);
+            return date.toLocaleString(undefined, { 
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                hour12: false 
+            });
+        }
+
         function checkUpdateHealth(lastUpdatedStr) {
             const statusBadge = document.getElementById('update-status');
             try {
-                // 處理日期格式，將 2023-10-27 14:00:00 轉為 JS 可讀格式
-                const lastDate = new Date(lastUpdatedStr.replace(/-/g, '/'));
+                const lastDate = new Date(lastUpdatedStr);
                 const now = new Date();
                 const diffMinutes = Math.floor((now - lastDate) / 60000);
-
-                if (diffMinutes > 70) { // 如果超過 70 分鐘未更新
+                if (diffMinutes > 70) { 
                     statusBadge.innerText = "⚠️ 更新延遲中";
                     statusBadge.classList.replace('bg-indigo-50', 'bg-rose-50');
                     statusBadge.classList.replace('text-indigo-600', 'text-rose-600');
@@ -139,26 +140,13 @@
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
                 
-                const utcDate = new Date(data.last_updated); 
-                // toLocaleString() 会根据用户的浏览器语言和时区自动转换
-                const localTime = utcDate.toLocaleString(undefined, { 
-                    year: 'numeric', 
-                    month: '2-digit', 
-                    day: '2-digit', 
-                    hour: '2-digit', 
-                    minute: '2-digit', 
-                    second: '2-digit',
-                    hour12: false 
-                });
-                document.getElementById('update-time').innerText = "Last Updated: " + localTime;
-                
-                // 檢查更新健康狀態
+                // 【關鍵修改】將 UTC 時間轉換為本地時間顯示
+                document.getElementById('update-time').innerText = "Last Updated: " + formatLocalTime(data.last_updated);
                 checkUpdateHealth(data.last_updated);
 
                 const html = data.companies.map((c, index) => {
                     let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
                     let statusLabel = "待定";
-                    
                     if (typeof c.days_left === 'number') {
                         countNumber = c.days_left;
                         if (c.days_left === 0) { colorClass = "text-white"; bgClass = "bg-rose-500"; statusLabel = "今日發布"; }
@@ -166,29 +154,23 @@
                         else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; statusLabel = "接近"; }
                         else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; statusLabel = "正常"; }
                     }
-
                     let historyHtml = '<p class="text-xs text-slate-400 p-6 text-center">暫無歷史財報數據</p>';
                     if (c.history && c.history.length > 0) {
-                        historyHtml = `
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
-                                ${c.history.map(h => `
-                                    <div class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg shadow-sm">
-                                        <div>
-                                            <p class="text-xs font-bold text-slate-700">${h.type}</p>
-                                            <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
-                                        </div>
-                                        <div class="flex gap-1">
-                                            <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200 transition-colors">📱 手機</a>
-                                            <a href="${h.ix_url}" target="_blank" class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-[9px] font-bold hover:bg-indigo-100 transition-colors">💻 電腦</a>
-                                        </div>
+                        historyHtml = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
+                            ${c.history.map(h => `
+                                <div class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg shadow-sm">
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-700">${h.type}</p>
+                                        <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
                                     </div>
-                                `).join('')}
-                            </div>
-                        `;
+                                    <div class="flex gap-1">
+                                        <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200 transition-colors">📱 手機</a>
+                                        <a href="${h.ix_url}" target="_blank" class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-[9px] font-bold hover:bg-indigo-100 transition-colors">💻 電腦</a>
+                                    </div>
+                                </div>`).join('')}
+                        </div>`;
                     }
-
-                    return `
-                    <div class="flex flex-col">
+                    return `<div class="flex flex-col">
                         <div class="grid grid-cols-1 md:grid-cols-5 p-4 md:p-5 items-center hover:bg-slate-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}">
                             <div class="col-span-1 flex items-center gap-3">
                                 <span class="text-xl font-black tracking-tighter">${c.ticker}</span>
@@ -210,8 +192,7 @@
                         <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200">
                             ${historyHtml}
                         </div>
-                    </div>
-                    `;
+                    </div>`;
                 }).join('');
                 document.getElementById('list').innerHTML = html;
             } catch (e) {
