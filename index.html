@@ -139,8 +139,18 @@
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
                 
-                // 更新最後更新時間
-                document.getElementById('update-time').innerText = "Last Updated: " + data.last_updated;
+                const utcDate = new Date(data.last_updated); 
+                // toLocaleString() 会根据用户的浏览器语言和时区自动转换
+                const localTime = utcDate.toLocaleString(undefined, { 
+                    year: 'numeric', 
+                    month: '2-digit', 
+                    day: '2-digit', 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit',
+                    hour12: false 
+                });
+                document.getElementById('update-time').innerText = "Last Updated: " + localTime;
                 
                 // 檢查更新健康狀態
                 checkUpdateHealth(data.last_updated);
