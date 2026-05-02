@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <!-- 🚀 全新設計的全局控制面板 (Universal Control Panel) -->
+        <!-- 🚀 全局控制面板 (Universal Control Panel) -->
         <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 mb-6 flex flex-col gap-4">
             
             <!-- 上排：搜尋與篩選 -->
@@ -57,14 +57,14 @@
                     <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     </span>
-                    <input type="text" id="search-input" oninput="onSearchInput()" placeholder="搜尋 Ticker 或 公司名稱..." class="block w-full pl-10 pr-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                    <input type="text" id="search-input" oninput="onSearchInput()" placeholder="搜尋 Ticker 或 公司名稱..." class="block w-full pl-10 pr-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all dark:text-white">
                 </div>
                 
                 <div class="flex gap-2 w-full md:w-auto">
                     <select id="sector-filter" onchange="filterData()" class="flex-grow md:flex-none px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 outline-none focus:ring-2 focus:ring-indigo-500 truncate max-w-full md:max-w-[150px]">
                         <option value="all">所有產業</option>
                     </select>
-                    <!-- 收藏按鈕實體化，確保手機電腦都好點擊 -->
+                    <!-- 收藏篩選按鈕 -->
                     <button id="fav-filter-btn" onclick="toggleFavFilter()" class="flex-none px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 rounded-xl text-xs font-bold hover:text-amber-500 transition-all flex items-center gap-1">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <span class="hidden sm:inline">收藏</span>
@@ -74,7 +74,7 @@
 
             <!-- 下排：排序與全局操作 -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <!-- 獨立的排序下拉選單 -->
+                <!-- 獨立下拉排序 -->
                 <div class="flex items-center gap-2 w-full sm:w-auto">
                     <svg class="w-4 h-4 text-indigo-500 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path></svg>
                     <select id="sort-select" onchange="filterData()" class="w-full sm:w-auto px-3 py-2 bg-transparent border-0 text-xs font-bold text-slate-700 dark:text-slate-200 outline-none focus:ring-0 cursor-pointer">
@@ -102,7 +102,7 @@
 
         <!-- 數據表格區塊 -->
         <div class="bg-white dark:bg-slate-900 shadow-xl rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
-            <!-- 表格頭部 (Desktop only，純顯示不再綁定點擊) -->
+            <!-- 表格頭部 (Desktop only) -->
             <div class="hidden md:grid grid-cols-12 bg-slate-900 dark:bg-black text-white p-4 text-xs font-bold uppercase tracking-wider">
                 <div class="col-span-3">公司 / Ticker</div>
                 <div class="col-span-3 text-center">產業</div>
@@ -121,9 +121,9 @@
 
         <!-- 分頁控制 -->
         <div class="flex justify-center items-center gap-4 mt-6">
-            <button id="prev-page" onclick="changePage(-1)" class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold disabled:opacity-50 transition-all">上一頁</button>
+            <button id="prev-page" onclick="changePage(-1)" class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold disabled:opacity-50 transition-all text-slate-700 dark:text-slate-200">上一頁</button>
             <span id="page-info" class="text-xs font-bold text-slate-500 dark:text-slate-400">Page 1 / 1</span>
-            <button id="next-page" onclick="changePage(1)" class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold disabled:opacity-50 transition-all">下一頁</button>
+            <button id="next-page" onclick="changePage(1)" class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold disabled:opacity-50 transition-all text-slate-700 dark:text-slate-200">下一頁</button>
         </div>
 
         <footer class="mt-8 text-center pb-8">
@@ -140,7 +140,7 @@
         let ALL_DATA =[];
         let FILTERED_DATA =[];
         let WATCHLIST = JSON.parse(localStorage.getItem('watchlist')) ||[];
-        let showFavOnly = false; // 追蹤是否只顯示收藏
+        let showFavOnly = false;
         
         let currentPage = 1;
         let pageSize = 50;
@@ -180,7 +180,7 @@
         }
 
         // -----------------------------
-        // Watchlist & Sort Logic
+        // Watchlist Logic
         // -----------------------------
         function toggleWatchlist(ticker, event) {
             event.stopPropagation();
@@ -190,8 +190,6 @@
                 WATCHLIST.push(ticker);
             }
             localStorage.setItem('watchlist', JSON.stringify(WATCHLIST));
-            
-            // 如果當前在「只看收藏」模式下移除了星星，需要重新過濾
             if (showFavOnly) { filterData(); } else { renderList(FILTERED_DATA); }
         }
 
@@ -231,17 +229,14 @@
                 return;
             }
 
-            // 根據下拉選單獲取排序邏輯
             const sortVal = document.getElementById('sort-select').value;
             
             const sortedData = [...data].sort((a, b) => {
-                // 規則1：收藏的永遠置頂
                 const isFavA = WATCHLIST.includes(a.ticker);
                 const isFavB = WATCHLIST.includes(b.ticker);
                 if (isFavA && !isFavB) return -1;
                 if (!isFavA && isFavB) return 1;
 
-                // 規則2：根據選單排序
                 if (sortVal === 'days_asc') {
                     return (a.days_left ?? 999) - (b.days_left ?? 999);
                 } else if (sortVal === 'days_desc') {
@@ -261,7 +256,7 @@
                 
                 if (typeof c.days_left === 'number') {
                     countNumber = c.days_left;
-                    if (c.days_left === 0) { statusLabel = "今日發布"; badgeColor = "bg-rose-500 text-white dark:bg-rose-600 dark:text-white"; } 
+                    if (c.days_left === 0) { statusLabel = "今日發布"; badgeColor = "bg-rose-500 text-white dark:bg-rose-600"; } 
                     else if (c.days_left <= 7) { statusLabel = "緊急"; badgeColor = "bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-400"; } 
                     else if (c.days_left <= 14) { statusLabel = "接近"; badgeColor = "bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400"; } 
                     else { statusLabel = "正常"; badgeColor = "bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-400"; }
@@ -278,12 +273,9 @@
                 <div class="flex flex-col border-b border-slate-100 dark:border-slate-800/50 last:border-0 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors duration-200">
                     <div class="flex flex-col md:grid md:grid-cols-12 p-4 md:p-3 gap-3 md:gap-0 items-start md:items-center ${rowBg}">
                         
-                        <!-- Col 1: Ticker & Name -->
                         <div class="col-span-3 flex items-center gap-2 w-full md:w-auto justify-between md:justify-start">
                             <div class="flex items-center gap-2">
-                                <button onclick="toggleWatchlist('${c.ticker}', event)" class="focus:outline-none" title="加入/移除收藏">
-                                    ${starIcon}
-                                </button>
+                                <button onclick="toggleWatchlist('${c.ticker}', event)" class="focus:outline-none" title="加入/移除收藏">${starIcon}</button>
                                 <span class="text-xl md:text-lg font-black tracking-tighter w-16 text-slate-900 dark:text-slate-100">${c.ticker}</span>
                                 <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase truncate max-w-[120px] md:max-w-[100px]" title="${c.name}">${c.name}</span>
                             </div>
@@ -292,24 +284,20 @@
                             </div>
                         </div>
 
-                        <!-- Col 2: Sector -->
                         <div class="col-span-3 text-[11px] md:text-center font-bold text-slate-500 dark:text-slate-400 truncate w-full" title="${c.sector}">
                             <span class="md:hidden text-slate-400 mr-1">產業:</span>${c.sector}
                         </div>
 
-                        <!-- Col 3: Date -->
                         <div class="col-span-2 md:text-center font-bold text-slate-700 dark:text-slate-200 text-sm w-full">
                             <span class="md:hidden text-[11px] text-slate-400 font-normal mr-1">日期:</span>
                             ${c.date} ${c.timing && c.timing !== 'Unknown' ? `<span class="text-[9px] text-indigo-500 dark:text-indigo-400 ml-1 bg-indigo-50 dark:bg-indigo-500/10 px-1 rounded border border-indigo-100 dark:border-indigo-500/20">${c.timing}</span>` : ''}
                         </div>
 
-                        <!-- Col 4: Status (Desktop only) -->
                         <div class="col-span-2 hidden md:flex flex-col items-center justify-center">
                             <span class="${badgeColor} px-3 py-1 rounded-full text-[11px] font-black shadow-sm">${countNumber} 天</span>
                             <span class="text-[9px] font-bold text-slate-400 mt-1">${statusLabel}</span>
                         </div>
 
-                        <!-- Col 5: Action Button -->
                         <div class="col-span-2 w-full md:w-auto md:text-right mt-2 md:mt-0">
                             <button id="button-${c.ticker}" onclick="toggleHistory('${c.ticker}')" class="w-full md:w-auto btn-toggle px-4 md:px-3 py-2 md:py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl md:rounded-lg text-xs md:text-[10px] font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm focus:outline-none">
                                 歷史財報 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
@@ -337,17 +325,31 @@
             let historyHtml = '<p class="text-xs text-slate-400 dark:text-slate-500 p-6 text-center">暫無歷史財報數據</p>';
             if (company.history && company.history.length > 0) {
                 historyHtml = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
-                    ${company.history.map(h => `
-                        <div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-                            <div>
-                                <p class="text-[11px] font-bold text-slate-700 dark:text-slate-200">${h.type}</p>
-                                <p class="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5">發布於 ${h.date}</p>
+                    ${company.history.map(h => {
+                        let reactionHtml = '<span class="text-slate-300 dark:text-slate-600">-</span>';
+                        if (typeof h.reaction === 'number') {
+                            const isPos = h.reaction > 0;
+                            const colClass = isPos ? 'text-emerald-500 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400';
+                            const icon = isPos ? '📈' : '📉';
+                            const sign = isPos ? '+' : '';
+                            reactionHtml = `<span class="${colClass} font-black drop-shadow-sm flex items-center gap-1">${icon} ${sign}${h.reaction}%</span>`;
+                        }
+
+                        return `
+                        <div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm hover:border-indigo-200 dark:hover:border-indigo-500/50 transition-colors">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center gap-2">
+                                    <p class="text-[11px] font-bold text-slate-700 dark:text-slate-200">${h.type}</p>
+                                    <div class="text-[11px]">${reactionHtml}</div>
+                                </div>
+                                <p class="text-[9px] text-slate-400 dark:text-slate-500">發布於 ${h.date}</p>
                             </div>
                             <div class="flex gap-1">
                                 <a href="${h.html_url}" target="_blank" class="px-2 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">📱 手機</a>
                                 <a href="${h.ix_url}" target="_blank" class="px-2 py-1.5 bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-lg text-[10px] font-bold hover:bg-indigo-100 dark:hover:bg-indigo-500/40 transition-colors">💻 電腦</a>
                             </div>
-                        </div>`).join('')}
+                        </div>`;
+                    }).join('')}
                 </div>`;
             }
             const shareUrl = `${window.location.origin}${window.location.pathname}?ticker=${ticker}`;
@@ -384,7 +386,6 @@
         function filterData() {
             const search = document.getElementById('search-input').value.toLowerCase();
             const sector = document.getElementById('sector-filter').value;
-            
             FILTERED_DATA = ALL_DATA.filter(c => {
                 const matchesSearch = c.ticker.toLowerCase().includes(search) || c.name.toLowerCase().includes(search);
                 const matchesSector = sector === 'all' || c.sector === sector;
@@ -468,7 +469,7 @@
                 filterData();
                 checkUrlParams(); 
             } catch (e) {
-                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">無法載入數據...</div>';
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">無法載入數據，請確保已成功觸發 GitHub Actions 產生 data.json。</div>';
             }
         }
         
