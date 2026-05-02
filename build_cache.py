@@ -2,8 +2,8 @@ import pandas as pd
 import requests
 import json
 import time
+import sys
 
-# SEC 官方要求 User-Agent 必須包含聯絡資訊，否則會被阻擋 (403 Forbidden)
 HEADERS = {
     'User-Agent': 'S&P500 Earnings Tracker (ianhoutsai@github.com)'
 }
@@ -11,69 +11,65 @@ HEADERS = {
 def build_sp500_cache():
     print("📥 正在從維基百科獲取 S&P 500 最新名單...")
     
-    # 1. 抓取維基百科表格
     try:
         tables = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
-        df = tables[0]
+        # 尋找包含 'Symbol' 欄位的表格，而不是死板地用 tables[0]
+        df = None
+        for t in tables:
+            if 'Symbol' in t.columns:
+                df = t
+                break
+        
+        if df is None:
+            print("❌ 找不到包含 Symbol 的公司表格")
+            return False
+            
     except Exception as e:
         print(f"❌ 獲取維基百科失敗: {e}")
-        return
+        return False
 
-    # 2. 清理 Ticker (把 BRK.B 轉成 BRK-B，以符合 Yahoo/SEC 格式)
     df['Symbol'] = df['Symbol'].str.replace('.', '-', regex=False)
-    
     companies_cache = {}
     total = len(df)
     print(f"✅ 成功獲取 {total} 家公司名單！")
-    print("⏳ 開始透過 SEC 官方 API 獲取財年結算月 (fy_end)...\n")
     
-    # 3. 建立連線池
     with requests.Session() as session:
         for index, row in df.iterrows():
             ticker = row['Symbol']
             name = row['Security']
             cik = str(row['CIK']).zfill(10)
-            sector = row['GICS Sector']  # 順便把產業別抓下來，未來前端可以用！
-            
-            fy_end = 12 # 預設為日曆年
+            sector = row['GICS Sector']
+            fy_end = 12
             
             try:
-                # 請求 SEC API
                 url = f"https://data.sec.gov/submissions/CIK{cik}.json"
                 res = session.get(url, headers=HEADERS, timeout=10)
-                
                 if res.status_code == 200:
                     data = res.json()
-                    # SEC 的財年格式通常為 "0930" (代表 9月30日)
                     fy_str = data.get("fiscalYearEnd", "1231")
                     if fy_str and len(fy_str) == 4:
-                        fy_end = int(fy_str[:2]) # 提取前兩位作為月份
-                else:
-                    print(f"  [!] API 狀態碼異常 {res.status_code}")
-                
-                print(f"[{index+1}/{total}] {ticker:<6} | 產業: {sector[:15]:<15} | fy_end: {fy_end}")
-            
+                        fy_end = int(fy_str[:2])
+                time.sleep(0.15) 
             except Exception as e:
-                print(f"[{index+1}/{total}] ⚠️ {ticker} 獲取失敗 ({e})，預設為 12")
+                print(f"  ⚠️ {ticker} 獲取失敗: {e}")
             
-            # 寫入字典
             companies_cache[ticker] = {
-                "name": name,
-                "cik": cik,
-                "sector": sector,
-                "fy_end": fy_end
+                "name": name, "cik": cik, "sector": sector, "fy_end": fy_end
             }
             
-            # SEC 嚴格限制每秒最多 10 次請求，設定 0.15 秒延遲非常安全
-            time.sleep(0.15) 
-            
-    # 4. 儲存為靜態 JSON 檔案
-    with open('sp500_mapping.json', 'w', encoding='utf-8') as f:
-        json.dump(companies_cache, f, ensure_ascii=False, indent=4)
-        
-    print("\n🎉 大功告成！快取檔案 'sp500_mapping.json' 已成功生成！")
+            if (index + 1) % 50 == 0:
+                print(f"已處理 {index+1}/{total} 家公司...")
+
+    # 強制寫入檔案，確保 Git 能找到它
+    try:
+        with open('sp500_mapping.json', 'w', encoding='utf-8') as f:
+            json.dump(companies_cache, f, ensure_ascii=False, indent=4)
+        print(f"\n🎉 成功寫入 {len(companies_cache)} 家公司到 sp500_mapping.json")
+        return True
+    except Exception as e:
+        print(f"❌ 寫入檔案失敗: {e}")
+        return False
 
 if __name__ == "__main__":
-    start_time = time.time()
-    build_sp500_cache()
-    print(f"總耗時: {time.time() - start_time:.2f} 秒")
+    if not build_sp500_cache():
+        sys.exit(1) # 如果失敗，讓 GitHub Action 顯示紅叉
