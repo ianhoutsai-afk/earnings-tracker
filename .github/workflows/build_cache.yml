@@ -1,13 +1,13 @@
 name: Build S&P 500 Cache
 
 on:
-  workflow_dispatch: # 這個設定讓我們可以「手動點擊按鈕」來觸發它
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 確保機器人有權限把檔案 push 回來
+      contents: write
 
     steps:
       - name: Checkout code
@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sp500_mapping.json
-          git commit -m "Auto-generate S&P 500 cache" || echo "No changes to commit"
+          git add . 
+          git commit -m "Auto-generate S&P 500 cache [skip ci]" || echo "No changes to commit"
           git push
