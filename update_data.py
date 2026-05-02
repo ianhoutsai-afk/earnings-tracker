@@ -3,6 +3,7 @@ import yfinance as yf
 import requests
 import json
 import time
+import pandas as pd
 from datetime import datetime, date, timezone
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -29,6 +30,7 @@ HEADERS = {
 # ==========================================
 
 def get_session():
+    """建立帶有自動重試機制的 Session，防禦 SEC 429 錯誤"""
     session = requests.Session()
     retry = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
     adapter = HTTPAdapter(max_retries=retry)
@@ -37,22 +39,49 @@ def get_session():
     session.headers.update(HEADERS)
     return session
 
+def get_price_reaction(ticker, filing_date_str, hist_data):
+    """計算財報發布前後的股價反應 (漲跌幅 %)"""
+    if hist_data is None or hist_data.empty: return None
+    try:
+        if ticker not in hist_data.columns: return None
+        series = hist_data[ticker].dropna()
+        if series.empty: return None
+        
+        target_date = pd.to_datetime(filing_date_str)
+        
+        # t0: 財報當天(或最近的下一個交易日)
+        future_dates = series.index[series.index >= target_date]
+        if future_dates.empty: return None
+        t0 = future_dates[0]
+        
+        # t-1: 財報發布前一個交易日
+        past_dates = series.index[series.index < t0]
+        if past_dates.empty: return None
+        t_minus_1 = past_dates[-1]
+        
+        # t+1: 財報發布後一個交易日 (確保捕捉到 AMC 盤後發布的反應)
+        t_plus_1_dates = series.index[series.index > t0]
+        t_end = t_plus_1_dates[0] if not t_plus_1_dates.empty else t0
+            
+        # 計算反應：(T+1 收盤價 - T-1 收盤價) / T-1 收盤價
+        pct_change = (series.loc[t_end] - series.loc[t_minus_1]) / series.loc[t_minus_1]
+        return round(pct_change * 100, 2)
+    except:
+        return None
+
 def get_quarter_label(ticker, companies_map, form_type, report_date_str):
-    if not report_date_str:
-        return "季報" if "10-Q" in form_type else "年報"
-    if "10-K" in form_type:
-        return "Q4 / 年報 (10-K)"
+    if not report_date_str: return "季報" if "10-Q" in form_type else "年報"
+    if "10-K" in form_type: return "Q4 / 年報 (10-K)"
     try:
         fy_end = companies_map.get(ticker, {}).get("fy_end", 12)
         report_month = int(report_date_str.split('-')[1])
         diff = (report_month - fy_end) % 12
-        quarter = QUARTER_MAPPING.get(diff, "Q?")
-        return f"{quarter} 季報 (10-Q)"
+        return f"{QUARTER_MAPPING.get(diff, 'Q?')} 季報 (10-Q)"
     except:
         return "季報 (10-Q)"
 
-def get_sec_history(session, ticker, cik, companies_map):
-    history = []
+def get_sec_history(session, ticker, cik, companies_map, hist_data):
+    history =[]
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
@@ -68,11 +97,23 @@ def get_sec_history(session, ticker, cik, companies_map):
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
+                    
                     display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
+                    
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
                     ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
+                    
+                    # 計算歷史股價反應
+                    reaction = get_price_reaction(ticker, filing_date, hist_data)
+                    
+                    history.append({
+                        "type": display_form, 
+                        "date": filing_date, 
+                        "reaction": reaction,
+                        "html_url": html_url, 
+                        "ix_url": ix_url
+                    })
                     if len(history) == 5: break
     except Exception as e:
         print(f"🔴 SEC Error {ticker}: {e}")
@@ -83,15 +124,26 @@ def get_tracker_data():
         with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
             companies_map = json.load(f)
     except FileNotFoundError:
-        print(f"❌ 找不到 {MAPPING_FILE}")
-        return None, []
+        print(f"❌ 找不到 {MAPPING_FILE}，請確保 build_cache.py 已成功執行。")
+        return None,[]
 
-    results = []
-    errors = []
-    today = date.today()
-    session = get_session()
     tickers = list(companies_map.keys())
     total = len(tickers)
+    
+    # 🌟 批量下載歷史股價 (極大提升效能，避免逐一請求 API)
+    print("📥 正在批量下載過去 2 年歷史股價以計算財報反應 (約需 10-20 秒)...")
+    try:
+        bulk_data = yf.download(tickers, period="2y", interval="1d", progress=False)
+        hist_data = bulk_data['Close'] if 'Close' in bulk_data else bulk_data
+        if hasattr(hist_data.index, 'tz_localize'):
+            hist_data.index = hist_data.index.tz_localize(None)
+    except Exception as e:
+        print(f"⚠️ 批量下載股價失敗: {e}")
+        hist_data = None
+
+    results, errors = [],[]
+    today = date.today()
+    session = get_session()
     
     print(f"🚀 開始同步 {total} 家公司數據...")
 
@@ -99,28 +151,41 @@ def get_tracker_data():
         info = companies_map[ticker]
         try:
             stock = yf.Ticker(ticker)
-            calendar = stock.calendar
             final_date = None
-            timing = "Unknown" # BMO / AMC
+            timing = "Unknown"
             
-            if calendar and 'Earnings Date' in calendar:
-                potential_dates = calendar['Earnings Date']
-                for d in potential_dates:
-                    d_date = d.date() if isinstance(d, datetime) else d
-                    if d_date >= today and d_date.year <= today.year + 1:
-                        final_date = d_date
-                        break
-            
-            # 嘗試獲取發布時段 (yfinance calendar 有時包含 time 資訊)
-            # 注意：yfinance 的 calendar 格式不統一，這裡做簡單判定
-            if calendar and 'Earnings Date' in calendar:
-                # 檢查是否有時間戳，如果有，根據時間判定 BMO/AMC
-                # 這部分 yfinance 支援度不一，但我們預留欄位
+            # 獲取 BMO/AMC 發布時段與日期
+            try:
+                earns = stock.get_earnings_dates(limit=5)
+                if earns is not None and not earns.empty:
+                    # 去除時區以便比對
+                    if hasattr(earns.index, 'tz_localize'):
+                        earns.index = earns.index.tz_localize(None)
+                    future_earns = earns[earns.index >= pd.Timestamp(today)]
+                    if not future_earns.empty:
+                        next_earn = future_earns.index[0]
+                        final_date = next_earn.date()
+                        # 解析時間判定盤前盤後
+                        if next_earn.hour < 12: timing = "BMO"
+                        elif next_earn.hour >= 15: timing = "AMC"
+            except:
                 pass
+
+            # 備用方案：若 get_earnings_dates 失敗，退回使用 calendar
+            if not final_date:
+                calendar = stock.calendar
+                if calendar and 'Earnings Date' in calendar:
+                    for d in calendar['Earnings Date']:
+                        d_date = d.date() if isinstance(d, datetime) else d
+                        if d_date >= today and d_date.year <= today.year + 1:
+                            final_date = d_date
+                            break
 
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            sec_history = get_sec_history(session, ticker, info["cik"], companies_map)
+            
+            # SEC 抓取 (包含歷史股價反應計算)
+            sec_history = get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
             
             results.append({
                 "ticker": ticker, 
@@ -134,7 +199,7 @@ def get_tracker_data():
             
             if (index + 1) % 20 == 0:
                 print(f"✅ 進度: {index+1}/{total} | {ticker}")
-            time.sleep(0.12) 
+            time.sleep(0.12) # 遵守 SEC 速率限制
             
         except Exception as e:
             print(f"❌ {ticker} 失敗: {e}")
@@ -150,10 +215,10 @@ if __name__ == "__main__":
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "companies": data,
-            "errors": errors # 記錄失敗的公司
+            "errors": errors
         }
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-        print(f"🚀 更新完成！同步 {len(data)} 家，失敗 {len(errors)} 家。耗時: {time.time() - start_time:.2f} 秒")
+        print(f"🚀 更新完成！同步 {len(data)} 家，失敗 {len(errors)} 家。總耗時: {time.time() - start_time:.2f} 秒")
     else:
         print("❌ 數據同步失敗")
