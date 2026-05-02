@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財報追蹤網站</title>
+    <title>S&P 500 財報追蹤</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .history-panel {
             max-height: 0;
             opacity: 0;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease-in;
             overflow: hidden;
         }
         .history-panel.open {
@@ -18,187 +18,303 @@
         }
         .rotate-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
         .rotate-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
+        
+        /* Loading 動畫 */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="bg-slate-50 font-sans">
-    <div class="max-w-5xl mx-auto px-4 py-8">
+    <div class="max-w-6xl mx-auto px-4 py-8">
         <header class="mb-8 text-center">
-            <h1 class="text-3xl font-black tracking-tighter text-slate-900">財報追蹤網站</h1>
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Magnificent Seven Earnings Monitor</p>
+            <h1 class="text-4xl font-black tracking-tighter text-slate-900">S&P 500 財報追蹤</h1>
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Institutional Grade Earnings Monitor</p>
         </header>
 
-        <!-- 操作工具欄：一鍵控制 -->
-        <div class="flex justify-end gap-3 mb-4">
-            <button onclick="expandAll()" class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg text-[11px] font-bold hover:bg-indigo-50 hover:text-indigo-600 transition-all shadow-sm">
-                全部展開 ▽
-            </button>
-            <button onclick="collapseAll()" class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 rounded-lg text-[11px] font-bold hover:bg-rose-50 hover:text-rose-600 transition-all shadow-sm">
-                全部折疊 △
-            </button>
+        <!-- 搜尋與篩選工具欄 -->
+        <div class="flex flex-col md:flex-row gap-4 mb-6 justify-between items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+            <div class="relative w-full md:w-96">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </span>
+                <!-- 加入 onSearchInput 以支援 Debounce -->
+                <input type="text" id="search-input" oninput="onSearchInput()" placeholder="搜尋 Ticker 或 公司名稱..." class="block w-full pl-10 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+            </div>
+            
+            <div class="flex gap-3 w-full md:w-auto">
+                <select id="sector-filter" onchange="filterData()" class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-600 outline-none focus:ring-2 focus:ring-indigo-500 truncate max-w-[150px] md:max-w-xs">
+                    <option value="all">所有產業</option>
+                </select>
+                <button onclick="expandAll()" class="px-3 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-[11px] font-bold hover:bg-indigo-50 transition-all whitespace-nowrap shadow-sm">展開前30家</button>
+                <button onclick="collapseAll()" class="px-3 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-[11px] font-bold hover:bg-rose-50 transition-all whitespace-nowrap shadow-sm">全部折疊</button>
+            </div>
+        </div>
+
+        <div class="mb-2 px-2 flex justify-between text-xs font-bold text-slate-400">
+            <span id="display-count">載入中...</span>
         </div>
 
         <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
             <!-- 表格頭部 -->
-            <div class="hidden md:grid grid-cols-5 bg-slate-900 text-white p-4 text-xs font-bold uppercase tracking-wider">
+            <div class="hidden md:grid grid-cols-6 bg-slate-900 text-white p-4 text-xs font-bold uppercase tracking-wider">
                 <div class="col-span-1">公司 / Ticker</div>
+                <div class="col-span-1 text-center">產業</div>
                 <div class="col-span-1 text-center">預計發布日</div>
                 <div class="col-span-1 text-center">倒數天數</div>
                 <div class="col-span-1 text-center">狀態</div>
                 <div class="col-span-1 text-right">操作</div>
             </div>
 
-            <!-- 數據行 -->
+            <!-- 數據行容器 -->
             <div id="list" class="divide-y divide-slate-100">
-                <div class="p-10 text-center text-slate-400 text-sm">正在同步數據...</div>
+                <div class="p-10 text-center text-slate-400 text-sm">
+                    <div class="loader mb-3"></div>
+                    正在拉取並解析數據，請稍候...
+                </div>
             </div>
         </div>
 
         <footer class="mt-8 text-center">
             <div class="flex items-center justify-center gap-2">
                 <p id="update-time" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest"></p>
-                <span id="update-status" class="px-2 py-0.5 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full text-[9px] font-black uppercase tracking-tighter transition-all">
-                    🔄 每小時自動更新
+                <span id="update-status" class="px-2 py-0.5 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full text-[9px] font-black uppercase tracking-tighter">
+                    🔄 每日自動更新
                 </span>
             </div>
         </footer>
     </div>
 
     <script>
-        function toggleHistory(ticker) {
-            const targetPanel = document.getElementById('history-' + ticker);
-            const targetButton = document.getElementById('button-' + ticker);
-            const targetArrow = targetButton.querySelector('svg');
-            const isOpen = targetPanel.classList.toggle('open');
-            if (isOpen) {
-                targetButton.innerHTML = '收起歷史財報 ▴';
-                targetButton.classList.replace('bg-slate-100', 'bg-indigo-100');
-                targetButton.classList.replace('text-slate-500', 'text-indigo-600');
-                targetArrow.classList.replace('rotate-0', 'rotate-180');
-            } else {
-                targetButton.innerHTML = '歷史財報查詢 ▾';
-                targetButton.classList.replace('bg-indigo-100', 'bg-slate-100');
-                targetButton.classList.replace('text-indigo-600', 'text-slate-500');
-                targetArrow.classList.replace('rotate-180', 'rotate-0');
-            }
-        }
+        let ALL_DATA =[];
+        let searchTimeout = null;
 
-        function expandAll() {
-            document.querySelectorAll('.history-panel').forEach(panel => panel.classList.add('open'));
-            document.querySelectorAll('.btn-toggle').forEach(btn => {
-                btn.innerHTML = '收起歷史財報 ▴';
-                btn.classList.replace('bg-slate-100', 'bg-indigo-100');
-                btn.classList.replace('text-slate-500', 'text-indigo-600');
-                const arrow = btn.querySelector('svg');
-                if (arrow) arrow.classList.replace('rotate-0', 'rotate-180');
-            });
-        }
-
-        function collapseAll() {
-            document.querySelectorAll('.history-panel').forEach(panel => panel.classList.remove('open'));
-            document.querySelectorAll('.btn-toggle').forEach(btn => {
-                btn.innerHTML = '歷史財報查詢 ▾';
-                btn.classList.replace('bg-indigo-100', 'bg-slate-100');
-                btn.classList.replace('text-indigo-600', 'text-slate-500');
-                const arrow = btn.querySelector('svg');
-                if (arrow) arrow.classList.replace('rotate-180', 'rotate-0');
-            });
-        }
-
-        // 新增：根據用户所在地自动调整时间
+        // 轉換 UTC 時間為本地時間
         function formatLocalTime(utcString) {
             const date = new Date(utcString);
             return date.toLocaleString(undefined, { 
-                year: 'numeric', 
-                month: '2-digit', 
-                day: '2-digit', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                hour12: false 
+                year: 'numeric', month: '2-digit', day: '2-digit', 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
             });
         }
 
+        // 檢查數據是否過期
         function checkUpdateHealth(lastUpdatedStr) {
             const statusBadge = document.getElementById('update-status');
             try {
                 const lastDate = new Date(lastUpdatedStr);
                 const now = new Date();
-                const diffMinutes = Math.floor((now - lastDate) / 60000);
-                if (diffMinutes > 70) { 
+                const diffHours = Math.floor((now - lastDate) / 3600000);
+                if (diffHours > 26) { 
                     statusBadge.innerText = "⚠️ 更新延遲中";
                     statusBadge.classList.replace('bg-indigo-50', 'bg-rose-50');
                     statusBadge.classList.replace('text-indigo-600', 'text-rose-600');
                     statusBadge.classList.replace('border-indigo-100', 'border-rose-100');
                 }
-            } catch (e) {
-                console.error("時間解析錯誤:", e);
+            } catch (e) {}
+        }
+
+        // 防抖動搜尋，避免連續輸入導致網頁卡頓
+        function onSearchInput() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterData();
+            }, 300);
+        }
+
+        // 生成清單列表
+        function renderList(data) {
+            const listElement = document.getElementById('list');
+            document.getElementById('display-count').innerText = `目前顯示 ${data.length} 家公司`;
+
+            if (data.length === 0) {
+                listElement.innerHTML = '<div class="p-10 text-center text-slate-400">找不到匹配的公司...</div>';
+                return;
+            }
+
+            // 按倒數天數排序 (無日期的放最後面)
+            const sortedData = [...data].sort((a, b) => {
+                const daysA = typeof a.days_left === 'number' ? a.days_left : 999;
+                const daysB = typeof b.days_left === 'number' ? b.days_left : 999;
+                return daysA - daysB;
+            });
+
+            listElement.innerHTML = sortedData.map((c, index) => {
+                let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
+                let statusLabel = "待定";
+                
+                if (typeof c.days_left === 'number') {
+                    countNumber = c.days_left;
+                    if (c.days_left === 0) { colorClass = "text-white"; bgClass = "bg-rose-500"; statusLabel = "今日發布"; }
+                    else if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; statusLabel = "緊急"; }
+                    else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; statusLabel = "接近"; }
+                    else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; statusLabel = "正常"; }
+                }
+
+                return `
+                <div class="flex flex-col">
+                    <div class="grid grid-cols-1 md:grid-cols-6 p-4 md:p-3 items-center hover:bg-slate-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <span class="text-lg font-black tracking-tighter w-14">${c.ticker}</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase hidden sm:inline truncate w-24" title="${c.name}">${c.name}</span>
+                        </div>
+                        <div class="col-span-1 text-center text-[10px] font-bold text-slate-500 truncate" title="${c.sector}">${c.sector}</div>
+                        <div class="col-span-1 text-center font-bold text-slate-700 text-sm mt-2 md:mt-0">${c.date}</div>
+                        <div class="col-span-1 text-center mt-2 md:mt-0">
+                            <span class="${bgClass} ${colorClass} px-3 py-1 rounded-full text-xs font-black">${countNumber} 天</span>
+                        </div>
+                        <div class="col-span-1 text-center mt-1 md:mt-0">
+                            <span class="text-[10px] font-bold text-slate-500">${statusLabel}</span>
+                        </div>
+                        <div class="col-span-1 text-right mt-3 md:mt-0">
+                            <button id="button-${c.ticker}" onclick="toggleHistory('${c.ticker}')" class="btn-toggle px-3 py-1.5 bg-slate-100 text-slate-500 rounded-lg text-[10px] font-bold hover:bg-slate-200 transition-all shadow-sm">
+                                歷史財報 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200">
+                        <!-- 延遲渲染區域 -->
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // 獨立渲染歷史財報內容 (解決 Lazy Render 與 ExpandAll 衝突的核心)
+        function renderHistoryContent(ticker) {
+            const panel = document.getElementById('history-' + ticker);
+            if (!panel || panel.innerHTML.trim() !== '<!-- 延遲渲染區域 -->') return; // 已經渲染過就不再渲染
+
+            const company = ALL_DATA.find(c => c.ticker === ticker);
+            if (!company) return;
+
+            let historyHtml = '<p class="text-xs text-slate-400 p-6 text-center">暫無歷史財報數據</p>';
+            if (company.history && company.history.length > 0) {
+                historyHtml = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
+                    ${company.history.map(h => `
+                        <div class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg shadow-sm">
+                            <div>
+                                <p class="text-xs font-bold text-slate-700">${h.type}</p>
+                                <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
+                            </div>
+                            <div class="flex gap-1">
+                                <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200 transition-colors">📱 手機</a>
+                                <a href="${h.ix_url}" target="_blank" class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-[9px] font-bold hover:bg-indigo-100 transition-colors">💻 電腦</a>
+                            </div>
+                        </div>`).join('')}
+                </div>`;
+            }
+            panel.innerHTML = historyHtml;
+        }
+
+        // 點擊單個按鈕切換
+        function toggleHistory(ticker) {
+            const panel = document.getElementById('history-' + ticker);
+            const btn = document.getElementById('button-' + ticker);
+            const arrow = btn.querySelector('svg');
+            
+            const isOpen = panel.classList.toggle('open');
+            
+            if (isOpen) {
+                renderHistoryContent(ticker); // 執行延遲渲染
+                btn.innerHTML = '收起歷史財報 ▴';
+                btn.classList.replace('bg-slate-100', 'bg-indigo-100');
+                btn.classList.replace('text-slate-500', 'text-indigo-600');
+                arrow.classList.replace('rotate-0', 'rotate-180');
+            } else {
+                btn.innerHTML = '歷史財報 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>';
+                btn.classList.replace('bg-indigo-100', 'bg-slate-100');
+                btn.classList.replace('text-indigo-600', 'text-slate-500');
+                arrow.classList.replace('rotate-180', 'rotate-0');
             }
         }
 
+        // 過濾數據
+        function filterData() {
+            const search = document.getElementById('search-input').value.toLowerCase();
+            const sector = document.getElementById('sector-filter').value;
+            
+            const filtered = ALL_DATA.filter(c => {
+                const matchesSearch = c.ticker.toLowerCase().includes(search) || c.name.toLowerCase().includes(search);
+                const matchesSector = sector === 'all' || c.sector === sector;
+                return matchesSearch && matchesSector;
+            });
+            renderList(filtered);
+        }
+
+        // 限制展開前 30 家，防止 DOM 爆炸
+        function expandAll() {
+            const panels = document.querySelectorAll('.history-panel');
+            const limit = 30;
+            
+            let count = 0;
+            panels.forEach(panel => {
+                if (count < limit && !panel.classList.contains('open')) {
+                    const ticker = panel.id.replace('history-', '');
+                    panel.classList.add('open');
+                    renderHistoryContent(ticker); // 同步渲染內容
+                    
+                    const btn = document.getElementById('button-' + ticker);
+                    if (btn) {
+                        btn.innerHTML = '收起歷史財報 ▴';
+                        btn.classList.replace('bg-slate-100', 'bg-indigo-100');
+                        btn.classList.replace('text-slate-500', 'text-indigo-600');
+                        const arrow = btn.querySelector('svg');
+                        if (arrow) arrow.classList.replace('rotate-0', 'rotate-180');
+                    }
+                    count++;
+                }
+            });
+            
+            if (panels.length > limit) {
+                alert(`為了維持網頁效能，僅展開最急迫的前 ${limit} 家公司。其餘請手動展開。`);
+            }
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.history-panel').forEach(p => p.classList.remove('open'));
+            document.querySelectorAll('.btn-toggle').forEach(b => {
+                b.innerHTML = '歷史財報 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>';
+                b.classList.replace('bg-indigo-100', 'bg-slate-100');
+                b.classList.replace('text-indigo-600', 'text-slate-500');
+            });
+        }
+
+        // 初始化載入
         async function loadData() {
             try {
+                // 加上時間戳防止緩存
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
+                ALL_DATA = data.companies;
                 
-                // 【關鍵修改】將 UTC 時間轉換為本地時間顯示
                 document.getElementById('update-time').innerText = "Last Updated: " + formatLocalTime(data.last_updated);
                 checkUpdateHealth(data.last_updated);
 
-                const html = data.companies.map((c, index) => {
-                    let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
-                    let statusLabel = "待定";
-                    if (typeof c.days_left === 'number') {
-                        countNumber = c.days_left;
-                        if (c.days_left === 0) { colorClass = "text-white"; bgClass = "bg-rose-500"; statusLabel = "今日發布"; }
-                        else if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; statusLabel = "緊急"; }
-                        else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; statusLabel = "接近"; }
-                        else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; statusLabel = "正常"; }
+                // 動態生成產業下拉選單
+                const sectors =[...new Set(ALL_DATA.map(c => c.sector))].sort();
+                const sectorSelect = document.getElementById('sector-filter');
+                sectorSelect.innerHTML = '<option value="all">所有產業</option>';
+                sectors.forEach(s => {
+                    if(s && s !== 'Unknown') {
+                        const opt = document.createElement('option');
+                        opt.value = s; opt.innerText = s;
+                        sectorSelect.appendChild(opt);
                     }
-                    let historyHtml = '<p class="text-xs text-slate-400 p-6 text-center">暫無歷史財報數據</p>';
-                    if (c.history && c.history.length > 0) {
-                        historyHtml = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
-                            ${c.history.map(h => `
-                                <div class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg shadow-sm">
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-700">${h.type}</p>
-                                        <p class="text-[10px] text-slate-400 mt-0.5">發布於 ${h.date}</p>
-                                    </div>
-                                    <div class="flex gap-1">
-                                        <a href="${h.html_url}" target="_blank" class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[9px] font-bold hover:bg-slate-200 transition-colors">📱 手機</a>
-                                        <a href="${h.ix_url}" target="_blank" class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-[9px] font-bold hover:bg-indigo-100 transition-colors">💻 電腦</a>
-                                    </div>
-                                </div>`).join('')}
-                        </div>`;
-                    }
-                    return `<div class="flex flex-col">
-                        <div class="grid grid-cols-1 md:grid-cols-5 p-4 md:p-5 items-center hover:bg-slate-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}">
-                            <div class="col-span-1 flex items-center gap-3">
-                                <span class="text-xl font-black tracking-tighter">${c.ticker}</span>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase hidden sm:inline">${c.name}</span>
-                            </div>
-                            <div class="col-span-1 text-center font-bold text-slate-700 text-sm">${c.date}</div>
-                            <div class="col-span-1 text-center">
-                                <span class="${bgClass} ${colorClass} px-3 py-1 rounded-full text-xs font-black">${countNumber} 天</span>
-                            </div>
-                            <div class="col-span-1 text-center">
-                                <span class="text-[10px] font-bold text-slate-500">${statusLabel}</span>
-                            </div>
-                            <div class="col-span-1 text-right">
-                                <button id="button-${c.ticker}" onclick="toggleHistory('${c.ticker}')" class="btn-toggle px-3 py-1.5 bg-slate-100 text-slate-500 rounded-lg text-[10px] font-bold hover:bg-slate-200 transition-all">
-                                    歷史財報查詢 <svg class="inline w-3 h-3 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200">
-                            ${historyHtml}
-                        </div>
-                    </div>`;
-                }).join('');
-                document.getElementById('list').innerHTML = html;
+                });
+
+                renderList(ALL_DATA);
             } catch (e) {
-                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-slate-400">無法載入數據...</div>';
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">無法載入數據，可能 GitHub Action 尚未完成初次 S&P 500 同步...</div>';
             }
         }
+        
         loadData();
     </script>
 </body>
