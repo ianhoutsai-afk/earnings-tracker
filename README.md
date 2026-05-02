@@ -1,35 +1,77 @@
-# 📈 Magnificent Seven Earnings Tracker
+# 📈 S&P 500 Earnings Tracker
 
-这是一个基于 GitHub Actions 的自动化财报追踪系统。它会自动抓取美股七巨头 (Mag 7) 的预计发布日期和历史财报，并通过 GitHub Pages 实时展示在网页上。
+[![GitHub Actions](https://github.com/ianhoutsai-afk/earnings-tracker/actions/workflows/main.yml/badge.svg)](https://github.com/ianhoutsai-afk/earnings-tracker/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Deployment: GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-blue)](https://ianhoutsai-afk.github.io/earnings-tracker/)
 
-## ✨ 特点
-- **全自动更新**：每小时自动同步一次数据，无需手动干预。
-- **本地化时间**：自动识别用户时区，显示最精准的更新时间。
-- **一键部署**：通过 GitHub 模板，无需安装 Python 环境即可部署。
-- **快速访问**：直接集成 SEC 官方链接，支持手机/电脑快捷跳转。
+An institutional-grade, fully automated monitoring system for S&P 500 corporate earnings. This tool tracks expected earnings dates and retrieves the most recent official SEC filings (10-Q, 10-K) for the entire S&P 500 index.
 
-## 🚀 快速部署指南 (3分钟完成)
-
-### 第一步：创建自己的仓库
-1. 点击页面上方的 **`Use this template`** $\to$ **`Create a new repository`**。
-2. 为你的新仓库起个名字（例如 `my-earnings-tracker`），设置为 `Public`。
-3. 点击 **`Create repository from template`**。
-
-### 第二步：开启自动化权限
-为了让 GitHub Actions 能自动更新数据，你需要开启写入权限：
-1. 进入你的新仓库 $\to$ **`Settings`** (右上角)。
-2. 点击左侧菜单的 **`Actions`** $\to$ **`General`**。
-3. 滚动到最下方 **`Workflow permissions`** $\to$ 选择 **`Read and write permissions`** $\to$ 点击 **`Save`**。
-
-### 第三步：开启网页展示 (GitHub Pages)
-1. 进入 **`Settings`** $\to$ 点击左侧菜单的 **`Pages`**。
-2. 在 **`Build and deployment`** $\to$ **`Branch`** 中选择 `main` 分支 $\to$ 点击 **`Save`**。
-3. 等待 1-2 分钟，你会在页面上方看到你的网站地址 (例如 `https://yourname.github.io/my-earnings-tracker/`)。
+**🚀 Live Demo:** [ianhoutsai-afk.github.io/earnings-tracker/](https://ianhoutsai-afk.github.io/earnings-tracker/)
 
 ---
 
-## 🛠️ 工作原理
-- **数据源**：使用 `yfinance` 获取预计日期 $\to$ `SEC.gov` 获取历史财报。
-- **自动化**：`.github/workflows/main.yml` 每小时触发一次 Python 脚本。
-- **存储**：更新后的数据保存在 `data.json` 中。
-- **前端**：`index.html` 实时读取 JSON 并通过 Tailwind CSS 渲染。# earnings-tracker
+## 🇬🇧 English Version
+
+### ✨ Key Features
+- **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, moving beyond a limited set to provide a comprehensive market view.
+- **🤖 Fully Automated Pipeline**: Powered by GitHub Actions, updating the dataset twice daily without manual intervention.
+- **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends (e.g., AAPL, MSFT, NVDA), ensuring that "Q1/Q2/Q3/Q4" labels are accurate to the company's own financial calendar.
+- **🏛️ Direct SEC Integration**: Pulls real-time data from SEC EDGAR, providing direct links to official HTML and iXBRL filings.
+- **⚡ High-Performance Frontend**: 
+  - **Instant Search**: Filter by Ticker or Company Name.
+  - **Sector Filtering**: Group and analyze companies by GICS Sector.
+  - **Lazy Rendering**: Optimized for 500+ entries to ensure zero lag on mobile and desktop.
+  - **Urgency Sorting**: Automatically sorts companies by the closest earnings date.
+
+### 🚀 Quick Deployment (3-Minute Setup)
+This repository is configured as a **Template**. You can deploy your own version in seconds:
+
+1. **Create Your Repository**: Click **`Use this template`** $\to$ **`Create a new repository`**. Ensure it is set to **Public**.
+2. **Enable Write Permissions**: Go to **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ **`Workflow permissions`** $\to$ Select **`Read and write permissions`** $\to$ **`Save`**.
+3. **Launch Your Website**: Go to **`Settings`** $\to$ **`Pages`** $\to$ Select the `main` branch as the source $\to$ **`Save`**.
+
+### 🛠️ Technical Architecture
+- **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff), `pandas`.
+- **Frontend**: Tailwind CSS, Vanilla JavaScript (ES6+).
+- **Infrastructure**: GitHub Actions (Cron Jobs), GitHub Pages (Hosting).
+- **Data Flow**: `S&P 500 List` $\to$ `SEC API (Fiscal Year Mapping)` $\to$ `yfinance` $\to$ `SEC EDGAR` $\to$ `data.json` $\to$ `index.html`.
+
+### 📝 Maintenance Note
+The S&P 500 constituents change infrequently. If you notice a missing company, simply run the **`Build S&P 500 Cache`** workflow from the **Actions** tab to refresh the mapping database.
+
+### ⚖️ Disclaimer
+*This tool is for informational purposes only. All financial data is retrieved from public sources (Yahoo Finance & SEC). No guarantee of 100% accuracy is provided. Please refer to official SEC filings for investment decisions.*
+
+---
+
+## 🇨🇳 中文版本
+
+### ✨ 核心功能
+- **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
+- **🤖 全自動化流水線**：由 GitHub Actions 驅動，每日自動更新兩次，無需人工干預。
+- **🎯 精準財年計算**：針對不同公司的財年結束月份（如 AAPL、MSFT、NVDA）實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司自身的財務年度。
+- **🏛️ 直連 SEC 官方數據**：直接從 SEC EDGAR 系統獲取即時數據，提供官方 HTML 與 iXBRL 文件的直接連結。
+- **⚡ 高性能前端體驗**：
+  - **即時搜尋**：支持 Ticker 或公司名稱快速過濾。
+  - **產業篩選**：可根據 GICS 產業類別進行分組分析。
+  - **延遲渲染 (Lazy Render)**：針對 500+ 筆數據進行優化，確保在手機與電腦端均能流暢運行。
+  - **緊急程度排序**：自動將最接近財報發布日期的公司排在最上方。
+
+### 🚀 快速部署指南 (3 分鐘完成)
+本倉庫已配置為 **模板 (Template)**，您可以秒級部署自己的追蹤系統：
+
+1. **創建倉庫**：點擊頁面頂部的 **`Use this template`** $\to$ **`Create a new repository`**。請確保倉庫設為 **Public**。
+2. **開啟寫入權限**：進入 **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ 滾動至 **`Workflow permissions`** $\to$ 選擇 **`Read and write permissions`** $\to$ 點擊 **`Save`**。
+3. **啟動網站**：進入 **`Settings`** $\to$ **`Pages`** $\to$ 在 Branch 中選擇 `main` 分支 $\to$ 點擊 **`Save`**。
+
+### 🛠️ 技術架構
+- **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制), `pandas`。
+- **前端**：Tailwind CSS, 原生 JavaScript (ES6+)。
+- **基礎設施**：GitHub Actions (定時任務), GitHub Pages (靜態託管)。
+- **數據流向**：`S&P 500 名單` $\to$ `SEC API (財年映射)` $\to$ `yfinance` $\to$ `SEC EDGAR` $\to$ `data.json` $\to$ `index.html`。
+
+### 📝 維護指南
+S&P 500 成分股變動頻率較低。若發現公司名單有誤或缺失，只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可刷新映射數據庫。
+
+### ⚖️ 免責聲明
+*本工具僅供資訊參考。所有財務數據均獲取自公開來源 (Yahoo Finance & SEC)。不保證數據 100% 準確。投資決策請務必參考 SEC 官方申報文件。*
