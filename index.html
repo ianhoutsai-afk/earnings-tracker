@@ -3,32 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S&P 500 財報追蹤</title>
+    <title>S&P 500 財報追蹤 | 專業版</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .history-panel {
-            max-height: 0;
-            opacity: 0;
-            transition: max-height 0.3s ease-out, opacity 0.2s ease-in;
-            overflow: hidden;
-        }
-        .history-panel.open {
-            max-height: 1000px;
-            opacity: 1;
-        }
+        .history-panel { max-height: 0; opacity: 0; transition: max-height 0.3s ease-out, opacity 0.2s ease-in; overflow: hidden; }
+        .history-panel.open { max-height: 1000px; opacity: 1; }
         .rotate-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
         .rotate-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
-        
-        /* Loading 動畫 */
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #4f46e5;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
+        .loader { border: 3px solid #f3f3f3; border-top: 3px solid #4f46e5; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
@@ -45,7 +27,6 @@
                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </span>
-                <!-- 加入 onSearchInput 以支援 Debounce -->
                 <input type="text" id="search-input" oninput="onSearchInput()" placeholder="搜尋 Ticker 或 公司名稱..." class="block w-full pl-10 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
             </div>
             
@@ -58,28 +39,36 @@
             </div>
         </div>
 
-        <div class="mb-2 px-2 flex justify-between text-xs font-bold text-slate-400">
+        <!-- 狀態欄 -->
+        <div class="mb-2 px-2 flex justify-between items-center text-xs font-bold text-slate-400">
             <span id="display-count">載入中...</span>
+            <span id="sort-indicator" class="text-indigo-500">排序：倒數天數 ▴</span>
         </div>
 
         <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
-            <!-- 表格頭部 -->
-            <div class="hidden md:grid grid-cols-6 bg-slate-900 text-white p-4 text-xs font-bold uppercase tracking-wider">
+            <!-- 表格頭部：增加排序點擊 -->
+            <div class="hidden md:grid grid-cols-6 bg-slate-900 text-white p-4 text-xs font-bold uppercase tracking-wider cursor-pointer">
                 <div class="col-span-1">公司 / Ticker</div>
-                <div class="col-span-1 text-center">產業</div>
-                <div class="col-span-1 text-center">預計發布日</div>
-                <div class="col-span-1 text-center">倒數天數</div>
+                <div class="col-span-1 text-center hover:text-indigo-300 transition-colors" onclick="setSort('sector')">產業 ⇅</div>
+                <div class="col-span-1 text-center hover:text-indigo-300 transition-colors" onclick="setSort('date')">發布日 ⇅</div>
+                <div class="col-span-1 text-center hover:text-indigo-300 transition-colors" onclick="setSort('days_left')">倒數 ⇅</div>
                 <div class="col-span-1 text-center">狀態</div>
                 <div class="col-span-1 text-right">操作</div>
             </div>
 
-            <!-- 數據行容器 -->
             <div id="list" class="divide-y divide-slate-100">
                 <div class="p-10 text-center text-slate-400 text-sm">
                     <div class="loader mb-3"></div>
-                    正在拉取並解析數據，請稍候...
+                    正在拉取 S&P 500 數據，請稍候...
                 </div>
             </div>
+        </div>
+
+        <!-- 分頁控制 -->
+        <div class="flex justify-center items-center gap-4 mt-6">
+            <button id="prev-page" onclick="changePage(-1)" class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-50 transition-all">上一頁</button>
+            <span id="page-info" class="text-xs font-bold text-slate-500">Page 1 / 1</span>
+            <button id="next-page" onclick="changePage(1)" class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-50 transition-all">下一頁</button>
         </div>
 
         <footer class="mt-8 text-center">
@@ -93,10 +82,13 @@
     </div>
 
     <script>
-        let ALL_DATA =[];
+        let ALL_DATA = [];
+        let FILTERED_DATA = [];
+        let currentPage = 1;
+        let pageSize = 50;
+        let currentSort = { field: 'days_left', direction: 'asc' };
         let searchTimeout = null;
 
-        // 轉換 UTC 時間為本地時間
         function formatLocalTime(utcString) {
             const date = new Date(utcString);
             return date.toLocaleString(undefined, { 
@@ -105,7 +97,6 @@
             });
         }
 
-        // 檢查數據是否過期
         function checkUpdateHealth(lastUpdatedStr) {
             const statusBadge = document.getElementById('update-status');
             try {
@@ -116,12 +107,10 @@
                     statusBadge.innerText = "⚠️ 更新延遲中";
                     statusBadge.classList.replace('bg-indigo-50', 'bg-rose-50');
                     statusBadge.classList.replace('text-indigo-600', 'text-rose-600');
-                    statusBadge.classList.replace('border-indigo-100', 'border-rose-100');
                 }
             } catch (e) {}
         }
 
-        // 防抖動搜尋，避免連續輸入導致網頁卡頓
         function onSearchInput() {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
@@ -129,7 +118,20 @@
             }, 300);
         }
 
-        // 生成清單列表
+        function setSort(field) {
+            if (currentSort.field === field) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.field = field;
+                currentSort.direction = 'asc';
+            }
+            
+            const indicators = { 'days_left': '倒數天數', 'date': '發布日期', 'sector': '產業類別' };
+            document.getElementById('sort-indicator').innerText = `排序：${indicators[field]} ${currentSort.direction === 'asc' ? '▴' : '▾'}`;
+            
+            filterData();
+        }
+
         function renderList(data) {
             const listElement = document.getElementById('list');
             document.getElementById('display-count').innerText = `目前顯示 ${data.length} 家公司`;
@@ -139,23 +141,36 @@
                 return;
             }
 
-            // 按倒數天數排序 (無日期的放最後面)
+            // 執行排序
             const sortedData = [...data].sort((a, b) => {
-                const daysA = typeof a.days_left === 'number' ? a.days_left : 999;
-                const daysB = typeof b.days_left === 'number' ? b.days_left : 999;
-                return daysA - daysB;
+                let valA = a[currentSort.field];
+                let valB = b[currentSort.field];
+                if (typeof valA === 'string') {
+                    return currentSort.direction === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                }
+                return currentSort.direction === 'asc' ? (valA - valB) : (valB - valA);
             });
 
-            listElement.innerHTML = sortedData.map((c, index) => {
+            // 分頁切片
+            const start = (currentPage - 1) * pageSize;
+            const end = start + pageSize;
+            const pageData = sortedData.slice(start, end);
+
+            listElement.innerHTML = pageData.map((c, index) => {
                 let colorClass = "text-slate-800", bgClass = "bg-slate-100", countNumber = "--";
-                let statusLabel = "待定";
+                let statusLabel = "待定", badgeColor = "bg-slate-100 text-slate-600";
                 
                 if (typeof c.days_left === 'number') {
                     countNumber = c.days_left;
-                    if (c.days_left === 0) { colorClass = "text-white"; bgClass = "bg-rose-500"; statusLabel = "今日發布"; }
-                    else if (c.days_left <= 7) { colorClass = "text-rose-700"; bgClass = "bg-rose-50"; statusLabel = "緊急"; }
-                    else if (c.days_left <= 14) { colorClass = "text-amber-700"; bgClass = "bg-amber-50"; statusLabel = "接近"; }
-                    else { colorClass = "text-indigo-700"; bgClass = "bg-indigo-50"; statusLabel = "正常"; }
+                    if (c.days_left === 0) { 
+                        statusLabel = "今日發布"; badgeColor = "bg-rose-500 text-white"; 
+                    } else if (c.days_left <= 7) { 
+                        statusLabel = "緊急"; badgeColor = "bg-rose-100 text-rose-700"; 
+                    } else if (c.days_left <= 14) { 
+                        statusLabel = "接近"; badgeColor = "bg-amber-100 text-amber-700"; 
+                    } else { 
+                        statusLabel = "正常"; badgeColor = "bg-indigo-100 text-indigo-700"; 
+                    }
                 }
 
                 return `
@@ -166,9 +181,11 @@
                             <span class="text-[10px] font-bold text-slate-400 uppercase hidden sm:inline truncate w-24" title="${c.name}">${c.name}</span>
                         </div>
                         <div class="col-span-1 text-center text-[10px] font-bold text-slate-500 truncate" title="${c.sector}">${c.sector}</div>
-                        <div class="col-span-1 text-center font-bold text-slate-700 text-sm mt-2 md:mt-0">${c.date}</div>
+                        <div class="col-span-1 text-center font-bold text-slate-700 text-sm mt-2 md:mt-0">
+                            ${c.date} ${c.timing !== 'Unknown' ? `<span class="text-[9px] text-indigo-500 ml-1">${c.timing}</span>` : ''}
+                        </div>
                         <div class="col-span-1 text-center mt-2 md:mt-0">
-                            <span class="${bgClass} ${colorClass} px-3 py-1 rounded-full text-xs font-black">${countNumber} 天</span>
+                            <span class="${badgeColor} px-3 py-1 rounded-full text-xs font-black">${countNumber} 天</span>
                         </div>
                         <div class="col-span-1 text-center mt-1 md:mt-0">
                             <span class="text-[10px] font-bold text-slate-500">${statusLabel}</span>
@@ -179,17 +196,25 @@
                             </button>
                         </div>
                     </div>
-                    <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200">
-                        <!-- 延遲渲染區域 -->
-                    </div>
+                    <div id="history-${c.ticker}" class="history-panel bg-slate-100/50 border-t border-b border-slate-200"></div>
                 </div>`;
             }).join('');
+
+            // 更新分頁資訊
+            const totalPages = Math.ceil(data.length / pageSize);
+            document.getElementById('page-info').innerText = `Page ${currentPage} / ${totalPages}`;
+            document.getElementById('prev-page').disabled = (currentPage === 1);
+            document.getElementById('next-page').disabled = (currentPage === totalPages);
         }
 
-        // 獨立渲染歷史財報內容 (解決 Lazy Render 與 ExpandAll 衝突的核心)
+        function changePage(dir) {
+            currentPage += dir;
+            renderList(FILTERED_DATA);
+        }
+
         function renderHistoryContent(ticker) {
             const panel = document.getElementById('history-' + ticker);
-            if (!panel || panel.innerHTML.trim() !== '<!-- 延遲渲染區域 -->') return; // 已經渲染過就不再渲染
+            if (!panel || panel.innerHTML.trim() !== '') return;
 
             const company = ALL_DATA.find(c => c.ticker === ticker);
             if (!company) return;
@@ -213,16 +238,13 @@
             panel.innerHTML = historyHtml;
         }
 
-        // 點擊單個按鈕切換
         function toggleHistory(ticker) {
             const panel = document.getElementById('history-' + ticker);
             const btn = document.getElementById('button-' + ticker);
             const arrow = btn.querySelector('svg');
-            
             const isOpen = panel.classList.toggle('open');
-            
             if (isOpen) {
-                renderHistoryContent(ticker); // 執行延遲渲染
+                renderHistoryContent(ticker);
                 btn.innerHTML = '收起歷史財報 ▴';
                 btn.classList.replace('bg-slate-100', 'bg-indigo-100');
                 btn.classList.replace('text-slate-500', 'text-indigo-600');
@@ -235,31 +257,27 @@
             }
         }
 
-        // 過濾數據
         function filterData() {
             const search = document.getElementById('search-input').value.toLowerCase();
             const sector = document.getElementById('sector-filter').value;
-            
-            const filtered = ALL_DATA.filter(c => {
+            FILTERED_DATA = ALL_DATA.filter(c => {
                 const matchesSearch = c.ticker.toLowerCase().includes(search) || c.name.toLowerCase().includes(search);
                 const matchesSector = sector === 'all' || c.sector === sector;
                 return matchesSearch && matchesSector;
             });
-            renderList(filtered);
+            currentPage = 1; // 搜尋後回到第一頁
+            renderList(FILTERED_DATA);
         }
 
-        // 限制展開前 30 家，防止 DOM 爆炸
         function expandAll() {
             const panels = document.querySelectorAll('.history-panel');
             const limit = 30;
-            
             let count = 0;
             panels.forEach(panel => {
                 if (count < limit && !panel.classList.contains('open')) {
                     const ticker = panel.id.replace('history-', '');
                     panel.classList.add('open');
-                    renderHistoryContent(ticker); // 同步渲染內容
-                    
+                    renderHistoryContent(ticker);
                     const btn = document.getElementById('button-' + ticker);
                     if (btn) {
                         btn.innerHTML = '收起歷史財報 ▴';
@@ -271,10 +289,7 @@
                     count++;
                 }
             });
-            
-            if (panels.length > limit) {
-                alert(`為了維持網頁效能，僅展開最急迫的前 ${limit} 家公司。其餘請手動展開。`);
-            }
+            if (panels.length > limit) alert(`為了效能，僅展開前 ${limit} 家公司。`);
         }
 
         function collapseAll() {
@@ -286,19 +301,16 @@
             });
         }
 
-        // 初始化載入
         async function loadData() {
             try {
-                // 加上時間戳防止緩存
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
                 ALL_DATA = data.companies;
-                
+                FILTERED_DATA = [...ALL_DATA];
                 document.getElementById('update-time').innerText = "Last Updated: " + formatLocalTime(data.last_updated);
                 checkUpdateHealth(data.last_updated);
 
-                // 動態生成產業下拉選單
-                const sectors =[...new Set(ALL_DATA.map(c => c.sector))].sort();
+                const sectors = [...new Set(ALL_DATA.map(c => c.sector))].sort();
                 const sectorSelect = document.getElementById('sector-filter');
                 sectorSelect.innerHTML = '<option value="all">所有產業</option>';
                 sectors.forEach(s => {
@@ -309,12 +321,11 @@
                     }
                 });
 
-                renderList(ALL_DATA);
+                filterData();
             } catch (e) {
-                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">無法載入數據，可能 GitHub Action 尚未完成初次 S&P 500 同步...</div>';
+                document.getElementById('list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">無法載入數據...</div>';
             }
         }
-        
         loadData();
     </script>
 </body>
