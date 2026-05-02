@@ -102,45 +102,59 @@ def get_sec_history_final(session, ticker, cik):
         print(f"🔴 SEC CIK {cik} 錯誤: {e}")
     return history
 
+# ... (前面 get_session, get_quarter_label, get_sec_history 保持不變) ...
+
 def get_tracker_data():
-    """主控函數：整合 yfinance 與 SEC 數據"""
-    results =[]
+    try:
+        with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
+            companies_map = json.load(f)
+    except FileNotFoundError:
+        print(f"❌ 找不到 {MAPPING_FILE}")
+        return None
+
+    results = []
     today = date.today()
-    with requests.Session() as session:
-        for ticker, info in COMPANIES.items():
-            try:
-                # 獲取下次財報日
-                stock = yf.Ticker(ticker)
-                calendar = stock.calendar
-                final_date = None
-                
-                if calendar and 'Earnings Date' in calendar:
-                    potential_dates = calendar['Earnings Date']
-                    for d in potential_dates:
-                        d_date = d.date() if isinstance(d, datetime) else d
-                        if d_date >= today and d_date.year <= today.year + 1:
-                            final_date = d_date
-                            break
-                            
-                earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
-                days_remaining = (final_date - today).days if final_date else "N/A"
-                
-                # 獲取 SEC 歷史紀錄
-                sec_history = get_sec_history_final(session, ticker, info["cik"])
-                
-                time.sleep(0.1)  # 避免 SEC API 速率限制
-                
-                results.append({
-                    "ticker": ticker, 
-                    "name": info["name"], 
-                    "date": earnings_date_str,
-                    "days_left": days_remaining, 
-                    "history": sec_history
-                })
-                print(f"✅ {ticker} 同步成功")
-            except Exception as e:
-                print(f"❌ {ticker} 出錯: {e}")
+    session = get_session()
+    tickers = list(companies_map.keys())
+    
+    for index, ticker in enumerate(tickers):
+        info = companies_map[ticker]
+        try:
+            stock = yf.Ticker(ticker)
+            calendar = stock.calendar
+            final_date = None
+            if calendar and 'Earnings Date' in calendar:
+                potential_dates = calendar['Earnings Date']
+                for d in potential_dates:
+                    d_date = d.date() if isinstance(d, datetime) else d
+                    if d_date >= today and d_date.year <= today.year + 1:
+                        final_date = d_date
+                        break
+            
+            # 【對齊前端】：確保欄位名稱精準
+            earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
+            days_remaining = (final_date - today).days if final_date else "N/A"
+            
+            sec_history = get_sec_history(session, ticker, info["cik"], companies_map)
+            
+            results.append({
+                "ticker": ticker, 
+                "name": info["name"], 
+                "sector": info.get("sector", "Unknown"), # 必須有這個，否則篩選失效
+                "date": earnings_date_str,               # 前端使用 c.date
+                "days_left": days_remaining,             # 前端使用 c.days_left
+                "history": sec_history
+            })
+            
+            if (index + 1) % 20 == 0:
+                print(f"✅ 進度: {index+1}/{len(tickers)} | {ticker}")
+            time.sleep(0.12) 
+        except Exception as e:
+            print(f"❌ {ticker} 失敗: {e}")
+            
     return results
+
+# ... (main 部分保持不變) ...
 
 # ==========================================
 # 3. 執行入口 (Entry Point)
