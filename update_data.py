@@ -4,28 +4,16 @@ import requests
 import json
 import time
 from datetime import datetime, date, timezone
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 # ==========================================
-# 1. 核心配置區 (Configuration)
+# 1. 配置與常量
 # ==========================================
+MAPPING_FILE = 'sp500_mapping.json'
+OUTPUT_FILE = 'data.json'
 
-# 公司清單與財年結束月份 (fy_end)
-# fy_end = 12 (日曆年), 9 (蘋果), 6 (微軟), 1 (輝達)
-# 若要擴充追蹤公司，只需在此處新增字典項目即可，無需修改下方邏輯。
-COMPANIES = {
-    "NVDA": {"name": "輝達 (Nvidia)", "cik": "1045810", "fy_end": 1},
-    "AAPL": {"name": "蘋果 (Apple)", "cik": "320193", "fy_end": 9},
-    "MSFT": {"name": "微軟 (Microsoft)", "cik": "789019", "fy_end": 6},
-    "AMZN": {"name": "亞馬遜 (Amazon)", "cik": "1018724", "fy_end": 12},
-    "GOOGL": {"name": "Alphabet (Google)", "cik": "1652044", "fy_end": 12},
-    "META": {"name": "Meta (Facebook)", "cik": "1326801", "fy_end": 12},
-    "TSLA": {"name": "特斯拉 (Tesla)", "cik": "1318605", "fy_end": 12}
-}
-
-# 季度偏移量映射表 (Quarter Offset Mapping)
-# 鍵(Key): (報表月份 - 財年結束月份) % 12
-# 值(Value): 對應的財報季度
-# 加入相鄰月份(±1)作為容錯區間，處理跨月邊界問題
+# 財報季度對應表 (基於 報表月份 - 財年結束月份 的差值)
 QUARTER_MAPPING = {
     11: "Q4",  0: "Q4",  1: "Q4",
      2: "Q1",  3: "Q1",  4: "Q1",
@@ -34,47 +22,51 @@ QUARTER_MAPPING = {
 }
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
 }
 
 # ==========================================
-# 2. 核心邏輯區 (Core Functions)
+# 2. 核心邏輯
 # ==========================================
 
-def get_quarter_label(ticker, form_type, report_date_str):
-    """基於財年偏移量計算季度標籤 (Data-Driven Approach)"""
+def get_session():
+    """建立一個帶有自動重試機制的 Session，防禦 SEC 429 錯誤"""
+    session = requests.Session()
+    retry = Retry(
+        total=3, 
+        backoff_factor=1, 
+        status_forcelist=[429, 500, 502, 503, 504]
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount('http://', adapter)
+    session.mount('https://', adapter)
+    session.headers.update(HEADERS)
+    return session
+
+def get_quarter_label(ticker, companies_map, form_type, report_date_str):
     if not report_date_str:
         return "季報" if "10-Q" in form_type else "年報"
-    
     if "10-K" in form_type:
         return "Q4 / 年報 (10-K)"
-    
     try:
-        fy_end = COMPANIES.get(ticker, {}).get("fy_end", 12)
+        fy_end = companies_map.get(ticker, {}).get("fy_end", 12)
         report_month = int(report_date_str.split('-')[1])
-        
-        # 計算偏移量並查表
         diff = (report_month - fy_end) % 12
         quarter = QUARTER_MAPPING.get(diff, "Q?")
-        
         return f"{quarter} 季報 (10-Q)"
-    except Exception as e:
-        print(f"標籤計算錯誤 {ticker}: {e}")
+    except:
         return "季報 (10-Q)"
 
-def get_sec_history_final(session, ticker, cik):
-    """獲取 SEC 歷史申報文件"""
+def get_sec_history(session, ticker, cik, companies_map):
     history =[]
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
-        res = session.get(url, headers=HEADERS, timeout=15)
-        
+        res = session.get(url, timeout=15)
         if res.status_code == 200:
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
-            forms = filings.get("form", [])
-            
+            forms = filings.get("form",[])
             for i in range(len(forms)):
                 form_type = forms[i]
                 if "10-Q" in form_type or "10-K" in form_type:
@@ -83,43 +75,40 @@ def get_sec_history_final(session, ticker, cik):
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
                     
-                    display_form = get_quarter_label(ticker, form_type, report_date)
-                    if "/A" in form_type: 
-                        display_form += " (修正)"
+                    display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
+                    if "/A" in form_type: display_form += " (修正)"
                     
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
                     ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
                     
-                    history.append({
-                        "type": display_form, 
-                        "date": filing_date, 
-                        "html_url": html_url, 
-                        "ix_url": ix_url
-                    })
-                    if len(history) == 5: 
-                        break
+                    history.append({"type": display_form, "date": filing_date, "html_url": html_url, "ix_url": ix_url})
+                    if len(history) == 5: break
     except Exception as e:
-        print(f"🔴 SEC CIK {cik} 錯誤: {e}")
+        print(f"🔴 SEC Error {ticker}: {e}")
     return history
 
-# ... (前面 get_session, get_quarter_label, get_sec_history 保持不變) ...
-
 def get_tracker_data():
+    # 1. 載入 S&P 500 快取庫
     try:
         with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
             companies_map = json.load(f)
     except FileNotFoundError:
-        print(f"❌ 找不到 {MAPPING_FILE}")
+        print(f"❌ 找不到 {MAPPING_FILE}，請先執行 build_cache.py 生成快取檔案")
         return None
 
-    results = []
+    results =[]
     today = date.today()
     session = get_session()
-    tickers = list(companies_map.keys())
     
+    tickers = list(companies_map.keys())
+    total = len(tickers)
+    
+    print(f"🚀 開始同步 {total} 家公司數據...")
+
     for index, ticker in enumerate(tickers):
         info = companies_map[ticker]
         try:
+            # yfinance 抓取財報預計日期
             stock = yf.Ticker(ticker)
             calendar = stock.calendar
             final_date = None
@@ -131,44 +120,44 @@ def get_tracker_data():
                         final_date = d_date
                         break
             
-            # 【對齊前端】：確保欄位名稱精準
+            # 對齊前端所需欄位
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
             
+            # SEC 抓取歷史財報
             sec_history = get_sec_history(session, ticker, info["cik"], companies_map)
             
             results.append({
                 "ticker": ticker, 
                 "name": info["name"], 
-                "sector": info.get("sector", "Unknown"), # 必須有這個，否則篩選失效
-                "date": earnings_date_str,               # 前端使用 c.date
-                "days_left": days_remaining,             # 前端使用 c.days_left
+                "sector": info.get("sector", "Unknown"), 
+                "date": earnings_date_str,
+                "days_left": days_remaining, 
                 "history": sec_history
             })
             
             if (index + 1) % 20 == 0:
-                print(f"✅ 進度: {index+1}/{len(tickers)} | {ticker}")
-            time.sleep(0.12) 
+                print(f"✅ 進度: {index+1}/{total} | 當前完成: {ticker}")
+            
+            time.sleep(0.12) # 遵守 SEC 速率限制，防止封鎖
+            
         except Exception as e:
             print(f"❌ {ticker} 失敗: {e}")
             
     return results
 
-# ... (main 部分保持不變) ...
-
-# ==========================================
-# 3. 執行入口 (Entry Point)
-# ==========================================
 if __name__ == "__main__":
     start_time = time.time()
-    
     data = get_tracker_data()
-    output = {
-        "last_updated": datetime.now(timezone.utc).isoformat(),
-        "companies": data
-    }
     
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(output, f, ensure_ascii=False, indent=4)
-    
-    print(f"🚀 全部更新完成，耗時: {time.time() - start_time:.2f} 秒")
+    if data:
+        output = {
+            "last_updated": datetime.now(timezone.utc).isoformat(),
+            "companies": data
+        }
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            # 移除 indent 以壓縮 JSON 體積，提升前端載入速度
+            json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
+        print(f"🚀 更新完成！共同步 {len(data)} 家公司。耗時: {time.time() - start_time:.2f} 秒")
+    else:
+        print("❌ 數據同步失敗，未產生 data.json")
