@@ -35,21 +35,21 @@ def get_quarter_label(ticker, form_type, report_date_str):
         # 獲取報表結束月份
         report_month = int(report_date_str.split('-')[1])
         
-        # 計算季度：(報表月 - 財年結束月) % 12 
-        # 例子 AAPL (fy_end=9): 
-        # 12月報表: (12-9)%12 = 3 -> 3/3+1 = Q2 (不對, 應為 Q1)
-        # 修正邏輯：
-        # 財年結束月 = Q4
-        # 結束月-3 = Q3
-        # 結束月-6 = Q2
-        # 結束月-9 = Q1
-        
+        # 核心計算：報表月份距離財年結束過了幾個月？
         diff = (report_month - fy_end) % 12
-        if diff == 0: quarter = "Q4"
-        elif diff == 9: quarter = "Q1"
-        elif diff == 6: quarter = "Q2"
-        elif diff == 3: quarter = "Q3"
-        else: quarter = "Q?" # 兜底處理
+        
+        # 【數學邏輯修正與容錯優化】
+        # 使用區間判斷，防止財報結束日跨月 (例如 12月31日 變成 1月1日)
+        if diff in [2, 3, 4]:
+            quarter = "Q1"  # 距離財年結束過約 3 個月 -> Q1
+        elif diff in [5, 6, 7]:
+            quarter = "Q2"  # 距離財年結束過約 6 個月 -> Q2
+        elif diff in[8, 9, 10]:
+            quarter = "Q3"  # 距離財年結束過約 9 個月 -> Q3
+        elif diff in [11, 0, 1]:
+            quarter = "Q4"  # 剛好在財年結束月附近 -> Q4
+        else:
+            quarter = "Q?" # 兜底處理
 
         return f"{quarter} 季報 (10-Q)"
     except Exception as e:
@@ -57,8 +57,7 @@ def get_quarter_label(ticker, form_type, report_date_str):
         return "季報 (10-Q)"
 
 def get_sec_history_final(session, ticker, cik):
-    """優化：傳入 ticker 以便計算正確的季度標籤"""
-    history = []
+    history =[]
     padded_cik = cik.zfill(10)
     try:
         url = f"https://data.sec.gov/submissions/CIK{padded_cik}.json"
@@ -67,7 +66,7 @@ def get_sec_history_final(session, ticker, cik):
         if res.status_code == 200:
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
-            forms = filings.get("form", [])
+            forms = filings.get("form",[])
             for i in range(len(forms)):
                 form_type = forms[i]
                 if "10-Q" in form_type or "10-K" in form_type:
@@ -76,7 +75,6 @@ def get_sec_history_final(session, ticker, cik):
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
                     
-                    # 【關鍵修改】傳入 ticker
                     display_form = get_quarter_label(ticker, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
                     
@@ -90,7 +88,7 @@ def get_sec_history_final(session, ticker, cik):
     return history
 
 def get_tracker_data():
-    results = []
+    results =[]
     today = date.today()
     with requests.Session() as session:
         for ticker, info in COMPANIES.items():
@@ -108,7 +106,6 @@ def get_tracker_data():
                 earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
                 days_remaining = (final_date - today).days if final_date else "N/A"
                 
-                # 【關鍵修改】傳入 ticker
                 sec_history = get_sec_history_final(session, ticker, info["cik"])
                 
                 time.sleep(0.1) 
