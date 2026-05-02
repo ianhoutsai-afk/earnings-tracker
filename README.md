@@ -10,7 +10,7 @@ An institutional-grade, fully automated monitoring system for S&P 500 corporate 
 
 ---
 
-## 🇬🇧 English Version
+## English Version
 
 ### ✨ Key Features
 - **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, moving beyond a limited set to provide a comprehensive market view.
@@ -44,7 +44,7 @@ The S&P 500 constituents change infrequently. If you notice a missing company, s
 
 ---
 
-## 🇨🇳 中文版本
+## 中文版本
 
 ### ✨ 核心功能
 - **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
