@@ -4,7 +4,7 @@ import requests
 import json
 import time
 import pandas as pd
-from datetime import datetime, date, timezone
+from datetime import datetime, date, timezone, timedelta # 🌟 已修正：加入 timedelta
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -135,8 +135,8 @@ def get_sec_history(session, ticker, cik, companies_map, hist_data):
                     display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_//doc_name}"
-                    reaction = get_price_reaction(ticker, filing_date, hist_data)
+                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
+                    reaction = get_price_//get_price_reaction(ticker, filing_date, hist_data)
                     history.append({"type": display_form, "date": filing_date, "reaction": reaction, "html_url": html_url, "ix_url": ix_url})
                     if len(history) == 5: break
     except Exception as e:
@@ -157,7 +157,7 @@ def get_tracker_data():
     try:
         bulk_data = yf.download(tickers, period="2y", interval="1d", progress=False)
         hist_data = bulk_data['Close'] if 'Close' in bulk_data else bulk_data
-        if hasattr(hist_data.index, 'tz_localize'): hist_data.index = hist_//hist_data.index.tz_localize(None)
+        if hasattr(hist_data.index, 'tz_localize'): hist_data.index = hist_data.index.tz_localize(None)
     except:
         hist_data = None
 
@@ -197,11 +197,11 @@ def get_tracker_data():
 
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            sec_history = get_sec_//get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
+            sec_history = get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
             
             results.append({
                 "ticker": ticker, "name": info["name"], "sector": info.get("sector", "Unknown"),
-                "date": earnings_date_str, "days_left": days_//days_remaining, "timing": timing, "history": sec_history
+                "date": earnings_date_str, "days_left": days_remaining, "timing": timing, "history": sec_history
             })
             if (index + 1) % 20 == 0: print(f"✅ 進度: {index+1}/{total}")
             time.sleep(0.12) 
@@ -211,10 +211,8 @@ def get_tracker_data():
     return results, errors
 
 if __name__ == "__main__":
-    from datetime import timedelta
     start_time = time.time()
-    data, errors = get_//get_tracker_data()
-    
+    data, errors = get_tracker_data()
     if data:
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
@@ -223,8 +221,5 @@ if __name__ == "__main__":
         }
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-        
-        # 🌟 執行 Telegram 通知推送
         send_telegram_notification(data)
-        
-        print(f"🚀 更新完成！同步 {len(data)} 家。總耗時: {time.time() - start_time:.2f} 秒")
+        print(f"🚀 更新完成！耗時: {time.time() - start_time:.2f} 秒")
