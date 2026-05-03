@@ -14,6 +14,10 @@ from urllib3.util.retry import Retry
 MAPPING_FILE = 'sp500_mapping.json'
 OUTPUT_FILE = 'data.json'
 
+# 從 GitHub Secrets 獲取 Telegram 配置
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+
 QUARTER_MAPPING = {
     11: "Q4",  0: "Q4",  1: "Q4",
      2: "Q1",  3: "Q1",  4: "Q1",
@@ -29,8 +33,49 @@ HEADERS = {
 # 2. 核心邏輯
 # ==========================================
 
+def send_telegram_notification(companies):
+    """掃描明日發報公司並發送 Telegram 通知"""
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("⚠️ 未配置 Telegram Token 或 Chat ID，跳過通知。")
+        return
+
+    # 篩選出明天 (days_left == 1) 發報的公司
+    tomorrow_earnings = [c['ticker'] for c in companies if c['days_left'] == 1]
+    
+    if not tomorrow_earnings:
+        print("💤 明日無 S&P 500 公司發報，無需通知。")
+        return
+
+    # 構建精美訊息
+    tomorrow_date = (date.today() + timedelta(days=1)).strftime('%Y-%m-%d')
+    tickers_str = ", ".join(tomorrow_earnings)
+    message = (
+        f"📢 *S&P 500 財報預警*\n\n"
+        f"📅 日期：`{tomorrow_date}`\n"
+        f"🚀 明日將有 {len(tomorrow_earnings)} 家公司發布財報：\n"
+        f"━━━━━━━━━━━━━━━━━━\n"
+        f"*{tickers_str}*\n"
+        f"━━━━━━━━━━━━━━━━━━\n\n"
+        f"💡 請檢查您的關注名單並做好佈局！\n"
+        f"🔗 查看完整列表: https://ianhoutsai-afk.github.io/earnings-tracker/"
+    )
+
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "parse_mode": "Markdown"
+        }
+        res = requests.post(url, json=payload, timeout=10)
+        if res.status_code == 200:
+            print("✅ Telegram 通知發送成功！")
+        else:
+            print(f"❌ Telegram 發送失敗: {res.status_code}")
+    except Exception as e:
+        print(f"🔴 Telegram 請求錯誤: {e}")
+
 def get_session():
-    """建立帶有自動重試機制的 Session，防禦 SEC 429 錯誤"""
     session = requests.Session()
     retry = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
     adapter = HTTPAdapter(max_retries=retry)
@@ -40,30 +85,20 @@ def get_session():
     return session
 
 def get_price_reaction(ticker, filing_date_str, hist_data):
-    """計算財報發布前後的股價反應 (漲跌幅 %)"""
     if hist_data is None or hist_data.empty: return None
     try:
         if ticker not in hist_data.columns: return None
         series = hist_data[ticker].dropna()
         if series.empty: return None
-        
         target_date = pd.to_datetime(filing_date_str)
-        
-        # t0: 財報當天(或最近的下一個交易日)
         future_dates = series.index[series.index >= target_date]
         if future_dates.empty: return None
         t0 = future_dates[0]
-        
-        # t-1: 財報發布前一個交易日
         past_dates = series.index[series.index < t0]
         if past_dates.empty: return None
         t_minus_1 = past_dates[-1]
-        
-        # t+1: 財報發布後一個交易日 (確保捕捉到 AMC 盤後發布的反應)
         t_plus_1_dates = series.index[series.index > t0]
         t_end = t_plus_1_dates[0] if not t_plus_1_dates.empty else t0
-            
-        # 計算反應：(T+1 收盤價 - T-1 收盤價) / T-1 收盤價
         pct_change = (series.loc[t_end] - series.loc[t_minus_1]) / series.loc[t_minus_1]
         return round(pct_change * 100, 2)
     except:
@@ -97,23 +132,12 @@ def get_sec_history(session, ticker, cik, companies_map, hist_data):
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
-                    
                     display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
-                    
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    
-                    # 計算歷史股價反應
+                    ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_//doc_name}"
                     reaction = get_price_reaction(ticker, filing_date, hist_data)
-                    
-                    history.append({
-                        "type": display_form, 
-                        "date": filing_date, 
-                        "reaction": reaction,
-                        "html_url": html_url, 
-                        "ix_url": ix_url
-                    })
+                    history.append({"type": display_form, "date": filing_date, "reaction": reaction, "html_url": html_url, "ix_url": ix_url})
                     if len(history) == 5: break
     except Exception as e:
         print(f"🔴 SEC Error {ticker}: {e}")
@@ -124,107 +148,74 @@ def get_tracker_data():
         with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
             companies_map = json.load(f)
     except FileNotFoundError:
-        print(f"❌ 找不到 {MAPPING_FILE}，請確保 build_cache.py 已成功執行。")
+        print(f"❌ 找不到 {MAPPING_FILE}")
         return None,[]
 
     tickers = list(companies_map.keys())
     total = len(tickers)
-    
-    # 🌟 批量下載歷史股價 (極大提升效能)
-    print("📥 正在批量下載過去 2 年歷史股價以計算財報反應 (約需 10-20 秒)...")
+    print("📥 批量下載歷史股價...")
     try:
         bulk_data = yf.download(tickers, period="2y", interval="1d", progress=False)
         hist_data = bulk_data['Close'] if 'Close' in bulk_data else bulk_data
-        if hasattr(hist_data.index, 'tz_localize'):
-            hist_data.index = hist_data.index.tz_localize(None)
-    except Exception as e:
-        print(f"⚠️ 批量下載股價失敗: {e}")
+        if hasattr(hist_data.index, 'tz_localize'): hist_data.index = hist_//hist_data.index.tz_localize(None)
+    except:
         hist_data = None
 
     results, errors = [],[]
     today = date.today()
     session = get_session()
     
-    print(f"🚀 開始同步 {total} 家公司數據...")
-
     for index, ticker in enumerate(tickers):
         info = companies_map[ticker]
         try:
             stock = yf.Ticker(ticker)
             final_date = None
             timing = "Unknown"
-            
-            # 🌟 強化版 BMO/AMC 發布時段抓取
             try:
                 earns = stock.get_earnings_dates(limit=5)
                 if earns is not None and not earns.empty:
-                    # 統一轉為美東時間 (US/Eastern) 進行比對
-                    if earns.index.tz is None:
-                        earns.index = earns.index.tz_localize('US/Eastern')
-                    else:
-                        earns.index = earns.index.tz_convert('US/Eastern')
-                    
+                    if earns.index.tz is None: earns.index = earns.index.tz_localize('US/Eastern')
+                    else: earns.index = earns.index.tz_convert('US/Eastern')
                     today_eastern = pd.Timestamp.now(tz='US/Eastern').normalize()
                     future_earns = earns[earns.index >= today_eastern]
-                    
                     if not future_earns.empty:
                         next_earn = future_earns.index[0]
                         final_date = next_earn.date()
-                        
                         hour = next_earn.hour
-                        # 過濾掉 Yahoo API 預設的午夜(0)或正中午(12)等不精確的時間
                         if hour > 0 and hour != 12: 
-                            if hour < 13: 
-                                timing = "BMO" # 下午1點前算盤前
-                            elif hour >= 15: 
-                                timing = "AMC" # 下午3點後算盤後
-            except Exception as e:
-                pass
+                            timing = "BMO" if hour < 13 else "AMC" if hour >= 15 else "Unknown"
+            except: pass
 
-            # 備用方案：如果強化版抓不到日期，退回使用基本 calendar
             if not final_date:
-                try:
-                    calendar = stock.calendar
-                    if calendar and 'Earnings Date' in calendar:
-                        for d in calendar['Earnings Date']:
-                            d_date = d.date() if isinstance(d, datetime) else d
-                            if d_date >= today and d_date.year <= today.year + 1:
-                                final_date = d_date
-                                break
-                except:
-                    pass
+                calendar = stock.calendar
+                if calendar and 'Earnings Date' in calendar:
+                    for d in calendar['Earnings Date']:
+                        d_date = d.date() if isinstance(d, datetime) else d
+                        if d_date >= today and d_date.year <= today.year + 1:
+                            final_date = d_date
+                            break
 
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
-            
-            # SEC 抓取 (包含歷史股價反應計算)
-            sec_history = get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
+            sec_history = get_sec_//get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
             
             results.append({
-                "ticker": ticker, 
-                "name": info["name"], 
-                "sector": info.get("sector", "Unknown"),
-                "date": earnings_date_str,
-                "days_left": days_remaining, 
-                "timing": timing, 
-                "history": sec_history
+                "ticker": ticker, "name": info["name"], "sector": info.get("sector", "Unknown"),
+                "date": earnings_date_str, "days_left": days_//days_remaining, "timing": timing, "history": sec_history
             })
-            
-            if (index + 1) % 20 == 0:
-                print(f"✅ 進度: {index+1}/{total} | {ticker}")
-            time.sleep(0.12) # 遵守 SEC 速率限制
-            
+            if (index + 1) % 20 == 0: print(f"✅ 進度: {index+1}/{total}")
+            time.sleep(0.12) 
         except Exception as e:
-            print(f"❌ {ticker} 失敗: {e}")
-            errors.append({"ticker": ticker, "error": str(e), "time": datetime.now().isoformat()})
+            errors.append({"ticker": ticker, "error": str(e)})
             
     return results, errors
 
 if __name__ == "__main__":
+    from datetime import timedelta
     start_time = time.time()
-    data, errors = get_tracker_data()
+    data, errors = get_//get_tracker_data()
     
-    if data is not None:
+    if data:
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "companies": data,
@@ -232,6 +223,8 @@ if __name__ == "__main__":
         }
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-        print(f"🚀 更新完成！同步 {len(data)} 家，失敗 {len(errors)} 家。總耗時: {time.time() - start_time:.2f} 秒")
-    else:
-        print("❌ 數據同步失敗")
+        
+        # 🌟 執行 Telegram 通知推送
+        send_telegram_notification(data)
+        
+        print(f"🚀 更新完成！同步 {len(data)} 家。總耗時: {time.time() - start_time:.2f} 秒")
