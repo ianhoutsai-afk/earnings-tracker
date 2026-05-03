@@ -89,7 +89,7 @@ def get_sec_history(session, ticker, cik, companies_map, hist_data):
         if res.status_code == 200:
             data = res.json()
             filings = data.get("filings", {}).get("recent", {})
-            forms = filings.get("form", [])
+            forms = filings.get("form",[])
             for i in range(len(forms)):
                 form_type = forms[i]
                 if "10-Q" in form_type or "10-K" in form_type:
@@ -130,7 +130,7 @@ def get_tracker_data():
     tickers = list(companies_map.keys())
     total = len(tickers)
     
-    # 🌟 批量下載歷史股價 (極大提升效能，避免逐一請求 API)
+    # 🌟 批量下載歷史股價 (極大提升效能)
     print("📥 正在批量下載過去 2 年歷史股價以計算財報反應 (約需 10-20 秒)...")
     try:
         bulk_data = yf.download(tickers, period="2y", interval="1d", progress=False)
@@ -154,32 +154,45 @@ def get_tracker_data():
             final_date = None
             timing = "Unknown"
             
-            # 獲取 BMO/AMC 發布時段與日期
+            # 🌟 強化版 BMO/AMC 發布時段抓取
             try:
                 earns = stock.get_earnings_dates(limit=5)
                 if earns is not None and not earns.empty:
-                    # 去除時區以便比對
-                    if hasattr(earns.index, 'tz_localize'):
-                        earns.index = earns.index.tz_localize(None)
-                    future_earns = earns[earns.index >= pd.Timestamp(today)]
+                    # 統一轉為美東時間 (US/Eastern) 進行比對
+                    if earns.index.tz is None:
+                        earns.index = earns.index.tz_localize('US/Eastern')
+                    else:
+                        earns.index = earns.index.tz_convert('US/Eastern')
+                    
+                    today_eastern = pd.Timestamp.now(tz='US/Eastern').normalize()
+                    future_earns = earns[earns.index >= today_eastern]
+                    
                     if not future_earns.empty:
                         next_earn = future_earns.index[0]
                         final_date = next_earn.date()
-                        # 解析時間判定盤前盤後
-                        if next_earn.hour < 12: timing = "BMO"
-                        elif next_earn.hour >= 15: timing = "AMC"
-            except:
+                        
+                        hour = next_earn.hour
+                        # 過濾掉 Yahoo API 預設的午夜(0)或正中午(12)等不精確的時間
+                        if hour > 0 and hour != 12: 
+                            if hour < 13: 
+                                timing = "BMO" # 下午1點前算盤前
+                            elif hour >= 15: 
+                                timing = "AMC" # 下午3點後算盤後
+            except Exception as e:
                 pass
 
-            # 備用方案：若 get_earnings_dates 失敗，退回使用 calendar
+            # 備用方案：如果強化版抓不到日期，退回使用基本 calendar
             if not final_date:
-                calendar = stock.calendar
-                if calendar and 'Earnings Date' in calendar:
-                    for d in calendar['Earnings Date']:
-                        d_date = d.date() if isinstance(d, datetime) else d
-                        if d_date >= today and d_date.year <= today.year + 1:
-                            final_date = d_date
-                            break
+                try:
+                    calendar = stock.calendar
+                    if calendar and 'Earnings Date' in calendar:
+                        for d in calendar['Earnings Date']:
+                            d_date = d.date() if isinstance(d, datetime) else d
+                            if d_date >= today and d_date.year <= today.year + 1:
+                                final_date = d_date
+                                break
+                except:
+                    pass
 
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
             days_remaining = (final_date - today).days if final_date else "N/A"
