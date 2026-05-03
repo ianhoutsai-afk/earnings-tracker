@@ -44,13 +44,12 @@
             </div>
             <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center">
                 <div id="stat-total" class="text-4xl font-black text-indigo-500 dark:text-indigo-400">0</div>
-                <div class="text-xs font-bold text-slate-400 dark:text-slate-500 mt-2 uppercase tracking-widest">🏛️ 追蹤公司總數</div>
+                <div class="text-xs font-bold text-slate-400 dark:text-slate-500 mt-2 uppercase tracking-widest">🏛️ 追蹤總數</div>
             </div>
         </div>
 
-        <!-- 🚀 全局控制面板 (Universal Control Panel) -->
+        <!-- 🚀 全局控制面板 -->
         <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 mb-6 flex flex-col gap-4">
-            
             <!-- 上排：搜尋與篩選 -->
             <div class="flex flex-col md:flex-row gap-3 w-full">
                 <div class="relative flex-grow">
@@ -74,7 +73,6 @@
 
             <!-- 下排：排序與全局操作 -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <!-- 獨立下拉排序 -->
                 <div class="flex items-center gap-2 w-full sm:w-auto">
                     <svg class="w-4 h-4 text-indigo-500 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path></svg>
                     <select id="sort-select" onchange="filterData()" class="w-full sm:w-auto px-3 py-2 bg-transparent border-0 text-xs font-bold text-slate-700 dark:text-slate-200 outline-none focus:ring-0 cursor-pointer">
@@ -262,6 +260,14 @@
                     else { statusLabel = "正常"; badgeColor = "bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-400"; }
                 }
 
+                // 🌟 BMO / AMC 友善圖標轉換
+                let timingBadge = '';
+                if (c.timing === 'BMO') {
+                    timingBadge = `<span class="text-[10px] text-amber-600 dark:text-amber-400 ml-1 bg-amber-50 dark:bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-500/30 whitespace-nowrap">☀️ 盤前</span>`;
+                } else if (c.timing === 'AMC') {
+                    timingBadge = `<span class="text-[10px] text-indigo-600 dark:text-indigo-400 ml-1 bg-indigo-50 dark:bg-indigo-500/10 px-1.5 py-0.5 rounded border border-indigo-200 dark:border-indigo-500/30 whitespace-nowrap">🌙 盤後</span>`;
+                }
+
                 const isFav = WATCHLIST.includes(c.ticker);
                 const starIcon = isFav 
                     ? `<svg class="w-5 h-5 text-amber-400 fill-current drop-shadow-sm" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
@@ -288,9 +294,9 @@
                             <span class="md:hidden text-slate-400 mr-1">產業:</span>${c.sector}
                         </div>
 
-                        <div class="col-span-2 md:text-center font-bold text-slate-700 dark:text-slate-200 text-sm w-full">
+                        <div class="col-span-2 flex items-center md:justify-center font-bold text-slate-700 dark:text-slate-200 text-sm w-full">
                             <span class="md:hidden text-[11px] text-slate-400 font-normal mr-1">日期:</span>
-                            ${c.date} ${c.timing && c.timing !== 'Unknown' ? `<span class="text-[9px] text-indigo-500 dark:text-indigo-400 ml-1 bg-indigo-50 dark:bg-indigo-500/10 px-1 rounded border border-indigo-100 dark:border-indigo-500/20">${c.timing}</span>` : ''}
+                            ${c.date} ${timingBadge}
                         </div>
 
                         <div class="col-span-2 hidden md:flex flex-col items-center justify-center">
@@ -325,31 +331,17 @@
             let historyHtml = '<p class="text-xs text-slate-400 dark:text-slate-500 p-6 text-center">暫無歷史財報數據</p>';
             if (company.history && company.history.length > 0) {
                 historyHtml = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4">
-                    ${company.history.map(h => {
-                        let reactionHtml = '<span class="text-slate-300 dark:text-slate-600">-</span>';
-                        if (typeof h.reaction === 'number') {
-                            const isPos = h.reaction > 0;
-                            const colClass = isPos ? 'text-emerald-500 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400';
-                            const icon = isPos ? '📈' : '📉';
-                            const sign = isPos ? '+' : '';
-                            reactionHtml = `<span class="${colClass} font-black drop-shadow-sm flex items-center gap-1">${icon} ${sign}${h.reaction}%</span>`;
-                        }
-
-                        return `
+                    ${company.history.map(h => `
                         <div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm hover:border-indigo-200 dark:hover:border-indigo-500/50 transition-colors">
-                            <div class="flex flex-col gap-1">
-                                <div class="flex items-center gap-2">
-                                    <p class="text-[11px] font-bold text-slate-700 dark:text-slate-200">${h.type}</p>
-                                    <div class="text-[11px]">${reactionHtml}</div>
-                                </div>
-                                <p class="text-[9px] text-slate-400 dark:text-slate-500">發布於 ${h.date}</p>
+                            <div>
+                                <p class="text-[11px] font-bold text-slate-700 dark:text-slate-200">${h.type}</p>
+                                <p class="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5">發布於 ${h.date}</p>
                             </div>
                             <div class="flex gap-1">
                                 <a href="${h.html_url}" target="_blank" class="px-2 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">📱 手機</a>
                                 <a href="${h.ix_url}" target="_blank" class="px-2 py-1.5 bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-lg text-[10px] font-bold hover:bg-indigo-100 dark:hover:bg-indigo-500/40 transition-colors">💻 電腦</a>
                             </div>
-                        </div>`;
-                    }).join('')}
+                        </div>`).join('')}
                 </div>`;
             }
             const shareUrl = `${window.location.origin}${window.location.pathname}?ticker=${ticker}`;
@@ -386,6 +378,7 @@
         function filterData() {
             const search = document.getElementById('search-input').value.toLowerCase();
             const sector = document.getElementById('sector-filter').value;
+            
             FILTERED_DATA = ALL_DATA.filter(c => {
                 const matchesSearch = c.ticker.toLowerCase().includes(search) || c.name.toLowerCase().includes(search);
                 const matchesSector = sector === 'all' || c.sector === sector;
@@ -450,7 +443,7 @@
                 const res = await fetch('./data.json?t=' + new Date().getTime());
                 const data = await res.json();
                 ALL_DATA = data.companies;
-                FILTERED_DATA = [...ALL_DATA];
+                FILTERED_DATA =[...ALL_DATA];
                 
                 document.getElementById('update-time').innerText = "Last Updated: " + formatLocalTime(data.last_updated);
                 updateDashboardStats(ALL_DATA); 
