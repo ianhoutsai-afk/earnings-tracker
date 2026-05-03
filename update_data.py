@@ -82,26 +82,6 @@ def get_session():
     session.headers.update(HEADERS)
     return session
 
-def get_price_reaction(ticker, filing_date_str, hist_data):
-    if hist_data is None or hist_data.empty: return None
-    try:
-        if ticker not in hist_data.columns: return None
-        series = hist_data[ticker].dropna()
-        if series.empty: return None
-        target_date = pd.to_datetime(filing_date_str)
-        future_dates = series.index[series.index >= target_date]
-        if future_dates.empty: return None
-        t0 = future_dates[0]
-        past_dates = series.index[series.index < t0]
-        if past_dates.empty: return None
-        t_minus_1 = past_dates[-1]
-        t_plus_1_dates = series.index[series.index > t0]
-        t_end = t_plus_1_dates[0] if not t_plus_1_dates.empty else t0
-        pct_change = (series.loc[t_end] - series.loc[t_minus_1]) / series.loc[t_minus_1]
-        return round(pct_change * 100, 2)
-    except:
-        return None
-
 def get_quarter_label(ticker, companies_map, form_type, report_date_str):
     if not report_date_str: return "季報" if "10-Q" in form_type else "年報"
     if "10-K" in form_type: return "Q4 / 年報 (10-K)"
@@ -113,7 +93,7 @@ def get_quarter_label(ticker, companies_map, form_type, report_date_str):
     except:
         return "季報 (10-Q)"
 
-def get_sec_history(session, ticker, cik, companies_map, hist_data):
+def get_sec_history(session, ticker, cik, companies_map):
     history =[]
     padded_cik = cik.zfill(10)
     try:
@@ -130,13 +110,19 @@ def get_sec_history(session, ticker, cik, companies_map, hist_data):
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
+                    
                     display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
+                    
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
                     ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    # 已修復亂碼變數
-                    reaction = get_price_reaction(ticker, filing_date, hist_data)
-                    history.append({"type": display_form, "date": filing_date, "reaction": reaction, "html_url": html_url, "ix_url": ix_url})
+                    
+                    history.append({
+                        "type": display_form, 
+                        "date": filing_date, 
+                        "html_url": html_url, 
+                        "ix_url": ix_url
+                    })
                     if len(history) == 5: break
     except Exception as e:
         print(f"🔴 SEC Error {ticker}: {e}")
@@ -152,26 +138,19 @@ def get_tracker_data():
 
     tickers = list(companies_map.keys())
     total = len(tickers)
-    print("📥 批量下載歷史股價...")
-    try:
-        bulk_data = yf.download(tickers, period="2y", interval="1d", progress=False)
-        hist_data = bulk_data['Close'] if 'Close' in bulk_data else bulk_data
-        if hasattr(hist_data.index, 'tz_localize'): 
-            # 已修復亂碼變數
-            hist_data.index = hist_data.index.tz_localize(None)
-    except:
-        hist_data = None
-
     results, errors = [],[]
     today = date.today()
     session = get_session()
     
+    print(f"🚀 開始同步 {total} 家公司數據...")
+
     for index, ticker in enumerate(tickers):
         info = companies_map[ticker]
         try:
             stock = yf.Ticker(ticker)
             final_date = None
             timing = "Unknown"
+            
             try:
                 earns = stock.get_earnings_dates(limit=5)
                 if earns is not None and not earns.empty:
@@ -188,19 +167,19 @@ def get_tracker_data():
             except: pass
 
             if not final_date:
-                calendar = stock.calendar
-                if calendar and 'Earnings Date' in calendar:
-                    for d in calendar['Earnings Date']:
-                        d_date = d.date() if isinstance(d, datetime) else d
-                        if d_date >= today and d_date.year <= today.year + 1:
-                            final_date = d_date
-                            break
+                try:
+                    calendar = stock.calendar
+                    if calendar and 'Earnings Date' in calendar:
+                        for d in calendar['Earnings Date']:
+                            d_date = d.date() if isinstance(d, datetime) else d
+                            if d_date >= today and d_date.year <= today.year + 1:
+                                final_date = d_date
+                                break
+                except: pass
 
             earnings_date_str = final_date.strftime('%Y-%m-%d') if final_date else "官方公佈中"
-            # 已修復亂碼變數
             days_remaining = (final_date - today).days if final_date else "N/A"
-            # 已修復亂碼變數
-            sec_history = get_sec_history(session, ticker, info["cik"], companies_map, hist_data)
+            sec_history = get_sec_history(session, ticker, info["cik"], companies_map)
             
             results.append({
                 "ticker": ticker, 
@@ -220,8 +199,8 @@ def get_tracker_data():
 
 if __name__ == "__main__":
     start_time = time.time()
-    # 已修復亂碼變數
     data, errors = get_tracker_data()
+    
     if data:
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
@@ -230,5 +209,21 @@ if __name__ == "__main__":
         }
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-        send_telegram_notification(data)
+            
+        # 🌟 Telegram 通知頻率控制邏輯
+        current_utc_hour = datetime.now(timezone.utc).hour
+        event_name = os.environ.get('GITHUB_EVENT_NAME', '')
+        
+        # UTC 1~2點 相當於亞洲時間的早上 9~10點左右
+        is_morning_run = current_utc_hour in[1, 2]
+        is_manual_trigger = (event_name == 'workflow_dispatch')
+        
+        if is_morning_run or is_manual_trigger:
+            print("🕒 達到通知觸發條件 (晨間預警或手動執行)，準備發送 Telegram...")
+            send_telegram_notification(data)
+        else:
+            print(f"🔕 目前時間 (UTC {current_utc_hour} 點) 為靜默更新時段，跳過 Telegram 通知。")
+            
         print(f"🚀 更新完成！耗時: {time.time() - start_time:.2f} 秒")
+    else:
+        print("❌ 數據同步失敗")
