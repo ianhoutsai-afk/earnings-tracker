@@ -14,7 +14,6 @@ from urllib3.util.retry import Retry
 MAPPING_FILE = 'sp500_mapping.json'
 OUTPUT_FILE = 'data.json'
 
-# 從 GitHub Secrets 獲取 Telegram 配置
 TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
@@ -34,7 +33,6 @@ HEADERS = {
 # ==========================================
 
 def send_telegram_notification(companies):
-    """掃描明日發報公司並發送 Telegram 通知"""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         print("⚠️ 未配置 Telegram Token 或 Chat ID，跳過通知。")
         return
@@ -110,13 +108,10 @@ def get_sec_history(session, ticker, cik, companies_map):
                     doc_name = filings["primaryDocument"][i]
                     filing_date = filings["filingDate"][i]
                     report_date = filings["reportDate"][i]
-                    
                     display_form = get_quarter_label(ticker, companies_map, form_type, report_date)
                     if "/A" in form_type: display_form += " (修正)"
-                    
                     html_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
                     ix_url = f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik}/{acc_num}/{doc_name}"
-                    
                     history.append({
                         "type": display_form, 
                         "date": filing_date, 
@@ -150,7 +145,6 @@ def get_tracker_data():
             stock = yf.Ticker(ticker)
             final_date = None
             timing = "Unknown"
-            
             try:
                 earns = stock.get_earnings_dates(limit=5)
                 if earns is not None and not earns.empty:
@@ -182,13 +176,8 @@ def get_tracker_data():
             sec_history = get_sec_history(session, ticker, info["cik"], companies_map)
             
             results.append({
-                "ticker": ticker, 
-                "name": info["name"], 
-                "sector": info.get("sector", "Unknown"),
-                "date": earnings_date_str, 
-                "days_left": days_remaining, 
-                "timing": timing, 
-                "history": sec_history
+                "ticker": ticker, "name": info["name"], "sector": info.get("sector", "Unknown"),
+                "date": earnings_date_str, "days_left": days_remaining, "timing": timing, "history": sec_history
             })
             if (index + 1) % 20 == 0: print(f"✅ 進度: {index+1}/{total}")
             time.sleep(0.12) 
@@ -210,12 +199,13 @@ if __name__ == "__main__":
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
             
-        # 🌟 Telegram 通知頻率控制邏輯
+        # 🌟 Telegram 通知頻率控制邏輯 (增強防禦版)
         current_utc_hour = datetime.now(timezone.utc).hour
         event_name = os.environ.get('GITHUB_EVENT_NAME', '')
         
-        # UTC 1~2點 相當於亞洲時間的早上 9~10點左右
-        is_morning_run = current_utc_hour in[1, 2]
+        # 只要是 UTC 0 點到 11點 之間跑完的，都認定為「早上批次」
+        # 這完美解決了 GitHub Actions 因為排隊導致延遲 1~3 小時的問題
+        is_morning_run = current_utc_hour < 12
         is_manual_trigger = (event_name == 'workflow_dispatch')
         
         if is_morning_run or is_manual_trigger:
