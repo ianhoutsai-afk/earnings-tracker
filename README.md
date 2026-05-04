@@ -4,43 +4,40 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deployment: GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-blue)](https://ianhoutsai-afk.github.io/earnings-tracker/)
 
-An institutional-grade, fully automated monitoring system for S&P 500 corporate earnings. This tool tracks expected earnings dates and retrieves the most recent official SEC filings (10-Q, 10-K) for the entire S&P 500 index.
+An institutional-grade, fully automated monitoring system for S&P 500 corporate earnings. This tool tracks expected earnings dates, BMO/AMC timings, and retrieves the most recent official SEC filings (10-Q, 10-K) for the entire S&P 500 index.
 
-**🚀 Live Demo:** [ianhoutsai-afk.github.io/earnings-tracker/](https://ianhoutsai-afk.github.io/earnings-tracker/)
+**🚀 Live Demo:**[ianhoutsai-afk.github.io/earnings-tracker/](https://ianhoutsai-afk.github.io/earnings-tracker/)
 
 ---
 
 ## English Version
 
 ### ✨ Key Features
-- **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, moving beyond a limited set to provide a comprehensive market view.
-- **🤖 Fully Automated Pipeline**: Powered by GitHub Actions, updating the dataset twice daily without manual intervention.
-- **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends (e.g., AAPL, MSFT, NVDA), ensuring that "Q1/Q2/Q3/Q4" labels are accurate to the company's own financial calendar.
-- **🏛️ Direct SEC Integration**: Pulls real-time data from SEC EDGAR, providing direct links to official HTML and iXBRL filings.
-- **⚡ High-Performance Frontend**: 
-  - **Instant Search**: Filter by Ticker or Company Name.
-  - **Sector Filtering**: Group and analyze companies by GICS Sector.
-  - **Lazy Rendering**: Optimized for 500+ entries to ensure zero lag on mobile and desktop.
-  - **Urgency Sorting**: Automatically sorts companies by the closest earnings date.
+- **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, providing a comprehensive market view.
+- **🤖 Automated Telegram Alerts**: Sends a daily morning summary of companies reporting earnings the next day.
+- **⏱️ BMO / AMC Indicators**: Intelligently identifies if earnings will be released Before Market Open (☀️) or After Market Close (🌙).
+- **⭐ Personalized Watchlist**: Save your favorite tickers directly to your browser's local storage for pinned access and quick filtering.
+- **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends, ensuring that "Q1/Q2/Q3/Q4" labels match the company's official financial calendar.
+- **⚡ Pro-Grade Dashboard**: 
+  - **Dark Mode**: Native Dark/Light theme toggle for a professional terminal feel.
+  - **Mobile Card View**: Responsive design that transforms data rows into thumb-friendly cards on mobile devices.
+  - **Lazy Rendering**: Optimized to render 500+ entries with zero lag.
 
 ### 🚀 Quick Deployment (3-Minute Setup)
-This repository is configured as a **Template**. You can deploy your own version in seconds:
+This repository is configured as a **Template**. Deploy your own serverless tracker in seconds:
 
 1. **Create Your Repository**: Click **`Use this template`** $\to$ **`Create a new repository`**. Ensure it is set to **Public**.
 2. **Enable Write Permissions**: Go to **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ **`Workflow permissions`** $\to$ Select **`Read and write permissions`** $\to$ **`Save`**.
 3. **Launch Your Website**: Go to **`Settings`** $\to$ **`Pages`** $\to$ Select the `main` branch as the source $\to$ **`Save`**.
+4. **Enable Telegram Alerts (Optional)**: 
+   - Get a bot token from `@BotFather` and your Chat ID.
+   - Go to **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**.
+   - Add two secrets: `TELEGRAM_TOKEN` and `TELEGRAM_CHAT_ID`.
 
 ### 🛠️ Technical Architecture
-- **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff), `pandas`.
-- **Frontend**: Tailwind CSS, Vanilla JavaScript (ES6+).
+- **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff).
+- **Frontend**: Tailwind CSS, Vanilla JavaScript (ES6+) with `localStorage`.
 - **Infrastructure**: GitHub Actions (Cron Jobs), GitHub Pages (Hosting).
-- **Data Flow**: `S&P 500 List` $\to$ `SEC API (Fiscal Year Mapping)` $\to$ `yfinance` $\to$ `SEC EDGAR` $\to$ `data.json` $\to$ `index.html`.
-
-### 📝 Maintenance Note
-The S&P 500 constituents change infrequently. If you notice a missing company, simply run the **`Build S&P 500 Cache`** workflow from the **Actions** tab to refresh the mapping database.
-
-### ⚖️ Disclaimer
-*This tool is for informational purposes only. All financial data is retrieved from public sources (Yahoo Finance & SEC). No guarantee of 100% accuracy is provided. Please refer to official SEC filings for investment decisions.*
 
 ---
 
@@ -48,30 +45,33 @@ The S&P 500 constituents change infrequently. If you notice a missing company, s
 
 ### ✨ 核心功能
 - **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
-- **🤖 全自動化流水線**：由 GitHub Actions 驅動，每日自動更新兩次，無需人工干預。
-- **🎯 精準財年計算**：針對不同公司的財年結束月份（如 AAPL、MSFT、NVDA）實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司自身的財務年度。
-- **🏛️ 直連 SEC 官方數據**：直接從 SEC EDGAR 系統獲取即時數據，提供官方 HTML 與 iXBRL 文件的直接連結。
-- **⚡ 高性能前端體驗**：
-  - **即時搜尋**：支持 Ticker 或公司名稱快速過濾。
-  - **產業篩選**：可根據 GICS 產業類別進行分組分析。
-  - **延遲渲染 (Lazy Render)**：針對 500+ 筆數據進行優化，確保在手機與電腦端均能流暢運行。
-  - **緊急程度排序**：自動將最接近財報發布日期的公司排在最上方。
+- **🤖 Telegram 每日預警**：每日早晨自動推播「明日即將發布財報」的公司名單，輔助交易決策。
+- **⏱️ 盤前 / 盤後精準標示**：智能解析財報發布時間段，清楚標示 ☀️盤前 (BMO) 或 🌙盤後 (AMC)。
+- **⭐ 本地專屬收藏夾**：點擊星星圖示即可將關注公司存入瀏覽器本地 (Local Storage)，自動置頂並支援專屬篩選。
+- **🎯 精準財年計算**：針對不同公司的財年結束月份實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司財務年度。
+- **⚡ 專業級前端體驗**：
+  - **深色模式 (Dark Mode)**：內建日/夜間模式一鍵切換，打造彭博終端機般的專業質感。
+  - **手機端卡片化佈局**：在行動裝置上自動將表格轉化為獨立卡片，極致的觸控體驗。
+  - **延遲渲染 (Lazy Render)**：針對 500+ 筆數據進行底層優化，保證跨裝置零卡頓。
 
 ### 🚀 快速部署指南 (3 分鐘完成)
-本倉庫已配置為 **模板 (Template)**，您可以秒級部署自己的追蹤系統：
+本倉庫已配置為 **模板 (Template)**，您可以實現零伺服器成本秒級部署：
 
 1. **創建倉庫**：點擊頁面頂部的 **`Use this template`** $\to$ **`Create a new repository`**。請確保倉庫設為 **Public**。
 2. **開啟寫入權限**：進入 **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ 滾動至 **`Workflow permissions`** $\to$ 選擇 **`Read and write permissions`** $\to$ 點擊 **`Save`**。
 3. **啟動網站**：進入 **`Settings`** $\to$ **`Pages`** $\to$ 在 Branch 中選擇 `main` 分支 $\to$ 點擊 **`Save`**。
+4. **啟用 Telegram 通知 (選填)**：
+   - 從 `@BotFather` 獲取 Token，並獲取你的 Chat ID。
+   - 進入 **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**。
+   - 新增兩個機密變數：`TELEGRAM_TOKEN` 和 `TELEGRAM_CHAT_ID`。
 
 ### 🛠️ 技術架構
-- **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制), `pandas`。
-- **前端**：Tailwind CSS, 原生 JavaScript (ES6+)。
-- **基礎設施**：GitHub Actions (定時任務), GitHub Pages (靜態託管)。
-- **數據流向**：`S&P 500 名單` $\to$ `SEC API (財年映射)` $\to$ `yfinance` $\to$ `SEC EDGAR` $\to$ `data.json` $\to$ `index.html`。
+- **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
+- **前端**：Tailwind CSS, 原生 JavaScript (ES6+), Local Storage API。
+- **基礎設施**：GitHub Actions (定時自動化), GitHub Pages (靜態託管)。
 
 ### 📝 維護指南
-S&P 500 成分股變動頻率較低。若發現公司名單有誤或缺失，只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可刷新映射數據庫。
+S&P 500 成分股變動頻率極低。若發生指數季度調整（如剔除舊公司/加入新公司），只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可透過 DataHub 刷新快取庫。
 
 ### ⚖️ 免責聲明
 *本工具僅供資訊參考。所有財務數據均獲取自公開來源 (Yahoo Finance & SEC)。不保證數據 100% 準確。投資決策請務必參考 SEC 官方申報文件。*
