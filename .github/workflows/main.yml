@@ -2,9 +2,8 @@ name: Earnings Tracker Update
 
 on:
   schedule:
-    # 每小时执行一次
-    - cron: '0 * * * *'
-  # 允许手动触发
+    # 這是 UTC 01:00 (對應台灣/北京時間 09:00 AM) 和 UTC 13:00 (晚上 09:00 PM)
+    - cron: '0 1,13 * * *'
   workflow_dispatch:
 
 jobs:
