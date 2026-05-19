@@ -469,5 +469,278 @@
         
         loadData();
     </script>
+<!-- ======================================================== -->
+<!-- 🌟 新增功能：全球央行利率追踪 (完全不影响原有财报表格) 🌟 -->
+<!-- ======================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. 激活 Day.js 倒计时插件
+        dayjs.extend(window.dayjs_plugin_duration);
+
+        // 2. 动态创建 宏观利率 UI 容器
+        const macroSection = document.createElement('section');
+        macroSection.className = "mb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6";
+        macroSection.innerHTML = `
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    全球核心央行动态
+                </h2>
+            </div>
+            <div id="macro-cards-container" class="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+                <div class="text-sm text-gray-400 font-mono">正在获取宏观数据...</div>
+            </div>
+            <hr class="border-gray-200 mt-4 mb-8">
+        `;
+
+        // 3. 智能寻找插入点：自动把卡片加在网页最上方（如果有 main 标签就在 main 顶部，否则加在 body 顶部）
+        const container = document.querySelector('main') || document.querySelector('.max-w-7xl') || document.body;
+        container.insertBefore(macroSection, container.firstChild);
+
+        // 4. 数据渲染与你要求的“渐进式倒计时”逻辑
+        async function loadMacroData() {
+            try {
+                // 读取刚才 Python 自动生成的 json
+                const response = await fetch('macro_data.json'); 
+                if (!response.ok) throw new Error("File not found");
+                const data = await response.json();
+                
+                const cardsContainer = document.getElementById('macro-cards-container');
+                let html = '';
+
+                data.forEach(bank => {
+                    const target = dayjs(bank.nextDate);
+                    const now = dayjs();
+                    const diff = target.diff(now);
+                    
+                    let timeText = '';
+                    let isUrgent = false;
+
+                    // 天数与小时/分钟的智能切换逻辑
+                    if (diff <= 0) {
+                        timeText = '正在发布 / 已发布';
+                    } else {
+                        const d = dayjs.duration(diff);
+                        const days = Math.floor(d.asDays());
+                        if (days >= 1) {
+                            timeText = `${days} 天 ${d.hours()} 小时`;
+                        } else {
+                            timeText = `${d.hours()} 小时 ${d.minutes()} 分钟`;
+                            isUrgent = true; // 倒计时不足 24 小时，激活紧急红色
+                        }
+                    }
+
+                    html += `
+                    <div class="flex-none w-72 bg-white border ${isUrgent ? 'border-red-400 shadow-md bg-red-50' : 'border-gray-200'} rounded-xl p-5 shadow-sm relative transition-all">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-base font-bold text-gray-800">${bank.flag} ${bank.name}</span>
+                            <span class="text-xs ${isUrgent ? 'bg-red-600 text-white animate-pulse' : 'bg-gray-100 text-gray-600'} px-2 py-1 rounded font-medium">
+                                ${timeText}
+                            </span>
+                        </div>
+                        <div class="flex flex-col mb-1">
+                            <span class="text-xs text-gray-500 mb-1">当前基准利率</span>
+                            <span class="text-2xl font-black text-blue-700 font-mono">${bank.rate}</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-400 border-t border-gray-100 pt-3">
+                            决议时间 (本地时区): <br/> <span class="text-gray-600 font-medium">${target.format('YYYY-MM-DD HH:mm')}</span>
+                        </div>
+                    </div>`;
+                });
+                cardsContainer.innerHTML = html;
+            } catch (error) {
+                console.log("等待宏观数据生成中...", error);
+            }
+        }
+
+        // 5. 启动功能，并每分钟自动刷新倒数计时的跳动
+        loadMacroData();
+        setInterval(loadMacroData, 60000);
+    });
+</script>
+<!-- ======================================================== -->
+<!-- 🌟 新增功能：全球央行利率追踪 (完全不影响原有财报表格) 🌟 -->
+<!-- ======================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. 激活 Day.js 倒计时插件
+        dayjs.extend(window.dayjs_plugin_duration);
+
+        // 2. 动态创建 宏观利率 UI 容器
+        const macroSection = document.createElement('section');
+        macroSection.className = "mb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6";
+        macroSection.innerHTML = `
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    全球核心央行动态
+                </h2>
+            </div>
+            <div id="macro-cards-container" class="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+                <div class="text-sm text-gray-400 font-mono">正在获取宏观数据...</div>
+            </div>
+            <hr class="border-gray-200 mt-4 mb-8">
+        `;
+
+        // 3. 智能寻找插入点：自动把卡片加在网页最上方（如果有 main 标签就在 main 顶部，否则加在 body 顶部）
+        const container = document.querySelector('main') || document.querySelector('.max-w-7xl') || document.body;
+        container.insertBefore(macroSection, container.firstChild);
+
+        // 4. 数据渲染与你要求的“渐进式倒计时”逻辑
+        async function loadMacroData() {
+            try {
+                // 读取刚才 Python 自动生成的 json
+                const response = await fetch('macro_data.json'); 
+                if (!response.ok) throw new Error("File not found");
+                const data = await response.json();
+                
+                const cardsContainer = document.getElementById('macro-cards-container');
+                let html = '';
+
+                data.forEach(bank => {
+                    const target = dayjs(bank.nextDate);
+                    const now = dayjs();
+                    const diff = target.diff(now);
+                    
+                    let timeText = '';
+                    let isUrgent = false;
+
+                    // 天数与小时/分钟的智能切换逻辑
+                    if (diff <= 0) {
+                        timeText = '正在发布 / 已发布';
+                    } else {
+                        const d = dayjs.duration(diff);
+                        const days = Math.floor(d.asDays());
+                        if (days >= 1) {
+                            timeText = `${days} 天 ${d.hours()} 小时`;
+                        } else {
+                            timeText = `${d.hours()} 小时 ${d.minutes()} 分钟`;
+                            isUrgent = true; // 倒计时不足 24 小时，激活紧急红色
+                        }
+                    }
+
+                    html += `
+                    <div class="flex-none w-72 bg-white border ${isUrgent ? 'border-red-400 shadow-md bg-red-50' : 'border-gray-200'} rounded-xl p-5 shadow-sm relative transition-all">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-base font-bold text-gray-800">${bank.flag} ${bank.name}</span>
+                            <span class="text-xs ${isUrgent ? 'bg-red-600 text-white animate-pulse' : 'bg-gray-100 text-gray-600'} px-2 py-1 rounded font-medium">
+                                ${timeText}
+                            </span>
+                        </div>
+                        <div class="flex flex-col mb-1">
+                            <span class="text-xs text-gray-500 mb-1">当前基准利率</span>
+                            <span class="text-2xl font-black text-blue-700 font-mono">${bank.rate}</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-400 border-t border-gray-100 pt-3">
+                            决议时间 (本地时区): <br/> <span class="text-gray-600 font-medium">${target.format('YYYY-MM-DD HH:mm')}</span>
+                        </div>
+                    </div>`;
+                });
+                cardsContainer.innerHTML = html;
+            } catch (error) {
+                console.log("等待宏观数据生成中...", error);
+            }
+        }
+
+        // 5. 启动功能，并每分钟自动刷新倒数计时的跳动
+        loadMacroData();
+        setInterval(loadMacroData, 60000);
+    });
+</script>
+<!-- ======================================================== -->
+<!-- 🌟 新增功能：全球央行利率追踪 (完全不影响原有财报表格) 🌟 -->
+<!-- ======================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. 激活 Day.js 倒计时插件
+        dayjs.extend(window.dayjs_plugin_duration);
+
+        // 2. 动态创建 宏观利率 UI 容器
+        const macroSection = document.createElement('section');
+        macroSection.className = "mb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6";
+        macroSection.innerHTML = `
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    全球核心央行动态
+                </h2>
+            </div>
+            <div id="macro-cards-container" class="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+                <div class="text-sm text-gray-400 font-mono">正在获取宏观数据...</div>
+            </div>
+            <hr class="border-gray-200 mt-4 mb-8">
+        `;
+
+        // 3. 智能寻找插入点：自动把卡片加在网页最上方（如果有 main 标签就在 main 顶部，否则加在 body 顶部）
+        const container = document.querySelector('main') || document.querySelector('.max-w-7xl') || document.body;
+        container.insertBefore(macroSection, container.firstChild);
+
+        // 4. 数据渲染与你要求的“渐进式倒计时”逻辑
+        async function loadMacroData() {
+            try {
+                // 读取刚才 Python 自动生成的 json
+                const response = await fetch('macro_data.json'); 
+                if (!response.ok) throw new Error("File not found");
+                const data = await response.json();
+                
+                const cardsContainer = document.getElementById('macro-cards-container');
+                let html = '';
+
+                data.forEach(bank => {
+                    const target = dayjs(bank.nextDate);
+                    const now = dayjs();
+                    const diff = target.diff(now);
+                    
+                    let timeText = '';
+                    let isUrgent = false;
+
+                    // 天数与小时/分钟的智能切换逻辑
+                    if (diff <= 0) {
+                        timeText = '正在发布 / 已发布';
+                    } else {
+                        const d = dayjs.duration(diff);
+                        const days = Math.floor(d.asDays());
+                        if (days >= 1) {
+                            timeText = `${days} 天 ${d.hours()} 小时`;
+                        } else {
+                            timeText = `${d.hours()} 小时 ${d.minutes()} 分钟`;
+                            isUrgent = true; // 倒计时不足 24 小时，激活紧急红色
+                        }
+                    }
+
+                    html += `
+                    <div class="flex-none w-72 bg-white border ${isUrgent ? 'border-red-400 shadow-md bg-red-50' : 'border-gray-200'} rounded-xl p-5 shadow-sm relative transition-all">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-base font-bold text-gray-800">${bank.flag} ${bank.name}</span>
+                            <span class="text-xs ${isUrgent ? 'bg-red-600 text-white animate-pulse' : 'bg-gray-100 text-gray-600'} px-2 py-1 rounded font-medium">
+                                ${timeText}
+                            </span>
+                        </div>
+                        <div class="flex flex-col mb-1">
+                            <span class="text-xs text-gray-500 mb-1">当前基准利率</span>
+                            <span class="text-2xl font-black text-blue-700 font-mono">${bank.rate}</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-400 border-t border-gray-100 pt-3">
+                            决议时间 (本地时区): <br/> <span class="text-gray-600 font-medium">${target.format('YYYY-MM-DD HH:mm')}</span>
+                        </div>
+                    </div>`;
+                });
+                cardsContainer.innerHTML = html;
+            } catch (error) {
+                console.log("等待宏观数据生成中...", error);
+            }
+        }
+
+        // 5. 启动功能，并每分钟自动刷新倒数计时的跳动
+        loadMacroData();
+        setInterval(loadMacroData, 60000);
+    });
+</script>
 </body>
 </html>
