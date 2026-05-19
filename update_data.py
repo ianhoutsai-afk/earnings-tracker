@@ -189,8 +189,46 @@ def get_tracker_data():
             
     return results, errors
 
+# ==========================================
+# 🌟 新增：全球央行利率數據生成 (不影響舊功能)
+# ==========================================
+def update_macro_data():
+    try:
+        now = datetime.now(timezone.utc)
+        
+        # 美联储与欧央行时间表
+        fed_meetings = ["2026-06-17T18:00:00Z", "2026-07-29T18:00:00Z", "2026-09-16T18:00:00Z", "2026-11-04T18:00:00Z", "2026-12-16T18:00:00Z", "2027-01-27T18:00:00Z"]
+        next_fed = next((d for d in fed_meetings if datetime.strptime(d, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) > now), "2027-01-27T18:00:00Z")
+
+        ecb_meetings = ["2026-06-04T12:15:00Z", "2026-07-16T12:15:00Z", "2026-09-10T12:15:00Z", "2026-10-15T12:15:00Z", "2026-12-10T12:15:00Z"]
+        next_ecb = next((d for d in ecb_meetings if datetime.strptime(d, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) > now), "2027-01-21T12:15:00Z")
+
+        # 中国央行LPR时间推算
+        if now.day < 20 or (now.day == 20 and now.hour < 1):
+            next_pboc_month, next_pboc_year = now.month, now.year
+        else:
+            next_pboc_month = now.month + 1 if now.month < 12 else 1
+            next_pboc_year = now.year if now.month < 12 else now.year + 1
+        next_pboc = f"{next_pboc_year}-{next_pboc_month:02d}-20T01:15:00Z"
+
+        macro_data = [
+            { "id": "FED", "name": "美联储 (Fed)", "rate": "5.25% - 5.50%", "nextDate": next_fed, "flag": "🇺🇸" },
+            { "id": "PBOC", "name": "中国央行 (PBOC)", "rate": "3.45% (LPR)", "nextDate": next_pboc, "flag": "🇨🇳" },
+            { "id": "ECB", "name": "欧洲央行 (ECB)", "rate": "4.25%", "nextDate": next_ecb, "flag": "🇪🇺" }
+        ]
+
+        with open('macro_data.json', 'w', encoding='utf-8') as f:
+            json.dump(macro_data, f, ensure_ascii=False, indent=4)
+        print("✅ 宏观利率数据 (macro_data.json) 更新完成！")
+    except Exception as e:
+        print(f"🔴 宏观数据生成错误: {e}")
+
 if __name__ == "__main__":
     start_time = time.time()
+    
+    # 👇 仅仅在此处调用了新增的宏观函数，生成 macro_data.json
+    update_macro_data()
+    
     data, errors = get_tracker_data()
     
     if data:
@@ -216,7 +254,7 @@ if __name__ == "__main__":
             send_bark_notification(data)
         else:
             print(f"🔕 目前時間 (UTC {current_utc_hour} 點) 為靜默更新時段，跳過 Bark 通知。")
-        
+            
         print(f"🚀 更新完成！耗時: {time.time() - start_time:.2f} 秒")
     else:
         print("❌ 數據同步失敗")
