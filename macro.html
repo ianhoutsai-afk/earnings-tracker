@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球央行利率追蹤 | Macro Tracker</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Day.js 及其時區、倒數套件 -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js"></script>
+    <!-- 引入 Lucide 圖標庫 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans antialiased">
+
+    <!-- 簡單導覽列 (請根據你 index.html 的導覽列自行微調) -->
+    <nav class="bg-white shadow-sm p-4 mb-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-600">📉 S&P 500 Tracker</a>
+            <div class="flex space-x-6">
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 font-medium transition">財報追蹤</a>
+                <a href="macro.html" class="text-blue-600 font-bold border-b-2 border-blue-600">全球利率</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 pb-10">
+        <!-- 標頭 -->
+        <div class="mb-8 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">全球央行利率追蹤</h1>
+                <p class="text-gray-500 mt-2">G7 與主要經濟體貨幣政策倒數計時</p>
+            </div>
+            <div class="text-sm text-gray-500 bg-white p-2 rounded shadow-sm flex items-center">
+                <i data-lucide="globe" class="w-4 h-4 mr-1"></i>
+                本地時區: <span id="user-timezone" class="font-mono ml-1"></span>
+            </div>
+        </div>
+
+        <!-- 重點關注卡片區 (由 JS 動態生成) -->
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            <!-- 卡片內容會渲染在這裡 -->
+        </div>
+
+        <!-- 完整央行列表區 (由 JS 動態生成) -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-4 border-b border-gray-100 bg-gray-50 flex items-center">
+                <i data-lucide="settings" class="w-5 h-5 mr-2 text-gray-500"></i>
+                <h2 class="font-bold text-gray-700">管理關注清單</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="text-gray-400 text-xs uppercase bg-white border-b">
+                        <tr>
+                            <th class="px-6 py-3">關注</th>
+                            <th class="px-6 py-3">經濟體</th>
+                            <th class="px-6 py-3">當前利率</th>
+                            <th class="px-6 py-3">下次公佈時間 (您的本地時間)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body" class="divide-y divide-gray-100">
+                        <!-- 表格內容會渲染在這裡 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心邏輯腳本 -->
+    <script>
+        // 1. 初始化 Day.js 插件
+        dayjs.extend(window.dayjs_plugin_duration);
+        dayjs.extend(window.dayjs_plugin_utc);
+        dayjs.extend(window.dayjs_plugin_timezone);
+
+        // 顯示用戶時區
+        document.getElementById('user-timezone').innerText = dayjs.tz.guess();
+
+        // 2. 央行靜態配置
+        const CENTRAL_BANKS = [
+            { id: 'FED', name: '美聯儲 (Fed)', country: '美國', border: 'border-blue-800' },
+            { id: 'ECB', name: '歐洲央行 (ECB)', country: '歐元區', border: 'border-blue-600' },
+            { id: 'PBOC', name: '中國人民銀行 (PBOC)', country: '中國', border: 'border-red-600' },
+            { id: 'BOJ', name: '日本央行 (BoJ)', country: '日本', border: 'border-red-800' },
+            { id: 'BOE', name: '英格蘭銀行 (BoE)', country: '英國', border: 'border-gray-700' },
+            { id: 'BOC', name: '加拿大央行 (BoC)', country: '加拿大', border: 'border-green-800' },
+        ];
+
+        // 3. 模擬資料 (未來你可以把它整合到 update_data.py 生成的 data.json 裡)
+        // 注意：時間請使用 UTC (字尾帶 Z)
+        const mockData = {
+            'FED': { rate: '5.25% - 5.50%', next: '2024-06-12T18:00:00Z' },
+            'ECB': { rate: '4.50%', next: '2024-06-06T12:15:00Z' },
+            'PBOC': { rate: '3.45% (LPR)', next: '2024-05-20T01:15:00Z' }, 
+            'BOJ': { rate: '0.10%', next: '2024-06-14T03:00:00Z' },
+            'BOE': { rate: '5.25%', next: '2024-06-20T11:00:00Z' },
+            'BOC': { rate: '5.00%', next: '2024-06-05T14:00:00Z' }
+        };
+
+        // 4. 從 LocalStorage 讀取用戶的關注清單
+        let watchedBanks = JSON.parse(localStorage.getItem('watched_macro')) || ['FED', 'PBOC'];
+
+        // 5. 切換關注狀態
+        function toggleWatch(id) {
+            if (watchedBanks.includes(id)) {
+                watchedBanks = watchedBanks.filter(b => b !== id);
+            } else {
+                watchedBanks.push(id);
+            }
+            localStorage.setItem('watched_macro', JSON.stringify(watchedBanks));
+            renderUI(); // 重新渲染畫面
+        }
+
+        // 6. 計算倒數計時 (你的天數/小時分流邏輯)
+        function getCountdownInfo(utcDateStr) {
+            const target = dayjs(utcDateStr);
+            const now = dayjs();
+            const diffMs = target.diff(now);
+
+            if (diffMs <= 0) return { text: "決議已發佈", color: "text-green-600", bg: "bg-green-50" };
+
+            const d = dayjs.duration(diffMs);
+            const days = Math.floor(d.asDays());
+            const hours = d.hours();
+            const minutes = d.minutes();
+
+            if (days >= 1) {
+                return { text: `${days} 天 ${hours} 小時`, color: "text-blue-600", bg: "bg-blue-50" };
+            } else {
+                return { text: `${hours} 小時 ${minutes} 分鐘`, color: "text-red-600", bg: "bg-red-50" };
+            }
+        }
+
+        // 7. 渲染畫面邏輯
+        function renderUI() {
+            // 渲染卡片區塊
+            const cardsHtml = CENTRAL_BANKS
+                .filter(b => watchedBanks.includes(b.id))
+                .map(bank => {
+                    const data = mockData[bank.id];
+                    const countdown = getCountdownInfo(data.next);
+                    const localTime = dayjs(data.next).format('YYYY-MM-DD HH:mm');
+                    
+                    return `
+                    <div class="bg-white rounded-xl shadow border-t-4 ${bank.border} p-5 relative transition hover:shadow-md">
+                        <button onclick="toggleWatch('${bank.id}')" class="absolute top-4 right-4 text-yellow-400 hover:scale-110">
+                            <i data-lucide="star" class="fill-current"></i>
+                        </button>
+                        <div class="text-xs font-semibold px-2 py-1 bg-gray-100 rounded text-gray-600 inline-block mb-3">${bank.country}</div>
+                        <h3 class="text-xl font-bold mb-4">${bank.name}</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="p-3 bg-gray-50 rounded">
+                                <div class="text-xs text-gray-400 mb-1">當前利率</div>
+                                <div class="text-lg font-mono font-bold text-gray-800">${data.rate}</div>
+                            </div>
+                            <div class="p-3 rounded ${countdown.bg}">
+                                <div class="text-xs text-gray-400 mb-1">距離決議</div>
+                                <div class="text-lg font-bold ${countdown.color}">${countdown.text}</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-400 flex items-center">
+                            <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                            決議時間: ${localTime}
+                        </div>
+                    </div>`;
+                }).join('');
+            document.getElementById('cards-container').innerHTML = cardsHtml;
+
+            // 渲染表格清單
+            const tableHtml = CENTRAL_BANKS.map(bank => {
+                const data = mockData[bank.id];
+                const isWatched = watchedBanks.includes(bank.id);
+                const starColor = isWatched ? 'text-yellow-400 fill-current' : 'text-gray-300';
+                const localTime = dayjs(data.next).format('YYYY-MM-DD HH:mm');
+
+                return `
+                <tr class="hover:bg-gray-50 transition border-b border-gray-50">
+                    <td class="px-6 py-4">
+                        <button onclick="toggleWatch('${bank.id}')" class="hover:scale-110 transition">
+                            <i data-lucide="star" class="${starColor}"></i>
+                        </button>
+                    </td>
+                    <td class="px-6 py-4 font-medium">${bank.name}</td>
+                    <td class="px-6 py-4 font-mono">${data.rate}</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">${localTime}</td>
+                </tr>`;
+            }).join('');
+            document.getElementById('table-body').innerHTML = tableHtml;
+
+            // 重新刷新 Lucide 圖標
+            lucide.createIcons();
+        }
+
+        // 8. 啟動腳本
+        renderUI();
+        // 每分鐘自動刷新一次倒數計時
+        setInterval(renderUI, 60000); 
+    </script>
+</body>
+</html>
