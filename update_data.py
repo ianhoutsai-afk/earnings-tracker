@@ -14,14 +14,14 @@ from urllib3.util.retry import Retry
 MAPPING_FILE = 'sp500_mapping.json'
 OUTPUT_FILE = 'data.json'
 
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+# 修改為 Bark 的 Key
+BARK_KEY = os.environ.get('BARK_KEY')
 
 QUARTER_MAPPING = {
-    11: "Q4",  0: "Q4",  1: "Q4",
-     2: "Q1",  3: "Q1",  4: "Q1",
-     5: "Q2",  6: "Q2",  7: "Q2",
-     8: "Q3",  9: "Q3", 10: "Q3"
+    11: "Q4", 0: "Q4", 1: "Q4",
+    2: "Q1", 3: "Q1", 4: "Q1",
+    5: "Q2", 6: "Q2", 7: "Q2",
+    8: "Q3", 9: "Q3", 10: "Q3"
 }
 
 HEADERS = {
@@ -32,12 +32,12 @@ HEADERS = {
 # 2. 核心邏輯
 # ==========================================
 
-def send_telegram_notification(companies):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ 未配置 Telegram Token 或 Chat ID，跳過通知。")
+def send_bark_notification(companies):
+    if not BARK_KEY:
+        print("⚠️ 未配置 Bark Key，跳過通知。")
         return
 
-    tomorrow_earnings =[c['ticker'] for c in companies if c['days_left'] == 1]
+    tomorrow_earnings = [c['ticker'] for c in companies if c['days_left'] == 1]
     
     if not tomorrow_earnings:
         print("💤 明日無 S&P 500 公司發報，無需通知。")
@@ -45,31 +45,34 @@ def send_telegram_notification(companies):
 
     tomorrow_date = (date.today() + timedelta(days=1)).strftime('%Y-%m-%d')
     tickers_str = ", ".join(tomorrow_earnings)
+    
+    title = "📊 S&P 500 財報預警"
     message = (
-        f"📢 *S&P 500 財報預警*\n\n"
-        f"📅 日期：`{tomorrow_date}`\n"
+        f"📅 日期：{tomorrow_date}\n"
         f"🚀 明日將有 {len(tomorrow_earnings)} 家公司發布財報：\n"
         f"━━━━━━━━━━━━━━━━━━\n"
-        f"*{tickers_str}*\n"
+        f"{tickers_str}\n"
         f"━━━━━━━━━━━━━━━━━━\n\n"
-        f"💡 請檢查您的關注名單並做好佈局！\n"
-        f"🔗 查看完整列表: https://ianhoutsai-afk.github.io/earnings-tracker/"
+        f"💡 請檢查您的關注名單並做好佈局！"
     )
 
     try:
-        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        url = f"https://api.day.app/{BARK_KEY}/"
         payload = {
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": message,
-            "parse_mode": "Markdown"
+            "title": title,
+            "body": message,
+            "group": "Earnings Tracker",
+            "icon": "https://cdn-icons-png.flaticon.com/512/2950/2950664.png",
+            "url": "https://ianhoutsai-afk.github.io/earnings-tracker/", # 點擊通知將直接跳轉您的前端網頁
+            "isArchive": 1
         }
         res = requests.post(url, json=payload, timeout=10)
         if res.status_code == 200:
-            print("✅ Telegram 通知發送成功！")
+            print("✅ Bark 通知發送成功！")
         else:
-            print(f"❌ Telegram 發送失敗: {res.status_code}")
+            print(f"❌ Bark 發送失敗: {res.status_code}")
     except Exception as e:
-        print(f"🔴 Telegram 請求錯誤: {e}")
+        print(f"🔴 Bark 請求錯誤: {e}")
 
 def get_session():
     session = requests.Session()
@@ -198,8 +201,8 @@ if __name__ == "__main__":
         }
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-            
-        # 🌟 Telegram 通知頻率控制邏輯 (增強防禦版)
+        
+        # 🌟 Bark 通知頻率控制邏輯 (增強防禦版)
         current_utc_hour = datetime.now(timezone.utc).hour
         event_name = os.environ.get('GITHUB_EVENT_NAME', '')
         
@@ -209,11 +212,11 @@ if __name__ == "__main__":
         is_manual_trigger = (event_name == 'workflow_dispatch')
         
         if is_morning_run or is_manual_trigger:
-            print("🕒 達到通知觸發條件 (晨間預警或手動執行)，準備發送 Telegram...")
-            send_telegram_notification(data)
+            print("🕒 達到通知觸發條件 (晨間預警或手動執行)，準備發送 Bark...")
+            send_bark_notification(data)
         else:
-            print(f"🔕 目前時間 (UTC {current_utc_hour} 點) 為靜默更新時段，跳過 Telegram 通知。")
-            
+            print(f"🔕 目前時間 (UTC {current_utc_hour} 點) 為靜默更新時段，跳過 Bark 通知。")
+        
         print(f"🚀 更新完成！耗時: {time.time() - start_time:.2f} 秒")
     else:
         print("❌ 數據同步失敗")
