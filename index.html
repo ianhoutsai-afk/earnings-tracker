@@ -379,17 +379,18 @@
 
         async fetchData() {
           try {
-            // 在實際環境中，直接加載與 index.html 同目錄下的數據：
-            // const res = await fetch('cache_data.json');
-            // this.companies = await res.json();
-            
-            // 此處為展示 mock 數據 (可於成功串接後移除)
-            setTimeout(() => {
-              this.companies = this.getMockData();
-              this.loading = false;
-            }, 1200); // 模擬骨架屏加載感
+            // 讀取同目錄下的快取 JSON 檔案
+            const res = await fetch('cache_data.json');
+            if (!res.ok) {
+            throw new Error(`HTTP 錯誤! 狀態碼: ${res.status}`);
+            }
+            this.companies = await res.json();
           } catch (e) {
-            console.error("資料載入異常：", e);
+            console.warn("無法載入真實資料，啟用備用 Mock 資料展示。錯誤原因：", e);
+            // 容錯機制：讀取失敗時，自動降級展示 Mock 資料，避免頁面一片空白
+            this.companies = this.getMockData();
+          } finally {
+            // 關閉骨架屏載入動畫
             this.loading = false;
           }
         },
