@@ -26,6 +26,12 @@ jobs:
       - name: Run cache builder
         run: python build_cache.py
 
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: . # 部署包含 index.html 和 cache_data.json 的根目錄
+
       - name: Commit and push
         run: |
           git config --global user.name "github-actions[bot]"
