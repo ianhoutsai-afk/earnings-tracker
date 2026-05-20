@@ -50,10 +50,10 @@
       </div>
       
       <div class="flex items-center space-x-4">
-        <!-- 溫馨提醒（動態時間） -->
+        <!-- 溫馨提醒（動態更新狀態） -->
         <span class="hidden md:inline-flex items-center text-xs bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 px-3 py-1.5 rounded-full font-medium">
           <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2 animate-pulse"></span>
-          資料已於 5 分鐘前更新，祝您投資順利 ✨
+          資料已同步，祝您投資順利 ✨
         </span>
         
         <!-- 深淺色切換 -->
@@ -157,9 +157,9 @@
 
     <!-- 搜尋與進階篩選區 -->
     <section class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-3xl p-6 shadow-sm space-y-4">
-      <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex flex-col md:flex-row gap-4 items-center">
         <!-- 關鍵字搜尋 -->
-        <div class="flex-1 relative">
+        <div class="flex-1 w-full relative">
           <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
           <input 
             type="text" 
@@ -170,38 +170,54 @@
         </div>
         
         <!-- 時間篩選 -->
-        <div class="flex gap-2">
+        <div class="flex gap-2 w-full md:w-auto">
           <button 
-            @click="selectedTime = 'all'" 
+            @click="selectedTime = 'all'; currentPage = 1" 
             :class="selectedTime === 'all' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
-            class="px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
           >
             全部時間
           </button>
           <button 
-            @click="selectedTime = 'BMO'" 
+            @click="selectedTime = 'BMO'; currentPage = 1" 
             :class="selectedTime === 'BMO' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
-            class="px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
           >
             🌅 BMO
           </button>
           <button 
-            @click="selectedTime = 'AMC'" 
+            @click="selectedTime = 'AMC'; currentPage = 1" 
             :class="selectedTime === 'AMC' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
-            class="px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
           >
             🌃 AMC
           </button>
         </div>
 
         <!-- 排序方式 -->
-        <div>
+        <div class="w-full md:w-auto">
           <select 
             x-model="sortBy" 
+            @change="currentPage = 1"
             class="w-full md:w-48 py-3 px-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
           >
             <option value="date">按發布日期排序</option>
             <option value="mcap">按企業市值排序</option>
+          </select>
+        </div>
+
+        <!-- 顯示數量選擇器 -->
+        <div class="w-full md:w-auto">
+          <select 
+            x-model.number="itemsPerPage" 
+            @change="currentPage = 1"
+            class="w-full md:w-36 py-3 px-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm font-medium"
+          >
+            <option value="12">每頁 12 筆</option>
+            <option value="24">每頁 24 筆</option>
+            <option value="48">每頁 48 筆</option>
+            <option value="100">每頁 100 筆</option>
+            <option value="10000">全部顯示</option>
           </select>
         </div>
       </div>
@@ -334,11 +350,10 @@
 
   </main>
 
-  <!-- 腳部頁尾 -->
+  <!-- 腳部頁尾 (已清除冗長宣傳小字) -->
   <footer class="mt-20 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 py-8 text-center text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 space-y-2">
+    <div class="max-w-7xl mx-auto px-4">
       <p>🏛️ 美股財報觀測站 © 2026. 數據資料僅供學術與研究參考，不構成任何投資建議。</p>
-      <p>專案由 ianhoutsai-afk 維護。已成功優化，提供更具視覺溫度的資料呈現 💛</p>
     </div>
   </footer>
 
@@ -352,7 +367,7 @@
         selectedTime: 'all', 
         sortBy: 'date', 
         currentPage: 1,
-        itemsPerPage: 6,
+        itemsPerPage: 24, // 預設每頁顯示 24 筆，可拉下拉選單更換
         companies: [],
         watchlist: JSON.parse(localStorage.getItem('watchlist') || '[]'),
 
@@ -364,8 +379,7 @@
           });
           this.applyTheme();
 
-          // 核心數據載入：此處預留串接 Python 快取的 json
-          // 請在您的 GitHub Actions build_cache.yml 中產出對應結構的 JSON 覆蓋 mock
+          // 載入資料
           this.fetchData();
         },
 
@@ -379,18 +393,22 @@
 
         async fetchData() {
           try {
-            // 讀取同目錄下的快取 JSON 檔案
-            const res = await fetch('cache_data.json');
+            // 先嘗試讀取常見的 cache_data.json
+            let res = await fetch('cache_data.json');
             if (!res.ok) {
-            throw new Error(`HTTP 錯誤! 狀態碼: ${res.status}`);
+              // 若讀取失敗，則嘗試讀取 data.json
+              res = await fetch('data.json');
             }
-            this.companies = await res.json();
+            
+            if (res.ok) {
+              this.companies = await res.json();
+            } else {
+              throw new Error("找不到快取資料庫 (cache_data.json / data.json)");
+            }
           } catch (e) {
-            console.warn("無法載入真實資料，啟用備用 Mock 資料展示。錯誤原因：", e);
-            // 容錯機制：讀取失敗時，自動降級展示 Mock 資料，避免頁面一片空白
+            console.warn("未能載入您的 503 家公司資料，將載入備用 Mock 資料。請檢查 cache_data.json 是否已生成並與 index.html 放在同目錄下。", e);
             this.companies = this.getMockData();
           } finally {
-            // 關閉骨架屏載入動畫
             this.loading = false;
           }
         },
