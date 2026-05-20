@@ -26,8 +26,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;500;700;900&display=swap" rel="stylesheet">
   
+  <!-- 【關鍵修正】對應您的專案結構，載入 data.js 繞過 CORS 限制 -->
+  <script src="data.js"></script>
+
   <style>
     body {
       font-family: 'Noto Sans TC', sans-serif;
@@ -39,7 +42,7 @@
   class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300"
 >
 
-  <!-- 頂部導覽列 (已徹底移除右上角綠色更新提示小字) -->
+  <!-- 頂部導覽列 (已徹底移除綠色小字提示與狀態條) -->
   <header class="border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-2">
@@ -122,7 +125,7 @@
       <!-- 空狀態引導 -->
       <div x-show="watchlist.length === 0" class="bg-amber-50/50 dark:bg-amber-950/10 border border-dashed border-amber-200 dark:border-amber-900/50 rounded-3xl p-8 text-center transition-all">
         <p class="text-2xl mb-2">⭐</p>
-        <p class="text-amber-800 dark:text-amber-300 font-bold">尚未收藏任何公司</p>
+        <p class="text-amber-800 dark:text-amber-300 font-bold">尚未收藏任何 company</p>
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
           點擊下方企業卡片上的星星，就能將其加入專屬追蹤板塊喔！
         </p>
@@ -331,7 +334,7 @@
         >
           上一頁
         </button>
-        <span class="text-xs text-slate-500 font-medium" x-text="`第 ${currentPage} 頁 / 共 ${totalPages} 頁`"></span>
+        <span class="text-xs text-slate-500 font-medium" x-text="`第 ${currentPage} / 共 ${totalPages} 頁`"></span>
         <button 
           @click="currentPage < totalPages ? currentPage++ : null" 
           :disabled="currentPage === totalPages"
@@ -379,21 +382,23 @@
         },
 
         async fetchData() {
+          // 1. 【核心優先邏輯】若透過 script 標籤載入了全域變數（完美支援本機雙擊 file:/// 直接開啟）
+          if (window.earningsData && window.earningsData.length > 0) {
+            this.companies = window.earningsData;
+            this.loading = false;
+            return;
+          }
+
+          // 2. 備用方案：若為伺服器環境（如 GitHub Pages）則嘗試 Fetch 讀取 data.json
           try {
-            // 先嘗試讀取常見的 cache_data.json
-            let res = await fetch('cache_data.json');
-            if (!res.ok) {
-              // 若讀取失敗，則嘗試讀取 data.json
-              res = await fetch('data.json');
-            }
-            
+            const res = await fetch('data.json');
             if (res.ok) {
               this.companies = await res.json();
             } else {
-              throw new Error("找不到快取資料庫 (cache_data.json / data.json)");
+              throw new Error("找不到 data.json 檔案");
             }
           } catch (e) {
-            console.warn("未能載入您的 503 家公司資料，將載入備用 Mock 資料。請檢查 cache_data.json 是否已生成並與 index.html 放在同目錄下。", e);
+            console.warn("未能在本機載入實時資料，將載入備用 Mock 資料。請確認 build_cache.py 是否已執行並生成 data.js 或 data.json。", e);
             this.companies = this.getMockData();
           } finally {
             this.loading = false;
