@@ -237,8 +237,10 @@ if __name__ == "__main__":
             "companies": data,
             "errors": errors
         }
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
+        with open('data.js', 'w', encoding='utf-8') as f:
+            f.write("window.earningsData = ")
+            json.dump(earnings_data, f, ensure_ascii=False, indent=2) # 這裡的 earnings_data 請替換成您原本寫入 JSON 的變數名
+            f.write(";")
         
         # 🌟 Bark 通知頻率控制邏輯 (增強防禦版)
         current_utc_hour = datetime.now(timezone.utc).hour
