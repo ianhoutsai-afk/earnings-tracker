@@ -15,7 +15,7 @@ def build_sp500_cache():
     try:
         # 【關鍵變更】：不再抓取維基百科 HTML，改用直接的 CSV 連結
         # 這個來源對 GitHub Actions 友善得多，且包含 Symbol, Security, CIK, GICS Sector
-        url = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv"
+        csv_url = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv"
         df = pd.read_csv(csv_url)
         
         if df.empty:
