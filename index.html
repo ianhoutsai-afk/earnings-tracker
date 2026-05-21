@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美股財報觀測站 | 輕鬆掌握下週美股重要財報</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          borderRadius: {
+            '4xl': '2rem',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- 【關鍵修正】對應您的專案結構，載入 data.js 繞過 CORS 限制 -->
+  <script src="data.js"></script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+  </style>
+</head>
+<body 
+  x-data="earningsApp" 
+  class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300"
+>
+
+  <!-- 頂部導覽列 (已徹底移除綠色小字提示與狀態條) -->
+  <header class="border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">🏛️</span>
+        <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-emerald-600 to-amber-500 bg-clip-text text-transparent">
+          美股財報觀測站
+        </span>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <!-- 深淺色切換 -->
+        <button 
+          @click="darkMode = !darkMode" 
+          class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition duration-200 focus:outline-none"
+          aria-label="切換主題"
+        >
+          <span x-show="!darkMode" class="text-lg">🌙</span>
+          <span x-show="darkMode" class="text-lg">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    
+    <!-- 歡迎導引區 -->
+    <section class="text-center md:text-left space-y-3">
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+        幫助您輕鬆掌握下週重要財報 ⚡
+      </h1>
+      <p class="text-slate-500 dark:text-slate-400 max-w-2xl text-base">
+        避開不確定性、提早規劃佈局。我們為您整理了標普 500 指數成分股中最具影響力的企業財報日程。
+      </p>
+    </section>
+
+    <!-- 統計卡片區 -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- 卡片 1 -->
+      <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/5 dark:from-emerald-950/20 dark:to-teal-950/10 border border-emerald-100 dark:border-emerald-900/50 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-emerald-700 dark:text-emerald-400 font-bold">本週發布總數 🔥</span>
+          <span class="text-2xl">📈</span>
+        </div>
+        <div class="mt-4 flex items-baseline space-x-2">
+          <span class="text-4xl font-black text-emerald-800 dark:text-emerald-300" x-text="stats.total">0</span>
+          <span class="text-sm text-slate-500">家企業</span>
+        </div>
+      </div>
+      <!-- 卡片 2 -->
+      <div class="bg-gradient-to-br from-amber-500/10 to-orange-500/5 dark:from-amber-950/20 dark:to-orange-950/10 border border-amber-100 dark:border-amber-900/50 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-amber-700 dark:text-amber-400 font-bold">開盤前公布 (BMO) ⚡</span>
+          <span class="text-2xl">🌅</span>
+        </div>
+        <div class="mt-4 flex items-baseline space-x-2">
+          <span class="text-4xl font-black text-amber-800 dark:text-amber-300" x-text="stats.bmoCount">0</span>
+          <span class="text-sm text-slate-500">家企業</span>
+        </div>
+      </div>
+      <!-- 卡片 3 -->
+      <div class="bg-gradient-to-br from-purple-500/10 to-indigo-500/5 dark:from-purple-950/20 dark:to-indigo-950/10 border border-purple-100 dark:border-purple-900/50 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-purple-700 dark:text-purple-400 font-bold">收盤後公布 (AMC) 🏛️</span>
+          <span class="text-2xl">🌃</span>
+        </div>
+        <div class="mt-4 flex items-baseline space-x-2">
+          <span class="text-4xl font-black text-purple-800 dark:text-purple-300" x-text="stats.amcCount">0</span>
+          <span class="text-sm text-slate-500">家企業</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Watchlist 我的最愛區塊 -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-extrabold flex items-center space-x-2">
+        <span>⭐ 我的最愛追蹤清單</span>
+        <span class="text-xs font-normal bg-slate-100 dark:bg-slate-800 text-slate-500 px-2 py-1 rounded-md" x-text="watchlist.length">0</span>
+      </h2>
+      
+      <!-- 空狀態引導 -->
+      <div x-show="watchlist.length === 0" class="bg-amber-50/50 dark:bg-amber-950/10 border border-dashed border-amber-200 dark:border-amber-900/50 rounded-3xl p-8 text-center transition-all">
+        <p class="text-2xl mb-2">⭐</p>
+        <p class="text-amber-800 dark:text-amber-300 font-bold">尚未收藏任何 company</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          點擊下方企業卡片上的星星，就能將其加入專屬追蹤板塊喔！
+        </p>
+      </div>
+
+      <!-- 最愛卡片網格 -->
+      <div x-show="watchlist.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="company in getWatchlistedCompanies()" :key="company.ticker">
+          <div class="bg-gradient-to-br from-amber-50/40 to-white dark:from-amber-950/10 dark:to-slate-800 border-2 border-amber-200 dark:border-amber-900/60 p-5 rounded-3xl relative shadow-md">
+            <button @click="toggleWatchlist(company.ticker)" class="absolute top-4 right-4 text-xl text-amber-500 hover:scale-110 transition">★</button>
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center font-bold text-amber-700 dark:text-amber-300" x-text="company.ticker"></div>
+              <div>
+                <h4 class="font-extrabold text-slate-900 dark:text-white" x-text="company.name"></h4>
+                <p class="text-xs text-slate-400" x-text="`市值: $${company.mcap}B`"></p>
+              </div>
+            </div>
+            <div class="mt-4 flex justify-between items-center text-sm border-t border-amber-100 dark:border-amber-900/30 pt-3">
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100/70 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300" x-text="company.date"></span>
+              <span class="text-xs font-bold text-slate-500" x-text="company.time === 'BMO' ? '🌅 開盤前' : '🌃 收盤後'"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <!-- 搜尋與進階篩選區 -->
+    <section class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-3xl p-6 shadow-sm space-y-4">
+      <div class="flex flex-col md:flex-row gap-4 items-center">
+        <!-- 關鍵字搜尋 -->
+        <div class="flex-1 w-full relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
+          <input 
+            type="text" 
+            x-model="searchQuery" 
+            placeholder="搜尋公司名稱或股票代號（例如: AAPL, Microsoft）..." 
+            class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-sm"
+          >
+        </div>
+        
+        <!-- 時間篩選 -->
+        <div class="flex gap-2 w-full md:w-auto">
+          <button 
+            @click="selectedTime = 'all'; currentPage = 1" 
+            :class="selectedTime === 'all' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+          >
+            全部時間
+          </button>
+          <button 
+            @click="selectedTime = 'BMO'; currentPage = 1" 
+            :class="selectedTime === 'BMO' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+          >
+            🌅 BMO
+          </button>
+          <button 
+            @click="selectedTime = 'AMC'; currentPage = 1" 
+            :class="selectedTime === 'AMC' ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700'"
+            class="flex-1 md:flex-none px-4 py-3 rounded-2xl text-sm font-semibold transition duration-150"
+          >
+            🌃 AMC
+          </button>
+        </div>
+
+        <!-- 排序方式 -->
+        <div class="w-full md:w-auto">
+          <select 
+            x-model="sortBy" 
+            @change="currentPage = 1"
+            class="w-full md:w-48 py-3 px-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+          >
+            <option value="date">按發布日期排序</option>
+            <option value="mcap">按企業市值排序</option>
+          </select>
+        </div>
+
+        <!-- 顯示數量選擇器 -->
+        <div class="w-full md:w-auto">
+          <select 
+            x-model.number="itemsPerPage" 
+            @change="currentPage = 1"
+            class="w-full md:w-36 py-3 px-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm font-medium"
+          >
+            <option value="12">每頁 12 筆</option>
+            <option value="24">每頁 24 筆</option>
+            <option value="48">每頁 48 筆</option>
+            <option value="100">每頁 100 筆</option>
+            <option value="10000">全部顯示</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 骨架屏載入提示 (Skeleton Screen) -->
+    <div x-show="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="i in [1,2,3,4,5,6]" :key="i">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 animate-pulse space-y-4">
+          <div class="flex justify-between items-center">
+            <div class="h-6 bg-slate-200 dark:bg-slate-700 rounded-full w-1/3"></div>
+            <div class="h-8 w-8 bg-slate-200 dark:bg-slate-700 rounded-full"></div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
+            <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/2"></div>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between">
+            <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
+            <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- 主要資料列表區（非載入狀態下顯示） -->
+    <div x-show="!loading" class="space-y-6">
+      <!-- 找不到結果時的狀態 -->
+      <div x-show="filteredCompanies.length === 0" class="text-center py-16 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700">
+        <span class="text-4xl">🔍</span>
+        <h3 class="mt-4 text-lg font-bold">找不到相符的企業</h3>
+        <p class="text-sm text-slate-400 mt-1">請嘗試變更關鍵字或篩選條件。</p>
+      </div>
+
+      <!-- 響應式卡片列表 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="company in paginatedCompanies" :key="company.ticker">
+          <div 
+            class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group relative flex flex-col justify-between"
+          >
+            <!-- 最愛按鈕 -->
+            <button 
+              @click="toggleWatchlist(company.ticker)" 
+              class="absolute top-6 right-6 text-2xl focus:outline-none transition-transform active:scale-95"
+              :class="isWatchlisted(company.ticker) ? 'text-amber-400 scale-100' : 'text-slate-300 dark:text-slate-600 hover:text-amber-400 hover:scale-105'"
+            >
+              <span x-text="isWatchlisted(company.ticker) ? '★' : '☆'"></span>
+            </button>
+
+            <!-- 卡片頭部 -->
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 flex items-center justify-center font-black text-emerald-600 dark:text-emerald-400 text-lg" x-text="company.ticker"></div>
+                <div>
+                  <h3 class="font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition duration-150" x-text="company.name"></h3>
+                  <span class="inline-flex px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 dark:bg-slate-900 text-slate-500" x-text="company.sector"></span>
+                </div>
+              </div>
+
+              <!-- 指標數據 -->
+              <div class="grid grid-cols-2 gap-3 py-3 bg-slate-50/50 dark:bg-slate-900/40 rounded-2xl p-3">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">預期 EPS</span>
+                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300" x-text="`$${company.eps}`"></span>
+                </div>
+                <div>
+                  <span class="text-[10px] text-slate-400 block">預估營收</span>
+                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300" x-text="company.rev"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 卡片底部（時間與 Tooltip） -->
+            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700 dark:text-emerald-400" x-text="company.date"></span>
+              
+              <!-- 互動式 Tooltip 容器 -->
+              <div x-data="{ open: false }" class="relative inline-block">
+                <button 
+                  @mouseenter="open = true" 
+                  @mouseleave="open = false"
+                  class="text-xs px-2.5 py-1.5 rounded-full font-bold transition flex items-center space-x-1"
+                  :class="company.time === 'BMO' ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400' : 'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400'"
+                >
+                  <span x-text="company.time === 'BMO' ? '🌅 開盤前' : '🌃 收盤後'"></span>
+                  <span class="text-[10px] opacity-60">ℹ️</span>
+                </button>
+
+                <!-- Tooltip 懸浮窗 -->
+                <div 
+                  x-show="open" 
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 translate-y-1"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 translate-y-1"
+                  class="absolute bottom-full right-0 mb-2 w-48 bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs p-3 rounded-xl shadow-xl z-50 leading-relaxed font-normal"
+                  style="display: none;"
+                >
+                  <span class="font-bold block mb-1" x-text="company.time === 'BMO' ? 'BMO (Before Market Open)' : 'AMC (After Market Close)'"></span>
+                  <span x-text="company.time === 'BMO' ? '指在當天美股美東時間 9:30 開盤前發布財報，對開盤後行情影響大。' : '指在當天美股美東時間 16:00 收盤後發布財報，通常在盤後交易引發波動。'"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </template>
+      </div>
+
+      <!-- 分頁控制 -->
+      <div x-show="totalPages > 1" class="flex justify-between items-center pt-6">
+        <button 
+          @click="currentPage > 1 ? currentPage-- : null" 
+          :disabled="currentPage === 1"
+          class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-xl text-sm font-semibold disabled:opacity-40 transition"
+        >
+          上一頁
+        </button>
+        <span class="text-xs text-slate-500 font-medium" x-text="`第 ${currentPage} / 共 ${totalPages} 頁`"></span>
+        <button 
+          @click="currentPage < totalPages ? currentPage++ : null" 
+          :disabled="currentPage === totalPages"
+          class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-xl text-sm font-semibold disabled:opacity-40 transition"
+        >
+          下一頁
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Alpine.js 應用程式核心邏輯 -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('earningsApp', () => ({
+        loading: true,
+        darkMode: localStorage.getItem('darkMode') === 'true',
+        searchQuery: '',
+        selectedTime: 'all', 
+        sortBy: 'date', 
+        currentPage: 1,
+        itemsPerPage: 24, // 預設每頁顯示 24 筆
+        companies: [],
+        watchlist: JSON.parse(localStorage.getItem('watchlist') || '[]'),
+
+        init() {
+          // 主題監聽
+          this.$watch('darkMode', val => {
+            localStorage.setItem('darkMode', val);
+            this.applyTheme();
+          });
+          this.applyTheme();
+
+          // 載入資料
+          this.fetchData();
+        },
+
+        applyTheme() {
+          if (this.darkMode) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        },
+
+        async fetchData() {
+          // 1. 【核心優先邏輯】若透過 script 標籤載入了全域變數（完美支援本機雙擊 file:/// 直接開啟）
+          if (window.earningsData && window.earningsData.length > 0) {
+            this.companies = window.earningsData;
+            this.loading = false;
+            return;
+          }
+
+          // 2. 備用方案：若為伺服器環境（如 GitHub Pages）則嘗試 Fetch 讀取 data.json
+          try {
+            const res = await fetch('data.json');
+            if (res.ok) {
+              this.companies = await res.json();
+            } else {
+              throw new Error("找不到 data.json 檔案");
+            }
+          } catch (e) {
+            console.warn("未能在本機載入實時資料，將載入備用 Mock 資料。請確認 build_cache.py 是否已執行並生成 data.js 或 data.json。", e);
+            this.companies = this.getMockData();
+          } finally {
+            this.loading = false;
+          }
+        },
+
+        toggleWatchlist(ticker) {
+          if (this.watchlist.includes(ticker)) {
+            this.watchlist = this.watchlist.filter(t => t !== ticker);
+          } else {
+            this.watchlist.push(ticker);
+          }
+          localStorage.setItem('watchlist', JSON.stringify(this.watchlist));
+        },
+
+        isWatchlisted(ticker) {
+          return this.watchlist.includes(ticker);
+        },
+
+        getWatchlistedCompanies() {
+          return this.companies.filter(c => this.watchlist.includes(c.ticker));
+        },
+
+        // 過濾、搜尋與排序邏輯
+        get filteredCompanies() {
+          return this.companies.filter(c => {
+            const matchesSearch = c.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
+                                  c.ticker.toLowerCase().includes(this.searchQuery.toLowerCase());
+            const matchesTime = this.selectedTime === 'all' || c.time === this.selectedTime;
+            return matchesSearch && matchesTime;
+          }).sort((a, b) => {
+            if (this.sortBy === 'date') return new Date(a.date) - new Date(b.date);
+            if (this.sortBy === 'mcap') return b.mcap - a.mcap;
+            return 0;
+          });
+        },
+
+        get paginatedCompanies() {
+          const start = (this.currentPage - 1) * this.itemsPerPage;
+          return this.filteredCompanies.slice(start, start + this.itemsPerPage);
+        },
+
+        get totalPages() {
+          return Math.ceil(this.filteredCompanies.length / this.itemsPerPage) || 1;
+        },
+
+        // 計算統計卡片
+        get stats() {
+          return {
+            total: this.companies.length,
+            bmoCount: this.companies.filter(c => c.time === 'BMO').length,
+            amcCount: this.companies.filter(c => c.time === 'AMC').length,
+          };
+        },
+
+        getMockData() {
+          return [
+            { ticker: 'AAPL', name: 'Apple Inc.', date: '2026-05-21', time: 'AMC', mcap: 3200, eps: '1.50', rev: '90.2B', sector: '科技 / 消費電子' },
+            { ticker: 'MSFT', name: 'Microsoft Corp.', date: '2026-05-21', time: 'AMC', mcap: 3100, eps: '2.80', rev: '62.1B', sector: '科技 / 雲端計算' },
+            { ticker: 'NVDA', name: 'NVIDIA Corp.', date: '2026-05-22', time: 'BMO', mcap: 2200, eps: '5.20', rev: '24.5B', sector: '科技 / 半導體' },
+            { ticker: 'AMZN', name: 'Amazon.com Inc.', date: '2026-05-23', time: 'AMC', mcap: 1800, eps: '0.85', rev: '142.8B', sector: '消費 / 電子商務' },
+            { ticker: 'GOOGL', name: 'Alphabet Inc.', date: '2026-05-24', time: 'BMO', mcap: 1900, eps: '1.60', rev: '80.5B', sector: '科技 / 數位廣告' },
+            { ticker: 'JPM', name: 'JPMorgan Chase & Co.', date: '2026-05-25', time: 'BMO', mcap: 550, eps: '4.10', rev: '41.3B', sector: '金融 / 商業銀行' },
+          ];
+        }
+      }));
+    });
+  </script>
+</body>
+</html>
