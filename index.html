@@ -28,9 +28,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;500;700;900&display=swap" rel="stylesheet">
   
-  <!-- 【關鍵修正】對應您的專案結構，載入 data.js 繞過 CORS 限制 -->
-  <script src="data.js"></script>
-
   <style>
     body {
       font-family: 'Noto Sans TC', sans-serif;
@@ -140,7 +137,7 @@
               <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center font-bold text-amber-700 dark:text-amber-300" x-text="company.ticker"></div>
               <div>
                 <h4 class="font-extrabold text-slate-900 dark:text-white" x-text="company.name"></h4>
-                <p class="text-xs text-slate-400" x-text="`市值: $${company.mcap}B`"></p>
+                <p class="text-xs text-slate-400" x-text="`市值: ${formatMcap(company.mcap)}`"></p>
               </div>
             </div>
             <div class="mt-4 flex justify-between items-center text-sm border-t border-amber-100 dark:border-amber-900/30 pt-3">
@@ -278,7 +275,7 @@
               <div class="grid grid-cols-2 gap-3 py-3 bg-slate-50/50 dark:bg-slate-900/40 rounded-2xl p-3">
                 <div>
                   <span class="text-[10px] text-slate-400 block">預期 EPS</span>
-                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300" x-text="`$${company.eps}`"></span>
+                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300" x-text="company.eps === 'N/A' ? 'N/A' : `$${company.eps}`"></span>
                 </div>
                 <div>
                   <span class="text-[10px] text-slate-400 block">預估營收</span>
@@ -381,25 +378,59 @@
           }
         },
 
+        normalizeCompanies(payload) {
+          const source = Array.isArray(payload) ? payload : payload?.companies;
+          if (!Array.isArray(source)) return [];
+          return source.map((company) => this.normalizeCompany(company));
+        },
+
+        normalizeCompany(company) {
+          const timeValue = company.time ?? company.timing ?? 'Unknown';
+          const parsedMcap = Number(company.mcap);
+          return {
+            ...company,
+            name: company.name ?? company.ticker ?? 'Unknown',
+            sector: company.sector ?? 'Unknown',
+            date: company.date ?? '官方公佈中',
+            time: timeValue,
+            timing: timeValue,
+            mcap: Number.isFinite(parsedMcap) ? parsedMcap : null,
+            eps: company.eps ?? 'N/A',
+            rev: company.rev ?? 'N/A',
+          };
+        },
+
+        formatMcap(mcap) {
+          if (mcap === null || mcap === undefined) return 'N/A';
+          return `$${mcap}B`;
+        },
+
+        parseDateValue(value) {
+          const ts = Date.parse(value);
+          return Number.isNaN(ts) ? Number.MAX_SAFE_INTEGER : ts;
+        },
+
         async fetchData() {
-          // 1. 【核心優先邏輯】若透過 script 標籤載入了全域變數（完美支援本機雙擊 file:/// 直接開啟）
-          if (window.earningsData && window.earningsData.length > 0) {
-            this.companies = window.earningsData;
+          // 1. 若有預載入全域資料，優先使用
+          const preloadedCompanies = this.normalizeCompanies(window.earningsData);
+          if (preloadedCompanies.length > 0) {
+            this.companies = preloadedCompanies;
             this.loading = false;
             return;
           }
 
-          // 2. 備用方案：若為伺服器環境（如 GitHub Pages）則嘗試 Fetch 讀取 data.json
+          // 2. 伺服器環境 (如 GitHub Pages) 讀取 data.json
           try {
             const res = await fetch('data.json');
             if (res.ok) {
-              this.companies = await res.json();
+              const payload = await res.json();
+              this.companies = this.normalizeCompanies(payload);
             } else {
               throw new Error("找不到 data.json 檔案");
             }
           } catch (e) {
-            console.warn("未能在本機載入實時資料，將載入備用 Mock 資料。請確認 build_cache.py 是否已執行並生成 data.js 或 data.json。", e);
-            this.companies = this.getMockData();
+            console.warn("未能載入實時資料，改用備用 Mock 資料。請確認 update_data.py 已產生 data.json。", e);
+            this.companies = this.normalizeCompanies(this.getMockData());
           } finally {
             this.loading = false;
           }
@@ -430,8 +461,8 @@
             const matchesTime = this.selectedTime === 'all' || c.time === this.selectedTime;
             return matchesSearch && matchesTime;
           }).sort((a, b) => {
-            if (this.sortBy === 'date') return new Date(a.date) - new Date(b.date);
-            if (this.sortBy === 'mcap') return b.mcap - a.mcap;
+            if (this.sortBy === 'date') return this.parseDateValue(a.date) - this.parseDateValue(b.date);
+            if (this.sortBy === 'mcap') return (b.mcap ?? -1) - (a.mcap ?? -1);
             return 0;
           });
         },
