@@ -24,7 +24,7 @@ QUARTER_MAPPING = {
 }
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'User-Agent': 'S&P500 Earnings Tracker (ianhoutsai@github.com)',
 }
 
 # ==========================================
@@ -80,6 +80,51 @@ def get_session():
     session.mount('https://', adapter)
     session.headers.update(HEADERS)
     return session
+
+def to_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+def humanize_revenue(value):
+    num = to_float(value)
+    if num is None:
+        return "N/A"
+    if num >= 1_000_000_000_000:
+        return f"{num / 1_000_000_000_000:.2f}T"
+    if num >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.2f}B"
+    if num >= 1_000_000:
+        return f"{num / 1_000_000:.2f}M"
+    return f"{num:.0f}"
+
+def extract_market_snapshot(stock):
+    info = {}
+    fast_info = {}
+
+    try:
+        info = stock.info or {}
+    except Exception:
+        info = {}
+
+    try:
+        fast_info = stock.fast_info or {}
+    except Exception:
+        fast_info = {}
+
+    market_cap = info.get("marketCap") or fast_info.get("market_cap")
+    eps_raw = info.get("forwardEps") or info.get("trailingEps")
+    rev_raw = info.get("totalRevenue")
+
+    market_cap_num = to_float(market_cap)
+    eps_num = to_float(eps_raw)
+
+    mcap_b = round(market_cap_num / 1_000_000_000, 2) if market_cap_num is not None else None
+    eps = f"{eps_num:.2f}" if eps_num is not None else "N/A"
+    rev = humanize_revenue(rev_raw)
+
+    return mcap_b, eps, rev
 
 def get_quarter_label(ticker, companies_map, form_type, report_date_str):
     if not report_date_str: 
@@ -162,10 +207,10 @@ def get_tracker_data():
             companies_map = json.load(f)
     except FileNotFoundError:
         print(f"❌ 找不到 {MAPPING_FILE}")
-        return None, []
+        return [], []
     except json.JSONDecodeError:
         print(f"❌ {MAPPING_FILE} 格式錯誤")
-        return None, []
+        return [], []
 
     tickers = list(companies_map.keys())
     total = len(tickers)
@@ -182,6 +227,7 @@ def get_tracker_data():
         
         try:
             stock = yf.Ticker(ticker)
+            mcap, eps, rev = extract_market_snapshot(stock)
             
             # 1. 嘗試通過 earnings_dates 獲取
             final_date = None
@@ -218,22 +264,33 @@ def get_tracker_data():
             # 2. 如果 earnings_dates 沒抓到，嘗試 calendar
             if not final_date:
                 try:
-                    cal = stock.calendar # 可能會返回 None
-                    if cal and 'Earnings Date' in cal:
-                        for d in cal['Earnings Date']:
-                            if isinstance(d, datetime):
-                                d_date = d.date()
-                            else: 
-                                d_date = d # 假設是字符串日期 "2023-10-25"
-                            
-                            # 過濾掉今天的日期，取明天的財報
-                            if d_date > today and d_date.year == today.year:
-                                final_date = d_date
-                                break
-                            elif d_date > today and (d_date.year == today.year + 1): 
-                                # 如果今年沒了，取明年的
-                                final_date = d_date
-                                break
+                    cal = stock.calendar
+                    calendar_dates = []
+
+                    if isinstance(cal, pd.DataFrame) and 'Earnings Date' in cal.columns:
+                        calendar_dates = cal['Earnings Date'].tolist()
+                    elif isinstance(cal, dict) and 'Earnings Date' in cal:
+                        raw = cal['Earnings Date']
+                        calendar_dates = list(raw) if isinstance(raw, (list, tuple, pd.Series)) else [raw]
+
+                    for d in calendar_dates:
+                        if isinstance(d, pd.Timestamp):
+                            d_date = d.date()
+                        elif isinstance(d, datetime):
+                            d_date = d.date()
+                        elif isinstance(d, date):
+                            d_date = d
+                        elif isinstance(d, str):
+                            try:
+                                d_date = datetime.strptime(d[:10], "%Y-%m-%d").date()
+                            except ValueError:
+                                continue
+                        else:
+                            continue
+
+                        if d_date > today:
+                            final_date = d_date
+                            break
                 except Exception:
                     pass
 
@@ -253,7 +310,11 @@ def get_tracker_data():
                 "sector": info.get("sector", "Unknown"),
                 "date": earnings_date_str, 
                 "days_left": days_remaining, 
-                "timing": timing, 
+                "time": timing,
+                "timing": timing,
+                "mcap": mcap,
+                "eps": eps,
+                "rev": rev,
                 "history": sec_history
             })
             
