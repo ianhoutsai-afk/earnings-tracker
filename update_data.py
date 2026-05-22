@@ -4,6 +4,7 @@ import requests
 import json
 import time
 import pandas as pd
+import math
 from datetime import datetime, date, timezone, timedelta
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -83,7 +84,15 @@ def get_session():
 
 def to_float(value):
     try:
-        return float(value)
+        if isinstance(value, str):
+            cleaned = value.replace("$", "").replace(",", "").strip()
+            if cleaned in {"", "N/A", "NA", "-", "None", "nan"}:
+                return None
+            value = cleaned
+        parsed = float(value)
+        if math.isnan(parsed):
+            return None
+        return parsed
     except (TypeError, ValueError):
         return None
 
@@ -99,6 +108,112 @@ def humanize_revenue(value):
         return f"{num / 1_000_000:.2f}M"
     return f"{num:.0f}"
 
+def _to_dataframe(table):
+    if isinstance(table, pd.DataFrame):
+        return table.copy()
+    if isinstance(table, dict):
+        try:
+            return pd.DataFrame(table)
+        except Exception:
+            return None
+    return None
+
+def _pick_consensus_from_estimate_table(table, value_col="avg", analysts_col="numberOfAnalysts", preferred_periods=("0q", "+1q")):
+    df = _to_dataframe(table)
+    if df is None or df.empty:
+        return None, None, None
+
+    df.index = df.index.map(lambda x: str(x).strip())
+    index_lookup = {str(idx).lower(): idx for idx in df.index}
+
+    ordered_periods = []
+    for p in preferred_periods:
+        p_norm = str(p).lower()
+        if p_norm not in ordered_periods:
+            ordered_periods.append(p_norm)
+    for idx in df.index:
+        idx_norm = str(idx).lower()
+        if idx_norm not in ordered_periods:
+            ordered_periods.append(idx_norm)
+
+    for period_norm in ordered_periods:
+        actual_idx = index_lookup.get(period_norm)
+        if actual_idx is None:
+            continue
+
+        row = df.loc[actual_idx]
+        if isinstance(row, pd.DataFrame):
+            row = row.iloc[0]
+
+        value = to_float(row.get(value_col))
+        analysts_val = to_float(row.get(analysts_col))
+        analysts = int(analysts_val) if analysts_val is not None and not math.isnan(analysts_val) else None
+
+        if value is not None:
+            return value, analysts, str(actual_idx)
+
+    return None, None, None
+
+def _extract_calendar_metric(cal, candidates):
+    if cal is None:
+        return None
+
+    if isinstance(cal, pd.DataFrame) and not cal.empty:
+        lower_cols = {str(col).strip().lower(): col for col in cal.columns}
+        for key in candidates:
+            key_norm = key.lower()
+            if key_norm in lower_cols:
+                series = cal[lower_cols[key_norm]]
+                for v in series.tolist():
+                    parsed = to_float(v)
+                    if parsed is not None:
+                        return parsed
+
+        lower_index = {str(idx).strip().lower(): idx for idx in cal.index}
+        for key in candidates:
+            key_norm = key.lower()
+            if key_norm in lower_index:
+                row = cal.loc[lower_index[key_norm]]
+                if isinstance(row, pd.Series):
+                    for v in row.tolist():
+                        parsed = to_float(v)
+                        if parsed is not None:
+                            return parsed
+
+    if isinstance(cal, dict):
+        lower_keys = {str(k).strip().lower(): k for k in cal.keys()}
+        for key in candidates:
+            k = lower_keys.get(key.lower())
+            if not k:
+                continue
+            raw = cal.get(k)
+            if isinstance(raw, (list, tuple, pd.Series)):
+                for v in raw:
+                    parsed = to_float(v)
+                    if parsed is not None:
+                        return parsed
+            else:
+                parsed = to_float(raw)
+                if parsed is not None:
+                    return parsed
+
+    return None
+
+def _safe_getattr(obj, attr):
+    try:
+        return getattr(obj, attr)
+    except Exception:
+        return None
+
+def _safe_call(obj, method):
+    try:
+        fn = getattr(obj, method, None)
+        if callable(fn):
+            return fn()
+    except Exception:
+        return None
+    return None
+
 def extract_market_snapshot(stock):
     info = {}
     fast_info = {}
@@ -113,18 +228,100 @@ def extract_market_snapshot(stock):
     except Exception:
         fast_info = {}
 
+    cal = _safe_getattr(stock, "calendar")
+
+    earnings_estimate_table = _safe_call(stock, "get_earnings_estimate")
+    if earnings_estimate_table is None:
+        earnings_estimate_table = _safe_getattr(stock, "earnings_estimate")
+
+    revenue_estimate_table = _safe_call(stock, "get_revenue_estimate")
+    if revenue_estimate_table is None:
+        revenue_estimate_table = _safe_getattr(stock, "revenue_estimate")
+
+    eps_consensus, eps_analysts, eps_period = _pick_consensus_from_estimate_table(
+        earnings_estimate_table, value_col="avg", analysts_col="numberOfAnalysts", preferred_periods=("0q", "+1q")
+    )
+    rev_consensus, rev_analysts, rev_period = _pick_consensus_from_estimate_table(
+        revenue_estimate_table, value_col="avg", analysts_col="numberOfAnalysts", preferred_periods=("0q", "+1q")
+    )
+
+    eps_calendar = _extract_calendar_metric(cal, ["Earnings Average", "EPS Estimate", "epsEstimate", "earningsAverage"])
+    rev_calendar = _extract_calendar_metric(cal, ["Revenue Average", "Revenue Estimate", "revenueAverage", "revenueEstimate"])
+
     market_cap = info.get("marketCap") or fast_info.get("market_cap")
-    eps_raw = info.get("forwardEps") or info.get("trailingEps")
-    rev_raw = info.get("totalRevenue")
+    eps_forward = info.get("forwardEps")
+    eps_trailing = info.get("trailingEps")
+    rev_total = info.get("totalRevenue")
 
     market_cap_num = to_float(market_cap)
-    eps_num = to_float(eps_raw)
+    eps_forward_num = to_float(eps_forward)
+    eps_trailing_num = to_float(eps_trailing)
+    rev_total_num = to_float(rev_total)
+
+    if eps_consensus is not None:
+        eps_num = eps_consensus
+        eps_source = "yahoo_analyst_consensus"
+        eps_confidence = "high"
+        eps_meta = {"period": eps_period, "analysts": eps_analysts}
+    elif eps_calendar is not None:
+        eps_num = eps_calendar
+        eps_source = "yahoo_calendar_estimate"
+        eps_confidence = "medium"
+        eps_meta = {"period": "calendar", "analysts": None}
+    elif eps_forward_num is not None:
+        eps_num = eps_forward_num
+        eps_source = "yahoo_forward_eps_fallback"
+        eps_confidence = "low"
+        eps_meta = {"period": "forward", "analysts": None}
+    elif eps_trailing_num is not None:
+        eps_num = eps_trailing_num
+        eps_source = "yahoo_trailing_eps_fallback"
+        eps_confidence = "low"
+        eps_meta = {"period": "trailing", "analysts": None}
+    else:
+        eps_num = None
+        eps_source = "unavailable"
+        eps_confidence = "low"
+        eps_meta = {"period": None, "analysts": None}
+
+    if rev_consensus is not None:
+        rev_num = rev_consensus
+        rev_source = "yahoo_analyst_consensus"
+        rev_confidence = "high"
+        rev_meta = {"period": rev_period, "analysts": rev_analysts}
+    elif rev_calendar is not None:
+        rev_num = rev_calendar
+        rev_source = "yahoo_calendar_estimate"
+        rev_confidence = "medium"
+        rev_meta = {"period": "calendar", "analysts": None}
+    elif rev_total_num is not None:
+        rev_num = rev_total_num
+        rev_source = "yahoo_total_revenue_fallback"
+        rev_confidence = "low"
+        rev_meta = {"period": "ttm_or_reported", "analysts": None}
+    else:
+        rev_num = None
+        rev_source = "unavailable"
+        rev_confidence = "low"
+        rev_meta = {"period": None, "analysts": None}
 
     mcap_b = round(market_cap_num / 1_000_000_000, 2) if market_cap_num is not None else None
     eps = f"{eps_num:.2f}" if eps_num is not None else "N/A"
-    rev = humanize_revenue(rev_raw)
+    rev = humanize_revenue(rev_num)
 
-    return mcap_b, eps, rev
+    return {
+        "mcap_b": mcap_b,
+        "eps": eps,
+        "rev": rev,
+        "eps_source": eps_source,
+        "eps_confidence": eps_confidence,
+        "eps_estimate_period": eps_meta.get("period"),
+        "eps_analysts": eps_meta.get("analysts"),
+        "rev_source": rev_source,
+        "rev_confidence": rev_confidence,
+        "rev_estimate_period": rev_meta.get("period"),
+        "rev_analysts": rev_meta.get("analysts"),
+    }
 
 def get_quarter_label(ticker, companies_map, form_type, report_date_str):
     if not report_date_str: 
@@ -227,7 +424,7 @@ def get_tracker_data():
         
         try:
             stock = yf.Ticker(ticker)
-            mcap, eps, rev = extract_market_snapshot(stock)
+            snapshot = extract_market_snapshot(stock)
             
             # 1. 嘗試通過 earnings_dates 獲取
             final_date = None
@@ -312,9 +509,17 @@ def get_tracker_data():
                 "days_left": days_remaining, 
                 "time": timing,
                 "timing": timing,
-                "mcap": mcap,
-                "eps": eps,
-                "rev": rev,
+                "mcap": snapshot.get("mcap_b"),
+                "eps": snapshot.get("eps"),
+                "rev": snapshot.get("rev"),
+                "eps_source": snapshot.get("eps_source"),
+                "eps_confidence": snapshot.get("eps_confidence"),
+                "eps_estimate_period": snapshot.get("eps_estimate_period"),
+                "eps_analysts": snapshot.get("eps_analysts"),
+                "rev_source": snapshot.get("rev_source"),
+                "rev_confidence": snapshot.get("rev_confidence"),
+                "rev_estimate_period": snapshot.get("rev_estimate_period"),
+                "rev_analysts": snapshot.get("rev_analysts"),
                 "history": sec_history
             })
             
