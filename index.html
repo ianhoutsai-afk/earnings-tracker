@@ -9,153 +9,217 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gray: {
-                            850: '#1f2937', // 增加一個柔和的深色調
-                        }
-                    }
-                }
-            }
+            theme: { extend: { colors: { gray: { 850: '#1f2937' } } } }
         }
     </script>
     <style>
-        /* 優化滾動條外觀 */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 4px;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569; 
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
-        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        /* 隱藏展開列的過渡效果輔助 */
+        .expand-row.hidden { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8 font-sans transition-colors duration-300">
-    <div class="max-w-[1400px] mx-auto">
+    <div class="max-w-[1200px] mx-auto">
         
-        <!-- 標題與模式切換區 -->
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">📈 S&P 500 Earnings Tracker</h1>
+        <!-- 標題與模式切換 -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">📈 企業財報追蹤儀表板</h1>
             <button id="theme-toggle" class="px-4 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                 切換日/夜模式
             </button>
         </div>
+
+        <!-- 排序工具列 -->
+        <div class="flex items-center gap-3 mb-4 bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+            <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400 pl-2">排序方式：</label>
+            <select id="sort-select" class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 outline-none">
+                <option value="countdown_asc">發布日倒數 (由近到遠)</option>
+                <option value="countdown_desc">發布日倒數 (由遠到近)</option>
+                <option value="alpha_asc">公司代碼 (A - Z)</option>
+                <option value="alpha_desc">公司代碼 (Z - A)</option>
+            </select>
+        </div>
         
-        <!-- 數據表格容器 (一行一家公司結構) -->
+        <!-- 數據表格容器 -->
         <div class="w-full overflow-x-auto bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
             <table class="w-full text-left border-collapse whitespace-nowrap">
                 <thead>
                     <tr class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-850 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
-                        <th class="p-4 font-semibold w-16 text-center">關注</th>
-                        <th class="p-4 font-semibold">公司名稱 (代碼)</th>
+                        <th class="p-4 font-semibold w-12 text-center">關注</th>
+                        <th class="p-4 font-semibold">公司名稱</th>
                         <th class="p-4 font-semibold">預計發布日</th>
                         <th class="p-4 font-semibold">預期 EPS</th>
                         <th class="p-4 font-semibold">預估營收</th>
-                        <th class="p-4 font-semibold border-l border-gray-200 dark:border-gray-700 text-center">歷史 Q1</th>
-                        <th class="p-4 font-semibold text-center">歷史 Q2</th>
-                        <th class="p-4 font-semibold text-center">歷史 Q3</th>
-                        <th class="p-4 font-semibold text-center">歷史 Q4</th>
+                        <th class="p-4 font-semibold text-center">歷史財報</th>
                     </tr>
                 </thead>
                 <tbody id="data-container" class="text-sm">
-                    <!-- 載入中狀態 -->
-                    <tr>
-                        <td colspan="9" class="p-8 text-center text-gray-400 dark:text-gray-500">
-                            正在載入數據...
-                        </td>
-                    </tr>
+                    <tr><td colspan="6" class="p-8 text-center text-gray-400">正在載入數據...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
     <script>
-        // 深淺色模式切換邏輯
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn.addEventListener('click', () => {
+        // 深淺色模式
+        document.getElementById('theme-toggle').addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
         });
 
-        // 取得 JSON 數據並渲染
+        let appData = []; // 儲存全局資料以供排序使用
+
+        // 全域展開/折疊功能
+        window.toggleHistory = function(ticker) {
+            const row = document.getElementById(`history-${ticker}`);
+            const icon = document.getElementById(`icon-${ticker}`);
+            if (row.classList.contains('hidden')) {
+                row.classList.remove('hidden');
+                icon.textContent = '▲';
+                icon.classList.add('bg-blue-100', 'text-blue-600', 'dark:bg-blue-900', 'dark:text-blue-400');
+            } else {
+                row.classList.add('hidden');
+                icon.textContent = '▼';
+                icon.classList.remove('bg-blue-100', 'text-blue-600', 'dark:bg-blue-900', 'dark:text-blue-400');
+            }
+        };
+
+        // 渲染表格內容
+        function renderTable(data) {
+            const container = document.getElementById('data-container');
+            container.innerHTML = '';
+            
+            data.forEach(company => {
+                const isStarred = localStorage.getItem(`star_${company.ticker}`) === 'true';
+                const starIcon = isStarred ? '⭐' : '☆';
+                
+                // 1. 產生倒數標籤
+                let badgeHtml = '';
+                if (company.countdown !== null && company.countdown !== undefined) {
+                    if (company.countdown === 0) {
+                        badgeHtml = `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">今日發布!</span>`;
+                    } else if (company.countdown > 0 && company.countdown <= 7) {
+                        badgeHtml = `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">倒數 ${company.countdown} 天</span>`;
+                    } else if (company.countdown > 7) {
+                        badgeHtml = `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">倒數 ${company.countdown} 天</span>`;
+                    } else {
+                        badgeHtml = `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">已發布</span>`;
+                    }
+                }
+
+                // 2. 建立主資料行
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors duration-150';
+                tr.innerHTML = `
+                    <td class="p-4 text-center cursor-pointer text-lg star-btn select-none" data-ticker="${company.ticker}">${starIcon}</td>
+                    <td class="p-4">
+                        <span class="font-bold text-gray-900 dark:text-gray-100">${company.name || company.ticker}</span> 
+                        <span class="text-gray-500 dark:text-gray-400 ml-1 text-xs">(${company.ticker})</span>
+                        ${badgeHtml}
+                    </td>
+                    <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
+                        ${company.reportDate || '-'} ${company.bmo_amc ? `<span class="ml-1 text-xs">${company.bmo_amc}</span>` : ''}
+                    </td>
+                    <td class="p-4 text-gray-700 dark:text-gray-300">${company.eps || '-'}</td>
+                    <td class="p-4 text-gray-700 dark:text-gray-300">${company.revenue || '-'}</td>
+                    <td class="p-4 text-center">
+                        <button onclick="toggleHistory('${company.ticker}')" class="px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
+                            查看 <span id="icon-${company.ticker}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
+                        </button>
+                    </td>
+                `;
+
+                // 3. 建立隱藏的歷史數據展開面板 (折疊卡片)
+                const trExpand = document.createElement('tr');
+                trExpand.id = `history-${company.ticker}`;
+                trExpand.className = 'expand-row hidden bg-gray-50/50 dark:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700';
+                
+                let historyContent = '';
+                if (company.history && company.history.length > 0) {
+                    let cardsHtml = '';
+                    // 迴圈生成 4 個季度的卡片
+                    company.history.forEach((h, index) => {
+                        cardsHtml += `
+                            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">過去 Q${index + 1}</span>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">${h.date}</span>
+                                </div>
+                                <div class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">${h.eps_reported} <span class="text-sm font-normal text-gray-500">EPS</span></div>
+                                <a href="https://www.sec.gov/cgi-bin/browse-edgar?CIK=${company.ticker}&action=getcompany" target="_blank" 
+                                   class="inline-flex items-center justify-center w-full px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                                    🏛️ 查閱 SEC 原文
+                                </a>
+                            </div>
+                        `;
+                    });
+                    historyContent = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 inner-shadow">${cardsHtml}</div>`;
+                } else {
+                    historyContent = `<div class="p-6 text-center text-gray-500 dark:text-gray-400">暫無歷史財報數據</div>`;
+                }
+
+                trExpand.innerHTML = `<td colspan="6" class="p-0">${historyContent}</td>`;
+
+                container.appendChild(tr);
+                container.appendChild(trExpand);
+            });
+
+            // 重新綁定星星點擊事件
+            document.querySelectorAll('.star-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const ticker = e.target.getAttribute('data-ticker');
+                    const key = `star_${ticker}`;
+                    if (localStorage.getItem(key) === 'true') {
+                        localStorage.removeItem(key);
+                        e.target.textContent = '☆';
+                    } else {
+                        localStorage.setItem(key, 'true');
+                        e.target.textContent = '⭐';
+                    }
+                });
+            });
+        }
+
+        // 排序邏輯
+        function applySort() {
+            const val = document.getElementById('sort-select').value;
+            let sorted = [...appData];
+
+            if (val === 'countdown_asc') {
+                sorted.sort((a, b) => {
+                    const valA = a.countdown !== null ? a.countdown : 99999;
+                    const valB = b.countdown !== null ? b.countdown : 99999;
+                    return valA - valB;
+                });
+            } else if (val === 'countdown_desc') {
+                sorted.sort((a, b) => {
+                    const valA = a.countdown !== null ? a.countdown : -99999;
+                    const valB = b.countdown !== null ? b.countdown : -99999;
+                    return valB - valA;
+                });
+            } else if (val === 'alpha_asc') {
+                sorted.sort((a, b) => a.ticker.localeCompare(b.ticker));
+            } else if (val === 'alpha_desc') {
+                sorted.sort((a, b) => b.ticker.localeCompare(a.ticker));
+            }
+            renderTable(sorted);
+        }
+
+        // 初始化
         document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('sort-select').addEventListener('change', applySort);
+
             fetch('data.json')
                 .then(response => response.json())
                 .then(data => {
-                    const container = document.getElementById('data-container');
-                    container.innerHTML = '';
-                    
-                    data.forEach(company => {
-                        // 處理本地收藏 (星星)
-                        const isStarred = localStorage.getItem(`star_${company.ticker}`) === 'true';
-                        const starIcon = isStarred ? '⭐' : '☆';
-                        
-                        // 處理 4 個季度的歷史 EPS，若無資料則顯示 '-'
-                        const h1 = company.history && company.history[0] ? company.history[0].eps_reported : '-';
-                        const h2 = company.history && company.history[1] ? company.history[1].eps_reported : '-';
-                        const h3 = company.history && company.history[2] ? company.history[2].eps_reported : '-';
-                        const h4 = company.history && company.history[3] ? company.history[3].eps_reported : '-';
-
-                        const tr = document.createElement('tr');
-                        // 使用高質感、無突兀綠色的 Hover 效果
-                        tr.className = 'border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors duration-150 group';
-                        
-                        tr.innerHTML = `
-                            <td class="p-4 text-center cursor-pointer text-lg star-btn select-none" data-ticker="${company.ticker}">${starIcon}</td>
-                            <td class="p-4">
-                                <span class="font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${company.name || company.ticker}</span> 
-                                <span class="text-gray-500 dark:text-gray-400 ml-1">(${company.ticker})</span>
-                            </td>
-                            <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
-                                ${company.reportDate || '-'} ${company.bmo_amc ? `<span class="ml-1 text-xs opacity-80">${company.bmo_amc}</span>` : ''}
-                            </td>
-                            <td class="p-4 text-gray-700 dark:text-gray-300">${company.eps || '-'}</td>
-                            <td class="p-4 text-gray-700 dark:text-gray-300">${company.revenue || '-'}</td>
-                            
-                            <!-- 歷史數據顯示區 -->
-                            <td class="p-4 text-center text-gray-500 dark:text-gray-400 border-l border-gray-100 dark:border-gray-700/50">${h1}</td>
-                            <td class="p-4 text-center text-gray-500 dark:text-gray-400">${h2}</td>
-                            <td class="p-4 text-center text-gray-500 dark:text-gray-400">${h3}</td>
-                            <td class="p-4 text-center text-gray-500 dark:text-gray-400">${h4}</td>
-                        `;
-                        container.appendChild(tr);
-                    });
-
-                    // 星星點擊事件，儲存至 LocalStorage
-                    document.querySelectorAll('.star-btn').forEach(btn => {
-                        btn.addEventListener('click', (e) => {
-                            const ticker = e.target.getAttribute('data-ticker');
-                            const key = `star_${ticker}`;
-                            const isStarred = localStorage.getItem(key) === 'true';
-                            if (isStarred) {
-                                localStorage.removeItem(key);
-                                e.target.textContent = '☆';
-                            } else {
-                                localStorage.setItem(key, 'true');
-                                e.target.textContent = '⭐';
-                            }
-                        });
-                    });
+                    appData = data;
+                    applySort(); // 初次載入自動套用預設排序 (倒數最近優先)
                 })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                    document.getElementById('data-container').innerHTML = `
-                        <tr>
-                            <td colspan="9" class="p-8 text-center text-red-500 font-medium border-t border-gray-200 dark:border-gray-700">
-                                無法載入財報資料，請確認 data.json 檔案是否存在或稍後再試。
-                            </td>
-                        </tr>
-                    `;
+                .catch(err => {
+                    document.getElementById('data-container').innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-500 font-medium">無法載入資料，請確認 data.json</td></tr>`;
                 });
         });
     </script>
