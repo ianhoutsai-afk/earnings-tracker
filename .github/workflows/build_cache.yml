@@ -1,14 +1,12 @@
 name: Build S&P 500 Cache
-
 on:
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
+      pages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,16 +24,27 @@ jobs:
       - name: Run cache builder
         run: python build_cache.py
 
+      # 先檢查產出的 JSON 是否包含 filings 欄位（debug 用）
+      - name: Verify output
+        run: |
+          echo "=== File size ==="
+          ls -lh sp500_mapping.json
+          echo "=== First 80 lines ==="
+          head -n 80 sp500_mapping.json
+          echo "=== Count of 'filings' keys ==="
+          grep -c '"filings"' sp500_mapping.json || echo "0"
+
+      # 先 commit 回 main，再 deploy 到 gh-pages
+      - name: Commit and push to main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sp500_mapping.json
+          git diff --staged --quiet || git commit -m "Auto-update S&P 500 cache [skip ci]"
+          git push
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: . # 部署包含 index.html 和 cache_data.json 的根目錄
-
-      - name: Commit and push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add . 
-          git commit -m "Auto-generate S&P 500 cache [skip ci]" || echo "No changes to commit"
-          git push
+          publish_dir: .
