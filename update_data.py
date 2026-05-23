@@ -1,91 +1,78 @@
-import json
-import logging
-import os
-import requests
-import pandas as pd
-import yfinance as yf
-from datetime import datetime, timedelta
+/**
+ * SEC EDGAR Proxy Worker
+ *
+ * 把 GitHub Actions 對 SEC 的請求中繼一下，繞過 SEC 對 cloud IP 的封鎖。
+ *
+ * 用法：
+ *   原本: https://data.sec.gov/submissions/CIK0000320193.json
+ *   改成: https://sec-proxy.你的帳號.workers.dev/submissions/CIK0000320193.json
+ *
+ * 安全性：
+ *   - 只代理 SEC 的兩個合法網域（白名單）
+ *   - 需要正確的 X-Proxy-Token header 才會放行（防止別人盜用你的 Worker 流量）
+ *   - 從 SEC 拿到 200 才回，其他狀態原樣傳回讓 GitHub Actions 看
+ */
 
-# 設定 Log
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+// ⚠️ 把這兩個值換成你自己的
+const PROXY_TOKEN = 'DG34dchn89H6k46GB';           // 自己定一個亂碼，等下 GitHub Secret 也要用同一個
+const SEC_USER_AGENT = 'ianhoutsai@gmail.com'; // SEC 規範要求的真實 email
 
-def main():
-    try:
-        with open('sp500_mapping.json', 'r', encoding='utf-8') as f:
-            mapping = json.load(f)
-            tickers = list(mapping.keys()) if isinstance(mapping, dict) else mapping
-    except Exception as e:
-        logging.error(f"無法載入清單: {e}，使用預設清單")
-        tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA"]
+// 允許代理的 SEC 路徑（白名單，防止這個 Worker 被當成通用 proxy 濫用）
+const ALLOWED_HOSTS = {
+  'submissions': 'https://data.sec.gov',
+  'api': 'https://data.sec.gov',
+  'archives': 'https://www.sec.gov',
+};
 
-    results = []
-    today = pd.Timestamp.now(tz='UTC')
-    today_date = today.date()
+export default {
+  async fetch(request) {
+    // 1. 驗證請求 token
+    const token = request.headers.get('X-Proxy-Token');
+    if (token !== PROXY_TOKEN) {
+      return new Response('Unauthorized: missing or invalid X-Proxy-Token', { status: 401 });
+    }
 
-    for symbol in tickers:
-        try:
-            logging.info(f"正在獲取 {symbol} 數據...")
-            ticker = yf.Ticker(symbol)
-            info = ticker.info
-            
-            name = info.get("shortName", symbol)
-            
-            # EPS & 營收轉換
-            eps = info.get("forwardEps", "N/A")
-            eps_str = f"${eps:.2f}" if isinstance(eps, (int, float)) else "N/A"
-            
-            rev = info.get("totalRevenue", "N/A")
-            if isinstance(rev, (int, float)):
-                if rev >= 1e9: rev_str = f"${rev / 1e9:.2f}B"
-                elif rev >= 1e6: rev_str = f"${rev / 1e6:.2f}M"
-                else: rev_str = f"${rev:,.0f}"
-            else:
-                rev_str = "N/A"
+    // 2. 解析 URL，決定要轉發到哪個 SEC 子網域
+    const url = new URL(request.url);
+    const path = url.pathname; // 例如 /submissions/CIK0000320193.json
 
-            earnings_dates = ticker.earnings_dates
-            report_date_str = "-"
-            bmo_amc = ""
-            countdown_days = None  # 關鍵：計算倒數天數供前端排序
-            history_data = []
+    // 第一段路徑用來判斷子網域
+    const firstSegment = path.split('/').filter(Boolean)[0];
+    const targetHost = ALLOWED_HOSTS[firstSegment];
 
-            if earnings_dates is not None and not earnings_dates.empty:
-                # 1. 未來財報與倒數天數
-                future = earnings_dates[earnings_dates.index >= today]
-                if not future.empty:
-                    next_date = future.index[0]
-                    report_date_str = next_date.strftime("%Y-%m-%d")
-                    # 計算天數差
-                    countdown_days = (next_date.date() - today_date).days
-                    
-                    if next_date.hour < 12: bmo_amc = "☀️"
-                    elif next_date.hour >= 16: bmo_amc = "🌙"
+    if (!targetHost) {
+      return new Response(
+        `Forbidden: only ${Object.keys(ALLOWED_HOSTS).join(', ')} paths are allowed`,
+        { status: 403 }
+      );
+    }
 
-                # 2. 過去 4 個季度的歷史發布 EPS
-                past = earnings_dates[earnings_dates.index < today].head(4)
-                for date_idx, row in past.iterrows():
-                    rep_eps = row.get('Reported EPS', 'N/A')
-                    history_data.append({
-                        "date": date_idx.strftime("%Y-%m-%d"),
-                        "eps_reported": f"${rep_eps:.2f}" if not pd.isna(rep_eps) else 'N/A'
-                    })
-            
-            results.append({
-                "ticker": symbol,
-                "name": name,
-                "reportDate": report_date_str,
-                "bmo_amc": bmo_amc,
-                "countdown": countdown_days, # 輸出給前端
-                "eps": eps_str,
-                "revenue": rev_str,
-                "history": history_data
-            })
-            
-        except Exception as e:
-            logging.error(f"處理 {symbol} 時發生錯誤: {e}")
+    // 3. 組裝目標 URL
+    const targetUrl = `${targetHost}${path}${url.search}`;
 
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
-    logging.info("成功寫入 data.json")
+    // 4. 用 SEC 規範的 UA 去打 SEC
+    try {
+      const secResponse = await fetch(targetUrl, {
+        method: 'GET',
+        headers: {
+          'User-Agent': SEC_USER_AGENT,
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip, deflate',
+        },
+      });
 
-if __name__ == "__main__":
-    main()
+      // 5. 把 SEC 的回應原樣轉回 GitHub Actions
+      const body = await secResponse.arrayBuffer();
+      return new Response(body, {
+        status: secResponse.status,
+        statusText: secResponse.statusText,
+        headers: {
+          'Content-Type': secResponse.headers.get('Content-Type') || 'application/json',
+          'X-Proxied-From': targetUrl, // 方便 debug
+        },
+      });
+    } catch (err) {
+      return new Response(`Proxy error: ${err.message}`, { status: 502 });
+    }
+  },
+};
