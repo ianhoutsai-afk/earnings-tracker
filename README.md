@@ -14,7 +14,7 @@ An institutional-grade, fully automated monitoring system for S&P 500 corporate 
 
 ### ✨ Key Features
 - **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, providing a comprehensive market view.
-- **🤖 Automated Telegram Alerts**: Sends a daily morning summary of companies reporting earnings the next day.
+- **🤖 Automated Bark Alerts**: Sends a daily morning summary of companies reporting earnings the next day.
 - **⏱️ BMO / AMC Indicators**: Intelligently identifies if earnings will be released Before Market Open (☀️) or After Market Close (🌙).
 - **⭐ Personalized Watchlist**: Save your favorite tickers directly to your browser's local storage for pinned access and quick filtering.
 - **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends, ensuring that "Q1/Q2/Q3/Q4" labels match the company's official financial calendar.
@@ -29,10 +29,10 @@ This repository is configured as a **Template**. Deploy your own serverless trac
 1. **Create Your Repository**: Click **`Use this template`** $\to$ **`Create a new repository`**. Ensure it is set to **Public**.
 2. **Enable Write Permissions**: Go to **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ **`Workflow permissions`** $\to$ Select **`Read and write permissions`** $\to$ **`Save`**.
 3. **Launch Your Website**: Go to **`Settings`** $\to$ **`Pages`** $\to$ Select the `main` branch as the source $\to$ **`Save`**.
-4. **Enable Telegram Alerts (Optional)**: 
-   - Get a bot token from `@BotFather` and your Chat ID.
+4. **Enable Bark Alerts (Optional)**: 
+   - Install Bark on your iPhone and copy your personal Bark key from the app.
    - Go to **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**.
-   - Add two secrets: `TELEGRAM_TOKEN` and `TELEGRAM_CHAT_ID`.
+   - Add one secret: `BARK_KEY`.
 
 ### 🛠️ Technical Architecture
 - **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff).
@@ -45,7 +45,7 @@ This repository is configured as a **Template**. Deploy your own serverless trac
 
 ### ✨ 核心功能
 - **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
-- **🤖 Telegram 每日預警**：每日早晨自動推播「明日即將發布財報」的公司名單，輔助交易決策。
+- **🤖 Bark 每日預警**：每日早晨自動推播「明日即將發布財報」的公司名單，輔助交易決策。
 - **⏱️ 盤前 / 盤後精準標示**：智能解析財報發布時間段，清楚標示 ☀️盤前 (BMO) 或 🌙盤後 (AMC)。
 - **⭐ 本地專屬收藏夾**：點擊星星圖示即可將關注公司存入瀏覽器本地 (Local Storage)，自動置頂並支援專屬篩選。
 - **🎯 精準財年計算**：針對不同公司的財年結束月份實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司財務年度。
@@ -60,10 +60,10 @@ This repository is configured as a **Template**. Deploy your own serverless trac
 1. **創建倉庫**：點擊頁面頂部的 **`Use this template`** $\to$ **`Create a new repository`**。請確保倉庫設為 **Public**。
 2. **開啟寫入權限**：進入 **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ 滾動至 **`Workflow permissions`** $\to$ 選擇 **`Read and write permissions`** $\to$ 點擊 **`Save`**。
 3. **啟動網站**：進入 **`Settings`** $\to$ **`Pages`** $\to$ 在 Branch 中選擇 `main` 分支 $\to$ 點擊 **`Save`**。
-4. **啟用 Telegram 通知 (選填)**：
-   - 從 `@BotFather` 獲取 Token，並獲取你的 Chat ID。
+4. **啟用 Bark 通知 (選填)**：
+   - 先在 iPhone 安裝 Bark，並從 App 取得你的個人 Bark Key。
    - 進入 **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**。
-   - 新增兩個機密變數：`TELEGRAM_TOKEN` 和 `TELEGRAM_CHAT_ID`。
+   - 新增一個機密變數：`BARK_KEY`。
 
 ### 🛠️ 技術架構
 - **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
