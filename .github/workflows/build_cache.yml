@@ -1,50 +1,78 @@
-name: Build S&P 500 Cache
-on:
-  workflow_dispatch:
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+/**
+ * SEC EDGAR Proxy Worker
+ *
+ * 把 GitHub Actions 對 SEC 的請求中繼一下，繞過 SEC 對 cloud IP 的封鎖。
+ *
+ * 用法：
+ *   原本: https://data.sec.gov/submissions/CIK0000320193.json
+ *   改成: https://sec-proxy.你的帳號.workers.dev/submissions/CIK0000320193.json
+ *
+ * 安全性：
+ *   - 只代理 SEC 的兩個合法網域（白名單）
+ *   - 需要正確的 X-Proxy-Token header 才會放行（防止別人盜用你的 Worker 流量）
+ *   - 從 SEC 拿到 200 才回，其他狀態原樣傳回讓 GitHub Actions 看
+ */
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
+// ⚠️ 把這兩個值換成你自己的
+const PROXY_TOKEN = 'change-me-to-a-random-string';           // 自己定一個亂碼，等下 GitHub Secret 也要用同一個
+const SEC_USER_AGENT = 'Your Name your-real-email@gmail.com'; // SEC 規範要求的真實 email
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas lxml requests
+// 允許代理的 SEC 路徑（白名單，防止這個 Worker 被當成通用 proxy 濫用）
+const ALLOWED_HOSTS = {
+  'submissions': 'https://data.sec.gov',
+  'api': 'https://data.sec.gov',
+  'archives': 'https://www.sec.gov',
+};
 
-      - name: Run cache builder
-        run: python build_cache.py
+export default {
+  async fetch(request) {
+    // 1. 驗證請求 token
+    const token = request.headers.get('X-Proxy-Token');
+    if (token !== PROXY_TOKEN) {
+      return new Response('Unauthorized: missing or invalid X-Proxy-Token', { status: 401 });
+    }
 
-      # 先檢查產出的 JSON 是否包含 filings 欄位（debug 用）
-      - name: Verify output
-        run: |
-          echo "=== File size ==="
-          ls -lh sp500_mapping.json
-          echo "=== First 80 lines ==="
-          head -n 80 sp500_mapping.json
-          echo "=== Count of 'filings' keys ==="
-          grep -c '"filings"' sp500_mapping.json || echo "0"
+    // 2. 解析 URL，決定要轉發到哪個 SEC 子網域
+    const url = new URL(request.url);
+    const path = url.pathname; // 例如 /submissions/CIK0000320193.json
 
-      # 先 commit 回 main，再 deploy 到 gh-pages
-      - name: Commit and push to main
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sp500_mapping.json
-          git diff --staged --quiet || git commit -m "Auto-update S&P 500 cache [skip ci]"
-          git push
+    // 第一段路徑用來判斷子網域
+    const firstSegment = path.split('/').filter(Boolean)[0];
+    const targetHost = ALLOWED_HOSTS[firstSegment];
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+    if (!targetHost) {
+      return new Response(
+        `Forbidden: only ${Object.keys(ALLOWED_HOSTS).join(', ')} paths are allowed`,
+        { status: 403 }
+      );
+    }
+
+    // 3. 組裝目標 URL
+    const targetUrl = `${targetHost}${path}${url.search}`;
+
+    // 4. 用 SEC 規範的 UA 去打 SEC
+    try {
+      const secResponse = await fetch(targetUrl, {
+        method: 'GET',
+        headers: {
+          'User-Agent': SEC_USER_AGENT,
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip, deflate',
+        },
+      });
+
+      // 5. 把 SEC 的回應原樣轉回 GitHub Actions
+      const body = await secResponse.arrayBuffer();
+      return new Response(body, {
+        status: secResponse.status,
+        statusText: secResponse.statusText,
+        headers: {
+          'Content-Type': secResponse.headers.get('Content-Type') || 'application/json',
+          'X-Proxied-From': targetUrl, // 方便 debug
+        },
+      });
+    } catch (err) {
+      return new Response(`Proxy error: ${err.message}`, { status: 502 });
+    }
+  },
+};
