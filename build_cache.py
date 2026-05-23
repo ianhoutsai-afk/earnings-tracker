@@ -7,34 +7,19 @@ import argparse
 
 # SEC 官方要求 User-Agent 必須包含聯絡資訊
 HEADERS = {
-    'User-Agent': 'S&P500 Earnings Tracker (ianhoutsai@github.com)',
+    'User-Agent': 'S&P500 Earnings Tracker ianhoutsai@github.com',
+    'Accept-Encoding': 'gzip, deflate',
 }
 
 # 樣本模式測試用的代表性公司
-# 故意挑選不同財年結束月份，方便驗證 fiscal_quarter() 邏輯：
-#   AAPL fy_end=9 (蘋果財年9月底)
-#   MSFT fy_end=6 (微軟財年6月底)
-#   NVDA fy_end=1 (輝達財年1月底)
-#   AMZN / GOOGL / WMT fy_end=12 (一般曆年制)
 SAMPLE_TICKERS = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'WMT']
 
 
 def fiscal_quarter(report_month, fy_end_month):
     """
-    根據財報期末月份 (report_month) 與公司財年結束月份 (fy_end_month)
-    反推這份 10-Q 屬於該財年的 Q1 / Q2 / Q3。
-
-    例如 fy_end=12 (12月底結算):
-        report_month=3  -> Q1
-        report_month=6  -> Q2
-        report_month=9  -> Q3
-        report_month=12 -> FY (10-K)
-
-    例如 fy_end=6 (6月底結算，如微軟):
-        report_month=9  -> Q1 (FY 開始於 7 月)
-        report_month=12 -> Q2
-        report_month=3  -> Q3
-        report_month=6  -> FY
+    根據財報期末月份與公司財年結束月份反推這份 10-Q 屬於 Q1/Q2/Q3。
+    fy_end=12 (12月底結算): report_month=3->Q1, 6->Q2, 9->Q3, 12->FY
+    fy_end=6 (微軟): report_month=9->Q1, 12->Q2, 3->Q3, 6->FY
     """
     if not report_month or not fy_end_month:
         return None
@@ -49,16 +34,13 @@ def build_sec_url(cik, accession_number, primary_document):
     """組裝指向特定 10-Q / 10-K 文件的精確 SEC 直連網址"""
     if not all([cik, accession_number, primary_document]):
         return None
-    cik_int = str(int(cik))  # 移除前導 0
+    cik_int = str(int(cik))
     acc_no_dashes = accession_number.replace("-", "")
     return f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc_no_dashes}/{primary_document}"
 
 
 def extract_filings(submissions_json, cik, fy_end_month):
-    """
-    從 SEC submissions JSON 抽出最近一份 10-K 及該財年的 Q1/Q2/Q3 10-Q。
-    回傳格式: { "Q1": {...}, "Q2": {...}, "Q3": {...}, "FY": {...} }
-    """
+    """從 SEC submissions JSON 抽出最近一份 10-K 及該財年的 Q1/Q2/Q3 10-Q。"""
     recent = submissions_json.get('filings', {}).get('recent', {})
     forms = recent.get('form', [])
     accessions = recent.get('accessionNumber', [])
@@ -69,7 +51,6 @@ def extract_filings(submissions_json, cik, fy_end_month):
     if not forms:
         return {}
 
-    # 收集所有 10-K / 10-K/A 與 10-Q / 10-Q/A，按 reportDate 由新到舊
     candidates = []
     for i, form in enumerate(forms):
         if form in ('10-K', '10-K/A', '10-Q', '10-Q/A'):
@@ -88,10 +69,8 @@ def extract_filings(submissions_json, cik, fy_end_month):
     if not candidates:
         return {}
 
-    # 找最新一份 10-K 作為錨點
     latest_10k = next((c for c in candidates if c['form'].startswith('10-K')), None)
     if not latest_10k:
-        # 沒有 10-K 的話只回傳最近 3 份 10-Q
         result = {}
         tens_q = [c for c in candidates if c['form'].startswith('10-Q')][:3]
         for c in tens_q:
@@ -106,7 +85,6 @@ def extract_filings(submissions_json, cik, fy_end_month):
                 }
         return result
 
-    # 找該 10-K 之後 (時間更近) 的 10-Q
     later_10qs = [
         c for c in candidates
         if c['form'].startswith('10-Q') and c['report_date'] > latest_10k['report_date']
@@ -120,7 +98,7 @@ def extract_filings(submissions_json, cik, fy_end_month):
             'url': build_sec_url(cik, latest_10k['accession'], latest_10k['primary_doc']),
         }
     }
-    for c in later_10qs[:3]:  # 最多三份 Q1/Q2/Q3
+    for c in later_10qs[:3]:
         month = int(c['report_date'][5:7])
         q_label = fiscal_quarter(month, fy_end_month)
         if q_label and q_label != 'FY' and q_label not in result:
@@ -132,6 +110,93 @@ def extract_filings(submissions_json, cik, fy_end_month):
             }
 
     return result
+
+
+def fetch_sec_submissions(session, cik, ticker, stats):
+    """
+    從 SEC 抓取單一公司的 submissions JSON，含完整錯誤紀錄與重試邏輯。
+    回傳 dict (成功) 或 None (失敗)。
+    """
+    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+
+    for attempt in range(3):
+        try:
+            res = session.get(url, timeout=15)
+
+            if res.status_code == 200:
+                stats['success'] += 1
+                try:
+                    return res.json()
+                except Exception as e:
+                    stats['parse_error'] += 1
+                    if stats['parse_error'] <= 3:
+                        print(f"  ⚠️ {ticker}: JSON 解析失敗: {e}")
+                    return None
+
+            elif res.status_code == 429:
+                wait = (attempt + 1) * 2
+                print(f"  ⏳ {ticker}: 429 限速，等待 {wait}s 後重試...")
+                time.sleep(wait)
+                continue
+
+            elif res.status_code == 403:
+                stats['forbidden'] += 1
+                # 前 3 次完整印出，之後只計數
+                if stats['forbidden'] <= 3:
+                    body_preview = (res.text or '')[:300].replace('\n', ' ')
+                    print(f"  ❌ {ticker}: 403 Forbidden")
+                    print(f"     回應內容: {body_preview!r}")
+                return None
+
+            else:
+                stats['other_error'] += 1
+                if stats['other_error'] <= 3:
+                    body_preview = (res.text or '')[:200].replace('\n', ' ')
+                    print(f"  ❌ {ticker}: HTTP {res.status_code} | body: {body_preview!r}")
+                return None
+
+        except requests.exceptions.RequestException as e:
+            if attempt < 2:
+                time.sleep(1)
+                continue
+            stats['exception'] += 1
+            if stats['exception'] <= 3:
+                print(f"  ❌ {ticker}: Exception: {e}")
+            return None
+
+    return None
+
+
+def preflight_check(session, df):
+    """執行前先測一家公司，立刻知道 SEC 是否能正常回應。"""
+    if df.empty:
+        return
+    first_row = df.iloc[0]
+    first_ticker = first_row['Symbol']
+    try:
+        first_cik = str(int(first_row['CIK'])).zfill(10)
+    except Exception:
+        first_cik = str(first_row['CIK']).zfill(10)
+
+    print(f"🔍 預檢: 嘗試獲取 {first_ticker} (CIK={first_cik}) 的 SEC 資料...")
+    test_url = f"https://data.sec.gov/submissions/CIK{first_cik}.json"
+    try:
+        test_res = session.get(test_url, timeout=15)
+        print(f"   HTTP 狀態: {test_res.status_code}")
+        print(f"   回應 headers: Content-Type={test_res.headers.get('Content-Type')}")
+
+        if test_res.status_code != 200:
+            print(f"   ❌ 預檢失敗！回應內容前 500 字元:")
+            print(f"   {test_res.text[:500]}")
+            print(f"\n⚠️  SEC 似乎拒絕了來自此環境的請求。常見原因：")
+            print(f"   1. GitHub Actions 的 IP 範圍被 SEC 限速或封鎖（常見）")
+            print(f"   2. User-Agent 格式不符合 SEC 規範")
+            print(f"   3. SEC 伺服器暫時性問題")
+            print(f"\n  程式仍會繼續嘗試所有 ticker，但預期會大量失敗。\n")
+        else:
+            print(f"   ✅ 預檢通過！\n")
+    except Exception as e:
+        print(f"   ❌ 預檢拋出例外: {e}\n")
 
 
 def build_sp500_cache(sample_mode=False, output_file='sp500_mapping.json'):
@@ -149,21 +214,36 @@ def build_sp500_cache(sample_mode=False, output_file='sp500_mapping.json'):
 
     df['Symbol'] = df['Symbol'].str.replace('.', '-', regex=False)
 
-    # 樣本模式：只保留代表公司
     if sample_mode:
         df = df[df['Symbol'].isin(SAMPLE_TICKERS)].reset_index(drop=True)
-        print(f"🧪 樣本模式啟用：只處理 {len(df)} 家代表性公司")
+        print(f"🧪 樣本模式：只處理 {len(df)} 家代表公司")
         print(f"   → 輸出檔案: {output_file}（不會覆蓋正式檔）\n")
 
     companies_cache = {}
     total = len(df)
-    if not sample_mode:
-        print(f"✅ 成功獲取 {total} 家公司名單！")
 
-    print("⏳ 開始透過 SEC 官方 API 獲取財年結算月 + 最近 10-K/10-Q 文件...\n")
+    if not sample_mode:
+        print(f"✅ 成功獲取 {total} 家公司名單！\n")
+
+    # 統計用
+    stats = {
+        'success': 0,
+        'forbidden': 0,
+        'other_error': 0,
+        'exception': 0,
+        'parse_error': 0,
+        'with_filings': 0,
+        'empty_filings_200': 0,
+    }
 
     with requests.Session() as session:
         session.headers.update(HEADERS)
+
+        # 預檢：先測一家，立刻知道 SEC 通不通
+        if not sample_mode:
+            preflight_check(session, df)
+
+        print("⏳ 開始透過 SEC 官方 API 獲取財年結算月 + 最近 10-K/10-Q 文件...\n")
 
         for index, row in df.iterrows():
             ticker = row['Symbol']
@@ -177,28 +257,27 @@ def build_sp500_cache(sample_mode=False, output_file='sp500_mapping.json'):
             fy_end = 12  # 預設
             filings = {}
 
-            try:
-                url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-                res = session.get(url, timeout=10)
-                if res.status_code == 200:
-                    data = res.json()
-                    fy_str = data.get("fiscalYearEnd", "1231")
-                    if fy_str and len(fy_str) == 4:
-                        fy_end = int(fy_str[:2])
-                    filings = extract_filings(data, cik, fy_end)
+            data = fetch_sec_submissions(session, cik, ticker, stats)
+            if data is not None:
+                fy_str = data.get("fiscalYearEnd", "1231")
+                if fy_str and len(fy_str) == 4:
+                    fy_end = int(fy_str[:2])
+                filings = extract_filings(data, cik, fy_end)
 
-                if sample_mode:
-                    # 樣本模式下，每家公司結果都印出來方便人工檢查
-                    print(f"  ✓ {ticker:6s} ({name})")
-                    print(f"      fy_end={fy_end}  filings={list(filings.keys())}")
-                    for q_label, info in filings.items():
-                        print(f"        [{q_label}] {info['form']} reportDate={info['reportDate']}")
-                        print(f"             → {info['url']}")
-                elif (index + 1) % 50 == 0:
-                    print(f"已處理 {index+1}/{total} 家公司...")
+                if filings:
+                    stats['with_filings'] += 1
+                else:
+                    stats['empty_filings_200'] += 1
 
-            except Exception as e:
-                print(f"  ⚠️ {ticker} 獲取失敗: {e}")
+            if sample_mode:
+                print(f"  ✓ {ticker:6s} ({name})")
+                print(f"      fy_end={fy_end}  filings={list(filings.keys())}")
+                for q_label, info in filings.items():
+                    print(f"        [{q_label}] {info['form']} reportDate={info['reportDate']}")
+                    print(f"             → {info['url']}")
+            elif (index + 1) % 50 == 0:
+                failed = stats['forbidden'] + stats['other_error'] + stats['exception']
+                print(f"已處理 {index+1}/{total} 家 | 成功 filings={stats['with_filings']} | 失敗={failed}")
 
             companies_cache[ticker] = {
                 "name": name,
@@ -208,8 +287,23 @@ def build_sp500_cache(sample_mode=False, output_file='sp500_mapping.json'):
                 "filings": filings,
             }
 
-            # SEC 嚴格限制每秒 10 次請求
             time.sleep(0.15)
+
+    # 末尾統計報告
+    print(f"\n📊 處理結果統計:")
+    print(f"   總公司數: {total}")
+    print(f"   HTTP 200 成功: {stats['success']}")
+    print(f"     ├─ 有 filings 資料: {stats['with_filings']}")
+    print(f"     └─ 200 但無相關報告: {stats['empty_filings_200']}")
+    print(f"   403 Forbidden: {stats['forbidden']}")
+    print(f"   其他 HTTP 錯誤: {stats['other_error']}")
+    print(f"   網路例外: {stats['exception']}")
+    print(f"   JSON 解析錯誤: {stats['parse_error']}")
+
+    if stats['with_filings'] == 0 and total > 0:
+        print(f"\n⚠️  警告：沒有任何公司成功獲取 filings 資料！")
+        print(f"   最可能原因：SEC 封鎖了當前 IP（403）或 User-Agent 不合規範。")
+        print(f"   請查看上方詳細錯誤訊息確認。")
 
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
