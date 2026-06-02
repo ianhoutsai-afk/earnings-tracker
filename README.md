@@ -69,6 +69,21 @@ This repository is configured as a **Template**. Deploy your own serverless trac
 - **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
 - **前端**：Tailwind CSS, 原生 JavaScript (ES6+), Local Storage API。
 - **基礎設施**：GitHub Actions (定時自動化), GitHub Pages (靜態託管)。
+- **SEC Proxy**：Cloudflare Worker（`proxy-worker.js`），用於繞過 SEC 對 cloud IP 的封鎖。
+
+---
+
+### ☁️ Cloudflare Worker 部署（繞過 SEC 封鎖）
+
+SEC 官方 API 經常封鎖 GitHub Actions 等雲端環境的 IP。本專案提供一個 Cloudflare Worker 腳本 `proxy-worker.js` 做為中繼：
+
+1. **建立 Cloudflare Worker**：登入 Cloudflare Dashboard → Workers & Pages → 建立新的 Worker。
+2. **貼上程式碼**：將 `proxy-worker.js` 的全部內容複製貼上。
+3. **設定環境變數**（可選）：若想加強安全，可在 Worker 設定中將 `PROXY_TOKEN` 改為自訂亂碼，並在 GitHub Actions Secret 中加入同名變數。
+4. **部署**：點擊 Save and Deploy，記下 Worker 的網址（如 `https://sec-proxy.your-account.workers.dev`）。
+5. **更新程式碼**：在 `build_cache.py` 中將 SEC 請求的基礎 URL 改為你的 Worker 網址，並在 Header 中加入 `X-Proxy-Token`。
+
+> **注意**：若你只在本地端執行（非雲端環境），可以直接呼叫 SEC API 而不需要 Worker。
 
 ### 📝 維護指南
 S&P 500 成分股變動頻率極低。若發生指數季度調整（如剔除舊公司/加入新公司），只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可透過 DataHub 刷新快取庫。

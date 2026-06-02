@@ -33,7 +33,7 @@
             </button>
         </div>
 
-        <!-- 排序工具列 -->
+        <!-- 排序與篩選工具列 -->
         <div class="flex items-center gap-3 mb-4 bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
             <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400 pl-2">排序方式：</label>
             <select id="sort-select" class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 outline-none">
@@ -42,6 +42,9 @@
                 <option value="alpha_asc">公司代碼 (A - Z)</option>
                 <option value="alpha_desc">公司代碼 (Z - A)</option>
             </select>
+            <button id="star-filter-btn" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition">
+                ⭐ 只顯示收藏
+            </button>
         </div>
         
         <!-- 數據表格容器 -->
@@ -54,7 +57,7 @@
                         <th class="p-4 font-semibold">預計發布日</th>
                         <th class="p-4 font-semibold">預期 EPS</th>
                         <th class="p-4 font-semibold">預估營收</th>
-                        <th class="p-4 font-semibold text-center">歷史財報</th>
+                        <th class="p-4 font-semibold text-center">SEC 財報</th>
                     </tr>
                 </thead>
                 <tbody id="data-container" class="text-sm">
@@ -70,9 +73,10 @@
             document.documentElement.classList.toggle('dark');
         });
 
-        let appData = []; // 儲存全局資料以供排序使用
+        let appData = [];
+        let starFilterActive = false;
 
-        // 全域展開/折疊功能
+        // 展開/折疊歷史面板
         window.toggleHistory = function(ticker) {
             const row = document.getElementById(`history-${ticker}`);
             const icon = document.getElementById(`icon-${ticker}`);
@@ -87,16 +91,30 @@
             }
         };
 
+        // 更新收藏篩選按鈕樣式
+        function updateStarFilterBtn() {
+            const btn = document.getElementById('star-filter-btn');
+            if (starFilterActive) {
+                btn.classList.add('bg-yellow-100', 'dark:bg-yellow-900/30', 'text-yellow-700', 'dark:text-yellow-300', 'border-yellow-300', 'dark:border-yellow-700');
+                btn.classList.remove('bg-white', 'dark:bg-gray-900', 'text-gray-600', 'dark:text-gray-400');
+                btn.textContent = '⭐ 顯示全部';
+            } else {
+                btn.classList.remove('bg-yellow-100', 'dark:bg-yellow-900/30', 'text-yellow-700', 'dark:text-yellow-300', 'border-yellow-300', 'dark:border-yellow-700');
+                btn.classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-600', 'dark:text-gray-400');
+                btn.textContent = '⭐ 只顯示收藏';
+            }
+        }
+
         // 渲染表格內容
         function renderTable(data) {
             const container = document.getElementById('data-container');
             container.innerHTML = '';
-            
+
             data.forEach(company => {
                 const isStarred = localStorage.getItem(`star_${company.ticker}`) === 'true';
                 const starIcon = isStarred ? '⭐' : '☆';
-                
-                // 1. 產生倒數標籤
+
+                // 1. 倒數標籤
                 let badgeHtml = '';
                 if (company.countdown !== null && company.countdown !== undefined) {
                     if (company.countdown === 0) {
@@ -110,7 +128,15 @@
                     }
                 }
 
-                // 2. 建立主資料行
+                // 2. 判斷是否有歷史資料
+                const hasHistory = company.history && company.history.length > 0;
+                const secBtnHtml = hasHistory
+                    ? `<button onclick="toggleHistory('${company.ticker}')" class="px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
+                            查看 <span id="icon-${company.ticker}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
+                        </button>`
+                    : `<span class="text-xs text-gray-400">暫無資料</span>`;
+
+                // 3. 建立主資料行
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors duration-150';
                 tr.innerHTML = `
@@ -125,40 +151,45 @@
                     </td>
                     <td class="p-4 text-gray-700 dark:text-gray-300">${company.eps || '-'}</td>
                     <td class="p-4 text-gray-700 dark:text-gray-300">${company.revenue || '-'}</td>
-                    <td class="p-4 text-center">
-                        <button onclick="toggleHistory('${company.ticker}')" class="px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
-                            查看 <span id="icon-${company.ticker}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
-                        </button>
-                    </td>
+                    <td class="p-4 text-center">${secBtnHtml}</td>
                 `;
 
-                // 3. 建立隱藏的歷史數據展開面板 (折疊卡片)
+                // 4. 建立隱藏的歷史展開面板
                 const trExpand = document.createElement('tr');
                 trExpand.id = `history-${company.ticker}`;
                 trExpand.className = 'expand-row hidden bg-gray-50/50 dark:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700';
-                
+
                 let historyContent = '';
-                if (company.history && company.history.length > 0) {
+                if (hasHistory) {
                     let cardsHtml = '';
-                    // 迴圈生成 4 個季度的卡片
-                    company.history.forEach((h, index) => {
+                    company.history.forEach((h) => {
+                        // 季度標籤（如 "2025 Q2", "2025 FY"）
+                        const quarterLabel = h.quarter ? h.quarter : '近期';
+                        const isFY = quarterLabel.includes('FY');
+                        // SEC 連結
+                        const secUrl = h.secUrl || `https://www.sec.gov/cgi-bin/browse-edgar?CIK=${company.ticker}&action=getcompany`;
                         cardsHtml += `
-                            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">過去 Q${index + 1}</span>
-                                    <span class="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">${h.date}</span>
+                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center h-full">
+                                <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 ${isFY ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'}">${quarterLabel} 財報</span>
+                                <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                                    📅 ${h.date}
                                 </div>
-                                <div class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">${h.eps_reported} <span class="text-sm font-normal text-gray-500">EPS</span></div>
-                                <a href="https://www.sec.gov/cgi-bin/browse-edgar?CIK=${company.ticker}&action=getcompany" target="_blank" 
-                                   class="inline-flex items-center justify-center w-full px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
-                                    🏛️ 查閱 SEC 原文
+                                <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
+                                    ${h.eps_reported}
+                                </div>
+                                <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">EPS</div>
+                                <div class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    ${h.revenue_reported || '-'}
+                                </div>
+                                <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">營收</div>
+                                <a href="${secUrl}" target="_blank" 
+                                   class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                                    🏛️ SEC 原文
                                 </a>
                             </div>
                         `;
                     });
-                    historyContent = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 inner-shadow">${cardsHtml}</div>`;
-                } else {
-                    historyContent = `<div class="p-6 text-center text-gray-500 dark:text-gray-400">暫無歷史財報數據</div>`;
+                    historyContent = `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">${cardsHtml}</div>`;
                 }
 
                 trExpand.innerHTML = `<td colspan="6" class="p-0">${historyContent}</td>`;
@@ -183,44 +214,64 @@
             });
         }
 
-        // 排序邏輯
+        // 排序＋篩選邏輯
         function applySort() {
             const val = document.getElementById('sort-select').value;
-            let sorted = [...appData];
+            let filtered = starFilterActive
+                ? appData.filter(c => localStorage.getItem(`star_${c.ticker}`) === 'true')
+                : [...appData];
 
             if (val === 'countdown_asc') {
-                sorted.sort((a, b) => {
+                filtered.sort((a, b) => {
                     const valA = a.countdown !== null ? a.countdown : 99999;
                     const valB = b.countdown !== null ? b.countdown : 99999;
                     return valA - valB;
                 });
             } else if (val === 'countdown_desc') {
-                sorted.sort((a, b) => {
+                filtered.sort((a, b) => {
                     const valA = a.countdown !== null ? a.countdown : -99999;
                     const valB = b.countdown !== null ? b.countdown : -99999;
                     return valB - valA;
                 });
             } else if (val === 'alpha_asc') {
-                sorted.sort((a, b) => a.ticker.localeCompare(b.ticker));
+                filtered.sort((a, b) => a.ticker.localeCompare(b.ticker));
             } else if (val === 'alpha_desc') {
-                sorted.sort((a, b) => b.ticker.localeCompare(a.ticker));
+                filtered.sort((a, b) => b.ticker.localeCompare(a.ticker));
             }
-            renderTable(sorted);
+            renderTable(filtered);
         }
 
-        // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('sort-select').addEventListener('change', applySort);
+        // 收藏篩選按鈕點擊
+        document.getElementById('star-filter-btn').addEventListener('click', () => {
+            starFilterActive = !starFilterActive;
+            updateStarFilterBtn();
+            applySort();
+        });
 
+        // 初始化：載入 data.json（含重試機制）
+        function fetchData(retries = 3) {
             fetch('data.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return response.json();
+                })
                 .then(data => {
                     appData = data;
-                    applySort(); // 初次載入自動套用預設排序 (倒數最近優先)
+                    applySort();
                 })
                 .catch(err => {
-                    document.getElementById('data-container').innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-500 font-medium">無法載入資料，請確認 data.json</td></tr>`;
+                    if (retries > 0) {
+                        setTimeout(() => fetchData(retries - 1), 2000);
+                    } else {
+                        document.getElementById('data-container').innerHTML =
+                            `<tr><td colspan="6" class="p-8 text-center text-red-500 font-medium">無法載入資料，請重新整理頁面</td></tr>`;
+                    }
                 });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('sort-select').addEventListener('change', applySort);
+            fetchData();
         });
     </script>
 </body>

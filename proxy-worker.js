@@ -1,0 +1,78 @@
+/**
+ * SEC EDGAR Proxy Worker
+ *
+ * 把 GitHub Actions 對 SEC 的請求中繼一下，繞過 SEC 對 cloud IP 的封鎖。
+ *
+ * 用法：
+ *   原本: https://data.sec.gov/submissions/CIK0000320193.json
+ *   改成: https://sec-proxy.你的帳號.workers.dev/submissions/CIK0000320193.json
+ *
+ * 安全性：
+ *   - 只代理 SEC 的兩個合法網域（白名單）
+ *   - 需要正確的 X-Proxy-Token header 才會放行（防止別人盜用你的 Worker 流量）
+ *   - 從 SEC 拿到 200 才回，其他狀態原樣傳回讓 GitHub Actions 看
+ */
+
+// ⚠️ 把這兩個值換成你自己的
+const PROXY_TOKEN = 'DG34dchn89H6k46GB';           // 自己定一個亂碼，等下 GitHub Secret 也要用同一個
+const SEC_USER_AGENT = 'ianhoutsai@gmail.com'; // SEC 規範要求的真實 email
+
+// 允許代理的 SEC 路徑（白名單，防止這個 Worker 被當成通用 proxy 濫用）
+const ALLOWED_HOSTS = {
+  'submissions': 'https://data.sec.gov',
+  'api': 'https://data.sec.gov',
+  'archives': 'https://www.sec.gov',
+};
+
+export default {
+  async fetch(request) {
+    // 1. 驗證請求 token
+    const token = request.headers.get('X-Proxy-Token');
+    if (token !== PROXY_TOKEN) {
+      return new Response('Unauthorized: missing or invalid X-Proxy-Token', { status: 401 });
+    }
+
+    // 2. 解析 URL，決定要轉發到哪個 SEC 子網域
+    const url = new URL(request.url);
+    const path = url.pathname; // 例如 /submissions/CIK0000320193.json
+
+    // 第一段路徑用來判斷子網域
+    const firstSegment = path.split('/').filter(Boolean)[0];
+    const targetHost = ALLOWED_HOSTS[firstSegment];
+
+    if (!targetHost) {
+      return new Response(
+        `Forbidden: only ${Object.keys(ALLOWED_HOSTS).join(', ')} paths are allowed`,
+        { status: 403 }
+      );
+    }
+
+    // 3. 組裝目標 URL
+    const targetUrl = `${targetHost}${path}${url.search}`;
+
+    // 4. 用 SEC 規範的 UA 去打 SEC
+    try {
+      const secResponse = await fetch(targetUrl, {
+        method: 'GET',
+        headers: {
+          'User-Agent': SEC_USER_AGENT,
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip, deflate',
+        },
+      });
+
+      // 5. 把 SEC 的回應原樣轉回 GitHub Actions
+      const body = await secResponse.arrayBuffer();
+      return new Response(body, {
+        status: secResponse.status,
+        statusText: secResponse.statusText,
+        headers: {
+          'Content-Type': secResponse.headers.get('Content-Type') || 'application/json',
+          'X-Proxied-From': targetUrl, // 方便 debug
+        },
+      });
+    } catch (err) {
+      return new Response(`Proxy error: ${err.message}`, { status: 502 });
+    }
+  },
+};
