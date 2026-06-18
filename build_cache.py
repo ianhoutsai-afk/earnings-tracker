@@ -3,6 +3,7 @@ import requests
 import json
 import time
 import sys
+import os
 import argparse
 
 # SEC 官方要求 User-Agent 必須包含聯絡資訊
@@ -10,6 +11,11 @@ HEADERS = {
     'User-Agent': 'S&P500 Earnings Tracker ianhoutsai@github.com',
     'Accept-Encoding': 'gzip, deflate',
 }
+
+# Cloudflare Worker Proxy URL（用於繞過 SEC 對雲端 IP 的封鎖）
+# 設定環境變數 SEC_PROXY_URL 後，所有 SEC 請求將透過此代理
+SEC_PROXY_URL = os.environ.get('SEC_PROXY_URL', '')
+SEC_PROXY_TOKEN = os.environ.get('PROXY_TOKEN', '')
 
 # 樣本模式測試用的代表性公司
 SAMPLE_TICKERS = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'WMT']
@@ -112,6 +118,30 @@ def extract_filings(submissions_json, cik, fy_end_month):
     return result
 
 
+def _sec_request(session, url, timeout=15):
+    """
+    向 SEC API 發送請求，支援透過 Cloudflare Worker Proxy 繞過封鎖。
+    若設定 SEC_PROXY_URL 環境變數，則透過路徑式代理發送請求。
+
+    Proxy 路徑對應：
+      https://data.sec.gov/submissions/CIK... → {proxy}/submissions/CIK...
+      https://www.sec.gov/Archives/edgar/...  → {proxy}/Archives/edgar/...
+    """
+    if SEC_PROXY_URL:
+        proxy_headers = dict(HEADERS)
+        if SEC_PROXY_TOKEN:
+            proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
+        # 提取路徑部分附加到 proxy URL
+        from urllib.parse import urlparse as _urlparse
+        parsed = _urlparse(url)
+        proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
+        if parsed.query:
+            proxy_url += '?' + parsed.query
+        return session.get(proxy_url, headers=proxy_headers, timeout=timeout)
+    else:
+        return session.get(url, timeout=timeout)
+
+
 def fetch_sec_submissions(session, cik, ticker, stats):
     """
     從 SEC 抓取單一公司的 submissions JSON，含完整錯誤紀錄與重試邏輯。
@@ -121,7 +151,7 @@ def fetch_sec_submissions(session, cik, ticker, stats):
 
     for attempt in range(3):
         try:
-            res = session.get(url, timeout=15)
+            res = _sec_request(session, url, timeout=15)
 
             if res.status_code == 200:
                 stats['success'] += 1
@@ -181,7 +211,7 @@ def preflight_check(session, df):
     print(f"🔍 預檢: 嘗試獲取 {first_ticker} (CIK={first_cik}) 的 SEC 資料...")
     test_url = f"https://data.sec.gov/submissions/CIK{first_cik}.json"
     try:
-        test_res = session.get(test_url, timeout=15)
+        test_res = _sec_request(session, test_url, timeout=15)
         print(f"   HTTP 狀態: {test_res.status_code}")
         print(f"   回應 headers: Content-Type={test_res.headers.get('Content-Type')}")
 
@@ -238,6 +268,9 @@ def build_sp500_cache(sample_mode=False, output_file='sp500_mapping.json'):
 
     with requests.Session() as session:
         session.headers.update(HEADERS)
+
+        if SEC_PROXY_URL:
+            print(f"🔀 使用 SEC Proxy: {SEC_PROXY_URL}")
 
         # 預檢：先測一家，立刻知道 SEC 通不通
         if not sample_mode:

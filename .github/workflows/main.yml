@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -26,7 +26,9 @@ jobs:
 
       - name: 執行資料更新程式碼
         env:
-          BARK_KEY: ${{ secrets.BARK_KEY }} # 👈 將 Telegram 變數換成這一行
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+          PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
         run: python update_data.py
 
       - name: Commit and push if changed

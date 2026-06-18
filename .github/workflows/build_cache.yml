@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -25,6 +25,9 @@ jobs:
           pip install pandas requests lxml
 
       - name: Execute build_cache.py
+        env:
+          SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+          PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
         run: python build_cache.py
 
       - name: Commit and push if changed

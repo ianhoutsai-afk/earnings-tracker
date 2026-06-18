@@ -24,6 +24,7 @@ import yfinance as yf
 import json
 import time
 import sys
+import os
 import argparse
 import requests
 from datetime import datetime, date, timedelta
@@ -36,6 +37,12 @@ SEC_HEADERS = {
     'User-Agent': 'Earnings Dashboard admin@earnings-tracker.local',
     'Accept-Encoding': 'gzip, deflate',
 }
+
+# Cloudflare Worker Proxy URL（用於繞過 SEC 對雲端 IP 的封鎖）
+# 設定環境變數 SEC_PROXY_URL 後，所有 SEC 請求將透過此代理
+# 本地執行時不需設定，可直接連線 SEC
+SEC_PROXY_URL = os.environ.get('SEC_PROXY_URL', '')
+SEC_PROXY_TOKEN = os.environ.get('PROXY_TOKEN', '')
 
 
 def fiscal_quarter_from_date(report_date: date, fy_end_month: int) -> Optional[str]:
@@ -118,6 +125,29 @@ def build_sec_url(cik: str, accession_number: str, primary_document: str) -> Opt
     return f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc_no_dashes}/{primary_document}"
 
 
+def _sec_request(url: str, timeout: int = 15) -> requests.Response:
+    """
+    向 SEC API 發送請求，支援透過 Cloudflare Worker Proxy 繞過封鎖。
+    若設定 SEC_PROXY_URL 環境變數，則透過路徑式代理發送請求。
+
+    Proxy 路徑對應：
+      https://data.sec.gov/submissions/CIK... → {proxy}/submissions/CIK...
+      https://www.sec.gov/Archives/edgar/...  → {proxy}/Archives/edgar/...
+    """
+    if SEC_PROXY_URL:
+        proxy_headers = dict(SEC_HEADERS)
+        if SEC_PROXY_TOKEN:
+            proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
+        # 提取路徑部分附加到 proxy URL
+        parsed = requests.utils.urlparse(url)
+        proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
+        if parsed.query:
+            proxy_url += '?' + parsed.query
+        return requests.get(proxy_url, headers=proxy_headers, timeout=timeout)
+    else:
+        return requests.get(url, headers=SEC_HEADERS, timeout=timeout)
+
+
 def fetch_sec_filing_list(cik: str) -> list:
     """
     從 SEC API 抓取該公司的 10-K/10-Q 文件列表。
@@ -130,10 +160,34 @@ def fetch_sec_filing_list(cik: str) -> list:
     若失敗則回傳空 list。
     """
     url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-    try:
-        res = requests.get(url, headers=SEC_HEADERS, timeout=15)
-        if res.status_code != 200:
+
+    for attempt in range(3):
+        try:
+            res = _sec_request(url, timeout=15)
+
+            if res.status_code == 200:
+                data = res.json()
+                break
+            elif res.status_code == 429:
+                wait = (attempt + 1) * 3
+                time.sleep(wait)
+                continue
+            elif res.status_code == 403:
+                # SEC 封鎖此 IP（常見於 GitHub Actions），不重試
+                return []
+            else:
+                if attempt < 2:
+                    time.sleep(1)
+                    continue
+                return []
+        except Exception:
+            if attempt < 2:
+                time.sleep(1)
+                continue
             return []
+
+    # 解析回應內容
+    try:
         data = res.json()
     except Exception:
         return []
@@ -440,6 +494,8 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
     existing_map = {c['ticker']: c for c in existing_data}
 
     # 4. 預先從 SEC API 抓取所有相關公司的 filing list
+    if SEC_PROXY_URL:
+        print(f"🔀 使用 SEC Proxy: {SEC_PROXY_URL}")
     print("⏳ 從 SEC API 抓取 filing 列表...")
     sec_filing_cache = {}  # { ticker: [{"filingDate":..., "form":..., "url":...}, ...] }
     sec_fetch_count = 0
