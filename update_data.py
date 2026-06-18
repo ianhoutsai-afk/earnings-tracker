@@ -8,7 +8,7 @@ update_data.py — S&P 500 Earnings Tracker 數據更新腳本
 3. 用 yfinance 抓取即時財報日期、EPS 預估、營收預估
 4. 從 yfinance earnings_dates 抓取真實歷史 EPS（Reported EPS）
 5. 根據日期 + fy_end 推算季度/年度標籤
-6. 從 SEC API 即時抓取 10-K/10-Q filing URL，配對到各季度
+6. 從 SEC API 即時抓取 10-K/10-Q filing URL，根據 filingDate 配對到各季度
 7. 產生 5 筆歷史資料（含精確 SEC 直連網址）
 8. 動態計算 countdown（離財報發布日天數）
 9. 判斷 BMO/AMC 標示
@@ -118,74 +118,118 @@ def build_sec_url(cik: str, accession_number: str, primary_document: str) -> Opt
     return f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc_no_dashes}/{primary_document}"
 
 
-def fetch_sec_filing_urls(cik: str, fy_end_month: int) -> dict:
+def fetch_sec_filing_list(cik: str) -> list:
     """
-    從 SEC API 抓取該公司的 10-K/10-Q 文件 URL，
-    根據 reportDate（期間結束日）與 fy_end_month 推算季度標籤。
+    從 SEC API 抓取該公司的 10-K/10-Q 文件列表。
 
-    回傳 dict: { "Q1": "url", "Q2": "url", "Q3": "url", "FY": "url" }
-    若失敗則回傳空 dict。
+    回傳 list[dict]:
+        [
+            {"filingDate": "2025-05-01", "form": "10-Q", "url": "https://...", "reportDate": "2025-03-28"},
+            ...
+        ]
+    若失敗則回傳空 list。
     """
     url = f"https://data.sec.gov/submissions/CIK{cik}.json"
     try:
         res = requests.get(url, headers=SEC_HEADERS, timeout=15)
         if res.status_code != 200:
-            return {}
+            return []
         data = res.json()
     except Exception:
-        return {}
+        return []
 
     recent = data.get('filings', {}).get('recent', {})
     forms = recent.get('form', [])
     accessions = recent.get('accessionNumber', [])
     primary_docs = recent.get('primaryDocument', [])
     report_dates = recent.get('reportDate', [])
+    filing_dates = recent.get('filingDate', [])
 
     if not forms:
-        return {}
+        return []
 
-    # 收集所有 10-K 和 10-Q，按 reportDate 降序排列
     candidates = []
     for i, form in enumerate(forms):
         if form in ('10-K', '10-K/A', '10-Q', '10-Q/A'):
             report_date_str = report_dates[i] if i < len(report_dates) else ''
-            if not report_date_str:
+            filing_date_str = filing_dates[i] if i < len(filing_dates) else ''
+            if not report_date_str or not filing_date_str:
                 continue
+            # 標準化 form 名稱（移除 /A 後綴）
+            base_form = form.replace('/A', '')
             candidates.append({
-                'form': form,
+                'form': base_form,
                 'accession': accessions[i],
                 'primary_doc': primary_docs[i],
                 'report_date': report_date_str,
+                'filing_date': filing_date_str,
+                'url': build_sec_url(cik, accessions[i], primary_docs[i]),
             })
-    candidates.sort(key=lambda x: x['report_date'], reverse=True)
+    # 按 filingDate 降序排列（最新的在前）
+    candidates.sort(key=lambda x: x['filing_date'], reverse=True)
+    return candidates
 
-    if not candidates:
-        return {}
 
-    # 根據 reportDate 推算季度標籤的 helper
-    def _report_month_to_q(report_date_str: str) -> str:
-        month = int(report_date_str[5:7])
-        fy_start_month = fy_end_month + 1
-        if fy_start_month > 12:
-            fy_start_month = 1
-        if month >= fy_start_month:
-            months_into_fy = month - fy_start_month + 1
-        else:
-            months_into_fy = month + (12 - fy_start_month + 1)
-        q = (months_into_fy - 1) // 3 + 1
-        return "FY" if q == 4 else f"Q{q}"
+def match_filing_to_history(history_item: dict, sec_filings: list) -> Optional[str]:
+    """
+    將一筆歷史財報資料（含 date 和 quarter label）配對到最合適的 SEC filing URL。
 
-    filings = {}
-    # 遍歷所有 filings，取每個季度最近的一份文件（最多 8 份）
-    for c in candidates[:20]:  # 看前 20 份以涵蓋多個財年
-        q_label = _report_month_to_q(c['report_date'])
-        if q_label not in filings:
-            filings[q_label] = build_sec_url(cik, c['accession'], c['primary_doc'])
-            # 一旦 Q1/Q2/Q3/FY 都收集到了就可以停止
-            if len(filings) >= 4:
-                break
+    配對規則：
+    1. 從 SEC filings 中找到 filingDate 最接近 history.date 的 filing
+       （優先找 filingDate 剛好在 history.date 之後 0-3 天內的 filing）
+    2. 驗證 form 類型：
+       - FY → 必須是 10-K
+       - Q1/Q2/Q3 → 必須是 10-Q
+    3. 若找不到符合條件的，回傳 None
+    """
+    history_date_str = history_item.get('date', '')
+    quarter_label = history_item.get('quarter', '')
 
-    return filings
+    if not history_date_str or not quarter_label:
+        return None
+
+    # 解析 quarter label：提取 Q1/Q2/Q3 或 FY
+    q_key = quarter_label.split()[-1] if ' ' in quarter_label else quarter_label
+    is_fy = (q_key == 'FY')
+    expected_form = '10-K' if is_fy else '10-Q'
+
+    try:
+        hist_date = datetime.strptime(history_date_str, '%Y-%m-%d').date()
+    except ValueError:
+        return None
+
+    best_url = None
+    best_diff = None
+
+    for filing in sec_filings:
+        if filing['form'] != expected_form:
+            continue
+
+        try:
+            filing_dt = datetime.strptime(filing['filing_date'], '%Y-%m-%d').date()
+        except ValueError:
+            continue
+
+        diff = (filing_dt - hist_date).days
+
+        # 只考慮 filingDate 在 history date 之後 0-10 天內，或之前最多 3 天
+        if diff < -3 or diff > 10:
+            continue
+
+        # 找 filingDate 最接近 history date 的（優先選擇之後的）
+        if best_url is None:
+            best_url = filing['url']
+            best_diff = diff
+        elif diff >= 0 and (best_diff < 0 or diff < best_diff):
+            # 優先選擇 diff >= 0（之後）且 diff 最小的
+            best_url = filing['url']
+            best_diff = diff
+        elif diff < 0 and best_diff < 0 and diff > best_diff:
+            # 如果都是負的，選最接近的（diff 最大的負數）
+            best_url = filing['url']
+            best_diff = diff
+
+    return best_url
 
 
 def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -> Optional[dict]:
@@ -349,9 +393,9 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
     主流程：
     1. 讀取現有 data.json
     2. 從 sp500_mapping.json 讀取 fy_end、CIK
-    3. 從 SEC API 即時抓取各公司 filing URL
+    3. 從 SEC API 即時抓取各公司 filing list
     4. 用 yfinance 更新即時財報數據 + 歷史 EPS
-    5. 將 SEC URL 配對到各季度 history 項目
+    5. 將 SEC URL 根據 filingDate 配對到各季度 history 項目
     6. 寫回 data.json
     """
     # 1. 讀取現有 data.json
@@ -395,33 +439,31 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
 
     existing_map = {c['ticker']: c for c in existing_data}
 
-    # 4. 預先從 SEC API 抓取所有相關公司的 filing URL（含重試）
-    print("⏳ 從 SEC API 抓取 filing URL...")
-    sec_filing_cache = {}  # { ticker: {"Q1": url, "Q2": url, "Q3": url, "FY": url} }
+    # 4. 預先從 SEC API 抓取所有相關公司的 filing list
+    print("⏳ 從 SEC API 抓取 filing 列表...")
+    sec_filing_cache = {}  # { ticker: [{"filingDate":..., "form":..., "url":...}, ...] }
     sec_fetch_count = 0
     for idx, company in enumerate(companies_to_update):
         ticker = company['ticker']
         mapping_entry = sec_mapping.get(ticker, {})
         cik = mapping_entry.get('cik', '')
         if not cik:
-            sec_filing_cache[ticker] = {}
+            sec_filing_cache[ticker] = []
             continue
-        # 補零至 10 位數
         try:
             cik_padded = str(int(cik)).zfill(10)
         except (ValueError, TypeError):
-            sec_filing_cache[ticker] = {}
+            sec_filing_cache[ticker] = []
             continue
 
-        fy_end = mapping_entry.get('fy_end', 12)
-        filings = fetch_sec_filing_urls(cik_padded, fy_end)
+        filings = fetch_sec_filing_list(cik_padded)
         sec_filing_cache[ticker] = filings
         if filings:
             sec_fetch_count += 1
 
         if (idx + 1) % 10 == 0 or idx + 1 == len(companies_to_update):
             print(f"    SEC: {idx+1}/{len(companies_to_update)} 家公司處理完畢（{sec_fetch_count} 家有 filing）")
-        time.sleep(0.1)  # SEC API 限速防護
+        time.sleep(0.1)
 
     print(f"    SEC filing 抓取完成，{sec_fetch_count}/{len(companies_to_update)} 家有資料\n")
 
@@ -435,7 +477,7 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
         print(f"  [{idx+1}/{total}] 處理 {ticker}...", end=" ")
 
         # 從 sp500_mapping 取得 fy_end
-        fy_end = 12  # 預設
+        fy_end = 12
         if ticker in sec_mapping:
             fy_end = sec_mapping[ticker].get('fy_end', 12)
 
@@ -450,17 +492,16 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
             existing['revenue'] = result['revenue'] if result['revenue'] != '-' else existing.get('revenue', '-')
             existing['ticker'] = ticker
 
-            # 更新歷史 EPS 數據（只在新資料有效時才覆蓋）
+            # 更新歷史 EPS 數據並配對 SEC URL
             if result.get('history') and len(result['history']) > 0:
                 enriched_history = result['history']
-                # 從 SEC filing cache 取得 URL 並配對到各季度
-                filing_urls = sec_filing_cache.get(ticker, {})
-                if filing_urls:
+                # 從 SEC filing cache 取得該公司的 filing 列表
+                sec_filings = sec_filing_cache.get(ticker, [])
+                if sec_filings:
                     for h_item in enriched_history:
-                        quarter_label = h_item.get('quarter', '')
-                        q_key = quarter_label.split()[-1] if ' ' in quarter_label else ''
-                        if q_key in filing_urls and filing_urls[q_key]:
-                            h_item['secUrl'] = filing_urls[q_key]
+                        sec_url = match_filing_to_history(h_item, sec_filings)
+                        if sec_url:
+                            h_item['secUrl'] = sec_url
                 existing['history'] = enriched_history
 
             existing_map[ticker] = existing
