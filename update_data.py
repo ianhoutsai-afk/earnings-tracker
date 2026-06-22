@@ -2,22 +2,15 @@
 """
 update_data.py — S&P 500 Earnings Tracker 數據更新腳本
 
-功能：
-1. 從 data.json 讀取現有公司資料
-2. 從 sp500_mapping.json 讀取財年結算月份（fy_end）與 CIK
-3. 用 yfinance 抓取即時財報日期、EPS 預估、營收預估
-4. 從 yfinance earnings_dates 抓取真實歷史 EPS（Reported EPS）
-5. 根據日期 + fy_end 推算季度/年度標籤
-6. 從 SEC API 即時抓取 10-K/10-Q filing URL，根據 filingDate 配對到各季度
-7. 產生 5 筆歷史資料（含精確 SEC 直連網址）
-8. 動態計算 countdown（離財報發布日天數）
-9. 判斷 BMO/AMC 標示
-10. 合併後寫回 data.json
+兩種模式:
+  1. 完整建置模式 (full): 處理所有公司，首次執行或重建時使用
+  2. 增量更新模式 (incremental): 只處理未來 30 天內要發布財報的公司（預設）
 
-用法：
-    python update_data.py              # 完整更新全部公司
-    python update_data.py --sample     # 樣本模式（只處理 AAPL, MSFT, NVDA, AMZN, GOOGL, WMT）
-    python update_data.py --ticker AAPL,MSFT  # 只處理指定公司，用逗號分隔
+用法:
+  python update_data.py                        # 增量更新（預設）
+  python update_data.py --full                 # 完整建置
+  python update_data.py --sample               # 樣本模式（測試用）
+  python update_data.py --ticker AAPL,MSFT     # 指定公司
 """
 
 import yfinance as yf
@@ -32,63 +25,21 @@ from typing import Optional
 import pandas as pd
 
 
-# SEC API 請求標頭（需包含聯絡資訊）
 SEC_HEADERS = {
     'User-Agent': 'Earnings Dashboard admin@earnings-tracker.local',
     'Accept-Encoding': 'gzip, deflate',
 }
 
-# Cloudflare Worker Proxy URL（用於繞過 SEC 對雲端 IP 的封鎖）
-# 設定環境變數 SEC_PROXY_URL 後，所有 SEC 請求將透過此代理
-# 本地執行時不需設定，可直接連線 SEC
 SEC_PROXY_URL = os.environ.get('SEC_PROXY_URL', '')
 SEC_PROXY_TOKEN = os.environ.get('PROXY_TOKEN', '')
 
 
-def fiscal_quarter_from_date(report_date: date, fy_end_month: int) -> Optional[str]:
-    """
-    根據財報發布日期與公司財年結束月份，推算此財報屬於哪個季度/年度。
-
-    例如：
-    - Apple (fy_end=9): 10-12月→Q1, 1-3月→Q2, 4-6月→Q3, 7-9月→FY
-    - Microsoft (fy_end=6): 7-9月→Q1, 10-12月→Q2, 1-3月→Q3, 4-6月→FY
-    - 標準 12月結算: 1-3月→Q1, 4-6月→Q2, 7-9月→Q3, 10-12月→FY
-
-    回傳格式: "2025 Q1", "2025 Q2", "2025 Q3", "2025 FY", "2026 Q1"
-    """
-    if not report_date or not fy_end_month:
-        return None
-
-    month = report_date.month
-    year = report_date.year
-
-    # 財年 = fy_end_month 的後一個月開始
-    fy_start_month = fy_end_month + 1
-    if fy_start_month > 12:
-        fy_start_month = 1
-
-    # 計算這是財年的第幾個月
-    if month >= fy_start_month:
-        months_into_fy = month - fy_start_month + 1
-    else:
-        months_into_fy = month + (12 - fy_start_month + 1)
-
-    quarter = (months_into_fy - 1) // 3 + 1
-
-    # 財年年份：報告月份 > fy_end_month 表示進入下個財年
-    if month > fy_end_month:
-        fy_year = year + 1
-    else:
-        fy_year = year
-
-    if quarter == 4:
-        return f"{fy_year} FY"
-    else:
-        return f"{fy_year} Q{quarter}"
+# ─────────────────────────────────────────────
+# 工具函數
+# ─────────────────────────────────────────────
 
 
 def format_eps(value) -> str:
-    """格式化 EPS 值"""
     if value is None:
         return "-"
     try:
@@ -99,7 +50,6 @@ def format_eps(value) -> str:
 
 
 def format_revenue(value) -> str:
-    """格式化營收值"""
     if value is None:
         return "-"
     try:
@@ -116,29 +66,12 @@ def format_revenue(value) -> str:
         return "-"
 
 
-def build_sec_url(cik: str, accession_number: str, primary_document: str) -> Optional[str]:
-    """組裝指向特定 10-Q / 10-K 文件的精確 SEC 直連網址"""
-    if not all([cik, accession_number, primary_document]):
-        return None
-    cik_int = str(int(cik))
-    acc_no_dashes = accession_number.replace("-", "")
-    return f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc_no_dashes}/{primary_document}"
-
-
 def _sec_request(url: str, timeout: int = 15) -> requests.Response:
-    """
-    向 SEC API 發送請求，支援透過 Cloudflare Worker Proxy 繞過封鎖。
-    若設定 SEC_PROXY_URL 環境變數，則透過路徑式代理發送請求。
-
-    Proxy 路徑對應：
-      https://data.sec.gov/submissions/CIK... → {proxy}/submissions/CIK...
-      https://www.sec.gov/Archives/edgar/...  → {proxy}/Archives/edgar/...
-    """
+    """透過 proxy（如有設定）或直連發送 SEC 請求"""
     if SEC_PROXY_URL:
         proxy_headers = dict(SEC_HEADERS)
         if SEC_PROXY_TOKEN:
             proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
-        # 提取路徑部分附加到 proxy URL
         parsed = requests.utils.urlparse(url)
         proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
         if parsed.query:
@@ -148,32 +81,127 @@ def _sec_request(url: str, timeout: int = 15) -> requests.Response:
         return requests.get(url, headers=SEC_HEADERS, timeout=timeout)
 
 
+def build_sec_ixbrl_url(cik: str, accession_number: str, primary_document: str) -> str:
+    """
+    建構 SEC ixbrl 互動式檢視器 URL。
+    使用 ixbrl 檢視器可以更友好地瀏覽財報內容。
+    """
+    cik_int = str(int(cik))
+    acc_no_dashes = accession_number.replace("-", "")
+    return f"https://www.sec.gov/ix?doc=/Archives/edgar/data/{cik_int}/{acc_no_dashes}/{primary_document}"
+
+
+# ─────────────────────────────────────────────
+# Quarter 標籤推算（使用期間結束日）
+# ─────────────────────────────────────────────
+
+
+def estimate_period_end(release_date: date) -> Optional[date]:
+    """
+    從 earnings release date 推估對應的 fiscal period end date。
+    
+    財報通常在公司財報期間結束後的 2-6 週發布：
+    - Jan-Mar 發布 → 期間結束日為前一年 Dec 31（年報 / FY）
+    - Apr-Jun 發布 → 期間結束日為今年 Mar 31（Q1）
+    - Jul-Sep 發布 → 期間結束日為今年 Jun 30（Q2）
+    - Oct-Dec 發布 → 期間結束日為今年 Sep 30（Q3）
+    """
+    if not release_date:
+        return None
+    m = release_date.month
+    y = release_date.year
+    if 1 <= m <= 3:
+        return date(y - 1, 12, 31)
+    elif 4 <= m <= 6:
+        return date(y, 3, 31)
+    elif 7 <= m <= 9:
+        return date(y, 6, 30)
+    elif 10 <= m <= 12:
+        return date(y, 9, 30)
+    return None
+
+
+def quarter_label_from_period_end(period_end: date, fy_end_month: int) -> Optional[str]:
+    """
+    根據期間結束日與會計年度結束月份，計算 quarter label。
+    fy_end_month = 12 表示 calendar year（大部分公司）
+    """
+    if not period_end:
+        return None
+    month = period_end.month
+    year = period_end.year
+
+    # 期間結束日為 12/31 → 年報（FY）
+    if month == 12 and period_end.day == 31:
+        # 看 fy_end 是否也是 12
+        if fy_end_month == 12:
+            return f"{year} FY"
+        else:
+            # 非 calendar year 的公司，需要特別處理
+            # 從 period_end 反推該公司在哪個會計年度
+            fy_start = fy_end_month + 1
+            if fy_start > 12:
+                fy_start = 1
+            # 如果 period_end 在 fy_start 之後，會計年度為 year+1
+            # 否則為 year
+            if month >= fy_start:
+                fy_year = year + 1
+            else:
+                fy_year = year
+            return f"{fy_year} FY"
+
+    # 非年報：推算季度
+    # 用期間結束日（3/31, 6/30, 9/30）推算是在會計年度的第幾季
+    fy_start = fy_end_month + 1
+    if fy_start > 12:
+        fy_start = 1
+
+    if month >= fy_start:
+        months_into_fy = month - fy_start + 1
+    else:
+        months_into_fy = month + (12 - fy_start + 1)
+
+    q = (months_into_fy - 1) // 3 + 1
+
+    # 會計年度
+    if month > fy_end_month:
+        fy_year = year + 1
+    else:
+        fy_year = year
+
+    return f"{fy_year} Q{q}"
+
+
+# ─────────────────────────────────────────────
+# SEC Filing 抓取
+# ─────────────────────────────────────────────
+
+
 def fetch_sec_filing_list(cik: str) -> list:
     """
     從 SEC API 抓取該公司的 10-K/10-Q 文件列表。
-
     回傳 list[dict]:
         [
-            {"filingDate": "2025-05-01", "form": "10-Q", "url": "https://...", "reportDate": "2025-03-28"},
+            {
+                "form": "10-Q",
+                "report_date": "2025-03-28",  # 期間結束日
+                "filing_date": "2025-05-01",   # 提交日期
+                "url": "https://...",
+            },
             ...
         ]
-    若失敗則回傳空 list。
     """
     url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-
     for attempt in range(3):
         try:
             res = _sec_request(url, timeout=15)
-
             if res.status_code == 200:
                 data = res.json()
                 break
             elif res.status_code == 429:
-                wait = (attempt + 1) * 3
-                time.sleep(wait)
+                time.sleep((attempt + 1) * 3)
                 continue
             elif res.status_code == 403:
-                # SEC 封鎖此 IP（常見於 GitHub Actions），不重試
                 return []
             else:
                 if attempt < 2:
@@ -186,19 +214,12 @@ def fetch_sec_filing_list(cik: str) -> list:
                 continue
             return []
 
-    # 解析回應內容
-    try:
-        data = res.json()
-    except Exception:
-        return []
-
     recent = data.get('filings', {}).get('recent', {})
     forms = recent.get('form', [])
     accessions = recent.get('accessionNumber', [])
     primary_docs = recent.get('primaryDocument', [])
     report_dates = recent.get('reportDate', [])
     filing_dates = recent.get('filingDate', [])
-
     if not forms:
         return []
 
@@ -209,113 +230,102 @@ def fetch_sec_filing_list(cik: str) -> list:
             filing_date_str = filing_dates[i] if i < len(filing_dates) else ''
             if not report_date_str or not filing_date_str:
                 continue
-            # 標準化 form 名稱（移除 /A 後綴）
             base_form = form.replace('/A', '')
             candidates.append({
                 'form': base_form,
-                'accession': accessions[i],
-                'primary_doc': primary_docs[i],
                 'report_date': report_date_str,
                 'filing_date': filing_date_str,
-                'url': build_sec_url(cik, accessions[i], primary_docs[i]),
+                'url': build_sec_ixbrl_url(cik, accessions[i], primary_docs[i]),
             })
-    # 按 filingDate 降序排列（最新的在前）
-    candidates.sort(key=lambda x: x['filing_date'], reverse=True)
+
+    candidates.sort(key=lambda x: x['report_date'], reverse=True)
     return candidates
 
 
-def match_filing_to_history(history_item: dict, sec_filings: list) -> Optional[str]:
-    """
-    將一筆歷史財報資料（含 date 和 quarter label）配對到最合適的 SEC filing URL。
+# ─────────────────────────────────────────────
+# 改良版 History ↔ SEC Filing 匹配
+# ─────────────────────────────────────────────
 
-    配對規則：
-    1. 從 SEC filings 中找到 filingDate 最接近 history.date 的 filing
-       （優先找 filingDate 剛好在 history.date 之後 0-3 天內的 filing）
-    2. 驗證 form 類型：
-       - FY → 必須是 10-K
-       - Q1/Q2/Q3 → 必須是 10-Q
-    3. 若找不到符合條件的，回傳 None
+
+def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optional[str]:
+    """
+    精準匹配 history 項目到 SEC filing URL。
+
+    匹配邏輯：
+    1. 從 earnings release date（history.date）推估期間結束日
+    2. 在 SEC filings 中尋找 report_date 完全匹配的項目
+    3. 根據 form 類型驗證：FY 配 10-K，Q1/Q2/Q3 配 10-Q
+
+    如果 exact match 找不到，放寬到 ±3 天容差。
     """
     history_date_str = history_item.get('date', '')
     quarter_label = history_item.get('quarter', '')
-
     if not history_date_str or not quarter_label:
         return None
 
-    # 解析 quarter label：提取 Q1/Q2/Q3 或 FY
+    try:
+        release_date = datetime.strptime(history_date_str, '%Y-%m-%d').date()
+    except ValueError:
+        return None
+
+    # 估算期間結束日
+    estimated_period_end = estimate_period_end(release_date)
+    if not estimated_period_end:
+        return None
+
+    # 判斷是年報還是季報
     q_key = quarter_label.split()[-1] if ' ' in quarter_label else quarter_label
     is_fy = (q_key == 'FY')
     expected_form = '10-K' if is_fy else '10-Q'
 
-    try:
-        hist_date = datetime.strptime(history_date_str, '%Y-%m-%d').date()
-    except ValueError:
-        return None
-
-    best_url = None
-    best_diff = None
-
+    # 先嘗試 exact match
     for filing in sec_filings:
         if filing['form'] != expected_form:
             continue
-
         try:
-            filing_dt = datetime.strptime(filing['filing_date'], '%Y-%m-%d').date()
+            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
         except ValueError:
             continue
+        if filing_report_date == estimated_period_end:
+            return filing['url']
 
-        diff = (filing_dt - hist_date).days
-
-        # 只考慮 filingDate 在 history date 之後 0-10 天內，或之前最多 3 天
-        if diff < -3 or diff > 10:
+    # 放寬到 ±3 天
+    best_url = None
+    best_diff = None
+    for filing in sec_filings:
+        if filing['form'] != expected_form:
             continue
-
-        # 找 filingDate 最接近 history date 的（優先選擇之後的）
-        if best_url is None:
-            best_url = filing['url']
-            best_diff = diff
-        elif diff >= 0 and (best_diff < 0 or diff < best_diff):
-            # 優先選擇 diff >= 0（之後）且 diff 最小的
-            best_url = filing['url']
-            best_diff = diff
-        elif diff < 0 and best_diff < 0 and diff > best_diff:
-            # 如果都是負的，選最接近的（diff 最大的負數）
-            best_url = filing['url']
-            best_diff = diff
+        try:
+            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
+        except ValueError:
+            continue
+        diff = abs((filing_report_date - estimated_period_end).days)
+        if diff <= 3:
+            if best_url is None or diff < best_diff:
+                best_url = filing['url']
+                best_diff = diff
 
     return best_url
 
 
+# ─────────────────────────────────────────────
+# yfinance 數據抓取
+# ─────────────────────────────────────────────
+
+
 def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -> Optional[dict]:
-    """
-    用 yfinance 抓取單一股票的財報資訊。
-    回傳 dict：
-        {
-            "reportDate": "2026-07-21" | None,
-            "bmo_amc": "☀️" | "🌙" | None,
-            "countdown": 59 | None,
-            "eps": "$9.46" | "-",
-            "revenue": "$25.02B" | "-",
-            "history": [ ... ]  # 5 筆真實歷史 EPS
-        }
-    若完全失敗則回傳 None。
-    """
+    """從 yfinance 抓取公司財報數據（不含歷史，歷史另由 build_history 處理）"""
     for attempt in range(retries + 1):
         try:
             stock = yf.Ticker(ticker)
             info = stock.info
-
-            # --- 從 info 取得預估 EPS 與營收 ---
             eps_est = info.get('epsForward') or info.get('earningsEstimateAvg')
             rev_est = info.get('revenueEstimateAvg') or info.get('revenueEstimate')
-
             eps_str = format_eps(eps_est)
             rev_str = format_revenue(rev_est)
 
-            # --- 從 earnings_dates 取得財報日期與 BMO/AMC ---
             report_date_str = None
             bmo_amc_str = None
-            countdown_val = None
 
             try:
                 earnings = stock.earnings_dates
@@ -323,18 +333,12 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
                     next_date = earnings.index[0]
                     if isinstance(next_date, datetime):
                         report_date_str = next_date.strftime('%Y-%m-%d')
-
                         if 'Earnings Time' in earnings.columns:
                             earnings_time = earnings.iloc[0].get('Earnings Time', '')
                             if earnings_time == 'Before market open':
                                 bmo_amc_str = '☀️'
                             elif earnings_time == 'After market close':
                                 bmo_amc_str = '🌙'
-
-                        today = date.today()
-                        report_date_obj = next_date.date() if isinstance(next_date, datetime) else next_date
-                        delta = (report_date_obj - today).days
-                        countdown_val = delta if delta >= 0 else None
             except Exception:
                 pass
 
@@ -344,20 +348,12 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
                     if isinstance(next_earnings, (int, float)):
                         report_date_obj = datetime.fromtimestamp(next_earnings).date()
                         report_date_str = report_date_obj.strftime('%Y-%m-%d')
-                        today = date.today()
-                        delta = (report_date_obj - today).days
-                        countdown_val = delta if delta >= 0 else None
-
-            # --- 從 earnings_dates 抓取歷史 EPS ---
-            history = build_history_from_earnings(stock, fy_end_month)
 
             return {
                 "reportDate": report_date_str,
                 "bmo_amc": bmo_amc_str,
-                "countdown": countdown_val,
                 "eps": eps_str,
                 "revenue": rev_str,
-                "history": history,
             }
 
         except Exception as e:
@@ -370,28 +366,18 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
 
 def build_history_from_earnings(stock, fy_end_month: int) -> list:
     """
-    從 yfinance earnings_dates 抓取已發布的歷史 EPS，
-    從 quarterly_income_stmt 抓取歷史營收，
-    根據日期推算季度/年度標籤，回傳最近 5 筆（3Q + FY + 1Q）。
+    從 yfinance 抓取歷史 EPS/營收，並使用修正後的 quarter 推算邏輯。
 
-    回傳格式：
-    [
-        {"date": "2025-01-30", "quarter": "2025 Q1", "eps_reported": "$2.34", "revenue_reported": "$95.36B"},
-        ...
-    ]
+    從 earnings release date 推估期間結束日，再用期間結束日計算 quarter label。
     """
     try:
         ed = stock.earnings_dates
         if ed is None or ed.empty:
             return []
-
-        # 只取有 Reported EPS 的（已發布的）
         past = ed.dropna(subset=['Reported EPS'])
-
         if past.empty:
             return []
 
-        # --- 從 quarterly_income_stmt 建立營收查找表 ---
         revenue_lookup = {}
         try:
             qf = stock.quarterly_income_stmt
@@ -408,13 +394,13 @@ def build_history_from_earnings(stock, fy_end_month: int) -> list:
         for idx, row in past.iterrows():
             report_date = idx.date() if isinstance(idx, datetime) else idx
             eps_val = row.get('Reported EPS')
-
             if eps_val is None or pd.isna(eps_val):
                 continue
 
-            quarter_label = fiscal_quarter_from_date(report_date, fy_end_month)
+            # 修正點：用期間結束日而非發布日來計算 quarter label
+            period_end = estimate_period_end(report_date)
+            quarter_label = quarter_label_from_period_end(period_end, fy_end_month) if period_end else None
 
-            # 匹配最近的營收日期
             revenue_str = "-"
             date_str = report_date.strftime('%Y-%m-%d')
             for rev_date, rev_val in sorted(revenue_lookup.items(), reverse=True):
@@ -429,12 +415,8 @@ def build_history_from_earnings(stock, fy_end_month: int) -> list:
                 "revenue_reported": revenue_str,
             })
 
-        # 取最近 5 筆（已按日期倒序排列）
         history = history[:5]
-
-        # 反轉為時間順序（最早的在前）
         history.reverse()
-
         return history
 
     except Exception as e:
@@ -442,40 +424,58 @@ def build_history_from_earnings(stock, fy_end_month: int) -> list:
         return []
 
 
-def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
+# ─────────────────────────────────────────────
+# 主更新邏輯
+# ─────────────────────────────────────────────
+
+
+def update_data(
+    full_mode: bool = False,
+    sample_mode: bool = False,
+    tickers_filter: list = None,
+) -> bool:
     """
-    主流程：
-    1. 讀取現有 data.json
-    2. 從 sp500_mapping.json 讀取 fy_end、CIK
-    3. 從 SEC API 即時抓取各公司 filing list
-    4. 用 yfinance 更新即時財報數據 + 歷史 EPS
-    5. 將 SEC URL 根據 filingDate 配對到各季度 history 項目
-    6. 寫回 data.json
+    主更新流程。
+
+    - full_mode: 處理所有公司（首次建置或重建時使用）
+    - sample_mode: 只處理樣本公司（測試用）
+    - tickers_filter: 只處理指定公司
     """
-    # 1. 讀取現有 data.json
+    today = date.today()
+
+    # ── 載入現有 data.json ──
     try:
         with open('data.json', 'r', encoding='utf-8') as f:
             existing_data = json.load(f)
         print(f"✅ 讀取現有 data.json，共 {len(existing_data)} 家公司\n")
     except FileNotFoundError:
-        print("❌ data.json 不存在，請先確認專案目錄")
+        print("❌ data.json 不存在")
         return False
     except json.JSONDecodeError as e:
         print(f"❌ data.json JSON 解析錯誤: {e}")
         return False
 
-    # 2. 讀取 sp500_mapping.json（取得 fy_end、CIK）
+    # ── 載入現有 historical_data.json（如果存在）──
+    historical_data = {}
+    try:
+        with open('historical_data.json', 'r', encoding='utf-8') as f:
+            historical_data = json.load(f)
+        print(f"✅ 讀取 historical_data.json，共 {len(historical_data)} 家\n")
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("📄 historical_data.json 不存在或為空，將重新建立\n")
+
+    # ── 載入 SEC mapping ──
     sec_mapping = {}
     try:
         with open('sp500_mapping.json', 'r', encoding='utf-8') as f:
             sec_mapping = json.load(f)
         print(f"✅ 讀取 sp500_mapping.json，共 {len(sec_mapping)} 家公司\n")
     except FileNotFoundError:
-        print("⚠️  sp500_mapping.json 不存在，將使用預設 fy_end=12，且無 SEC 連結")
+        print("⚠️  sp500_mapping.json 不存在")
     except json.JSONDecodeError as e:
         print(f"⚠️  sp500_mapping.json JSON 解析錯誤: {e}")
 
-    # 3. 決定要處理的公司
+    # ── 決定要處理哪些公司 ──
     if sample_mode:
         sample_tickers = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'WMT']
         companies_to_update = [c for c in existing_data if c['ticker'] in sample_tickers]
@@ -483,9 +483,35 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
     elif tickers_filter:
         companies_to_update = [c for c in existing_data if c['ticker'] in tickers_filter]
         print(f"🔍 指定 ticker 模式：處理 {len(companies_to_update)} 家公司")
-    else:
+    elif full_mode:
         companies_to_update = existing_data
-        print(f"📊 完整模式：更新全部 {len(companies_to_update)} 家公司")
+        print(f"📊 完整模式：處理全部 {len(companies_to_update)} 家公司")
+    else:
+        # 增量模式：只處理未來 30 天內要發布的公司
+        companies_to_update = []
+        for c in existing_data:
+            rd = c.get('reportDate')
+            if rd:
+                try:
+                    rd_date = datetime.strptime(rd, '%Y-%m-%d').date()
+                    delta = (rd_date - today).days
+                    if 0 <= delta <= 30:
+                        companies_to_update.append(c)
+                except ValueError:
+                    pass
+        # 如果完全沒有即將發布的公司，也處理過去 7 天內已發布的
+        if not companies_to_update:
+            for c in existing_data:
+                rd = c.get('reportDate')
+                if rd:
+                    try:
+                        rd_date = datetime.strptime(rd, '%Y-%m-%d').date()
+                        delta = (today - rd_date).days
+                        if 0 <= delta <= 7:
+                            companies_to_update.append(c)
+                    except ValueError:
+                        pass
+        print(f"📊 增量模式：處理 {len(companies_to_update)} 家即將發布/近期發布的公司")
 
     if not companies_to_update:
         print("❌ 沒有符合條件的公司")
@@ -493,12 +519,15 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
 
     existing_map = {c['ticker']: c for c in existing_data}
 
-    # 4. 預先從 SEC API 抓取所有相關公司的 filing list
+    # ── 從 SEC API 抓取 filing 列表 ──
     if SEC_PROXY_URL:
         print(f"🔀 使用 SEC Proxy: {SEC_PROXY_URL}")
     print("⏳ 從 SEC API 抓取 filing 列表...")
-    sec_filing_cache = {}  # { ticker: [{"filingDate":..., "form":..., "url":...}, ...] }
+
+    sec_filing_cache = {}
     sec_fetch_count = 0
+    total = len(companies_to_update)
+
     for idx, company in enumerate(companies_to_update):
         ticker = company['ticker']
         mapping_entry = sec_mapping.get(ticker, {})
@@ -517,22 +546,20 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
         if filings:
             sec_fetch_count += 1
 
-        if (idx + 1) % 10 == 0 or idx + 1 == len(companies_to_update):
-            print(f"    SEC: {idx+1}/{len(companies_to_update)} 家公司處理完畢（{sec_fetch_count} 家有 filing）")
+        if (idx + 1) % 10 == 0 or idx + 1 == total:
+            print(f"    SEC: {idx+1}/{total} 家公司處理完畢（{sec_fetch_count} 家有 filing）")
         time.sleep(0.1)
 
-    print(f"    SEC filing 抓取完成，{sec_fetch_count}/{len(companies_to_update)} 家有資料\n")
+    print(f"    SEC filing 抓取完成，{sec_fetch_count}/{total} 家有資料\n")
 
-    # 5. 逐家抓取 yfinance 數據
+    # ── 更新每家公司數據 ──
     updated_count = 0
     failed_count = 0
-    total = len(companies_to_update)
 
     for idx, company in enumerate(companies_to_update):
         ticker = company['ticker']
         print(f"  [{idx+1}/{total}] 處理 {ticker}...", end=" ")
 
-        # 從 sp500_mapping 取得 fy_end
         fy_end = 12
         if ticker in sec_mapping:
             fy_end = sec_mapping[ticker].get('fy_end', 12)
@@ -543,29 +570,15 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
             existing = existing_map.get(ticker, {})
             existing['reportDate'] = result['reportDate'] or existing.get('reportDate')
             existing['bmo_amc'] = result['bmo_amc'] or existing.get('bmo_amc')
-            existing['countdown'] = result['countdown'] if result['countdown'] is not None else existing.get('countdown')
             existing['eps'] = result['eps'] if result['eps'] != '-' else existing.get('eps', '-')
             existing['revenue'] = result['revenue'] if result['revenue'] != '-' else existing.get('revenue', '-')
             existing['ticker'] = ticker
-
-            # 更新歷史 EPS 數據並配對 SEC URL
-            if result.get('history') and len(result['history']) > 0:
-                enriched_history = result['history']
-                # 從 SEC filing cache 取得該公司的 filing 列表
-                sec_filings = sec_filing_cache.get(ticker, [])
-                if sec_filings:
-                    for h_item in enriched_history:
-                        sec_url = match_filing_to_history(h_item, sec_filings)
-                        if sec_url:
-                            h_item['secUrl'] = sec_url
-                existing['history'] = enriched_history
-
             existing_map[ticker] = existing
             updated_count += 1
-            print(f"✅ ({len(result.get('history', []))} 筆歷史)")
+            print(f"✅ (報告日: {result.get('reportDate', '-')})")
         else:
+            print("❌ (保留現有數據)")
             failed_count += 1
-            print("❌")
 
         if (idx + 1) % 10 == 0 and idx + 1 < total:
             print(f"  ⏳ 已處理 {idx+1}/{total}，暫停 1 秒...")
@@ -573,37 +586,124 @@ def update_data(sample_mode: bool = False, tickers_filter: list = None) -> bool:
         else:
             time.sleep(0.2)
 
-    # 6. 重建完整列表（保留原始順序）
+    # ── 合併歷史數據 ──
+    #   對於 data.json 中已不再包含 history 的公司（因為已分離出去），
+    #   從 historical_data.json 中保留。
+    print("\n🔄 建立/更新 historical_data.json...")
+    sec_url_fix_count = 0
+
+    for company in existing_data:
+        ticker = company['ticker']
+
+        # 從 SEC filing cache 取得該公司的 filings
+        sec_filings = sec_filing_cache.get(ticker, [])
+
+        # 取得現有的歷史數據（從 data.json 或 historical_data.json）
+        existing_history = company.get('history', [])
+        archived_history = historical_data.get(ticker, [])
+
+        if existing_history and len(existing_history) > 0:
+            # 使用修正後的 quarter label 和 SEC 匹配邏輯重新處理
+            corrected_history = []
+            for h_item in existing_history:
+                # 修正 quarter label
+                try:
+                    release_date = datetime.strptime(h_item['date'], '%Y-%m-%d').date()
+                    period_end = estimate_period_end(release_date)
+                    corrected_quarter = quarter_label_from_period_end(period_end, fy_end)
+                    h_item['quarter'] = corrected_quarter
+                except (ValueError, TypeError):
+                    pass
+
+                # 使用修正後的匹配邏輯配對 SEC URL
+                sec_url = match_filing_to_history_v2(h_item, sec_filings)
+                if sec_url:
+                    h_item['secUrl'] = sec_url
+                    sec_url_fix_count += 1
+                elif 'secUrl' not in h_item:
+                    # 如果舊有有 secUrl，保留它
+                    pass
+
+                corrected_history.append(h_item)
+
+            historical_data[ticker] = corrected_history
+
+        elif archived_history:
+            # 已分離到 historical_data.json，但我們可以嘗試補上缺失的 secUrl
+            needs_update = False
+            for h_item in archived_history:
+                if 'secUrl' not in h_item:
+                    sec_url = match_filing_to_history_v2(h_item, sec_filings)
+                    if sec_url:
+                        h_item['secUrl'] = sec_url
+                        sec_url_fix_count += 1
+                        needs_update = True
+            if needs_update:
+                historical_data[ticker] = archived_history
+
+    # ── 寫入 data.json（不含 history）──
     final_data = []
     for company in existing_data:
         ticker = company['ticker']
-        if ticker in existing_map:
-            final_data.append(existing_map[ticker])
-        else:
-            final_data.append(company)
+        entry = {
+            "ticker": ticker,
+            "name": company.get('name', ticker),
+        }
+        updated = existing_map.get(ticker, {})
+        entry['reportDate'] = updated.get('reportDate') or company.get('reportDate')
+        entry['bmo_amc'] = updated.get('bmo_amc') or company.get('bmo_amc')
+        entry['eps'] = updated.get('eps') or company.get('eps', '-')
+        entry['revenue'] = updated.get('revenue') or company.get('revenue', '-')
+        final_data.append(entry)
 
-    # 7. 寫入 data.json
     try:
         with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(final_data, f, ensure_ascii=False, indent=2)
-        print(f"\n🎉 寫入完成！共 {len(final_data)} 家公司")
-        print(f"   更新成功: {updated_count} | 失敗: {failed_count}")
-        return True
+        print(f"✅ data.json 寫入完成！共 {len(final_data)} 家公司")
     except Exception as e:
-        print(f"\n❌ 寫入檔案失敗: {e}")
+        print(f"❌ data.json 寫入失敗: {e}")
         return False
 
+    # ── 寫入 historical_data.json ──
+    try:
+        with open('historical_data.json', 'w', encoding='utf-8') as f:
+            json.dump(historical_data, f, ensure_ascii=False, indent=2)
+        print(f"✅ historical_data.json 寫入完成！共 {len(historical_data)} 家公司的歷史資料")
+
+        # 統計 secUrl 覆蓋率
+        total_hist_items = sum(len(v) for v in historical_data.values())
+        total_with_sec = sum(sum(1 for h in v if 'secUrl' in h) for v in historical_data.values())
+        print(f"   歷史財報總筆數: {total_hist_items}")
+        print(f"   有 SEC URL: {total_with_sec} ({total_with_sec/total_hist_items*100:.1f}%)")
+        if sec_url_fix_count > 0:
+            print(f"   本次修復/新增: {sec_url_fix_count} 個 SEC URL")
+    except Exception as e:
+        print(f"❌ historical_data.json 寫入失敗: {e}")
+        return False
+
+    print(f"\n🎉 更新完成！更新成功: {updated_count} | 失敗: {failed_count}")
+    return True
+
+
+# ─────────────────────────────────────────────
+# 入口
+# ─────────────────────────────────────────────
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="S&P 500 Earnings Tracker 數據更新腳本")
-    parser.add_argument('--sample', action='store_true', help='樣本模式：只處理 6 家代表公司')
-    parser.add_argument('--ticker', type=str, help='指定 ticker（逗號分隔），例如 --ticker AAPL,MSFT')
+    parser.add_argument('--full', action='store_true', help='完整模式（處理所有公司）')
+    parser.add_argument('--sample', action='store_true', help='樣本模式')
+    parser.add_argument('--ticker', type=str, help='指定 ticker（逗號分隔）')
     args = parser.parse_args()
 
     tickers = None
     if args.ticker:
         tickers = [t.strip().upper() for t in args.ticker.split(',') if t.strip()]
 
-    ok = update_data(sample_mode=args.sample, tickers_filter=tickers)
+    ok = update_data(
+        full_mode=args.full,
+        sample_mode=args.sample,
+        tickers_filter=tickers,
+    )
     if not ok:
         sys.exit(1)

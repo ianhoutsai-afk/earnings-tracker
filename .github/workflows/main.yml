@@ -24,18 +24,26 @@ jobs:
           python -m pip install --upgrade pip
           pip install yfinance requests pandas lxml
 
-      - name: 執行資料更新程式碼
+      - name: 執行資料更新程式碼（增量模式，只抓即將發布的公司）
         env:
           BARK_KEY: ${{ secrets.BARK_KEY }}
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
         run: python update_data.py
 
+      - name: 每月完整重建一次（月初 cron 觸發時）
+        if: github.event.schedule == '0 1 1 * *'
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+          PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+        run: python update_data.py --full
+
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json historical_data.json
           git commit -m "Auto-update S&P 500 earnings data [skip ci]" || echo "No changes to commit"
-          git pull --rebase origin main  # <--- 加上這一行，機器人推送前會先同步你的最新修改
+          git pull --rebase origin main
           git push
