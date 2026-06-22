@@ -184,12 +184,18 @@
                     let cardsHtml = '';
                     history.forEach((h) => {
                         const quarterLabel = h.quarter ? h.quarter : '近期';
-                        const isFY = quarterLabel.includes('FY');
+                        const secForm = h.form || null;
+                        const isAnnualFiling = secForm === '10-K' || (!secForm && quarterLabel.includes('FY'));
+                        const filingLabel = secForm === '10-K'
+                            ? '10-K 年報'
+                            : secForm === '10-Q'
+                                ? '10-Q 季報'
+                                : `${quarterLabel} 財報`;
                         // SEC 連結（指向 ixbrl 互動式檢視器）
                         const secUrl = h.secUrl || null;
                         cardsHtml += `
                             <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center h-full">
-                                <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 ${isFY ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'}">${quarterLabel} 財報</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 ${isAnnualFiling ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'}">${filingLabel}</span>
                                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
                                     📅 ${h.date}
                                 </div>

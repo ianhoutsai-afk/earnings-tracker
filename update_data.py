@@ -13,16 +13,30 @@ update_data.py — S&P 500 Earnings Tracker 數據更新腳本
   python update_data.py --ticker AAPL,MSFT     # 指定公司
 """
 
-import yfinance as yf
 import json
 import time
 import sys
 import os
 import argparse
-import requests
+import urllib.request
+from urllib.parse import parse_qs, unquote, urlparse
 from datetime import datetime, date, timedelta
 from typing import Optional
-import pandas as pd
+
+try:
+    import requests
+except ImportError:
+    requests = None
+
+try:
+    import yfinance as yf
+except ImportError:
+    yf = None
+
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 
 
 SEC_HEADERS = {
@@ -66,19 +80,37 @@ def format_revenue(value) -> str:
         return "-"
 
 
-def _sec_request(url: str, timeout: int = 15) -> requests.Response:
+class _UrllibResponse:
+    def __init__(self, status_code: int, body: bytes):
+        self.status_code = status_code
+        self._body = body
+
+    def json(self):
+        return json.loads(self._body.decode('utf-8'))
+
+
+def _sec_request(url: str, timeout: int = 15):
     """透過 proxy（如有設定）或直連發送 SEC 請求"""
     if SEC_PROXY_URL:
         proxy_headers = dict(SEC_HEADERS)
         if SEC_PROXY_TOKEN:
             proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
-        parsed = requests.utils.urlparse(url)
+        parsed = urlparse(url)
         proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
         if parsed.query:
             proxy_url += '?' + parsed.query
+        if requests is None:
+            req = urllib.request.Request(proxy_url, headers=proxy_headers)
+            with urllib.request.urlopen(req, timeout=timeout) as res:
+                return _UrllibResponse(res.status, res.read())
         return requests.get(proxy_url, headers=proxy_headers, timeout=timeout)
-    else:
+
+    if requests is not None:
         return requests.get(url, headers=SEC_HEADERS, timeout=timeout)
+
+    req = urllib.request.Request(url, headers={'User-Agent': SEC_HEADERS['User-Agent']})
+    with urllib.request.urlopen(req, timeout=timeout) as res:
+        return _UrllibResponse(res.status, res.read())
 
 
 def build_sec_ixbrl_url(cik: str, accession_number: str, primary_document: str) -> str:
@@ -247,20 +279,45 @@ def fetch_sec_filing_list(cik: str) -> list:
 # ─────────────────────────────────────────────
 
 
-def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optional[str]:
+def _canonical_sec_doc_path(sec_url: str) -> str:
+    """Normalize SEC ix viewer and direct Archives URLs to the same document path."""
+    if not sec_url:
+        return ''
+    parsed = urlparse(sec_url)
+    doc = parse_qs(parsed.query).get('doc', [''])[0]
+    path = doc or parsed.path
+    return unquote(path).lstrip('/')
+
+
+def match_filing_by_sec_url(sec_url: str, sec_filings: list) -> Optional[dict]:
+    """Use an existing SEC URL to recover the official SEC form from filing metadata."""
+    target_path = _canonical_sec_doc_path(sec_url)
+    if not target_path:
+        return None
+
+    for filing in sec_filings:
+        filing_path = _canonical_sec_doc_path(filing.get('url', ''))
+        if filing_path == target_path:
+            return {"url": filing['url'], "form": filing['form']}
+
+    return None
+
+
+def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optional[dict]:
     """
-    精準匹配 history 項目到 SEC filing URL。
+    精準匹配 history 項目到 SEC filing。
+    回傳 dict {url, form}，或 None（找不到匹配）。
 
     匹配邏輯：
     1. 從 earnings release date（history.date）推估期間結束日
     2. 在 SEC filings 中尋找 report_date 完全匹配的項目
-    3. 根據 form 類型驗證：FY 配 10-K，Q1/Q2/Q3 配 10-Q
+    3. 回傳時附帶 SEC 官方 form 類型（10-K 或 10-Q）
 
-    如果 exact match 找不到，放寬到 ±3 天容差。
+    如果 exact match 找不到，放寬到 ±3 天容差。財報分類不再依賴
+    quarter label 推算，而是直接使用 SEC filing 的 form 欄位。
     """
     history_date_str = history_item.get('date', '')
-    quarter_label = history_item.get('quarter', '')
-    if not history_date_str or not quarter_label:
+    if not history_date_str:
         return None
 
     try:
@@ -273,39 +330,48 @@ def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optiona
     if not estimated_period_end:
         return None
 
-    # 判斷是年報還是季報
-    q_key = quarter_label.split()[-1] if ' ' in quarter_label else quarter_label
-    is_fy = (q_key == 'FY')
-    expected_form = '10-K' if is_fy else '10-Q'
+    parsed_filings = []
+    for filing in sec_filings:
+        try:
+            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
+        except (KeyError, ValueError):
+            continue
+        try:
+            filing_date = datetime.strptime(filing.get('filing_date', ''), '%Y-%m-%d').date()
+        except ValueError:
+            filing_date = filing_report_date
+        parsed_filings.append((filing, filing_report_date, filing_date))
+
+    def result_for(filing: dict) -> dict:
+        return {"url": filing['url'], "form": filing['form']}
 
     # 先嘗試 exact match
-    for filing in sec_filings:
-        if filing['form'] != expected_form:
-            continue
-        try:
-            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
-        except ValueError:
-            continue
-        if filing_report_date == estimated_period_end:
-            return filing['url']
+    exact_matches = [
+        (filing, filing_date)
+        for filing, filing_report_date, filing_date in parsed_filings
+        if filing_report_date == estimated_period_end
+    ]
+    if exact_matches:
+        best_filing, _ = min(
+            exact_matches,
+            key=lambda item: abs((item[1] - release_date).days),
+        )
+        return result_for(best_filing)
 
     # 放寬到 ±3 天
-    best_url = None
+    best = None
     best_diff = None
-    for filing in sec_filings:
-        if filing['form'] != expected_form:
-            continue
-        try:
-            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
-        except ValueError:
-            continue
+    best_filing_diff = None
+    for filing, filing_report_date, filing_date in parsed_filings:
         diff = abs((filing_report_date - estimated_period_end).days)
         if diff <= 3:
-            if best_url is None or diff < best_diff:
-                best_url = filing['url']
+            filing_diff = abs((filing_date - release_date).days)
+            if best is None or (diff, filing_diff) < (best_diff, best_filing_diff):
+                best = result_for(filing)
                 best_diff = diff
+                best_filing_diff = filing_diff
 
-    return best_url
+    return best
 
 
 # ─────────────────────────────────────────────
@@ -315,6 +381,10 @@ def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optiona
 
 def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -> Optional[dict]:
     """從 yfinance 抓取公司財報數據（不含歷史，歷史另由 build_history 處理）"""
+    if yf is None:
+        print(f"  ⚠️ {ticker}: 缺少 yfinance，無法抓取")
+        return None
+
     for attempt in range(retries + 1):
         try:
             stock = yf.Ticker(ticker)
@@ -370,6 +440,9 @@ def build_history_from_earnings(stock, fy_end_month: int) -> list:
 
     從 earnings release date 推估期間結束日，再用期間結束日計算 quarter label。
     """
+    if pd is None:
+        return []
+
     try:
         ed = stock.earnings_dates
         if ed is None or ed.empty:
@@ -433,6 +506,7 @@ def update_data(
     full_mode: bool = False,
     sample_mode: bool = False,
     tickers_filter: list = None,
+    rebuild_historical: bool = False,
 ) -> bool:
     """
     主更新流程。
@@ -476,7 +550,10 @@ def update_data(
         print(f"⚠️  sp500_mapping.json JSON 解析錯誤: {e}")
 
     # ── 決定要處理哪些公司 ──
-    if sample_mode:
+    if rebuild_historical:
+        companies_to_update = existing_data
+        print(f"🔁 historical rebuild 模式：刷新全部 {len(companies_to_update)} 家公司的 SEC metadata")
+    elif sample_mode:
         sample_tickers = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'WMT']
         companies_to_update = [c for c in existing_data if c['ticker'] in sample_tickers]
         print(f"🧪 樣本模式：只處理 {len(companies_to_update)} 家公司")
@@ -556,6 +633,9 @@ def update_data(
     updated_count = 0
     failed_count = 0
 
+    if rebuild_historical:
+        print("⏭️  rebuild-historical 模式：略過 yfinance 未來財報估值更新")
+
     for idx, company in enumerate(companies_to_update):
         ticker = company['ticker']
         print(f"  [{idx+1}/{total}] 處理 {ticker}...", end=" ")
@@ -563,6 +643,10 @@ def update_data(
         fy_end = 12
         if ticker in sec_mapping:
             fy_end = sec_mapping[ticker].get('fy_end', 12)
+
+        if rebuild_historical:
+            print("⏭️")
+            continue
 
         result = fetch_earnings_data(ticker, fy_end_month=fy_end)
 
@@ -594,6 +678,7 @@ def update_data(
 
     for company in existing_data:
         ticker = company['ticker']
+        fy_end = sec_mapping.get(ticker, {}).get('fy_end', 12)
 
         # 從 SEC filing cache 取得該公司的 filings
         sec_filings = sec_filing_cache.get(ticker, [])
@@ -615,10 +700,13 @@ def update_data(
                 except (ValueError, TypeError):
                     pass
 
-                # 使用修正後的匹配邏輯配對 SEC URL
-                sec_url = match_filing_to_history_v2(h_item, sec_filings)
-                if sec_url:
-                    h_item['secUrl'] = sec_url
+                # 使用修正後的匹配邏輯配對 SEC URL 和 form 類型
+                sec_match = match_filing_to_history_v2(h_item, sec_filings)
+                if not sec_match and h_item.get('secUrl'):
+                    sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
+                if sec_match:
+                    h_item['secUrl'] = sec_match['url']
+                    h_item['form'] = sec_match['form']  # SEC 官方分類：10-K 或 10-Q
                     sec_url_fix_count += 1
                 elif 'secUrl' not in h_item:
                     # 如果舊有有 secUrl，保留它
@@ -629,13 +717,16 @@ def update_data(
             historical_data[ticker] = corrected_history
 
         elif archived_history:
-            # 已分離到 historical_data.json，但我們可以嘗試補上缺失的 secUrl
+            # 已分離到 historical_data.json，嘗試補上缺失的 secUrl 及 form
             needs_update = False
             for h_item in archived_history:
-                if 'secUrl' not in h_item:
-                    sec_url = match_filing_to_history_v2(h_item, sec_filings)
-                    if sec_url:
-                        h_item['secUrl'] = sec_url
+                if rebuild_historical or 'secUrl' not in h_item or 'form' not in h_item:
+                    sec_match = match_filing_to_history_v2(h_item, sec_filings)
+                    if not sec_match and h_item.get('secUrl'):
+                        sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
+                    if sec_match:
+                        h_item['secUrl'] = sec_match['url']
+                        h_item['form'] = sec_match['form']
                         sec_url_fix_count += 1
                         needs_update = True
             if needs_update:
@@ -673,10 +764,13 @@ def update_data(
         # 統計 secUrl 覆蓋率
         total_hist_items = sum(len(v) for v in historical_data.values())
         total_with_sec = sum(sum(1 for h in v if 'secUrl' in h) for v in historical_data.values())
+        total_with_form = sum(sum(1 for h in v if 'form' in h) for v in historical_data.values())
         print(f"   歷史財報總筆數: {total_hist_items}")
-        print(f"   有 SEC URL: {total_with_sec} ({total_with_sec/total_hist_items*100:.1f}%)")
+        if total_hist_items:
+            print(f"   有 SEC URL: {total_with_sec} ({total_with_sec/total_hist_items*100:.1f}%)")
+            print(f"   有 SEC form: {total_with_form} ({total_with_form/total_hist_items*100:.1f}%)")
         if sec_url_fix_count > 0:
-            print(f"   本次修復/新增: {sec_url_fix_count} 個 SEC URL")
+            print(f"   本次修復/新增: {sec_url_fix_count} 個 SEC metadata")
     except Exception as e:
         print(f"❌ historical_data.json 寫入失敗: {e}")
         return False
@@ -694,6 +788,7 @@ if __name__ == "__main__":
     parser.add_argument('--full', action='store_true', help='完整模式（處理所有公司）')
     parser.add_argument('--sample', action='store_true', help='樣本模式')
     parser.add_argument('--ticker', type=str, help='指定 ticker（逗號分隔）')
+    parser.add_argument('--rebuild-historical', action='store_true', help='重建 historical_data.json 的 SEC URL/form metadata')
     args = parser.parse_args()
 
     tickers = None
@@ -704,6 +799,7 @@ if __name__ == "__main__":
         full_mode=args.full,
         sample_mode=args.sample,
         tickers_filter=tickers,
+        rebuild_historical=args.rebuild_historical,
     )
     if not ok:
         sys.exit(1)
