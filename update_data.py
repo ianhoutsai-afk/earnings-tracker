@@ -713,12 +713,11 @@ def update_data(
                 if not sec_match and h_item.get('secUrl'):
                     sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
                 if sec_match:
-                    h_item['secUrl'] = sec_match['url']
+                    # 只有真正配對到 SEC url 才覆蓋，fallback 產生的 None 不覆蓋
+                    if sec_match.get('url'):
+                        h_item['secUrl'] = sec_match['url']
+                        sec_url_fix_count += 1
                     h_item['form'] = sec_match['form']  # SEC 官方分類：10-K 或 10-Q
-                    sec_url_fix_count += 1
-                elif 'secUrl' not in h_item:
-                    # 如果舊有有 secUrl，保留它
-                    pass
 
                 corrected_history.append(h_item)
 
@@ -733,9 +732,11 @@ def update_data(
                     if not sec_match and h_item.get('secUrl'):
                         sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
                     if sec_match:
-                        h_item['secUrl'] = sec_match['url']
+                        # 只有真正配對到 SEC url 才覆蓋，fallback 產生的 None 不覆蓋
+                        if sec_match.get('url'):
+                            h_item['secUrl'] = sec_match['url']
+                            sec_url_fix_count += 1
                         h_item['form'] = sec_match['form']
-                        sec_url_fix_count += 1
                         needs_update = True
             if needs_update:
                 historical_data[ticker] = archived_history
