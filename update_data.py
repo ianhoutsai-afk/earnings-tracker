@@ -371,6 +371,14 @@ def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optiona
                 best_diff = diff
                 best_filing_diff = filing_diff
 
+    # 如果 SEC filings 為空或完全無法配對，以 quarter 標籤推斷 form
+    quarter_label = history_item.get('quarter', '')
+    if not best and quarter_label:
+        if 'FY' in quarter_label:
+            return {'url': None, 'form': '10-K'}
+        else:
+            return {'url': None, 'form': '10-Q'}
+
     return best
 
 

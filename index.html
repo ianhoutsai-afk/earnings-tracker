@@ -183,14 +183,9 @@
                 if (hasHistory) {
                     let cardsHtml = '';
                     history.forEach((h) => {
-                        const quarterLabel = h.quarter ? h.quarter : '近期';
                         const secForm = h.form || null;
-                        const isAnnualFiling = secForm === '10-K' || (!secForm && quarterLabel.includes('FY'));
-                        const filingLabel = secForm === '10-K'
-                            ? '10-K 年報'
-                            : secForm === '10-Q'
-                                ? '10-Q 季報'
-                                : `${quarterLabel} 財報`;
+                        const isAnnualFiling = secForm === '10-K' || (!secForm && (h.quarter || '').includes('FY'));
+                        const filingLabel = isAnnualFiling ? '10-K 年報' : '10-Q 季報';
                         // SEC 連結（指向 ixbrl 互動式檢視器）
                         const secUrl = h.secUrl || null;
                         cardsHtml += `
