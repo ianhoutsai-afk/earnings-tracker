@@ -83,6 +83,8 @@ SEC 官方 API 經常封鎖 GitHub Actions 等雲端環境的 IP。本專案提�
 4. **部署**：點擊 Save and Deploy，記下 Worker 的網址（如 `https://sec-proxy.your-account.workers.dev`）。
 5. **更新程式碼**：在 `build_cache.py` 中將 SEC 請求的基礎 URL 改為你的 Worker 網址，並在 Header 中加入 `X-Proxy-Token`。
 
+直接連線 SEC 時，可在 GitHub Actions Secret 設定 `SEC_CONTACT_EMAIL`，作為 SEC Fair Access User-Agent 的聯絡信箱。
+
 > **注意**：若你只在本地端執行（非雲端環境），可以直接呼叫 SEC API 而不需要 Worker。
 
 ### 📝 維護指南

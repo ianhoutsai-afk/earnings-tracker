@@ -39,13 +39,25 @@ except ImportError:
     pd = None
 
 
+SEC_CONTACT_EMAIL = os.environ.get('SEC_CONTACT_EMAIL') or 'contact@example.com'
 SEC_HEADERS = {
-    'User-Agent': 'Earnings Dashboard admin@earnings-tracker.local',
+    'User-Agent': f'EarningsTracker audit {SEC_CONTACT_EMAIL}',
     'Accept-Encoding': 'gzip, deflate',
 }
 
 SEC_PROXY_URL = os.environ.get('SEC_PROXY_URL', '')
 SEC_PROXY_TOKEN = os.environ.get('PROXY_TOKEN', '')
+MAX_SEC_REPORT_LAG_DAYS = 120
+SEC_FILING_GRACE_DAYS = 90
+SEC_CACHE_DIR = os.environ.get('SEC_CACHE_DIR', '.sec_cache')
+SEC_CACHE_TTL_SECONDS = int(os.environ.get('SEC_CACHE_TTL_SECONDS', 24 * 60 * 60))
+TICKER_ALIASES = {
+    'BK': 'BNY',
+}
+SEC_SESSION = None
+if requests is not None:
+    SEC_SESSION = requests.Session()
+    SEC_SESSION.headers.update(SEC_HEADERS)
 
 
 # ─────────────────────────────────────────────
@@ -80,6 +92,25 @@ def format_revenue(value) -> str:
         return "-"
 
 
+def migrate_ticker_aliases(existing_data: list, historical_data: dict) -> int:
+    """Migrate retired ticker symbols before joining against the current SEC map."""
+    migrations = 0
+    current_tickers = {company.get('ticker') for company in existing_data}
+    for company in existing_data:
+        old_ticker = company.get('ticker')
+        new_ticker = TICKER_ALIASES.get(old_ticker)
+        if not new_ticker or new_ticker in current_tickers:
+            continue
+
+        company['ticker'] = new_ticker
+        current_tickers.discard(old_ticker)
+        current_tickers.add(new_ticker)
+        if old_ticker in historical_data and new_ticker not in historical_data:
+            historical_data[new_ticker] = historical_data.pop(old_ticker)
+        migrations += 1
+    return migrations
+
+
 class _UrllibResponse:
     def __init__(self, status_code: int, body: bytes):
         self.status_code = status_code
@@ -106,7 +137,7 @@ def _sec_request(url: str, timeout: int = 15):
         return requests.get(proxy_url, headers=proxy_headers, timeout=timeout)
 
     if requests is not None:
-        return requests.get(url, headers=SEC_HEADERS, timeout=timeout)
+        return SEC_SESSION.get(url, timeout=timeout)
 
     req = urllib.request.Request(url, headers={'User-Agent': SEC_HEADERS['User-Agent']})
     with urllib.request.urlopen(req, timeout=timeout) as res:
@@ -209,69 +240,171 @@ def quarter_label_from_period_end(period_end: date, fy_end_month: int) -> Option
 # ─────────────────────────────────────────────
 
 
-def fetch_sec_filing_list(cik: str) -> list:
-    """
-    從 SEC API 抓取該公司的 10-K/10-Q 文件列表。
-    回傳 list[dict]:
-        [
-            {
-                "form": "10-Q",
-                "report_date": "2025-03-28",  # 期間結束日
-                "filing_date": "2025-05-01",   # 提交日期
-                "url": "https://...",
-            },
-            ...
-        ]
-    """
-    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+def extract_sec_filing_data(submissions: dict, cik: str) -> dict:
+    """Extract authoritative fiscal-year and filing metadata from SEC submissions."""
+    recent = submissions.get('filings', {}).get('recent', {})
+
+    fiscal_year_end = submissions.get('fiscalYearEnd', '')
+    fy_end_month = None
+    if isinstance(fiscal_year_end, str) and len(fiscal_year_end) == 4:
+        try:
+            parsed_month = int(fiscal_year_end[:2])
+            if 1 <= parsed_month <= 12:
+                fy_end_month = parsed_month
+        except ValueError:
+            pass
+
+    candidates = []
+    filing_sources = [recent, *submissions.get('_supplemental_filings', [])]
+    for source in filing_sources:
+        forms = source.get('form', [])
+        accessions = source.get('accessionNumber', [])
+        primary_docs = source.get('primaryDocument', [])
+        report_dates = source.get('reportDate', [])
+        filing_dates = source.get('filingDate', [])
+
+        for i, original_form in enumerate(forms):
+            base_form = original_form.replace('/A', '')
+            if base_form not in ('10-K', '10-Q'):
+                continue
+
+            report_date = report_dates[i] if i < len(report_dates) else ''
+            filing_date = filing_dates[i] if i < len(filing_dates) else ''
+            accession = accessions[i] if i < len(accessions) else ''
+            primary_doc = primary_docs[i] if i < len(primary_docs) else ''
+            if not all((report_date, filing_date, accession, primary_doc)):
+                continue
+
+            candidates.append({
+                'form': base_form,
+                'original_form': original_form,
+                'is_amendment': original_form.endswith('/A'),
+                'report_date': report_date,
+                'filing_date': filing_date,
+                'url': build_sec_ixbrl_url(cik, accession, primary_doc),
+            })
+
+    # Prefer the original filing over amendments for the same form/reporting period.
+    candidates.sort(
+        key=lambda item: (
+            item['report_date'],
+            item['form'],
+            not item['is_amendment'],
+            item['filing_date'],
+        ),
+        reverse=True,
+    )
+    deduplicated = []
+    seen_periods = set()
+    for candidate in sorted(
+        candidates,
+        key=lambda item: (
+            item['report_date'],
+            item['form'],
+            not item['is_amendment'],
+            item['filing_date'],
+        ),
+        reverse=True,
+    ):
+        period_key = (candidate['report_date'], candidate['form'])
+        if period_key in seen_periods:
+            continue
+        seen_periods.add(period_key)
+        deduplicated.append(candidate)
+
+    deduplicated.sort(key=lambda item: item['report_date'], reverse=True)
+    return {'filings': deduplicated, 'fy_end_month': fy_end_month}
+
+
+def _load_sec_json(url: str, cache_path: str, request_label: str) -> Optional[dict]:
+    """Load SEC JSON from the local TTL cache or the official endpoint."""
+    try:
+        cache_age = time.time() - os.path.getmtime(cache_path)
+        if cache_age <= SEC_CACHE_TTL_SECONDS:
+            with open(cache_path, 'r', encoding='utf-8') as cache_file:
+                return json.load(cache_file)
+    except (FileNotFoundError, OSError, ValueError, json.JSONDecodeError):
+        pass
+
     for attempt in range(3):
         try:
             res = _sec_request(url, timeout=15)
             if res.status_code == 200:
                 data = res.json()
+                try:
+                    os.makedirs(SEC_CACHE_DIR, exist_ok=True)
+                    temp_path = cache_path + '.tmp'
+                    with open(temp_path, 'w', encoding='utf-8') as cache_file:
+                        json.dump(data, cache_file)
+                    os.replace(temp_path, cache_path)
+                except OSError:
+                    pass
                 break
             elif res.status_code == 429:
                 time.sleep((attempt + 1) * 3)
                 continue
             elif res.status_code == 403:
-                return []
+                if attempt < 2:
+                    time.sleep((attempt + 1) * 5)
+                    continue
+                print(f"  ⚠️ SEC {request_label}: HTTP 403")
+                return None
             else:
                 if attempt < 2:
                     time.sleep(1)
                     continue
-                return []
-        except Exception:
+                print(f"  ⚠️ SEC {request_label}: HTTP {res.status_code}")
+                return None
+        except Exception as exc:
             if attempt < 2:
                 time.sleep(1)
                 continue
-            return []
+            print(f"  ⚠️ SEC {request_label}: {type(exc).__name__}: {exc}")
+            return None
 
-    recent = data.get('filings', {}).get('recent', {})
-    forms = recent.get('form', [])
-    accessions = recent.get('accessionNumber', [])
-    primary_docs = recent.get('primaryDocument', [])
-    report_dates = recent.get('reportDate', [])
-    filing_dates = recent.get('filingDate', [])
-    if not forms:
-        return []
+    return data
 
-    candidates = []
-    for i, form in enumerate(forms):
-        if form in ('10-K', '10-K/A', '10-Q', '10-Q/A'):
-            report_date_str = report_dates[i] if i < len(report_dates) else ''
-            filing_date_str = filing_dates[i] if i < len(filing_dates) else ''
-            if not report_date_str or not filing_date_str:
-                continue
-            base_form = form.replace('/A', '')
-            candidates.append({
-                'form': base_form,
-                'report_date': report_date_str,
-                'filing_date': filing_date_str,
-                'url': build_sec_ixbrl_url(cik, accessions[i], primary_docs[i]),
-            })
 
-    candidates.sort(key=lambda x: x['report_date'], reverse=True)
-    return candidates
+def fetch_sec_filing_data(cik: str) -> Optional[dict]:
+    """
+    Fetch a company's authoritative 10-K/10-Q list and fiscal year-end month.
+    Returns None when the SEC request fails, so callers never confuse a
+    transient fetch failure with a company that has no filings.
+
+    High-volume filers may have older filings split into supplemental SEC JSON
+    files. Load only as many adjacent files as needed to cover five reports.
+    """
+    cache_path = os.path.join(SEC_CACHE_DIR, f'CIK{cik}.json')
+    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+    data = _load_sec_json(url, cache_path, f'CIK{cik}')
+    if data is None:
+        return None
+
+    filing_data = extract_sec_filing_data(data, cik)
+    supplemental_filings = []
+    supplemental_files = data.get('filings', {}).get('files', [])
+    for file_info in supplemental_files:
+        if len(filing_data['filings']) >= 5:
+            break
+        filename = file_info.get('name')
+        if not filename:
+            continue
+        supplemental_url = f"https://data.sec.gov/submissions/{filename}"
+        supplemental_path = os.path.join(SEC_CACHE_DIR, filename)
+        supplemental = _load_sec_json(supplemental_url, supplemental_path, filename)
+        if supplemental is None:
+            return None
+        supplemental_filings.append(supplemental)
+        data['_supplemental_filings'] = supplemental_filings
+        filing_data = extract_sec_filing_data(data, cik)
+
+    return filing_data
+
+
+def fetch_sec_filing_list(cik: str) -> list:
+    """Backward-compatible wrapper returning only the SEC filing list."""
+    result = fetch_sec_filing_data(cik)
+    return result['filings'] if result else []
 
 
 # ─────────────────────────────────────────────
@@ -303,83 +436,255 @@ def match_filing_by_sec_url(sec_url: str, sec_filings: list) -> Optional[dict]:
     return None
 
 
-def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optional[dict]:
-    """
-    精準匹配 history 項目到 SEC filing。
-    回傳 dict {url, form}，或 None（找不到匹配）。
-
-    匹配邏輯：
-    1. 從 earnings release date（history.date）推估期間結束日
-    2. 在 SEC filings 中尋找 report_date 完全匹配的項目
-    3. 回傳時附帶 SEC 官方 form 類型（10-K 或 10-Q）
-
-    如果 exact match 找不到，放寬到 ±3 天容差。財報分類不再依賴
-    quarter label 推算，而是直接使用 SEC filing 的 form 欄位。
-    """
-    history_date_str = history_item.get('date', '')
-    if not history_date_str:
-        return None
-
+def _parse_iso_date(value: str) -> Optional[date]:
     try:
-        release_date = datetime.strptime(history_date_str, '%Y-%m-%d').date()
-    except ValueError:
+        return datetime.strptime(value, '%Y-%m-%d').date()
+    except (TypeError, ValueError):
         return None
 
-    # 估算期間結束日
-    estimated_period_end = estimate_period_end(release_date)
-    if not estimated_period_end:
-        return None
 
+def _filing_result(filing: dict) -> dict:
+    return {
+        'url': filing['url'],
+        'form': filing['form'],
+        'report_date': filing['report_date'],
+        'filing_date': filing['filing_date'],
+    }
+
+
+def match_history_to_filings(history_items: list, sec_filings: list) -> dict:
+    """
+    Match earnings releases to SEC filings one-to-one in chronological order.
+
+    The authoritative SEC report date must be on or before the earnings release
+    and no more than MAX_SEC_REPORT_LAG_DAYS earlier. This works for calendar and
+    non-calendar fiscal years without guessing fixed quarter-end dates.
+
+    Returns {history_index: filing_result}.
+    """
     parsed_filings = []
     for filing in sec_filings:
-        try:
-            filing_report_date = datetime.strptime(filing['report_date'], '%Y-%m-%d').date()
-        except (KeyError, ValueError):
+        report_date = _parse_iso_date(filing.get('report_date'))
+        filing_date = _parse_iso_date(filing.get('filing_date'))
+        if not report_date or not filing_date or filing.get('form') not in ('10-K', '10-Q'):
             continue
-        try:
-            filing_date = datetime.strptime(filing.get('filing_date', ''), '%Y-%m-%d').date()
-        except ValueError:
-            filing_date = filing_report_date
-        parsed_filings.append((filing, filing_report_date, filing_date))
+        parsed_filings.append((filing, report_date, filing_date))
 
-    def result_for(filing: dict) -> dict:
-        return {"url": filing['url'], "form": filing['form']}
+    indexed_history = []
+    for index, history_item in enumerate(history_items):
+        release_date = _parse_iso_date(history_item.get('date'))
+        if release_date:
+            indexed_history.append((index, release_date))
+    indexed_history.sort(key=lambda item: item[1])
 
-    # 先嘗試 exact match
-    exact_matches = [
-        (filing, filing_date)
-        for filing, filing_report_date, filing_date in parsed_filings
-        if filing_report_date == estimated_period_end
-    ]
-    if exact_matches:
-        best_filing, _ = min(
-            exact_matches,
-            key=lambda item: abs((item[1] - release_date).days),
+    matches = {}
+    used_urls = set()
+    for history_index, release_date in indexed_history:
+        eligible = []
+        for filing, report_date, filing_date in parsed_filings:
+            if filing['url'] in used_urls:
+                continue
+            report_lag = (release_date - report_date).days
+            if report_lag < 0 or report_lag > MAX_SEC_REPORT_LAG_DAYS:
+                continue
+            filing_distance = abs((filing_date - release_date).days)
+            eligible.append((report_lag, filing_distance, filing))
+
+        if not eligible:
+            continue
+
+        _, _, best_filing = min(
+            eligible,
+            key=lambda item: (
+                item[0],
+                item[1],
+                item[2].get('is_amendment', False),
+            ),
         )
-        return result_for(best_filing)
+        matches[history_index] = _filing_result(best_filing)
+        used_urls.add(best_filing['url'])
 
-    # 放寬到 ±3 天
-    best = None
-    best_diff = None
-    best_filing_diff = None
-    for filing, filing_report_date, filing_date in parsed_filings:
-        diff = abs((filing_report_date - estimated_period_end).days)
-        if diff <= 3:
-            filing_diff = abs((filing_date - release_date).days)
-            if best is None or (diff, filing_diff) < (best_diff, best_filing_diff):
-                best = result_for(filing)
-                best_diff = diff
-                best_filing_diff = filing_diff
+    return matches
 
-    # 如果 SEC filings 為空或完全無法配對，以 quarter 標籤推斷 form
-    quarter_label = history_item.get('quarter', '')
-    if not best and quarter_label:
-        if 'FY' in quarter_label:
-            return {'url': None, 'form': '10-K'}
-        else:
-            return {'url': None, 'form': '10-Q'}
 
-    return best
+def match_filing_to_history_v2(history_item: dict, sec_filings: list) -> Optional[dict]:
+    """
+    Match a single history item using the same authoritative date rules as the
+    batch matcher. Kept for compatibility with existing callers/tests.
+    """
+    return match_history_to_filings([history_item], sec_filings).get(0)
+
+
+def quarter_label_from_filing(filing: dict, fy_end_month: int) -> Optional[str]:
+    """Build the display quarter from the SEC form/report date."""
+    report_date = _parse_iso_date(filing.get('report_date'))
+    form = filing.get('form')
+    if not report_date or form not in ('10-K', '10-Q'):
+        return None
+
+    if form == '10-K':
+        return f"{report_date.year} FY"
+
+    fy_end_month = fy_end_month if 1 <= (fy_end_month or 0) <= 12 else 12
+    months_into_fy = (report_date.month - fy_end_month - 1) % 12 + 1
+    quarter_number = (months_into_fy + 2) // 3
+    if quarter_number not in (1, 2, 3):
+        return None
+    fiscal_year = report_date.year + 1 if report_date.month > fy_end_month else report_date.year
+    return f"{fiscal_year} Q{quarter_number}"
+
+
+def quarter_labels_from_match_sequence(matches: dict, fy_end_month: int) -> dict:
+    """Derive fiscal-quarter labels using actual 10-K dates as year anchors."""
+    parsed_matches = []
+    for history_index, filing in matches.items():
+        report_date = _parse_iso_date(filing.get('report_date'))
+        if report_date:
+            parsed_matches.append((history_index, filing, report_date))
+    parsed_matches.sort(key=lambda item: item[2])
+
+    labels = {}
+    annual_positions = [
+        position
+        for position, (_, filing, _) in enumerate(parsed_matches)
+        if filing.get('form') == '10-K'
+    ]
+
+    for position, (history_index, filing, report_date) in enumerate(parsed_matches):
+        if filing.get('form') == '10-K':
+            labels[history_index] = f"{report_date.year} FY"
+            continue
+
+        previous_annual = next(
+            (annual_position for annual_position in reversed(annual_positions) if annual_position < position),
+            None,
+        )
+        next_annual = next(
+            (annual_position for annual_position in annual_positions if annual_position > position),
+            None,
+        )
+
+        fiscal_year = None
+        quarter_number = None
+        if previous_annual is not None:
+            anchor_date = parsed_matches[previous_annual][2]
+            fiscal_year = anchor_date.year + 1
+            quarter_number = round((report_date - anchor_date).days / 91.25)
+        elif next_annual is not None:
+            anchor_date = parsed_matches[next_annual][2]
+            fiscal_year = anchor_date.year
+            quarters_before_annual = round((anchor_date - report_date).days / 91.25)
+            quarter_number = 4 - quarters_before_annual
+
+        if quarter_number in (1, 2, 3):
+            labels[history_index] = f"{fiscal_year} Q{quarter_number}"
+            continue
+
+        fallback = quarter_label_from_filing(filing, fy_end_month)
+        if fallback:
+            labels[history_index] = fallback
+
+    return labels
+
+
+def apply_sec_matches(history_items: list, sec_filings: list, fy_end_month: int) -> dict:
+    """
+    Replace SEC URL/form metadata atomically from authoritative SEC matches.
+
+    Stale URLs are removed when no filing can be matched; a guessed form is
+    never combined with an old URL.
+    """
+    matches = match_history_to_filings(history_items, sec_filings)
+    quarter_labels = quarter_labels_from_match_sequence(matches, fy_end_month)
+    stats = {'matched': 0, 'changed': 0, 'unmatched': 0, 'pending': 0}
+
+    for index, history_item in enumerate(history_items):
+        match = matches.get(index)
+        old_pair = (history_item.get('secUrl'), history_item.get('form'))
+        if not match:
+            history_item.pop('secUrl', None)
+            history_item.pop('form', None)
+            release_date = _parse_iso_date(history_item.get('date'))
+            release_age = (date.today() - release_date).days if release_date else None
+            if release_age is not None and 0 <= release_age <= SEC_FILING_GRACE_DAYS:
+                history_item['secStatus'] = 'pending'
+                stats['pending'] += 1
+            else:
+                history_item.pop('secStatus', None)
+            stats['unmatched'] += 1
+            if old_pair != (None, None):
+                stats['changed'] += 1
+            continue
+
+        history_item['secUrl'] = match['url']
+        history_item['form'] = match['form']
+        history_item.pop('secStatus', None)
+        quarter_label = quarter_labels.get(index)
+        if quarter_label:
+            history_item['quarter'] = quarter_label
+        stats['matched'] += 1
+        if old_pair != (history_item['secUrl'], history_item['form']):
+            stats['changed'] += 1
+
+    return stats
+
+
+def validate_sec_matches(history_items: list, sec_filings: list) -> list:
+    """Return metadata errors for URL/form pairs not backed by SEC submissions."""
+    official_by_url = {
+        _canonical_sec_doc_path(filing['url']): filing
+        for filing in sec_filings
+        if filing.get('url')
+    }
+    expected_matches = match_history_to_filings(history_items, sec_filings)
+    issues = []
+    for index, history_item in enumerate(history_items):
+        sec_url = history_item.get('secUrl')
+        form = history_item.get('form')
+        expected = expected_matches.get(index)
+        if not sec_url:
+            if expected:
+                issues.append({
+                    'type': 'missing_url',
+                    'date': history_item.get('date'),
+                    'expected_url': expected['url'],
+                })
+                continue
+            release_date = _parse_iso_date(history_item.get('date'))
+            release_age = (date.today() - release_date).days if release_date else None
+            if (
+                history_item.get('secStatus') == 'pending'
+                and release_age is not None
+                and 0 <= release_age <= SEC_FILING_GRACE_DAYS
+            ):
+                continue
+            issues.append({'type': 'missing_url', 'date': history_item.get('date')})
+            continue
+        official = official_by_url.get(_canonical_sec_doc_path(sec_url))
+        if not official:
+            issues.append({'type': 'unknown_url', 'date': history_item.get('date'), 'url': sec_url})
+        elif official['form'] != form:
+            issues.append({
+                'type': 'form_mismatch',
+                'date': history_item.get('date'),
+                'url': sec_url,
+                'expected': official['form'],
+                'actual': form,
+            })
+        elif not expected:
+            issues.append({
+                'type': 'unexpected_url',
+                'date': history_item.get('date'),
+                'url': sec_url,
+            })
+        elif _canonical_sec_doc_path(expected['url']) != _canonical_sec_doc_path(sec_url):
+            issues.append({
+                'type': 'wrong_report',
+                'date': history_item.get('date'),
+                'url': sec_url,
+                'expected_url': expected['url'],
+            })
+    return issues
 
 
 # ─────────────────────────────────────────────
@@ -524,6 +829,7 @@ def update_data(
     - tickers_filter: 只處理指定公司
     """
     today = date.today()
+    strict_sec_validation = rebuild_historical or full_mode
 
     # ── 載入現有 data.json ──
     try:
@@ -556,6 +862,10 @@ def update_data(
         print("⚠️  sp500_mapping.json 不存在")
     except json.JSONDecodeError as e:
         print(f"⚠️  sp500_mapping.json JSON 解析錯誤: {e}")
+
+    alias_migrations = migrate_ticker_aliases(existing_data, historical_data)
+    if alias_migrations:
+        print(f"✅ 已遷移 {alias_migrations} 個舊股票代碼到目前代碼\n")
 
     # ── 決定要處理哪些公司 ──
     if rebuild_historical:
@@ -598,6 +908,21 @@ def update_data(
                         pass
         print(f"📊 增量模式：處理 {len(companies_to_update)} 家即將發布/近期發布的公司")
 
+        pending_tickers = {
+            ticker
+            for ticker, history in historical_data.items()
+            if any(item.get('secStatus') == 'pending' for item in history)
+        }
+        selected_tickers = {company['ticker'] for company in companies_to_update}
+        pending_companies = [
+            company
+            for company in existing_data
+            if company['ticker'] in pending_tickers and company['ticker'] not in selected_tickers
+        ]
+        if pending_companies:
+            companies_to_update.extend(pending_companies)
+            print(f"   另加入 {len(pending_companies)} 家等待 SEC 申報的公司")
+
     if not companies_to_update:
         print("❌ 沒有符合條件的公司")
         return False
@@ -611,9 +936,23 @@ def update_data(
 
     sec_filing_cache = {}
     sec_fetch_count = 0
+    sec_fetch_failures = 0
+    sec_empty_count = 0
     total = len(companies_to_update)
+    fetched_by_cik = {}
+    missing_sec_mapping = [
+        company['ticker']
+        for company in companies_to_update
+        if not sec_mapping.get(company['ticker'], {}).get('cik')
+    ]
+    if strict_sec_validation and missing_sec_mapping:
+        print(
+            "❌ 全量重建中止：以下公司缺少 SEC CIK 映射："
+            + ', '.join(missing_sec_mapping)
+        )
+        return False
 
-    for idx, company in enumerate(companies_to_update):
+    for index, company in enumerate(companies_to_update):
         ticker = company['ticker']
         mapping_entry = sec_mapping.get(ticker, {})
         cik = mapping_entry.get('cik', '')
@@ -626,16 +965,42 @@ def update_data(
             sec_filing_cache[ticker] = []
             continue
 
-        filings = fetch_sec_filing_list(cik_padded)
-        sec_filing_cache[ticker] = filings
-        if filings:
-            sec_fetch_count += 1
+        if cik_padded in fetched_by_cik:
+            filing_data = fetched_by_cik[cik_padded]
+        else:
+            filing_data = fetch_sec_filing_data(cik_padded)
+            fetched_by_cik[cik_padded] = filing_data
+        if filing_data is None:
+            sec_fetch_failures += 1
+            if strict_sec_validation and len(fetched_by_cik) == 1:
+                print("❌ SEC 預檢失敗；中止全量重建，避免連續發送無效請求")
+                return False
+        else:
+            filings = filing_data['filings']
+            sec_filing_cache[ticker] = filings
+            official_fy_end = filing_data.get('fy_end_month')
+            if official_fy_end:
+                mapping_entry['fy_end'] = official_fy_end
+            if filings:
+                sec_fetch_count += 1
+            else:
+                sec_empty_count += 1
 
-        if (idx + 1) % 10 == 0 or idx + 1 == total:
-            print(f"    SEC: {idx+1}/{total} 家公司處理完畢（{sec_fetch_count} 家有 filing）")
-        time.sleep(0.1)
+        if (index + 1) % 10 == 0 or index + 1 == total:
+            print(
+                f"    SEC: {index + 1}/{total} 家公司處理完畢"
+                f"（{sec_fetch_count} 家有 filing；{sec_fetch_failures} 家失敗"
+                f"；{sec_empty_count} 家無 10-K/10-Q）"
+            )
+        time.sleep(0.12)
 
-    print(f"    SEC filing 抓取完成，{sec_fetch_count}/{total} 家有資料\n")
+    print(
+        f"    SEC filing 抓取完成，{sec_fetch_count}/{total} 家有資料"
+        f"；{sec_fetch_failures} 家請求失敗；{sec_empty_count} 家無 10-K/10-Q\n"
+    )
+    if strict_sec_validation and (sec_fetch_failures or sec_empty_count):
+        print("❌ 全量重建中止：SEC 官方資料未完整取得，現有資料檔案不會被覆寫")
+        return False
 
     # ── 更新每家公司數據 ──
     updated_count = 0
@@ -683,6 +1048,10 @@ def update_data(
     #   從 historical_data.json 中保留。
     print("\n🔄 建立/更新 historical_data.json...")
     sec_url_fix_count = 0
+    sec_unmatched_count = 0
+    sec_pending_count = 0
+    validation_issues = []
+    validated_company_count = 0
 
     for company in existing_data:
         ticker = company['ticker']
@@ -695,51 +1064,38 @@ def update_data(
         existing_history = company.get('history', [])
         archived_history = historical_data.get(ticker, [])
 
-        if existing_history and len(existing_history) > 0:
-            # 使用修正後的 quarter label 和 SEC 匹配邏輯重新處理
-            corrected_history = []
-            for h_item in existing_history:
-                # 修正 quarter label
-                try:
-                    release_date = datetime.strptime(h_item['date'], '%Y-%m-%d').date()
-                    period_end = estimate_period_end(release_date)
-                    corrected_quarter = quarter_label_from_period_end(period_end, fy_end)
-                    h_item['quarter'] = corrected_quarter
-                except (ValueError, TypeError):
-                    pass
+        target_history = existing_history if existing_history else archived_history
+        if not target_history or ticker not in sec_filing_cache or not sec_filings:
+            continue
 
-                # 使用修正後的匹配邏輯配對 SEC URL 和 form 類型
-                sec_match = match_filing_to_history_v2(h_item, sec_filings)
-                if not sec_match and h_item.get('secUrl'):
-                    sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
-                if sec_match:
-                    # 只有真正配對到 SEC url 才覆蓋，fallback 產生的 None 不覆蓋
-                    if sec_match.get('url'):
-                        h_item['secUrl'] = sec_match['url']
-                        sec_url_fix_count += 1
-                    h_item['form'] = sec_match['form']  # SEC 官方分類：10-K 或 10-Q
+        match_stats = apply_sec_matches(target_history, sec_filings, fy_end)
+        sec_url_fix_count += match_stats['changed']
+        sec_unmatched_count += match_stats['unmatched']
+        sec_pending_count += match_stats['pending']
+        historical_data[ticker] = target_history
 
-                corrected_history.append(h_item)
+        ticker_issues = validate_sec_matches(target_history, sec_filings)
+        validated_company_count += 1
+        validation_issues.extend(
+            {'ticker': ticker, **issue}
+            for issue in ticker_issues
+        )
 
-            historical_data[ticker] = corrected_history
+    if validation_issues:
+        print(f"⚠️  SEC metadata 驗證仍有 {len(validation_issues)} 個問題")
+        for issue in validation_issues[:20]:
+            print(f"   {issue}")
+    elif validated_company_count:
+        print(
+            f"✅ {validated_company_count} 家已處理公司的 SEC URL 與 "
+            "10-K/10-Q 標籤全部通過官方 metadata 驗證"
+        )
+    else:
+        print("⚠️  沒有公司取得 SEC 官方 metadata，因此未執行連結驗證")
 
-        elif archived_history:
-            # 已分離到 historical_data.json，嘗試補上缺失的 secUrl 及 form
-            needs_update = False
-            for h_item in archived_history:
-                if rebuild_historical or 'secUrl' not in h_item or 'form' not in h_item:
-                    sec_match = match_filing_to_history_v2(h_item, sec_filings)
-                    if not sec_match and h_item.get('secUrl'):
-                        sec_match = match_filing_by_sec_url(h_item['secUrl'], sec_filings)
-                    if sec_match:
-                        # 只有真正配對到 SEC url 才覆蓋，fallback 產生的 None 不覆蓋
-                        if sec_match.get('url'):
-                            h_item['secUrl'] = sec_match['url']
-                            sec_url_fix_count += 1
-                        h_item['form'] = sec_match['form']
-                        needs_update = True
-            if needs_update:
-                historical_data[ticker] = archived_history
+    if strict_sec_validation and validation_issues:
+        print("❌ 全量重建中止：仍有未匹配或標籤錯配，現有資料檔案不會被覆寫")
+        return False
 
     # ── 寫入 data.json（不含 history）──
     final_data = []
@@ -780,11 +1136,136 @@ def update_data(
             print(f"   有 SEC form: {total_with_form} ({total_with_form/total_hist_items*100:.1f}%)")
         if sec_url_fix_count > 0:
             print(f"   本次修復/新增: {sec_url_fix_count} 個 SEC metadata")
+        if sec_unmatched_count > 0:
+            print(f"   無法匹配並已移除舊連結: {sec_unmatched_count} 個")
+        if sec_pending_count > 0:
+            print(f"   等待 SEC 尚未提交文件: {sec_pending_count} 個")
+
+        if sec_mapping:
+            with open('sp500_mapping.json', 'w', encoding='utf-8') as f:
+                json.dump(sec_mapping, f, ensure_ascii=False, indent=4)
+            print("✅ sp500_mapping.json 已同步 SEC 官方財年結束月份")
     except Exception as e:
         print(f"❌ historical_data.json 寫入失敗: {e}")
         return False
 
     print(f"\n🎉 更新完成！更新成功: {updated_count} | 失敗: {failed_count}")
+    return True
+
+
+def audit_sec_dataset() -> bool:
+    """Independently audit stored links against cached/current SEC submissions."""
+    try:
+        with open('data.json', 'r', encoding='utf-8') as file:
+            companies = json.load(file)
+        with open('historical_data.json', 'r', encoding='utf-8') as file:
+            historical_data = json.load(file)
+        with open('sp500_mapping.json', 'r', encoding='utf-8') as file:
+            sec_mapping = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        print(f"❌ 無法讀取稽核資料: {exc}")
+        return False
+
+    issues = []
+    company_tickers = {company.get('ticker') for company in companies}
+    history_tickers = set(historical_data)
+    mapping_tickers = set(sec_mapping)
+    if company_tickers != history_tickers:
+        issues.append({
+            'type': 'company_history_ticker_mismatch',
+            'missing_history': sorted(company_tickers - history_tickers),
+            'extra_history': sorted(history_tickers - company_tickers),
+        })
+    if company_tickers != mapping_tickers:
+        issues.append({
+            'type': 'company_mapping_ticker_mismatch',
+            'missing_mapping': sorted(company_tickers - mapping_tickers),
+            'extra_mapping': sorted(mapping_tickers - company_tickers),
+        })
+
+    total_records = 0
+    linked_records = 0
+    pending_records = 0
+    for company in companies:
+        ticker = company.get('ticker')
+        mapping_entry = sec_mapping.get(ticker, {})
+        cik = mapping_entry.get('cik')
+        history = historical_data.get(ticker, [])
+        total_records += len(history)
+        if not cik:
+            issues.append({'ticker': ticker, 'type': 'missing_cik'})
+            continue
+
+        try:
+            cik_padded = str(int(cik)).zfill(10)
+            expected_cik = str(int(cik))
+        except (TypeError, ValueError):
+            issues.append({'ticker': ticker, 'type': 'invalid_cik', 'cik': cik})
+            continue
+
+        filing_data = fetch_sec_filing_data(cik_padded)
+        if not filing_data or not filing_data['filings']:
+            issues.append({'ticker': ticker, 'type': 'missing_sec_metadata'})
+            continue
+
+        for issue in validate_sec_matches(history, filing_data['filings']):
+            issues.append({'ticker': ticker, **issue})
+
+        seen_paths = set()
+        for history_item in history:
+            sec_url = history_item.get('secUrl')
+            if not sec_url:
+                if history_item.get('secStatus') == 'pending':
+                    pending_records += 1
+                continue
+            linked_records += 1
+            parsed = urlparse(sec_url)
+            path = _canonical_sec_doc_path(sec_url)
+            path_parts = path.split('/')
+            if parsed.scheme != 'https' or parsed.hostname != 'www.sec.gov':
+                issues.append({'ticker': ticker, 'type': 'non_sec_url', 'url': sec_url})
+            if len(path_parts) < 6 or path_parts[:3] != ['Archives', 'edgar', 'data']:
+                issues.append({'ticker': ticker, 'type': 'invalid_sec_path', 'url': sec_url})
+            elif path_parts[3] != expected_cik:
+                issues.append({
+                    'ticker': ticker,
+                    'type': 'cik_mismatch',
+                    'expected': expected_cik,
+                    'actual': path_parts[3],
+                    'url': sec_url,
+                })
+            if path in seen_paths:
+                issues.append({'ticker': ticker, 'type': 'duplicate_report', 'url': sec_url})
+            seen_paths.add(path)
+
+            form = history_item.get('form')
+            quarter = history_item.get('quarter', '')
+            if form == '10-K' and 'FY' not in quarter:
+                issues.append({
+                    'ticker': ticker,
+                    'type': 'annual_quarter_label_mismatch',
+                    'date': history_item.get('date'),
+                    'quarter': quarter,
+                })
+            if form == '10-Q' and 'FY' in quarter:
+                issues.append({
+                    'ticker': ticker,
+                    'type': 'quarterly_quarter_label_mismatch',
+                    'date': history_item.get('date'),
+                    'quarter': quarter,
+                })
+
+    print(
+        f"SEC 稽核: {len(companies)} 家公司；{total_records} 筆財報；"
+        f"{linked_records} 筆官方連結；{pending_records} 筆等待申報"
+    )
+    if issues:
+        print(f"❌ 發現 {len(issues)} 個問題")
+        for issue in issues[:50]:
+            print(f"   {issue}")
+        return False
+
+    print("✅ 所有已存在連結的公司、期間、CIK 與 10-K/10-Q 標籤均通過 SEC 官方資料驗證")
     return True
 
 
@@ -798,17 +1279,21 @@ if __name__ == "__main__":
     parser.add_argument('--sample', action='store_true', help='樣本模式')
     parser.add_argument('--ticker', type=str, help='指定 ticker（逗號分隔）')
     parser.add_argument('--rebuild-historical', action='store_true', help='重建 historical_data.json 的 SEC URL/form metadata')
+    parser.add_argument('--validate-sec', action='store_true', help='以 SEC 官方 metadata 稽核現有連結與標籤')
     args = parser.parse_args()
 
     tickers = None
     if args.ticker:
         tickers = [t.strip().upper() for t in args.ticker.split(',') if t.strip()]
 
-    ok = update_data(
-        full_mode=args.full,
-        sample_mode=args.sample,
-        tickers_filter=tickers,
-        rebuild_historical=args.rebuild_historical,
-    )
+    if args.validate_sec:
+        ok = audit_sec_dataset()
+    else:
+        ok = update_data(
+            full_mode=args.full,
+            sample_mode=args.sample,
+            tickers_filter=tickers,
+            rebuild_historical=args.rebuild_historical,
+        )
     if not ok:
         sys.exit(1)

@@ -28,6 +28,7 @@ jobs:
         env:
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: python build_cache.py
 
       - name: Commit and push if changed

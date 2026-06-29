@@ -7,8 +7,9 @@ import os
 import argparse
 
 # SEC 官方要求 User-Agent 必須包含聯絡資訊
+SEC_CONTACT_EMAIL = os.environ.get('SEC_CONTACT_EMAIL') or 'contact@example.com'
 HEADERS = {
-    'User-Agent': 'S&P500 Earnings Tracker ianhoutsai@github.com',
+    'User-Agent': f'EarningsTracker audit {SEC_CONTACT_EMAIL}',
     'Accept-Encoding': 'gzip, deflate',
 }
 
