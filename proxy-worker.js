@@ -9,13 +9,10 @@
  *
  * 安全性：
  *   - 只代理 SEC 的兩個合法網域（白名單）
- *   - 需要正確的 X-Proxy-Token header 才會放行（防止別人盜用你的 Worker 流量）
+ *   - PROXY_TOKEN 必須設定為 Cloudflare Worker Secret
+ *   - 需要正確的 X-Proxy-Token header 才會放行（防止別人盜用 Worker 流量）
  *   - 從 SEC 拿到 200 才回，其他狀態原樣傳回讓 GitHub Actions 看
  */
-
-// ⚠️ 把這兩個值換成你自己的
-const PROXY_TOKEN = 'DG34dchn89H6k46GB';           // 自己定一個亂碼，等下 GitHub Secret 也要用同一個
-const SEC_USER_AGENT = 'ianhoutsai@gmail.com'; // SEC 規範要求的真實 email
 
 // 允許代理的 SEC 路徑（白名單，防止這個 Worker 被當成通用 proxy 濫用）
 const ALLOWED_HOSTS = {
@@ -25,10 +22,18 @@ const ALLOWED_HOSTS = {
 };
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    const proxyToken = env.PROXY_TOKEN;
+    const secContactEmail = env.SEC_CONTACT_EMAIL;
+
+    // Secret 或必要設定缺失時 fail closed，避免意外部署成公開 proxy。
+    if (!proxyToken || !secContactEmail) {
+      return new Response('Worker configuration is incomplete', { status: 503 });
+    }
+
     // 1. 驗證請求 token
     const token = request.headers.get('X-Proxy-Token');
-    if (token !== PROXY_TOKEN) {
+    if (token !== proxyToken) {
       return new Response('Unauthorized: missing or invalid X-Proxy-Token', { status: 401 });
     }
 
@@ -55,7 +60,7 @@ export default {
       const secResponse = await fetch(targetUrl, {
         method: 'GET',
         headers: {
-          'User-Agent': SEC_USER_AGENT,
+          'User-Agent': `EarningsTracker ${secContactEmail}`,
           'Accept': 'application/json',
           'Accept-Encoding': 'gzip, deflate',
         },
