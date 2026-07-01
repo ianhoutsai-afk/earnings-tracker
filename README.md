@@ -14,7 +14,7 @@ An institutional-grade, fully automated monitoring system for S&P 500 corporate 
 
 ### ✨ Key Features
 - **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, providing a comprehensive market view.
-- **🤖 Automated Bark Alerts**: Sends a daily morning summary of companies reporting earnings the next day.
+- **🤖 Automated Bark Alerts**: Sends a daily morning summary of companies reporting earnings that day.
 - **⏱️ BMO / AMC Indicators**: Intelligently identifies if earnings will be released Before Market Open (☀️) or After Market Close (🌙).
 - **⭐ Personalized Watchlist**: Save your favorite tickers directly to your browser's local storage for pinned access and quick filtering.
 - **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends, ensuring that "Q1/Q2/Q3/Q4" labels match the company's official financial calendar.
@@ -33,6 +33,7 @@ This repository is configured as a **Template**. Deploy your own serverless trac
    - Install Bark on your iPhone and copy your personal Bark key from the app.
    - Go to **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**.
    - Add one secret: `BARK_KEY`.
+   - The alert is sent at 09:00 (`Asia/Shanghai`) and groups companies by BMO, AMC, or unconfirmed release time.
 
 ### 🛠️ Technical Architecture
 - **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff).
@@ -45,7 +46,7 @@ This repository is configured as a **Template**. Deploy your own serverless trac
 
 ### ✨ 核心功能
 - **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
-- **🤖 Bark 每日預警**：每日早晨自動推播「明日即將發布財報」的公司名單，輔助交易決策。
+- **🤖 Bark 每日預警**：每日早晨自動推播「當天即將發布財報」的公司名單，並依盤前、盤後及待確認時間分組。
 - **⏱️ 盤前 / 盤後精準標示**：智能解析財報發布時間段，清楚標示 ☀️盤前 (BMO) 或 🌙盤後 (AMC)。
 - **⭐ 本地專屬收藏夾**：點擊星星圖示即可將關注公司存入瀏覽器本地 (Local Storage)，自動置頂並支援專屬篩選。
 - **🎯 精準財年計算**：針對不同公司的財年結束月份實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司財務年度。
@@ -64,6 +65,7 @@ This repository is configured as a **Template**. Deploy your own serverless trac
    - 先在 iPhone 安裝 Bark，並從 App 取得你的個人 Bark Key。
    - 進入 **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**。
    - 新增一個機密變數：`BARK_KEY`。
+   - 通知會在 `Asia/Shanghai` 時區每日 09:00 發送；若當天沒有公司發布財報，則不推播。
 
 ### 🛠️ 技術架構
 - **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
@@ -79,9 +81,16 @@ SEC 官方 API 經常封鎖 GitHub Actions 等雲端環境的 IP。本專案提�
 
 1. **建立 Cloudflare Worker**：登入 Cloudflare Dashboard → Workers & Pages → 建立新的 Worker。
 2. **貼上程式碼**：將 `proxy-worker.js` 的全部內容複製貼上。
-3. **設定環境變數**（可選）：若想加強安全，可在 Worker 設定中將 `PROXY_TOKEN` 改為自訂亂碼，並在 GitHub Actions Secret 中加入同名變數。
-4. **部署**：點擊 Save and Deploy，記下 Worker 的網址（如 `https://sec-proxy.your-account.workers.dev`）。
-5. **更新程式碼**：在 `build_cache.py` 中將 SEC 請求的基礎 URL 改為你的 Worker 網址，並在 Header 中加入 `X-Proxy-Token`。
+3. **設定 Cloudflare Worker Secret**：在 Worker 的 Settings → Variables and Secrets 新增加密 Secret `PROXY_TOKEN`。可用 `openssl rand -hex 32` 產生 256-bit 隨機 Token；不要把值寫進程式碼或提交到 Git。
+4. **設定 SEC 聯絡資料**：在同一頁新增文字變數 `SEC_CONTACT_EMAIL`，填入符合 SEC Fair Access 規範的聯絡信箱。
+5. **部署**：點擊 Save and Deploy，記下 Worker 的網址（如 `https://sec-proxy.your-account.workers.dev`）。
+6. **同步 GitHub Actions Secrets**：在 GitHub 倉庫 Settings → Secrets and variables → Actions 設定：
+   - `PROXY_TOKEN`：必須與 Cloudflare Worker Secret 使用相同的新 Token。
+   - `SEC_PROXY_URL`：填入 Worker 網址。
+   - `SEC_CONTACT_EMAIL`：填入 SEC 聯絡信箱。
+7. **驗證後輪替**：手動執行一次 `Earnings Tracker Update`。成功後，確認舊 Token 已從 Cloudflare 與 GitHub Secrets 完全取代。
+
+> `PROXY_TOKEN` 是必要設定。Worker 找不到 Secret 時會回傳 HTTP 503，Token 缺失或不相符時則回傳 HTTP 401。
 
 直接連線 SEC 時，可在 GitHub Actions Secret 設定 `SEC_CONTACT_EMAIL`，作為 SEC Fair Access User-Agent 的聯絡信箱。
 
