@@ -32,18 +32,43 @@
             </button>
         </div>
 
-        <!-- 排序與篩選工具列 -->
-        <div class="flex items-center gap-3 mb-4 bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-            <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400 pl-2">排序方式：</label>
-            <select id="sort-select" class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 outline-none">
-                <option value="countdown_asc">發布日倒數 (由近到遠)</option>
-                <option value="countdown_desc">發布日倒數 (由遠到近)</option>
-                <option value="alpha_asc">公司代碼 (A - Z)</option>
-                <option value="alpha_desc">公司代碼 (Z - A)</option>
-            </select>
-            <button id="star-filter-btn" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition">
-                ⭐ 只顯示收藏
-            </button>
+        <!-- 搜尋、排序與篩選工具列 -->
+        <div class="mb-4 bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+            <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+                <div class="relative flex-1 min-w-0">
+                    <label for="company-search" class="sr-only">搜尋公司名稱或股票代碼</label>
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-3.5-3.5"></path>
+                    </svg>
+                    <input
+                        id="company-search"
+                        type="search"
+                        autocomplete="off"
+                        spellcheck="false"
+                        placeholder="搜尋公司名稱或股票代碼，例如 Apple 或 AAPL"
+                        class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 py-2 pl-10 pr-10 outline-none transition"
+                    >
+                    <button id="clear-search-btn" type="button" aria-label="清除搜尋" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 items-center justify-center rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <div class="flex items-center gap-2">
+                        <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400 whitespace-nowrap">排序方式：</label>
+                        <select id="sort-select" class="w-full sm:w-auto bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 outline-none">
+                            <option value="countdown_asc">發布日倒數 (由近到遠)</option>
+                            <option value="countdown_desc">發布日倒數 (由遠到近)</option>
+                            <option value="alpha_asc">公司代碼 (A - Z)</option>
+                            <option value="alpha_desc">公司代碼 (Z - A)</option>
+                        </select>
+                    </div>
+                    <button id="star-filter-btn" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition whitespace-nowrap">
+                        ⭐ 只顯示收藏
+                    </button>
+                </div>
+            </div>
+            <p id="search-status" class="mt-2 px-1 text-xs text-gray-500 dark:text-gray-400" aria-live="polite">正在載入公司資料...</p>
         </div>
         
         <!-- 數據表格容器 -->
@@ -76,6 +101,7 @@
         let appData = [];
         let historicalData = {};
         let starFilterActive = false;
+        let searchQuery = '';
 
         // ── 客戶端倒計時計算 ──
         function calcCountdown(reportDateStr) {
@@ -138,6 +164,25 @@
         function renderTable(data) {
             const container = document.getElementById('data-container');
             container.innerHTML = '';
+
+            if (data.length === 0) {
+                const hasSearch = searchQuery.length > 0;
+                const emptyMessage = hasSearch
+                    ? `找不到符合「${escapeHtml(searchQuery)}」的公司`
+                    : '目前沒有符合條件的公司';
+                const emptyHint = hasSearch
+                    ? '請確認公司名稱或股票代碼，或嘗試較短的關鍵字。'
+                    : '請調整目前的篩選條件。';
+                container.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="p-12 text-center">
+                            <div class="text-base font-semibold text-gray-700 dark:text-gray-200">${emptyMessage}</div>
+                            <div class="mt-1 text-sm text-gray-400">${emptyHint}</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
 
             data.forEach(company => {
                 const isStarred = localStorage.getItem(`star_${company.ticker}`) === 'true';
@@ -240,11 +285,52 @@
         }
 
         // ── 排序＋篩選 ──
+        function normalizeSearchValue(value) {
+            return String(value || '')
+                .normalize('NFKD')
+                .toLowerCase()
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]/g, '');
+        }
+
+        function escapeHtml(value) {
+            const div = document.createElement('div');
+            div.textContent = value;
+            return div.innerHTML;
+        }
+
+        function companyMatchesSearch(company, query) {
+            if (!query) return true;
+
+            const normalizedQuery = normalizeSearchValue(query);
+            if (!normalizedQuery) return true;
+
+            return normalizeSearchValue(company.ticker).includes(normalizedQuery)
+                || normalizeSearchValue(company.name).includes(normalizedQuery);
+        }
+
+        function updateSearchUi(resultCount) {
+            const clearBtn = document.getElementById('clear-search-btn');
+            const status = document.getElementById('search-status');
+            clearBtn.classList.toggle('hidden', searchQuery.length === 0);
+            clearBtn.classList.toggle('flex', searchQuery.length > 0);
+
+            if (searchQuery) {
+                status.textContent = `找到 ${resultCount} 家符合「${searchQuery}」的公司`;
+            } else if (starFilterActive) {
+                status.textContent = `顯示 ${resultCount} 家收藏公司`;
+            } else {
+                status.textContent = `顯示全部 ${resultCount} 家公司`;
+            }
+        }
+
         function applySort() {
             const val = document.getElementById('sort-select').value;
             let filtered = starFilterActive
                 ? appData.filter(c => localStorage.getItem(`star_${c.ticker}`) === 'true')
                 : [...appData];
+
+            filtered = filtered.filter(company => companyMatchesSearch(company, searchQuery));
 
             if (val === 'countdown_asc') {
                 filtered.sort((a, b) => {
@@ -267,6 +353,7 @@
             } else if (val === 'alpha_desc') {
                 filtered.sort((a, b) => b.ticker.localeCompare(a.ticker));
             }
+            updateSearchUi(filtered.length);
             renderTable(filtered);
         }
 
@@ -336,6 +423,26 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('sort-select').addEventListener('change', applySort);
+
+            const searchInput = document.getElementById('company-search');
+            searchInput.addEventListener('input', (event) => {
+                searchQuery = event.target.value.trim();
+                applySort();
+            });
+            searchInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && searchInput.value) {
+                    searchInput.value = '';
+                    searchQuery = '';
+                    applySort();
+                }
+            });
+            document.getElementById('clear-search-btn').addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                applySort();
+                searchInput.focus();
+            });
+
             init();
         });
     </script>
