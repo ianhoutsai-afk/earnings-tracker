@@ -1,0 +1,53 @@
+name: Bark Earnings Notification
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_notification:
+        description: Send a Bark test message instead of today's earnings summary
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bark-earnings-notification
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Bark secret
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+        run: |
+          if [ -z "$BARK_KEY" ]; then
+            echo "::error::BARK_KEY is not configured"
+            exit 1
+          fi
+
+      - name: Send Bark test notification
+        if: ${{ inputs.test_notification == true }}
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          EARNINGS_TIMEZONE: Asia/Shanghai
+        run: python notify_bark.py --test
+
+      - name: Send today's earnings notification
+        if: ${{ inputs.test_notification == false }}
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          EARNINGS_TIMEZONE: Asia/Shanghai
+        run: python notify_bark.py --notify-empty

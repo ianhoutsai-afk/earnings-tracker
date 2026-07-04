@@ -5,6 +5,7 @@ from datetime import date, datetime, timezone
 from notify_bark import (
     companies_reporting_on,
     format_notification,
+    format_test_notification,
     get_local_date,
     send_bark_notification,
 )
@@ -253,6 +254,20 @@ class BarkNotificationTests(unittest.TestCase):
         self.assertIn('🌙 盤後（1）\nNFLX', body)
         self.assertIn('⏱️ 時間待確認（1）\nTSLA', body)
 
+    def test_formats_empty_day_notification(self):
+        title, body = format_notification([], date(2026, 7, 4))
+
+        self.assertEqual(title, '今日財報｜07/04｜0 家')
+        self.assertEqual(body, '今天沒有追蹤中的公司發布財報。')
+
+    def test_formats_test_notification_in_configured_timezone(self):
+        now = datetime(2026, 7, 4, 1, 5, tzinfo=timezone.utc)
+
+        title, body = format_test_notification('Asia/Shanghai', now)
+
+        self.assertEqual(title, 'Bark 測試成功')
+        self.assertIn('2026-07-04 09:05（Asia/Shanghai）', body)
+
     def test_sends_json_post_to_bark(self):
         captured = {}
 
@@ -290,6 +305,27 @@ class BarkNotificationTests(unittest.TestCase):
         self.assertEqual(payload['group'], 'Earnings Tracker')
         self.assertEqual(payload['id'], 'earnings-2026-07-01')
         self.assertEqual(captured['timeout'], 15)
+
+    def test_raises_when_bark_rejects_notification(self):
+        class FakeResponse:
+            status = 200
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return None
+
+            def read(self):
+                return b'{"code": 400, "message": "invalid device key"}'
+
+        with self.assertRaisesRegex(RuntimeError, 'invalid device key'):
+            send_bark_notification(
+                'invalid-key',
+                '今日財報',
+                'AAPL',
+                opener=lambda _request, timeout: FakeResponse(),
+            )
 
 
 if __name__ == '__main__':

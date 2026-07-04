@@ -2,9 +2,9 @@ name: Earnings Tracker Update
 
 on:
   schedule:
-    # UTC 01:00（台灣/北京 09:00）會更新資料並發送今日財報通知。
+    # UTC 01:00（台灣/北京 09:00）更新資料。
     - cron: '0 1 * * *'
-    # UTC 13:00（台灣/北京 21:00）只更新資料，避免重複通知。
+    # UTC 13:00（台灣/北京 21:00）更新資料。
     - cron: '0 13 * * *'
     # 每月 1 日執行完整重建
     - cron: '0 2 1 * *'
@@ -30,7 +30,6 @@ jobs:
 
       - name: 執行資料更新程式碼（增量模式，只抓即將發布的公司）
         env:
-          BARK_KEY: ${{ secrets.BARK_KEY }}
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
@@ -39,18 +38,10 @@ jobs:
       - name: 每月完整重建一次（月初 cron 觸發時）
         if: github.event.schedule == '0 2 1 * *'
         env:
-          BARK_KEY: ${{ secrets.BARK_KEY }}
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: python update_data.py --full
-
-      - name: 發送今日財報 Bark 通知
-        if: ${{ always() && (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 1 * * *') }}
-        env:
-          BARK_KEY: ${{ secrets.BARK_KEY }}
-          EARNINGS_TIMEZONE: Asia/Shanghai
-        run: python notify_bark.py
 
       - name: Commit and push if changed
         run: |

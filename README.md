@@ -33,7 +33,23 @@ This repository is configured as a **Template**. Deploy your own serverless trac
    - Install Bark on your iPhone and copy your personal Bark key from the app.
    - Go to **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**.
    - Add one secret: `BARK_KEY`.
-   - The alert is sent at 09:00 (`Asia/Shanghai`) and groups companies by BMO, AMC, or unconfirmed release time.
+   - Run **`Bark Earnings Notification`** manually with `test_notification` enabled to verify delivery.
+   - The production alert includes every S&P 500 company reporting that day, grouped by BMO, AMC, or unconfirmed release time. Empty days still send a `0 companies` status.
+
+### ⏰ Reliable 09:00 Bark Scheduling
+
+GitHub scheduled workflows can be delayed. This repository therefore includes
+`bark-scheduler-worker.mjs`, a dedicated Cloudflare Worker that dispatches the
+lightweight Bark workflow close to 09:00 (`Asia/Shanghai`):
+
+1. Create a fine-grained GitHub personal access token restricted to this repository with **Actions: Read and write** permission.
+2. Create a separate Cloudflare Worker and paste in `bark-scheduler-worker.mjs`.
+3. Add the token as an encrypted Worker secret named `GITHUB_ACTIONS_TOKEN`.
+4. Add a Cron Trigger using `0 1 * * *` (Cloudflare cron uses UTC).
+5. Deploy the Worker, then use Cloudflare's scheduled-event test to confirm that `Bark Earnings Notification` starts on GitHub.
+
+The scheduler Worker has no public HTTP handler and never receives the Bark key.
+`BARK_KEY` remains stored only in GitHub Actions.
 
 ### 🛠️ Technical Architecture
 - **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff).
@@ -65,7 +81,8 @@ This repository is configured as a **Template**. Deploy your own serverless trac
    - 先在 iPhone 安裝 Bark，並從 App 取得你的個人 Bark Key。
    - 進入 **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**。
    - 新增一個機密變數：`BARK_KEY`。
-   - 通知會在 `Asia/Shanghai` 時區每日 09:00 發送；若當天沒有公司發布財報，則不推播。
+   - 手動執行 **`Bark Earnings Notification`**，保持 `test_notification` 啟用以驗證推送。
+   - 正式通知涵蓋所有當日發布財報的 S&P 500 公司，並依盤前、盤後及待確認時間分組；沒有財報時仍會推送「今日 0 家」。
 
 ### 🛠️ 技術架構
 - **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
@@ -95,6 +112,20 @@ SEC 官方 API 經常封鎖 GitHub Actions 等雲端環境的 IP。本專案提�
 直接連線 SEC 時，可在 GitHub Actions Secret 設定 `SEC_CONTACT_EMAIL`，作為 SEC Fair Access User-Agent 的聯絡信箱。
 
 > **注意**：若你只在本地端執行（非雲端環境），可以直接呼叫 SEC API 而不需要 Worker。
+
+### ⏰ Bark 準時排程 Worker
+
+GitHub 定時 workflow 可能延遲，因此 Bark 通知改由獨立的
+`bark-scheduler-worker.mjs` 在接近 `Asia/Shanghai` 09:00 時觸發：
+
+1. 在 GitHub 建立 fine-grained personal access token，只授權本倉庫，並開啟 **Actions: Read and write**。
+2. 在 Cloudflare 建立另一個獨立 Worker，貼上 `bark-scheduler-worker.mjs`。
+3. 在 Worker 的 Settings → Variables and Secrets 新增加密 Secret `GITHUB_ACTIONS_TOKEN`。
+4. 在 Triggers → Cron Triggers 新增 `0 1 * * *`；Cloudflare cron 使用 UTC，對應上海時間 09:00。
+5. 部署後使用 Cloudflare 的 scheduled event 測試，確認 GitHub 出現新的 **`Bark Earnings Notification`** 執行紀錄。
+
+此 Scheduler Worker 沒有公開 HTTP handler，也不持有 Bark Key；
+`BARK_KEY` 只保留在 GitHub Actions Secrets。
 
 ### 📝 維護指南
 S&P 500 成分股變動頻率極低。若發生指數季度調整（如剔除舊公司/加入新公司），只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可透過 DataHub 刷新快取庫。

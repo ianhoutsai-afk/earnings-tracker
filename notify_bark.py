@@ -71,6 +71,25 @@ def format_notification(companies: list[dict], target_date: date) -> tuple[str, 
     return title, "\n\n".join(sections)
 
 
+def format_test_notification(
+    timezone_name: str,
+    now: Optional[datetime] = None,
+) -> tuple[str, str]:
+    """Build a test message that proves the Bark delivery path is working."""
+    timezone = ZoneInfo(timezone_name)
+    current = now or datetime.now(timezone)
+    if current.tzinfo is None:
+        current = current.replace(tzinfo=timezone)
+    else:
+        current = current.astimezone(timezone)
+    title = "Bark 測試成功"
+    body = (
+        "Earnings Tracker 通知通道正常。\n"
+        f"測試時間：{current:%Y-%m-%d %H:%M}（{timezone_name}）"
+    )
+    return title, body
+
+
 def build_bark_endpoint(server: str, key: str) -> str:
     parsed = urlparse(server)
     if parsed.scheme not in ("http", "https") or not parsed.netloc:
@@ -143,6 +162,11 @@ def main() -> bool:
     parser.add_argument("--date", help="指定日期（YYYY-MM-DD），預設為通知時區的今天")
     parser.add_argument("--dry-run", action="store_true", help="只顯示通知內容，不發送")
     parser.add_argument(
+        "--test",
+        action="store_true",
+        help="發送 Bark 測試通知，不讀取公司資料",
+    )
+    parser.add_argument(
         "--notify-empty",
         action="store_true",
         help="當天沒有公司發布財報時也發送通知",
@@ -151,26 +175,32 @@ def main() -> bool:
 
     timezone_name = os.environ.get("EARNINGS_TIMEZONE", DEFAULT_TIMEZONE)
     try:
-        target_date = (
-            date.fromisoformat(args.date)
-            if args.date
-            else get_local_date(timezone_name)
-        )
+        if args.test:
+            title, body = format_test_notification(timezone_name)
+            target_date = None
+            companies = []
+        else:
+            target_date = (
+                date.fromisoformat(args.date)
+                if args.date
+                else get_local_date(timezone_name)
+            )
     except (ValueError, ZoneInfoNotFoundError) as exc:
         print(f"❌ 無效的日期或時區: {exc}")
         return False
 
-    try:
-        companies = companies_reporting_on(load_companies(args.data), target_date)
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
-        print(f"❌ 無法讀取公司資料: {exc}")
-        return False
+    if not args.test:
+        try:
+            companies = companies_reporting_on(load_companies(args.data), target_date)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            print(f"❌ 無法讀取公司資料: {exc}")
+            return False
 
-    title, body = format_notification(companies, target_date)
+        title, body = format_notification(companies, target_date)
     print(title)
     print(body)
 
-    if not companies and not args.notify_empty:
+    if not args.test and not companies and not args.notify_empty:
         print("ℹ️ 今天沒有公司發布財報，略過 Bark 推送")
         return True
     if args.dry_run:
@@ -179,8 +209,8 @@ def main() -> bool:
 
     bark_key = os.environ.get("BARK_KEY", "")
     if not bark_key.strip():
-        print("ℹ️ BARK_KEY 未設定，略過 Bark 推送")
-        return True
+        print("❌ BARK_KEY 未設定")
+        return False
 
     try:
         send_bark_notification(
@@ -192,7 +222,11 @@ def main() -> bool:
                 "EARNINGS_DASHBOARD_URL",
                 DEFAULT_DASHBOARD_URL,
             ),
-            notification_id=f"earnings-{target_date.isoformat()}",
+            notification_id=(
+                None
+                if args.test
+                else f"earnings-{target_date.isoformat()}"
+            ),
         )
     except (ValueError, RuntimeError) as exc:
         print(f"❌ Bark 推送失敗: {exc}")
