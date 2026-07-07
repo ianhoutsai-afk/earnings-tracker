@@ -57,18 +57,26 @@ def _timing_key(company: dict) -> str:
 def format_notification(companies: list[dict], target_date: date) -> tuple[str, str]:
     """Build a compact notification that remains readable on a phone."""
     title = f"今日財報｜{target_date:%m/%d}｜{len(companies)} 家"
+    tickers = sorted(company["ticker"] for company in companies)
+    summary = [
+        f"今日共有 {len(companies)} 家 S&P 500 公司發布財報。",
+        f"股票代碼：{' · '.join(tickers) if tickers else '無'}",
+    ]
     sections = []
     for key, label in TIMING_GROUPS:
-        tickers = [
+        group_tickers = [
             company["ticker"]
             for company in companies
             if _timing_key(company) == key
         ]
-        if tickers:
-            sections.append(f"{key} {label}（{len(tickers)}）\n" + " · ".join(tickers))
-    if not sections:
-        return title, "今天沒有追蹤中的公司發布財報。"
-    return title, "\n\n".join(sections)
+        if group_tickers:
+            sections.append(
+                f"{key} {label}（{len(group_tickers)}）\n"
+                + " · ".join(sorted(group_tickers))
+            )
+    if sections:
+        summary.extend(["", *sections])
+    return title, "\n\n".join(summary)
 
 
 def format_test_notification(

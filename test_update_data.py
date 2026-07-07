@@ -250,6 +250,8 @@ class BarkNotificationTests(unittest.TestCase):
         title, body = format_notification(companies, date(2026, 7, 1))
 
         self.assertEqual(title, '今日財報｜07/01｜4 家')
+        self.assertIn('今日共有 4 家 S&P 500 公司發布財報。', body)
+        self.assertIn('股票代碼：JPM · NFLX · TSLA · UNH', body)
         self.assertIn('☀️ 盤前（2）\nJPM · UNH', body)
         self.assertIn('🌙 盤後（1）\nNFLX', body)
         self.assertIn('⏱️ 時間待確認（1）\nTSLA', body)
@@ -258,7 +260,10 @@ class BarkNotificationTests(unittest.TestCase):
         title, body = format_notification([], date(2026, 7, 4))
 
         self.assertEqual(title, '今日財報｜07/04｜0 家')
-        self.assertEqual(body, '今天沒有追蹤中的公司發布財報。')
+        self.assertEqual(
+            body,
+            '今日共有 0 家 S&P 500 公司發布財報。\n\n股票代碼：無',
+        )
 
     def test_formats_test_notification_in_configured_timezone(self):
         now = datetime(2026, 7, 4, 1, 5, tzinfo=timezone.utc)
