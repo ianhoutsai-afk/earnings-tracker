@@ -4,7 +4,7 @@ export const LANGUAGE_STORAGE_KEY = 'earningsTrackerLanguage';
 export const translations = {
   en: {
     'page.title': 'S&P 500 Earnings Tracker',
-    'app.title': '📈 Corporate Earnings Tracker',
+    'app.title': 'S&P 500 Earnings Tracker',
     'theme.toggle': 'Toggle light/dark mode',
     'language.button': '中文',
     'language.label': 'Switch to Traditional Chinese',
@@ -53,7 +53,7 @@ export const translations = {
   },
   'zh-TW': {
     'page.title': 'S&P 500 財報追蹤器',
-    'app.title': '📈 企業財報追蹤儀表板',
+    'app.title': 'S&P 500 Earnings Tracker',
     'theme.toggle': '切換日／夜模式',
     'language.button': 'EN',
     'language.label': '切換至英文',

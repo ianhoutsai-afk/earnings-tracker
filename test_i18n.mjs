@@ -41,6 +41,14 @@ test('both languages expose the same translation keys', () => {
 
 test('translates representative dynamic messages with parameters', () => {
   assert.equal(
+    createTranslator('en')('app.title'),
+    'S&P 500 Earnings Tracker',
+  );
+  assert.equal(
+    createTranslator('zh-TW')('app.title'),
+    'S&P 500 Earnings Tracker',
+  );
+  assert.equal(
     createTranslator('en')('countdown.days', { count: 3 }),
     '3 days',
   );
