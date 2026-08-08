@@ -4,131 +4,152 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deployment: GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-blue)](https://ianhoutsai-afk.github.io/earnings-tracker/)
 
-An institutional-grade, fully automated monitoring system for S&P 500 corporate earnings. This tool tracks expected earnings dates, BMO/AMC timings, and retrieves the most recent official SEC filings (10-Q, 10-K) for the entire S&P 500 index.
+This personal project tracks expected earnings dates, BMO/AMC timing, and recent SEC 10-Q and 10-K filings for companies in the S&P 500.
 
-**🚀 Live Demo:**[ianhoutsai-afk.github.io/earnings-tracker/](https://ianhoutsai-afk.github.io/earnings-tracker/)
+**Live site:** [ianhoutsai-afk.github.io/earnings-tracker](https://ianhoutsai-afk.github.io/earnings-tracker/)
+
+![English interface](docs/images/earnings-tracker-en.png)
+
+## Project Motivation
+
+I independently defined the product requirements for this personal project and used AI-assisted development to help implement and review parts of the code. I personally test the workflows, validate the output, and maintain the project as its requirements and data sources evolve.
+
+這是由我自行定義需求的個人項目。我使用 AI 輔助部分程式實作與審查，並親自測試工作流程、核對輸出及持續維護項目。
 
 ---
 
-## English Version
+## English
 
-### ✨ Key Features
-- **🌐 Full S&P 500 Coverage**: Tracks $\approx$ 500 companies, providing a comprehensive market view.
-- **🤖 Automated Bark Alerts**: Sends a daily morning summary of companies reporting earnings that day.
-- **⏱️ BMO / AMC Indicators**: Intelligently identifies if earnings will be released Before Market Open (☀️) or After Market Close (🌙).
-- **⭐ Personalized Watchlist**: Save your favorite tickers directly to your browser's local storage for pinned access and quick filtering.
-- **🎯 Fiscal Year Precision**: Implements a custom mapping logic to handle varying fiscal year ends, ensuring that "Q1/Q2/Q3/Q4" labels match the company's official financial calendar.
-- **⚡ Pro-Grade Dashboard**: 
-  - **Dark Mode**: Native Dark/Light theme toggle for a professional terminal feel.
-  - **Mobile Card View**: Responsive design that transforms data rows into thumb-friendly cards on mobile devices.
-  - **Lazy Rendering**: Optimized to render 500+ entries with zero lag.
+### Features
 
-### 🚀 Quick Deployment (3-Minute Setup)
-This repository is configured as a **Template**. Deploy your own serverless tracker in seconds:
+- **S&P 500 coverage:** Uses a cached constituent mapping and tracks roughly 500 companies.
+- **Earnings schedule:** Displays expected report dates and BMO/AMC timing when the source data provides it.
+- **SEC filing history:** Links recent matched 10-Q and 10-K filings and labels filings using each company's fiscal calendar.
+- **Local watchlist:** Stores selected tickers in the browser with `localStorage` and supports watchlist-only filtering.
+- **Search and sorting:** Filters by company name or ticker and sorts by report-date countdown or ticker.
+- **Bilingual interface:** Opens in English by default and can switch to Traditional Chinese. The selected language is retained in the browser.
+- **Display controls:** Includes light/dark themes and a horizontally scrollable table for smaller screens.
+- **Chinese Bark notifications:** Sends a Traditional Chinese morning summary of companies expected to report that day, grouped by BMO, AMC, or unconfirmed timing.
 
-1. **Create Your Repository**: Click **`Use this template`** $\to$ **`Create a new repository`**. Ensure it is set to **Public**.
-2. **Enable Write Permissions**: Go to **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ **`Workflow permissions`** $\to$ Select **`Read and write permissions`** $\to$ **`Save`**.
-3. **Launch Your Website**: Go to **`Settings`** $\to$ **`Pages`** $\to$ Select the `main` branch as the source $\to$ **`Save`**.
-4. **Enable Bark Alerts (Optional)**: 
-   - Install Bark on your iPhone and copy your personal Bark key from the app.
-   - Go to **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**.
-   - Add one secret: `BARK_KEY`.
+### Deployment
+
+1. Select **`Use this template`** → **`Create a new repository`** and create a public repository.
+2. Open **`Settings`** → **`Actions`** → **`General`** → **`Workflow permissions`**, select **`Read and write permissions`**, and save.
+3. Open **`Settings`** → **`Pages`**, choose the `main` branch as the source, and save.
+4. To enable Bark notifications:
+   - Install Bark on an iPhone and copy the personal Bark key.
+   - Open **`Settings`** → **`Secrets and variables`** → **`Actions`**.
+   - Add `BARK_KEY` as a repository secret.
    - Run **`Bark Earnings Notification`** manually with `test_notification` enabled to verify delivery.
-   - The production alert includes every S&P 500 company reporting that day, grouped by BMO, AMC, or unconfirmed release time. Empty days still send a `0 companies` status.
 
-### ⏰ Reliable 09:00 Bark Scheduling
+Production Bark notifications include every tracked company reporting that day and remain in Traditional Chinese. A day with no scheduled reports still sends a `0 companies` status.
 
-GitHub scheduled workflows can be delayed. This repository therefore includes
-`bark-scheduler-worker.mjs`, a dedicated Cloudflare Worker that dispatches the
-lightweight Bark workflow close to 09:00 (`Asia/Shanghai`):
+### Controlled SEC Proxy and Fair Access
+
+Direct SEC requests from some cloud-hosted environments may be unavailable or unreliable. `proxy-worker.js` can be deployed as a controlled Cloudflare Worker relay for authorized requests from this repository. It is not intended to evade SEC access controls and does not exempt an operator from the SEC's rules.
+
+The deployment must follow the current [SEC Fair Access requirements](https://www.sec.gov/about/developer-resources): use efficient scripts, request only the data needed, identify automated traffic, and keep aggregate traffic within the SEC's published request-rate limit. At the time of this README revision, the SEC publishes a limit of no more than 10 requests per second in total, regardless of the number of machines used.
+
+1. Create a Cloudflare Worker and paste in `proxy-worker.js`.
+2. Add an encrypted Worker secret named `PROXY_TOKEN`. Generate a random value, for example with `openssl rand -hex 32`, and never commit the value.
+3. Add `SEC_CONTACT_EMAIL` with a monitored contact address used by the SEC request `User-Agent`.
+4. Deploy the Worker and record its URL.
+5. Add matching GitHub Actions secrets:
+   - `PROXY_TOKEN`: the same token stored by the Worker.
+   - `SEC_PROXY_URL`: the deployed Worker URL.
+   - `SEC_CONTACT_EMAIL`: the monitored contact address.
+6. Run **`Earnings Tracker Update`** manually, confirm the controlled proxy works, and retire any previous token.
+
+The Worker returns HTTP 503 when `PROXY_TOKEN` is not configured and HTTP 401 when the request token is missing or does not match. Local runs can call the SEC directly with `SEC_CONTACT_EMAIL` configured and do not require the Worker.
+
+### Bark Scheduling Worker
+
+GitHub scheduled workflows can be delayed. `bark-scheduler-worker.mjs` is an optional Cloudflare Worker that dispatches the lightweight Bark workflow close to 09:00 in `Asia/Shanghai`:
 
 1. Create a fine-grained GitHub personal access token restricted to this repository with **Actions: Read and write** permission.
 2. Create a separate Cloudflare Worker and paste in `bark-scheduler-worker.mjs`.
 3. Add the token as an encrypted Worker secret named `GITHUB_ACTIONS_TOKEN`.
-4. Add a Cron Trigger using `0 1 * * *` (Cloudflare cron uses UTC).
-5. Deploy the Worker, then use Cloudflare's scheduled-event test to confirm that `Bark Earnings Notification` starts on GitHub.
+4. Add a Cron Trigger using `0 1 * * *`; Cloudflare cron uses UTC.
+5. Deploy the Worker and use Cloudflare's scheduled-event test to confirm that **`Bark Earnings Notification`** starts on GitHub.
 
-The scheduler Worker has no public HTTP handler and never receives the Bark key.
-`BARK_KEY` remains stored only in GitHub Actions.
+The scheduler Worker has no public HTTP handler and does not receive the Bark key. `BARK_KEY` remains stored in GitHub Actions.
 
-### 🛠️ Technical Architecture
-- **Backend**: Python 3.9, `yfinance`, `requests` (with exponential backoff).
-- **Frontend**: Tailwind CSS, Vanilla JavaScript (ES6+) with `localStorage`.
-- **Infrastructure**: GitHub Actions (Cron Jobs), GitHub Pages (Hosting).
+### Technical Overview
+
+- **Data update:** Python 3.9, `yfinance`, and `requests` with retry handling.
+- **Frontend:** Tailwind CSS, browser ES modules, Vanilla JavaScript, and `localStorage`.
+- **Automation and hosting:** GitHub Actions and GitHub Pages.
+- **Optional workers:** Separate Cloudflare Workers for controlled SEC requests and Bark workflow scheduling.
 
 ---
 
-## 中文版本
+## 中文
 
-### ✨ 核心功能
-- **🌐 全面覆蓋 S&P 500**：追蹤約 500 家成分股，提供全市場視角，不再局限於少數巨頭公司。
-- **🤖 Bark 每日預警**：每日早晨自動推播「當天即將發布財報」的公司名單，並依盤前、盤後及待確認時間分組。
-- **⏱️ 盤前 / 盤後精準標示**：智能解析財報發布時間段，清楚標示 ☀️盤前 (BMO) 或 🌙盤後 (AMC)。
-- **⭐ 本地專屬收藏夾**：點擊星星圖示即可將關注公司存入瀏覽器本地 (Local Storage)，自動置頂並支援專屬篩選。
-- **🎯 精準財年計算**：針對不同公司的財年結束月份實作專屬映射邏輯，確保「Q1/Q2/Q3/Q4」標籤完全符合公司財務年度。
-- **⚡ 專業級前端體驗**：
-  - **深色模式 (Dark Mode)**：內建日/夜間模式一鍵切換，打造彭博終端機般的專業質感。
-  - **手機端卡片化佈局**：在行動裝置上自動將表格轉化為獨立卡片，極致的觸控體驗。
-  - **延遲渲染 (Lazy Render)**：針對 500+ 筆數據進行底層優化，保證跨裝置零卡頓。
+### 功能
 
-### 🚀 快速部署指南 (3 分鐘完成)
-本倉庫已配置為 **模板 (Template)**，您可以實現零伺服器成本秒級部署：
+- **S&P 500 成分股範圍：** 使用快取的成分股映射，追蹤約 500 家公司。
+- **財報時間表：** 顯示預計發布日期；資料來源提供時間資訊時，標示盤前或盤後。
+- **SEC 申報紀錄：** 連結配對後的近期 10-Q 與 10-K 文件，並依各公司財年標示季度。
+- **本機收藏清單：** 使用瀏覽器 `localStorage` 保存關注股票，並支援只顯示收藏項目。
+- **搜尋與排序：** 可按公司名稱或股票代碼搜尋，並按發布日倒數或股票代碼排序。
+- **中英文介面：** 首次開啟預設為英文，可切換至繁體中文；瀏覽器會保留語言選擇。
+- **顯示設定：** 提供日／夜模式；較小螢幕可橫向捲動表格。
+- **中文 Bark 通知：** 每日早上以繁體中文推送當天預計發布財報的公司，並依盤前、盤後及時間待確認分組。
 
-1. **創建倉庫**：點擊頁面頂部的 **`Use this template`** $\to$ **`Create a new repository`**。請確保倉庫設為 **Public**。
-2. **開啟寫入權限**：進入 **`Settings`** $\to$ **`Actions`** $\to$ **`General`** $\to$ 滾動至 **`Workflow permissions`** $\to$ 選擇 **`Read and write permissions`** $\to$ 點擊 **`Save`**。
-3. **啟動網站**：進入 **`Settings`** $\to$ **`Pages`** $\to$ 在 Branch 中選擇 `main` 分支 $\to$ 點擊 **`Save`**。
-4. **啟用 Bark 通知 (選填)**：
-   - 先在 iPhone 安裝 Bark，並從 App 取得你的個人 Bark Key。
-   - 進入 **`Settings`** $\to$ **`Secrets and variables`** $\to$ **`Actions`**。
-   - 新增一個機密變數：`BARK_KEY`。
+### 部署
+
+1. 點擊 **`Use this template`** → **`Create a new repository`**，建立公開倉庫。
+2. 前往 **`Settings`** → **`Actions`** → **`General`** → **`Workflow permissions`**，選擇 **`Read and write permissions`** 並儲存。
+3. 前往 **`Settings`** → **`Pages`**，選擇 `main` 分支作為來源並儲存。
+4. 如需啟用 Bark 通知：
+   - 在 iPhone 安裝 Bark 並複製個人 Bark Key。
+   - 前往 **`Settings`** → **`Secrets and variables`** → **`Actions`**。
+   - 新增 Repository Secret：`BARK_KEY`。
    - 手動執行 **`Bark Earnings Notification`**，保持 `test_notification` 啟用以驗證推送。
-   - 正式通知涵蓋所有當日發布財報的 S&P 500 公司，並依盤前、盤後及待確認時間分組；沒有財報時仍會推送「今日 0 家」。
 
-### 🛠️ 技術架構
-- **後端**：Python 3.9, `yfinance`, `requests` (含指數退避重試機制)。
-- **前端**：Tailwind CSS, 原生 JavaScript (ES6+), Local Storage API。
-- **基礎設施**：GitHub Actions (定時自動化), GitHub Pages (靜態託管)。
-- **SEC Proxy**：Cloudflare Worker（`proxy-worker.js`），用於繞過 SEC 對 cloud IP 的封鎖。
+正式 Bark 通知維持繁體中文，涵蓋所有當日預計發布財報的追蹤公司；沒有財報時仍會推送「今日 0 家」。
 
----
+### 受控 SEC 代理與 Fair Access
 
-### ☁️ Cloudflare Worker 部署（繞過 SEC 封鎖）
+部分雲端環境可能無法穩定直接連線 SEC。`proxy-worker.js` 可部署為受控 Cloudflare Worker 代理，只接受本倉庫經授權的請求。本項目在需要時使用受控代理，並遵守 SEC Fair Access 要求；此代理不是用來規避 SEC 存取控制。
 
-SEC 官方 API 經常封鎖 GitHub Actions 等雲端環境的 IP。本專案提供一個 Cloudflare Worker 腳本 `proxy-worker.js` 做為中繼：
+部署時必須遵守 SEC 最新的 [Developer Resources and Fair Access 指引](https://www.sec.gov/about/developer-resources)：使用有效率的程式、只請求所需資料、識別自動化流量，並讓所有機器的合計流量維持在 SEC 公布的限制內。本 README 修訂時，SEC 公布的上限為合計每秒不超過 10 個請求。
 
-1. **建立 Cloudflare Worker**：登入 Cloudflare Dashboard → Workers & Pages → 建立新的 Worker。
-2. **貼上程式碼**：將 `proxy-worker.js` 的全部內容複製貼上。
-3. **設定 Cloudflare Worker Secret**：在 Worker 的 Settings → Variables and Secrets 新增加密 Secret `PROXY_TOKEN`。可用 `openssl rand -hex 32` 產生 256-bit 隨機 Token；不要把值寫進程式碼或提交到 Git。
-4. **設定 SEC 聯絡資料**：在同一頁新增文字變數 `SEC_CONTACT_EMAIL`，填入符合 SEC Fair Access 規範的聯絡信箱。
-5. **部署**：點擊 Save and Deploy，記下 Worker 的網址（如 `https://sec-proxy.your-account.workers.dev`）。
-6. **同步 GitHub Actions Secrets**：在 GitHub 倉庫 Settings → Secrets and variables → Actions 設定：
-   - `PROXY_TOKEN`：必須與 Cloudflare Worker Secret 使用相同的新 Token。
-   - `SEC_PROXY_URL`：填入 Worker 網址。
-   - `SEC_CONTACT_EMAIL`：填入 SEC 聯絡信箱。
-7. **驗證後輪替**：手動執行一次 `Earnings Tracker Update`。成功後，確認舊 Token 已從 Cloudflare 與 GitHub Secrets 完全取代。
+1. 建立 Cloudflare Worker，貼上 `proxy-worker.js`。
+2. 新增加密 Worker Secret `PROXY_TOKEN`。可用 `openssl rand -hex 32` 產生隨機值，且不得提交至 Git。
+3. 新增 `SEC_CONTACT_EMAIL`，填入有人監看的聯絡信箱，供 SEC 請求的 `User-Agent` 使用。
+4. 部署 Worker 並記下網址。
+5. 在 GitHub Actions 新增相符的 Secrets：
+   - `PROXY_TOKEN`：與 Worker 相同的 Token。
+   - `SEC_PROXY_URL`：部署後的 Worker 網址。
+   - `SEC_CONTACT_EMAIL`：有人監看的聯絡信箱。
+6. 手動執行 **`Earnings Tracker Update`**，確認受控代理可用，並停用任何舊 Token。
 
-> `PROXY_TOKEN` 是必要設定。Worker 找不到 Secret 時會回傳 HTTP 503，Token 缺失或不相符時則回傳 HTTP 401。
+Worker 未設定 `PROXY_TOKEN` 時會回傳 HTTP 503；請求未提供相符 Token 時會回傳 HTTP 401。本機執行可在設定 `SEC_CONTACT_EMAIL` 後直接連線 SEC，不需要 Worker。
 
-直接連線 SEC 時，可在 GitHub Actions Secret 設定 `SEC_CONTACT_EMAIL`，作為 SEC Fair Access User-Agent 的聯絡信箱。
+### Bark 排程 Worker
 
-> **注意**：若你只在本地端執行（非雲端環境），可以直接呼叫 SEC API 而不需要 Worker。
+GitHub 定時 workflow 可能延遲。選用的 `bark-scheduler-worker.mjs` 會在接近 `Asia/Shanghai` 09:00 時觸發 Bark workflow：
 
-### ⏰ Bark 準時排程 Worker
+1. 建立只限本倉庫、具有 **Actions: Read and write** 權限的 fine-grained GitHub personal access token。
+2. 在 Cloudflare 建立另一個 Worker，貼上 `bark-scheduler-worker.mjs`。
+3. 新增加密 Worker Secret `GITHUB_ACTIONS_TOKEN`。
+4. 新增 Cron Trigger `0 1 * * *`；Cloudflare cron 使用 UTC。
+5. 部署後使用 Cloudflare scheduled event 測試，確認 GitHub 出現新的 **`Bark Earnings Notification`** 執行紀錄。
 
-GitHub 定時 workflow 可能延遲，因此 Bark 通知改由獨立的
-`bark-scheduler-worker.mjs` 在接近 `Asia/Shanghai` 09:00 時觸發：
+Scheduler Worker 沒有公開 HTTP handler，也不接收 Bark Key；`BARK_KEY` 只保留在 GitHub Actions Secrets。
 
-1. 在 GitHub 建立 fine-grained personal access token，只授權本倉庫，並開啟 **Actions: Read and write**。
-2. 在 Cloudflare 建立另一個獨立 Worker，貼上 `bark-scheduler-worker.mjs`。
-3. 在 Worker 的 Settings → Variables and Secrets 新增加密 Secret `GITHUB_ACTIONS_TOKEN`。
-4. 在 Triggers → Cron Triggers 新增 `0 1 * * *`；Cloudflare cron 使用 UTC，對應上海時間 09:00。
-5. 部署後使用 Cloudflare 的 scheduled event 測試，確認 GitHub 出現新的 **`Bark Earnings Notification`** 執行紀錄。
+### 技術概覽
 
-此 Scheduler Worker 沒有公開 HTTP handler，也不持有 Bark Key；
-`BARK_KEY` 只保留在 GitHub Actions Secrets。
+- **資料更新：** Python 3.9、`yfinance`、`requests` 與重試處理。
+- **前端：** Tailwind CSS、瀏覽器 ES Modules、原生 JavaScript 與 `localStorage`。
+- **自動化與託管：** GitHub Actions 與 GitHub Pages。
+- **選用 Worker：** 受控 SEC 請求與 Bark workflow 排程分別使用獨立的 Cloudflare Worker。
 
-### 📝 維護指南
-S&P 500 成分股變動頻率極低。若發生指數季度調整（如剔除舊公司/加入新公司），只需在 **Actions** 標籤頁手動觸發一次 **`Build S&P 500 Cache`** 即可透過 DataHub 刷新快取庫。
+### 維護
 
-### ⚖️ 免責聲明
-*本工具僅供資訊參考。所有財務數據均獲取自公開來源 (Yahoo Finance & SEC)。不保證數據 100% 準確。投資決策請務必參考 SEC 官方申報文件。*
+S&P 500 成分股有變動時，可在 **Actions** 頁面手動執行 **`Build S&P 500 Cache`**，透過 DataHub 更新快取。
+
+### 免責聲明
+
+本工具僅供資訊參考。財務資料來自 Yahoo Finance 與 SEC 等公開來源，可能有延遲、缺漏或錯誤。投資決策應以公司公告及 SEC 官方申報文件為準。
