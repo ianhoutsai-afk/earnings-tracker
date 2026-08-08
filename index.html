@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,17 +24,22 @@
     <div class="max-w-[1200px] mx-auto">
 
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">📈 企業財報追蹤儀表板</h1>
-            <button id="theme-toggle" class="px-4 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                切換日/夜模式
-            </button>
+            <h1 data-i18n="app.title" class="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">📈 Corporate Earnings Tracker</h1>
+            <div class="flex items-center gap-2">
+                <button id="language-toggle" type="button" aria-label="Switch to Traditional Chinese" class="min-w-14 px-3 py-2 text-sm font-semibold bg-blue-600 text-white border border-blue-600 rounded-lg shadow-sm hover:bg-blue-700 hover:border-blue-700 transition">
+                    中文
+                </button>
+                <button id="theme-toggle" data-i18n="theme.toggle" type="button" class="px-4 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    Toggle light/dark mode
+                </button>
+            </div>
         </div>
 
         <!-- 搜尋、排序與篩選工具列 -->
         <div class="mb-4 bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
             <div class="flex flex-col lg:flex-row lg:items-center gap-3">
                 <div class="relative flex-1 min-w-0">
-                    <label for="company-search" class="sr-only">搜尋公司名稱或股票代碼</label>
+                    <label for="company-search" data-i18n="search.label" class="sr-only">Search by company name or ticker</label>
                     <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                         <circle cx="11" cy="11" r="7"></circle>
                         <path d="m20 20-3.5-3.5"></path>
@@ -44,33 +49,34 @@
                         type="search"
                         autocomplete="off"
                         spellcheck="false"
-                        placeholder="搜尋公司名稱或股票代碼，例如 Apple 或 AAPL"
+                        data-i18n-placeholder="search.placeholder"
+                        placeholder="Search by company name or ticker, for example Apple or AAPL"
                         class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 py-2 pl-10 pr-10 outline-none transition"
                     >
-                    <button id="clear-search-btn" type="button" aria-label="清除搜尋" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 items-center justify-center rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition">
+                    <button id="clear-search-btn" type="button" data-i18n-aria-label="search.clear" aria-label="Clear search" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 items-center justify-center rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
 
                 <div class="flex flex-col sm:flex-row sm:items-center gap-3">
                     <div class="flex items-center gap-2">
-                        <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400 whitespace-nowrap">排序方式：</label>
+                        <label for="sort-select" data-i18n="sort.label" class="text-sm font-medium text-gray-600 dark:text-gray-400 whitespace-nowrap">Sort by:</label>
                         <select id="sort-select" class="w-full sm:w-auto bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 outline-none">
-                            <option value="countdown_asc">發布日倒數 (由近到遠)</option>
-                            <option value="countdown_desc">發布日倒數 (由遠到近)</option>
-                            <option value="alpha_asc">公司代碼 (A - Z)</option>
-                            <option value="alpha_desc">公司代碼 (Z - A)</option>
+                            <option value="countdown_asc" data-i18n="sort.countdownAsc">Report date (nearest first)</option>
+                            <option value="countdown_desc" data-i18n="sort.countdownDesc">Report date (farthest first)</option>
+                            <option value="alpha_asc" data-i18n="sort.alphaAsc">Ticker (A–Z)</option>
+                            <option value="alpha_desc" data-i18n="sort.alphaDesc">Ticker (Z–A)</option>
                         </select>
                     </div>
 
                     <button id="star-filter-btn" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition whitespace-nowrap">
-                        ⭐ 只顯示收藏
+                        ⭐ Watchlist only
                     </button>
                 </div>
             </div>
 
-            <p id="search-status" class="mt-2 px-1 text-xs text-gray-500 dark:text-gray-400" aria-live="polite">
-                正在載入公司資料...
+            <p id="search-status" data-i18n="search.loading" class="mt-2 px-1 text-xs text-gray-500 dark:text-gray-400" aria-live="polite">
+                Loading company data...
             </p>
         </div>
 
@@ -78,24 +84,30 @@
             <table class="w-full text-left border-collapse whitespace-nowrap">
                 <thead>
                     <tr class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-850 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
-                        <th class="p-4 font-semibold w-12 text-center">關注</th>
-                        <th class="p-4 font-semibold">公司名稱</th>
-                        <th class="p-4 font-semibold">預計發布日</th>
-                        <th class="p-4 font-semibold">預期 EPS</th>
-                        <th class="p-4 font-semibold">預估營收</th>
-                        <th class="p-4 font-semibold text-center">SEC 財報</th>
+                        <th data-i18n="table.watch" class="p-4 font-semibold w-12 text-center">Watch</th>
+                        <th data-i18n="table.company" class="p-4 font-semibold">Company</th>
+                        <th data-i18n="table.reportDate" class="p-4 font-semibold">Expected report date</th>
+                        <th data-i18n="table.eps" class="p-4 font-semibold">Estimated EPS</th>
+                        <th data-i18n="table.revenue" class="p-4 font-semibold">Estimated revenue</th>
+                        <th data-i18n="table.sec" class="p-4 font-semibold text-center">SEC filings</th>
                     </tr>
                 </thead>
                 <tbody id="data-container" class="text-sm">
                     <tr>
-                        <td colspan="6" class="p-8 text-center text-gray-400">正在載入數據...</td>
+                        <td colspan="6" data-i18n="table.loading" class="p-8 text-center text-gray-400">Loading data...</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script>
+    <script type="module">
+        import {
+            createLanguageController,
+            getExpandedTickers,
+            restoreExpandedTickers,
+        } from './i18n.mjs';
+
         // 深淺色模式
         document.getElementById('theme-toggle').addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
@@ -106,6 +118,38 @@
         let historicalData = {};
         let starFilterActive = false;
         let searchQuery = '';
+        let currentLanguage = 'en';
+        let t;
+
+        function applyStaticTranslations() {
+            document.documentElement.lang = currentLanguage;
+            document.title = t('page.title');
+
+            document.querySelectorAll('[data-i18n]').forEach(node => {
+                node.textContent = t(node.dataset.i18n);
+            });
+
+            document
+                .querySelectorAll('[data-i18n-placeholder]')
+                .forEach(node => {
+                    node.placeholder = t(node.dataset.i18nPlaceholder);
+                });
+
+            document
+                .querySelectorAll('[data-i18n-aria-label]')
+                .forEach(node => {
+                    node.setAttribute(
+                        'aria-label',
+                        t(node.dataset.i18nAriaLabel)
+                    );
+                });
+        }
+
+        function updateLanguageToggle() {
+            const button = document.getElementById('language-toggle');
+            button.textContent = t('language.button');
+            button.setAttribute('aria-label', t('language.label'));
+        }
 
         // 客戶端倒計時計算
         function calcCountdown(reportDateStr) {
@@ -122,24 +166,29 @@
             if (countdown === null || countdown === undefined) return '';
 
             if (countdown === 0) {
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">今日發布!</span>`;
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">${t('countdown.today')}</span>`;
             }
 
             if (countdown > 0 && countdown <= 7) {
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">倒數 ${countdown} 天</span>`;
+                const label = countdown === 1
+                    ? t('countdown.day')
+                    : t('countdown.days', { count: countdown });
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">${label}</span>`;
             }
 
             if (countdown > 7) {
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">倒數 ${countdown} 天</span>`;
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">${t('countdown.days', { count: countdown })}</span>`;
             }
 
-            return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">已發布</span>`;
+            return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">${t('countdown.published')}</span>`;
         }
 
         // 展開或折疊歷史面板
         window.toggleHistory = function(ticker) {
             const row = document.getElementById(`history-${ticker}`);
             const icon = document.getElementById(`icon-${ticker}`);
+
+            if (!row || !icon) return;
 
             if (row.classList.contains('hidden')) {
                 row.classList.remove('hidden');
@@ -184,7 +233,7 @@
                     'text-gray-600',
                     'dark:text-gray-400'
                 );
-                btn.textContent = '⭐ 顯示全部';
+                btn.textContent = t('filter.showAll');
             } else {
                 btn.classList.remove(
                     'bg-yellow-100',
@@ -200,7 +249,7 @@
                     'text-gray-600',
                     'dark:text-gray-400'
                 );
-                btn.textContent = '⭐ 只顯示收藏';
+                btn.textContent = t('filter.onlyFavorites');
             }
         }
 
@@ -237,11 +286,23 @@
             clearBtn.classList.toggle('flex', searchQuery.length > 0);
 
             if (searchQuery) {
-                status.textContent = `找到 ${resultCount} 家符合「${searchQuery}」的公司`;
+                const key = resultCount === 1
+                    ? 'search.resultOne'
+                    : 'search.results';
+                status.textContent = t(key, {
+                    count: resultCount,
+                    query: searchQuery,
+                });
             } else if (starFilterActive) {
-                status.textContent = `顯示 ${resultCount} 家收藏公司`;
+                const key = resultCount === 1
+                    ? 'search.starredOne'
+                    : 'search.starred';
+                status.textContent = t(key, { count: resultCount });
             } else {
-                status.textContent = `顯示全部 ${resultCount} 家公司`;
+                const key = resultCount === 1
+                    ? 'search.allOne'
+                    : 'search.all';
+                status.textContent = t(key, { count: resultCount });
             }
         }
 
@@ -252,11 +313,13 @@
             if (data.length === 0) {
                 const hasSearch = searchQuery.length > 0;
                 const emptyMessage = hasSearch
-                    ? `找不到符合「${escapeHtml(searchQuery)}」的公司`
-                    : '目前沒有符合條件的公司';
+                    ? t('empty.searchTitle', {
+                        query: escapeHtml(searchQuery),
+                    })
+                    : t('empty.filteredTitle');
                 const emptyHint = hasSearch
-                    ? '請確認公司名稱或股票代碼，或嘗試較短的關鍵字。'
-                    : '請調整目前的篩選條件。';
+                    ? t('empty.searchHint')
+                    : t('empty.filterHint');
 
                 container.innerHTML = `
                     <tr>
@@ -287,11 +350,11 @@
                 const secBtnHtml = hasHistory
                     ? `
                         <button onclick="toggleHistory('${company.ticker}')" class="px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
-                            查看
+                            ${t('sec.view')}
                             <span id="icon-${company.ticker}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
                         </button>
                     `
-                    : `<span class="text-xs text-gray-400">暫無資料</span>`;
+                    : `<span class="text-xs text-gray-400">${t('sec.noData')}</span>`;
 
                 const tr = document.createElement('tr');
                 tr.className =
@@ -344,8 +407,8 @@
                             || (!secForm && (h.quarter || '').includes('FY'));
 
                         const filingLabel = isAnnualFiling
-                            ? '10-K 年報'
-                            : '10-Q 季報';
+                            ? t('sec.annual')
+                            : t('sec.quarterly');
 
                         const secUrl = h.secUrl || null;
 
@@ -374,7 +437,7 @@
                                     ${h.revenue_reported || '-'}
                                 </div>
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
-                                    營收
+                                    ${t('sec.revenue')}
                                 </div>
 
                                 ${
@@ -382,15 +445,15 @@
                                         ? `
                                             <a href="${secUrl}" target="_blank"
                                                class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
-                                                🏛️ SEC 原文
+                                                ${t('sec.original')}
                                             </a>
                                         `
                                         : `
                                             <span class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs text-gray-400 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                                                 ${
                                                     h.secStatus === 'pending'
-                                                        ? '等待 SEC 申報'
-                                                        : '暫無原文'
+                                                        ? t('sec.pending')
+                                                        : t('sec.noOriginal')
                                                 }
                                             </span>
                                         `
@@ -523,7 +586,7 @@
                             ).innerHTML = `
                                 <tr>
                                     <td colspan="6" class="p-8 text-center text-red-500 font-medium">
-                                        無法載入資料，請重新整理頁面
+                                        ${t('data.error')}
                                     </td>
                                 </tr>
                             `;
@@ -545,9 +608,7 @@
                         tryRender();
                     })
                     .catch(() => {
-                        console.warn(
-                            'historical_data.json 載入失敗，歷史財報面板將無法顯示'
-                        );
+                        console.warn(t('data.historyWarning'));
                         historicalLoaded = true;
                         tryRender();
                     });
@@ -557,7 +618,42 @@
             fetchHistorical();
         }
 
+        const languageController = createLanguageController({
+            storage: localStorage,
+            captureExpanded: () => getExpandedTickers(
+                document.querySelectorAll('.expand-row')
+            ),
+            apply: (language, translator) => {
+                currentLanguage = language;
+                t = translator;
+                applyStaticTranslations();
+                updateLanguageToggle();
+                updateStarFilterBtn();
+
+                if (appData.length > 0) {
+                    applySort();
+                }
+            },
+            restoreExpanded: tickers => restoreExpandedTickers(
+                tickers,
+                ticker => {
+                    const row = document.getElementById(`history-${ticker}`);
+                    if (row?.classList.contains('hidden')) {
+                        window.toggleHistory(ticker);
+                    }
+                }
+            ),
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
+            languageController.initialize();
+
+            document
+                .getElementById('language-toggle')
+                .addEventListener('click', () => {
+                    languageController.toggle();
+                });
+
             document
                 .getElementById('sort-select')
                 .addEventListener('change', applySort);
