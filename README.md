@@ -14,7 +14,6 @@ This personal project tracks expected earnings dates, BMO/AMC timing, and recent
 
 I independently defined the product requirements for this personal project and used AI-assisted development to help implement and review parts of the code. I personally test the workflows, validate the output, and maintain the project as its requirements and data sources evolve.
 
-這是由我自行定義需求的個人項目。我使用 AI 輔助部分程式實作與審查，並親自測試工作流程、核對輸出及持續維護項目。
 
 ---
 
