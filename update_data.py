@@ -21,6 +21,7 @@ import argparse
 import urllib.request
 from urllib.parse import parse_qs, unquote, urlparse
 from datetime import datetime, date, timedelta
+from zoneinfo import ZoneInfo
 from typing import Optional
 
 try:
@@ -474,15 +475,17 @@ def match_history_to_filings(history_items: list, sec_filings: list) -> dict:
     for index, history_item in enumerate(history_items):
         release_date = _parse_iso_date(history_item.get('date'))
         if release_date:
-            indexed_history.append((index, release_date))
+            indexed_history.append((index, release_date, _parse_iso_date(history_item.get('periodEnd'))))
     indexed_history.sort(key=lambda item: item[1])
 
     matches = {}
     used_urls = set()
-    for history_index, release_date in indexed_history:
+    for history_index, release_date, known_period_end in indexed_history:
         eligible = []
         for filing, report_date, filing_date in parsed_filings:
             if filing['url'] in used_urls:
+                continue
+            if known_period_end and report_date != known_period_end:
                 continue
             report_lag = (release_date - report_date).days
             if report_lag < 0 or report_lag > MAX_SEC_REPORT_LAG_DAYS:
@@ -620,7 +623,7 @@ def apply_sec_matches(history_items: list, sec_filings: list, fy_end_month: int)
         history_item['form'] = match['form']
         history_item.pop('secStatus', None)
         quarter_label = quarter_labels.get(index)
-        if quarter_label:
+        if quarter_label and history_item.get('periodScope') != 'quarter':
             history_item['quarter'] = quarter_label
         stats['matched'] += 1
         if old_pair != (history_item['secUrl'], history_item['form']):
@@ -700,6 +703,7 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
 
     for attempt in range(retries + 1):
         try:
+            eastern_today = datetime.now(ZoneInfo('America/New_York')).date()
             stock = yf.Ticker(ticker)
             info = stock.info
             eps_est = info.get('epsForward') or info.get('earningsEstimateAvg')
@@ -713,11 +717,18 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
             try:
                 earnings = stock.earnings_dates
                 if earnings is not None and not earnings.empty:
-                    next_date = earnings.index[0]
-                    if isinstance(next_date, datetime):
+                    future_rows = []
+                    for position, candidate in enumerate(earnings.index):
+                        if not isinstance(candidate, datetime):
+                            continue
+                        eastern_candidate = candidate.astimezone(ZoneInfo('America/New_York')) if candidate.tzinfo else candidate
+                        if eastern_candidate.date() >= eastern_today:
+                            future_rows.append((eastern_candidate, position))
+                    if future_rows:
+                        next_date, position = min(future_rows, key=lambda item: item[0])
                         report_date_str = next_date.strftime('%Y-%m-%d')
                         if 'Earnings Time' in earnings.columns:
-                            earnings_time = earnings.iloc[0].get('Earnings Time', '')
+                            earnings_time = earnings.iloc[position].get('Earnings Time', '')
                             if earnings_time == 'Before market open':
                                 bmo_amc_str = '☀️'
                             elif earnings_time == 'After market close':
@@ -729,8 +740,9 @@ def fetch_earnings_data(ticker: str, fy_end_month: int = 12, retries: int = 2) -
                 next_earnings = info.get('earningsDate') or info.get('earningsTimestamp')
                 if next_earnings:
                     if isinstance(next_earnings, (int, float)):
-                        report_date_obj = datetime.fromtimestamp(next_earnings).date()
-                        report_date_str = report_date_obj.strftime('%Y-%m-%d')
+                        report_date_obj = datetime.fromtimestamp(next_earnings, ZoneInfo('America/New_York')).date()
+                        if report_date_obj >= eastern_today:
+                            report_date_str = report_date_obj.strftime('%Y-%m-%d')
 
             return {
                 "reportDate": report_date_str,
@@ -829,6 +841,8 @@ def update_data(
     - tickers_filter: 只處理指定公司
     """
     today = date.today()
+    # Keep SEC safeguards for full metadata refreshes. The separate reviewed
+    # earnings step in the workflow can still run when this step fails.
     strict_sec_validation = rebuild_historical or full_mode
 
     # ── 載入現有 data.json ──
@@ -924,8 +938,8 @@ def update_data(
             print(f"   另加入 {len(pending_companies)} 家等待 SEC 申報的公司")
 
     if not companies_to_update:
-        print("❌ 沒有符合條件的公司")
-        return False
+        print("ℹ️ 沒有即將發布的公司；排程更新無需變更")
+        return True
 
     existing_map = {c['ticker']: c for c in existing_data}
 
@@ -1240,7 +1254,9 @@ def audit_sec_dataset() -> bool:
 
             form = history_item.get('form')
             quarter = history_item.get('quarter', '')
-            if form == '10-K' and 'FY' not in quarter:
+            if form == '10-K' and 'FY' not in quarter and not (
+                history_item.get('periodScope') == 'quarter' and quarter.endswith('Q4')
+            ):
                 issues.append({
                     'ticker': ticker,
                     'type': 'annual_quarter_label_mismatch',

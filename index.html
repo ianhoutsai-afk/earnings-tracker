@@ -104,7 +104,10 @@
     <script type="module">
         import {
             createLanguageController,
+            earningsMetricLabelKey,
             getExpandedTickers,
+            historyFilingKey,
+            historyStatusKey,
             restoreExpandedTickers,
         } from './i18n.mjs';
 
@@ -116,6 +119,7 @@
         // 全域狀態
         let appData = [];
         let historicalData = {};
+        let historyStatus = {};
         let starFilterActive = false;
         let searchQuery = '';
         let currentLanguage = 'en';
@@ -374,7 +378,7 @@
                         ${badgeHtml}
                     </td>
                     <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
-                        ${company.reportDate || '-'}
+                        ${company.reportDate || t('table.dateTba')}
                         ${
                             company.bmo_amc
                                 ? `<span class="ml-1 text-xs">${company.bmo_amc}</span>`
@@ -406,9 +410,7 @@
                             secForm === '10-K'
                             || (!secForm && (h.quarter || '').includes('FY'));
 
-                        const filingLabel = isAnnualFiling
-                            ? t('sec.annual')
-                            : t('sec.quarterly');
+                        const filingLabel = t(historyFilingKey(h));
 
                         const secUrl = h.secUrl || null;
 
@@ -422,15 +424,20 @@
                                     ${filingLabel}
                                 </span>
 
+                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                                    ${h.quarter || ''}
+                                </div>
+
                                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
                                     📅 ${h.date}
                                 </div>
+                                ${h.periodEnd ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('earnings.periodEnd', { date: h.periodEnd })}</div>` : ''}
 
                                 <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
                                     ${h.eps_reported}
                                 </div>
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">
-                                    EPS
+                                    ${t(earningsMetricLabelKey(h))}
                                 </div>
 
                                 <div class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
@@ -439,6 +446,20 @@
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
                                     ${t('sec.revenue')}
                                 </div>
+                                ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
+
+                                ${h.releaseSourceUrl ? `
+                                    <a href="${h.releaseSourceUrl}" target="_blank" rel="noopener noreferrer"
+                                       class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
+                                        ${t('earnings.releaseSource')}
+                                    </a>
+                                ` : ''}
+                                ${h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl ? `
+                                    <a href="${h.metricSourceUrl}" target="_blank" rel="noopener noreferrer"
+                                       class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
+                                        ${t('earnings.metricSource')}
+                                    </a>
+                                ` : ''}
 
                                 ${
                                     secUrl
@@ -463,6 +484,9 @@
                     });
 
                     historyContent = `
+                        <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
+                            ${t(historyStatusKey(historyStatus[company.ticker]))}
+                        </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">
                             ${cardsHtml}
                         </div>
@@ -554,9 +578,10 @@
         function init() {
             let dataLoaded = false;
             let historicalLoaded = false;
+            let statusLoaded = false;
 
             function tryRender() {
-                if (dataLoaded && historicalLoaded) {
+                if (dataLoaded && historicalLoaded && statusLoaded) {
                     applySort();
                 }
             }
@@ -614,8 +639,27 @@
                     });
             }
 
+            function fetchHistoryStatus() {
+                fetch('history_status.json')
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        historyStatus = data;
+                        statusLoaded = true;
+                        tryRender();
+                    })
+                    .catch(() => {
+                        historyStatus = {};
+                        statusLoaded = true;
+                        tryRender();
+                    });
+            }
+
             fetchData();
             fetchHistorical();
+            fetchHistoryStatus();
         }
 
         const languageController = createLanguageController({

@@ -1,6 +1,12 @@
 import unittest
 import json
-from datetime import date, datetime, timezone
+import os
+import tempfile
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
+from unittest.mock import patch
+
+import pandas as pd
 
 from notify_bark import (
     companies_reporting_on,
@@ -12,12 +18,84 @@ from notify_bark import (
 
 from update_data import (
     apply_sec_matches,
+    audit_sec_dataset,
     extract_sec_filing_data,
+    fetch_earnings_data,
+    update_data,
     match_history_to_filings,
     migrate_ticker_aliases,
     quarter_labels_from_match_sequence,
     validate_sec_matches,
 )
+
+
+class FutureEarningsDateTests(unittest.TestCase):
+    def test_no_upcoming_company_is_a_successful_noop(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST', 'reportDate': None}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': []}, handle)
+                self.assertTrue(update_data())
+            finally:
+                os.chdir(previous)
+
+    def test_expired_yahoo_row_is_not_used_as_next_report_date(self):
+        eastern_today = datetime.now(ZoneInfo('America/New_York')).date()
+        yesterday = eastern_today - timedelta(days=1)
+        next_week = eastern_today + timedelta(days=7)
+        frame = pd.DataFrame(
+            {'Earnings Time': ['After market close', 'Before market open']},
+            index=pd.to_datetime([yesterday.isoformat(), next_week.isoformat()]),
+        )
+        stock = type('Stock', (), {'info': {}, 'earnings_dates': frame})()
+        with patch('update_data.yf') as finance:
+            finance.Ticker.return_value = stock
+            result = fetch_earnings_data('TEST', retries=0)
+        self.assertEqual(result['reportDate'], next_week.isoformat())
+        self.assertEqual(result['bmo_amc'], '☀️')
+
+    def test_full_schedule_refresh_aborts_with_missing_sec_mapping(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST', 'name': 'Test', 'reportDate': '2026-07-01'}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': [{'date': '2026-04-01', 'quarter': '2026 Q1'}]}, handle)
+                with open('sp500_mapping.json', 'w') as handle:
+                    json.dump({'TEST': {'name': 'Test'}}, handle)
+                with patch('update_data.fetch_earnings_data', return_value={
+                    'reportDate': None, 'bmo_amc': None, 'eps': '-', 'revenue': '-',
+                }), patch('update_data.time.sleep'):
+                    self.assertFalse(update_data(full_mode=True))
+                with open('historical_data.json') as handle:
+                    self.assertEqual(json.load(handle)['TEST'][0]['date'], '2026-04-01')
+            finally:
+                os.chdir(previous)
+
+    def test_full_schedule_refresh_aborts_after_sec_request_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST', 'name': 'Test', 'reportDate': '2026-07-01'}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': []}, handle)
+                with open('sp500_mapping.json', 'w') as handle:
+                    json.dump({'TEST': {'name': 'Test', 'cik': '0000000001'}}, handle)
+                with patch('update_data.fetch_sec_filing_data', return_value=None), \
+                     patch('update_data.fetch_earnings_data', return_value={
+                         'reportDate': None, 'bmo_amc': None, 'eps': '-', 'revenue': '-',
+                     }), patch('update_data.time.sleep'):
+                    self.assertFalse(update_data(full_mode=True))
+            finally:
+                os.chdir(previous)
 
 
 def filing(form, report_date, filing_date, url):
@@ -32,6 +110,46 @@ def filing(form, report_date, filing_date, url):
 
 
 class SecFilingMatchingTests(unittest.TestCase):
+    def test_reviewed_q4_matches_exact_period_and_keeps_quarter_label(self):
+        history = [{
+            'date': '2026-07-29', 'periodEnd': '2026-06-30',
+            'periodScope': 'quarter', 'quarter': '2026 Q4',
+            'verificationStatus': 'official_verified',
+        }]
+        filings = [
+            filing('10-Q', '2026-07-01', '2026-08-10', 'https://sec.test/wrong'),
+            filing('10-K', '2026-06-30', '2026-07-30', 'https://sec.test/right'),
+        ]
+        stats = apply_sec_matches(history, filings, fy_end_month=6)
+        self.assertEqual(stats['matched'], 1)
+        self.assertEqual(history[0]['secUrl'], 'https://sec.test/right')
+        self.assertEqual(history[0]['form'], '10-K')
+        self.assertEqual(history[0]['quarter'], '2026 Q4')
+
+    def test_sec_audit_accepts_quarterly_q4_values_with_10k_filing(self):
+        url = 'https://www.sec.gov/ix?doc=/Archives/edgar/data/1/000000000126000001/report.htm'
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST'}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': [{
+                        'date': '2026-07-29', 'periodEnd': '2026-06-30',
+                        'periodScope': 'quarter', 'quarter': '2026 Q4',
+                        'form': '10-K', 'secUrl': url,
+                    }]}, handle)
+                with open('sp500_mapping.json', 'w') as handle:
+                    json.dump({'TEST': {'cik': '0000000001'}}, handle)
+                with patch('update_data.fetch_sec_filing_data', return_value={
+                    'filings': [filing('10-K', '2026-06-30', '2026-07-30', url)],
+                    'fy_end_month': 6,
+                }):
+                    self.assertTrue(audit_sec_dataset())
+            finally:
+                os.chdir(previous)
+
     def test_non_calendar_fiscal_year_matches_nearest_official_period(self):
         history = [
             {'date': '2025-11-20', 'quarter': '2025 Q3'},

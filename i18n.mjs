@@ -28,6 +28,7 @@ export const translations = {
     'table.watch': 'Watch',
     'table.company': 'Company',
     'table.reportDate': 'Expected report date',
+    'table.dateTba': 'To be announced',
     'table.eps': 'Estimated EPS',
     'table.revenue': 'Estimated revenue',
     'table.sec': 'SEC filings',
@@ -48,6 +49,18 @@ export const translations = {
     'sec.original': '🏛️ View SEC filing',
     'sec.pending': 'Awaiting SEC filing',
     'sec.noOriginal': 'Filing unavailable',
+    'earnings.officialRelease': 'Official earnings release',
+    'earnings.releaseSource': 'View earnings release',
+    'earnings.metricSource': 'View financial statements',
+    'earnings.gaapQuarterEps': 'Quarterly GAAP diluted EPS',
+    'earnings.legacyEps': 'EPS (basis unverified)',
+    'earnings.periodEnd': 'Quarter ended {date}',
+    'earnings.pendingOfficial': 'Newer quarter found; awaiting official verification',
+    'earnings.discoveryFailed': 'Latest-quarter check unavailable',
+    'earnings.notScanned': 'Latest-quarter check pending',
+    'earnings.noNewCandidate': 'No newer quarter found in latest check',
+    'earnings.verified': 'Latest found quarter officially verified',
+    'earnings.verifiedScanPending': 'Official quarter verified; latest scan pending',
     'data.error': 'Unable to load data. Refresh the page to try again.',
     'data.historyWarning': 'historical_data.json failed to load; filing history is unavailable.',
   },
@@ -77,6 +90,7 @@ export const translations = {
     'table.watch': '關注',
     'table.company': '公司名稱',
     'table.reportDate': '預計發布日',
+    'table.dateTba': '待公布',
     'table.eps': '預期 EPS',
     'table.revenue': '預估營收',
     'table.sec': 'SEC 財報',
@@ -97,10 +111,45 @@ export const translations = {
     'sec.original': '🏛️ SEC 原文',
     'sec.pending': '等待 SEC 申報',
     'sec.noOriginal': '暫無原文',
+    'earnings.officialRelease': '公司官方業績公告',
+    'earnings.releaseSource': '查看業績公告',
+    'earnings.metricSource': '查看官方財務報表',
+    'earnings.gaapQuarterEps': '季度 GAAP 稀釋 EPS',
+    'earnings.legacyEps': 'EPS（口徑未核實）',
+    'earnings.periodEnd': '季度截止日：{date}',
+    'earnings.pendingOfficial': '發現較新季度，等待官方核對',
+    'earnings.discoveryFailed': '最新季度檢查暫時失敗',
+    'earnings.notScanned': '等待檢查最新季度',
+    'earnings.noNewCandidate': '最近檢查未發現較新季度',
+    'earnings.verified': '已發現的最新季度經官方核對',
+    'earnings.verifiedScanPending': '已有官方核對季度；等待下次最新季度掃描',
     'data.error': '無法載入資料，請重新整理頁面',
     'data.historyWarning': 'historical_data.json 載入失敗，歷史財報面板將無法顯示',
   },
 };
+
+export function historyFilingKey(item) {
+  if (item.form === '10-K') return 'sec.annual';
+  if (item.form === '10-Q') return 'sec.quarterly';
+  if (item.verificationStatus === 'official_verified') return 'earnings.officialRelease';
+  return (item.quarter || '').includes('FY') ? 'sec.annual' : 'sec.quarterly';
+}
+
+export function earningsMetricLabelKey(item) {
+  return item.periodScope === 'quarter' && item.epsBasis === 'GAAP diluted'
+    ? 'earnings.gaapQuarterEps'
+    : 'earnings.legacyEps';
+}
+
+export function historyStatusKey(item) {
+  const status = item?.status;
+  if (status === 'pending_official') return 'earnings.pendingOfficial';
+  if (status === 'discovery_failed') return 'earnings.discoveryFailed';
+  if (status === 'no_new_candidate') return 'earnings.noNewCandidate';
+  if (status === 'verified_to_latest_candidate') return 'earnings.verified';
+  if (status === 'official_verified_scan_pending') return 'earnings.verifiedScanPending';
+  return 'earnings.notScanned';
+}
 
 export function resolveLanguage(value) {
   return value === 'en' || value === 'zh-TW' ? value : DEFAULT_LANGUAGE;

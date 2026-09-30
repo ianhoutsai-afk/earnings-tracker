@@ -10,12 +10,17 @@ on:
     - cron: '0 2 1 * *'
   workflow_dispatch:
 
+concurrency:
+  group: earnings-data-write
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -29,6 +34,7 @@ jobs:
           pip install yfinance requests pandas lxml
 
       - name: 執行資料更新程式碼（增量模式，只抓即將發布的公司）
+        if: github.event.schedule != '0 2 1 * *'
         env:
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
@@ -43,11 +49,21 @@ jobs:
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: python update_data.py --full
 
+      - name: Update officially verified quarterly history
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
+        run: |
+          if [[ "${{ github.event.schedule }}" == "0 1 * * *" || "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            python verified_history.py --scan
+          else
+            python verified_history.py
+          fi
+
       - name: Commit and push if changed
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json historical_data.json sp500_mapping.json
+          git add data.json historical_data.json history_status.json sp500_mapping.json
           git commit -m "Auto-update S&P 500 earnings data [skip ci]" || echo "No changes to commit"
           git pull --rebase origin main
           git push
