@@ -29,6 +29,8 @@ export const translations = {
     'table.company': 'Company',
     'table.reportDate': 'Expected report date',
     'table.dateTba': 'To be announced',
+    'table.thirdPartyEstimate': 'Third-party date estimate',
+    'table.officialDate': 'Company announcement',
     'table.eps': 'Estimated EPS',
     'table.revenue': 'Estimated revenue',
     'table.sec': 'SEC filings',
@@ -55,11 +57,12 @@ export const translations = {
     'earnings.gaapQuarterEps': 'Quarterly GAAP diluted EPS',
     'earnings.legacyEps': 'EPS (basis unverified)',
     'earnings.periodEnd': 'Quarter ended {date}',
-    'earnings.pendingOfficial': 'Newer quarter found; awaiting official verification',
+    'earnings.pendingOfficial': 'Latest stored quarter awaits official verification',
     'earnings.discoveryFailed': 'Latest-quarter check unavailable',
     'earnings.notScanned': 'Latest-quarter check pending',
     'earnings.noNewCandidate': 'No newer quarter found in latest check',
     'earnings.verified': 'Latest found quarter officially verified',
+    'earnings.officialNewer': 'Official release is newer than the latest Yahoo candidate',
     'earnings.verifiedScanPending': 'Official quarter verified; latest scan pending',
     'data.error': 'Unable to load data. Refresh the page to try again.',
     'data.historyWarning': 'historical_data.json failed to load; filing history is unavailable.',
@@ -91,6 +94,8 @@ export const translations = {
     'table.company': '公司名稱',
     'table.reportDate': '預計發布日',
     'table.dateTba': '待公布',
+    'table.thirdPartyEstimate': '第三方日期預估',
+    'table.officialDate': '公司公告',
     'table.eps': '預期 EPS',
     'table.revenue': '預估營收',
     'table.sec': 'SEC 財報',
@@ -117,11 +122,12 @@ export const translations = {
     'earnings.gaapQuarterEps': '季度 GAAP 稀釋 EPS',
     'earnings.legacyEps': 'EPS（口徑未核實）',
     'earnings.periodEnd': '季度截止日：{date}',
-    'earnings.pendingOfficial': '發現較新季度，等待官方核對',
+    'earnings.pendingOfficial': '最近儲存的季度等待官方核對',
     'earnings.discoveryFailed': '最新季度檢查暫時失敗',
     'earnings.notScanned': '等待檢查最新季度',
     'earnings.noNewCandidate': '最近檢查未發現較新季度',
     'earnings.verified': '已發現的最新季度經官方核對',
+    'earnings.officialNewer': '官方業績公告比 Yahoo 最近線索更新',
     'earnings.verifiedScanPending': '已有官方核對季度；等待下次最新季度掃描',
     'data.error': '無法載入資料，請重新整理頁面',
     'data.historyWarning': 'historical_data.json 載入失敗，歷史財報面板將無法顯示',
@@ -147,6 +153,7 @@ export function historyStatusKey(item) {
   if (status === 'discovery_failed') return 'earnings.discoveryFailed';
   if (status === 'no_new_candidate') return 'earnings.noNewCandidate';
   if (status === 'verified_to_latest_candidate') return 'earnings.verified';
+  if (status === 'official_newer_than_discovery') return 'earnings.officialNewer';
   if (status === 'official_verified_scan_pending') return 'earnings.verifiedScanPending';
   return 'earnings.notScanned';
 }

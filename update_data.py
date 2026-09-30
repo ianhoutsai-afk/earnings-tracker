@@ -1039,8 +1039,12 @@ def update_data(
 
         if result:
             existing = existing_map.get(ticker, {})
-            existing['reportDate'] = result['reportDate'] or existing.get('reportDate')
-            existing['bmo_amc'] = result['bmo_amc'] or existing.get('bmo_amc')
+            if result['reportDate'] and existing.get('reportDateSource') != 'official':
+                existing['reportDate'] = result['reportDate']
+                existing['reportDateSource'] = 'third_party_estimate'
+                existing['reportDateSourceUrl'] = None
+                # Yahoo timing is not official evidence for a BMO/AMC label.
+                existing['bmo_amc'] = None
             existing['eps'] = result['eps'] if result['eps'] != '-' else existing.get('eps', '-')
             existing['revenue'] = result['revenue'] if result['revenue'] != '-' else existing.get('revenue', '-')
             existing['ticker'] = ticker
@@ -1121,7 +1125,9 @@ def update_data(
         }
         updated = existing_map.get(ticker, {})
         entry['reportDate'] = updated.get('reportDate') or company.get('reportDate')
-        entry['bmo_amc'] = updated.get('bmo_amc') or company.get('bmo_amc')
+        entry['reportDateSource'] = updated.get('reportDateSource', company.get('reportDateSource'))
+        entry['reportDateSourceUrl'] = updated.get('reportDateSourceUrl', company.get('reportDateSourceUrl'))
+        entry['bmo_amc'] = updated.get('bmo_amc', company.get('bmo_amc'))
         entry['eps'] = updated.get('eps') or company.get('eps', '-')
         entry['revenue'] = updated.get('revenue') or company.get('revenue', '-')
         final_data.append(entry)

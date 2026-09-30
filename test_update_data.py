@@ -58,6 +58,55 @@ class FutureEarningsDateTests(unittest.TestCase):
         self.assertEqual(result['reportDate'], next_week.isoformat())
         self.assertEqual(result['bmo_amc'], '☀️')
 
+    def test_updater_preserves_date_provenance_and_does_not_publish_yahoo_timing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                future = (datetime.now(ZoneInfo('America/New_York')).date() + timedelta(days=5)).isoformat()
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST', 'name': 'Test', 'reportDate': future,
+                                'reportDateSource': 'third_party_estimate', 'bmo_amc': '🌙'}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': []}, handle)
+                with patch('update_data.fetch_earnings_data', return_value={
+                    'reportDate': future, 'bmo_amc': '☀️', 'eps': '-', 'revenue': '-',
+                }), patch('update_data.time.sleep'):
+                    self.assertTrue(update_data())
+                with open('data.json') as handle:
+                    result = json.load(handle)[0]
+                self.assertEqual(result['reportDateSource'], 'third_party_estimate')
+                self.assertIsNone(result['bmo_amc'])
+            finally:
+                os.chdir(previous)
+
+    def test_official_expected_date_and_time_survive_conflicting_yahoo_date(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.getcwd()
+            try:
+                os.chdir(tmp)
+                future = (datetime.now(ZoneInfo('America/New_York')).date() + timedelta(days=5)).isoformat()
+                other = (datetime.now(ZoneInfo('America/New_York')).date() + timedelta(days=6)).isoformat()
+                with open('data.json', 'w') as handle:
+                    json.dump([{'ticker': 'TEST', 'name': 'Test', 'reportDate': future,
+                                'reportDateSource': 'official',
+                                'reportDateSourceUrl': 'https://example.com/earnings',
+                                'bmo_amc': '☀️'}], handle)
+                with open('historical_data.json', 'w') as handle:
+                    json.dump({'TEST': []}, handle)
+                with patch('update_data.fetch_earnings_data', return_value={
+                    'reportDate': other, 'bmo_amc': '🌙', 'eps': '-', 'revenue': '-',
+                }), patch('update_data.time.sleep'):
+                    self.assertTrue(update_data())
+                with open('data.json') as handle:
+                    result = json.load(handle)[0]
+                self.assertEqual(result['reportDate'], future)
+                self.assertEqual(result['reportDateSource'], 'official')
+                self.assertEqual(result['bmo_amc'], '☀️')
+                self.assertEqual(result['reportDateSourceUrl'], 'https://example.com/earnings')
+            finally:
+                os.chdir(previous)
+
     def test_full_schedule_refresh_aborts_with_missing_sec_mapping(self):
         with tempfile.TemporaryDirectory() as tmp:
             previous = os.getcwd()

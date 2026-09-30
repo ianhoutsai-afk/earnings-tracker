@@ -135,6 +135,27 @@ def clear_past_report_dates(companies, today):
         if expected is None or expected < today:
             company['reportDate'] = None
             company['bmo_amc'] = None
+            company['reportDateSource'] = None
+            company['reportDateSourceUrl'] = None
+    return result
+
+
+def apply_expected_dates(companies, future_dates, today):
+    """Publish only future third-party date estimates, without timing claims."""
+    result = copy.deepcopy(companies)
+    for company in result:
+        candidate = future_dates.get(company['ticker'])
+        if not candidate:
+            continue
+        proposed = _iso_date(candidate, 'expected report date')
+        if proposed <= today:
+            continue
+        if company.get('reportDate') and company.get('reportDateSource') != 'third_party_estimate':
+            continue
+        company['reportDate'] = proposed.isoformat()
+        company['bmo_amc'] = None
+        company['reportDateSource'] = 'third_party_estimate'
+        company['reportDateSourceUrl'] = None
     return result
 
 
@@ -150,10 +171,14 @@ def status_from_discovery(companies, history, candidates, errors, checked_at):
         verified = latest_row.get('verificationStatus') == 'official_verified'
         if ticker in errors:
             status, reason = 'discovery_failed', errors[ticker]
-        elif latest_candidate and (latest_candidate > latest_stored or not verified):
+        elif latest_candidate and latest_candidate > latest_stored:
             status, reason = 'pending_official', 'newer_release_requires_official_check'
-        elif latest_candidate and verified:
+        elif latest_candidate == latest_stored and verified:
             status, reason = 'verified_to_latest_candidate', 'latest_yahoo_candidate_is_officially_verified'
+        elif latest_candidate and latest_candidate < latest_stored and verified:
+            status, reason = 'official_newer_than_discovery', 'official_release_newer_than_yahoo_candidate'
+        elif latest_candidate and not verified:
+            status, reason = 'pending_official', 'stored_latest_requires_official_check'
         else:
             status, reason = 'no_new_candidate', 'no_new_release_found_in_yahoo_scan'
         result[ticker] = {
@@ -169,21 +194,26 @@ def status_from_discovery(companies, history, candidates, errors, checked_at):
 
 
 def scan_yahoo_candidates(companies, fetch, today, sleep=time.sleep):
-    """Read every ticker; retain release dates only, never Yahoo EPS or revenue."""
+    """Read every ticker; retain release and expected dates, never Yahoo metrics."""
     candidates = {}
     errors = {}
+    future_dates = {}
     for index, company in enumerate(companies, start=1):
         ticker = company['ticker']
         try:
             frame = fetch(ticker)
             dates = set()
-            if frame is not None and not frame.empty and 'Reported EPS' in frame.columns:
+            future = set()
+            if frame is not None and not frame.empty:
                 for timestamp, row in frame.iterrows():
-                    eps = row.get('Reported EPS')
                     release = date_in_new_york(timestamp)
+                    if release > today:
+                        future.add(release.isoformat())
+                    eps = row.get('Reported EPS')
                     if eps is not None and eps == eps and release <= today:
                         dates.add(release.isoformat())
             candidates[ticker] = sorted(dates)
+            future_dates[ticker] = min(future) if future else None
             if not dates:
                 errors[ticker] = 'no_reported_eps_from_yahoo'
         except Exception as exc:
@@ -196,10 +226,11 @@ def scan_yahoo_candidates(companies, fetch, today, sleep=time.sleep):
             else:
                 errors[ticker] = 'yahoo_request_failed'
             candidates[ticker] = []
+            future_dates[ticker] = None
         if index % 25 == 0 or index == len(companies):
             print(f'Yahoo date-only discovery: {index}/{len(companies)}; failures: {len(errors)}', flush=True)
         sleep(1)
-    return candidates, errors
+    return candidates, errors, future_dates
 
 
 def write_json_bundle(documents):
@@ -256,7 +287,10 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
     updated_history, added = apply_official_records(companies, history, reviewed, today)
     updated_companies = clear_past_report_dates(companies, today)
     if scan:
-        candidates, errors = scan_yahoo_candidates(companies, fetch or _fetch_yahoo_earnings, today, sleep=sleep)
+        candidates, errors, future_dates = scan_yahoo_candidates(
+            companies, fetch or _fetch_yahoo_earnings, today, sleep=sleep,
+        )
+        updated_companies = apply_expected_dates(updated_companies, future_dates, today)
         checked_at = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
         status = status_from_discovery(companies, updated_history, candidates, errors, checked_at)
     else:

@@ -82,7 +82,7 @@ The scheduler Worker has no public HTTP handler and does not receive the Bark ke
 
 ### Quarterly earnings history refresh
 
-The daily 01:00 UTC run checks all active tickers with `yfinance` for **release-date candidates only**. Yahoo EPS and revenue are not copied into the public data files. A quarterly record becomes public only after its release date and figures are checked against a company earnings release or official filing and entered in `official_history.json`. For each reviewed entry, record the fiscal period end, fiscal year and quarter, quarterly GAAP diluted EPS, quarterly revenue in USD, the release and metric source URLs, and the verification date. Use `null` for any figure that the official source does not establish. A fourth-quarter value remains a quarterly value even if its related filing is a 10-K.
+The daily 01:00 UTC run checks all active tickers with `yfinance` for **release-date candidates only**. A future Yahoo date can appear in the schedule, explicitly labelled as a third-party estimate; no BMO/AMC time is inferred from it. Yahoo EPS and revenue are not copied into the new quarterly historical records. A quarterly actual becomes public only after its release date and figures are checked against a company earnings release or official filing and entered in `official_history.json`. For each reviewed entry, record the fiscal period end, fiscal year and quarter, quarterly GAAP diluted EPS, quarterly revenue in USD, the release and metric source URLs, and the verification date. Use `null` for any figure that the official source does not establish. A fourth-quarter value remains a quarterly value even if its related filing is a 10-K.
 
 `python verified_history.py --scan` performs the full Yahoo discovery scan, applies reviewed entries, clears expired expected earnings dates, and writes a status for every tracked company to `history_status.json`. `python verified_history.py` reapplies the reviewed entries without a Yahoo scan. Both commands preserve existing historical rows and are safe to rerun. The status file distinguishes pending official review, discovery failures, and companies without a newer Yahoo candidate; the latter does **not** prove that the company is officially current. Existing unreviewed history retains its original figures and is labelled as such on the site. Review `official_history.json` against the linked company sources before merging a batch.
 
@@ -105,7 +105,7 @@ SEC requests may fail independently. The reviewed earnings step and data commit 
 
 ### 最新季度歷史資料
 
-每日 UTC 01:00 的排程會用 `yfinance` 檢查所有追蹤公司是否出現較新的**公布日線索**；Yahoo 的 EPS 和營收不直接寫入公開網站。只有核對公司業績公告或官方申報後，才把公布日、財季截止日、季度 GAAP 稀釋 EPS、季度營收、來源連結和核對日期加入 `official_history.json`，再由 `verified_history.py` 更新網站。官方來源無法確認的金額保留空白。第四季數值即使連到 10-K，仍標示為季度數值。
+每日 UTC 01:00 的排程會用 `yfinance` 檢查所有追蹤公司的財報日期線索。未來的 Yahoo 日期可顯示於時間表，但必須標成「第三方日期預估」，且不推斷盤前／盤後。Yahoo 的 EPS 和營收不直接寫入新增的季度歷史實績。只有核對公司業績公告或官方申報後，才把公布日、財季截止日、季度 GAAP 稀釋 EPS、季度營收、來源連結和核對日期加入 `official_history.json`，再由 `verified_history.py` 更新網站。官方來源無法確認的金額保留空白。第四季數值即使連到 10-K，仍標示為季度數值。
 
 `history_status.json` 逐家公司區分已核對、等待官方核對、試抓失敗及未發現較新線索。未發現 Yahoo 線索不等於官方確認資料完整。原有歷史金額不在本次更新中重算；SEC 無法連線也不會阻止已核對的公司公告進入歷史紀錄。
 

@@ -379,6 +379,12 @@
                     </td>
                     <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
                         ${company.reportDate || t('table.dateTba')}
+                        ${company.reportDate && company.reportDateSource !== 'official'
+                            ? `<span class="ml-1 text-xs text-amber-700 dark:text-amber-300">${t('table.thirdPartyEstimate')}</span>`
+                            : ''}
+                        ${company.reportDate && company.reportDateSource === 'official' && company.reportDateSourceUrl
+                            ? `<a class="ml-1 text-xs text-blue-600 dark:text-blue-400 underline" href="${company.reportDateSourceUrl}" target="_blank" rel="noopener noreferrer">${t('table.officialDate')}</a>`
+                            : ''}
                         ${
                             company.bmo_amc
                                 ? `<span class="ml-1 text-xs">${company.bmo_amc}</span>`

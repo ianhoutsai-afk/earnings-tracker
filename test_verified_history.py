@@ -11,6 +11,7 @@ import pandas as pd
 
 from verified_history import (
     apply_official_records,
+    apply_expected_dates,
     clear_past_report_dates,
     date_in_new_york,
     scan_yahoo_candidates,
@@ -119,6 +120,34 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.assertIsNone(result[0]['bmo_amc'])
         self.assertEqual(result[1], companies[1])
 
+    def test_future_estimate_repopulates_missing_date_without_unverified_time(self):
+        companies = [
+            {'ticker': 'MSFT', 'reportDate': None, 'bmo_amc': None},
+            {'ticker': 'ACN', 'reportDate': '2026-10-01', 'bmo_amc': '☀️',
+             'reportDateSource': 'official',
+             'reportDateSourceUrl': 'https://newsroom.accenture.com/official'},
+            {'ticker': 'AAPL', 'reportDate': '2026-11-01', 'bmo_amc': None,
+             'reportDateSource': 'third_party_estimate'},
+        ]
+        result = apply_expected_dates(
+            companies, {'MSFT': '2026-10-28', 'ACN': '2026-10-02', 'AAPL': '2026-11-03'},
+            date(2026, 9, 29),
+        )
+        self.assertEqual(result[0]['reportDate'], '2026-10-28')
+        self.assertEqual(result[0]['reportDateSource'], 'third_party_estimate')
+        self.assertIsNone(result[0]['reportDateSourceUrl'])
+        self.assertIsNone(result[0]['bmo_amc'])
+        self.assertEqual(result[1], companies[1])
+        self.assertEqual(result[2]['reportDate'], '2026-11-03')
+
+    def test_past_expected_date_also_clears_its_source(self):
+        companies = [{'ticker': 'MSFT', 'reportDate': '2026-07-29', 'bmo_amc': '🌙',
+                      'reportDateSource': 'third_party_estimate',
+                      'reportDateSourceUrl': 'https://example.com/old'}]
+        result = clear_past_report_dates(companies, date(2026, 9, 29))
+        self.assertIsNone(result[0]['reportDateSource'])
+        self.assertIsNone(result[0]['reportDateSourceUrl'])
+
     def test_every_company_gets_a_status_without_publishing_yahoo_values(self):
         companies = self.companies + [{'ticker': 'AAPL'}]
         candidates = {'MSFT': ['2026-07-29'], 'AAPL': ['2026-07-30']}
@@ -147,6 +176,19 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.assertEqual(status['MSFT']['status'], 'verified_to_latest_candidate')
         self.assertTrue(status['MSFT']['latestStoredOfficial'])
 
+    def test_older_yahoo_candidate_does_not_claim_matching_latest_quarter(self):
+        history = {'MSFT': [{'date': '2026-07-29', 'verificationStatus': 'official_verified'}]}
+        status = status_from_discovery(
+            self.companies, history, {'MSFT': ['2026-04-29']}, {}, '2026-09-29T12:00:00Z',
+        )['MSFT']
+        self.assertEqual(status['status'], 'official_newer_than_discovery')
+        history['MSFT'][0].pop('verificationStatus')
+        status = status_from_discovery(
+            self.companies, history, {'MSFT': ['2026-04-29']}, {}, '2026-09-29T12:00:00Z',
+        )['MSFT']
+        self.assertEqual(status['status'], 'pending_official')
+        self.assertEqual(status['reason'], 'stored_latest_requires_official_check')
+
     def test_scan_failure_retains_separate_official_history_fact(self):
         history = {'MSFT': [{'date': '2026-07-29', 'verificationStatus': 'official_verified'}]}
         status = status_from_discovery(
@@ -172,18 +214,33 @@ class VerifiedHistoryTests(unittest.TestCase):
             return frame
 
         companies = self.companies + [{'ticker': 'AAPL'}]
-        candidates, errors = scan_yahoo_candidates(companies, fetch, date(2026, 9, 29), sleep=lambda _: None)
+        candidates, errors, future = scan_yahoo_candidates(companies, fetch, date(2026, 9, 29), sleep=lambda _: None)
         self.assertEqual(calls, ['MSFT', 'AAPL'])
         self.assertEqual(candidates['MSFT'], ['2026-07-29'])
         self.assertEqual(errors['AAPL'], 'yahoo_request_failed')
+        self.assertEqual(future['MSFT'], '2026-09-30')
         self.assertNotIn('4.74', str(candidates))
 
     def test_empty_yahoo_history_is_discovery_failure_not_up_to_date(self):
-        candidates, errors = scan_yahoo_candidates(
+        candidates, errors, future = scan_yahoo_candidates(
             self.companies, lambda _: pd.DataFrame(), date(2026, 9, 29), sleep=lambda _: None,
         )
         self.assertEqual(candidates['MSFT'], [])
         self.assertEqual(errors['MSFT'], 'no_reported_eps_from_yahoo')
+        self.assertIsNone(future['MSFT'])
+
+    def test_scan_finds_next_future_date_without_copying_yahoo_metrics(self):
+        frame = pd.DataFrame(
+            {'Reported EPS': [None, None, 4.74]},
+            index=pd.to_datetime(['2026-11-03T22:00:00Z', '2026-10-28T20:00:00Z',
+                                  '2026-07-29T20:00:00Z']),
+        )
+        candidates, errors, future = scan_yahoo_candidates(
+            self.companies, lambda _: frame, date(2026, 9, 29), sleep=lambda _: None,
+        )
+        self.assertEqual(candidates['MSFT'], ['2026-07-29'])
+        self.assertEqual(future['MSFT'], '2026-10-28')
+        self.assertEqual(errors, {})
 
     def test_json_bundle_rolls_back_when_second_replace_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -220,6 +277,29 @@ class VerifiedHistoryTests(unittest.TestCase):
             status = json.loads((root / 'history_status.json').read_text())
             self.assertEqual(status['MSFT']['status'], 'official_verified_scan_pending')
             self.assertEqual(refresh_site_data(root, today=date(2026, 9, 29), scan=False)['added'], 0)
+
+    def test_full_scan_refreshes_future_estimate_without_copying_yahoo_eps(self):
+        frame = pd.DataFrame(
+            {'Reported EPS': [None, 4.74]},
+            index=pd.to_datetime(['2026-10-28T20:00:00Z', '2026-07-29T20:00:00Z']),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data.json').write_text(json.dumps(self.companies))
+            (root / 'historical_data.json').write_text(json.dumps(self.history))
+            (root / 'official_history.json').write_text(json.dumps([OFFICIAL]))
+            result = refresh_site_data(
+                root, today=date(2026, 9, 29), scan=True,
+                fetch=lambda _: frame, sleep=lambda _: None,
+            )
+            company = json.loads((root / 'data.json').read_text())[0]
+            self.assertEqual(company['reportDate'], '2026-10-28')
+            self.assertEqual(company['reportDateSource'], 'third_party_estimate')
+            self.assertIsNone(company['bmo_amc'])
+            public = (root / 'historical_data.json').read_text()
+            self.assertIn('$4.81', public)
+            self.assertNotIn('$4.74', public)
+            self.assertEqual(result['official_verified'], 1)
 
     def test_invalid_manifest_causes_no_partial_site_write(self):
         with tempfile.TemporaryDirectory() as tmp:
