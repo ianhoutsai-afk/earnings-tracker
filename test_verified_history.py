@@ -114,11 +114,22 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.assertEqual(date_in_new_york(timestamp), date(2026, 7, 29))
 
     def test_stale_expected_dates_clear_without_changing_future_date(self):
-        companies = self.companies + [{'ticker': 'AAPL', 'reportDate': '2026-10-01', 'bmo_amc': '☀️'}]
+        companies = self.companies + [{
+            'ticker': 'AAPL', 'reportDate': '2026-10-01', 'bmo_amc': '☀️',
+            'reportDateSource': 'official', 'reportDateSourceUrl': 'https://example.com/release',
+        }]
         result = clear_past_report_dates(companies, date(2026, 9, 29))
         self.assertIsNone(result[0]['reportDate'])
         self.assertIsNone(result[0]['bmo_amc'])
         self.assertEqual(result[1], companies[1])
+
+    def test_legacy_future_date_becomes_replaceable_estimate_without_timing(self):
+        legacy = [{'ticker': 'JBL', 'reportDate': '2026-09-30', 'bmo_amc': '☀️'}]
+        normalized = clear_past_report_dates(legacy, date(2026, 9, 29))
+        self.assertEqual(normalized[0]['reportDateSource'], 'third_party_estimate')
+        self.assertIsNone(normalized[0]['bmo_amc'])
+        refreshed = apply_expected_dates(normalized, {'JBL': '2026-10-02'}, date(2026, 9, 29))
+        self.assertEqual(refreshed[0]['reportDate'], '2026-10-02')
 
     def test_future_estimate_repopulates_missing_date_without_unverified_time(self):
         companies = [

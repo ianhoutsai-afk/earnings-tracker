@@ -137,6 +137,11 @@ def clear_past_report_dates(companies, today):
             company['bmo_amc'] = None
             company['reportDateSource'] = None
             company['reportDateSourceUrl'] = None
+        elif company.get('reportDateSource') != 'official':
+            # Older future dates have no recorded official evidence or timing source.
+            company['reportDateSource'] = 'third_party_estimate'
+            company['reportDateSourceUrl'] = None
+            company['bmo_amc'] = None
     return result
 
 
