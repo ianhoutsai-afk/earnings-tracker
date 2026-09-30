@@ -7,6 +7,9 @@ import {
   createLanguageController,
   createTranslator,
   getExpandedTickers,
+  historyFilingKey,
+  historyStatusKey,
+  earningsMetricLabelKey,
   resolveLanguage,
   restoreExpandedTickers,
   saveLanguage,
@@ -39,6 +42,16 @@ test('both languages expose the same translation keys', () => {
   );
 });
 
+test('reviewed quarterly metrics remain quarterly when linked to an annual filing', () => {
+  assert.equal(historyFilingKey({ form: '10-K', periodScope: 'quarter' }), 'sec.annual');
+  assert.equal(earningsMetricLabelKey({ form: '10-K', periodScope: 'quarter', epsBasis: 'GAAP diluted' }), 'earnings.gaapQuarterEps');
+  assert.equal(historyFilingKey({ verificationStatus: 'official_verified' }), 'earnings.officialRelease');
+  assert.equal(earningsMetricLabelKey({ quarter: '2025 FY' }), 'earnings.legacyEps');
+  assert.equal(historyStatusKey({ status: 'pending_official' }), 'earnings.pendingOfficial');
+  assert.equal(historyStatusKey({ status: 'official_newer_than_discovery' }), 'earnings.officialNewer');
+  assert.equal(historyStatusKey({ status: 'official_verified_scan_pending' }), 'earnings.verifiedScanPending');
+});
+
 test('translates representative dynamic messages with parameters', () => {
   assert.equal(
     createTranslator('en')('app.title'),
@@ -60,6 +73,9 @@ test('translates representative dynamic messages with parameters', () => {
     createTranslator('en')('search.results', { count: 2, query: 'Apple' }),
     '2 companies match “Apple”',
   );
+  assert.equal(createTranslator('en')('table.dateTba'), 'To be announced');
+  assert.equal(createTranslator('zh-TW')('table.dateTba'), '待公布');
+  assert.equal(createTranslator('zh-TW')('table.thirdPartyEstimate'), '第三方日期預估');
 });
 
 test('captures and restores expanded history tickers', () => {
