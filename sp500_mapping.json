@@ -282,7 +282,7 @@
     "APP": {
         "name": "AppLovin",
         "cik": "0001751008",
-        "sector": "Information Technology",
+        "sector": "Communication Services",
         "fy_end": 12,
         "filings": {}
     },
@@ -367,13 +367,6 @@
         "name": "AutoZone",
         "cik": "0000866787",
         "sector": "Consumer Discretionary",
-        "fy_end": 12,
-        "filings": {}
-    },
-    "AVB": {
-        "name": "AvalonBay Communities",
-        "cik": "0000915912",
-        "sector": "Real Estate",
         "fy_end": 12,
         "filings": {}
     },
@@ -475,6 +468,13 @@
         "fy_end": 12,
         "filings": {}
     },
+    "BE": {
+        "name": "Bloom Energy",
+        "cik": "0001664703",
+        "sector": "Industrials",
+        "fy_end": 12,
+        "filings": {}
+    },
     "BNY": {
         "name": "BNY Mellon",
         "cik": "0001390777",
@@ -535,13 +535,6 @@
         "name": "Brown–Forman",
         "cik": "0000014693",
         "sector": "Consumer Staples",
-        "fy_end": 12,
-        "filings": {}
-    },
-    "BLDR": {
-        "name": "Builders FirstSource",
-        "cik": "0001316835",
-        "sector": "Industrials",
         "fy_end": 12,
         "filings": {}
     },
@@ -1122,7 +1115,7 @@
     "DD": {
         "name": "DuPont",
         "cik": "0001666700",
-        "sector": "Materials",
+        "sector": "Industrials",
         "fy_end": 12,
         "filings": {}
     },
@@ -1165,13 +1158,6 @@
         "name": "Edwards Lifesciences",
         "cik": "0001099800",
         "sector": "Health Care",
-        "fy_end": 12,
-        "filings": {}
-    },
-    "EA": {
-        "name": "Electronic Arts",
-        "cik": "0000712515",
-        "sector": "Communication Services",
         "fy_end": 12,
         "filings": {}
     },
@@ -1231,13 +1217,6 @@
         "fy_end": 12,
         "filings": {}
     },
-    "EQR": {
-        "name": "Equity Residential",
-        "cik": "0000906107",
-        "sector": "Real Estate",
-        "fy_end": 12,
-        "filings": {}
-    },
     "ERIE": {
         "name": "Erie Indemnity",
         "cik": "0000922621",
@@ -1270,6 +1249,13 @@
         "name": "Evergy",
         "cik": "0001711269",
         "sector": "Utilities",
+        "fy_end": 12,
+        "filings": {}
+    },
+    "P": {
+        "name": "Everpure",
+        "cik": "0001474432",
+        "sector": "Information Technology",
         "fy_end": 12,
         "filings": {}
     },
@@ -1317,7 +1303,7 @@
     },
     "XOM": {
         "name": "ExxonMobil",
-        "cik": "0000034088",
+        "cik": "0002115436",
         "sector": "Energy",
         "fy_end": 12,
         "filings": {}
@@ -1367,6 +1353,13 @@
     "FDXF": {
         "name": "FedEx Freight",
         "cik": "0002082247",
+        "sector": "Industrials",
+        "fy_end": 12,
+        "filings": {}
+    },
+    "FERG": {
+        "name": "Ferguson Enterprises",
+        "cik": "0002011641",
         "sector": "Industrials",
         "fy_end": 12,
         "filings": {}
@@ -1739,6 +1732,13 @@
         "name": "Illinois Tool Works",
         "cik": "0000049826",
         "sector": "Industrials",
+        "fy_end": 12,
+        "filings": {}
+    },
+    "ILMN": {
+        "name": "Illumina, Inc.",
+        "cik": "0001110803",
+        "sector": "Health Care",
         "fy_end": 12,
         "filings": {}
     },
@@ -2232,13 +2232,6 @@
         "fy_end": 12,
         "filings": {}
     },
-    "TAP": {
-        "name": "Molson Coors Beverage Company",
-        "cik": "0000024545",
-        "sector": "Consumer Staples",
-        "fy_end": 12,
-        "filings": {}
-    },
     "MDLZ": {
         "name": "Mondelez International",
         "cik": "0001103982",
@@ -2289,7 +2282,7 @@
         "filings": {}
     },
     "MSCI": {
-        "name": "MSCI Inc.",
+        "name": "MSCI",
         "cik": "0001408198",
         "sector": "Financials",
         "fy_end": 12,
@@ -2429,7 +2422,7 @@
         "filings": {}
     },
     "ORLY": {
-        "name": "O’Reilly Automotive",
+        "name": "O'Reilly Automotive",
         "cik": "0000898173",
         "sector": "Consumer Discretionary",
         "fy_end": 12,
@@ -2715,6 +2708,13 @@
         "fy_end": 12,
         "filings": {}
     },
+    "RDDT": {
+        "name": "Reddit",
+        "cik": "0001713445",
+        "sector": "Communication Services",
+        "fy_end": 12,
+        "filings": {}
+    },
     "RTX": {
         "name": "RTX Corporation",
         "cik": "0000101829",
@@ -2758,7 +2758,7 @@
         "filings": {}
     },
     "RMD": {
-        "name": "ResMed",
+        "name": "ResMed|",
         "cik": "0000943819",
         "sector": "Health Care",
         "fy_end": 12,
@@ -3114,13 +3114,6 @@
         "fy_end": 12,
         "filings": {}
     },
-    "TTD": {
-        "name": "Trade Desk (The)",
-        "cik": "0001671933",
-        "sector": "Communication Services",
-        "fy_end": 12,
-        "filings": {}
-    },
     "TSCO": {
         "name": "Tractor Supply",
         "cik": "0000916365",
@@ -3335,6 +3328,13 @@
         "name": "Vistra Corp.",
         "cik": "0001692819",
         "sector": "Utilities",
+        "fy_end": 12,
+        "filings": {}
+    },
+    "VMRK": {
+        "name": "Vivmark Residential",
+        "cik": "0000906107",
+        "sector": "Real Estate",
         "fy_end": 12,
         "filings": {}
     },
