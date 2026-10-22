@@ -115,6 +115,9 @@ def apply_official_records(companies, history, records, today):
             'verifiedAt': record['verifiedAt'],
             'verificationStatus': 'official_verified',
         }
+        for field in ('periodStart','filingDate','accessionNumber','secUrl','form','releaseFilingDate','releaseAccession'):
+            if record.get(field) is not None:
+                official_row[field] = record[field]
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
         official_row['fiscalYear'] = record['fiscalYear']

@@ -39,10 +39,10 @@ export default {
 
     // 2. 解析 URL，決定要轉發到哪個 SEC 子網域
     const url = new URL(request.url);
-    const path = url.pathname; // 例如 /submissions/CIK0000320193.json
+    const path = url.pathname.replace(/^\/archives\//i, '/Archives/'); // 例如 /submissions/CIK0000320193.json
 
     // 第一段路徑用來判斷子網域
-    const firstSegment = path.split('/').filter(Boolean)[0];
+    const firstSegment = path.split('/').filter(Boolean)[0].toLowerCase();
     const targetHost = ALLOWED_HOSTS[firstSegment];
 
     if (!targetHost) {

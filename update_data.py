@@ -24,6 +24,7 @@ from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 from typing import Optional
 from quarterly_policy import retain_history, company_fields
+from official_sources import normalize_proxy_base
 
 try:
     import requests
@@ -129,7 +130,9 @@ def _sec_request(url: str, timeout: int = 15):
         if SEC_PROXY_TOKEN:
             proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
         parsed = urlparse(url)
-        proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
+        proxy_base = normalize_proxy_base(SEC_PROXY_URL)
+        proxy_path = re.sub(r'^/Archives/', '/archives/', parsed.path)
+        proxy_url = proxy_base + proxy_path
         if parsed.query:
             proxy_url += '?' + parsed.query
         if requests is None:
@@ -361,7 +364,7 @@ def _load_sec_json(url: str, cache_path: str, request_label: str) -> Optional[di
             if attempt < 2:
                 time.sleep(1)
                 continue
-            print(f"  ⚠️ SEC {request_label}: {type(exc).__name__}: {exc}")
+            print(f"  ⚠️ SEC {request_label}: {type(exc).__name__}; request/configuration unavailable")
             return None
 
     return data
@@ -946,7 +949,7 @@ def update_data(
 
     # ── 從 SEC API 抓取 filing 列表 ──
     if SEC_PROXY_URL:
-        print(f"🔀 使用 SEC Proxy: {SEC_PROXY_URL}")
+        print("🔀 使用已設定的 SEC HTTPS 代理")
     print("⏳ 從 SEC API 抓取 filing 列表...")
 
     sec_filing_cache = {}
