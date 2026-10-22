@@ -119,6 +119,7 @@ class OfficialReviewRegressions(unittest.TestCase):
   self.assertEqual(len(records),1)
   self.assertGreater(details['requestFailures'],0)
   self.assertGreater(details['metricPending'],0)
+  self.assertEqual(details['sourceErrors'][0]['stage'],'metrics')
 
  def test_release_provenance_stays_with_original_not_amendment(self):
   from official_sync import check_issuer
@@ -146,3 +147,16 @@ class ConflictingIdentityTests(unittest.TestCase):
   rows,details=check_issuer('0000000001',SUBMISSIONS,conflicting,TODAY)
   self.assertEqual(rows,[])
   self.assertGreater(details['parsePending'],0)
+
+class ScanBudgetTests(unittest.TestCase):
+ setup_root=OfficialSyncTests.setup_root
+ def test_exhausted_scan_budget_is_deferred_without_claiming_source_was_checked(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp);self.setup_root(root)
+   result=sync_all(root,TODAY,fetch=fetch,full=True,budget_seconds=0)
+   status=json.loads((root/'history_status.json').read_text())
+   self.assertEqual(status['ABC']['status'],'official_check_deferred')
+   self.assertNotIn('officialCheckedAt',status['ABC'])
+   self.assertEqual(result['issuersChecked'],0)
+   self.assertEqual(result['sourceFailures'],0)
+   self.assertFalse(result['healthy'])

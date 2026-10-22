@@ -24,6 +24,10 @@ from quarterly_policy import retain_history, retain_manifest, company_fields, me
 from verified_history import apply_official_records, write_json_bundle
 
 
+class OfficialScanDeferred(Exception):
+    """The source was not checked because this run reached its time budget."""
+
+
 _DIRECT_SEC = False
 
 
@@ -100,12 +104,14 @@ def check_issuer(cik, submissions, fetch, today):
                 and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
     records, pending, failures, metric_pending = {}, 0, 0, 0
+    source_errors=[]
     for event in releases[:12]:
         base = _base(cik, event)
         try:
             links = _exhibit_links(fetch(base + event['primaryDocument']), base)
-        except (OSError, TimeoutError):
+        except (OSError, TimeoutError) as exc:
             failures += 1
+            source_errors.append({'stage':'announcement_filing','sourceUrl':base+event['primaryDocument'],'errorType':type(exc).__name__})
             continue
         except (ValueError, html.etree.ParserError):
             pending += 1
@@ -115,8 +121,9 @@ def check_issuer(cik, submissions, fetch, today):
             try:
                 release_doc = fetch(url)
                 release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
-            except (OSError, TimeoutError):
+            except (OSError, TimeoutError) as exc:
                 failures += 1
+                source_errors.append({'stage':'earnings_release','sourceUrl':url,'errorType':type(exc).__name__})
                 continue
             except (ValueError, html.etree.ParserError):
                 continue
@@ -130,9 +137,10 @@ def check_issuer(cik, submissions, fetch, today):
                 candidate_url = _base(cik, candidate) + candidate['primaryDocument']
                 try:
                     parsed = parse_inline_quarter(fetch(candidate_url), release['periodEnd'],cik=cik)
-                except (OSError, TimeoutError):
+                except (OSError, TimeoutError) as exc:
                     failures += 1
                     metric_pending += 1
+                    source_errors.append({'stage':'metrics','sourceUrl':candidate_url,'errorType':type(exc).__name__})
                     continue
                 except (ValueError, html.etree.ParserError):
                     metric_pending += 1
@@ -171,7 +179,7 @@ def check_issuer(cik, submissions, fetch, today):
         if not accepted:
             pending += 1
     rows = sorted(records.values(), key=lambda r:r['periodEnd'], reverse=True)[:5]
-    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures}
+    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors[:20]}
 
 
 def _now(today):
@@ -184,7 +192,7 @@ def _due(company, status, today, full):
     if full:
         return True
     checked = status.get('officialCheckedAt')
-    if status.get('status') in ('official_source_failed','official_parse_pending'):
+    if status.get('status') in ('official_source_failed','official_parse_pending','official_check_deferred'):
         return True
     if not checked:
         return True
@@ -200,7 +208,7 @@ def _due(company, status, today, full):
         return True
 
 
-def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
+def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_seconds=2400):
     root = Path(root)
     today = today or datetime.now(ZoneInfo('America/New_York')).date()
     checked = _now(today).isoformat().replace('+00:00','Z')
@@ -224,20 +232,21 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
             status[ticker] = {**status.get(ticker,{}), 'status':'official_mapping_missing', 'reason':'sec_cik_mapping_missing', 'officialCheckedAt':checked}
             continue
         groups.setdefault(cik.zfill(10), []).append(ticker)
-    source_failures, parsed_count = 0, 0
+    groups=dict(sorted(groups.items(),key=lambda pair:(not any(status.get(t,{}).get('status') in ('official_source_failed','official_check_deferred') for t in pair[1]),min(status.get(t,{}).get('officialCheckedAt') or '' for t in pair[1]))))
+    source_failures, parsed_count, issuers_checked, deferred = 0, 0, 0, 0
     real_fetch = fetch is None
     transport = fetch or fetch_sec
     last_request = [0.0]
     request_lock = threading.Lock()
-    deadline = time.monotonic()+2400
+    deadline = time.monotonic()+budget_seconds
     cache_root = root/'.sec_cache'/'official'
     def paced(url):
         cache_file = cache_root/(hashlib.sha256(url.encode()).hexdigest()+'.body') if real_fetch and '/Archives/' in url else None
         if cache_file is not None and cache_file.exists():
             return decode_sec_body(cache_file.read_bytes())
+        if time.monotonic()>deadline:
+            raise OfficialScanDeferred('Official scan time budget exhausted')
         if real_fetch:
-            if time.monotonic()>deadline:
-                raise TimeoutError('Official scan time budget exhausted')
             with request_lock:
                 pause = 0.15 - (time.monotonic()-last_request[0])
                 if pause > 0:
@@ -246,7 +255,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
         body = transport(url)
         if cache_file is not None:
             cache_root.mkdir(parents=True,exist_ok=True)
-            cache_file.write_bytes(body.encode('utf-8') if isinstance(body,str) else body)
+            payload=body.encode('utf-8') if isinstance(body,str) else body
+            cache_file.write_bytes(gzip.compress(payload,compresslevel=1))
         return body
     def inspect(cik):
         print(f'Checking official issuer: {",".join(groups[cik])}',flush=True)
@@ -256,8 +266,11 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
     with ThreadPoolExecutor(max_workers=4) as pool:
         futures = {cik:pool.submit(inspect,cik) for cik in groups}
         for index, (cik, aliases) in enumerate(groups.items(), 1):
+            counted=False
             try:
                 records, details = futures[cik].result()
+                issuers_checked += 1
+                counted=True
                 source_failures += bool(details['requestFailures'])
                 state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked'
                 for ticker in aliases:
@@ -268,10 +281,16 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
                     history, added = apply_official_records(companies, history, incoming, today)
                     parsed_count += added
                     manifest = retain_manifest(manifest + incoming)
-                    status[ticker] = {**status.get(ticker,{}), **details, 'status':state, 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
+                    prior_status={k:v for k,v in status.get(ticker,{}).items() if k not in ('errorType','queuedAt')}
+                    status[ticker] = {**prior_status, **details, 'status':state, 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
                         'discoverySource':'SEC submissions and earnings exhibits', 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
+            except OfficialScanDeferred:
+                deferred += len(aliases)
+                for ticker in aliases:
+                    status[ticker]={**status.get(ticker,{}),'status':'official_check_deferred','reason':'official_scan_time_budget_exhausted','queuedAt':checked}
             except Exception as exc:
                 source_failures += 1
+                if not counted:issuers_checked += 1
                 print(f'Official issuer check failed: {",".join(aliases)}; error type: {type(exc).__name__}',flush=True)
                 for ticker in aliases:
                     status[ticker] = {**status.get(ticker,{}), 'status':'official_source_failed', 'reason':'official_validation_failed' if isinstance(exc,ValueError) else 'sec_request_or_configuration_failed', 'errorType':type(exc).__name__, 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
@@ -315,13 +334,13 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
                          'latestStoredDate':latest.get('date'), 'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
                          'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None,
                          'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
-    summary = {'companies':len(companies), 'issuersChecked':len(groups), 'newRecords':parsed_count,
+    summary = {'companies':len(companies), 'issuersChecked':issuers_checked,'issuerTargets':len(groups),'deferredCompanies':deferred, 'newRecords':parsed_count,
                'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
                'officialQuarters':sum(s.get('officialQuarterCount',0) for s in status.values()),
                'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
                'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
                'sourceFailedCompanies':sum(s.get('status')=='official_source_failed' for s in status.values()),
-               'checkedAt':checked, 'healthy':source_failures==0}
+               'checkedAt':checked, 'healthy':source_failures==0 and deferred==0}
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
         root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,
         root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
@@ -336,4 +355,4 @@ if __name__=='__main__':
     summary=sync_all(args.root,full=args.full)
     print(json.dumps(summary))
     if not summary['healthy']:
-        raise SystemExit('Official source checks failed; prior history preserved and failure status saved')
+        raise SystemExit('Official checks incomplete; prior history preserved and per-company status saved')

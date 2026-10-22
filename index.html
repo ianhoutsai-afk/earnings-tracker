@@ -333,7 +333,8 @@
         function renderTable(data) {
             const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
             const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed});
+            const pending=Object.values(historyStatus).filter(row=>row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5).length;
+            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed,pending});
             const container = document.getElementById('data-container');
             container.innerHTML = '';
 
