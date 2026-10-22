@@ -48,7 +48,7 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.assertEqual(added, 1)
         self.assertEqual(self.history, original)
         self.assertEqual(len(result['MSFT']), 2)
-        latest = result['MSFT'][-1]
+        latest = result['MSFT'][0]
         self.assertEqual(latest['eps_reported'], '$4.81')
         self.assertEqual(latest['revenue_reported'], '$90.01B')
         self.assertEqual(latest['quarter'], '2026 Q4')
@@ -64,14 +64,19 @@ class VerifiedHistoryTests(unittest.TestCase):
     def test_missing_official_metrics_stay_blank(self):
         record = {**OFFICIAL, 'epsGaapDiluted': None, 'revenue': None}
         result, _ = apply_official_records(self.companies, self.history, [record], date(2026, 9, 29))
-        self.assertEqual(result['MSFT'][-1]['eps_reported'], '-')
-        self.assertEqual(result['MSFT'][-1]['revenue_reported'], '-')
-        self.assertIsNone(result['MSFT'][-1]['epsBasis'])
+        self.assertEqual(result['MSFT'][0]['eps_reported'], '-')
+        self.assertEqual(result['MSFT'][0]['revenue_reported'], '-')
+        self.assertIsNone(result['MSFT'][0]['epsBasis'])
+        again, added = apply_official_records(self.companies, result, [record], date(2026, 9, 29))
+        self.assertEqual(added, 0)
+        self.assertEqual(again, result)
+        self.assertNotIn('epsSourceUrl', again['MSFT'][0])
+        self.assertNotIn('revenueSourceUrl', again['MSFT'][0])
 
     def test_negative_gaap_eps_is_shown_as_a_loss(self):
         record = {**OFFICIAL, 'epsGaapDiluted': -0.23}
         result, _ = apply_official_records(self.companies, self.history, [record], date(2026, 9, 29))
-        self.assertEqual(result['MSFT'][-1]['eps_reported'], '-$0.23')
+        self.assertEqual(result['MSFT'][0]['eps_reported'], '-$0.23')
 
     def test_reviewed_record_reformats_on_rerun_without_losing_sec_link(self):
         record = {**OFFICIAL, 'epsGaapDiluted': -0.23}
@@ -100,7 +105,7 @@ class VerifiedHistoryTests(unittest.TestCase):
         note = {'en': 'Includes a one-time investment gain.', 'zh-TW': '包含一次性投資收益。'}
         record = {**OFFICIAL, 'metricNote': note}
         result, _ = apply_official_records(self.companies, self.history, [record], date(2026, 9, 29))
-        self.assertEqual(result['MSFT'][-1]['metricNote'], note)
+        self.assertEqual(result['MSFT'][0]['metricNote'], note)
 
     def test_untrusted_or_future_official_record_aborts_without_changing_history(self):
         original = copy.deepcopy(self.history)
@@ -283,7 +288,7 @@ class VerifiedHistoryTests(unittest.TestCase):
             result = refresh_site_data(root, today=date(2026, 9, 29), scan=False)
             self.assertEqual(result['added'], 1)
             saved = json.loads((root / 'historical_data.json').read_text())
-            self.assertEqual(saved['MSFT'][-1]['eps_reported'], '$4.81')
+            self.assertEqual(saved['MSFT'][0]['eps_reported'], '$4.81')
             self.assertIsNone(json.loads((root / 'data.json').read_text())[0]['reportDate'])
             status = json.loads((root / 'history_status.json').read_text())
             self.assertEqual(status['MSFT']['status'], 'official_verified_scan_pending')

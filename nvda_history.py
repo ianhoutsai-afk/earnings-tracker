@@ -204,17 +204,9 @@ def sync_nvda(root, today=None, fetch=fetch_official):
                 records.append(parse_release(document, next_url, today))
     by_period = {}
     for record in records:
+        from quarterly_policy import merge_manifest_record
         previous = by_period.get(record['periodEnd'], {})
-        record = dict(record)
-        retained_metrics = False
-        # A layout change must not replace verified metrics in the source ledger with null.
-        for field in ('epsGaapDiluted', 'revenue'):
-            if record.get(field) is None and previous.get(field) is not None:
-                record[field] = previous[field]
-                retained_metrics = True
-        if retained_metrics:
-            record['metricSourceUrl'] = previous.get('metricSourceUrl') or previous['releaseSourceUrl']
-        by_period[record['periodEnd']] = record
+        by_period[record['periodEnd']] = merge_manifest_record(previous,record)
     records = sorted(by_period.values(), key=lambda record: record['periodEnd'], reverse=True)[:5]
     if len(records) != 5:
         raise ValueError('Expected five official NVDA quarters before replacing legacy history')

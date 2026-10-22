@@ -14,6 +14,7 @@ update_data.py — S&P 500 Earnings Tracker 數據更新腳本
 """
 
 import json
+import re
 import time
 import sys
 import os
@@ -23,7 +24,8 @@ from urllib.parse import parse_qs, unquote, urlparse
 from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 from typing import Optional
-from nvda_history import retain_nvda_history, nvda_company_fields
+from quarterly_policy import retain_history, company_fields
+from official_sources import normalize_proxy_base
 
 try:
     import requests
@@ -129,7 +131,9 @@ def _sec_request(url: str, timeout: int = 15):
         if SEC_PROXY_TOKEN:
             proxy_headers['X-Proxy-Token'] = SEC_PROXY_TOKEN
         parsed = urlparse(url)
-        proxy_url = SEC_PROXY_URL.rstrip('/') + parsed.path
+        proxy_base = normalize_proxy_base(SEC_PROXY_URL)
+        proxy_path = re.sub(r'^/Archives/', '/archives/', parsed.path)
+        proxy_url = proxy_base + proxy_path
         if parsed.query:
             proxy_url += '?' + parsed.query
         if requests is None:
@@ -361,7 +365,7 @@ def _load_sec_json(url: str, cache_path: str, request_label: str) -> Optional[di
             if attempt < 2:
                 time.sleep(1)
                 continue
-            print(f"  ⚠️ SEC {request_label}: {type(exc).__name__}: {exc}")
+            print(f"  ⚠️ SEC {request_label}: {type(exc).__name__}; request/configuration unavailable")
             return None
 
     return data
@@ -946,7 +950,7 @@ def update_data(
 
     # ── 從 SEC API 抓取 filing 列表 ──
     if SEC_PROXY_URL:
-        print(f"🔀 使用 SEC Proxy: {SEC_PROXY_URL}")
+        print("🔀 使用已設定的 SEC HTTPS 代理")
     print("⏳ 從 SEC API 抓取 filing 列表...")
 
     sec_filing_cache = {}
@@ -1117,7 +1121,7 @@ def update_data(
         return False
 
     # ── 寫入 data.json（不含 history）──
-    historical_data = retain_nvda_history(historical_data)
+    historical_data = retain_history(historical_data, today)
     final_data = []
     for company in existing_data:
         ticker = company['ticker']
@@ -1132,11 +1136,10 @@ def update_data(
         entry['bmo_amc'] = updated.get('bmo_amc', company.get('bmo_amc'))
         entry['eps'] = updated.get('eps') or company.get('eps', '-')
         entry['revenue'] = updated.get('revenue') or company.get('revenue', '-')
-        if ticker == 'NVDA':
-            for key in ('nextEarningsCallDate', 'nextEarningsCallSourceUrl'):
-                if company.get(key):
-                    entry[key] = company[key]
-            entry = nvda_company_fields(entry, historical_data, datetime.now(ZoneInfo('America/New_York')).date())
+        for key in ('nextEarningsCallDate', 'nextEarningsCallSourceUrl','tickerIdentityStatus','officialCurrentTickers'):
+            if company.get(key):
+                entry[key] = company[key]
+        entry = company_fields(entry, historical_data, datetime.now(ZoneInfo('America/New_York')).date())
         final_data.append(entry)
 
     try:

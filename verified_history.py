@@ -2,6 +2,7 @@
 
 import copy
 import json
+import math
 import os
 import tempfile
 import time
@@ -11,7 +12,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 from update_data import format_eps, format_revenue
-from nvda_history import retain_nvda_history, nvda_company_fields
+from quarterly_policy import retain_history, company_fields, preserve_release_provenance
 
 
 NEW_YORK = ZoneInfo('America/New_York')
@@ -55,16 +56,17 @@ def _validate_record(record, tickers, today):
     host = (source.hostname or '').lower()
     if source.scheme != 'https' or not host or host == 'finance.yahoo.com' or host.endswith('.yahoo.com'):
         raise ValueError('A reviewed official HTTPS release URL is required')
-    metric_source = urlparse(record.get('metricSourceUrl') or record['releaseSourceUrl'])
-    if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com'):
-        raise ValueError('A reviewed official HTTPS metric URL is required')
+    for field in ('metricSourceUrl','epsSourceUrl','revenueSourceUrl'):
+        metric_source = urlparse(record.get(field) or record['releaseSourceUrl'])
+        if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com') or metric_source.username or metric_source.password:
+            raise ValueError('A reviewed official HTTPS metric URL is required')
     if record.get('epsGaapDiluted') is not None and record.get('epsBasis') != 'GAAP diluted':
         raise ValueError('EPS must explicitly be GAAP diluted, not adjusted')
     if record.get('epsGaapDiluted') is None and record.get('epsBasis') not in (None, 'GAAP diluted'):
         raise ValueError('Invalid EPS basis')
     for field in ('epsGaapDiluted', 'revenue'):
         value = record.get(field)
-        if value is not None and (isinstance(value, bool) or not isinstance(value, (float, int))):
+        if value is not None and (isinstance(value, bool) or not isinstance(value, (float, int)) or not math.isfinite(value)):
             raise ValueError(f'Invalid {field} for {record["ticker"]}')
     if record.get('revenue') is not None and record['revenue'] < 0:
         raise ValueError('Revenue cannot be negative')
@@ -94,7 +96,7 @@ def apply_official_records(companies, history, records, today):
         ticker = record['ticker']
         rows = result.setdefault(ticker, [])
         existing = next((row for row in rows if (
-            row.get('date') == record['date']
+            (not row.get('periodEnd') and row.get('date') == record['date'])
             or (row.get('periodEnd') == record['periodEnd']
                 and row.get('periodScope') == record['periodScope'])
         )), None)
@@ -114,33 +116,43 @@ def apply_official_records(companies, history, records, today):
             'verifiedAt': record['verifiedAt'],
             'verificationStatus': 'official_verified',
         }
+        for field in ('periodStart','filingDate','accessionNumber','secUrl','form','releaseFilingDate','releaseAccession'):
+            if record.get(field) is not None:
+                official_row[field] = record[field]
+        for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
+            if record.get(field) is not None:
+                official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or record['releaseSourceUrl']
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
+        official_row['fiscalYear'] = record['fiscalYear']
+        official_row['fiscalQuarter'] = record['fiscalQuarter']
         if existing:
-            if ticker == 'NVDA':
-                if existing.get('verifiedAt', '') > record['verifiedAt']:
-                    continue
-                # A restatement changes the quarter's values, not its first release date.
-                if existing.get('verificationStatus') == 'official_verified':
-                    official_row['date'] = existing['date']
-                    if eps is None:
-                        official_row['eps_reported'] = existing.get('eps_reported', '-')
-                        official_row['epsBasis'] = existing.get('epsBasis')
-                    if revenue is None:
-                        official_row['revenue_reported'] = existing.get('revenue_reported', '-')
-                    if eps is None or revenue is None:
-                        official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
-                official_row['fiscalYear'] = record['fiscalYear']
-                official_row['fiscalQuarter'] = record['fiscalQuarter']
+            if existing.get('verifiedAt', '') > record['verifiedAt']:
+                continue
+            # A restatement changes values, not the original release or its provenance.
+            if existing.get('verificationStatus') == 'official_verified':
+                preserve_release_provenance(official_row,existing)
+                if eps is None:
+                    official_row['eps_reported'] = existing.get('eps_reported', '-')
+                    official_row['epsBasis'] = existing.get('epsBasis')
+                    if existing.get('eps_reported') not in (None, '-'):
+                        official_row['epsSourceUrl'] = existing.get('epsSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    else:
+                        existing.pop('epsSourceUrl', None)
+                if revenue is None:
+                    official_row['revenue_reported'] = existing.get('revenue_reported', '-')
+                    if existing.get('revenue_reported') not in (None, '-'):
+                        official_row['revenueSourceUrl'] = existing.get('revenueSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    else:
+                        existing.pop('revenueSourceUrl', None)
+                if eps is None and revenue is None:
+                    official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
             existing.update(official_row)
             continue
-        if ticker == 'NVDA':
-            official_row['fiscalYear'] = record['fiscalYear']
-            official_row['fiscalQuarter'] = record['fiscalQuarter']
         rows.append(official_row)
         rows.sort(key=lambda item: item['date'])
         added += 1
-    return retain_nvda_history(result), added
+    return retain_history(result, today), added
 
 
 def clear_past_report_dates(companies, today):
@@ -168,6 +180,8 @@ def apply_expected_dates(companies, future_dates, today):
     """Publish only future third-party date estimates, without timing claims."""
     result = copy.deepcopy(companies)
     for company in result:
+        if company.get('tickerIdentityStatus') in ('historical_alias','unconfirmed'):
+            continue
         candidate = future_dates.get(company['ticker'])
         if not candidate:
             continue
@@ -310,7 +324,7 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
     reviewed = json.loads((root / 'official_history.json').read_text(encoding='utf-8'))
     updated_history, added = apply_official_records(companies, history, reviewed, today)
     updated_companies = clear_past_report_dates(companies, today)
-    updated_companies = [nvda_company_fields(company, updated_history, today) for company in updated_companies]
+    updated_companies = [company_fields(company, updated_history, today) for company in updated_companies]
     if scan:
         candidates, errors, future_dates = scan_yahoo_candidates(
             companies, fetch or _fetch_yahoo_earnings, today, sleep=sleep,

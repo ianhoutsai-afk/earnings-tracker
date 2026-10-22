@@ -1,9 +1,19 @@
-name: NVDA Official Quarterly History
+name: Official Quarterly History
 
 on:
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Official-source sync or connection diagnostics'
+        type: choice
+        options: [sync, preflight]
+        default: sync
+      full:
+        description: 'Check every active issuer'
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -13,9 +23,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  nvda:
-    if: github.ref == 'refs/heads/main'
+  official:
     runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,18 +37,78 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install official release parser
-        run: python -m pip install lxml
-      - name: Verify five-quarter retention and official-source parser
-        run: python -m unittest test_nvda_history -v
-      - name: Update NVDA only
-        run: python nvda_history.py
-      - name: Publish verified NVDA changes
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - name: Install dependencies
+        run: python -m pip install lxml requests pandas yfinance
+      - name: Verify quarterly policies and official parsers
+        run: python -m unittest test_quarterly_policy test_official_sources test_official_sync test_nvda_history -q
+      - name: Check SEC connections without revealing configuration
+        if: inputs.mode == 'preflight'
         run: |
-          git add data.json historical_data.json official_history.json history_status.json
+          python - <<'PY'
+          import json
+          from official_sync import fetch_sec
+          from official_sources import parse_inline_quarter
+          endpoints = {
+              'submissions': 'https://data.sec.gov/submissions/CIK0000320193.json',
+              'quarterly_filing': 'https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm',
+          }
+          results = []
+          for kind, url in endpoints.items():
+              try:
+                  body = fetch_sec(url)
+                  if kind == 'submissions':
+                      payload = json.loads(body)
+                      if int(payload.get('cik', 0)) != 320193:
+                          raise ValueError('Unexpected SEC issuer response')
+                  else:
+                      parse_inline_quarter(body, '2026-03-28', cik='0000320193')
+                  results.append({'source':kind, 'available':True})
+              except Exception as exc:
+                  results.append({'source':kind, 'available':False, 'errorType':type(exc).__name__})
+          print(json.dumps(results))
+          if not all(row['available'] for row in results):
+              raise SystemExit('Official SEC connection unavailable; configuration values were not logged')
+          PY
+      - name: Refresh officially verified quarterly history
+        id: sync
+        if: inputs.mode != 'preflight'
+        continue-on-error: true
+        run: |
+          if [[ "${{ inputs.full }}" == "true" ]]; then
+            python official_sync.py --full
+          else
+            python official_sync.py
+          fi
+      - name: Validate publication bundle
+        id: validate
+        if: ${{ !cancelled() && inputs.mode != 'preflight' }}
+        run: python validate_quarterly_data.py
+      - name: Publish verified data and honest source status
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && inputs.mode != 'preflight' && steps.validate.outcome == 'success' }}
+        run: |
+          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
           if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update NVDA official quarterly history [skip ci]'
+          git commit -m 'Update official quarterly history and source status [skip ci]'
           git pull --rebase origin main
           git push origin HEAD:main
+      - uses: actions/cache/save@v4
+        if: ${{ always() && inputs.mode != 'preflight' }}
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
+      - name: Keep check results for review
+        if: ${{ always() && inputs.mode != 'preflight' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-quarterly-check
+          path: official_scan_state.json
+      - name: Fail visibly when an official source was unavailable
+        if: steps.sync.outcome == 'failure'
+        run: exit 1
