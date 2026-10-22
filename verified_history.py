@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 from update_data import format_eps, format_revenue
-from quarterly_policy import retain_history, company_fields
+from quarterly_policy import retain_history, company_fields, preserve_release_provenance
 
 
 NEW_YORK = ZoneInfo('America/New_York')
@@ -56,9 +56,10 @@ def _validate_record(record, tickers, today):
     host = (source.hostname or '').lower()
     if source.scheme != 'https' or not host or host == 'finance.yahoo.com' or host.endswith('.yahoo.com'):
         raise ValueError('A reviewed official HTTPS release URL is required')
-    metric_source = urlparse(record.get('metricSourceUrl') or record['releaseSourceUrl'])
-    if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com'):
-        raise ValueError('A reviewed official HTTPS metric URL is required')
+    for field in ('metricSourceUrl','epsSourceUrl','revenueSourceUrl'):
+        metric_source = urlparse(record.get(field) or record['releaseSourceUrl'])
+        if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com') or metric_source.username or metric_source.password:
+            raise ValueError('A reviewed official HTTPS metric URL is required')
     if record.get('epsGaapDiluted') is not None and record.get('epsBasis') != 'GAAP diluted':
         raise ValueError('EPS must explicitly be GAAP diluted, not adjusted')
     if record.get('epsGaapDiluted') is None and record.get('epsBasis') not in (None, 'GAAP diluted'):
@@ -118,6 +119,9 @@ def apply_official_records(companies, history, records, today):
         for field in ('periodStart','filingDate','accessionNumber','secUrl','form','releaseFilingDate','releaseAccession'):
             if record.get(field) is not None:
                 official_row[field] = record[field]
+        for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
+            if record.get(field) is not None:
+                official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or record['releaseSourceUrl']
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
         official_row['fiscalYear'] = record['fiscalYear']
@@ -127,14 +131,15 @@ def apply_official_records(companies, history, records, today):
                 continue
             # A restatement changes values, not the original release or its provenance.
             if existing.get('verificationStatus') == 'official_verified':
-                official_row['date'] = existing['date']
-                official_row['releaseSourceUrl'] = existing.get('releaseSourceUrl') or record['releaseSourceUrl']
+                preserve_release_provenance(official_row,existing)
                 if eps is None:
                     official_row['eps_reported'] = existing.get('eps_reported', '-')
                     official_row['epsBasis'] = existing.get('epsBasis')
+                    official_row['epsSourceUrl'] = existing.get('epsSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
                 if revenue is None:
                     official_row['revenue_reported'] = existing.get('revenue_reported', '-')
-                if eps is None or revenue is None:
+                    official_row['revenueSourceUrl'] = existing.get('revenueSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                if eps is None and revenue is None:
                     official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
             existing.update(official_row)
             continue
@@ -169,6 +174,8 @@ def apply_expected_dates(companies, future_dates, today):
     """Publish only future third-party date estimates, without timing claims."""
     result = copy.deepcopy(companies)
     for company in result:
+        if company.get('tickerIdentityStatus') in ('historical_alias','unconfirmed'):
+            continue
         candidate = future_dates.get(company['ticker'])
         if not candidate:
             continue

@@ -102,3 +102,25 @@ class QuarterlyPolicyTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class TrustedWindowTests(unittest.TestCase):
+    def test_unverified_later_date_never_evicts_a_fifth_verified_period(self):
+        rows=[dict(date=f'2026-0{i}-15',periodEnd=f'2026-0{i}-01',periodScope='quarter',verificationStatus='official_verified',quarter=f'2026 Q{min(i,4)}') for i in range(1,6)]
+        rows.append(dict(date='2026-06-15',quarter='legacy pending'))
+        result=retain_history({'ABC':rows},TODAY)['ABC']
+        self.assertEqual(len(result),5)
+        self.assertTrue(all(r['verificationStatus']=='official_verified' for r in result))
+
+class MetricProvenanceTests(unittest.TestCase):
+    def test_partial_restatement_tracks_each_numeric_source(self):
+        first={**official('2026-06-30',4,'2026-07-29'),'releaseFilingDate':'2026-07-30','releaseAccession':'original'}
+        h,_=apply_official_records([{'ticker':'MSFT'}],{},[first],TODAY)
+        second={**first,'date':'2026-10-20','epsGaapDiluted':1.5,'revenue':None,
+                'releaseSourceUrl':'https://www.microsoft.com/new-release','metricSourceUrl':'https://www.microsoft.com/new-statements',
+                'releaseFilingDate':'2026-10-21','releaseAccession':'amendment'}
+        h,_=apply_official_records([{'ticker':'MSFT'}],h,[second],TODAY)
+        r=h['MSFT'][0]
+        self.assertEqual(r['epsSourceUrl'],second['metricSourceUrl'])
+        self.assertEqual(r['revenueSourceUrl'],first['releaseSourceUrl'])
+        self.assertEqual(r['releaseFilingDate'],first['releaseFilingDate'])
+        self.assertEqual(r['releaseAccession'],first['releaseAccession'])

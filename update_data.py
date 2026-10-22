@@ -1136,7 +1136,7 @@ def update_data(
         entry['bmo_amc'] = updated.get('bmo_amc', company.get('bmo_amc'))
         entry['eps'] = updated.get('eps') or company.get('eps', '-')
         entry['revenue'] = updated.get('revenue') or company.get('revenue', '-')
-        for key in ('nextEarningsCallDate', 'nextEarningsCallSourceUrl'):
+        for key in ('nextEarningsCallDate', 'nextEarningsCallSourceUrl','tickerIdentityStatus','officialCurrentTickers'):
             if company.get(key):
                 entry[key] = company[key]
         entry = company_fields(entry, historical_data, datetime.now(ZoneInfo('America/New_York')).date())

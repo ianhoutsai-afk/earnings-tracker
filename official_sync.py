@@ -1,6 +1,7 @@
 """Check all active issuers, publish only source-verified quarterly releases."""
 import argparse
 import hashlib
+import gzip
 import copy
 import json
 import re
@@ -18,11 +19,18 @@ from zoneinfo import ZoneInfo
 from lxml import html
 
 from official_sources import parse_earnings_release, parse_inline_quarter
-from quarterly_policy import retain_history, retain_manifest, company_fields
+from issuer_mapping import fill_missing_ciks
+from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
 
 
 _DIRECT_SEC = False
+
+
+def decode_sec_body(body):
+    if body.startswith(b'\x1f\x8b'):
+        return gzip.decompress(body)
+    return body
 
 
 def fetch_sec(url):
@@ -36,17 +44,17 @@ def fetch_sec(url):
         try:
             response = _sec_request(url, timeout=20)
             if response.status_code == 200:
-                return response.content if hasattr(response,'content') else response._body
+                return decode_sec_body(response.content if hasattr(response,'content') else response._body)
         except (OSError, ValueError):
             pass
         except Exception:
             # requests and urllib use different transport exception types; do not leak URLs.
             pass
     try:
-        with urlopen(Request(url,headers=SEC_HEADERS),timeout=20) as response:
+        with urlopen(Request(url,headers={**SEC_HEADERS,'Accept-Encoding':'identity'}),timeout=20) as response:
             body=response.read()
         _DIRECT_SEC = True
-        return body
+        return decode_sec_body(body)
     except HTTPError as exc:
         raise OSError(f'Official SEC HTTP {exc.code}') from None
     except Exception:
@@ -91,7 +99,7 @@ def check_issuer(cik, submissions, fetch, today):
     releases = [r for r in filings if r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+', r['items'])
                 and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
-    records, pending, failures = {}, 0, 0
+    records, pending, failures, metric_pending = {}, 0, 0, 0
     for event in releases[:12]:
         base = _base(cik, event)
         try:
@@ -117,22 +125,35 @@ def check_issuer(cik, submissions, fetch, today):
             metrics = None
             metric_url = url
             matched_filing = None
+            identity_conflict = False
             for candidate in matches[:2]:
                 candidate_url = _base(cik, candidate) + candidate['primaryDocument']
                 try:
-                    parsed = parse_inline_quarter(fetch(candidate_url), release['periodEnd'])
-                except (ValueError, OSError, TimeoutError, html.etree.ParserError):
+                    parsed = parse_inline_quarter(fetch(candidate_url), release['periodEnd'],cik=cik)
+                except (OSError, TimeoutError):
+                    failures += 1
+                    metric_pending += 1
+                    continue
+                except (ValueError, html.etree.ParserError):
+                    metric_pending += 1
                     continue
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
+                    identity_conflict = True
+                    metric_pending += 1
                     continue
                 metrics, metric_url, matched_filing = parsed, candidate_url, candidate
                 break
+            if metrics is None and identity_conflict:
+                pending += 1
+                continue
             if metrics is None:
                 # A published quarter may be admitted before its 10-Q, but only with explicit fiscal identity.
                 if not release.get('fiscalYear') or not release.get('fiscalQuarter'):
                     continue
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
+            if metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None:
+                metric_pending += 1
             record = {**release, **metrics, 'releaseSourceUrl':url, 'metricSourceUrl':metric_url,
                       'verifiedAt':today.isoformat(), 'releaseFilingDate':event['filingDate'],
                       'releaseAccession':event['accessionNumber']}
@@ -144,14 +165,13 @@ def check_issuer(cik, submissions, fetch, today):
                 records[record['periodEnd']] = record
             elif record['date'] < prior['date']:
                 # Keep newest revision metrics and earliest confirmed original release/date source.
-                prior['date'] = record['date']
-                prior['releaseSourceUrl'] = record['releaseSourceUrl']
+                preserve_release_provenance(prior,record)
             accepted = True
             break
         if not accepted:
             pending += 1
     rows = sorted(records.values(), key=lambda r:r['periodEnd'], reverse=True)[:5]
-    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'requestFailures':failures}
+    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures}
 
 
 def _now(today):
@@ -189,6 +209,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
     manifest = json.loads((root/'official_history.json').read_text())
     status = json.loads((root/'history_status.json').read_text())
     mapping = json.loads((root/'sp500_mapping.json').read_text())
+    mapping=fill_missing_ciks(companies,history,mapping,fetch or fetch_sec)
     tickers = {c['ticker'] for c in companies}
     if set(history) != tickers:
         raise ValueError('Company/history ticker set mismatch; no publication')
@@ -213,7 +234,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
     def paced(url):
         cache_file = cache_root/(hashlib.sha256(url.encode()).hexdigest()+'.body') if real_fetch and '/Archives/' in url else None
         if cache_file is not None and cache_file.exists():
-            return cache_file.read_bytes()
+            return decode_sec_body(cache_file.read_bytes())
         if real_fetch:
             if time.monotonic()>deadline:
                 raise TimeoutError('Official scan time budget exhausted')
@@ -238,20 +259,12 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
             try:
                 records, details = futures[cik].result()
                 source_failures += bool(details['requestFailures'])
-                state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] else 'official_source_checked'
+                state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked'
                 for ticker in aliases:
                     incoming = [{**r,'ticker':ticker} for r in records]
                     # Keep original verified figures when this run only confirms the release.
                     by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
-                    for r in incoming:
-                        prior = by_period.get((ticker,r['periodEnd']))
-                        if prior:
-                            for field in ('epsGaapDiluted','revenue'):
-                                if r.get(field) is None and prior.get(field) is not None:
-                                    r[field] = prior[field]
-                                    r['metricSourceUrl'] = prior.get('metricSourceUrl') or prior['releaseSourceUrl']
-                                    if field == 'epsGaapDiluted':r['epsBasis'] = 'GAAP diluted'
-                            r['date'],r['releaseSourceUrl'] = prior['date'],prior['releaseSourceUrl']
+                    incoming=[merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),r) for r in incoming]
                     history, added = apply_official_records(companies, history, incoming, today)
                     parsed_count += added
                     manifest = retain_manifest(manifest + incoming)
@@ -281,7 +294,19 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
             source_failures += 1
             status['NVDA'] = {**status.get('NVDA',{}),'status':'official_source_failed','reason':'nvda_newsroom_request_or_parse_failed','officialCheckedAt':checked,'checkedAt':checked}
     history = retain_history(history, today)
-    companies = [company_fields(c,history,today) for c in companies]
+    enriched=[]
+    for company in companies:
+        entry=dict(company)
+        issuer=mapping.get(entry['ticker'],{})
+        if issuer.get('tickerStatus') in ('historical_alias','unconfirmed'):
+            entry['tickerIdentityStatus']=issuer['tickerStatus']
+            entry['officialCurrentTickers']=issuer.get('officialTickers',[])
+            if entry.get('reportDateSource')!='official':
+                entry['reportDate']=None
+                entry['reportDateSource']=None
+                entry['reportDateSourceUrl']=None
+        enriched.append(company_fields(entry,history,today))
+    companies=enriched
     for company in companies:
         ticker = company['ticker']
         rows = history[ticker]
@@ -294,7 +319,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
                'checkedAt':checked, 'healthy':source_failures==0}
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
         root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,
-        root/'official_scan_state.json':summary})
+        root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
     return summary
 
 

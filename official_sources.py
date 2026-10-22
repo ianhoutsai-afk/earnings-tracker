@@ -16,7 +16,7 @@ DATE = MONTH + r'\s+\d{1,2}\s*,?\s+\d{4}'
 QUARTERS = {'first':1, 'second':2, 'third':3, 'fourth':4, '1st':1, '2nd':2, '3rd':3, '4th':4}
 REVENUE_TAGS = {'us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax',
                 'us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax', 'us-gaap:SalesRevenueNet',
-                'us-gaap:RevenuesNetOfInterestExpense', 'us-gaap:RevenueNotFromContractWithCustomer'}
+                'us-gaap:RevenuesNetOfInterestExpense'}
 
 
 def normalize_proxy_base(value):
@@ -99,9 +99,31 @@ def _unique_text(nodes):
     return values.pop() if len(values) == 1 else None
 
 
-def parse_inline_quarter(document, period_end):
+def _contract_revenue_total(node):
+    """Contract revenue is a total only on an explicitly labelled consolidated statement row."""
+    rows=[n for n in node.iterancestors() if _local(n)=='tr']
+    tables=[n for n in node.iterancestors() if _local(n)=='table']
+    if not rows or not tables:return False
+    cells=rows[0].xpath('./td|./th')
+    before=[]
+    for cell in cells:
+        if node is cell or any(n is node for n in cell.iter()):break
+        before.append(_text(cell))
+    label=' '.join(' '.join(before).split()).strip(' :$')
+    if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales)(?: \([a-z0-9]+\))?',label):return False
+    table=tables[0]
+    heading=' '.join(_text(table).split())[:700]
+    previous=table.getprevious()
+    for _ in range(3):
+        if previous is None:break
+        heading=' '.join(_text(previous).split())[-400:]+' '+heading
+        previous=previous.getprevious()
+    return bool(re.search(r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)',heading))
+
+
+def parse_inline_quarter(document, period_end, cik=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
-    nodes = list(tree.iter())
+    nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
     def dei(tag):
         return _unique_text(n for n in nodes if n.get('name', '').lower() == 'dei:' + tag.lower())
     raw_end = dei('DocumentPeriodEndDate')
@@ -116,6 +138,9 @@ def parse_inline_quarter(document, period_end):
         raise ValueError('Explicit fiscal-year/quarter focus unavailable')
     contexts = {}
     for context in (n for n in nodes if _local(n) == 'context'):
+        identifier=_unique_text(_desc(context,'identifier'))
+        if cik is not None and (not identifier or not identifier.isdigit() or identifier.lstrip('0')!=str(cik).lstrip('0')):
+            continue
         if _desc(context, 'segment') or _desc(context, 'scenario'):
             continue
         start = _unique_text(_desc(context, 'startdate'))
@@ -134,6 +159,7 @@ def parse_inline_quarter(document, period_end):
                 units[unit.get('id')] = 'USD/shares'
         elif (_unique_text(_desc(unit, 'measure')) or '').lower() == 'iso4217:usd':
             units[unit.get('id')] = 'USD'
+    noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
     eps, revenue, starts = set(), set(), set()
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
@@ -142,6 +168,8 @@ def parse_inline_quarter(document, period_end):
         is_eps = tag.lower() == 'us-gaap:earningspersharediluted'
         is_revenue = tag.lower() in {t.lower() for t in REVENUE_TAGS}
         if not is_eps and not is_revenue:
+            continue
+        if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
             continue
         if units.get(node.get('unitref')) != ('USD/shares' if is_eps else 'USD'):
             continue

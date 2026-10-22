@@ -41,7 +41,7 @@ def retain_history(history, today=None):
             identity = fiscal_identity(row)
             if identity:
                 row['fiscalYear'], row['fiscalQuarter'] = identity
-            if row.get('verificationStatus') != 'official_verified':
+            if row.get('verificationStatus') != 'official_verified' or not row.get('periodEnd') or row.get('periodScope')!='quarter':
                 row['verificationStatus'] = 'legacy_unverified'
             key = period_key(row)
             previous = unique.get(key)
@@ -49,7 +49,11 @@ def retain_history(history, today=None):
             if previous is None or priority(row) > priority(previous):
                 unique[key] = row
         # Original/revised filings for a verified period share periodEnd and never reorder on amendment date.
-        result[ticker] = sorted(unique.values(), key=lambda item: item.get('periodEnd') or item['date'], reverse=True)[:HISTORY_LIMIT]
+        order=lambda item:item.get('periodEnd') or item['date']
+        trusted=sorted((r for r in unique.values() if r.get('verificationStatus')=='official_verified' and r.get('periodScope')=='quarter' and r.get('periodEnd')),key=order,reverse=True)[:HISTORY_LIMIT]
+        legacy=sorted((r for r in unique.values() if r.get('verificationStatus')!='official_verified'),key=order,reverse=True)
+        selected=trusted+legacy[:HISTORY_LIMIT-len(trusted)]
+        result[ticker]=sorted(selected,key=order,reverse=True)
     return result
 
 
@@ -72,6 +76,10 @@ def company_fields(company, history, today):
     # Existing forward estimates have no auditable next-quarter period/source.
     result['eps'] = '-'
     result['revenue'] = '-'
+    if result.get('tickerIdentityStatus') in ('historical_alias','unconfirmed') and result.get('reportDateSource')!='official':
+        result['reportDate']=None
+        result['reportDateSource']=None
+        result['reportDateSourceUrl']=None
     rows = history.get(result['ticker'], [])
     verified = [r for r in rows if r.get('verificationStatus') == 'official_verified' and fiscal_identity(r)]
     result.pop('latestPublishedQuarter', None)
@@ -96,3 +104,33 @@ def company_fields(company, history, today):
                 for name in dependent:
                     result.pop(name, None)
     return result
+
+
+def preserve_release_provenance(updated, previous):
+    """Keep the earliest confirmed release date and its source identifiers together."""
+    if not previous.get('date') or previous['date'] > updated.get('date',''):
+        return updated
+    same_day=previous['date']==updated.get('date')
+    for field in ('date','releaseSourceUrl','releaseFilingDate','releaseAccession'):
+        if previous.get(field) is not None:
+            updated[field]=previous[field]
+        elif not same_day:
+            updated.pop(field,None)
+    return updated
+
+
+def merge_manifest_record(previous, incoming):
+    if previous.get('verifiedAt','') > incoming.get('verifiedAt',''):
+        return copy.deepcopy(previous)
+    result=copy.deepcopy(incoming)
+    for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
+        if result.get(field) is None and previous.get(field) is not None:
+            result[field]=previous[field]
+            result[source_field]=previous.get(source_field) or previous.get('metricSourceUrl') or previous['releaseSourceUrl']
+        elif result.get(field) is not None:
+            result[source_field]=incoming.get(source_field) or incoming.get('metricSourceUrl') or incoming['releaseSourceUrl']
+    if result.get('epsGaapDiluted') is not None:
+        result['epsBasis']='GAAP diluted'
+    if incoming.get('epsGaapDiluted') is None and incoming.get('revenue') is None and previous:
+        result['metricSourceUrl']=previous.get('metricSourceUrl') or previous['releaseSourceUrl']
+    return preserve_release_provenance(result,previous)

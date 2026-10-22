@@ -107,3 +107,42 @@ class IssuerIsolationTests(unittest.TestCase):
    sync_all(root,TODAY,fetch=partial,full=True)
    h=json.loads((root/'historical_data.json').read_text())
    self.assertEqual(h['ABCA'][0]['date'],'2026-10-14')
+
+class OfficialReviewRegressions(unittest.TestCase):
+ setup_root=OfficialSyncTests.setup_root
+ def test_metric_filing_transport_failure_is_visible_in_source_health(self):
+  from official_sync import check_issuer
+  def missing(url):
+   if url.endswith('quarter.htm'):raise OSError('offline')
+   return fetch(url)
+  records,details=check_issuer('0000000001',SUBMISSIONS,missing,TODAY)
+  self.assertEqual(len(records),1)
+  self.assertGreater(details['requestFailures'],0)
+  self.assertGreater(details['metricPending'],0)
+
+ def test_release_provenance_stays_with_original_not_amendment(self):
+  from official_sync import check_issuer
+  submissions={'filings':{'recent':{
+   'form':['8-K/A','8-K','10-Q'],'items':['2.02','2.02',''],
+   'accessionNumber':['0000000001-26-000003','0000000001-26-000001','0000000001-26-000002'],
+   'primaryDocument':['amended.htm','results.htm','quarter.htm'],
+   'filingDate':['2026-10-20','2026-10-15','2026-10-16'],
+   'reportDate':['2026-10-20','2026-10-14','2026-09-30']}}}
+  def revised(url):
+   if url.endswith('ex991-amended.htm'):return RELEASE.replace('October 14, 2026','October 20, 2026')
+   if url.endswith('amended.htm'):return '<a href="ex991-amended.htm">99.1</a>'
+   return fetch(url)
+  records,_=check_issuer('0000000001',submissions,revised,TODAY)
+  self.assertEqual(records[0]['date'],'2026-10-14')
+  self.assertEqual(records[0]['releaseAccession'],'0000000001-26-000001')
+  self.assertEqual(records[0]['releaseFilingDate'],'2026-10-15')
+
+class ConflictingIdentityTests(unittest.TestCase):
+ def test_conflicting_official_fiscal_focus_does_not_fall_back_to_release_guess(self):
+  from official_sync import check_issuer
+  def conflicting(url):
+   if url.endswith('quarter.htm'):return filing().replace('>2026</ix:nonNumeric>','>2027</ix:nonNumeric>')
+   return fetch(url)
+  rows,details=check_issuer('0000000001',SUBMISSIONS,conflicting,TODAY)
+  self.assertEqual(rows,[])
+  self.assertGreater(details['parsePending'],0)

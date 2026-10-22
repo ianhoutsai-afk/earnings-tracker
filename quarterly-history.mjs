@@ -7,9 +7,10 @@ export function selectHistory(ticker, rows) {
     const priority = item => `${item.verificationStatus === 'official_verified' ? 1 : 0}:${item.verifiedAt || ''}`;
     if (!previous || priority(row) > priority(previous)) unique.set(key, row);
   }
-  return [...unique.values()]
-    .sort((a,b)=>(b.periodEnd || b.date || '').localeCompare(a.periodEnd || a.date || ''))
-    .slice(0,5);
+  const order=(a,b)=>(b.periodEnd || b.date || '').localeCompare(a.periodEnd || a.date || '');
+  const trusted=[...unique.values()].filter(r=>r.verificationStatus==='official_verified'&&r.periodScope==='quarter'&&r.periodEnd).sort(order).slice(0,5);
+  const legacy=[...unique.values()].filter(r=>r.verificationStatus!=='official_verified').sort(order);
+  return [...trusted,...legacy.slice(0,5-trusted.length)].sort(order);
 }
 
 export function fiscalQuarterLabel(row) {

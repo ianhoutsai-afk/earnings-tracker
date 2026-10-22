@@ -119,3 +119,41 @@ class OfficialComparativeIdentityTests(unittest.TestCase):
   doc='<h1>Accenture Reports Fourth-Quarter and Full-Year Fiscal 2026 Results</h1><p>NEW YORK; October 1, 2026 — reported results for the fourth quarter and full fiscal year ended August 31, 2026. All comparisons are to the fourth quarter of fiscal 2025.</p>'
   result=parse_earnings_release(doc,'2026-10-01','2026-10-01',TODAY)
   self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2026,4))
+
+class OfficialCommentTests(unittest.TestCase):
+ def test_sec_html_comments_do_not_abort_quarter_parsing(self):
+  doc=filing().replace('<body>','<body><!-- SEC filing comment -->')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['epsGaapDiluted'],1.25)
+
+class RevenueScopeTests(unittest.TestCase):
+ def test_standard_revenue_component_is_not_a_consolidated_total(self):
+  for tag in ['RevenueNotFromContractWithCustomer','RevenueFromContractWithCustomerExcludingAssessedTax']:
+   doc=filing().replace('us-gaap:Revenues','us-gaap:'+tag)
+   self.assertIsNone(parse_inline_quarter(doc,'2026-09-30')['revenue'])
+
+class ConsolidatedContractRevenueTests(unittest.TestCase):
+ def test_contract_revenue_requires_consolidated_statement_total_row(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  fact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  table='<table><caption>CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS</caption><tr><td>Total revenues</td><td>'+fact+'</td></tr></table>'
+  self.assertEqual(parse_inline_quarter(filing().replace(original,table),'2026-09-30')['revenue'],1200000000)
+  mixed=filing().replace(original,table).replace('</body>','<ix:nonFraction name="us-gaap:RevenueNotFromContractWithCustomer" contextRef="q" unitRef="usd">100</ix:nonFraction></body>')
+  self.assertIsNone(parse_inline_quarter(mixed,'2026-09-30')['revenue'])
+
+class OfficialLegacyEncodingTests(unittest.TestCase):
+ def test_cp1252_sec_documents_preserve_ascii_facts(self):
+  document=('<?xml version="1.0" encoding="UTF-8"?>'+filing().replace('<body>','<body><p>Company’s quarterly statement</p>')).encode('cp1252')
+  self.assertEqual(parse_inline_quarter(document,'2026-09-30')['epsGaapDiluted'],1.25)
+
+class CompressedSecBodyTests(unittest.TestCase):
+ def test_compressed_official_json_and_cached_html_are_decoded(self):
+  import gzip
+  from official_sync import decode_sec_body
+  body=b'{"cik":123}'
+  self.assertEqual(decode_sec_body(gzip.compress(body)),body)
+  self.assertEqual(decode_sec_body(body),body)
+
+class EntityContextTests(unittest.TestCase):
+ def test_another_registrants_context_cannot_supply_the_issuers_values(self):
+  doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>2</xbrli:identifier>')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='0000000001')['epsGaapDiluted'])

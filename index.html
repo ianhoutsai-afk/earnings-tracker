@@ -400,6 +400,7 @@
                             (${company.ticker})
                         </span>
                         ${badgeHtml}
+                        ${company.tickerIdentityStatus==='historical_alias' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.renamedTicker',{tickers:(company.officialCurrentTickers || []).join(', ')})}</div>` : company.tickerIdentityStatus==='unconfirmed' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.tickerUnconfirmed')}</div>` : ''}
                         ${history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${fiscalQuarterLabel(history[0]) && history[0].verificationStatus === 'official_verified' ? t('history.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date }) : t('history.latestUnverified', {date: history[0].date})}</div>` : ''}
                     </td>
                     <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
@@ -471,7 +472,7 @@
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
                                     ${t('history.quarterRevenue')}
                                 </div>
-                                ${!verifiedRelease ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
+                                ${!verifiedRelease || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
                                 ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
 
                                 ${h.releaseSourceUrl ? `
@@ -480,7 +481,10 @@
                                         ${t('earnings.releaseSource')}
                                     </a>
                                 ` : ''}
-                                ${h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl ? `
+                                ${h.epsSourceUrl && h.revenueSourceUrl && h.epsSourceUrl !== h.revenueSourceUrl ? `
+                                    <a href="${h.epsSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.epsSource')}</a>
+                                    <a href="${h.revenueSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.revenueSource')}</a>
+                                ` : h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl ? `
                                     <a href="${h.metricSourceUrl}" target="_blank" rel="noopener noreferrer"
                                        class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
                                         ${t('earnings.metricSource')}
