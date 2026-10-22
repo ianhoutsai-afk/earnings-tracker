@@ -28,32 +28,32 @@
 ### Task 1: Shared policy and migration
 **Files:** quarterly_policy.py, verified_history.py, nvda_history.py, update_data.py, test_quarterly_policy.py, test_verified_history.py
 **Interfaces:** retain_history(history, today=None), company_fields(company, history, today), retain_manifest(records).
-- [ ] Write failing tests for five-period order/dedupe, seed replay, all-company restatement/null preservation, non-mutating migration, short histories and invalid/future candidates.
-- [ ] Run focused tests; observe expected failures.
-- [ ] Implement policy and integrate every write path. Validate finite numeric values.
-- [ ] Run Python suite; update older assertions where newest-first replaces intentional pilot-only behavior.
-- [ ] Commit shared policy.
+- [x] Write failing tests for five-period order/dedupe, seed replay, all-company restatement/null preservation, non-mutating migration, short histories and invalid/future candidates.
+- [x] Run focused tests; observe expected failures.
+- [x] Implement policy and integrate every write path. Validate finite numeric values.
+- [x] Run Python suite; update older assertions where newest-first replaces intentional pilot-only behavior.
+- [x] Commit shared policy.
 
 ### Task 2: Official-source checks for all issuers
 **Files:** official_sources.py, official_sync.py, proxy-worker.js, update_data.py, test_official_sources.py, test_official_sync.py
 **Interfaces:** parse_inline_quarter(document, period_end), parse_earnings_release(document, report_date, filing_date, today), sync_all(root, today=None, fetch=None, full=False).
-- [ ] Write failing cases for release-vs-filing dates, exact XBRL contexts, explicit fiscal identity, missing metrics, revisions, issuer deduplication, per-issuer failure and failed preflight.
-- [ ] Implement SEC HTTPS transport validation, request pacing, conservative release/inline facts adapter, persistent source state and independent NVIDIA adapter.
-- [ ] Inspect real accessible official source fixtures. Test cloud preflight before claiming SEC coverage.
-- [ ] Run focused/full suites, then commit.
+- [x] Write failing cases for release-vs-filing dates, exact XBRL contexts, explicit fiscal identity, missing metrics, revisions, issuer deduplication, per-issuer failure and failed preflight.
+- [x] Implement SEC HTTPS transport validation, request pacing, conservative release/inline facts adapter, persistent source state and independent NVIDIA adapter.
+- [x] Inspect real accessible official source fixtures. Test cloud preflight before claiming SEC coverage.
+- [x] Run focused/full suites, then commit.
 
 ### Task 3: Full-site display
 **Files:** quarterly-history.mjs, i18n.mjs, index.html, test_quarterly_history.mjs, test_i18n.mjs
 **Interfaces:** selectHistory, fiscalQuarterLabel, nextCompanyEvent, quarterEstimates; common UI for all tickers.
-- [ ] Write failing tests for every-ticker five-quarter rule, legacy fiscal/date labels, unverified metrics, event expiry and source-status text.
-- [ ] Implement labels for verified releases vs unverified legacy dates, safe estimates, source health, short history and shared mobile layout.
-- [ ] Run JS tests and desktop/mobile browser checks for NVDA, AAPL, JPM, ACN, GOOGL and a short-history issuer.
-- [ ] Commit UI.
+- [x] Write failing tests for every-ticker five-quarter rule, legacy fiscal/date labels, unverified metrics, event expiry and source-status text.
+- [x] Implement labels for verified releases vs unverified legacy dates, safe estimates, source health, short history and shared mobile layout.
+- [x] Run JS tests and desktop/mobile browser checks for NVDA, AAPL, JPM, ACN, GOOGL and a short-history issuer.
+- [x] Commit UI.
 
 ### Task 4: Migration, automation and release
 **Files:** .github/workflows/main.yml, .github/workflows/nvda_history.yml, data JSONs, official_scan_state.json, docs/all-company-quarterly-migration.json, README.md
-- [ ] Record per-company before/after audit, migrate active files, preserve NVIDIA's five verified rows.
-- [ ] Enable hourly window checks plus daily all-company scans with shared write concurrency. Publish failure state before failing job. Preserve unrelated notifier behavior.
+- [x] Record per-company before/after audit, migrate active files, preserve NVIDIA's five verified rows.
+- [x] Enable hourly window checks plus daily all-company scans with shared write concurrency. Publish failure state before failing job. Preserve unrelated notifier behavior.
 - [ ] Verify complete tests, workflow syntax, data invariants, two idempotent syncs and external-source failure behavior.
-- [ ] Request independent whole-branch review, fix substantive findings with regressions.
+- [x] Request independent whole-branch review, fix substantive findings with regressions.
 - [ ] Create/attach PR, pass checks, merge, run cloud sync, verify deployed data and desktop/mobile website. Record unresolved sources truthfully.

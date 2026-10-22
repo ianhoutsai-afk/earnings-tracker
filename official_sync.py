@@ -192,7 +192,7 @@ def _due(company, status, today, full):
     if full:
         return True
     checked = status.get('officialCheckedAt')
-    if status.get('status') in ('official_source_failed','official_parse_pending','official_check_deferred'):
+    if status.get('status') in ('official_source_failed','official_check_deferred'):
         return True
     if not checked:
         return True
@@ -201,10 +201,12 @@ def _due(company, status, today, full):
             return True
     except (ValueError,TypeError):
         return True
-    raw = company.get('reportDate')
     try:
-        return raw is not None and -10 <= (date.fromisoformat(raw)-today).days <= 21
-    except ValueError:
+        report_date = company.get('reportDate')
+        latest_release = company.get('latestPublishedDate')
+        return bool((report_date and -10 <= (date.fromisoformat(report_date)-today).days <= 21)
+                    or (latest_release and -14 <= (date.fromisoformat(latest_release)-today).days <= 0))
+    except (ValueError, TypeError):
         return True
 
 

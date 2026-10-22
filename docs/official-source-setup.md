@@ -2,7 +2,7 @@
 
 ## Verified current limitation
 
-The branch diagnostic on 2026-10-22 received HTTP 404 from the existing proxy for both submissions and an existing quarterly filing. `PROXY_TOKEN` and `SEC_CONTACT_EMAIL` were absent from the Actions environment. Direct requests from the local runtime returned HTTP 403. An authenticated proxy remains optional when official direct requests work. The official direct fallback subsequently passed both cloud preflight checks: https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39811392737 . Actual per-company coverage is recorded separately; a transport preflight does not prove current history for all 503 tickers.
+The branch diagnostic on 2026-10-22 received HTTP 404 from the existing proxy for both submissions and an existing quarterly filing. `PROXY_TOKEN` and `SEC_CONTACT_EMAIL` were absent from the Actions environment. Early direct requests from the local runtime returned HTTP 403; later full source checks worked with the direct fallback. An authenticated proxy remains optional when official direct requests work. The official direct fallback subsequently passed both cloud preflight checks: https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39811392737 . Actual per-company coverage is recorded separately; a transport preflight does not prove current history for all 503 tickers.
 
 Diagnostics: https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39807571201
 
@@ -32,7 +32,7 @@ In GitHub Actions, choose **Official Quarterly History** (workflow file `nvda_hi
 2. Run `mode=sync`, `full=true`. Every active issuer is checked once per CIK. Original 8-K Item 2.02 earnings exhibits establish release dates and quarter ends. A matching 10-Q/10-K with exact dimensionless quarterly inline-XBRL contexts supplies GAAP diluted EPS and revenue when unambiguous. Unsupported layouts or missing release evidence remain explicitly pending.
 3. Run the sync a second time. Check source errors and pending companies, then verify no duplicate periods, no seed resurrection, no more than five records and a successful Pages deployment.
 
-Hourly runs check the reporting window and companies whose last check is stale or failed. Daily full runs cover all companies, including those with no expected date. Source failures preserve historical records, publish the source error, and fail the workflow visibly. A successful request does not imply every financial field was parseable.
+Hourly runs check the reporting window (10 days after through 21 days before an expected release), recently published releases (14 days), and companies whose last check is stale, failed, or deferred. Old unsupported metric layouts are retried daily rather than forcing every issuer into every hourly run. Daily full runs cover all companies, including those with no expected date. Source failures preserve historical records, publish the source error, and fail the workflow visibly. A successful request does not imply every financial field was parseable.
 
 ## Known coverage boundaries
 

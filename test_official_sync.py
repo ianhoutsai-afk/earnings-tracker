@@ -160,3 +160,11 @@ class ScanBudgetTests(unittest.TestCase):
    self.assertEqual(result['issuersChecked'],0)
    self.assertEqual(result['sourceFailures'],0)
    self.assertFalse(result['healthy'])
+
+class HourlyWindowTests(unittest.TestCase):
+ def test_old_metric_parse_gap_is_daily_but_recent_release_stays_hourly(self):
+  from official_sync import _due
+  status={'status':'official_parse_pending','officialCheckedAt':'2026-10-22T12:00:00Z'}
+  self.assertFalse(_due({'ticker':'ABC'},status,TODAY,False))
+  self.assertTrue(_due({'ticker':'ABC','latestPublishedDate':'2026-10-21','reportDate':'2027-01-20'},status,TODAY,False))
+  self.assertTrue(_due({'ticker':'ABC'},{**status,'status':'official_source_failed'},TODAY,False))

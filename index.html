@@ -18,6 +18,10 @@
         .dark ::-webkit-scrollbar-thumb { background: #475569; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         .expand-row.hidden { display: none; }
+        .history-panel { width: min(calc(100vw - 2rem - 2px), 1198px); white-space: normal; }
+        @media (min-width: 768px) {
+            .history-panel { width: min(calc(100vw - 4rem - 2px), 1198px); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8 font-sans transition-colors duration-300">
@@ -333,7 +337,7 @@
         function renderTable(data) {
             const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
             const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            const pending=Object.values(historyStatus).filter(row=>row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5).length;
+            const pending=appData.filter(company=>{const row=historyStatus[company.ticker];return !row||row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5;}).length;
             document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed,pending});
             const container = document.getElementById('data-container');
             container.innerHTML = '';
@@ -515,7 +519,7 @@
                     });
 
                     historyContent = `
-                        <div style="width: min(100%, calc(100vw - 2rem)); white-space: normal">
+                        <div class="history-panel">
                         <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
                             ${t(historyStatusKey(historyStatus[company.ticker]))}
                             <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${t('history.note')}</div>
