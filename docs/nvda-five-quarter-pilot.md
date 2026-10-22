@@ -1,0 +1,15 @@
+# NVDA five-quarter pilot
+
+Only NVDA is enrolled. Its active history now contains FY2027 Q2, FY2027 Q1, FY2026 Q4, FY2026 Q3 and FY2026 Q2 in descending reporting-period order. All five use official quarterly revenue and GAAP diluted EPS. Other tickers retain their original rows, values, ordering and display behavior.
+
+`nvda_history.py` checks NVIDIA's official Newsroom RSS, rereads the latest known release, and probes the next fiscal quarter's canonical official URL. A URL probe is discovery only: the actual release title, explicit reporting-period end and publication date must validate before admission. The publisher's HTTP-200 News Archive fallback is treated as not yet published only for this next-quarter probe. Missing metrics never fall back to prior-quarter columns; existing verified values and metric provenance survive incomplete reparses.
+
+New official quarters merge by reporting period. After a successful merge, NVDA retains the latest five distinct verified quarterly periods. Replaying an old source manifest cannot restore an evicted period; older reviewed seeds cannot overwrite a later reviewed revision. A same-period revision preserves the original release date and position. Failed source fetches or invalid identity/date parsing leave existing data files unchanged.
+
+The current next event is the officially scheduled FY2027 Q3 earnings call on 2026-11-17, supported by NVIDIA's FY2027 Q2 transcript, PDF page 15. This is stored separately from an estimated earnings-release date. Unknown-period Yahoo forward EPS/revenue estimates are suppressed for this pilot and stay suppressed when the daily updater runs.
+
+An hourly workflow at minute 17 updates only NVDA. The existing daily update also runs the same official NVDA refresh after its normal processing. Both share the existing `earnings-data-write` concurrency group. Official-source failures fail the NVDA update instead of publishing fabricated values. GitHub schedules remain best effort; this change does not claim zero latency or repair the global SEC proxy configuration.
+
+Validation covers actual official summary layouts, blank/reordered comparison columns, future dates, unofficial hosts, no-write-on-fetch-failure, five-quarter eviction, seed replay, same-quarter revision and provenance retention. Browser QA checks desktop and mobile NVDA cards, English/Traditional Chinese switching, US-calendar countdowns, estimate suppression and the non-pilot MSFT expansion flow. The Browser plugin is unavailable, so QA uses Playwright with a separate temporary Chrome profile. Existing SEC links for older NVDA periods are retained; the latest period continues to expose its official release while its SEC link remains unavailable in the existing dataset.
+
+Implementation decisions: use the official company fiscal labels rather than relabeling calendar years; apply the retention guard in both the verified merge and legacy updater; keep source URLs/fixtures portable; use the bundled Git fallback because native worktree creation reported Git unavailable. The existing global SEC proxy issue and migration of other companies are outside this pilot.

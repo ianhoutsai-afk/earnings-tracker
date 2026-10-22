@@ -23,6 +23,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 from typing import Optional
+from nvda_history import retain_nvda_history, nvda_company_fields
 
 try:
     import requests
@@ -1116,6 +1117,7 @@ def update_data(
         return False
 
     # ── 寫入 data.json（不含 history）──
+    historical_data = retain_nvda_history(historical_data)
     final_data = []
     for company in existing_data:
         ticker = company['ticker']
@@ -1130,6 +1132,11 @@ def update_data(
         entry['bmo_amc'] = updated.get('bmo_amc', company.get('bmo_amc'))
         entry['eps'] = updated.get('eps') or company.get('eps', '-')
         entry['revenue'] = updated.get('revenue') or company.get('revenue', '-')
+        if ticker == 'NVDA':
+            for key in ('nextEarningsCallDate', 'nextEarningsCallSourceUrl'):
+                if company.get(key):
+                    entry[key] = company[key]
+            entry = nvda_company_fields(entry, historical_data, datetime.now(ZoneInfo('America/New_York')).date())
         final_data.append(entry)
 
     try:
