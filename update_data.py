@@ -14,6 +14,7 @@ update_data.py — S&P 500 Earnings Tracker 數據更新腳本
 """
 
 import json
+import re
 import time
 import sys
 import os

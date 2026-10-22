@@ -68,3 +68,20 @@ class OfficialParserTests(unittest.TestCase):
    self.assertNotIn(value,str(exc.exception))
 
 if __name__=='__main__':unittest.main()
+
+class SecTransportTests(unittest.TestCase):
+ def test_transport_normalizes_proxy_and_archive_path(self):
+  from unittest.mock import patch
+  from update_data import _sec_request
+  with patch('update_data.SEC_PROXY_URL','sec-proxy.example.workers.dev'), patch('update_data.requests') as requests:
+   request = requests.get
+   _sec_request('https://www.sec.gov/Archives/edgar/data/1/results.htm')
+   self.assertEqual(request.call_args.args[0], 'https://sec-proxy.example.workers.dev/archives/edgar/data/1/results.htm')
+
+ def test_invalid_proxy_fails_before_a_network_request(self):
+  from unittest.mock import patch
+  from update_data import _sec_request
+  with patch('update_data.SEC_PROXY_URL','https://user:secret@invalid.test'), patch('update_data.requests') as requests:
+   request = requests.get
+   with self.assertRaises(ValueError): _sec_request('https://data.sec.gov/submissions/CIK0000000001.json')
+   request.assert_not_called()
