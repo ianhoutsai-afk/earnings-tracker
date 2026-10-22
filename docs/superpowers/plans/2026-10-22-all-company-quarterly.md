@@ -56,4 +56,4 @@
 - [x] Enable hourly window checks plus daily all-company scans with shared write concurrency. Publish failure state before failing job. Preserve unrelated notifier behavior.
 - [x] Verify complete tests, workflow syntax, data invariants, two idempotent syncs and external-source failure behavior.
 - [x] Request independent whole-branch review, fix substantive findings with regressions.
-- [ ] Create/attach PR, pass checks, merge, run cloud sync, verify deployed data and desktop/mobile website. Record unresolved sources truthfully.
+- [x] Create/attach PR, pass checks, merge, run cloud sync, verify deployed data and desktop/mobile website. Record unresolved sources truthfully.

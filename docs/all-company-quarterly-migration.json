@@ -7105,7 +7105,16 @@
       0
     ],
     "manifestReplayStable": true,
-    "cloudFullScan": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39819159609"
+    "cloudFullScan": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39819159609",
+    "productionScan": {
+      "url": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/39825850820",
+      "conclusion": "success",
+      "issuerGroups": 400,
+      "sourceFailures": 0,
+      "newRecords": 0,
+      "publishedCommit": "0feac44ddb7774e44f16b312dfa600ab27f7a5bc",
+      "pagesStatus": "built"
+    }
   },
   "coverageNote": "All tickers use the policy. Verified quarter/date coverage is distinct from complete GAAP metric coverage. Legacy rows remain explicitly unverified and their numerical values are hidden. The 496 pending-company count includes incomplete historical coverage, missing metrics, or unresolved source layouts; successful transport alone does not establish freshness."
 }
