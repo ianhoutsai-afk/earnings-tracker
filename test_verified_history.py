@@ -67,6 +67,11 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.assertEqual(result['MSFT'][0]['eps_reported'], '-')
         self.assertEqual(result['MSFT'][0]['revenue_reported'], '-')
         self.assertIsNone(result['MSFT'][0]['epsBasis'])
+        again, added = apply_official_records(self.companies, result, [record], date(2026, 9, 29))
+        self.assertEqual(added, 0)
+        self.assertEqual(again, result)
+        self.assertNotIn('epsSourceUrl', again['MSFT'][0])
+        self.assertNotIn('revenueSourceUrl', again['MSFT'][0])
 
     def test_negative_gaap_eps_is_shown_as_a_loss(self):
         record = {**OFFICIAL, 'epsGaapDiluted': -0.23}

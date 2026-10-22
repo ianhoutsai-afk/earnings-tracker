@@ -54,6 +54,6 @@
 **Files:** .github/workflows/main.yml, .github/workflows/nvda_history.yml, data JSONs, official_scan_state.json, docs/all-company-quarterly-migration.json, README.md
 - [x] Record per-company before/after audit, migrate active files, preserve NVIDIA's five verified rows.
 - [x] Enable hourly window checks plus daily all-company scans with shared write concurrency. Publish failure state before failing job. Preserve unrelated notifier behavior.
-- [ ] Verify complete tests, workflow syntax, data invariants, two idempotent syncs and external-source failure behavior.
+- [x] Verify complete tests, workflow syntax, data invariants, two idempotent syncs and external-source failure behavior.
 - [x] Request independent whole-branch review, fix substantive findings with regressions.
 - [ ] Create/attach PR, pass checks, merge, run cloud sync, verify deployed data and desktop/mobile website. Record unresolved sources truthfully.

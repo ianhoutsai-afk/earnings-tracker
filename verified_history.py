@@ -135,10 +135,16 @@ def apply_official_records(companies, history, records, today):
                 if eps is None:
                     official_row['eps_reported'] = existing.get('eps_reported', '-')
                     official_row['epsBasis'] = existing.get('epsBasis')
-                    official_row['epsSourceUrl'] = existing.get('epsSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    if existing.get('eps_reported') not in (None, '-'):
+                        official_row['epsSourceUrl'] = existing.get('epsSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    else:
+                        existing.pop('epsSourceUrl', None)
                 if revenue is None:
                     official_row['revenue_reported'] = existing.get('revenue_reported', '-')
-                    official_row['revenueSourceUrl'] = existing.get('revenueSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    if existing.get('revenue_reported') not in (None, '-'):
+                        official_row['revenueSourceUrl'] = existing.get('revenueSourceUrl') or existing.get('metricSourceUrl') or existing.get('releaseSourceUrl')
+                    else:
+                        existing.pop('revenueSourceUrl', None)
                 if eps is None and revenue is None:
                     official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
             existing.update(official_row)
