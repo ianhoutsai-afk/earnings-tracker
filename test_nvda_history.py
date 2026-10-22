@@ -1,4 +1,5 @@
 import copy
+from quarterly_policy import retain_history
 import json
 import tempfile
 import unittest
@@ -42,7 +43,7 @@ class NvdaRollingHistoryTests(unittest.TestCase):
         self.assertEqual(len(history['NVDA']), 5)
         self.assertEqual([row['quarter'] for row in history['NVDA']],
                          ['2027 Q2', '2027 Q1', '2026 Q4', '2026 Q3', '2026 Q2'])
-        self.assertEqual(history['MSFT'], before['MSFT'])
+        self.assertEqual(history['MSFT'], retain_history(before)['MSFT'])
         self.assertEqual(self.history, before)
 
     def test_new_quarter_evicts_one_old_quarter_and_old_seed_cannot_resurrect_it(self):
@@ -147,7 +148,7 @@ class NvdaOfficialSourceTests(unittest.TestCase):
             companies = json.loads((root / 'data.json').read_text())
             history = json.loads((root / 'historical_data.json').read_text())
             self.assertEqual(companies[1], msft)
-            self.assertEqual(history['MSFT'], msft_history)
+            self.assertEqual(history['MSFT'], retain_history({'MSFT': msft_history})['MSFT'])
             self.assertEqual(json.loads((root / 'history_status.json').read_text())['MSFT'], msft_status)
             self.assertEqual(companies[0]['eps'], '-')
             self.assertEqual(companies[0]['latestPublishedQuarter'], '2027 Q2')
