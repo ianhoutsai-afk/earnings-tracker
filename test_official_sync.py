@@ -95,3 +95,15 @@ class OfficialSyncTests(unittest.TestCase):
    self.assertEqual(json.loads((root/'history_status.json').read_text())['ABC']['officialCheckedAt'][:10],'2026-10-22')
 
 if __name__=='__main__':unittest.main()
+
+class IssuerIsolationTests(unittest.TestCase):
+ setup_root=OfficialSyncTests.setup_root
+ def test_one_issuer_request_failure_does_not_prevent_another_issuer_check(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp);self.setup_root(root,mapping={'ABC':{'cik':'0000000002'},'ABCA':{'cik':'0000000001'}})
+   def partial(url):
+    if 'CIK0000000002' in url: raise OSError('one issuer blocked')
+    return fetch(url)
+   sync_all(root,TODAY,fetch=partial,full=True)
+   h=json.loads((root/'historical_data.json').read_text())
+   self.assertEqual(h['ABCA'][0]['date'],'2026-10-14')

@@ -80,6 +80,7 @@
             </p>
         </div>
 
+        <p id="data-health" class="mb-3 text-xs text-amber-700 dark:text-amber-300" aria-live="polite"></p>
         <div class="w-full overflow-x-auto bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
             <table class="w-full text-left border-collapse whitespace-nowrap">
                 <thead>
@@ -112,7 +113,7 @@
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            quarterEstimates, nextNvdaEvent,
+            quarterEstimates, nextCompanyEvent, quarterlyMetrics,
         } from './quarterly-history.mjs';
 
         // 深淺色模式
@@ -207,7 +208,7 @@
                     'dark:bg-blue-900',
                     'dark:text-blue-400'
                 );
-                if (ticker === 'NVDA') row.closest('table').parentElement.scrollLeft = 0;
+                row.closest('table').parentElement.scrollLeft = 0;
             } else {
                 row.classList.add('hidden');
                 icon.textContent = '▼';
@@ -225,15 +226,13 @@
         }
 
         function companyCountdown(company) {
-            return company.ticker === 'NVDA'
-                ? calendarCountdown(nextNvdaEvent(company).date)
-                : calcCountdown(company.reportDate);
+            return calendarCountdown(nextCompanyEvent(company).date);
         }
 
-        function nvdaEventHtml(company) {
-            const event = nextNvdaEvent(company);
-            if (!event.date) return t('nvda.nextTba');
-            const label = event.kind === 'call' ? t('nvda.officialCall')
+        function companyEventHtml(company) {
+            const event = nextCompanyEvent(company);
+            if (!event.date) return t('history.nextTba');
+            const label = event.kind === 'call' ? t('history.officialCall')
                 : event.kind === 'official' ? t('table.officialDate') : t('table.thirdPartyEstimate');
             return `<div>${event.date}</div><div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${event.url
                 ? `<a href="${event.url}" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 dark:text-blue-400">${label}</a>`
@@ -332,6 +331,9 @@
         }
 
         function renderTable(data) {
+            const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
+            const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
+            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed});
             const container = document.getElementById('data-container');
             container.innerHTML = '';
 
@@ -366,7 +368,6 @@
                     localStorage.getItem(`star_${company.ticker}`) === 'true';
                 const starIcon = isStarred ? '⭐' : '☆';
 
-                const isNvda = company.ticker === 'NVDA';
                 const estimates = quarterEstimates(company);
                 const countdown = companyCountdown(company);
                 const badgeHtml = getCountdownBadgeHtml(countdown);
@@ -399,25 +400,14 @@
                             (${company.ticker})
                         </span>
                         ${badgeHtml}
-                        ${isNvda && history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${t('nvda.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date })}</div>` : ''}
+                        ${history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${fiscalQuarterLabel(history[0]) && history[0].verificationStatus === 'official_verified' ? t('history.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date }) : t('history.latestUnverified', {date: history[0].date})}</div>` : ''}
                     </td>
                     <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
-                        ${isNvda ? nvdaEventHtml(company) : company.reportDate || t('table.dateTba')}
-                        ${!isNvda && company.reportDate && company.reportDateSource !== 'official'
-                            ? `<span class="ml-1 text-xs text-amber-700 dark:text-amber-300">${t('table.thirdPartyEstimate')}</span>`
-                            : ''}
-                        ${!isNvda && company.reportDate && company.reportDateSource === 'official' && company.reportDateSourceUrl
-                            ? `<a class="ml-1 text-xs text-blue-600 dark:text-blue-400 underline" href="${company.reportDateSourceUrl}" target="_blank" rel="noopener noreferrer">${t('table.officialDate')}</a>`
-                            : ''}
-                        ${
-                            !isNvda && company.bmo_amc
-                                ? `<span class="ml-1 text-xs">${company.bmo_amc}</span>`
-                                : ''
-                        }
+                        ${companyEventHtml(company)}
                     </td>
                     <td class="p-4 text-gray-700 dark:text-gray-300">
                         ${estimates.eps}
-                        ${isNvda ? `<div class="mt-1 text-xs text-gray-400">${t('nvda.estimatePending')}</div>` : ''}
+                        <div class="mt-1 text-xs text-gray-400">${t('history.estimatePending')}</div>
                     </td>
                     <td class="p-4 text-gray-700 dark:text-gray-300">
                         ${estimates.revenue}
@@ -437,6 +427,9 @@
 
                     history.forEach(h => {
                         const secForm = h.form || null;
+                        const metrics = quarterlyMetrics(h);
+                        const fiscalLabel = fiscalQuarterLabel(h);
+                        const verifiedRelease = h.verificationStatus === 'official_verified';
                         const isAnnualFiling =
                             secForm === '10-K'
                             || (!secForm && (h.quarter || '').includes('FY'));
@@ -456,27 +449,29 @@
                                 </span>
 
                                 <div class="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
-                                    ${isNvda ? t('nvda.fiscalQuarter', { quarter: fiscalQuarterLabel(h) }) : h.quarter || ''}
+                                    ${fiscalLabel ? t('history.fiscalQuarter', {quarter:fiscalLabel}) : t('history.legacyQuarter', {quarter:h.quarter || '—'})}
                                 </div>
 
                                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                                    📅 ${isNvda ? t('nvda.released', { date: h.date }) : h.date}
+                                    📅 ${t(verifiedRelease ? 'history.released' : 'history.legacyDate', {date:h.date})}
                                 </div>
+                                ${h.filingDate ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('history.filed', {date:h.filingDate})}</div>` : ''}
                                 ${h.periodEnd ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('earnings.periodEnd', { date: h.periodEnd })}</div>` : ''}
 
                                 <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
-                                    ${h.eps_reported}
+                                    ${metrics.eps}
                                 </div>
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">
-                                    ${t(earningsMetricLabelKey(h))}
+                                    ${t('earnings.gaapQuarterEps')}
                                 </div>
 
                                 <div class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
-                                    ${h.revenue_reported || '-'}
+                                    ${metrics.revenue}
                                 </div>
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
-                                    ${t(isNvda ? 'nvda.quarterRevenue' : 'sec.revenue')}
+                                    ${t('history.quarterRevenue')}
                                 </div>
+                                ${!verifiedRelease ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
                                 ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
 
                                 ${h.releaseSourceUrl ? `
@@ -503,7 +498,7 @@
                                         : `
                                             <span class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs text-gray-400 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                                                 ${
-                                                    isNvda ? t('nvda.secLinkPending') : h.secStatus === 'pending'
+                                                    h.secStatus === 'pending'
                                                         ? t('sec.pending')
                                                         : t('sec.noOriginal')
                                                 }
@@ -515,12 +510,13 @@
                     });
 
                     historyContent = `
-                        <div ${isNvda ? 'style="width: min(100%, calc(100vw - 2rem)); white-space: normal"' : ''}>
+                        <div style="width: min(100%, calc(100vw - 2rem)); white-space: normal">
                         <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
                             ${t(historyStatusKey(historyStatus[company.ticker]))}
-                            ${isNvda ? `<div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${t('nvda.historyNote')}</div>` : ''}
-                            ${isNvda && historyStatus.NVDA?.status === 'official_source_checked' && historyStatus.NVDA.checkedAt
-                                ? `<div class="mt-1 text-xs text-gray-400">${t('nvda.lastChecked', { time: historyStatus.NVDA.checkedAt.slice(0, 16).replace('T', ' ') + ' UTC' })}</div>` : ''}
+                            <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${t('history.note')}</div>
+                            ${history.length < 5 ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.short', {count:history.length,missing:5-history.length})}</div>` : ''}
+                            ${historyStatus[company.ticker]?.officialCheckedAt
+                                ? `<div class="mt-1 text-xs text-gray-400">${t('history.lastChecked', {time:historyStatus[company.ticker].officialCheckedAt.slice(0,16).replace('T',' ')+' UTC'})}</div>` : ''}
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">
                             ${cardsHtml}

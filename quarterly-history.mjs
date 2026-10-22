@@ -1,45 +1,67 @@
-// Pilot rules apply only to NVDA; other companies retain their existing behavior.
+// Defensive five-quarter presentation, shared by every issuer.
 export function selectHistory(ticker, rows) {
-  if (ticker !== 'NVDA') return rows;
   const unique = new Map();
   for (const row of rows) {
-    const key = row.periodEnd || row.quarter || row.date;
-    if (!unique.has(key)) unique.set(key, row);
+    const key = row.periodEnd ? `period:${row.periodEnd}` : `legacy:${row.date}`;
+    const previous = unique.get(key);
+    const priority = item => `${item.verificationStatus === 'official_verified' ? 1 : 0}:${item.verifiedAt || ''}`;
+    if (!previous || priority(row) > priority(previous)) unique.set(key, row);
   }
   return [...unique.values()]
-    .sort((a, b) => (b.periodEnd || b.date || '').localeCompare(a.periodEnd || a.date || ''))
-    .slice(0, 5);
+    .sort((a,b)=>(b.periodEnd || b.date || '').localeCompare(a.periodEnd || a.date || ''))
+    .slice(0,5);
 }
 
 export function fiscalQuarterLabel(row) {
-  return `FY${row.fiscalYear} Q${row.fiscalQuarter}`;
+  if (Number.isInteger(row.fiscalYear) && [1,2,3,4].includes(row.fiscalQuarter)) {
+    return `FY${row.fiscalYear} Q${row.fiscalQuarter}`;
+  }
+  if (row.verificationStatus === 'official_verified' && row.periodScope === 'quarter') {
+    const match = /^(?:FY)?(\d{4}) Q([1-4])$/.exec(row.quarter || '');
+    if (match) return `FY${match[1]} Q${match[2]}`;
+  }
+  return null;
 }
 
 export function newYorkDate(now = new Date()) {
   const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+    timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit',
   }).formatToParts(now);
-  const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  const value = Object.fromEntries(parts.map(part=>[part.type,part.value]));
   return `${value.year}-${value.month}-${value.day}`;
 }
 
-export function calendarCountdown(date, now = new Date()) {
+export function calendarCountdown(date,now=new Date()) {
   if (!date) return null;
-  return Math.round((Date.parse(`${date}T00:00:00Z`) - Date.parse(`${newYorkDate(now)}T00:00:00Z`)) / 86400000);
+  const result = Math.round((Date.parse(`${date}T00:00:00Z`)-Date.parse(`${newYorkDate(now)}T00:00:00Z`))/86400000);
+  return Number.isFinite(result) ? result : null;
 }
 
 export function quarterEstimates(company) {
-  return company.ticker === 'NVDA'
-    ? { eps: '-', revenue: '-' }
-    : { eps: company.eps || '-', revenue: company.revenue || '-' };
+  // A future provider must supply per-metric quarter, source and currency before enabling estimates.
+  return {eps:'-',revenue:'-'};
 }
 
-export function nextNvdaEvent(company, today = newYorkDate()) {
-  if (company.nextEarningsCallDate >= today && company.nextEarningsCallSourceUrl) {
-    return { date: company.nextEarningsCallDate, kind: 'call', url: company.nextEarningsCallSourceUrl };
+export function nextCompanyEvent(company,today=newYorkDate()) {
+  const valid = value => /^\d{4}-\d{2}-\d{2}$/.test(value || '') && value >= today;
+  if (valid(company.reportDate) && company.reportDateSource === 'official' && company.reportDateSourceUrl) {
+    return {date:company.reportDate,kind:'official',url:company.reportDateSourceUrl};
   }
-  if (company.reportDate >= today) {
-    return { date: company.reportDate, kind: company.reportDateSource === 'official' ? 'official' : 'estimate', url: company.reportDateSourceUrl || null };
+  if (valid(company.nextEarningsCallDate) && company.nextEarningsCallSourceUrl) {
+    return {date:company.nextEarningsCallDate,kind:'call',url:company.nextEarningsCallSourceUrl};
   }
-  return { date: null, kind: 'unannounced', url: null };
+  if (valid(company.reportDate)) {
+    return {date:company.reportDate,kind:'estimate',url:company.reportDateSourceUrl || null};
+  }
+  return {date:null,kind:'unannounced',url:null};
+}
+
+export const nextNvdaEvent = nextCompanyEvent;
+
+export function quarterlyMetrics(row) {
+  const verified = row.verificationStatus === 'official_verified' && row.periodScope === 'quarter' && row.currency === 'USD';
+  return {
+    eps: verified && row.epsBasis === 'GAAP diluted' ? row.eps_reported || '-' : '-',
+    revenue: verified ? row.revenue_reported || '-' : '-',
+  };
 }

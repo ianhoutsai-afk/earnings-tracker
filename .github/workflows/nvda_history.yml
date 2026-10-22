@@ -37,6 +37,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
+          restore-keys: sec-official-v1-
       - name: Install dependencies
         run: python -m pip install lxml requests pandas yfinance
       - name: Verify quarterly policies and official parsers
@@ -46,7 +51,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
-          from update_data import _sec_request
+          from official_sync import fetch_sec
           endpoints = {
               'submissions': 'https://data.sec.gov/submissions/CIK0000320193.json',
               'quarterly_filing': 'https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm',
@@ -54,8 +59,8 @@ jobs:
           results = []
           for kind, url in endpoints.items():
               try:
-                  response = _sec_request(url, timeout=25)
-                  results.append({'source':kind, 'httpStatus':response.status_code, 'available':response.status_code == 200})
+                  body = fetch_sec(url)
+                  results.append({'source':kind, 'available':bool(body)})
               except Exception as exc:
                   results.append({'source':kind, 'available':False, 'errorType':type(exc).__name__})
           print(json.dumps(results))
@@ -86,6 +91,11 @@ jobs:
           git commit -m 'Update official quarterly history and source status [skip ci]'
           git pull --rebase origin main
           git push origin HEAD:main
+      - uses: actions/cache/save@v4
+        if: ${{ always() && inputs.mode != 'preflight' }}
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
       - name: Keep check results for review
         if: ${{ always() && inputs.mode != 'preflight' }}
         uses: actions/upload-artifact@v4

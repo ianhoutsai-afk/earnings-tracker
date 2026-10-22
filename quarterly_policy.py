@@ -24,8 +24,8 @@ def fiscal_identity(row):
 def period_key(row):
     if row.get('periodEnd'):
         return 'period', row['periodEnd']
-    # A legacy fiscal label is a grouping hint only; it never becomes a verified identity.
-    return 'legacy', row.get('quarter') or row.get('date')
+    # Unverified duplicate labels may themselves be wrong; only the stored date can group them.
+    return 'legacy', row.get('date')
 
 
 def retain_history(history, today=None):

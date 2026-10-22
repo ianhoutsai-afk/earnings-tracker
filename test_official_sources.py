@@ -85,3 +85,37 @@ class SecTransportTests(unittest.TestCase):
    request = requests.get
    with self.assertRaises(ValueError): _sec_request('https://data.sec.gov/submissions/CIK0000000001.json')
    request.assert_not_called()
+
+class OfficialEncodingTests(unittest.TestCase):
+ def test_real_sec_xml_encoding_declarations_are_accepted(self):
+  prefix='<?xml version="1.0" encoding="UTF-8"?>'
+  self.assertEqual(parse_inline_quarter(prefix+filing(),'2026-09-30')['epsGaapDiluted'],1.25)
+  self.assertEqual(parse_earnings_release(prefix+RELEASE,'2026-10-14','2026-10-15',TODAY)['date'],'2026-10-14')
+
+class OfficialDateTransformTests(unittest.TestCase):
+ def test_inline_dei_formatted_month_date_is_normalized(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-monthname-day-year-en">September 30 , 2026')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['fiscalQuarter'],3)
+
+class OfficialFallbackTests(unittest.TestCase):
+ def test_broken_proxy_can_fall_back_to_same_public_sec_document(self):
+  from unittest.mock import patch,Mock
+  from official_sync import fetch_sec
+  stream=Mock();stream.read.return_value=b'<html>official</html>'
+  context=Mock();context.__enter__=Mock(return_value=stream);context.__exit__=Mock(return_value=False)
+  with patch('official_sync._DIRECT_SEC',False),patch('update_data._sec_request',return_value=Mock(status_code=404)),patch('official_sync.urlopen',return_value=context) as direct:
+   self.assertEqual(fetch_sec('https://www.sec.gov/Archives/edgar/data/1/report.htm'),b'<html>official</html>')
+   self.assertEqual(direct.call_args.args[0].full_url,'https://www.sec.gov/Archives/edgar/data/1/report.htm')
+
+ def test_transport_error_does_not_leak_proxy_details(self):
+  from unittest.mock import patch
+  from official_sync import fetch_sec
+  with patch('official_sync._DIRECT_SEC',False),patch('update_data._sec_request',side_effect=OSError('secret-value')),patch('official_sync.urlopen',side_effect=OSError('other-secret')):
+   with self.assertRaises(OSError) as error:fetch_sec('https://data.sec.gov/submissions/CIK0000000001.json')
+   self.assertNotIn('secret',str(error.exception))
+
+class OfficialComparativeIdentityTests(unittest.TestCase):
+ def test_full_year_headline_beats_prior_year_comparative_text(self):
+  doc='<h1>Accenture Reports Fourth-Quarter and Full-Year Fiscal 2026 Results</h1><p>NEW YORK; October 1, 2026 — reported results for the fourth quarter and full fiscal year ended August 31, 2026. All comparisons are to the fourth quarter of fiscal 2025.</p>'
+  result=parse_earnings_release(doc,'2026-10-01','2026-10-01',TODAY)
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2026,4))

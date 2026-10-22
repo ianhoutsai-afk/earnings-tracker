@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 from lxml import html
 
 MONTH = r'(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)'
-DATE = MONTH + r'\s+\d{1,2},?\s+\d{4}'
+DATE = MONTH + r'\s+\d{1,2}\s*,?\s+\d{4}'
 QUARTERS = {'first':1, 'second':2, 'third':3, 'fourth':4, '1st':1, '2nd':2, '3rd':3, '4th':4}
 REVENUE_TAGS = {'us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax',
                 'us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax', 'us-gaap:SalesRevenueNet',
@@ -53,7 +53,7 @@ def _date(text):
 
 
 def parse_earnings_release(document, event_date, filing_date, today):
-    tree = html.fromstring(document)
+    tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     for node in tree.xpath('//script|//style'):
         node.drop_tree()
     text = ' '.join(_text(tree).split())
@@ -65,19 +65,23 @@ def parse_earnings_release(document, event_date, filing_date, today):
     intro_dates = {_date(m[0]) for m in re.finditer(DATE, intro, re.I)}
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter|three\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:full\s+)?(?:fiscal\s+)?year)?|three\s+months)\s+ended\s+(' + DATE + ')', text)]
     ends = {_date(p) for p in periods if _date(p) < event}
     if not ends:
         raise ValueError('No explicit completed quarterly period')
     end = max(ends)
     if (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
-    identity = re.search(r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter\s+(?:of\s+)?(?:fiscal\s+)?(20\d{2})\b', intro)
-    if identity is None:
-        identity = re.search(r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b', intro)
-        fiscal_quarter = int(identity[1]) if identity else None
-    else:
-        fiscal_quarter = QUARTERS[identity[1].lower()]
+    # Prefer the earliest current headline identity, including joint Q4/FY headlines.
+    # Later comparative paragraphs cannot provide the quarter's fiscal year.
+    identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)',intro)[0]
+    patterns = [
+        r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
+        r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
+    ]
+    identities = [m for pattern in patterns for m in re.finditer(pattern,identity_text)]
+    identity = min(identities,key=lambda m:m.start()) if identities else None
+    fiscal_quarter = (int(identity[1]) if identity[1].isdigit() else QUARTERS[identity[1].lower()]) if identity else None
     return {'date': event.isoformat(), 'periodEnd': end.isoformat(),
             'fiscalYear': int(identity[2]) if identity else None, 'fiscalQuarter': fiscal_quarter}
 
@@ -96,11 +100,16 @@ def _unique_text(nodes):
 
 
 def parse_inline_quarter(document, period_end):
-    tree = html.fromstring(document)
+    tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     nodes = list(tree.iter())
     def dei(tag):
         return _unique_text(n for n in nodes if n.get('name', '').lower() == 'dei:' + tag.lower())
-    if dei('DocumentPeriodEndDate') != period_end:
+    raw_end = dei('DocumentPeriodEndDate')
+    try:
+        document_end = date.fromisoformat(raw_end).isoformat()
+    except (ValueError, TypeError):
+        document_end = _date(raw_end).isoformat() if raw_end and re.fullmatch(DATE, raw_end, re.I) else None
+    if document_end != period_end:
         raise ValueError('Official document period does not match release period')
     year, focus = dei('DocumentFiscalYearFocus'), dei('DocumentFiscalPeriodFocus')
     if not year or not year.isdigit() or focus not in ('Q1','Q2','Q3','FY'):

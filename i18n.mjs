@@ -64,6 +64,27 @@ export const translations = {
     'earnings.verified': 'Latest found quarter officially verified',
     'earnings.officialNewer': 'Official release is newer than the latest Yahoo candidate',
     'earnings.verifiedScanPending': 'Official quarter verified; latest scan pending',
+    'history.fiscalQuarter': '{quarter} (company fiscal year)',
+    'history.legacyQuarter': '{quarter} · fiscal identity unverified',
+    'history.released': 'Released {date}',
+    'history.legacyDate': 'Legacy date {date} · release date unverified',
+    'history.filed': 'SEC filed {date}',
+    'history.latest': 'Latest verified release: {quarter} · {date}',
+    'history.latestUnverified': 'Latest stored record: {date} · official check pending',
+    'history.note': 'Up to five quarters, newest first. FY denotes company fiscal year. Unverified records do not establish complete latest-quarter coverage.',
+    'history.quarterRevenue': 'Quarterly revenue',
+    'history.metricsPending': 'Quarterly GAAP figures await official verification',
+    'history.estimatePending': 'Next-quarter estimate unavailable',
+    'history.officialCall': 'Official earnings call · release date not confirmed',
+    'history.nextTba': 'Next release date not yet announced',
+    'history.secLinkPending': 'SEC filing link pending',
+    'history.sourceChecked': 'Official sources checked; see each record for verification status',
+    'history.lastChecked': 'Last official check attempted: {time}',
+    'history.sourceFailed': 'Official source unavailable · stored history retained',
+    'history.parsePending': 'Official source found · release or metric verification pending',
+    'history.mappingMissing': 'Official company identifier unavailable · verification pending',
+    'history.short': 'Only {count} records available; {missing} of five still missing',
+    'history.health': '{count} companies · {verified} officially verified quarters · {failed} companies with source errors',
     'nvda.fiscalQuarter': '{quarter} (company fiscal year)',
     'nvda.released': 'Released {date}',
     'nvda.latest': 'Latest published: {quarter} · {date}',
@@ -140,6 +161,27 @@ export const translations = {
     'earnings.verified': '已發現的最新季度經官方核對',
     'earnings.officialNewer': '官方業績公告比 Yahoo 最近線索更新',
     'earnings.verifiedScanPending': '已有官方核對季度；等待下次最新季度掃描',
+    'history.fiscalQuarter': '{quarter}（公司財年）',
+    'history.legacyQuarter': '{quarter} · 財年季度待核實',
+    'history.released': '財報公布日：{date}',
+    'history.legacyDate': '舊紀錄日期：{date} · 公布日待核實',
+    'history.filed': 'SEC 申報日：{date}',
+    'history.latest': '最近官方已核實：{quarter} · {date}',
+    'history.latestUnverified': '最近儲存紀錄：{date} · 等待官方核對',
+    'history.note': '最多保留五季，最新在前。FY 代表公司財年；待核實紀錄不代表已取得最新完整資料。',
+    'history.quarterRevenue': '季度營收',
+    'history.metricsPending': '季度 GAAP 數值等待官方核實',
+    'history.estimatePending': '下一季預估待取得',
+    'history.officialCall': '官方業績電話會議 · 財報公布日待確認',
+    'history.nextTba': '尚未公告下次財報日期',
+    'history.secLinkPending': 'SEC 文件連結待取得',
+    'history.sourceChecked': '已檢查官方來源；各筆核實狀態見下方',
+    'history.lastChecked': '上次嘗試官方核對：{time}',
+    'history.sourceFailed': '官方來源暫時無法取得 · 已保留原紀錄',
+    'history.parsePending': '已發現官方來源 · 公布日或數值仍待核實',
+    'history.mappingMissing': '缺少官方公司識別碼 · 等待核對',
+    'history.short': '目前只有 {count} 筆紀錄，距五筆尚缺 {missing} 筆',
+    'history.health': '{count} 家公司 · {verified} 個官方核實季度 · {failed} 家官方來源異常',
     'nvda.fiscalQuarter': '{quarter}（公司財年）',
     'nvda.released': '財報公布日：{date}',
     'nvda.latest': '最新已公布：{quarter} · {date}',
@@ -171,7 +213,10 @@ export function earningsMetricLabelKey(item) {
 
 export function historyStatusKey(item) {
   const status = item?.status;
-  if (status === 'official_source_checked') return 'nvda.sourceChecked';
+  if (status === 'official_source_checked') return 'history.sourceChecked';
+  if (status === 'official_source_failed') return 'history.sourceFailed';
+  if (status === 'official_parse_pending') return 'history.parsePending';
+  if (status === 'official_mapping_missing') return 'history.mappingMissing';
   if (status === 'pending_official') return 'earnings.pendingOfficial';
   if (status === 'discovery_failed') return 'earnings.discoveryFailed';
   if (status === 'no_new_candidate') return 'earnings.noNewCandidate';

@@ -1,10 +1,15 @@
 """Check all active issuers, publish only source-verified quarterly releases."""
 import argparse
+import hashlib
 import copy
 import json
 import re
 import tempfile
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -17,15 +22,35 @@ from quarterly_policy import retain_history, retain_manifest, company_fields
 from verified_history import apply_official_records, write_json_bundle
 
 
+_DIRECT_SEC = False
+
+
 def fetch_sec(url):
-    from update_data import _sec_request
-    response = _sec_request(url, timeout=25)
-    if response.status_code != 200:
-        raise OSError(f'SEC HTTP {response.status_code}')
-    # Reuse existing transport, including the configured authenticated proxy.
-    if hasattr(response, 'text'):
-        return response.text
-    return response._body.decode('utf-8')
+    """Try the authenticated proxy, then the same public official SEC URL directly."""
+    global _DIRECT_SEC
+    from update_data import _sec_request, SEC_HEADERS
+    p = urlparse(url)
+    if p.scheme != 'https' or p.hostname not in ('www.sec.gov','data.sec.gov') or p.username or p.password:
+        raise ValueError('Only official SEC HTTPS URLs are supported')
+    if not _DIRECT_SEC:
+        try:
+            response = _sec_request(url, timeout=20)
+            if response.status_code == 200:
+                return response.content if hasattr(response,'content') else response._body
+        except (OSError, ValueError):
+            pass
+        except Exception:
+            # requests and urllib use different transport exception types; do not leak URLs.
+            pass
+    try:
+        with urlopen(Request(url,headers=SEC_HEADERS),timeout=20) as response:
+            body=response.read()
+        _DIRECT_SEC = True
+        return body
+    except HTTPError as exc:
+        raise OSError(f'Official SEC HTTP {exc.code}') from None
+    except Exception:
+        raise OSError('Official SEC connection unavailable') from None
 
 
 def _filings(submissions, today):
@@ -48,7 +73,7 @@ def _base(cik, filing):
 
 
 def _exhibit_links(document, base):
-    tree = html.fromstring(document)
+    tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     result = []
     for link in tree.xpath('//a[@href]'):
         label = ' '.join(link.itertext()) + ' ' + link.get('href')
@@ -132,14 +157,21 @@ def check_issuer(cik, submissions, fetch, today):
 def _now(today):
     current = datetime.now(timezone.utc)
     # Deterministic historic test date without a future official check timestamp.
-    return current if current.date() == today else datetime.combine(today, datetime.min.time(), timezone.utc)
+    return current if current.astimezone(ZoneInfo('America/New_York')).date() == today else datetime.combine(today, datetime.min.time(), timezone.utc)
 
 
 def _due(company, status, today, full):
     if full:
         return True
     checked = status.get('officialCheckedAt')
-    if not checked or checked[:10] < today.isoformat():
+    if status.get('status') in ('official_source_failed','official_parse_pending'):
+        return True
+    if not checked:
+        return True
+    try:
+        if _now(today) - datetime.fromisoformat(checked.replace('Z','+00:00')) >= timedelta(hours=24):
+            return True
+    except (ValueError,TypeError):
         return True
     raw = company.get('reportDate')
     try:
@@ -172,52 +204,66 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
             continue
         groups.setdefault(cik.zfill(10), []).append(ticker)
     source_failures, parsed_count = 0, 0
-    sec_preflight_failed = False
     real_fetch = fetch is None
     transport = fetch or fetch_sec
     last_request = [0.0]
+    request_lock = threading.Lock()
+    deadline = time.monotonic()+2400
+    cache_root = root/'.sec_cache'/'official'
     def paced(url):
+        cache_file = cache_root/(hashlib.sha256(url.encode()).hexdigest()+'.body') if real_fetch and '/Archives/' in url else None
+        if cache_file is not None and cache_file.exists():
+            return cache_file.read_bytes()
         if real_fetch:
-            pause = 0.3 - (time.monotonic()-last_request[0])
-            if pause > 0:
-                time.sleep(pause)
-        last_request[0] = time.monotonic()
-        return transport(url)
-    for index, (cik, aliases) in enumerate(groups.items(), 1):
-        try:
-            if sec_preflight_failed:
-                raise OSError('SEC preflight unavailable')
-            submissions = json.loads(paced(f'https://data.sec.gov/submissions/CIK{cik}.json'))
-            records, details = check_issuer(cik, submissions, paced, today)
-            source_failures += bool(details['requestFailures'])
-            state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] else 'official_source_checked'
-            for ticker in aliases:
-                incoming = [{**r,'ticker':ticker} for r in records]
-                # Keep original verified figures when this run only confirms the release.
-                by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
-                for r in incoming:
-                    prior = by_period.get((ticker,r['periodEnd']))
-                    if prior:
-                        for field in ('epsGaapDiluted','revenue'):
-                            if r.get(field) is None and prior.get(field) is not None:
-                                r[field] = prior[field]
-                                r['metricSourceUrl'] = prior.get('metricSourceUrl') or prior['releaseSourceUrl']
-                                if field == 'epsGaapDiluted':r['epsBasis'] = 'GAAP diluted'
-                        r['date'],r['releaseSourceUrl'] = prior['date'],prior['releaseSourceUrl']
-                history, added = apply_official_records(companies, history, incoming, today)
-                parsed_count += added
-                manifest = retain_manifest(manifest + incoming)
-                status[ticker] = {**status.get(ticker,{}), **details, 'status':state, 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
-                    'discoverySource':'SEC submissions and earnings exhibits', 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
-        except Exception as exc:
-            source_failures += 1
-            if index == 1:
-                # Avoid hammering 500 issuers when shared infrastructure is unavailable.
-                sec_preflight_failed = True
-            for ticker in aliases:
-                status[ticker] = {**status.get(ticker,{}), 'status':'official_source_failed', 'reason':'sec_request_or_configuration_failed', 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
-        if index % 50 == 0 or index == len(groups):
-            print(f'Official SEC issuer checks: {index}/{len(groups)}; failures: {source_failures}', flush=True)
+            if time.monotonic()>deadline:
+                raise TimeoutError('Official scan time budget exhausted')
+            with request_lock:
+                pause = 0.15 - (time.monotonic()-last_request[0])
+                if pause > 0:
+                    time.sleep(pause)
+                last_request[0] = time.monotonic()
+        body = transport(url)
+        if cache_file is not None:
+            cache_root.mkdir(parents=True,exist_ok=True)
+            cache_file.write_bytes(body.encode('utf-8') if isinstance(body,str) else body)
+        return body
+    def inspect(cik):
+        print(f'Checking official issuer: {",".join(groups[cik])}',flush=True)
+        submissions = json.loads(paced(f'https://data.sec.gov/submissions/CIK{cik}.json'))
+        return check_issuer(cik,submissions,paced,today)
+    # Network work is concurrent; validated data merges and publication remain serial.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures = {cik:pool.submit(inspect,cik) for cik in groups}
+        for index, (cik, aliases) in enumerate(groups.items(), 1):
+            try:
+                records, details = futures[cik].result()
+                source_failures += bool(details['requestFailures'])
+                state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] else 'official_source_checked'
+                for ticker in aliases:
+                    incoming = [{**r,'ticker':ticker} for r in records]
+                    # Keep original verified figures when this run only confirms the release.
+                    by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
+                    for r in incoming:
+                        prior = by_period.get((ticker,r['periodEnd']))
+                        if prior:
+                            for field in ('epsGaapDiluted','revenue'):
+                                if r.get(field) is None and prior.get(field) is not None:
+                                    r[field] = prior[field]
+                                    r['metricSourceUrl'] = prior.get('metricSourceUrl') or prior['releaseSourceUrl']
+                                    if field == 'epsGaapDiluted':r['epsBasis'] = 'GAAP diluted'
+                            r['date'],r['releaseSourceUrl'] = prior['date'],prior['releaseSourceUrl']
+                    history, added = apply_official_records(companies, history, incoming, today)
+                    parsed_count += added
+                    manifest = retain_manifest(manifest + incoming)
+                    status[ticker] = {**status.get(ticker,{}), **details, 'status':state, 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
+                        'discoverySource':'SEC submissions and earnings exhibits', 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
+            except Exception as exc:
+                source_failures += 1
+                print(f'Official issuer check failed: {",".join(aliases)}; error type: {type(exc).__name__}',flush=True)
+                for ticker in aliases:
+                    status[ticker] = {**status.get(ticker,{}), 'status':'official_source_failed', 'reason':'official_validation_failed' if isinstance(exc,ValueError) else 'sec_request_or_configuration_failed', 'errorType':type(exc).__name__, 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
+            if index % 50 == 0 or index == len(groups):
+                print(f'Official SEC issuer checks: {index}/{len(groups)}; failures: {source_failures}', flush=True)
     # NVIDIA stays on its independently tested, earlier-than-10-Q newsroom source.
     if 'NVDA' in tickers:
         from nvda_history import sync_nvda

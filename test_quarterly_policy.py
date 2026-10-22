@@ -41,6 +41,10 @@ class QuarterlyPolicyTests(unittest.TestCase):
         self.assertNotIn('fiscalQuarter', result[1])
         self.assertEqual(result[1]['verificationStatus'], 'legacy_unverified')
 
+    def test_unverified_duplicate_quarter_labels_are_not_period_evidence(self):
+        rows=[dict(date='2026-01-10',quarter='2026 Q1'),dict(date='2026-04-10',quarter='2026 Q1')]
+        self.assertEqual(len(retain_history({'ABC':rows},TODAY)['ABC']),2)
+
     def test_future_records_are_rejected(self):
         with self.assertRaises(ValueError):
             retain_history({'ABC': [dict(date='2027-01-01')]}, TODAY)
