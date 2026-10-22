@@ -75,18 +75,22 @@ The scheduler Worker has no public HTTP handler and does not receive the Bark ke
 
 ### Technical Overview
 
-- **Data update:** Python 3.9, `yfinance`, and `requests` with retry handling.
+- **Data update:** Python 3.11, `yfinance`, and `requests` with retry handling.
 - **Frontend:** Tailwind CSS, browser ES modules, Vanilla JavaScript, and `localStorage`.
 - **Automation and hosting:** GitHub Actions and GitHub Pages.
 - **Optional workers:** Separate Cloudflare Workers for controlled SEC requests and Bark workflow scheduling.
 
 ### Quarterly earnings history refresh
 
-The daily 01:00 UTC run checks all active tickers with `yfinance` for **release-date candidates only**. A future Yahoo date can appear in the schedule, explicitly labelled as a third-party estimate; no BMO/AMC time is inferred from it. Yahoo EPS and revenue are not copied into the new quarterly historical records. A quarterly actual becomes public only after its release date and figures are checked against a company earnings release or official filing and entered in `official_history.json`. For each reviewed entry, record the fiscal period end, fiscal year and quarter, quarterly GAAP diluted EPS, quarterly revenue in USD, the release and metric source URLs, and the verification date. Use `null` for any figure that the official source does not establish. A fourth-quarter value remains a quarterly value even if its related filing is a 10-K.
+Every tracked issuer now uses the same maximum-five-quarter policy. The website and active JSON files show newest first; original releases, filings, reporting-period ends and future calls remain separate. Five verified quarters cannot be displaced by an unverified candidate or a replayed old seed. Short histories remain short with an explanation.
 
-`python verified_history.py --scan` performs the full Yahoo discovery scan, applies reviewed entries, clears expired expected earnings dates, and writes a status for every tracked company to `history_status.json`. `python verified_history.py` reapplies the reviewed entries without a Yahoo scan. Both commands preserve existing historical rows and are safe to rerun. The status file distinguishes pending official review, discovery failures, and companies without a newer Yahoo candidate; the latter does **not** prove that the company is officially current. Existing unreviewed history retains its original figures and is labelled as such on the site. Review `official_history.json` against the linked company sources before merging a batch.
+`python official_sync.py --full` checks every issuer using SEC submissions and original earnings exhibits, once per CIK. It validates explicit release dates and quarter identity, then reads matching quarterly inline-XBRL facts from official filings. NVIDIA keeps its independently verified newsroom adapter. The hourly **Official Quarterly History** workflow (registered file `nvda_history.yml`) checks the reporting window and stale/failed issuers; daily full runs also cover undated companies. Official public documents are cached and requests are paced. A configured proxy can fall back to direct official requests; no private data service is required.
 
-SEC requests may fail independently. The reviewed earnings step and data commit run even when the legacy SEC updater fails, so reviewed releases can still be published. The monthly full refresh, `--rebuild-historical`, and `--validate-sec` retain strict checks for SEC metadata; an incomplete SEC rebuild is not treated as successful. This uses the existing free GitHub Actions and public sources; a successful job alone is not proof that all 503 tickers have current official history.
+Only verified quarterly GAAP diluted EPS and USD revenue appear as actual values. Missing or unsupported facts remain blank; annual/YTD EPS and revenue components cannot substitute for a quarterly total. Legacy fiscal labels and dates are explicitly unverified, and their unsupported figures remain in storage/Git but are hidden on the site. Unknown-period forward estimates are withheld for every company. Each metric retains its own source through partial restatements.
+
+`python verified_history.py --scan` still discovers Yahoo dates only, never importing third-party actuals. Future estimates are labelled and expired dates are cleared using the New York calendar. `history_status.json` records per-company source failures, parsing gaps and coverage; `official_scan_state.json` summarizes the run. A successful source connection is not proof that every financial field or every latest quarter is verified. Failures preserve history and are published visibly before the workflow fails. `python validate_quarterly_data.py` gates every publication bundle.
+
+See [source setup and known coverage boundaries](docs/official-source-setup.md), the [migration audit](docs/all-company-quarterly-migration.json), and the [approved full-site design](docs/superpowers/specs/2026-10-22-all-company-quarterly-design.md). Bark notification schedules are unchanged.
 
 ---
 
@@ -105,9 +109,13 @@ SEC requests may fail independently. The reviewed earnings step and data commit 
 
 ### 最新季度歷史資料
 
-每日 UTC 01:00 的排程會用 `yfinance` 檢查所有追蹤公司的財報日期線索。未來的 Yahoo 日期可顯示於時間表，但必須標成「第三方日期預估」，且不推斷盤前／盤後。Yahoo 的 EPS 和營收不直接寫入新增的季度歷史實績。只有核對公司業績公告或官方申報後，才把公布日、財季截止日、季度 GAAP 稀釋 EPS、季度營收、來源連結和核對日期加入 `official_history.json`，再由 `verified_history.py` 更新網站。官方來源無法確認的金額保留空白。第四季數值即使連到 10-K，仍標示為季度數值。
+全站公司共用最多五季、最新在前的保留規則，資料檔與畫面都生效。新季度需有官方公布證據才入庫；已有五個核實季度時，未核實線索不會擠掉舊季。實際不足五筆者顯示缺漏，不捏造補滿。
 
-`history_status.json` 逐家公司區分已核對、等待官方核對、試抓失敗及未發現較新線索。未發現 Yahoo 線索不等於官方確認資料完整。原有歷史金額不在本次更新中重算；SEC 無法連線也不會阻止已核對的公司公告進入歷史紀錄。
+每小時的 **Official Quarterly History** 工作流程會檢查發報窗口及過期／失敗來源；每日完整掃描包含沒有預計日期的公司。依 CIK 合併共用來源，核對 SEC 原始業績公告的公布日、季度及匹配申報的季度 GAAP 數字。NVIDIA 保留官方新聞室來源。官方文件採快取與限速；代理失效時可改試官方直連。
+
+財年、季度截止日、公布日、SEC 申報日與電話會議分開顯示。未核實舊日期、季度及缺漏數值明確標示；未確認季度口徑的歷史數字及不明期間的預期 EPS／營收不再顯示為實績或下一季預估。數值修訂逐欄保存來源，全年／累計 EPS 不拿來推算 Q4。
+
+來源失敗會保留原紀錄並顯示異常，工作流程會在保存狀態後明確失敗；連線成功不代表所有季度和欄位均核實。[來源設定及覆蓋限制](docs/official-source-setup.md)列出必要設定與待補情況；[遷移稽核](docs/all-company-quarterly-migration.json)逐家公司記錄裁切及缺漏。通知排程維持原設定。
 
 ### 部署
 

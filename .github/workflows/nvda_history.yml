@@ -52,6 +52,7 @@ jobs:
           python - <<'PY'
           import json
           from official_sync import fetch_sec
+          from official_sources import parse_inline_quarter
           endpoints = {
               'submissions': 'https://data.sec.gov/submissions/CIK0000320193.json',
               'quarterly_filing': 'https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm',
@@ -60,7 +61,13 @@ jobs:
           for kind, url in endpoints.items():
               try:
                   body = fetch_sec(url)
-                  results.append({'source':kind, 'available':bool(body)})
+                  if kind == 'submissions':
+                      payload = json.loads(body)
+                      if int(payload.get('cik', 0)) != 320193:
+                          raise ValueError('Unexpected SEC issuer response')
+                  else:
+                      parse_inline_quarter(body, '2026-03-28', cik='0000320193')
+                  results.append({'source':kind, 'available':True})
               except Exception as exc:
                   results.append({'source':kind, 'available':False, 'errorType':type(exc).__name__})
           print(json.dumps(results))

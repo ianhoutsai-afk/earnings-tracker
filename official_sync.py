@@ -36,11 +36,11 @@ def decode_sec_body(body):
 def fetch_sec(url):
     """Try the authenticated proxy, then the same public official SEC URL directly."""
     global _DIRECT_SEC
-    from update_data import _sec_request, SEC_HEADERS
+    from update_data import _sec_request, SEC_HEADERS, SEC_PROXY_URL
     p = urlparse(url)
     if p.scheme != 'https' or p.hostname not in ('www.sec.gov','data.sec.gov') or p.username or p.password:
         raise ValueError('Only official SEC HTTPS URLs are supported')
-    if not _DIRECT_SEC:
+    if not _DIRECT_SEC and SEC_PROXY_URL:
         try:
             response = _sec_request(url, timeout=20)
             if response.status_code == 200:
@@ -51,7 +51,7 @@ def fetch_sec(url):
             # requests and urllib use different transport exception types; do not leak URLs.
             pass
     try:
-        with urlopen(Request(url,headers={**SEC_HEADERS,'Accept-Encoding':'identity'}),timeout=20) as response:
+        with urlopen(Request(url,headers={**SEC_HEADERS,'Accept-Encoding':'gzip'}),timeout=20) as response:
             body=response.read()
         _DIRECT_SEC = True
         return decode_sec_body(body)
@@ -313,9 +313,14 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None):
         latest = rows[0] if rows else {}
         status[ticker] = {**status.get(ticker,{}), 'recordCount':len(rows), 'officialQuarterCount':sum(r.get('verificationStatus')=='official_verified' for r in rows),
                          'latestStoredDate':latest.get('date'), 'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
-                         'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None}
+                         'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None,
+                         'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
     summary = {'companies':len(companies), 'issuersChecked':len(groups), 'newRecords':parsed_count,
-               'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status') in ('official_parse_pending','official_mapping_missing') for s in status.values()),
+               'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
+               'officialQuarters':sum(s.get('officialQuarterCount',0) for s in status.values()),
+               'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
+               'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
+               'sourceFailedCompanies':sum(s.get('status')=='official_source_failed' for s in status.values()),
                'checkedAt':checked, 'healthy':source_failures==0}
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
         root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,

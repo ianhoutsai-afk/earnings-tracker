@@ -103,7 +103,7 @@ class OfficialFallbackTests(unittest.TestCase):
   from official_sync import fetch_sec
   stream=Mock();stream.read.return_value=b'<html>official</html>'
   context=Mock();context.__enter__=Mock(return_value=stream);context.__exit__=Mock(return_value=False)
-  with patch('official_sync._DIRECT_SEC',False),patch('update_data._sec_request',return_value=Mock(status_code=404)),patch('official_sync.urlopen',return_value=context) as direct:
+  with patch('official_sync._DIRECT_SEC',False),patch('update_data.SEC_PROXY_URL','https://proxy.example'),patch('update_data._sec_request',return_value=Mock(status_code=404)),patch('official_sync.urlopen',return_value=context) as direct:
    self.assertEqual(fetch_sec('https://www.sec.gov/Archives/edgar/data/1/report.htm'),b'<html>official</html>')
    self.assertEqual(direct.call_args.args[0].full_url,'https://www.sec.gov/Archives/edgar/data/1/report.htm')
 
