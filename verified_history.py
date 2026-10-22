@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 from update_data import format_eps, format_revenue
+from nvda_history import retain_nvda_history, nvda_company_fields
 
 
 NEW_YORK = ZoneInfo('America/New_York')
@@ -116,12 +117,30 @@ def apply_official_records(companies, history, records, today):
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
         if existing:
+            if ticker == 'NVDA':
+                if existing.get('verifiedAt', '') > record['verifiedAt']:
+                    continue
+                # A restatement changes the quarter's values, not its first release date.
+                if existing.get('verificationStatus') == 'official_verified':
+                    official_row['date'] = existing['date']
+                    if eps is None:
+                        official_row['eps_reported'] = existing.get('eps_reported', '-')
+                        official_row['epsBasis'] = existing.get('epsBasis')
+                    if revenue is None:
+                        official_row['revenue_reported'] = existing.get('revenue_reported', '-')
+                    if eps is None or revenue is None:
+                        official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
+                official_row['fiscalYear'] = record['fiscalYear']
+                official_row['fiscalQuarter'] = record['fiscalQuarter']
             existing.update(official_row)
             continue
+        if ticker == 'NVDA':
+            official_row['fiscalYear'] = record['fiscalYear']
+            official_row['fiscalQuarter'] = record['fiscalQuarter']
         rows.append(official_row)
         rows.sort(key=lambda item: item['date'])
         added += 1
-    return result, added
+    return retain_nvda_history(result), added
 
 
 def clear_past_report_dates(companies, today):
@@ -291,6 +310,7 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
     reviewed = json.loads((root / 'official_history.json').read_text(encoding='utf-8'))
     updated_history, added = apply_official_records(companies, history, reviewed, today)
     updated_companies = clear_past_report_dates(companies, today)
+    updated_companies = [nvda_company_fields(company, updated_history, today) for company in updated_companies]
     if scan:
         candidates, errors, future_dates = scan_yahoo_candidates(
             companies, fetch or _fetch_yahoo_earnings, today, sleep=sleep,

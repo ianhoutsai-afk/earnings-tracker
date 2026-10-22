@@ -64,6 +64,17 @@ export const translations = {
     'earnings.verified': 'Latest found quarter officially verified',
     'earnings.officialNewer': 'Official release is newer than the latest Yahoo candidate',
     'earnings.verifiedScanPending': 'Official quarter verified; latest scan pending',
+    'nvda.fiscalQuarter': '{quarter} (company fiscal year)',
+    'nvda.released': 'Released {date}',
+    'nvda.latest': 'Latest published: {quarter} · {date}',
+    'nvda.historyNote': 'Latest five published quarters, newest first. FY denotes the company fiscal year; dates below are release dates.',
+    'nvda.quarterRevenue': 'Quarterly revenue',
+    'nvda.estimatePending': 'Next-quarter estimate unavailable',
+    'nvda.officialCall': 'Official earnings call · release date not confirmed',
+    'nvda.nextTba': 'Next release date not yet announced',
+    'nvda.secLinkPending': 'SEC filing link pending',
+    'nvda.sourceChecked': 'Official NVIDIA sources checked',
+    'nvda.lastChecked': 'Last official source check: {time}',
     'data.error': 'Unable to load data. Refresh the page to try again.',
     'data.historyWarning': 'historical_data.json failed to load; filing history is unavailable.',
   },
@@ -129,6 +140,17 @@ export const translations = {
     'earnings.verified': '已發現的最新季度經官方核對',
     'earnings.officialNewer': '官方業績公告比 Yahoo 最近線索更新',
     'earnings.verifiedScanPending': '已有官方核對季度；等待下次最新季度掃描',
+    'nvda.fiscalQuarter': '{quarter}（公司財年）',
+    'nvda.released': '財報公布日：{date}',
+    'nvda.latest': '最新已公布：{quarter} · {date}',
+    'nvda.historyNote': '最近五個已公布季度，最新在前。FY 代表公司財年；下方日期為財報公布日。',
+    'nvda.quarterRevenue': '季度營收',
+    'nvda.estimatePending': '下一季預估待取得',
+    'nvda.officialCall': '官方業績電話會議 · 財報公布日待確認',
+    'nvda.nextTba': '尚未公告下次財報日期',
+    'nvda.secLinkPending': 'SEC 文件連結待取得',
+    'nvda.sourceChecked': '已檢查 NVIDIA 官方來源',
+    'nvda.lastChecked': '上次官方來源核對：{time}',
     'data.error': '無法載入資料，請重新整理頁面',
     'data.historyWarning': 'historical_data.json 載入失敗，歷史財報面板將無法顯示',
   },
@@ -149,6 +171,7 @@ export function earningsMetricLabelKey(item) {
 
 export function historyStatusKey(item) {
   const status = item?.status;
+  if (status === 'official_source_checked') return 'nvda.sourceChecked';
   if (status === 'pending_official') return 'earnings.pendingOfficial';
   if (status === 'discovery_failed') return 'earnings.discoveryFailed';
   if (status === 'no_new_candidate') return 'earnings.noNewCandidate';

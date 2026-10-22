@@ -3087,13 +3087,13 @@
     "checkedAt": "2026-10-22T06:28:19.280693Z"
   },
   "NVDA": {
-    "status": "verified_to_latest_candidate",
-    "reason": "latest_yahoo_candidate_is_officially_verified",
+    "status": "official_source_checked",
+    "reason": "nvda_newsroom_feed_and_next_quarter_checked",
     "latestStoredDate": "2026-08-26",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/",
-    "discoverySource": "yfinance.get_earnings_dates",
-    "checkedAt": "2026-10-22T06:28:19.280693Z"
+    "officialSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    "discoverySource": "NVIDIA Newsroom RSS and quarterly release",
+    "checkedAt": "2026-10-22T14:12:13.710247Z"
   },
   "NVR": {
     "status": "pending_official",

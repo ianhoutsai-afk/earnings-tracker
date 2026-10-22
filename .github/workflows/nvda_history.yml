@@ -1,0 +1,40 @@
+name: NVDA Official Quarterly History
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: earnings-data-write
+  cancel-in-progress: false
+
+jobs:
+  nvda:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official release parser
+        run: python -m pip install lxml
+      - name: Verify five-quarter retention and official-source parser
+        run: python -m unittest test_nvda_history -v
+      - name: Update NVDA only
+        run: python nvda_history.py
+      - name: Publish verified NVDA changes
+        run: |
+          git add data.json historical_data.json official_history.json history_status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update NVDA official quarterly history [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
