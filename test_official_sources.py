@@ -144,6 +144,12 @@ class ConsolidatedContractRevenueTests(unittest.TestCase):
   note='<div>CONSOLIDATED STATEMENTS OF OPERATIONS</div><div><table><tr><td>Net income</td><td>100</td></tr></table></div><div>Note 2. Revenue recognition</div><div><table><tr><td>Total revenues</td><td>'+fact+'</td></tr></table></div>'
   self.assertIsNone(parse_inline_quarter(filing().replace(original,note),'2026-09-30')['revenue'])
 
+ def test_direct_note_text_inside_wrapper_blocks_heading_inheritance(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  fact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  note='<div>CONSOLIDATED STATEMENTS OF OPERATIONS</div><div>Note 2. Revenue recognition<table><tr><td>Total revenues</td><td>'+fact+'</td></tr></table></div>'
+  self.assertIsNone(parse_inline_quarter(filing().replace(original,note),'2026-09-30')['revenue'])
+
  def test_contract_revenue_requires_consolidated_statement_total_row(self):
   original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
   fact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')

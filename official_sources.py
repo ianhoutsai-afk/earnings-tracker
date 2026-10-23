@@ -99,8 +99,12 @@ def parse_earnings_release(document, event_date, filing_date, today):
 def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     """An explicit Item 2.02 publication statement is release evidence, not its cover date."""
     tree=html.fromstring(document.encode('utf-8') if isinstance(document,str) else document)
-    text=' '.join(_text(tree).split())
-    match=re.search(r'(?i)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
+    # Keep block boundaries so a nearby footnote cannot become part of a publication.
+    for node in tree.iter():
+        if _local(node) in ('p','div','tr','h1','h2','h3','h4'):
+            node.tail=(node.tail or '')+'\n'
+    text='\n'.join(' '.join(line.split()) for line in _text(tree).splitlines() if line.strip())
+    match=re.search(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
     if not match:raise ValueError('No earnings publication statement')
     section=match[1]
     statements=list(re.finditer(r'(?i)\bOn\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?('+DATE+r')\s*,?\s+(.{0,350}?(?:reported|announced|issued|released|posted)\b.{0,250})',section))
@@ -108,20 +112,34 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     statements += list(re.finditer(r'(?i)(?:press|news)\s+release(?:(?!'+DATE+r').){0,150}?(?:dated|issued(?:\s+by.{0,100}?)?\s+on)\s+('+DATE+r')(.{0,400})',section))
     statements += list(re.finditer(r'(?i)('+DATE+r')\s+press\s+release(.{0,400})',section))
     filed=date.fromisoformat(filing_date)
-    supported=[m for m in statements if re.search(r'(?i)results|earnings|sales|financial|press release',m[2]) and not re.search(r'(?i)\bwill\s+(?:report|announce|release|publish)|plans? to',m[2])]
-    dates={_date(m[1]) for m in supported}
+    headline=''
+    if exhibit is not None:
+        release_tree=html.fromstring(exhibit.encode('utf-8') if isinstance(exhibit,str) else exhibit)
+        headline=' '.join(_text(release_tree).split())[:1200]
+    actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
+    supported=[]
+    for m in statements:
+        clause=re.split(r'(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        clause=re.split(r'(?i)\b(?:refer|see)\s+(?:to\s+)?(?:our|the|its|their|a)\b|\b(?:our|the|its|their)\s+(?:(?:previous|prior|earlier)\s+)?(?:Quarterly|Annual)\s+Report\b',clause,maxsplit=1)[0]
+        # Evaluate the whole publication clause, including language after its object.
+        # A schedule/date/call announcement does not attest release of the actuals.
+        if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b',clause):continue
+        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
+        dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
+        if actual_results or (dated_release and actual_headline):supported.append((m,clause))
+    dates={_date(m[1]) for m,_ in supported}
     if len(dates)!=1:raise ValueError('No unambiguous completed publication date')
     event=dates.pop()
     if not event<=filed<=today or (filed-event).days>45:raise ValueError('Publication date outside the filing window')
     # Exhibit descriptions can explicitly identify a quarter that is not repeated in the body.
-    descriptions=re.search(r'(?i)\bItem\s*9\.01\b(.*?)(?=\bSIGNATURES?\b|$)',text)
-    publication_text=' '.join(m[2] for m in supported)
+    descriptions=re.search(r'(?is)\bItem\s*9\.01\b(.*?)(?=\bSIGNATURES?\b|$)',text)
+    publication_text=' '.join(clause for _,clause in supported)
     end=_completed_period_end(publication_text+' '+(descriptions[1] if descriptions else ''),event)
     if end is not None and (event-end).days>180:raise ValueError('Stale earnings period')
     year,quarter=_fiscal_identity(publication_text)
     if exhibit is not None:
-        release_tree=html.fromstring(exhibit.encode('utf-8') if isinstance(exhibit,str) else exhibit)
-        hint=_fiscal_identity(' '.join(_text(release_tree).split())[:1500])
+        hint=_fiscal_identity(headline)
         if hint[0] is not None:
             if year is not None and (year,quarter)!=hint:raise ValueError('Conflicting official fiscal identities')
             year,quarter=hint
@@ -171,6 +189,7 @@ def _contract_revenue_total(node):
             previous=previous.getprevious()
         parent=current.getparent()
         if parent is None or _local(parent) not in ('div','section') or len(parent)!=1:break
+        if (parent.text or '').strip() or (current.tail or '').strip():break
         current=parent
     return False
 

@@ -229,6 +229,36 @@ class FilingAnnouncementTests(unittest.TestCase):
   self.assertEqual(rows[0]['periodEnd'],'2026-09-30')
   self.assertEqual(rows[0]['epsGaapDiluted'],1.25)
 
+ def test_adjacent_prior_filing_reference_is_not_current_period_evidence(self):
+  import copy
+  from official_sync import check_issuer
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced its earnings results.</p><p>Refer to our Quarterly Report for the quarter ended June 30, 2026.</p>'
+  sub=copy.deepcopy(SUBMISSIONS);sub['filings']['recent']['reportDate'][1]='2026-06-30';sub['filings']['recent']['filingDate'][1]='2026-07-16'
+  def source(url):
+   if url.endswith('results.htm'):return primary+'<a href="ex991.htm">99.1 Earnings release</a>'
+   if url.endswith('ex991.htm'):return '<h1>Financial Results</h1>'
+   if url.endswith('quarter.htm'):return filing(quarter='Q2').replace('2026-09-30','2026-06-30').replace('2026-07-01','2026-04-01')
+   return fetch(url)
+  self.assertEqual(check_issuer('0000000001',sub,source,TODAY)[0],[])
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced its earnings results. refer to our Quarterly Report for the quarter ended June 30, 2026.</p>'
+  self.assertEqual(check_issuer('0000000001',sub,source,TODAY)[0],[])
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced its financial results, which should be read in conjunction with its Quarterly Report for the quarter ended June 30, 2026.</p>'
+  self.assertEqual(check_issuer('0000000001',sub,source,TODAY)[0],[])
+
+ def test_call_announcement_is_not_an_earnings_release(self):
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced a conference call to discuss its third quarter 2026 earnings for the quarter ended September 30, 2026.</p>'
+  self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
+
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced the date of its third quarter 2026 earnings release and conference call, which are scheduled for October 20, 2026.</p>'
+  self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
+
+ def test_announcing_a_release_date_does_not_publish_financial_results(self):
+  primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced the date for its third quarter 2026 financial results for the quarter ended September 30, 2026.</p>'
+  self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
+  for suffix in ['earnings release and conference call schedule','earnings release and conference call will take place on October 20, 2026','financial results will be published on October 20, 2026']:
+   primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced its third quarter 2026 '+suffix+'.</p>'
+   self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
+
 class SupplementalHistoryTests(unittest.TestCase):
  def test_failed_old_submission_chunk_preserves_new_release_check_and_reports_failure(self):
   import copy
