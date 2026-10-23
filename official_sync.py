@@ -89,7 +89,7 @@ def _exhibit_links(document, base):
     result = []
     for link in tree.xpath('//a[@href]'):
         label = ' '.join(link.itertext()) + ' ' + link.get('href')
-        if not re.search(r'(?i)(?:99[._-]?1|earnings|press\s*release)', label):
+        if not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
             continue
         target = urljoin(base, link.get('href')).split('#')[0]
         parsed = urlparse(target)

@@ -120,6 +120,10 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     supported=[]
     for m in statements:
         clause=re.split(r'(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        # In "announced on DATE, its results", the completed verb precedes the date.
+        before_date=m[0][:m.start(1)-m.start()]
+        if re.search(r'(?i)\b(?:announced|reported)\s+on\s*$',before_date):
+            clause='reported '+clause
         clause=re.split(r'(?i)\b(?:refer|see)\s+(?:to\s+)?(?:our|the|its|their|a)\b|\b(?:our|the|its|their)\s+(?:(?:previous|prior|earlier)\s+)?(?:Quarterly|Annual)\s+Report\b',clause,maxsplit=1)[0]
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.

@@ -3552,7 +3552,13 @@
     "name": "EchoStar Corporation",
     "cik": "0001415404",
     "cikSourceUrl": "https://www.sec.gov/files/company_tickers.json",
-    "filings": {}
+    "filings": {},
+    "tickerStatus": "historical_alias",
+    "officialTickers": [
+      "ECHO"
+    ],
+    "officialName": "EchoStar CORP",
+    "tickerIdentitySourceUrl": "https://data.sec.gov/submissions/CIK0001415404.json"
   },
   "EA": {
     "name": "Electronic Arts Inc.",

@@ -173,6 +173,25 @@ class HourlyWindowTests(unittest.TestCase):
   self.assertTrue(_due({'ticker':'ABC'},{**status,'status':'official_source_failed'},TODAY,False))
 
 class FilingAnnouncementTests(unittest.TestCase):
+ def test_announced_on_date_preserves_completed_publication_verb(self):
+  primary='<h2>Item 2.02 Results of Operations</h2><p>The registrant announced on October 14, 2026, its results of operations for the third quarter of 2026.</p><h2>Item 9.01 Exhibits</h2><p>Press release reporting results for the third quarter ended September 30, 2026.</p>'
+  rows=self.inspect(primary,RELEASE.replace('October 14, 2026',''))
+  self.assertEqual(len(rows),1)
+  self.assertEqual((rows[0]['date'],rows[0]['periodEnd']),('2026-10-14','2026-09-30'))
+  primary=primary.replace('its results of operations','the date of its results conference call')
+  self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
+
+ def test_standalone_exhibit_99_news_release_is_checked_for_actual_results(self):
+  from official_sync import check_issuer
+  primary='<h2>Item 2.02 Results of Operations</h2><p>The registrant news release dated October 14, 2026, regarding its third quarter results, is furnished as Exhibit 99.</p><a href="ex99.htm">99 News Release</a>'
+  def source(url):
+   if url.endswith('results.htm'):return primary
+   if url.endswith('ex99.htm'):return RELEASE
+   return fetch(url)
+  rows,_=check_issuer('0000000001',SUBMISSIONS,source,TODAY)
+  self.assertEqual(len(rows),1)
+  self.assertEqual(rows[0]['date'],'2026-10-14')
+
  def inspect(self,primary,release=RELEASE):
   from official_sync import check_issuer
   def source(url):
