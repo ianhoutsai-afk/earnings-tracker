@@ -255,7 +255,7 @@ class FilingAnnouncementTests(unittest.TestCase):
  def test_announcing_a_release_date_does_not_publish_financial_results(self):
   primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced the date for its third quarter 2026 financial results for the quarter ended September 30, 2026.</p>'
   self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
-  for suffix in ['earnings release and conference call schedule','earnings release and conference call will take place on October 20, 2026','financial results will be published on October 20, 2026']:
+  for suffix in ['earnings release and conference call schedule','earnings release and conference call will take place on October 20, 2026','financial results will be published on October 20, 2026','financial results release date']:
    primary='<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example announced its third quarter 2026 '+suffix+'.</p>'
    self.assertEqual(self.inspect(primary,RELEASE.replace('October 14, 2026','')),[])
 
