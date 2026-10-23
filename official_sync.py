@@ -18,7 +18,7 @@ from zoneinfo import ZoneInfo
 
 from lxml import html
 
-from official_sources import parse_earnings_release, parse_inline_quarter
+from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
@@ -89,7 +89,7 @@ def _exhibit_links(document, base):
     result = []
     for link in tree.xpath('//a[@href]'):
         label = ' '.join(link.itertext()) + ' ' + link.get('href')
-        if not re.search(r'(?i)(?:99[._-]?1|earnings|press\s*release)', label):
+        if not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
             continue
         target = urljoin(base, link.get('href')).split('#')[0]
         parsed = urlparse(target)
@@ -100,15 +100,34 @@ def _exhibit_links(document, base):
 
 def check_issuer(cik, submissions, fetch, today):
     filings = _filings(submissions, today)
+    records, pending, failures, metric_pending = {}, 0, 0, 0
+    source_errors=[]
+    # Main SEC submissions may cover only weeks for high-volume debt issuers.
+    cutoff=today-timedelta(days=550)
+    if filings and min(date.fromisoformat(r['filingDate']) for r in filings)>cutoff:
+        supplements=submissions.get('filings',{}).get('files',[])
+        for entry in sorted(supplements,key=lambda r:r.get('filingTo',''),reverse=True)[:5]:
+            name=entry.get('name','')
+            if not re.fullmatch(r'CIK'+str(cik).zfill(10)+r'-submissions-\d+\.json',name):continue
+            if entry.get('filingTo','')<cutoff.isoformat() or entry.get('filingFrom','')>today.isoformat():continue
+            url='https://data.sec.gov/submissions/'+name
+            try:
+                payload=json.loads(fetch(url))
+                filings += _filings({'filings':{'recent':payload}},today)
+            except (OSError,TimeoutError) as exc:
+                failures+=1
+                source_errors.append({'stage':'submission_history','sourceUrl':url,'errorType':type(exc).__name__})
+            except (ValueError,TypeError):
+                pending+=1
+        filings=list({r['accessionNumber']:r for r in filings}.values())
     releases = [r for r in filings if r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+', r['items'])
                 and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
-    records, pending, failures, metric_pending = {}, 0, 0, 0
-    source_errors=[]
     for event in releases[:12]:
         base = _base(cik, event)
         try:
-            links = _exhibit_links(fetch(base + event['primaryDocument']), base)
+            primary_doc=fetch(base + event['primaryDocument'])
+            links = _exhibit_links(primary_doc, base)
         except (OSError, TimeoutError) as exc:
             failures += 1
             source_errors.append({'stage':'announcement_filing','sourceUrl':base+event['primaryDocument'],'errorType':type(exc).__name__})
@@ -117,17 +136,27 @@ def check_issuer(cik, submissions, fetch, today):
             pending += 1
             continue
         accepted = False
-        for url in links:
+        event_conflict=False
+        first_exhibit=None
+        for url in links+[base+event['primaryDocument']]:
             try:
-                release_doc = fetch(url)
-                release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
+                if url==base+event['primaryDocument']:
+                    if event_conflict:continue
+                    release=parse_earnings_filing(primary_doc,event['reportDate'],event['filingDate'],today,exhibit=first_exhibit)
+                else:
+                    release_doc = fetch(url)
+                    if first_exhibit is None:first_exhibit=release_doc
+                    release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
             except (OSError, TimeoutError) as exc:
                 failures += 1
                 source_errors.append({'stage':'earnings_release','sourceUrl':url,'errorType':type(exc).__name__})
                 continue
             except (ValueError, html.etree.ParserError):
                 continue
-            matches = [r for r in filings if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and r['reportDate'] == release['periodEnd']]
+            matches = [r for r in filings if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and r['reportDate'] and
+                       (r['reportDate'] == release['periodEnd'] if release['periodEnd'] else
+                        -7 <= (date.fromisoformat(r['filingDate'])-date.fromisoformat(release['date'])).days <= 45
+                        and 0 < (date.fromisoformat(release['date'])-date.fromisoformat(r['reportDate'])).days <= 180)]
             matches.sort(key=lambda r:r['filingDate'], reverse=True)
             metrics = None
             metric_url = url
@@ -136,7 +165,7 @@ def check_issuer(cik, submissions, fetch, today):
             for candidate in matches[:2]:
                 candidate_url = _base(cik, candidate) + candidate['primaryDocument']
                 try:
-                    parsed = parse_inline_quarter(fetch(candidate_url), release['periodEnd'],cik=cik)
+                    parsed = parse_inline_quarter(fetch(candidate_url), release['periodEnd'] or candidate['reportDate'],cik=cik)
                 except (OSError, TimeoutError) as exc:
                     failures += 1
                     metric_pending += 1
@@ -148,6 +177,7 @@ def check_issuer(cik, submissions, fetch, today):
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
                     identity_conflict = True
+                    event_conflict = True
                     metric_pending += 1
                     continue
                 metrics, metric_url, matched_filing = parsed, candidate_url, candidate
@@ -157,7 +187,7 @@ def check_issuer(cik, submissions, fetch, today):
                 continue
             if metrics is None:
                 # A published quarter may be admitted before its 10-Q, but only with explicit fiscal identity.
-                if not release.get('fiscalYear') or not release.get('fiscalQuarter'):
+                if not release.get('periodEnd') or not release.get('fiscalYear') or not release.get('fiscalQuarter'):
                     continue
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
             if metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None:
