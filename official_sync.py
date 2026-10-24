@@ -24,10 +24,29 @@ from official_metrics import parse_companyfacts, parse_statement_metrics
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
+from coverage_state import company_status, PARSER_VERSION
 
 
 class OfficialScanDeferred(Exception):
     """The source was not checked because this run reached its time budget."""
+
+
+class SecLimiter:
+    """One process-wide gate, including direct fallback and retries."""
+    def __init__(self, clock=time.monotonic, sleep=time.sleep):
+        self.clock, self.sleep = clock, sleep
+        self.next_request = 0.0
+        self.lock = threading.Lock()
+
+    def wait(self):
+        with self.lock:
+            pause = self.next_request - self.clock()
+            if pause > 0:
+                self.sleep(pause)
+            self.next_request = self.clock() + 0.2
+
+
+SEC_LIMITER = SecLimiter()
 
 
 _DIRECT_SEC = False
@@ -39,7 +58,7 @@ def decode_sec_body(body):
     return body
 
 
-def fetch_sec(url):
+def fetch_sec(url, timeout=20):
     """Try the authenticated proxy, then the same public official SEC URL directly."""
     global _DIRECT_SEC
     from update_data import _sec_request, SEC_HEADERS, SEC_PROXY_URL
@@ -48,7 +67,8 @@ def fetch_sec(url):
         raise ValueError('Only official SEC HTTPS URLs are supported')
     if not _DIRECT_SEC and SEC_PROXY_URL:
         try:
-            response = _sec_request(url, timeout=20)
+            SEC_LIMITER.wait()
+            response = _sec_request(url, timeout=timeout)
             if response.status_code == 200:
                 return decode_sec_body(response.content if hasattr(response,'content') else response._body)
         except (OSError, ValueError):
@@ -57,7 +77,8 @@ def fetch_sec(url):
             # requests and urllib use different transport exception types; do not leak URLs.
             pass
     try:
-        with urlopen(Request(url,headers={**SEC_HEADERS,'Accept-Encoding':'gzip'}),timeout=20) as response:
+        SEC_LIMITER.wait()
+        with urlopen(Request(url,headers={**SEC_HEADERS,'Accept-Encoding':'gzip'}),timeout=timeout) as response:
             body=response.read()
         _DIRECT_SEC = True
         return decode_sec_body(body)
@@ -100,33 +121,14 @@ def _exhibit_links(document, base):
     return list(dict.fromkeys(result))[:4]
 
 
-def check_issuer(cik, submissions, fetch, today):
-    filings = _filings(submissions, today)
+def _parse_events(cik, filings, fetch, today):
     records, pending, failures, metric_pending = {}, 0, 0, 0
     source_errors=[]
     facts_payload = None
-    # Main SEC submissions may cover only weeks for high-volume debt issuers.
-    cutoff=today-timedelta(days=550)
-    if filings and min(date.fromisoformat(r['filingDate']) for r in filings)>cutoff:
-        supplements=submissions.get('filings',{}).get('files',[])
-        for entry in sorted(supplements,key=lambda r:r.get('filingTo',''),reverse=True)[:5]:
-            name=entry.get('name','')
-            if not re.fullmatch(r'CIK'+str(cik).zfill(10)+r'-submissions-\d+\.json',name):continue
-            if entry.get('filingTo','')<cutoff.isoformat() or entry.get('filingFrom','')>today.isoformat():continue
-            url='https://data.sec.gov/submissions/'+name
-            try:
-                payload=json.loads(fetch(url))
-                filings += _filings({'filings':{'recent':payload}},today)
-            except (OSError,TimeoutError) as exc:
-                failures+=1
-                source_errors.append({'stage':'submission_history','sourceUrl':url,'errorType':type(exc).__name__})
-            except (ValueError,TypeError):
-                pending+=1
-        filings=list({r['accessionNumber']:r for r in filings}.values())
     releases = [r for r in filings if r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+', r['items'])
-                and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
+                and r['reportDate']]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
-    for event in releases[:12]:
+    for event in releases:
         base = _base(cik, event)
         try:
             primary_doc=fetch(base + event['primaryDocument'])
@@ -250,7 +252,125 @@ def check_issuer(cik, submissions, fetch, today):
         if not accepted:
             pending += 1
     rows = sorted(records.values(), key=lambda r:r['periodEnd'], reverse=True)[:5]
-    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors[:20]}
+    return rows, {'releaseCandidates':len(releases), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors}
+
+
+def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, known_records=None):
+    """Resume a versioned source cursor; never call a partial check complete."""
+    if submissions.get('cik') is not None and str(submissions['cik']).zfill(10) != str(cik).zfill(10):
+        raise ValueError('Submission issuer mismatch')
+    progress = copy.deepcopy(progress or {})
+    same_parser = progress.get('parserVersion') == PARSER_VERSION
+    completed = set(progress.get('completedAccessions', [])) if same_parser else set()
+    records = {r['periodEnd']:copy.deepcopy(r) for r in (known_records or [])}
+    candidates = {c['key']:c for c in progress.get('candidates', [])} if same_parser else {}
+    filings = {r['accessionNumber']:r for r in progress.get('filings', [])}
+    recent = {r['accessionNumber']:r for r in _filings(submissions, today)
+              if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') or (r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+',r['items']))}
+    if any(r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and a not in filings for a,r in recent.items()):
+        # An announcement rejected before its report arrived must be revisited.
+        completed.difference_update(c.get('accession') for c in candidates.values())
+        completed.difference_update(r.get('releaseAccession') for r in records.values()
+            if r.get('epsGaapDiluted') is None or r.get('revenue') is None)
+    filings.update(recent)
+    loaded = set(progress.get('loadedSubmissionFiles', []))
+    source_errors, attempted, was_deferred = [], 0, False
+    # Freeze the campaign date, while always including the current submissions response.
+    audit_as_of = progress.get('auditAsOf') or _now(today).isoformat().replace('+00:00','Z')
+    files = [e for e in submissions.get('filings', {}).get('files', [])
+             if re.fullmatch(r'CIK'+str(cik).zfill(10)+r'-submissions-\d+\.json', e.get('name',''))
+             and e.get('filingFrom','') <= today.isoformat()]
+    files.sort(key=lambda e:e.get('filingTo',''), reverse=True)
+    # Load every relevant chunk, not a fixed file count. With fewer than five
+    # known periods, later iterations extend backwards until five or exhaustion.
+    floor = min(records) if len(records) >= 5 else (today-timedelta(days=550)).isoformat()
+    def load_file(entry):
+        name = entry['name']; url = 'https://data.sec.gov/submissions/'+name
+        if name in loaded:
+            return
+        try:
+            payload = json.loads(fetch(url))
+            if not isinstance(payload, dict):
+                raise ValueError('Invalid submissions history')
+            filings.update({r['accessionNumber']:r for r in _filings({'filings':{'recent':payload}},today)
+                if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') or (r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+',r['items']))})
+            loaded.add(name)
+        except (OSError, TimeoutError, ValueError, TypeError) as exc:
+            source_errors.append({'stage':'submission_history','sourceUrl':url,'errorType':type(exc).__name__})
+    def release_events():
+        return sorted((r for r in filings.values() if r['form'] in ('8-K','8-K/A')
+            and '2.02' in re.split(r'[,;\s]+',r['items']) and r['reportDate']),
+            key=lambda r:(r['filingDate'],r['accessionNumber']), reverse=True)
+    try:
+        if depth == 5:
+            for entry in files:
+                if entry.get('filingTo','') >= floor:
+                    load_file(entry)
+        elif not release_events():
+            for entry in files:
+                load_file(entry)
+                if release_events():
+                    break
+        while True:
+            accepted_periods = set()
+            for event in release_events():
+                accession = event['accessionNumber']
+                existing = next((r for r in records.values() if r.get('releaseAccession') == accession), None)
+                if accession in completed:
+                    if existing:
+                        accepted_periods.add(existing['periodEnd'])
+                    if len(accepted_periods) >= depth:
+                        break
+                    continue
+                url = _base(cik,event)+event['primaryDocument']
+                key = f'{str(cik).zfill(10)}:{accession}:{url}'
+                candidate = {'key':key,'accession':accession,'filingDate':event['filingDate'],
+                    'sourceUrl':url,'reason':'quarter_identity_unconfirmed','attemptedAt':_now(today).isoformat()}
+                # The single event plus all exact-period reports; no competing event can hide a failure.
+                companions = [r for r in filings.values() if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A')]
+                try:
+                    parsed, details = _parse_events(cik, [event]+companions, fetch, today)
+                except OfficialScanDeferred:
+                    candidate['reason'] = 'source_check_deferred'
+                    candidates[key] = candidate
+                    raise
+                attempted += 1
+                source_errors.extend(details['sourceErrors'])
+                if parsed:
+                    for record in parsed:
+                        old = records.get(record['periodEnd'], {})
+                        records[record['periodEnd']] = merge_manifest_record(old,record)
+                        accepted_periods.add(record['periodEnd'])
+                    candidates.pop(key,None)
+                else:
+                    candidate['reason'] = 'official_source_unavailable' if details['requestFailures'] else 'release_date_or_quarter_format_unsupported'
+                    candidates[key] = candidate
+                # Transport failures remain eligible on the next pass.
+                if not details['requestFailures']:
+                    completed.add(accession)
+                if len(accepted_periods) >= depth:
+                    break
+            if len(accepted_periods) >= depth:
+                break
+            next_file = next((e for e in files if e['name'] not in loaded
+                and not any(e['name'] in error['sourceUrl'] for error in source_errors)),None)
+            if next_file is None:
+                break
+            load_file(next_file)
+    except OfficialScanDeferred:
+        was_deferred = True
+    rows = sorted(records.values(),key=lambda r:r['periodEnd'],reverse=True)[:5]
+    pending = sum(c['reason'] != 'source_check_deferred' for c in candidates.values())
+    cursor = {'parserVersion':PARSER_VERSION,'auditAsOf':audit_as_of,'completedAccessions':sorted(completed),
+        'loadedSubmissionFiles':sorted(loaded),'filings':sorted(filings.values(),key=lambda r:r['accessionNumber']),
+        'candidates':list(candidates.values()),'phase':'latest' if depth==1 else 'five_quarters',
+        'state':'deferred' if was_deferred else 'source_failed' if source_errors else 'scanned',
+        'historyExhausted':all(e['name'] in loaded for e in files) and len(rows)<depth}
+    return rows, {'releaseCandidates':len(release_events()),'parsedQuarters':len(rows),
+        'parsePending':pending,'metricPending':sum(r.get('epsGaapDiluted') is None or r.get('revenue') is None for r in rows),
+        'requestFailures':len(source_errors),'sourceErrors':source_errors,'candidates':list(candidates.values()),
+        'deferred':was_deferred,'discoveryComplete':not was_deferred and not source_errors,'backfillProgress':cursor,
+        'attemptedAnnouncements':attempted}
 
 
 def _now(today):
@@ -285,140 +405,186 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     root = Path(root)
     today = today or datetime.now(ZoneInfo('America/New_York')).date()
     checked = _now(today).isoformat().replace('+00:00','Z')
-    companies = json.loads((root/'data.json').read_text())
-    history = json.loads((root/'historical_data.json').read_text())
-    manifest = json.loads((root/'official_history.json').read_text())
-    status = json.loads((root/'history_status.json').read_text())
-    mapping = json.loads((root/'sp500_mapping.json').read_text())
-    mapping=fill_missing_ciks(companies,history,mapping,fetch or fetch_sec)
+    load = lambda name:json.loads((root/name).read_text())
+    companies, history, manifest = load('data.json'), load('historical_data.json'), load('official_history.json')
+    status, mapping = load('history_status.json'), load('sp500_mapping.json')
     tickers = {c['ticker'] for c in companies}
     if set(history) != tickers:
         raise ValueError('Company/history ticker set mismatch; no publication')
     history, _ = apply_official_records(companies, history, manifest, today)
-    groups = {}
-    for company in companies:
-        ticker = company['ticker']
-        if ticker == 'NVDA' or not _due(company, status.get(ticker, {}), today, full):
-            continue
-        cik = mapping.get(ticker, {}).get('cik')
-        if not isinstance(cik, str) or not re.fullmatch(r'\d{1,10}', cik):
-            status[ticker] = {**status.get(ticker,{}), 'status':'official_mapping_missing', 'reason':'sec_cik_mapping_missing', 'officialCheckedAt':checked}
-            continue
-        groups.setdefault(cik.zfill(10), []).append(ticker)
-    groups=dict(sorted(groups.items(),key=lambda pair:(not any(status.get(t,{}).get('status') in ('official_source_failed','official_check_deferred') for t in pair[1]),min(status.get(t,{}).get('officialCheckedAt') or '' for t in pair[1]))))
-    source_failures, parsed_count, issuers_checked, deferred = 0, 0, 0, 0
-    real_fetch = fetch is None
-    transport = fetch or fetch_sec
-    last_request = [0.0]
-    request_lock = threading.Lock()
     deadline = time.monotonic()+budget_seconds
     cache_root = root/'.sec_cache'/'official'
+    transport, real_fetch = fetch or fetch_sec, fetch is None
+    memory_cache = {}
     def paced(url):
+        if time.monotonic() >= deadline:
+            raise OfficialScanDeferred('Official scan time budget exhausted')
+        if url in memory_cache:
+            return memory_cache[url]
         cache_file = cache_root/(hashlib.sha256(url.encode()).hexdigest()+'.body') if real_fetch and '/Archives/' in url else None
         if cache_file is not None and cache_file.exists():
             return decode_sec_body(cache_file.read_bytes())
-        if time.monotonic()>deadline:
-            raise OfficialScanDeferred('Official scan time budget exhausted')
-        if real_fetch:
-            with request_lock:
-                pause = 0.15 - (time.monotonic()-last_request[0])
-                if pause > 0:
-                    time.sleep(pause)
-                last_request[0] = time.monotonic()
-        body = transport(url)
+        for attempt in range(3):
+            try:
+                if real_fetch and deadline-time.monotonic() < 25:
+                    raise OfficialScanDeferred('Saving progress before the source deadline')
+                body = transport(url)
+                break
+            except (OSError, TimeoutError):
+                if attempt == 2 or time.monotonic()+2**attempt >= deadline:
+                    raise
+                time.sleep(2**attempt)
         if cache_file is not None:
             cache_root.mkdir(parents=True,exist_ok=True)
-            payload=body.encode('utf-8') if isinstance(body,str) else body
+            payload = body.encode('utf-8') if isinstance(body,str) else body
+            # Only immutable originals are persisted; live submissions/facts are per-run.
             cache_file.write_bytes(gzip.compress(payload,compresslevel=1))
+        else:
+            memory_cache[url] = body
         return body
-    def inspect(cik):
-        print(f'Checking official issuer: {",".join(groups[cik])}',flush=True)
-        submissions = json.loads(paced(f'https://data.sec.gov/submissions/CIK{cik}.json'))
-        return check_issuer(cik,submissions,paced,today)
-    # Network work is concurrent; validated data merges and publication remain serial.
-    with ThreadPoolExecutor(max_workers=4) as pool:
-        futures = {cik:pool.submit(inspect,cik) for cik in groups}
-        for index, (cik, aliases) in enumerate(groups.items(), 1):
-            counted=False
-            try:
-                records, details = futures[cik].result()
-                issuers_checked += 1
-                counted=True
-                source_failures += bool(details['requestFailures'])
-                state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked'
-                for ticker in aliases:
-                    incoming = [{**r,'ticker':ticker} for r in records]
-                    # Keep original verified figures when this run only confirms the release.
-                    by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
-                    incoming=[merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),r) for r in incoming]
-                    history, added = apply_official_records(companies, history, incoming, today)
-                    parsed_count += added
-                    manifest = retain_manifest(manifest + incoming)
-                    prior_status={k:v for k,v in status.get(ticker,{}).items() if k not in ('errorType','queuedAt')}
-                    status[ticker] = {**prior_status, **details, 'status':state, 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
-                        'discoverySource':'SEC submissions and earnings exhibits', 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
-            except OfficialScanDeferred:
-                deferred += len(aliases)
-                for ticker in aliases:
-                    status[ticker]={**status.get(ticker,{}),'status':'official_check_deferred','reason':'official_scan_time_budget_exhausted','queuedAt':checked}
-            except Exception as exc:
-                source_failures += 1
-                if not counted:issuers_checked += 1
-                print(f'Official issuer check failed: {",".join(aliases)}; error type: {type(exc).__name__}',flush=True)
-                for ticker in aliases:
-                    status[ticker] = {**status.get(ticker,{}), 'status':'official_source_failed', 'reason':'official_validation_failed' if isinstance(exc,ValueError) else 'sec_request_or_configuration_failed', 'errorType':type(exc).__name__, 'officialCheckedAt':checked, 'checkedAt':checked, 'cik':cik}
-            if index % 50 == 0 or index == len(groups):
-                print(f'Official SEC issuer checks: {index}/{len(groups)}; failures: {source_failures}', flush=True)
-    # NVIDIA stays on its independently tested, earlier-than-10-Q newsroom source.
-    if 'NVDA' in tickers:
-        from nvda_history import sync_nvda
-        try:
-            with tempfile.TemporaryDirectory() as temp:
-                stage = Path(temp)
-                for name, value in [('data.json',companies),('historical_data.json',history),('official_history.json',manifest),('history_status.json',status)]:
-                    (stage/name).write_text(json.dumps(value))
-                (nvda_sync or sync_nvda)(stage, today=today)
-                history['NVDA'] = json.loads((stage/'historical_data.json').read_text())['NVDA']
-                manifest = [r for r in manifest if r['ticker']!='NVDA'] + [r for r in json.loads((stage/'official_history.json').read_text()) if r['ticker']=='NVDA']
-                status['NVDA'] = json.loads((stage/'history_status.json').read_text())['NVDA']
-                status['NVDA']['officialCheckedAt'] = checked
-        except Exception:
-            source_failures += 1
-            status['NVDA'] = {**status.get('NVDA',{}),'status':'official_source_failed','reason':'nvda_newsroom_request_or_parse_failed','officialCheckedAt':checked,'checkedAt':checked}
-    history = retain_history(history, today)
-    enriched=[]
-    for company in companies:
-        entry=dict(company)
-        issuer=mapping.get(entry['ticker'],{})
-        if issuer.get('tickerStatus') in ('historical_alias','unconfirmed'):
-            entry['tickerIdentityStatus']=issuer['tickerStatus']
-            entry['officialCurrentTickers']=issuer.get('officialTickers',[])
-            if entry.get('reportDateSource')!='official':
-                entry['reportDate']=None
-                entry['reportDateSource']=None
-                entry['reportDateSourceUrl']=None
-        enriched.append(company_fields(entry,history,today))
-    companies=enriched
+    mapping = fill_missing_ciks(companies,history,mapping,paced)
+    groups = {}
     for company in companies:
         ticker = company['ticker']
-        rows = history[ticker]
-        latest = rows[0] if rows else {}
-        status[ticker] = {**status.get(ticker,{}), 'recordCount':len(rows), 'officialQuarterCount':sum(r.get('verificationStatus')=='official_verified' for r in rows),
-                         'latestStoredDate':latest.get('date'), 'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
-                         'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None,
-                         'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
-    summary = {'companies':len(companies), 'issuersChecked':issuers_checked,'issuerTargets':len(groups),'deferredCompanies':deferred, 'newRecords':parsed_count,
-               'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
-               'officialQuarters':sum(s.get('officialQuarterCount',0) for s in status.values()),
-               'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
-               'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
-               'sourceFailedCompanies':sum(s.get('status')=='official_source_failed' for s in status.values()),
-               'checkedAt':checked, 'healthy':source_failures==0 and deferred==0}
-    write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
-        root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,
-        root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
+        if ticker == 'NVDA' or not _due(company,status.get(ticker,{}),today,full):
+            continue
+        cik = mapping.get(ticker,{}).get('cik')
+        if not isinstance(cik,str) or not re.fullmatch(r'\d{1,10}',cik):
+            status[ticker] = {**status.get(ticker,{}),'status':'official_mapping_missing','reason':'sec_cik_mapping_missing',
+                'sourceCheck':{**status.get(ticker,{}).get('sourceCheck',{}),'state':'identity_pending','lastAttemptAt':checked}}
+            continue
+        groups.setdefault(cik.zfill(10),[]).append(ticker)
+    # Oldest successful discovery first, then no verified quarter/latest unverified.
+    groups = dict(sorted(groups.items(),key=lambda pair:(
+        min(status.get(t,{}).get('sourceCheck',{}).get('lastSuccessfulDiscoveryAt','') for t in pair[1]),
+        not any(not status.get(t,{}).get('latestStoredOfficial') for t in pair[1]))))
+    checked_issuers, failed_issuers, deferred_tickers = set(), set(), set()
+    parsed_count = 0
+    submissions_cache = {}
+    def inspect(cik, depth):
+        aliases = groups[cik]
+        if cik not in submissions_cache:
+            print(f'Checking official issuer: {",".join(aliases)}',flush=True)
+            submissions_cache[cik] = json.loads(paced(f'https://data.sec.gov/submissions/CIK{cik}.json'))
+        prior = status.get(aliases[0],{})
+        return check_issuer(cik,submissions_cache[cik],paced,today,depth=depth,
+            progress=prior.get('backfillProgress'),known_records=[r for r in manifest if r['ticker']==aliases[0]])
+    def merge_result(cik, depth, result=None, error=None):
+        nonlocal history, manifest, parsed_count
+        aliases = groups[cik]
+        url = f'https://data.sec.gov/submissions/CIK{cik}.json'
+        if isinstance(error,OfficialScanDeferred):
+            deferred_tickers.update(aliases)
+            for ticker in aliases:
+                prior = status.get(ticker,{})
+                status[ticker] = {**prior,'status':'official_check_deferred','reason':'official_scan_time_budget_exhausted','queuedAt':checked,
+                    'sourceCheck':{**prior.get('sourceCheck',{}),'state':'deferred','lastAttemptAt':checked,'sourceUrl':url}}
+            return
+        checked_issuers.add(cik)
+        if error is not None:
+            failed_issuers.add(cik)
+            print(f'Official issuer check failed: {",".join(aliases)}; error type: {type(error).__name__}',flush=True)
+            for ticker in aliases:
+                prior = status.get(ticker,{})
+                status[ticker] = {**prior,'status':'official_source_failed','reason':'official_validation_failed' if isinstance(error,ValueError) else 'sec_request_or_configuration_failed',
+                    'errorType':type(error).__name__,'officialCheckedAt':checked,'checkedAt':checked,'cik':cik,
+                    'sourceCheck':{**prior.get('sourceCheck',{}),'state':'failed','lastAttemptAt':checked,'sourceUrl':url}}
+            return
+        records, details = result
+        if details['requestFailures']:
+            failed_issuers.add(cik)
+        if details.get('deferred'):
+            deferred_tickers.update(aliases)
+        state = ('official_check_deferred' if details.get('deferred') else 'official_source_failed' if details['requestFailures']
+                 else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked')
+        for ticker in aliases:
+            by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
+            incoming = [merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),{**r,'ticker':ticker}) for r in records]
+            history, added = apply_official_records(companies,history,incoming,today)
+            parsed_count += added
+            manifest = retain_manifest(manifest+incoming)
+            prior = {k:v for k,v in status.get(ticker,{}).items() if k not in ('errorType','queuedAt')}
+            source = {**prior.get('sourceCheck',{}),'lastAttemptAt':checked,'sourceUrl':url,
+                      'state':'deferred' if details.get('deferred') else 'failed' if details['requestFailures'] else 'checked'}
+            if depth == 1 and details.get('discoveryComplete'):
+                source['lastSuccessfulDiscoveryAt'] = checked
+            progress = details.get('backfillProgress',{})
+            progress.setdefault('auditAsOf',prior.get('backfillProgress',{}).get('auditAsOf') or checked)
+            status[ticker] = {**prior,**details,'backfillProgress':progress,'status':state,
+                'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
+                'sourceCheck':source,'discoverySource':'SEC submissions and earnings exhibits','officialCheckedAt':checked,'checkedAt':checked,'cik':cik}
+    def run_phase(depth):
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            futures = {cik:pool.submit(inspect,cik,depth) for cik in groups}
+            for index,cik in enumerate(groups,1):
+                try:
+                    result = futures[cik].result()
+                except Exception as exc:
+                    merge_result(cik,depth,error=exc)
+                else:
+                    merge_result(cik,depth,result=result)
+                if index%50==0 or index==len(groups):
+                    print(f'Official phase {depth}: {index}/{len(groups)}; source failures: {len(failed_issuers)}',flush=True)
+    run_phase(1)
+    # NVIDIA's independent, tested newsroom discovery also precedes historical work.
+    if 'NVDA' in tickers:
+        from nvda_history import sync_nvda
+        prior = status.get('NVDA',{})
+        try:
+            if time.monotonic() >= deadline:
+                raise OfficialScanDeferred()
+            with tempfile.TemporaryDirectory() as temp:
+                stage = Path(temp)
+                for name,value in [('data.json',companies),('historical_data.json',history),('official_history.json',manifest),('history_status.json',status)]:
+                    (stage/name).write_text(json.dumps(value))
+                if nvda_sync:
+                    nvda_sync(stage,today=today)
+                else:
+                    from nvda_history import fetch_official
+                    def newsroom(url):
+                        if deadline-time.monotonic() < 35:
+                            raise OfficialScanDeferred('Saving progress before the source deadline')
+                        return fetch_official(url)
+                    sync_nvda(stage,today=today,fetch=newsroom)
+                history['NVDA'] = json.loads((stage/'historical_data.json').read_text())['NVDA']
+                manifest = [r for r in manifest if r['ticker']!='NVDA']+[r for r in json.loads((stage/'official_history.json').read_text()) if r['ticker']=='NVDA']
+                status['NVDA'] = {**prior,**json.loads((stage/'history_status.json').read_text())['NVDA'],'officialCheckedAt':checked,
+                    'sourceCheck':{'state':'checked','lastAttemptAt':checked,'lastSuccessfulDiscoveryAt':checked,
+                                   'sourceUrl':'https://nvidianews.nvidia.com/news'}}
+        except Exception as exc:
+            is_deferred = isinstance(exc,OfficialScanDeferred)
+            (deferred_tickers if is_deferred else failed_issuers).add('NVDA')
+            status['NVDA'] = {**prior,'status':'official_check_deferred' if is_deferred else 'official_source_failed',
+                'reason':'official_scan_time_budget_exhausted' if is_deferred else 'nvda_newsroom_request_or_parse_failed',
+                'sourceCheck':{**prior.get('sourceCheck',{}),'state':'deferred' if is_deferred else 'failed','lastAttemptAt':checked}}
+    # Never spend the remaining budget on old quarters before every due latest check finishes.
+    if not failed_issuers and not deferred_tickers:
+        run_phase(5)
+    history = retain_history(history,today)
+    enriched = []
+    for company in companies:
+        entry = dict(company); issuer = mapping.get(entry['ticker'],{})
+        if issuer.get('tickerStatus') in ('historical_alias','unconfirmed'):
+            entry['tickerIdentityStatus'] = issuer['tickerStatus']
+            entry['officialCurrentTickers'] = issuer.get('officialTickers',[])
+        entry = company_fields(entry,history,today)
+        enriched.append(entry)
+        status[entry['ticker']] = company_status(entry,history[entry['ticker']],status.get(entry['ticker'],{}),checked)
+    companies = enriched
+    summary = {'companies':len(companies),'issuersChecked':len(checked_issuers),'issuerTargets':len(groups),
+        'deferredCompanies':len(deferred_tickers),'newRecords':parsed_count,'sourceFailures':len(failed_issuers),
+        'pendingCompanies':sum(bool(s['gaps']) for s in status.values()),
+        'officialQuarters':sum(s['officialQuarterCount'] for s in status.values()),
+        'fiveOfficialQuarterCompanies':sum(s['officialQuarterCount']==5 for s in status.values()),
+        'fiveCompleteMetricCompanies':sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),
+        'latestIdentifiedCompanies':sum(s['latestQuarter']['state']=='identified' for s in status.values()),
+        'latestCompleteMetricCompanies':sum(s['latestQuarter']['metricsComplete'] for s in status.values()),
+        'sourceStaleCompanies':sum(s['sourceCheck']['stale'] for s in status.values()),
+        'sourceFailedCompanies':sum(s['sourceCheck']['state']=='failed' for s in status.values()),
+        'checkedAt':checked,'healthy':not failed_issuers and not deferred_tickers}
+    write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,root/'official_history.json':retain_manifest(manifest),
+        root/'history_status.json':status,root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
     return summary
-
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)

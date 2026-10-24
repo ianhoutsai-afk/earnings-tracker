@@ -62,7 +62,26 @@ export const nextNvdaEvent = nextCompanyEvent;
 export function quarterlyMetrics(row) {
   const verified = row.verificationStatus === 'official_verified' && row.periodScope === 'quarter' && row.currency === 'USD';
   return {
-    eps: verified && row.epsBasis === 'GAAP diluted' ? row.eps_reported || '-' : '-',
-    revenue: verified ? row.revenue_reported || '-' : '-',
+    eps: verified && !['conflict','pending'].includes(row.epsVerificationStatus) && row.epsBasis === 'GAAP diluted' ? row.eps_reported || '-' : '-',
+    revenue: verified && !['conflict','pending'].includes(row.revenueVerificationStatus) ? row.revenue_reported || '-' : '-',
   };
+}
+
+export function sourceIsStale(source={},now=new Date()) {
+  const success=Date.parse(source.lastSuccessfulDiscoveryAt || '');
+  return !Number.isFinite(success) || now.getTime()-success>30*3600*1000;
+}
+
+export function coverageSummary(companies,statuses,now=new Date()) {
+  const summary={count:companies.length,failed:0,stale:0,latestPending:0,fiveVerified:0,fiveComplete:0};
+  for(const company of companies) {
+    const s=statuses[company.ticker] || {};
+    const stale=sourceIsStale(s.sourceCheck,now);
+    summary.failed+=Number(s.sourceCheck?.state==='failed' || s.status==='official_mapping_missing');
+    summary.stale+=Number(stale);
+    summary.latestPending+=Number(stale || s.latestQuarter?.state!=='identified');
+    summary.fiveVerified+=Number((s.coverage?.verifiedQuarters ?? s.officialQuarterCount)===5);
+    summary.fiveComplete+=Number((s.coverage?.completeMetrics ?? s.metricsVerifiedQuarterCount)===5);
+  }
+  return summary;
 }

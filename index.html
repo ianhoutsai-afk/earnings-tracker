@@ -117,7 +117,7 @@
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            quarterEstimates, nextCompanyEvent, quarterlyMetrics,
+            quarterEstimates, nextCompanyEvent, quarterlyMetrics, coverageSummary, sourceIsStale,
         } from './quarterly-history.mjs';
 
         // 深淺色模式
@@ -335,10 +335,7 @@
         }
 
         function renderTable(data) {
-            const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
-            const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            const pending=appData.filter(company=>{const row=historyStatus[company.ticker];return !row||row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5;}).length;
-            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed,pending});
+            document.getElementById('data-health').textContent = t('history.healthDetail', coverageSummary(appData,historyStatus));
             const container = document.getElementById('data-container');
             container.innerHTML = '';
 
@@ -478,6 +475,7 @@
                                     ${t('history.quarterRevenue')}
                                 </div>
                                 ${!verifiedRelease || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
+                                ${[h.epsVerificationStatus,h.revenueVerificationStatus].includes('conflict') ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.conflict')}</div>` : ''}
                                 ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
 
                                 ${h.releaseSourceUrl ? `
@@ -518,10 +516,20 @@
                         `;
                     });
 
+                    const companyStatus=historyStatus[company.ticker] || {};
+                    const coverage=companyStatus.coverage;
+                    const stale=sourceIsStale(companyStatus.sourceCheck);
+                    const gaps=companyStatus.gaps || [];
+                    const gapHtml=gaps.map(g=>`<li class="mt-1">${escapeHtml(g.periodEnd || '')} ${escapeHtml(g.field==='epsGaapDiluted'?'EPS':g.field==='revenue'?t('history.quarterRevenue'):'')} — ${escapeHtml(t('gap.'+g.reason))}${g.sourceUrl && /^https:\/\//.test(g.sourceUrl)?` <a class="underline text-blue-600 dark:text-blue-400" href="${escapeHtml(g.sourceUrl)}" target="_blank" rel="noopener noreferrer">${t('earnings.releaseSource')}</a>`:''}</li>`).join('');
                     historyContent = `
                         <div class="history-panel">
                         <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
                             ${t(historyStatusKey(historyStatus[company.ticker]))}
+                            <div class="mt-1 text-xs">${t(companyStatus.latestQuarter?.state==='identified'&&!stale?'history.latestIdentified':'history.latestPending')}</div>
+                            ${coverage?`<div class="mt-1 text-xs">${t('history.coverage',{quarters:coverage.verifiedQuarters,eps:coverage.verifiedEps,revenue:coverage.verifiedRevenue})}</div>`:''}
+                            ${stale?`<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.stale')}</div>`:''}
+                            ${companyStatus.sourceCheck?.lastSuccessfulDiscoveryAt?`<div class="mt-1 text-xs text-gray-400">${t('history.lastSuccess',{time:escapeHtml(companyStatus.sourceCheck.lastSuccessfulDiscoveryAt.slice(0,16).replace('T',' ')+' UTC')})}</div>`:''}
+                            ${gaps.length?`<details class="mt-2 text-xs"><summary class="cursor-pointer">${t('history.gaps',{count:gaps.length})}</summary><ul class="pl-4 list-disc">${gapHtml}</ul></details>`:''}
                             <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${t('history.note')}</div>
                             ${history.length < 5 ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.short', {count:history.length,missing:5-history.length})}</div>` : ''}
                             ${historyStatus[company.ticker]?.officialCheckedAt
