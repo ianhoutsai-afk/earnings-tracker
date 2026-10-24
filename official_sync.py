@@ -208,6 +208,14 @@ def _parse_events(cik, filings, fetch, today):
                 if metrics.get(field) is not None:
                     metrics[state_field] = 'verified'
                     metrics[source_field] = metric_url
+                    statement_value = statement.get(field)
+                    precision = float(statement.get('metricLocators',{}).get(field,{}).get('precision','0'))
+                    if statement[state_field] == 'conflict' or (statement_value is not None
+                            and abs(metrics[field]-statement_value) > precision/2 + 1e-9):
+                        metrics[state_field] = 'conflict'
+                        metrics.setdefault('metricConflicts',{})[field] = [
+                            {'value':metrics[field],'sourceUrl':metric_url},
+                            {'value':statement_value,'sourceUrl':url}]
                 elif statement.get(field) is not None:
                     metrics[field], metrics[state_field], metrics[source_field] = statement[field], 'verified', url
                     metrics.setdefault('metricLocators', {})[field] = statement['metricLocators'][field]
@@ -270,8 +278,7 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
     if any(r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and a not in filings for a,r in recent.items()):
         # An announcement rejected before its report arrived must be revisited.
         completed.difference_update(c.get('accession') for c in candidates.values())
-        completed.difference_update(r.get('releaseAccession') for r in records.values()
-            if r.get('epsGaapDiluted') is None or r.get('revenue') is None)
+        completed.difference_update(r.get('releaseAccession') for r in records.values())
     filings.update(recent)
     loaded = set(progress.get('loadedSubmissionFiles', []))
     source_errors, attempted, was_deferred = [], 0, False
@@ -281,6 +288,9 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
              if re.fullmatch(r'CIK'+str(cik).zfill(10)+r'-submissions-\d+\.json', e.get('name',''))
              and e.get('filingFrom','') <= today.isoformat()]
     files.sort(key=lambda e:e.get('filingTo',''), reverse=True)
+    latest_floor = max((r['reportDate'] for r in recent.values()
+        if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and r['reportDate']),
+        default=(today-timedelta(days=200)).isoformat())
     # Load every relevant chunk, not a fixed file count. With fewer than five
     # known periods, later iterations extend backwards until five or exhaustion.
     floor = min(records) if len(records) >= 5 else (today-timedelta(days=550)).isoformat()
@@ -299,7 +309,8 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
             source_errors.append({'stage':'submission_history','sourceUrl':url,'errorType':type(exc).__name__})
     def release_events():
         return sorted((r for r in filings.values() if r['form'] in ('8-K','8-K/A')
-            and '2.02' in re.split(r'[,;\s]+',r['items']) and r['reportDate']),
+            and '2.02' in re.split(r'[,;\s]+',r['items']) and r['reportDate']
+            and (depth != 1 or r['filingDate'] >= latest_floor)),
             key=lambda r:(r['filingDate'],r['accessionNumber']), reverse=True)
     try:
         if depth == 5:
@@ -308,6 +319,8 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
                     load_file(entry)
         elif not release_events():
             for entry in files:
+                if entry.get('filingTo','') < latest_floor:
+                    break
                 load_file(entry)
                 if release_events():
                     break
@@ -350,7 +363,7 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
                     completed.add(accession)
                 if len(accepted_periods) >= depth:
                     break
-            if len(accepted_periods) >= depth:
+            if len(accepted_periods) >= depth or depth == 1:
                 break
             next_file = next((e for e in files if e['name'] not in loaded
                 and not any(e['name'] in error['sourceUrl'] for error in source_errors)),None)
@@ -513,18 +526,19 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
             status[ticker] = {**prior,**details,'backfillProgress':progress,'status':state,
                 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
                 'sourceCheck':source,'discoverySource':'SEC submissions and earnings exhibits','officialCheckedAt':checked,'checkedAt':checked,'cik':cik}
-    def run_phase(depth):
+    def run_phase(depth, selected=None):
+        selected = list(groups) if selected is None else selected
         with ThreadPoolExecutor(max_workers=4) as pool:
-            futures = {cik:pool.submit(inspect,cik,depth) for cik in groups}
-            for index,cik in enumerate(groups,1):
+            futures = {cik:pool.submit(inspect,cik,depth) for cik in selected}
+            for index,cik in enumerate(selected,1):
                 try:
                     result = futures[cik].result()
                 except Exception as exc:
                     merge_result(cik,depth,error=exc)
                 else:
                     merge_result(cik,depth,result=result)
-                if index%50==0 or index==len(groups):
-                    print(f'Official phase {depth}: {index}/{len(groups)}; source failures: {len(failed_issuers)}',flush=True)
+                if index%50==0 or index==len(selected):
+                    print(f'Official phase {depth}: {index}/{len(selected)}; source failures: {len(failed_issuers)}',flush=True)
     run_phase(1)
     # NVIDIA's independent, tested newsroom discovery also precedes historical work.
     if 'NVDA' in tickers:
@@ -558,8 +572,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                 'reason':'official_scan_time_budget_exhausted' if is_deferred else 'nvda_newsroom_request_or_parse_failed',
                 'sourceCheck':{**prior.get('sourceCheck',{}),'state':'deferred' if is_deferred else 'failed','lastAttemptAt':checked}}
     # Never spend the remaining budget on old quarters before every due latest check finishes.
-    if not failed_issuers and not deferred_tickers:
-        run_phase(5)
+    if not deferred_tickers:
+        run_phase(5,[cik for cik in groups if cik not in failed_issuers])
     history = retain_history(history,today)
     enriched = []
     for company in companies:

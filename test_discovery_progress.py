@@ -8,6 +8,33 @@ from test_official_sync import SUBMISSIONS, TODAY, fetch, OfficialSyncTests
 
 
 class DiscoveryProgressTests(unittest.TestCase):
+    def test_completed_quarter_is_revisited_when_amended_report_arrives(self):
+        from test_official_sources import filing
+        rows,details=check_issuer('1',SUBMISSIONS,fetch,TODAY)
+        amended=copy.deepcopy(SUBMISSIONS)
+        for key,value in {'form':'10-Q/A','items':'','accessionNumber':'0000000001-26-000099',
+            'primaryDocument':'amended.htm','filingDate':'2026-10-20','reportDate':'2026-09-30'}.items():amended['filings']['recent'][key].append(value)
+        def source(url):
+            if url.endswith('amended.htm'):return filing().replace('>1.25<','>2.50<')
+            return fetch(url)
+        result,info=check_issuer('1',amended,source,TODAY,progress=details['backfillProgress'],known_records=rows)
+        self.assertGreater(info['attemptedAnnouncements'],0)
+        self.assertEqual(result[0]['epsVerificationStatus'],'conflict')
+
+    def test_source_failure_does_not_starve_other_issuers_historical_work(self):
+        from unittest.mock import patch
+        calls=[]
+        def inspect(cik,submissions,transport,today,**kwargs):
+            calls.append((cik,kwargs['depth']))
+            if cik.endswith('1'):raise OSError('source unavailable')
+            return [],dict(parsePending=0,metricPending=0,requestFailures=0,sourceErrors=[],
+                candidates=[],deferred=False,discoveryComplete=True,backfillProgress={'parserVersion':2,'completedAccessions':[],'filings':[]})
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);OfficialSyncTests().setup_root(root,mapping={'ABC':{'cik':'1'},'ABCA':{'cik':'2'}})
+            with patch('official_sync.check_issuer',side_effect=inspect):sync_all(root,TODAY,fetch=lambda u:json.dumps(SUBMISSIONS),full=True)
+        self.assertIn(('0000000002',5),calls)
+        self.assertNotIn(('0000000001',5),calls)
+
     def test_new_quarterly_filing_retries_previously_unresolved_release(self):
         from test_official_sources import RELEASE, filing
         first=copy.deepcopy(SUBMISSIONS)

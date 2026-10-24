@@ -67,6 +67,7 @@ def _fiscal_identity(intro):
 
 def _completed_period_end(text, event):
     periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+(?:ended|ending)\s+(' + DATE + ')', text)]
+    periods += [m[1] for m in re.finditer(r'(?i)quarter\s+(?:of\s+)?(?:fiscal\s+)?(?:year\s+)?20\d{2},?\s+which\s+ended\s+(?:on\s+)?('+DATE+')',text[:3000])]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
 

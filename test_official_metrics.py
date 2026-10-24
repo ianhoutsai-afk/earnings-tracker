@@ -13,6 +13,19 @@ STATEMENT = '''<h2>Consolidated Statements of Income</h2>
 
 
 class OfficialMetricTests(unittest.TestCase):
+    def test_unknown_revenue_scale_is_not_assumed_to_mean_single_dollars(self):
+        body=STATEMENT.replace('Dollars in millions, except per-share amounts','')
+        self.assertIsNone(self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')['revenue'])
+
+    def test_continuing_operations_section_resets_net_eps_parent(self):
+        body='<h2>Consolidated Statements of Income</h2><p>USD in millions</p><table><tr><td></td><td>Three months ended September 30, 2026</td></tr><tr><td>Earnings per share</td><td></td></tr><tr><td>Continuing operations</td><td></td></tr><tr><td>Diluted</td><td>2.00</td></tr></table>'
+        self.assertIsNone(self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')['epsGaapDiluted'])
+
+    def test_html_comments_between_heading_and_table_are_not_parser_errors(self):
+        from official_metrics import parse_statement_metrics
+        document='<h2>Consolidated Statements of Income</h2><p>USD in millions</p><!-- printer metadata --><table><tr><td></td><td>Three months ended September 30, 2026</td></tr><tr><td>Total revenues</td><td>2,322</td></tr></table>'
+        self.assertEqual(parse_statement_metrics(document,'2026-09-30',currency='USD')['revenue'],2322000000)
+
     def setUp(self):
         try:
             import official_metrics

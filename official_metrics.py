@@ -30,8 +30,8 @@ def _select(candidates):
     upper = min(value + precision / 2 for value, precision, _ in candidates)
     if lower > upper:
         return None, 'conflict', None
-    value, _, locator = min(candidates, key=lambda row: row[1])
-    return float(value), 'verified', locator
+    value, precision, locator = min(candidates, key=lambda row: row[1])
+    return float(value), 'verified', {**locator,'precision':str(precision)}
 
 
 def parse_companyfacts(payload, *, cik, period_end, accessions, today):
@@ -108,6 +108,9 @@ def _context(table):
         previous = node.getprevious()
         count = 0
         while previous is not None and count < 6:
+            if not isinstance(previous.tag,str):
+                previous = previous.getprevious()
+                continue
             text = ' '.join(_text(previous).split())
             if previous.tag == 'table' or previous.xpath('.//table'):
                 # A one-line layout table may be the statement's title/units.
@@ -193,11 +196,13 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         if not columns:
             continue
         unit_context = context + ' ' + leading
-        scale = Decimal(1)
+        scale = None
         if re.search(r'(?i)\bin (?:USD )?millions\b|\$s? in millions', unit_context):
             scale = Decimal(1000000)
         elif re.search(r'(?i)\bin (?:USD )?thousands\b|\$s? in thousands', unit_context):
             scale = Decimal(1000)
+        elif re.search(r'(?i)\b(?:in|amounts in) (?:U\.S\. |US )?dollars\b',unit_context):
+            scale = Decimal(1)
         eps_parent = False
         active_gaap = statement
         for row_index, row in enumerate(rows, 1):
@@ -218,13 +223,13 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
             per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:common )?share|per share.*(?:earnings|income|loss)', label))
-            if re.search(r'(?i)weighted.average|shares (?:of .* )?outstanding|funds from operations', label):
+            if excluded or re.search(r'(?i)weighted.average|shares (?:of .* )?outstanding|funds from operations|discontinued operations', label):
                 eps_parent = False
             elif per_share and not excluded:
                 eps_parent = True
             diluted_eps = not excluded and ((per_share and 'diluted' in label.lower()) or
                                             (bool(re.fullmatch(r'(?i)diluted', label)) and eps_parent))
-            eligible_revenue = revenue and not excluded and (active_gaap or bool(re.search(r'(?i)\(GAAP\)', label)))
+            eligible_revenue = scale is not None and revenue and not excluded and (active_gaap or bool(re.search(r'(?i)\(GAAP\)', label)))
             if not diluted_eps and not eligible_revenue:
                 continue
             for column in columns:

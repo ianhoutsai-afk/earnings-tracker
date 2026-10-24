@@ -23,6 +23,16 @@ def fetch(url):
  raise ValueError('Unexpected URL')
 
 class OfficialSyncTests(unittest.TestCase):
+ def test_conflicting_original_release_and_filing_are_retained_as_conflict(self):
+  from official_sync import check_issuer
+  from test_official_metrics import STATEMENT
+  def source(url):
+   if url.endswith('ex991.htm'):return RELEASE+STATEMENT.replace('1.41','2.50')
+   return fetch(url)
+  rows,_=check_issuer('1',SUBMISSIONS,source,TODAY)
+  self.assertEqual(rows[0]['epsVerificationStatus'],'conflict')
+  self.assertEqual({e['value'] for e in rows[0]['metricConflicts']['epsGaapDiluted']},{1.25,2.5})
+
  def setup_root(self,root,companies=None,mapping=None):
   companies=companies or [{'ticker':'ABC'},{'ticker':'ABCA'}]
   history={c['ticker']:[dict(date=f'2025-0{i}-15',quarter=f'legacy-{i}',eps_reported='$9.99')] for c in [] for i in []}

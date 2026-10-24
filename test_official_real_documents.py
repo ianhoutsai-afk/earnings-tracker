@@ -16,6 +16,11 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_conagra_fiscal_quarter_which_ended_on_preserves_fiscal_year(self):
+        row=parse_earnings_release(document('CAG','exhibit'),'2026-09-30','2026-09-30',date(2026,10,24))
+        self.assertEqual(row['periodEnd'],'2026-08-30')
+        self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2027,1))
+
     def test_alexandria_nested_item_blocks_establish_original_publication(self):
         row = parse_earnings_filing(document('ARE', 'primary'), '2026-08-03', '2026-08-03',
                                    date(2026, 10, 24), exhibit=document('ARE', 'exhibit'))

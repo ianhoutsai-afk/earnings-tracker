@@ -125,6 +125,11 @@ def merge_manifest_record(previous, incoming):
     result=copy.deepcopy(incoming)
     result['metricRevision'] = copy.deepcopy(previous.get('metricRevision', {}))
     result['metricConflicts'] = copy.deepcopy(previous.get('metricConflicts', {}))
+    for field,evidence in incoming.get('metricConflicts',{}).items():
+        saved = result['metricConflicts'].setdefault(field,[])
+        for item in evidence:
+            if item not in saved:
+                saved.append(copy.deepcopy(item))
     result['metricLocators'] = copy.deepcopy(previous.get('metricLocators', {}))
     for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
         state_field = 'epsVerificationStatus' if field == 'epsGaapDiluted' else 'revenueVerificationStatus'
@@ -144,10 +149,12 @@ def merge_manifest_record(previous, incoming):
         elif (old_value is not None and new_value is not None and old_value != new_value) or incoming.get(state_field) == 'conflict':
             evidence = result['metricConflicts'].setdefault(field, [])
             for value, source in ((old_value, old_source), (new_value, new_source)):
+                if value is None:
+                    continue
                 item = {'value': value, 'sourceUrl': source}
                 if item not in evidence:
                     evidence.append(item)
-            result[field], result[source_field] = old_value, old_source
+            result[field], result[source_field] = (old_value,old_source) if old_value is not None else (new_value,new_source)
             result[state_field] = 'conflict'
             continue
         elif previous.get(state_field) == 'conflict':
