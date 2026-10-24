@@ -31,6 +31,22 @@ class OfficialSyncTests(unittest.TestCase):
   for name,data in docs.items():(root/name).write_text(json.dumps(data))
   return history
 
+ def test_companyfacts_fills_only_exact_original_filing_and_keeps_field_source(self):
+  from official_sync import check_issuer
+  from test_official_metrics import OfficialMetricTests
+  payload=OfficialMetricTests().facts()
+  for tag in payload['facts']['us-gaap'].values():
+   for units in tag['units'].values():
+    for item in units:item['accn']='0000000001-26-000002'
+  def source(url):
+   if '/companyfacts/' in url:return json.dumps(payload)
+   if url.endswith('quarter.htm'):return filing().replace('us-gaap:EarningsPerShareDiluted','custom:EPS').replace('us-gaap:Revenues','custom:Revenue')
+   return fetch(url)
+  rows,_=check_issuer('1',SUBMISSIONS,source,TODAY)
+  self.assertEqual(rows[0]['epsGaapDiluted'],1.41)
+  self.assertIn('/companyfacts/',rows[0]['epsSourceUrl'])
+  self.assertEqual(rows[0]['metricLocators']['epsGaapDiluted']['accession'],'0000000001-26-000002')
+
  def test_shared_cik_checked_once_and_new_quarter_replaces_one_old_row(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp);self.setup_root(root);calls=[]

@@ -123,12 +123,46 @@ def merge_manifest_record(previous, incoming):
     if previous.get('verifiedAt','') > incoming.get('verifiedAt',''):
         return copy.deepcopy(previous)
     result=copy.deepcopy(incoming)
+    result['metricRevision'] = copy.deepcopy(previous.get('metricRevision', {}))
+    result['metricConflicts'] = copy.deepcopy(previous.get('metricConflicts', {}))
+    result['metricLocators'] = copy.deepcopy(previous.get('metricLocators', {}))
     for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
+        state_field = 'epsVerificationStatus' if field == 'epsGaapDiluted' else 'revenueVerificationStatus'
+        old_revision = previous.get('metricRevision', {}).get(field, '')
+        new_revision = incoming.get('metricRevision', {}).get(field, '')
+        old_value, new_value = previous.get(field), incoming.get(field)
+        old_source = previous.get(source_field) or previous.get('metricSourceUrl') or previous.get('releaseSourceUrl')
+        new_source = incoming.get(source_field) or incoming.get('metricSourceUrl') or incoming.get('releaseSourceUrl')
+        if old_revision and new_revision < old_revision:
+            result[field], result[source_field] = old_value, old_source
+            result[state_field] = previous.get(state_field, 'verified')
+            continue
+        if new_revision and new_revision > old_revision and new_value is not None:
+            result['metricRevision'][field] = new_revision
+            result['metricConflicts'].pop(field, None)
+            result[state_field] = incoming.get(state_field, 'verified')
+        elif (old_value is not None and new_value is not None and old_value != new_value) or incoming.get(state_field) == 'conflict':
+            evidence = result['metricConflicts'].setdefault(field, [])
+            for value, source in ((old_value, old_source), (new_value, new_source)):
+                item = {'value': value, 'sourceUrl': source}
+                if item not in evidence:
+                    evidence.append(item)
+            result[field], result[source_field] = old_value, old_source
+            result[state_field] = 'conflict'
+            continue
+        elif previous.get(state_field) == 'conflict':
+            result[field], result[source_field] = old_value, old_source
+            result[state_field] = 'conflict'
+            continue
+        else:
+            result[state_field] = 'verified' if new_value is not None or old_value is not None else 'pending'
         if result.get(field) is None and previous.get(field) is not None:
             result[field]=previous[field]
             result[source_field]=previous.get(source_field) or previous.get('metricSourceUrl') or previous['releaseSourceUrl']
         elif result.get(field) is not None:
             result[source_field]=incoming.get(source_field) or incoming.get('metricSourceUrl') or incoming['releaseSourceUrl']
+            if field in incoming.get('metricLocators', {}):
+                result['metricLocators'][field] = copy.deepcopy(incoming['metricLocators'][field])
     if result.get('epsGaapDiluted') is not None:
         result['epsBasis']='GAAP diluted'
     if incoming.get('epsGaapDiluted') is None and incoming.get('revenue') is None and previous:

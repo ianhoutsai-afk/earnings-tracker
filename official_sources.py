@@ -66,7 +66,7 @@ def _fiscal_identity(intro):
 
 
 def _completed_period_end(text, event):
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+(?:ended|ending)\s+(' + DATE + ')', text)]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
 
@@ -119,7 +119,8 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
     supported=[]
     for m in statements:
-        clause=re.split(r'(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        # Corporate abbreviations inside a release title are not sentence boundaries.
+        clause=re.split(r'(?<!Inc\.)(?<!Corp\.)(?<!Co\.)(?<!Ltd\.)(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
         # In "announced on DATE, its results", the completed verb precedes the date.
         before_date=m[0][:m.start(1)-m.start()]
         if re.search(r'(?i)\b(?:announced|reported)\s+on\s*$',before_date):
@@ -128,7 +129,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|reports?|announces?)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results|and)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))

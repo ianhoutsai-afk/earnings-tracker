@@ -20,6 +20,7 @@ from zoneinfo import ZoneInfo
 from lxml import html
 
 from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter
+from official_metrics import parse_companyfacts, parse_statement_metrics
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
@@ -103,6 +104,7 @@ def check_issuer(cik, submissions, fetch, today):
     filings = _filings(submissions, today)
     records, pending, failures, metric_pending = {}, 0, 0, 0
     source_errors=[]
+    facts_payload = None
     # Main SEC submissions may cover only weeks for high-volume debt issuers.
     cutoff=today-timedelta(days=550)
     if filings and min(date.fromisoformat(r['filingDate']) for r in filings)>cutoff:
@@ -191,6 +193,44 @@ def check_issuer(cik, submissions, fetch, today):
                 if not release.get('periodEnd') or not release.get('fiscalYear') or not release.get('fiscalQuarter'):
                     continue
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
+            # Fill missing fields only, preserving independent per-field provenance.
+            # A valid inline context establishes USD; otherwise an explicit USD
+            # statement is required before reading untagged financial tables.
+            document = primary_doc if url == base+event['primaryDocument'] else release_doc
+            text = ' '.join(html.fromstring(document).itertext())
+            currency = metrics.get('currency') if matched_filing else ('USD' if re.search(r'(?i)U\.S\. dollars|USD|United States dollars', text) else None)
+            statement = parse_statement_metrics(document, metrics.get('periodEnd') or release['periodEnd'],
+                currency=currency, fiscal_year=metrics.get('fiscalYear') or release.get('fiscalYear'),
+                fiscal_quarter=metrics.get('fiscalQuarter') or release.get('fiscalQuarter'))
+            for field, state_field, source_field in [('epsGaapDiluted','epsVerificationStatus','epsSourceUrl'), ('revenue','revenueVerificationStatus','revenueSourceUrl')]:
+                if metrics.get(field) is not None:
+                    metrics[state_field] = 'verified'
+                    metrics[source_field] = metric_url
+                elif statement.get(field) is not None:
+                    metrics[field], metrics[state_field], metrics[source_field] = statement[field], 'verified', url
+                    metrics.setdefault('metricLocators', {})[field] = statement['metricLocators'][field]
+                else:
+                    metrics[state_field] = statement.get(state_field, 'pending')
+            if matched_filing and (metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None):
+                facts_url = f'https://data.sec.gov/api/xbrl/companyfacts/CIK{str(cik).zfill(10)}.json'
+                try:
+                    if facts_payload is None:
+                        facts_payload = json.loads(fetch(facts_url))
+                    facts = parse_companyfacts(facts_payload, cik=cik, period_end=metrics['periodEnd'],
+                        accessions={matched_filing['accessionNumber']}, today=today)
+                    for field, state_field, source_field in [('epsGaapDiluted','epsVerificationStatus','epsSourceUrl'), ('revenue','revenueVerificationStatus','revenueSourceUrl')]:
+                        if metrics.get(field) is None and facts.get(field) is not None and metrics[state_field] != 'conflict':
+                            metrics[field], metrics[state_field], metrics[source_field] = facts[field], 'verified', facts_url
+                            metrics.setdefault('metricLocators', {})[field] = facts['metricLocators'][field]
+                        elif facts[state_field] == 'conflict':
+                            metrics[state_field] = 'conflict'
+                except (OSError, TimeoutError) as exc:
+                    failures += 1
+                    source_errors.append({'stage':'companyfacts','sourceUrl':facts_url,'errorType':type(exc).__name__})
+                except (ValueError, TypeError):
+                    pass
+            if metrics.get('epsGaapDiluted') is not None:
+                metrics['epsBasis'] = 'GAAP diluted'
             if metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None:
                 metric_pending += 1
             record = {**release, **metrics, 'releaseSourceUrl':url, 'metricSourceUrl':metric_url,
