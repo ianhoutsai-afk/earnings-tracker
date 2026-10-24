@@ -24,6 +24,7 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -35,42 +36,26 @@ jobs:
           restore-keys: sec-official-v1-
       - name: Install dependencies
         run: python -m pip install yfinance requests pandas lxml
-      - name: Discover dates across all companies without importing third-party actuals
-        id: discovery
-        continue-on-error: true
-        run: |
-          if [[ "${{ github.event.schedule }}" == "0 1 * * *" || "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            python verified_history.py --scan
-          else
-            python verified_history.py
-          fi
-      - name: Check official quarterly releases for every active issuer
-        id: official
-        continue-on-error: true
+      - name: Stage, validate and publish from current main
         env:
           SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
           PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
-        run: python official_sync.py --full
-      - name: Validate the complete publication bundle
-        id: validate
-        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
-        run: python validate_quarterly_data.py
-      - name: Commit verified data and source health
-        if: ${{ !cancelled() && steps.validate.outcome == 'success' }}
         run: |
-          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
-          if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update quarterly earnings and source health [skip ci]'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          mode=full
+          if [[ "${{ github.event.schedule }}" == "0 1 * * *" || "${{ github.event_name }}" == "workflow_dispatch" ]]; then mode=daily; fi
+          python publication.py --mode "$mode" --result "$RUNNER_TEMP/publication_result.json"
+      - name: Preserve authorization even when source checks fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quarterly-publication-result
+          path: ${{ runner.temp }}/publication_result.json
+          if-no-files-found: warn
       - uses: actions/cache/save@v4
         if: always()
         with:
           path: .sec_cache/official
           key: sec-official-v1-${{ github.run_id }}
-      - name: Report source failure visibly
-        if: steps.official.outcome == 'failure' || steps.discovery.outcome == 'failure'
-        run: exit 1
