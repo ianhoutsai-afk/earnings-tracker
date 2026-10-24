@@ -88,6 +88,17 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(result['reason'], 'non_data_change')
         self.assertEqual(git(self.remote, 'rev-parse', 'main'), newer[0])
 
+    def test_code_advancing_before_publisher_entry_also_supersedes_old_process(self):
+        from publication import publish
+        newer = self.advance('generator.py', {'new_code': True})
+        calls = []
+        result = publish(self.repo, generate=lambda stage, left: calls.append(stage),
+                         validate=lambda stage: None)
+        self.assertEqual(result['publication'], 'superseded')
+        self.assertEqual(result['reason'], 'non_data_change')
+        self.assertEqual(calls, [])
+        self.assertEqual(git(self.remote, 'rev-parse', 'main'), newer)
+
     def test_validation_failure_never_changes_remote(self):
         from publication import publish
         def generate(stage, remaining):

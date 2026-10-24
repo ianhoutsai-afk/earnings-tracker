@@ -24,7 +24,7 @@ class PagesReleaseTests(unittest.TestCase):
     def test_all_six_hashes_and_exact_commit_are_required(self):
         expected, bodies = self.expected()
         report = self.api.verify_publication('https://example.invalid/', expected,
-                                             timeout=0, fetch=lambda url: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
+                                             timeout=0, fetch=lambda url, **kwargs: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
         self.assertTrue(report['verified'])
         self.assertEqual(len(report['matches']), 6)
 
@@ -32,7 +32,7 @@ class PagesReleaseTests(unittest.TestCase):
         expected, bodies = self.expected()
         bodies['history_status.json'] = b'{"stale":true}'
         report = self.api.verify_publication('https://example.invalid/', expected,
-                                             timeout=0, fetch=lambda url: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
+                                             timeout=0, fetch=lambda url, **kwargs: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
         self.assertFalse(report['verified'])
         self.assertIn('history_status.json', report['mismatches'])
 
@@ -40,13 +40,13 @@ class PagesReleaseTests(unittest.TestCase):
         expected, bodies = self.expected()
         bodies['deployment.json'] = json.dumps({**expected, 'sourceCommit': 'b' * 40}).encode()
         report = self.api.verify_publication('https://example.invalid/', expected,
-                                             timeout=0, fetch=lambda url: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
+                                             timeout=0, fetch=lambda url, **kwargs: bodies[url.rsplit('/', 1)[-1].split('?')[0]])
         self.assertFalse(report['verified'])
         self.assertFalse(report['commitMatches'])
 
     def test_missing_json_is_not_zero_filled_or_ignored(self):
         expected, bodies = self.expected()
-        def unavailable(url):
+        def unavailable(url, **kwargs):
             name = url.rsplit('/', 1)[-1].split('?')[0]
             if name == 'official_history.json':
                 raise OSError('not deployed')
@@ -54,6 +54,18 @@ class PagesReleaseTests(unittest.TestCase):
         report = self.api.verify_publication('https://example.invalid/', expected, timeout=0, fetch=unavailable)
         self.assertFalse(report['verified'])
         self.assertIn('official_history.json', report['mismatches'])
+
+    def test_slow_responses_cannot_extend_fifteen_minute_verification_deadline(self):
+        expected, _ = self.expected()
+        now = [0]
+        def slow(url, *, timeout):
+            now[0] += min(20, timeout)
+            return b'{}'
+        report = self.api.verify_publication('https://example.invalid/', expected,
+            timeout=900, fetch=slow, clock=lambda: now[0],
+            sleep=lambda seconds: now.__setitem__(0, now[0] + seconds))
+        self.assertFalse(report['verified'])
+        self.assertLessEqual(now[0], 900)
 
     def test_source_error_does_not_invalidate_successful_producer_authorization(self):
         from publication import DATA_FILES
@@ -72,7 +84,7 @@ class PagesReleaseTests(unittest.TestCase):
     def test_bounded_wait_retries_until_a_consistent_public_bundle_arrives(self):
         expected, bodies = self.expected()
         now = [0]
-        def fetch(url):
+        def fetch(url, **kwargs):
             name = url.rsplit('/', 1)[-1].split('?')[0]
             return b'{}' if now[0] == 0 and name == 'data.json' else bodies[name]
         report = self.api.verify_publication('https://example.invalid/', expected,

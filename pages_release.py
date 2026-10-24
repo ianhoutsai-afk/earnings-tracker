@@ -57,9 +57,9 @@ def build_release(root, output, *, sha=None, result=None, producer_run_id=None,
     return {'deploy': True, 'sourceCommit': sha, 'hashes': hashes}
 
 
-def _fetch(url):
+def _fetch(url, *, timeout=20):
     request = Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'EarningsTracker-Pages-Verify'})
-    with urlopen(request, timeout=20) as response:
+    with urlopen(request, timeout=timeout) as response:
         return response.read()
 
 
@@ -70,20 +70,25 @@ def verify_publication(base, expected, *, timeout=900, fetch=_fetch,
     if not re.fullmatch(r'[a-f0-9]{40}', expected.get('sourceCommit', '')):
         raise ValueError('Verification requires an exact source commit')
     deadline, attempt = clock() + timeout, 0
+    def fetch_with_deadline(url):
+        remaining = deadline - clock()
+        if timeout > 0 and remaining <= 0:
+            raise TimeoutError('Public verification deadline exhausted')
+        return fetch(url, timeout=min(20, remaining) if timeout > 0 else 20)
     while True:
         attempt += 1
         suffix = '?release=' + expected['sourceCommit'] + '&attempt=' + str(attempt)
         matches, mismatches = [], []
         for name in DATA_FILES:
             try:
-                body = fetch(base.rstrip('/') + '/' + name + suffix)
+                body = fetch_with_deadline(base.rstrip('/') + '/' + name + suffix)
                 json.loads(body)
                 matched = hashlib.sha256(body).hexdigest() == expected['hashes'][name]
             except Exception:
                 matched = False
             (matches if matched else mismatches).append(name)
         try:
-            metadata = json.loads(fetch(base.rstrip('/') + '/deployment.json' + suffix))
+            metadata = json.loads(fetch_with_deadline(base.rstrip('/') + '/deployment.json' + suffix))
             commit_matches = metadata.get('sourceCommit') == expected['sourceCommit']
         except Exception:
             commit_matches = False

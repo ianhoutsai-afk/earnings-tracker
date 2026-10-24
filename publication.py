@@ -95,8 +95,11 @@ def publish(root, *, generate, validate=validate_stage, max_attempts=3,
     if _git(root, 'branch', '--show-current').stdout.strip() != 'main':
         return {**result, 'reason': 'main_checkout_required'}
     try:
+        entry = _sha(root)
         _git(root, 'fetch', 'origin', 'main')
         baseline = _sha(root, 'origin/main')
+        if _changed(root, entry, baseline) - set(DATA_FILES):
+            return {**result, 'publication': 'superseded', 'reason': 'non_data_change'}
         for attempt in range(1, max_attempts + 1):
             result.update(attempts=attempt, baseSha=baseline)
             if deadline - clock() < 30:
