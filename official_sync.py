@@ -1,5 +1,6 @@
 """Check all active issuers, publish only source-verified quarterly releases."""
 import argparse
+import os
 import hashlib
 import gzip
 import copy
@@ -383,8 +384,18 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root',default='.')
     parser.add_argument('--full',action='store_true')
+    parser.add_argument('--mapping-only',action='store_true')
+    parser.add_argument('--budget-seconds',type=float,default=float(os.environ.get('OFFICIAL_SOURCE_BUDGET_SECONDS','2400')))
     args=parser.parse_args()
-    summary=sync_all(args.root,full=args.full)
+    if args.mapping_only:
+        root=Path(args.root)
+        mapping=fill_missing_ciks(json.loads((root/'data.json').read_text()),
+            json.loads((root/'historical_data.json').read_text()),
+            json.loads((root/'sp500_mapping.json').read_text()),fetch_sec)
+        write_json_bundle({root/'sp500_mapping.json':mapping})
+        print(json.dumps({'mappingUpdated':True,'companies':len(mapping)}))
+        raise SystemExit(0)
+    summary=sync_all(args.root,full=args.full,budget_seconds=args.budget_seconds)
     print(json.dumps(summary))
     if not summary['healthy']:
         raise SystemExit('Official checks incomplete; prior history preserved and per-company status saved')
