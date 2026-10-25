@@ -19,7 +19,12 @@ TOTAL_REVENUE_TAGS = ('Revenues', 'SalesRevenueNet', 'RevenuesNetOfInterestExpen
 def _empty(currency='USD'):
     return {'epsGaapDiluted': None, 'revenue': None, 'epsBasis': None,
             'currency': currency, 'epsVerificationStatus': 'pending',
-            'revenueVerificationStatus': 'pending', 'metricLocators': {}}
+            'revenueVerificationStatus': 'pending', 'metricLocators': {}, 'metricConflicts': {}}
+
+
+def _conflict_evidence(candidates):
+    return [{'value':float(value),'precision':str(precision),'locator':locator}
+            for value,precision,locator in candidates]
 
 
 def _select(candidates):
@@ -65,6 +70,8 @@ def parse_companyfacts(payload, *, cik, period_end, accessions, today):
         result[field], result[state_key] = value, state
         if locator:
             result['metricLocators'][field] = locator
+        if state == 'conflict':
+            result['metricConflicts'][field] = _conflict_evidence(candidates)
     if result['epsGaapDiluted'] is not None:
         result['epsBasis'] = 'GAAP diluted'
     return result
@@ -147,6 +154,8 @@ def _numeric(text):
 
 def _target_header(text, period_end, fiscal_year, fiscal_quarter):
     normalized = ' '.join(text.split())
+    if re.search(r'(?i)non[ -]?gaap|adjusted|adjustments|comparable hotel|percent|%|change', normalized):
+        return False
     ends = set()
     for match in re.finditer(DATE, normalized, re.I):
         try:
@@ -159,8 +168,11 @@ def _target_header(text, period_end, fiscal_year, fiscal_quarter):
             ends.add(date(year, int(match[1]), int(match[2])).isoformat())
         except ValueError:
             pass
-    quarter_duration = bool(re.search(r'(?i)three months|quarter(?:s|ly)?\s+ended', normalized))
-    cumulative = bool(re.search(r'(?i)six months|nine months|twelve months|year ended|years ended', normalized))
+    quarter_duration = bool(re.search(r'(?i)three months|quarter(?:ly)?\s+ended', normalized))
+    cumulative = bool(re.search(r'(?i)six months|nine months|twelve months|year ended|years ended|(?:two|three|four) (?:fiscal )?quarters|year.to.date', normalized))
+    years = [part.strip() for part in text.splitlines() if re.fullmatch(r'20\d{2}',part.strip())]
+    if years and years[-1] != period_end[:4] and ends:
+        return False
     if period_end in ends and quarter_duration and not cumulative:
         return True
     if fiscal_year and fiscal_quarter:
@@ -188,10 +200,24 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         gaap_table = bool(re.search(r'(?i)\bGAAP Metrics\b', leading))
         if not statement and not gaap_table and not any(re.search(r'(?i)total (?:net )?revenue.*\(GAAP\)', ' '.join(r[:2])) for r in rows):
             continue
-        header_rows = rows[:min(10, len(rows))]
+        def data_row(row):
+            values = [cell for cell in row if _numeric(cell) is not None]
+            return bool(values) and (any(not re.fullmatch(r'20\d{2}',cell.strip()) for cell in values)
+                                     or '$' in row)
+        first_data = next((i for i,row in enumerate(rows) if data_row(row)),len(rows))
+        header_rows = rows[:first_data]
         width = max(map(len, rows))
-        columns = [col for col in range(width) if _target_header(
-            ' '.join(row[col] for row in header_rows if col < len(row)),
+        percentage_columns = set()
+        # The first financial line establishes dedicated percentage columns.
+        # Later margin/tax-rate rows reuse ordinary dollar columns for percentages.
+        for row in rows[first_data:first_data+1]:
+            for col,cell in enumerate(row):
+                if cell.strip() == '%':
+                    if col and _numeric(row[col-1]) is not None:
+                        percentage_columns.add(col-1)
+                        if col>1 and row[col-2]==row[col-1]:percentage_columns.add(col-2)
+        columns = [col for col in range(width) if col not in percentage_columns and _target_header(
+            '\n'.join(row[col] for row in header_rows if col < len(row)),
             period_end, fiscal_year, fiscal_quarter)]
         if not columns:
             continue
@@ -204,6 +230,9 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         elif re.search(r'(?i)\b(?:in|amounts in) (?:U\.S\. |US )?dollars\b',unit_context):
             scale = Decimal(1)
         eps_parent = False
+        shares_section = False
+        segment_section = False
+        seen_data = False
         active_gaap = statement
         for row_index, row in enumerate(rows, 1):
             label_parts = []
@@ -215,22 +244,31 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             label = ' '.join(dict.fromkeys(label_parts)).strip(' :')
             if not label:
                 continue
-            if re.search(r'(?i)^non[ -]?gaap|^adjusted metrics', label):
+            if seen_data and re.search(r'(?i)(?:three|six|nine|twelve) months ended|fiscal quarters ended', ' '.join(row)):
+                # Repeated period blocks must not inherit the preceding header.
+                break
+            if re.search(r'(?i)non[ -]?gaap|as adjusted|adjusted basis|^adjusted metrics', label):
                 active_gaap = False
             elif re.search(r'(?i)^GAAP Metrics', label):
                 active_gaap = True
-            excluded = bool(re.search(r'(?i)adjusted|non[ -]?gaap|ffo|continuing operations|continuing EPS|normalized|core earnings', label))
+            excluded = bool(re.search(r'(?i)adjusted|non[ -]?gaap|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings', label))
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
             per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:common )?share|per share.*(?:earnings|income|loss)', label))
-            share_count = bool(re.search(r'(?i)weighted.average|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
+            share_count = bool(re.search(r'(?i)weighted.average|average common shares|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
+            if share_count:
+                shares_section = True
+            elif per_share and not label.lower().startswith('for ') and not any(_numeric(cell) for cell in row) and not excluded:
+                shares_section = False
+            if re.search(r'(?i)homebuilding|mortgage banking|business unit|segment',label) and not any(_numeric(cell) for cell in row):
+                segment_section = True
             if excluded or share_count or re.search(r'(?i)funds from operations|discontinued operations', label):
                 eps_parent = False
             elif per_share and not excluded:
                 eps_parent = True
-            diluted_eps = not excluded and not share_count and ((per_share and 'diluted' in label.lower()) or
-                                            (bool(re.fullmatch(r'(?i)diluted', label)) and eps_parent))
-            eligible_revenue = scale is not None and revenue and not excluded and (active_gaap or bool(re.search(r'(?i)\(GAAP\)', label)))
+            diluted_eps = not excluded and not shares_section and ((per_share and 'diluted' in label.lower()) or
+                                            (bool(re.fullmatch(r'(?i)diluted(?:\s+\(?\d+\)?)?', label)) and eps_parent))
+            eligible_revenue = scale is not None and revenue and not excluded and not segment_section and (active_gaap or bool(re.search(r'(?i)\(GAAP\)', label)))
             if not diluted_eps and not eligible_revenue:
                 continue
             for column in columns:
@@ -240,6 +278,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                 if parsed is None:
                     continue
                 value, precision = parsed
+                seen_data = True
                 if diluted_eps and active_gaap:
                     candidates['epsGaapDiluted'].append((value, precision,
                         {'table': table_index, 'row': row_index, 'column': column + 1, 'label': label}))
@@ -247,10 +286,22 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                     candidates['revenue'].append((value * scale, precision * scale,
                         {'table': table_index, 'row': row_index, 'column': column + 1, 'label': label, 'scale': int(scale)}))
     for field, state_key in [('epsGaapDiluted', 'epsVerificationStatus'), ('revenue', 'revenueVerificationStatus')]:
+        if field == 'revenue':
+            # A consolidated total includes net sales/operating-revenue components.
+            totals = {loc['table'] for _,_,loc in candidates[field]
+                      if re.fullmatch(r'(?i)total (?:net )?revenues?(?:\s*\(GAAP\))?',loc['label'])}
+            candidates[field] = [c for c in candidates[field] if c[2]['table'] not in totals
+                or re.fullmatch(r'(?i)total (?:net )?revenues?(?:\s*\(GAAP\))?',c[2]['label'])]
+            net_sales = {loc['table'] for _,_,loc in candidates[field]
+                         if re.fullmatch(r'(?i)(?:total )?net sales',loc['label'])}
+            candidates[field] = [c for c in candidates[field] if c[2]['table'] not in net_sales
+                                 or not re.fullmatch(r'(?i)(?:total )?sales',c[2]['label'])]
         value, state, locator = _select(candidates[field])
         result[field], result[state_key] = value, state
         if locator:
             result['metricLocators'][field] = locator
+        if state == 'conflict':
+            result['metricConflicts'][field] = _conflict_evidence(candidates[field])
     if result['epsGaapDiluted'] is not None:
         result['epsBasis'] = 'GAAP diluted'
     return result

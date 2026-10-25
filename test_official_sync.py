@@ -23,6 +23,36 @@ def fetch(url):
  raise ValueError('Unexpected URL')
 
 class OfficialSyncTests(unittest.TestCase):
+ def test_statement_conflict_retains_numeric_evidence_without_a_filing_value(self):
+  from official_sync import check_issuer
+  from test_official_metrics import STATEMENT
+  def source(url):
+   if url.endswith('ex991.htm'):return RELEASE+STATEMENT.replace('</table>','<tr><td>Diluted earnings per share</td><td>9.99</td></tr></table>')
+   if url.endswith('quarter.htm'):return filing().replace('us-gaap:EarningsPerShareDiluted','custom:EPS')
+   if '/companyfacts/' in url:return '{}'
+   return fetch(url)
+  rows,_=check_issuer('1',SUBMISSIONS,source,TODAY)
+  ev=rows[0]['metricConflicts']['epsGaapDiluted']
+  self.assertEqual({e['value'] for e in ev},{1.41,9.99})
+  self.assertTrue(all(e['sourceUrl'].endswith('ex991.htm') for e in ev))
+
+ def test_fallback_conflict_cannot_withdraw_an_already_verified_other_field(self):
+  from official_sync import check_issuer
+  from test_official_metrics import OfficialMetricTests
+  payload=OfficialMetricTests().facts()
+  for tag in payload['facts']['us-gaap'].values():
+   for units in tag['units'].values():
+    for item in units:item['accn']='0000000001-26-000002'
+  facts=payload['facts']['us-gaap']['EarningsPerShareDiluted']['units']['USD/shares']
+  facts.append({**facts[0],'val':9.99})
+  def source(url):
+   if '/companyfacts/' in url:return json.dumps(payload)
+   if url.endswith('quarter.htm'):return filing().replace('us-gaap:Revenues','custom:Revenue')
+   return fetch(url)
+  rows,_=check_issuer('1',SUBMISSIONS,source,TODAY)
+  self.assertEqual(rows[0]['epsGaapDiluted'],1.25)
+  self.assertEqual(rows[0]['epsVerificationStatus'],'verified')
+
  def test_conflicting_original_release_and_filing_are_retained_as_conflict(self):
   from official_sync import check_issuer
   from test_official_metrics import STATEMENT

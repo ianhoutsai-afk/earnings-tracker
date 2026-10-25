@@ -213,14 +213,19 @@ def _parse_events(cik, filings, fetch, today):
                     if statement[state_field] == 'conflict' or (statement_value is not None
                             and abs(metrics[field]-statement_value) > precision/2 + 1e-9):
                         metrics[state_field] = 'conflict'
+                        evidence = statement.get('metricConflicts',{}).get(field,[])
                         metrics.setdefault('metricConflicts',{})[field] = [
-                            {'value':metrics[field],'sourceUrl':metric_url},
-                            {'value':statement_value,'sourceUrl':url}]
+                            {'value':metrics[field],'sourceUrl':metric_url}] + (
+                            [{**e,'sourceUrl':url} for e in evidence] if evidence else
+                            [{'value':statement_value,'sourceUrl':url,'locator':statement['metricLocators'].get(field)}])
                 elif statement.get(field) is not None:
                     metrics[field], metrics[state_field], metrics[source_field] = statement[field], 'verified', url
                     metrics.setdefault('metricLocators', {})[field] = statement['metricLocators'][field]
                 else:
                     metrics[state_field] = statement.get(state_field, 'pending')
+                    if metrics[state_field] == 'conflict':
+                        metrics.setdefault('metricConflicts',{})[field] = [
+                            {**e,'sourceUrl':url} for e in statement['metricConflicts'][field]]
             if matched_filing and (metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None):
                 facts_url = f'https://data.sec.gov/api/xbrl/companyfacts/CIK{str(cik).zfill(10)}.json'
                 try:
@@ -232,8 +237,10 @@ def _parse_events(cik, filings, fetch, today):
                         if metrics.get(field) is None and facts.get(field) is not None and metrics[state_field] != 'conflict':
                             metrics[field], metrics[state_field], metrics[source_field] = facts[field], 'verified', facts_url
                             metrics.setdefault('metricLocators', {})[field] = facts['metricLocators'][field]
-                        elif facts[state_field] == 'conflict':
+                        elif metrics.get(field) is None and facts[state_field] == 'conflict':
                             metrics[state_field] = 'conflict'
+                            metrics.setdefault('metricConflicts',{}).setdefault(field,[]).extend(
+                                {**e,'sourceUrl':facts_url} for e in facts['metricConflicts'][field])
                 except (OSError, TimeoutError) as exc:
                     failures += 1
                     source_errors.append({'stage':'companyfacts','sourceUrl':facts_url,'errorType':type(exc).__name__})

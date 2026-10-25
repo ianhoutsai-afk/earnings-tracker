@@ -13,6 +13,33 @@ STATEMENT = '''<h2>Consolidated Statements of Income</h2>
 
 
 class OfficialMetricTests(unittest.TestCase):
+    def test_real_statement_sections_do_not_create_false_conflicts(self):
+        from test_official_real_documents import document, SOURCES
+        expected = {'BIIB':(0.66,2736000000), 'BLK':(12.19,7084000000),
+                    'CEG':(None,7504000000), 'CMG':(0.32,3348562000),
+                    'DD':(1.05,1819000000), 'DPZ':(None,1185598000),
+                    'ELV':(None,51429000000), 'GS':(20.98,20338000000),
+                    'NVR':(83.96,None), 'TROW':(2.88,1907400000),
+                    'VTRS':(-0.10,3756800000), 'ZBH':(1.03,2177000000),
+                    'WMT':(0.80,187937000000), 'HST':(None,1640000000),
+                    'NDAQ':(0.96,None), 'TAP':(None,3096500000)}
+        for ticker,(eps,revenue) in expected.items():
+            with self.subTest(ticker=ticker):
+                s=SOURCES[ticker]
+                row=self.api.parse_statement_metrics(document(ticker,'exhibit'),s['periodEnd'],currency='USD',fiscal_year=s['fiscalYear'],fiscal_quarter=s['fiscalQuarter'])
+                if eps is not None:self.assertEqual(row['epsGaapDiluted'],eps)
+                if ticker != 'NDAQ':self.assertEqual(row['revenue'],revenue)
+                self.assertNotEqual(row['epsVerificationStatus'],'conflict')
+                self.assertNotEqual(row['revenueVerificationStatus'],'conflict')
+
+    def test_real_conflicting_statement_values_keep_each_locator(self):
+        body=STATEMENT.replace('</table>','<tr><td>Diluted earnings per share</td><td>9.99</td></tr></table>')
+        row=self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')
+        self.assertEqual(row['epsVerificationStatus'],'conflict')
+        evidence=row['metricConflicts']['epsGaapDiluted']
+        self.assertEqual({e['value'] for e in evidence},{1.41,9.99})
+        self.assertTrue(all(e['locator']['row'] for e in evidence))
+
     def test_real_apple_amd_alphabet_eps_excludes_diluted_share_counts(self):
         from test_official_real_documents import document,SOURCES
         for ticker,expected in [('AAPL',2.02),('AMD',1.38),('GOOGL',9.11)]:
