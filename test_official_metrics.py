@@ -13,6 +13,21 @@ STATEMENT = '''<h2>Consolidated Statements of Income</h2>
 
 
 class OfficialMetricTests(unittest.TestCase):
+    def test_real_apple_amd_alphabet_eps_excludes_diluted_share_counts(self):
+        from test_official_real_documents import document,SOURCES
+        for ticker,expected in [('AAPL',2.02),('AMD',1.38),('GOOGL',9.11)]:
+            with self.subTest(ticker=ticker):
+                s=SOURCES[ticker]
+                result=self.api.parse_statement_metrics(document(ticker,'exhibit'),s['periodEnd'],currency='USD',fiscal_year=s['fiscalYear'],fiscal_quarter=s['fiscalQuarter'])
+                self.assertEqual(result['epsGaapDiluted'],expected)
+                self.assertEqual(result['epsVerificationStatus'],'verified')
+
+    def test_share_count_sections_and_share_calculation_rows_never_become_eps(self):
+        body=STATEMENT.replace('</table>', '<tr><td>Shares used in computing earnings per share</td></tr><tr><td>Diluted</td><td>14714676</td></tr><tr><td>Number of shares used in diluted net income per common share calculation</td><td>12309</td></tr></table>')
+        result=self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')
+        self.assertEqual(result['epsGaapDiluted'],1.41)
+        self.assertEqual(result['epsVerificationStatus'],'verified')
+
     def test_unknown_revenue_scale_is_not_assumed_to_mean_single_dollars(self):
         body=STATEMENT.replace('Dollars in millions, except per-share amounts','')
         self.assertIsNone(self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')['revenue'])

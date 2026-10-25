@@ -2,7 +2,7 @@
 import copy
 from datetime import datetime, timedelta
 
-PARSER_VERSION = 3
+PARSER_VERSION = 4
 
 
 def metric_verified(row, field):
@@ -33,7 +33,13 @@ def company_status(company, rows, previous, checked):
             or (candidate.get('filingDate') and candidate['filingDate'] < oldest)) else 'current_or_unknown'
     active = [c for c in candidates if c['scope'] != 'superseded']
     latest = trusted[0] if trusted else {}
-    unknown_latest = [c for c in active if not c.get('periodEnd') or c['periodEnd'] >= latest.get('periodEnd', '')]
+    ordinals = [r['fiscalYear']*4+r['fiscalQuarter'] for r in trusted
+                if isinstance(r.get('fiscalYear'),int) and r.get('fiscalQuarter') in (1,2,3,4)]
+    newest = max(ordinals,default=0)
+    target_rows = [r for r in trusted if isinstance(r.get('fiscalYear'),int)
+                   and r.get('fiscalQuarter') in (1,2,3,4)
+                   and newest-4 <= r['fiscalYear']*4+r['fiscalQuarter'] <= newest]
+    unknown_latest = [c for c in active if (c.get('periodEnd') or c.get('filingDate') or '9999-12-31') >= latest.get('periodEnd','')]
     state = 'pending_discovery' if not success or source['stale'] or source['state'] in ('failed','deferred','identity_pending') else 'pending_identity' if unknown_latest or not trusted else 'identified'
     if company.get('tickerIdentityStatus') in ('historical_alias', 'unconfirmed'):
         state = 'issuer_identity_pending'
@@ -60,8 +66,8 @@ def company_status(company, rows, previous, checked):
                 gaps.append({'periodEnd':row['periodEnd'], 'fiscalYear':row.get('fiscalYear'), 'fiscalQuarter':row.get('fiscalQuarter'),
                     'field':field, 'reason':reason, 'sourceUrl':row.get(source_key) or row.get('metricSourceUrl') or row.get('releaseSourceUrl'),
                     'nextAction':'resolve_conflicting_official_values' if reason=='official_value_conflict' else 'inspect_official_statement_or_supplement'})
-    if len(trusted) < 5:
-        gaps.append({'field':'fiveQuarterHistory','reason':'insufficient_verified_history','missingPeriods':5-len(trusted),
+    if len(target_rows) < 5:
+        gaps.append({'field':'fiveQuarterHistory','reason':'insufficient_verified_history','missingPeriods':5-len(target_rows),
                      'sourceUrl':source.get('sourceUrl'), 'nextAction':'extend_official_submission_history'})
     if source['stale']:
         gaps.append({'field':'latestDiscovery','reason':'successful_discovery_older_than_30_hours' if success else 'official_discovery_not_completed',
@@ -70,10 +76,10 @@ def company_status(company, rows, previous, checked):
         gaps.append({'field':'issuerIdentity','reason':'historical_or_unconfirmed_ticker',
                      'sourceUrl':source.get('sourceUrl'),'nextAction':'confirm_current_company_and_ticker'})
     result['gaps'] = gaps
-    result['coverage'] = {'targetQuarters':5, 'verifiedQuarters':len(trusted),
-        'verifiedEps':sum(metric_verified(r,'epsGaapDiluted') for r in trusted),
-        'verifiedRevenue':sum(metric_verified(r,'revenue') for r in trusted),
-        'completeMetrics':sum(all(metric_verified(r,f) for f in ('epsGaapDiluted','revenue')) for r in trusted)}
+    result['coverage'] = {'targetQuarters':5, 'verifiedQuarters':len(target_rows), 'storedVerifiedQuarters':len(trusted),
+        'verifiedEps':sum(metric_verified(r,'epsGaapDiluted') for r in target_rows),
+        'verifiedRevenue':sum(metric_verified(r,'revenue') for r in target_rows),
+        'completeMetrics':sum(all(metric_verified(r,f) for f in ('epsGaapDiluted','revenue')) for r in target_rows)}
     result['recordCount'], result['officialQuarterCount'] = len(rows), len(trusted)
     result['metricsVerifiedQuarterCount'] = result['coverage']['completeMetrics']
     result['latestStoredDate'] = rows[0].get('date') if rows else None

@@ -293,7 +293,10 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
         default=(today-timedelta(days=200)).isoformat())
     # Load every relevant chunk, not a fixed file count. With fewer than five
     # known periods, later iterations extend backwards until five or exhaustion.
-    floor = min(records) if len(records) >= 5 else (today-timedelta(days=550)).isoformat()
+    # Query beyond the required five-quarter span, but do not backfill decades
+    # of unrelated accepted Q1s to disguise an unresolved current quarter.
+    required_since = (date.fromisoformat(latest_floor)-timedelta(days=550)).isoformat()
+    floor = max(required_since,min(records)) if len(records)>=5 else required_since
     def load_file(entry):
         name = entry['name']; url = 'https://data.sec.gov/submissions/'+name
         if name in loaded:
@@ -310,7 +313,7 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
     def release_events():
         return sorted((r for r in filings.values() if r['form'] in ('8-K','8-K/A')
             and '2.02' in re.split(r'[,;\s]+',r['items']) and r['reportDate']
-            and (depth != 1 or r['filingDate'] >= latest_floor)),
+            and r['filingDate'] >= (latest_floor if depth==1 else floor)),
             key=lambda r:(r['filingDate'],r['accessionNumber']), reverse=True)
     try:
         if depth == 5:
@@ -366,6 +369,7 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
             if len(accepted_periods) >= depth or depth == 1:
                 break
             next_file = next((e for e in files if e['name'] not in loaded
+                and e.get('filingTo','') >= floor
                 and not any(e['name'] in error['sourceUrl'] for error in source_errors)),None)
             if next_file is None:
                 break
@@ -589,7 +593,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
         'deferredCompanies':len(deferred_tickers),'newRecords':parsed_count,'sourceFailures':len(failed_issuers),
         'pendingCompanies':sum(bool(s['gaps']) for s in status.values()),
         'officialQuarters':sum(s['officialQuarterCount'] for s in status.values()),
-        'fiveOfficialQuarterCompanies':sum(s['officialQuarterCount']==5 for s in status.values()),
+        'fiveOfficialQuarterCompanies':sum(s['coverage']['verifiedQuarters']==5 for s in status.values()),
         'fiveCompleteMetricCompanies':sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),
         'latestIdentifiedCompanies':sum(s['latestQuarter']['state']=='identified' for s in status.values()),
         'latestCompleteMetricCompanies':sum(s['latestQuarter']['metricsComplete'] for s in status.values()),

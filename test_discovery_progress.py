@@ -8,6 +8,16 @@ from test_official_sync import SUBMISSIONS, TODAY, fetch, OfficialSyncTests
 
 
 class DiscoveryProgressTests(unittest.TestCase):
+    def test_historical_scan_does_not_fill_current_gaps_with_decades_old_releases(self):
+        from unittest.mock import patch
+        submission=copy.deepcopy(SUBMISSIONS)
+        for key,value in {'form':'8-K','items':'2.02','accessionNumber':'0000000001-20-000003',
+            'primaryDocument':'ancient.htm','filingDate':'2020-05-06','reportDate':'2020-05-06'}.items():submission['filings']['recent'][key].append(value)
+        def source(url):
+            if url.endswith('ancient.htm'):self.fail('Out-of-window release should not be fetched to fill a current gap')
+            return fetch(url)
+        check_issuer('1',submission,source,TODAY)
+
     def test_completed_quarter_is_revisited_when_amended_report_arrives(self):
         from test_official_sources import filing
         rows,details=check_issuer('1',SUBMISSIONS,fetch,TODAY)

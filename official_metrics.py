@@ -223,11 +223,12 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
             per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:common )?share|per share.*(?:earnings|income|loss)', label))
-            if excluded or re.search(r'(?i)weighted.average|shares (?:of .* )?outstanding|funds from operations|discontinued operations', label):
+            share_count = bool(re.search(r'(?i)weighted.average|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
+            if excluded or share_count or re.search(r'(?i)funds from operations|discontinued operations', label):
                 eps_parent = False
             elif per_share and not excluded:
                 eps_parent = True
-            diluted_eps = not excluded and ((per_share and 'diluted' in label.lower()) or
+            diluted_eps = not excluded and not share_count and ((per_share and 'diluted' in label.lower()) or
                                             (bool(re.fullmatch(r'(?i)diluted', label)) and eps_parent))
             eligible_revenue = scale is not None and revenue and not excluded and (active_gaap or bool(re.search(r'(?i)\(GAAP\)', label)))
             if not diluted_eps and not eligible_revenue:

@@ -3,6 +3,21 @@ from datetime import datetime, timezone
 
 
 class CoverageStateTests(unittest.TestCase):
+    def test_five_scattered_years_are_not_five_consecutive_complete_quarters(self):
+        rows=[{**self.rows()[0],'periodEnd':f'{year}-03-31','fiscalYear':year,'fiscalQuarter':1} for year in (2026,2025,2024,2023,2022)]
+        result=self.api().company_status({'ticker':'ABC'},rows,{},'2026-10-24T01:00:00Z')
+        self.assertEqual(result['officialQuarterCount'],5)
+        self.assertLess(result['coverage']['completeMetrics'],5)
+        self.assertTrue(any(g['field']=='fiveQuarterHistory' for g in result['gaps']))
+
+    def test_unknown_candidate_before_latest_period_end_does_not_block_latest(self):
+        result=self.api().company_status({'ticker':'ABC'},self.rows(),
+            {'sourceCheck':{'lastSuccessfulDiscoveryAt':'2026-10-24T00:00:00Z'},
+             'candidates':[{'key':'older','filingDate':'2026-07-20','sourceUrl':'https://www.sec.gov/older','reason':'quarter_identity_unconfirmed'}]},
+             '2026-10-24T01:00:00Z')
+        self.assertEqual(result['latestQuarter']['state'],'identified')
+        self.assertTrue(any(g['field']=='quarterIdentity' for g in result['gaps']))
+
     def test_new_source_failure_cannot_claim_current_latest_is_identified(self):
         result=self.api().company_status({'ticker':'ABC'},self.rows(),
             {'sourceCheck':{'state':'failed','lastSuccessfulDiscoveryAt':'2026-10-24T00:00:00Z'}},
