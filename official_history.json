@@ -47888,7 +47888,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodStart": null,
-    "epsGaapDiluted": 74697.0,
+    "epsGaapDiluted": 3.81,
     "revenue": 822528000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -47897,10 +47897,10 @@
     "metricLocators": {
       "epsGaapDiluted": {
         "table": 7,
-        "row": 43,
-        "column": 7,
-        "label": "Diluted",
-        "precision": "1"
+        "row": 37,
+        "column": 8,
+        "label": "Earnings per diluted common share",
+        "precision": "0.01"
       },
       "revenue": {
         "table": 7,
@@ -47922,8 +47922,32 @@
     "form": "10-K",
     "filingDate": "2026-02-06",
     "accessionNumber": "0001408198-26-000011",
-    "metricRevision": {},
-    "metricCorrectionEvidence": {},
+    "metricRevision": {
+      "epsGaapDiluted": "2026-10-26-reviewed-share-count-correction"
+    },
+    "metricCorrectionEvidence": {
+      "epsGaapDiluted": {
+        "reason": "previous_diluted_share_count_was_not_earnings_per_share",
+        "oldValue": 74697,
+        "oldSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
+        "oldLocator": {
+          "table": 7,
+          "row": 43,
+          "column": 7,
+          "label": "Diluted",
+          "precision": "1"
+        },
+        "newValue": 3.81,
+        "newSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
+        "newLocator": {
+          "table": 7,
+          "row": 37,
+          "column": 8,
+          "label": "Earnings per diluted common share",
+          "precision": "0.01"
+        }
+      }
+    },
     "metricConflicts": {},
     "ticker": "MSCI"
   },
