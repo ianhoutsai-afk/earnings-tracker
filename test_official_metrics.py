@@ -49,6 +49,15 @@ class OfficialMetricTests(unittest.TestCase):
                 self.assertEqual(result['epsGaapDiluted'],expected)
                 self.assertEqual(result['epsVerificationStatus'],'verified')
 
+    def test_real_msci_diluted_common_share_eps_excludes_weighted_average_shares(self):
+        from test_official_real_documents import document,SOURCES
+        s=SOURCES['MSCI']
+        result=self.api.parse_statement_metrics(document('MSCI','exhibit'),s['periodEnd'],
+            currency='USD',fiscal_year=s['fiscalYear'],fiscal_quarter=s['fiscalQuarter'])
+        self.assertEqual(result['epsGaapDiluted'],3.81)
+        self.assertEqual(result['epsVerificationStatus'],'verified')
+        self.assertEqual(result['metricLocators']['epsGaapDiluted']['label'],'Earnings per diluted common share')
+
     def test_share_count_sections_and_share_calculation_rows_never_become_eps(self):
         body=STATEMENT.replace('</table>', '<tr><td>Shares used in computing earnings per share</td></tr><tr><td>Diluted</td><td>14714676</td></tr><tr><td>Number of shares used in diluted net income per common share calculation</td><td>12309</td></tr></table>')
         result=self.api.parse_statement_metrics(body,'2026-09-30',currency='USD')

@@ -3,6 +3,25 @@ from quarterly_policy import merge_manifest_record
 
 
 class MetricRevisionTests(unittest.TestCase):
+    def test_reviewed_msci_share_count_is_corrected_only_for_exact_source_and_locator(self):
+        from official_metrics import parse_statement_metrics
+        from test_official_real_documents import document,SOURCES
+        s=SOURCES['MSCI'];source=s['exhibit']['url']
+        old={**self.original(),'ticker':'MSCI','periodEnd':'2025-12-31','epsGaapDiluted':74697,
+             'epsSourceUrl':source,'metricLocators':{'epsGaapDiluted':{'label':'Diluted','precision':'1','table':7,'row':43,'column':7}}}
+        parsed=parse_statement_metrics(document('MSCI','exhibit'),s['periodEnd'],currency='USD',
+            fiscal_year=s['fiscalYear'],fiscal_quarter=s['fiscalQuarter'])
+        new={**old,**parsed,'verifiedAt':'2026-10-26','epsSourceUrl':source}
+        corrected=merge_manifest_record(old,{k:v for k,v in new.items() if k!='ticker'})
+        self.assertEqual(corrected['epsGaapDiluted'],3.81)
+        self.assertEqual(corrected['epsVerificationStatus'],'verified')
+        self.assertEqual(corrected['metricCorrectionEvidence']['epsGaapDiluted']['oldValue'],74697)
+        self.assertEqual(corrected['metricCorrectionEvidence']['epsGaapDiluted']['newLocator']['label'],
+            'Earnings per diluted common share')
+        self.assertEqual(merge_manifest_record(corrected,new)['epsGaapDiluted'],3.81)
+        wrong_source={**new,'epsSourceUrl':'https://example.invalid/unreviewed'}
+        self.assertEqual(merge_manifest_record(old,wrong_source)['epsVerificationStatus'],'conflict')
+
     def test_four_reviewed_rsg_gross_values_are_corrected_to_official_net_revenue(self):
         pairs=[
             ('2026-06-30',5076000000,4430000000,'000106039126000275/rsg-20260630.htm','000106039126000273/exhibit991q22026.htm'),

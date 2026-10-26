@@ -254,11 +254,11 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             excluded = bool(re.search(r'(?i)adjusted|non[ -]?gaap|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings', label))
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
-            per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:common )?share|per share.*(?:earnings|income|loss)', label))
+            per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:basic |diluted )?(?:common )?share|per share.*(?:earnings|income|loss)', label))
             share_count = bool(re.search(r'(?i)weighted.average|average common shares|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
             if share_count:
                 shares_section = True
-            elif per_share and not label.lower().startswith('for ') and not any(_numeric(cell) for cell in row) and not excluded:
+            elif per_share and not re.search(r'(?i)^(?:for\b|in\s+(?:computing|calculating|determining)\b)', label) and not any(_numeric(cell) for cell in row) and not excluded:
                 shares_section = False
             if re.search(r'(?i)homebuilding|mortgage banking|business unit|segment',label) and not any(_numeric(cell) for cell in row):
                 segment_section = True

@@ -17,6 +17,26 @@ _RSG_NET_REVENUE_CORRECTIONS = {
 
 def _reviewed_baseline_correction(previous, incoming):
     # A newly parsed SEC record receives its ticker only after the inner merge.
+    if previous.get('ticker') == 'MSCI' and incoming.get('ticker', previous.get('ticker')) == 'MSCI':
+        source='https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm'
+        old_locator=previous.get('metricLocators',{}).get('epsGaapDiluted',{})
+        new_locator=incoming.get('metricLocators',{}).get('epsGaapDiluted',{})
+        if (incoming.get('periodEnd') == '2025-12-31'
+                and previous.get('epsGaapDiluted') == 74697
+                and incoming.get('epsGaapDiluted') == 3.81
+                and previous.get('epsSourceUrl') == source
+                and incoming.get('epsSourceUrl') == source
+                and old_locator.get('label') == 'Diluted'
+                and old_locator.get('precision') == '1'
+                and new_locator.get('label') == 'Earnings per diluted common share'
+                and incoming.get('epsVerificationStatus','verified') == 'verified'):
+            result=copy.deepcopy(incoming)
+            result.setdefault('metricRevision',{})['epsGaapDiluted']='2026-10-26-reviewed-share-count-correction'
+            result.setdefault('metricCorrectionEvidence',{})['epsGaapDiluted']={
+                'reason':'previous_diluted_share_count_was_not_earnings_per_share',
+                'oldValue':74697,'oldSourceUrl':source,'oldLocator':copy.deepcopy(old_locator),
+                'newValue':3.81,'newSourceUrl':source,'newLocator':copy.deepcopy(new_locator)}
+            return result
     if previous.get('ticker') != 'RSG' or incoming.get('ticker', previous.get('ticker')) != 'RSG':
         return incoming
     review = _RSG_NET_REVENUE_CORRECTIONS.get(incoming.get('periodEnd'))

@@ -2,7 +2,7 @@
 import copy
 from datetime import datetime, timedelta
 
-PARSER_VERSION = 7
+PARSER_VERSION = 8
 
 
 def metric_verified(row, field):
