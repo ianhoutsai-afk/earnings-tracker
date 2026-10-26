@@ -21,6 +21,8 @@ class MetricRevisionTests(unittest.TestCase):
                 self.assertEqual(corrected['revenueVerificationStatus'],'verified')
                 self.assertEqual(corrected['metricCorrectionEvidence']['revenue']['oldValue'],old_value)
                 self.assertEqual(corrected['metricCorrectionEvidence']['revenue']['newSourceUrl'],prefix+release)
+                parsed_without_ticker={k:v for k,v in new.items() if k!='ticker'}
+                self.assertEqual(merge_manifest_record(old,parsed_without_ticker)['revenue'],new_value)
                 repeated=merge_manifest_record(corrected,new)
                 self.assertEqual(repeated['revenue'],new_value)
                 self.assertEqual(repeated['metricCorrectionEvidence'],corrected['metricCorrectionEvidence'])

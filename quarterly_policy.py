@@ -16,7 +16,8 @@ _RSG_NET_REVENUE_CORRECTIONS = {
 
 
 def _reviewed_baseline_correction(previous, incoming):
-    if previous.get('ticker') != 'RSG' or incoming.get('ticker') != 'RSG':
+    # A newly parsed SEC record receives its ticker only after the inner merge.
+    if previous.get('ticker') != 'RSG' or incoming.get('ticker', previous.get('ticker')) != 'RSG':
         return incoming
     review = _RSG_NET_REVENUE_CORRECTIONS.get(incoming.get('periodEnd'))
     if not review:
