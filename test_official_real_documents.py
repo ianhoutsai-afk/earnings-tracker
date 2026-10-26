@@ -16,6 +16,14 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_republic_services_does_not_use_gross_tag_when_net_total_exists(self):
+        from official_sources import parse_inline_quarter
+        from official_metrics import parse_statement_metrics
+        row=parse_inline_quarter(document('RSG','filing'),'2026-06-30',cik='1060391')
+        self.assertIsNone(row['revenue'])
+        statement=parse_statement_metrics(document('RSG','exhibit'),'2026-06-30',currency='USD',fiscal_year=2026,fiscal_quarter=2)
+        self.assertEqual(statement['revenue'],4430000000)
+
     def test_conagra_fiscal_quarter_which_ended_on_preserves_fiscal_year(self):
         row=parse_earnings_release(document('CAG','exhibit'),'2026-09-30','2026-09-30',date(2026,10,24))
         self.assertEqual(row['periodEnd'],'2026-08-30')

@@ -200,6 +200,20 @@ def _contract_revenue_total(node):
     return False
 
 
+def _gross_revenue_line(node):
+    """Identify an explicitly labelled gross line when a separate net total exists."""
+    row=next((n for n in node.iterancestors() if _local(n)=='tr'),None)
+    if row is None:return False
+    prior=[]
+    for cell in row.xpath('./td|./th'):
+        if node is cell or any(n is node for n in cell.iter()):break
+        content=' '.join(_text(cell).split())
+        if re.fullmatch(r'[$(\d,.)\s%-]+',content):break
+        prior.append(content)
+    label=' '.join(' '.join(prior).split()).strip(' :$')
+    return bool(re.fullmatch(r'(?i)(?:total )?gross revenues?',label))
+
+
 def parse_inline_quarter(document, period_end, cik=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
@@ -239,7 +253,7 @@ def parse_inline_quarter(document, period_end, cik=None):
         elif (_unique_text(_desc(unit, 'measure')) or '').lower() == 'iso4217:usd':
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
-    eps, revenue, starts = set(), set(), set()
+    eps, revenue, gross_revenue, starts = set(), set(), set(), set()
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
@@ -268,8 +282,15 @@ def parse_inline_quarter(document, period_end, cik=None):
                 continue
         except (ValueError, InvalidOperation):
             continue
-        (eps if is_eps else revenue).add(float(value))
+        (eps if is_eps else gross_revenue if _gross_revenue_line(node) else revenue).add(float(value))
         starts.add(contexts[node.get('contextref')])
+    # A tagged gross line cannot stand in for a separately reported contract
+    # revenue total. Leave the filing field open for the release statement.
+    competing_total=any(_local(node)=='nonfraction' and node.get('contextref') in contexts
+                        and node.get('name','').lower()=='us-gaap:revenuefromcontractwithcustomerexcludingassessedtax'
+                        for node in nodes)
+    if not revenue and not competing_total:
+        revenue = gross_revenue
     return {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,
