@@ -16,6 +16,70 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_snap_on_net_sales_excludes_financial_services_revenue(self):
+        from official_metrics import parse_statement_metrics
+        row = parse_statement_metrics(document('SNA', 'exhibit'), '2026-10-03',
+                                      currency='USD', fiscal_year=2026, fiscal_quarter=3)
+        self.assertEqual(row['epsGaapDiluted'], 4.64)
+        self.assertIsNone(row['revenue'])
+
+    def test_aep_release_can_leave_period_end_for_matching_quarterly_filing(self):
+        row = parse_earnings_release(document('AEP', 'exhibit'), '2026-07-30',
+                                     '2026-07-30', date(2026, 10, 26))
+        self.assertEqual(row['date'], '2026-07-30')
+        self.assertIsNone(row['periodEnd'])
+        self.assertEqual((row['fiscalYear'], row['fiscalQuarter']), (2026, 2))
+
+    def test_aep_quarter_is_admitted_only_with_matching_official_filing(self):
+        from official_sync import check_issuer
+        exhibit_url = SOURCES['AEP']['exhibit']['url']
+        base = 'https://www.sec.gov/Archives/edgar/data/4904/'
+        primary_url = base + '000000490426000055/aep-20260730.htm'
+        filing_url = base + '000000490426000059/aep-20260630.htm'
+        submissions = {'cik': 4904, 'filings': {'recent': {
+            'form': ['8-K', '10-Q'], 'items': ['2.02,9.01', ''],
+            'accessionNumber': ['0000004904-26-000055', '0000004904-26-000059'],
+            'primaryDocument': ['aep-20260730.htm', 'aep-20260630.htm'],
+            'filingDate': ['2026-07-30', '2026-07-30'],
+            'reportDate': ['2026-07-30', '2026-06-30'],
+        }}}
+        filing = b'''<html><body>
+          <ix:nonNumeric name="dei:DocumentFiscalYearFocus">2026</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentFiscalPeriodFocus">Q2</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentPeriodEndDate">2026-06-30</ix:nonNumeric>
+        </body></html>'''
+        def fetch(url):
+            if url == primary_url:
+                return b'<html><body><a href="a2q20268kpressreleaseex991.htm">Exhibit 99.1 Earnings release</a></body></html>'
+            if url == exhibit_url:
+                return document('AEP', 'exhibit')
+            if url == filing_url:
+                return filing
+            if url == 'https://data.sec.gov/api/xbrl/companyfacts/CIK0000004904.json':
+                return b'{"cik":4904,"facts":{}}'
+            raise AssertionError(url)
+        rows, _ = check_issuer('4904', submissions, fetch, date(2026, 10, 26), depth=1)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual((rows[0]['date'], rows[0]['periodEnd']), ('2026-07-30', '2026-06-30'))
+        self.assertEqual((rows[0]['fiscalYear'], rows[0]['fiscalQuarter']), (2026, 2))
+        unmatched = {**submissions, 'filings': {'recent': {**submissions['filings']['recent'],
+                     'reportDate': ['2026-07-30', '2026-03-31']}}}
+        rejected, _ = check_issuer('4904', unmatched, fetch, date(2026, 10, 26), depth=1)
+        self.assertEqual(rejected, [])
+
+    def test_aos_release_preserves_fourth_quarter_identity_without_period_end(self):
+        row = parse_earnings_release(document('AOS', 'exhibit'), '2026-01-29',
+                                     '2026-01-29', date(2026, 10, 26))
+        self.assertEqual(row['date'], '2026-01-29')
+        self.assertIsNone(row['periodEnd'])
+        self.assertEqual((row['fiscalYear'], row['fiscalQuarter']), (2025, 4))
+
+    def test_air_products_fiscal_2025_fourth_quarter_precedes_2026_guidance(self):
+        row = parse_earnings_release(document('APD', 'exhibit'), '2025-11-06',
+                                     '2025-11-06', date(2026, 10, 26))
+        self.assertEqual(row['periodEnd'], '2025-09-30')
+        self.assertEqual((row['fiscalYear'], row['fiscalQuarter']), (2025, 4))
+
     def test_republic_services_does_not_use_gross_tag_when_net_total_exists(self):
         from official_sources import parse_inline_quarter
         from official_metrics import parse_statement_metrics

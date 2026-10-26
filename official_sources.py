@@ -53,7 +53,7 @@ def _date(text):
 
 
 def _fiscal_identity(intro):
-    identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b',intro)[0]
+    identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b|\bguidance\s+(?:for|:)',intro)[0]
     patterns = [
         r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
         r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
@@ -61,6 +61,9 @@ def _fiscal_identity(intro):
     ]
     matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text)]
     matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(patterns[2],identity_text)]
+    matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(
+        r'(?i)\b(?:fiscal\s+)?(20\d{2})\s+(?:(?:full[-\s]?year)\s+and\s+)?(first|second|third|fourth|1st|2nd|3rd|4th)\s+quarter\b',
+        identity_text)]
     matches += [(m.start(),int('20'+m[2]) if len(m[2])==2 else int(m[2]),int(m[1])) for m in re.finditer(r'(?i)\b([1-4])Q\s*(20\d{2}|\d{2})\b',identity_text)]
     return min(matches)[1:] if matches else (None,None)
 
@@ -86,14 +89,14 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
-    if end is None:
-        raise ValueError('No explicit completed quarterly period')
-    if (event - end).days > 180:
+    year,fiscal_quarter=_fiscal_identity(intro)
+    if end is None and year is None:
+        raise ValueError('No explicit completed quarterly period or fiscal identity')
+    if end is not None and (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
     # Prefer the earliest current headline identity, including joint Q4/FY headlines.
     # Later comparative paragraphs cannot provide the quarter's fiscal year.
-    year,fiscal_quarter=_fiscal_identity(intro)
-    return {'date': event.isoformat(), 'periodEnd': end.isoformat(),
+    return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
             'fiscalYear':year, 'fiscalQuarter':fiscal_quarter}
 
 

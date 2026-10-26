@@ -29,9 +29,14 @@ class OfficialParserTests(unittest.TestCase):
  def test_unconfirmed_event_date_does_not_become_release_date(self):
   with self.assertRaises(ValueError):parse_earnings_release(RELEASE,'2026-10-13','2026-10-15',TODAY)
 
- def test_period_only_and_future_announcements_are_rejected(self):
-  for doc in [RELEASE.replace('October 14, 2026',''),RELEASE.replace('September 30, 2026',''),RELEASE.replace('October 14, 2026','November 14, 2026')]:
+ def test_missing_release_date_and_future_announcement_are_rejected(self):
+  for doc in [RELEASE.replace('October 14, 2026',''),RELEASE.replace('October 14, 2026','November 14, 2026')]:
    with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
+ def test_explicit_quarter_without_period_end_requires_later_filing_match(self):
+  result=parse_earnings_release(RELEASE.replace('September 30, 2026',''),'2026-10-14','2026-10-15',TODAY)
+  self.assertIsNone(result['periodEnd'])
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2026,3))
 
  def test_quarterly_gaap_uses_exact_dimensionless_contexts_and_units(self):
   r=parse_inline_quarter(filing(),'2026-09-30')
@@ -115,6 +120,16 @@ class OfficialFallbackTests(unittest.TestCase):
    self.assertNotIn('secret',str(error.exception))
 
 class OfficialComparativeIdentityTests(unittest.TestCase):
+ def test_headline_guidance_does_not_hide_completed_quarter_in_body(self):
+  doc='''<h1>Example Reports Record 2025 EPS and Introduces 2026 Guidance</h1><p>NEW YORK, January 29, 2026 — Example announced its full year and fourth quarter 2025 results for the three months ended December 31, 2025.</p>'''
+  result=parse_earnings_release(doc,'2026-01-29','2026-01-29',date(2026,10,26))
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2025,4))
+
+ def test_future_guidance_cannot_supply_completed_quarter_identity(self):
+  doc='''<h1>Example reports fiscal 2025 full-year results</h1><p>NEW YORK, November 6, 2025 — Example reports results for the year and three months ended September 30, 2025.</p><p>Guidance for the first quarter of fiscal 2026 is $1.00.</p>'''
+  result=parse_earnings_release(doc,'2025-11-06','2025-11-06',date(2026,10,26))
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(None,None))
+
  def test_full_year_headline_beats_prior_year_comparative_text(self):
   doc='<h1>Accenture Reports Fourth-Quarter and Full-Year Fiscal 2026 Results</h1><p>NEW YORK; October 1, 2026 — reported results for the fourth quarter and full fiscal year ended August 31, 2026. All comparisons are to the fourth quarter of fiscal 2025.</p>'
   result=parse_earnings_release(doc,'2026-10-01','2026-10-01',TODAY)

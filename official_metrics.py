@@ -190,6 +190,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
     for node in tree.xpath('//script|//style'):
         node.drop_tree()
     candidates = {'epsGaapDiluted': [], 'revenue': []}
+    partial_sales_tables = set()
     for table_index, table in enumerate(tree.xpath('//table'), 1):
         rows = _grid(table)
         if not rows:
@@ -200,6 +201,10 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         gaap_table = bool(re.search(r'(?i)\bGAAP Metrics\b', leading))
         if not statement and not gaap_table and not any(re.search(r'(?i)total (?:net )?revenue.*\(GAAP\)', ' '.join(r[:2])) for r in rows):
             continue
+        if any(re.fullmatch(r'(?i)financial services revenues?', row[0].strip(' :')) for row in rows if row):
+            # This income statement reports a second revenue stream below net sales.
+            # Net sales alone are not the issuer's consolidated revenue total.
+            partial_sales_tables.add(table_index)
         def data_row(row):
             values = [cell for cell in row if _numeric(cell) is not None]
             return bool(values) and (any(not re.fullmatch(r'20\d{2}',cell.strip()) for cell in values)
@@ -287,6 +292,9 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                         {'table': table_index, 'row': row_index, 'column': column + 1, 'label': label, 'scale': int(scale)}))
     for field, state_key in [('epsGaapDiluted', 'epsVerificationStatus'), ('revenue', 'revenueVerificationStatus')]:
         if field == 'revenue':
+            candidates[field] = [c for c in candidates[field] if not (
+                c[2]['table'] in partial_sales_tables
+                and re.fullmatch(r'(?i)(?:total )?net sales', c[2]['label']))]
             # A consolidated total includes net sales/operating-revenue components.
             totals = {loc['table'] for _,_,loc in candidates[field]
                       if re.fullmatch(r'(?i)total (?:net )?revenues?(?:\s*\(GAAP\))?',loc['label'])}

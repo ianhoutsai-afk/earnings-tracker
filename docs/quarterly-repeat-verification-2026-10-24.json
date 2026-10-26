@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-10-26T07:30:04.034100+00:00",
+  "generatedAt": "2026-10-26T16:42:06.956612+00:00",
   "ignoredRecordFields": [
     "verifiedAt"
   ],
   "firstBundleHashes": {
-    "data.json": "d0a5b46cb6d91df0bc9156119218183c3887fc9c0f93aaf4f913ecb046f68801",
-    "historical_data.json": "0ea1144726d4503c91b6e436fd9454b546f5cb733f4d3b929aa5d17439ea0939",
-    "official_history.json": "1e59db20deca2dbd5c967061eb2ae8d529d5bf6a04cd345ffac43408127adb37",
-    "history_status.json": "322bc6b58f6fc6a3dcbe20dfed7b7f31f0663a01b042f950fc61156f817f769d",
-    "official_scan_state.json": "0cc427ed0ccae04cf65f3eb04023957722486b2b7690cb56677d08e0fbeefa8e",
+    "data.json": "4ec2f6db51fa1f4efec2c751a25663bd65df996944ce649ce8ed6573adc08b38",
+    "historical_data.json": "c6d3adecb89d5cac1f4167ff5d958bfc5b809c92b21e724a1a52ef5602f3b245",
+    "official_history.json": "099b06b90435ea1f661f54c006f5be877c4f331911198061d3f2dc649b6559ac",
+    "history_status.json": "b2854460aabc211b244e0b48e674f25e4bfe1c0507fd64231490b97214169d25",
+    "official_scan_state.json": "aba6b8f03e812837a24a512a2adfc21528bb8cd78e6bd47d9666a7c795f813f1",
     "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
   },
   "finalBundleHashes": {
-    "data.json": "d0a5b46cb6d91df0bc9156119218183c3887fc9c0f93aaf4f913ecb046f68801",
-    "historical_data.json": "0ea1144726d4503c91b6e436fd9454b546f5cb733f4d3b929aa5d17439ea0939",
-    "official_history.json": "1e59db20deca2dbd5c967061eb2ae8d529d5bf6a04cd345ffac43408127adb37",
-    "history_status.json": "83d8aaaa288f0102ee91e6a897e789116bc30e7e136e75f6c8d35592d18bcbbf",
-    "official_scan_state.json": "f914e6bac3295f2324516ef9a68232f476530cb2d07ea37788d680fd9b213d6e",
+    "data.json": "4ec2f6db51fa1f4efec2c751a25663bd65df996944ce649ce8ed6573adc08b38",
+    "historical_data.json": "c6d3adecb89d5cac1f4167ff5d958bfc5b809c92b21e724a1a52ef5602f3b245",
+    "official_history.json": "099b06b90435ea1f661f54c006f5be877c4f331911198061d3f2dc649b6559ac",
+    "history_status.json": "4d0bff1c80c3b28adbff444080210ab439a6269c3da0e54230a8bdbb013f40e7",
+    "official_scan_state.json": "886d4d022a5966c0e649d29417fc23465b81a413916264851bbc77af649d2ed4",
     "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
   },
   "files": {
     "official_history.json": {
-      "recordsBefore": 2409,
-      "recordsAfter": 2409,
+      "recordsBefore": 2464,
+      "recordsAfter": 2464,
       "changedRecords": 0,
-      "normalizedDigestBefore": "be3e04039bd26dd06d2af7722ce6c71944783b1e9ab3025b94635431e31c7b74",
-      "normalizedDigestAfter": "be3e04039bd26dd06d2af7722ce6c71944783b1e9ab3025b94635431e31c7b74"
+      "normalizedDigestBefore": "20b60955d195a77996beac004773213c6081e0c0533454291378a9fad2e3f21f",
+      "normalizedDigestAfter": "20b60955d195a77996beac004773213c6081e0c0533454291378a9fad2e3f21f"
     },
     "historical_data.json": {
       "recordsBefore": 503,
       "recordsAfter": 503,
       "changedRecords": 0,
-      "normalizedDigestBefore": "5358bcdfea6164a328b2365e1b5cd3c07622c0f219c07e7965c6d8d96e331b68",
-      "normalizedDigestAfter": "5358bcdfea6164a328b2365e1b5cd3c07622c0f219c07e7965c6d8d96e331b68"
+      "normalizedDigestBefore": "d36abd932002f35afde15ea66bd1a37bfbb895bd3731dabbaefef4c954b98665",
+      "normalizedDigestAfter": "d36abd932002f35afde15ea66bd1a37bfbb895bd3731dabbaefef4c954b98665"
     }
   },
   "unexpectedRecordChanges": [],
@@ -43,17 +43,17 @@
     "issuersChecked": 499,
     "issuerTargets": 499,
     "deferredCompanies": 0,
-    "newRecords": 0,
+    "newRecords": 39,
     "sourceFailures": 0,
-    "pendingCompanies": 410,
-    "officialQuarters": 2409,
-    "fiveOfficialQuarterCompanies": 418,
-    "fiveCompleteMetricCompanies": 112,
-    "latestIdentifiedCompanies": 435,
-    "latestCompleteMetricCompanies": 297,
+    "pendingCompanies": 392,
+    "officialQuarters": 2464,
+    "fiveOfficialQuarterCompanies": 441,
+    "fiveCompleteMetricCompanies": 127,
+    "latestIdentifiedCompanies": 445,
+    "latestCompleteMetricCompanies": 306,
     "sourceStaleCompanies": 0,
     "sourceFailedCompanies": 0,
-    "checkedAt": "2026-10-26T07:10:17.184903Z",
+    "checkedAt": "2026-10-26T16:31:29.066912Z",
     "healthy": true
   },
   "sourceSummaryAfter": {
@@ -63,15 +63,15 @@
     "deferredCompanies": 0,
     "newRecords": 0,
     "sourceFailures": 0,
-    "pendingCompanies": 410,
-    "officialQuarters": 2409,
-    "fiveOfficialQuarterCompanies": 418,
-    "fiveCompleteMetricCompanies": 112,
-    "latestIdentifiedCompanies": 435,
-    "latestCompleteMetricCompanies": 297,
+    "pendingCompanies": 392,
+    "officialQuarters": 2464,
+    "fiveOfficialQuarterCompanies": 441,
+    "fiveCompleteMetricCompanies": 127,
+    "latestIdentifiedCompanies": 445,
+    "latestCompleteMetricCompanies": 306,
     "sourceStaleCompanies": 0,
     "sourceFailedCompanies": 0,
-    "checkedAt": "2026-10-26T07:21:20.751358Z",
+    "checkedAt": "2026-10-26T16:39:10.639936Z",
     "healthy": true
   },
   "passed": true
