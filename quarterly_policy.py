@@ -5,6 +5,37 @@ from datetime import date
 
 HISTORY_LIMIT = 5
 
+# Each pair was checked against the original SEC gross-revenue tag and the
+# consolidated net-revenue line in that quarter's earnings exhibit.
+_RSG_NET_REVENUE_CORRECTIONS = {
+    '2026-06-30': (5076000000, 4430000000, '000106039126000275/rsg-20260630.htm', '000106039126000273/exhibit991q22026.htm'),
+    '2025-09-30': (4827000000, 4212000000, '000162828025047655/rsg-20250930.htm', '000162828025047534/exhibit991q32025.htm'),
+    '2025-06-30': (4882000000, 4235000000, '000106039125000216/rsg-20250630.htm', '000106039125000215/exhibit991q22025.htm'),
+    '2025-03-31': (4593000000, 4009000000, '000106039125000170/rsg-20250331.htm', '000106039125000169/exhibit991q12025.htm'),
+}
+
+
+def _reviewed_baseline_correction(previous, incoming):
+    if previous.get('ticker') != 'RSG' or incoming.get('ticker') != 'RSG':
+        return incoming
+    review = _RSG_NET_REVENUE_CORRECTIONS.get(incoming.get('periodEnd'))
+    if not review:
+        return incoming
+    old_value,new_value,old_path,new_path=review
+    base='https://www.sec.gov/Archives/edgar/data/1060391/'
+    if (previous.get('revenue') != old_value or incoming.get('revenue') != new_value
+            or previous.get('revenueSourceUrl') != base+old_path
+            or incoming.get('revenueSourceUrl') != base+new_path
+            or incoming.get('revenueVerificationStatus','verified') != 'verified'):
+        return incoming
+    result=copy.deepcopy(incoming)
+    result.setdefault('metricRevision',{})['revenue']='2026-10-26-reviewed-gross-to-net-correction'
+    result.setdefault('metricCorrectionEvidence',{})['revenue']={
+        'reason':'previous_gross_tag_was_not_consolidated_net_revenue',
+        'oldValue':old_value,'oldSourceUrl':base+old_path,
+        'newValue':new_value,'newSourceUrl':base+new_path}
+    return result
+
 
 def _day(value):
     return date.fromisoformat(value) if isinstance(value, str) else None
@@ -122,8 +153,10 @@ def preserve_release_provenance(updated, previous):
 def merge_manifest_record(previous, incoming):
     if previous.get('verifiedAt','') > incoming.get('verifiedAt',''):
         return copy.deepcopy(previous)
+    incoming=_reviewed_baseline_correction(previous,incoming)
     result=copy.deepcopy(incoming)
     result['metricRevision'] = copy.deepcopy(previous.get('metricRevision', {}))
+    result['metricCorrectionEvidence'] = copy.deepcopy(previous.get('metricCorrectionEvidence', {})) | copy.deepcopy(incoming.get('metricCorrectionEvidence', {}))
     result['metricConflicts'] = copy.deepcopy(previous.get('metricConflicts', {}))
     for field,evidence in incoming.get('metricConflicts',{}).items():
         saved = result['metricConflicts'].setdefault(field,[])

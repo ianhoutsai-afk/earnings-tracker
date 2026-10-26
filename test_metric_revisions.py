@@ -3,6 +3,30 @@ from quarterly_policy import merge_manifest_record
 
 
 class MetricRevisionTests(unittest.TestCase):
+    def test_four_reviewed_rsg_gross_values_are_corrected_to_official_net_revenue(self):
+        pairs=[
+            ('2026-06-30',5076000000,4430000000,'000106039126000275/rsg-20260630.htm','000106039126000273/exhibit991q22026.htm'),
+            ('2025-09-30',4827000000,4212000000,'000162828025047655/rsg-20250930.htm','000162828025047534/exhibit991q32025.htm'),
+            ('2025-06-30',4882000000,4235000000,'000106039125000216/rsg-20250630.htm','000106039125000215/exhibit991q22025.htm'),
+            ('2025-03-31',4593000000,4009000000,'000106039125000170/rsg-20250331.htm','000106039125000169/exhibit991q12025.htm')]
+        prefix='https://www.sec.gov/Archives/edgar/data/1060391/'
+        for period,old_value,new_value,filing,release in pairs:
+            with self.subTest(period=period):
+                old={**self.original(),'ticker':'RSG','periodEnd':period,'revenue':old_value,
+                     'revenueSourceUrl':prefix+filing}
+                new={**old,'verifiedAt':'2026-10-26','revenue':new_value,
+                     'revenueSourceUrl':prefix+release}
+                corrected=merge_manifest_record(old,new)
+                self.assertEqual(corrected['revenue'],new_value)
+                self.assertEqual(corrected['revenueVerificationStatus'],'verified')
+                self.assertEqual(corrected['metricCorrectionEvidence']['revenue']['oldValue'],old_value)
+                self.assertEqual(corrected['metricCorrectionEvidence']['revenue']['newSourceUrl'],prefix+release)
+                repeated=merge_manifest_record(corrected,new)
+                self.assertEqual(repeated['revenue'],new_value)
+                self.assertEqual(repeated['metricCorrectionEvidence'],corrected['metricCorrectionEvidence'])
+                wrong_source={**new,'revenueSourceUrl':prefix+'unreviewed.htm'}
+                self.assertEqual(merge_manifest_record(old,wrong_source)['revenueVerificationStatus'],'conflict')
+
     def original(self):
         return {'ticker': 'ABC', 'periodEnd': '2026-06-30', 'date': '2026-07-20',
                 'verifiedAt': '2026-10-22', 'epsGaapDiluted': 1.41, 'revenue': 2322000000,
