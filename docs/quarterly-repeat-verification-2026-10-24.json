@@ -1,20 +1,78 @@
 {
+  "generatedAt": "2026-10-26T07:30:04.034100+00:00",
   "ignoredRecordFields": [
     "verifiedAt"
   ],
+  "firstBundleHashes": {
+    "data.json": "d0a5b46cb6d91df0bc9156119218183c3887fc9c0f93aaf4f913ecb046f68801",
+    "historical_data.json": "0ea1144726d4503c91b6e436fd9454b546f5cb733f4d3b929aa5d17439ea0939",
+    "official_history.json": "1e59db20deca2dbd5c967061eb2ae8d529d5bf6a04cd345ffac43408127adb37",
+    "history_status.json": "322bc6b58f6fc6a3dcbe20dfed7b7f31f0663a01b042f950fc61156f817f769d",
+    "official_scan_state.json": "0cc427ed0ccae04cf65f3eb04023957722486b2b7690cb56677d08e0fbeefa8e",
+    "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
+  },
+  "finalBundleHashes": {
+    "data.json": "d0a5b46cb6d91df0bc9156119218183c3887fc9c0f93aaf4f913ecb046f68801",
+    "historical_data.json": "0ea1144726d4503c91b6e436fd9454b546f5cb733f4d3b929aa5d17439ea0939",
+    "official_history.json": "1e59db20deca2dbd5c967061eb2ae8d529d5bf6a04cd345ffac43408127adb37",
+    "history_status.json": "83d8aaaa288f0102ee91e6a897e789116bc30e7e136e75f6c8d35592d18bcbbf",
+    "official_scan_state.json": "f914e6bac3295f2324516ef9a68232f476530cb2d07ea37788d680fd9b213d6e",
+    "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
+  },
   "files": {
     "official_history.json": {
       "recordsBefore": 2409,
       "recordsAfter": 2409,
-      "changedRecords": 0
+      "changedRecords": 0,
+      "normalizedDigestBefore": "be3e04039bd26dd06d2af7722ce6c71944783b1e9ab3025b94635431e31c7b74",
+      "normalizedDigestAfter": "be3e04039bd26dd06d2af7722ce6c71944783b1e9ab3025b94635431e31c7b74"
     },
     "historical_data.json": {
       "recordsBefore": 503,
       "recordsAfter": 503,
-      "changedRecords": 0
+      "changedRecords": 0,
+      "normalizedDigestBefore": "5358bcdfea6164a328b2365e1b5cd3c07622c0f219c07e7965c6d8d96e331b68",
+      "normalizedDigestAfter": "5358bcdfea6164a328b2365e1b5cd3c07622c0f219c07e7965c6d8d96e331b68"
     }
   },
   "unexpectedRecordChanges": [],
   "coverageChanges": [],
+  "latestQuarterChanges": [],
+  "sourceSummaryBefore": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 0,
+    "sourceFailures": 0,
+    "pendingCompanies": 410,
+    "officialQuarters": 2409,
+    "fiveOfficialQuarterCompanies": 418,
+    "fiveCompleteMetricCompanies": 112,
+    "latestIdentifiedCompanies": 435,
+    "latestCompleteMetricCompanies": 297,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-26T07:10:17.184903Z",
+    "healthy": true
+  },
+  "sourceSummaryAfter": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 0,
+    "sourceFailures": 0,
+    "pendingCompanies": 410,
+    "officialQuarters": 2409,
+    "fiveOfficialQuarterCompanies": 418,
+    "fiveCompleteMetricCompanies": 112,
+    "latestIdentifiedCompanies": 435,
+    "latestCompleteMetricCompanies": 297,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-26T07:21:20.751358Z",
+    "healthy": true
+  },
   "passed": true
 }
