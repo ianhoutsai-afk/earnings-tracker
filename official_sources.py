@@ -66,7 +66,8 @@ def _fiscal_identity(intro):
 
 
 def _completed_period_end(text, event):
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+(?:ended|ending)\s+(' + DATE + ')', text)]
+    periods += [m[1] for m in re.finditer(r'(?i)quarter\s+(?:of\s+)?(?:fiscal\s+)?(?:year\s+)?20\d{2},?\s+which\s+ended\s+(?:on\s+)?('+DATE+')',text[:3000])]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
 
@@ -119,7 +120,8 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
     supported=[]
     for m in statements:
-        clause=re.split(r'(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        # Corporate abbreviations inside a release title are not sentence boundaries.
+        clause=re.split(r'(?<!Inc\.)(?<!Corp\.)(?<!Co\.)(?<!Ltd\.)(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
         # In "announced on DATE, its results", the completed verb precedes the date.
         before_date=m[0][:m.start(1)-m.start()]
         if re.search(r'(?i)\b(?:announced|reported)\s+on\s*$',before_date):
@@ -128,7 +130,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|reports?|announces?)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results|and)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
@@ -198,6 +200,20 @@ def _contract_revenue_total(node):
     return False
 
 
+def _gross_revenue_line(node):
+    """Identify an explicitly labelled gross line when a separate net total exists."""
+    row=next((n for n in node.iterancestors() if _local(n)=='tr'),None)
+    if row is None:return False
+    prior=[]
+    for cell in row.xpath('./td|./th'):
+        if node is cell or any(n is node for n in cell.iter()):break
+        content=' '.join(_text(cell).split())
+        if re.fullmatch(r'[$(\d,.)\s%-]+',content):break
+        prior.append(content)
+    label=' '.join(' '.join(prior).split()).strip(' :$')
+    return bool(re.fullmatch(r'(?i)(?:total )?gross revenues?',label))
+
+
 def parse_inline_quarter(document, period_end, cik=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
@@ -237,7 +253,7 @@ def parse_inline_quarter(document, period_end, cik=None):
         elif (_unique_text(_desc(unit, 'measure')) or '').lower() == 'iso4217:usd':
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
-    eps, revenue, starts = set(), set(), set()
+    eps, revenue, gross_revenue, starts = set(), set(), set(), set()
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
@@ -266,8 +282,15 @@ def parse_inline_quarter(document, period_end, cik=None):
                 continue
         except (ValueError, InvalidOperation):
             continue
-        (eps if is_eps else revenue).add(float(value))
+        (eps if is_eps else gross_revenue if _gross_revenue_line(node) else revenue).add(float(value))
         starts.add(contexts[node.get('contextref')])
+    # A tagged gross line cannot stand in for a separately reported contract
+    # revenue total. Leave the filing field open for the release statement.
+    competing_total=any(_local(node)=='nonfraction' and node.get('contextref') in contexts
+                        and node.get('name','').lower()=='us-gaap:revenuefromcontractwithcustomerexcludingassessedtax'
+                        for node in nodes)
+    if not revenue and not competing_total:
+        revenue = gross_revenue
     return {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,

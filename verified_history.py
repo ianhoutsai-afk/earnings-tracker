@@ -119,6 +119,10 @@ def apply_official_records(companies, history, records, today):
         for field in ('periodStart','filingDate','accessionNumber','secUrl','form','releaseFilingDate','releaseAccession'):
             if record.get(field) is not None:
                 official_row[field] = record[field]
+        for field in ('epsVerificationStatus', 'revenueVerificationStatus', 'metricLocators',
+                      'metricConflicts', 'metricRevision', 'metricCorrectionEvidence'):
+            if field in record:
+                official_row[field] = copy.deepcopy(record[field])
         for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
             if record.get(field) is not None:
                 official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or record['releaseSourceUrl']
@@ -322,6 +326,8 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
     companies = json.loads((root / 'data.json').read_text(encoding='utf-8'))
     history = json.loads((root / 'historical_data.json').read_text(encoding='utf-8'))
     reviewed = json.loads((root / 'official_history.json').read_text(encoding='utf-8'))
+    status_path = root / 'history_status.json'
+    existing_status = json.loads(status_path.read_text(encoding='utf-8')) if status_path.exists() else {}
     updated_history, added = apply_official_records(companies, history, reviewed, today)
     updated_companies = clear_past_report_dates(companies, today)
     updated_companies = [company_fields(company, updated_history, today) for company in updated_companies]
@@ -332,6 +338,9 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
         updated_companies = apply_expected_dates(updated_companies, future_dates, today)
         checked_at = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
         status = status_from_discovery(companies, updated_history, candidates, errors, checked_at)
+        # Date-only third-party discovery cannot erase the official source cursor.
+        status = {ticker:{**existing_status.get(ticker,{}),**discovery,
+                         'dateDiscovery':discovery} for ticker,discovery in status.items()}
     else:
         checked_at = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
         status_path = root / 'history_status.json'
