@@ -1,13 +1,13 @@
 {
-  "verifiedAt": "2026-10-26T06:53:11.228987+00:00",
+  "verifiedAt": "2026-10-26T07:26:10.631868+00:00",
   "scope": "isolated branch and local exact-commit Pages artifact; production not merged or switched",
-  "testedCommit": "d2bc60328fbab3d3027c20170929842e4620fc61",
+  "testedCommit": "8abf4ee1b9e10b04c8e96665ae8a16dfbf91e23c",
   "publicBundleHashes": {
     "data.json": "d0a5b46cb6d91df0bc9156119218183c3887fc9c0f93aaf4f913ecb046f68801",
-    "historical_data.json": "eb5a327ebfee912e3f98156d356b5ca16dcf14379cbb88b10e8f3fdfe863acdb",
-    "official_history.json": "c9322011f3e2f31e99a01cb869d94eed91d75f11e9a47ae060ec50991bb4bc1c",
-    "history_status.json": "179c9c6e4ac6e76d08d76502b735d64c08a41101a229f5ad387246dc69e62d7f",
-    "official_scan_state.json": "93f261d3f1e46ac4209c83b306a1376c858a08f5b3acec2b66b40ff1144c54da",
+    "historical_data.json": "0ea1144726d4503c91b6e436fd9454b546f5cb733f4d3b929aa5d17439ea0939",
+    "official_history.json": "1e59db20deca2dbd5c967061eb2ae8d529d5bf6a04cd345ffac43408127adb37",
+    "history_status.json": "83d8aaaa288f0102ee91e6a897e789116bc30e7e136e75f6c8d35592d18bcbbf",
+    "official_scan_state.json": "f914e6bac3295f2324516ef9a68232f476530cb2d07ea37788d680fd9b213d6e",
     "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
   },
   "packageFiles": [
@@ -57,9 +57,17 @@
     }
   ],
   "repeatScanPassed": true,
-  "pythonTestsPassed": 214,
+  "pythonTestsPassed": 216,
   "javascriptTestsPassed": 29,
   "bundleValidationPassed": true,
+  "finalSourceFailures": 0,
+  "reviewedMsciEps": {
+    "ticker": "MSCI",
+    "periodEnd": "2025-12-31",
+    "epsGaapDiluted": 3.81,
+    "oldCandidate": 74697,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm"
+  },
   "remoteMainCompared": "73bb37d",
   "productionPagesVerified": false
 }
