@@ -120,7 +120,8 @@ def apply_official_records(companies, history, records, today):
             if record.get(field) is not None:
                 official_row[field] = record[field]
         for field in ('epsVerificationStatus', 'revenueVerificationStatus', 'metricLocators',
-                      'metricConflicts', 'metricRevision', 'metricCorrectionEvidence'):
+                      'metricConflicts', 'metricRevision', 'metricCorrectionEvidence', 'releaseCorrectionEvidence',
+                      'fiscalIdentityCorrectionEvidence'):
             if field in record:
                 official_row[field] = copy.deepcopy(record[field])
         for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:

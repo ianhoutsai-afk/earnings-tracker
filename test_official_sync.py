@@ -220,6 +220,25 @@ class ScanBudgetTests(unittest.TestCase):
    self.assertEqual(result['sourceFailures'],0)
    self.assertFalse(result['healthy'])
 
+class MidnightScanTests(unittest.TestCase):
+ setup_root=OfficialSyncTests.setup_root
+ def test_scan_crossing_new_york_midnight_clears_expired_report_dates(self):
+  class MidnightClock(datetime):
+   eastern_calls=0
+   @classmethod
+   def now(cls,tz=None):
+    if getattr(tz,'key',None)=='America/New_York':
+     cls.eastern_calls+=1
+     return datetime(2026,10,22,23,59,tzinfo=tz) if cls.eastern_calls==1 else datetime(2026,10,23,0,1,tzinfo=tz)
+    return datetime(2026,10,23,3,59,tzinfo=timezone.utc)
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)
+   self.setup_root(root,companies=[{'ticker':'ABC','reportDate':'2026-10-22','reportDateSource':'third_party_estimate'}])
+   with patch('official_sync.datetime',MidnightClock):
+    sync_all(root,fetch=fetch,full=True)
+   company=json.loads((root/'data.json').read_text())[0]
+   self.assertIsNone(company['reportDate'])
+
 class HourlyWindowTests(unittest.TestCase):
  def test_old_metric_parse_gap_is_daily_but_recent_release_stays_hourly(self):
   from official_sync import _due
@@ -229,6 +248,45 @@ class HourlyWindowTests(unittest.TestCase):
   self.assertTrue(_due({'ticker':'ABC'},{**status,'status':'official_source_failed'},TODAY,False))
 
 class FilingAnnouncementTests(unittest.TestCase):
+ def test_unrelated_sentence_cannot_turn_dated_press_release_into_earnings(self):
+  from official_sources import parse_earnings_filing
+  primary='<h2>Item 2.02 Results</h2><p>On October 14, 2026, Example issued a press release.</p><p>Another party reported third quarter 2026 results.</p>'
+  with self.assertRaises(ValueError):parse_earnings_filing(primary,'2026-10-14','2026-10-20',TODAY)
+
+ def test_primary_self_link_does_not_hide_the_actual_earnings_exhibit(self):
+  from official_sync import check_issuer
+  primary='<h2>Item 2.02 Results</h2><p>On October 14, 2026, Example reported third quarter 2026 results.</p><a href="results.htm">Earnings report</a><a href="ex991.htm">Exhibit 99.1 earnings release</a>'
+  def source(url):
+   if url.endswith('results.htm'):return primary
+   if url.endswith('ex991.htm'):return RELEASE
+   return fetch(url)
+  rows,_=check_issuer('1',SUBMISSIONS,source,TODAY)
+  self.assertEqual(len(rows),1)
+  self.assertTrue(rows[0]['releaseSourceUrl'].endswith('ex991.htm'))
+
+ def test_disagreeing_publication_and_exhibit_periods_are_rejected(self):
+  from official_sources import parse_earnings_filing
+  primary='<h2>Item 2.02 Results</h2><p>On October 14, 2026, Example announced results for the third quarter ended September 30, 2026.</p>'
+  exhibit='<h1>Example reports second quarter results</h1><p>Three months ended June 30, 2026.</p>'
+  with self.assertRaisesRegex(ValueError,'Conflicting official quarterly periods'):
+   parse_earnings_filing(primary,'2026-10-14','2026-10-14',TODAY,exhibit=exhibit)
+
+ def test_old_filing_is_not_used_as_a_later_release_metric_source(self):
+  import copy
+  from official_sync import check_issuer
+  submissions=copy.deepcopy(SUBMISSIONS)
+  submissions['filings']['recent']['filingDate'][1]='2026-08-01'
+  rows,_=check_issuer('1',submissions,fetch,TODAY)
+  self.assertEqual(len(rows),1)
+  self.assertNotIn('secUrl',rows[0])
+  self.assertIsNone(rows[0]['epsGaapDiluted'])
+
+ def test_cautionary_prior_quarter_cannot_supply_current_release_period(self):
+  from official_sources import parse_earnings_filing
+  primary='''<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, Example issued a press release regarding financial results.</p><h2>Item 9.01 Exhibits</h2><p>99.1 Earnings Press Release</p><h2>Cautionary Statement Regarding Forward-Looking Statements</h2><p>Refer to the Company's Quarterly Report for the quarter ended June 30, 2026.</p>'''
+  with self.assertRaises(ValueError):
+   parse_earnings_filing(primary,'2026-10-14','2026-10-14',TODAY)
+
  def test_announced_on_date_preserves_completed_publication_verb(self):
   primary='<h2>Item 2.02 Results of Operations</h2><p>The registrant announced on October 14, 2026, its results of operations for the third quarter of 2026.</p><h2>Item 9.01 Exhibits</h2><p>Press release reporting results for the third quarter ended September 30, 2026.</p>'
   rows=self.inspect(primary,RELEASE.replace('October 14, 2026',''))

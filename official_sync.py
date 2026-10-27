@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 
 from lxml import html
 
-from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter
+from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter, _completed_period_end, _fiscal_identity
 from official_metrics import parse_companyfacts, parse_statement_metrics
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
@@ -132,7 +132,7 @@ def _parse_events(cik, filings, fetch, today):
         base = _base(cik, event)
         try:
             primary_doc=fetch(base + event['primaryDocument'])
-            links = _exhibit_links(primary_doc, base)
+            links = [link for link in _exhibit_links(primary_doc, base) if link != base+event['primaryDocument']]
         except (OSError, TimeoutError) as exc:
             failures += 1
             source_errors.append({'stage':'announcement_filing','sourceUrl':base+event['primaryDocument'],'errorType':type(exc).__name__})
@@ -143,6 +143,7 @@ def _parse_events(cik, filings, fetch, today):
         accepted = False
         event_conflict=False
         first_exhibit=None
+        first_exhibit_url=None
         for url in links+[base+event['primaryDocument']]:
             try:
                 if url==base+event['primaryDocument']:
@@ -150,7 +151,8 @@ def _parse_events(cik, filings, fetch, today):
                     release=parse_earnings_filing(primary_doc,event['reportDate'],event['filingDate'],today,exhibit=first_exhibit)
                 else:
                     release_doc = fetch(url)
-                    if first_exhibit is None:first_exhibit=release_doc
+                    if first_exhibit is None:
+                        first_exhibit,first_exhibit_url=release_doc,url
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
             except (OSError, TimeoutError) as exc:
                 failures += 1
@@ -158,10 +160,12 @@ def _parse_events(cik, filings, fetch, today):
                 continue
             except (ValueError, html.etree.ParserError):
                 continue
-            matches = [r for r in filings if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and r['reportDate'] and
-                       (r['reportDate'] == release['periodEnd'] if release['periodEnd'] else
-                        -7 <= (date.fromisoformat(r['filingDate'])-date.fromisoformat(release['date'])).days <= 45
-                        and 0 < (date.fromisoformat(release['date'])-date.fromisoformat(r['reportDate'])).days <= 180)]
+            matches = [r for r in filings if r['form'] in ('10-Q','10-Q/A','10-K','10-K/A') and r['reportDate']
+                       and r['reportDate'] <= r['filingDate']
+                       and -45 <= (date.fromisoformat(r['filingDate'])-date.fromisoformat(release['date'])).days <= 45
+                       and (r['reportDate'] == release['periodEnd'] if release['periodEnd'] else
+                            -7 <= (date.fromisoformat(r['filingDate'])-date.fromisoformat(release['date'])).days
+                            and 0 < (date.fromisoformat(release['date'])-date.fromisoformat(r['reportDate'])).days <= 180)]
             matches.sort(key=lambda r:r['filingDate'], reverse=True)
             metrics = None
             metric_url = url
@@ -179,6 +183,24 @@ def _parse_events(cik, filings, fetch, today):
                 except (ValueError, html.etree.ParserError):
                     metric_pending += 1
                     continue
+                # These two releases explicitly name FY2026; their original
+                # 10-Q DEI focus says 2025, while the issuer's year-end 10-K
+                # confirms the same fiscal year. Never generalize this exception.
+                reviewed_workday = {
+                    '2025-07-31': (2, '000132781125000181/wday-07312025x991.htm', '000132781125000184/wday-20250731.htm'),
+                    '2025-10-31': (3, '000132781125000196/wday-10312025x991.htm', '000132781125000198/wday-20251031.htm'),
+                }.get(parsed['periodEnd'])
+                wday_base='https://www.sec.gov/Archives/edgar/data/1327811/'
+                if (str(cik).lstrip('0') == '1327811' and reviewed_workday
+                        and (release.get('fiscalYear'),release.get('fiscalQuarter')) == (2026,reviewed_workday[0])
+                        and (parsed['fiscalYear'],parsed['fiscalQuarter']) == (2025,reviewed_workday[0])
+                        and url == wday_base+reviewed_workday[1] and candidate_url == wday_base+reviewed_workday[2]):
+                    parsed['fiscalYear']=2026
+                    parsed['fiscalIdentityCorrectionEvidence']={
+                        'reason':'issuer_release_and_year_end_filing_confirm_fiscal_2026',
+                        'filingFiscalYear':2025,'releaseFiscalYear':2026,
+                        'releaseSourceUrl':url,'filingSourceUrl':candidate_url,
+                        'supportingAnnualUrl':wday_base+'000132781126000014/wday-20260131.htm'}
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
                     identity_conflict = True
@@ -199,6 +221,15 @@ def _parse_events(cik, filings, fetch, today):
             # A valid inline context establishes USD; otherwise an explicit USD
             # statement is required before reading untagged financial tables.
             document = primary_doc if url == base+event['primaryDocument'] else release_doc
+            statement_url = url
+            if matched_filing and url == base+event['primaryDocument'] and first_exhibit is not None:
+                headline = ' '.join(' '.join(html.fromstring(first_exhibit).itertext()).split())[:1200]
+                exhibit_end = _completed_period_end(headline,date.fromisoformat(release['date']))
+                exhibit_identity = _fiscal_identity(headline)
+                if (re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline)
+                        and ((exhibit_end is not None and exhibit_end.isoformat() == metrics['periodEnd'])
+                             or (exhibit_end is None and exhibit_identity == (metrics['fiscalYear'],metrics['fiscalQuarter'])))):
+                    document,statement_url=first_exhibit,first_exhibit_url
             text = ' '.join(html.fromstring(document).itertext())
             currency = metrics.get('currency') if matched_filing else ('USD' if re.search(r'(?i)U\.S\. dollars|USD|United States dollars', text) else None)
             statement = parse_statement_metrics(document, metrics.get('periodEnd') or release['periodEnd'],
@@ -216,16 +247,16 @@ def _parse_events(cik, filings, fetch, today):
                         evidence = statement.get('metricConflicts',{}).get(field,[])
                         metrics.setdefault('metricConflicts',{})[field] = [
                             {'value':metrics[field],'sourceUrl':metric_url}] + (
-                            [{**e,'sourceUrl':url} for e in evidence] if evidence else
-                            [{'value':statement_value,'sourceUrl':url,'locator':statement['metricLocators'].get(field)}])
+                            [{**e,'sourceUrl':statement_url} for e in evidence] if evidence else
+                            [{'value':statement_value,'sourceUrl':statement_url,'locator':statement['metricLocators'].get(field)}])
                 elif statement.get(field) is not None:
-                    metrics[field], metrics[state_field], metrics[source_field] = statement[field], 'verified', url
+                    metrics[field], metrics[state_field], metrics[source_field] = statement[field], 'verified', statement_url
                     metrics.setdefault('metricLocators', {})[field] = statement['metricLocators'][field]
                 else:
                     metrics[state_field] = statement.get(state_field, 'pending')
                     if metrics[state_field] == 'conflict':
                         metrics.setdefault('metricConflicts',{})[field] = [
-                            {**e,'sourceUrl':url} for e in statement['metricConflicts'][field]]
+                            {**e,'sourceUrl':statement_url} for e in statement['metricConflicts'][field]]
             if matched_filing and (metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None):
                 facts_url = f'https://data.sec.gov/api/xbrl/companyfacts/CIK{str(cik).zfill(10)}.json'
                 try:
@@ -427,6 +458,7 @@ def _due(company, status, today, full):
 
 def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_seconds=2400):
     root = Path(root)
+    live_date = today is None
     today = today or datetime.now(ZoneInfo('America/New_York')).date()
     checked = _now(today).isoformat().replace('+00:00','Z')
     load = lambda name:json.loads((root/name).read_text())
@@ -567,9 +599,21 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                 else:
                     from nvda_history import fetch_official
                     def newsroom(url):
-                        if deadline-time.monotonic() < 35:
-                            raise OfficialScanDeferred('Saving progress before the source deadline')
-                        return fetch_official(url)
+                        for attempt in range(3):
+                            if deadline-time.monotonic() < 35:
+                                raise OfficialScanDeferred('Saving progress before the source deadline')
+                            try:
+                                return fetch_official(url)
+                            except HTTPError as exc:
+                                if exc.code != 429 and exc.code < 500:
+                                    raise
+                                if attempt == 2:raise
+                            except (OSError,TimeoutError):
+                                if attempt == 2:raise
+                            pause=2**attempt
+                            if deadline-time.monotonic() < pause+35:
+                                raise OfficialScanDeferred('Saving progress before the source deadline')
+                            time.sleep(pause)
                     sync_nvda(stage,today=today,fetch=newsroom)
                 history['NVDA'] = json.loads((stage/'historical_data.json').read_text())['NVDA']
                 manifest = [r for r in manifest if r['ticker']!='NVDA']+[r for r in json.loads((stage/'official_history.json').read_text()) if r['ticker']=='NVDA']
@@ -585,14 +629,15 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     # Never spend the remaining budget on old quarters before every due latest check finishes.
     if not deferred_tickers:
         run_phase(5,[cik for cik in groups if cik not in failed_issuers])
-    history = retain_history(history,today)
+    final_today = max(today, datetime.now(ZoneInfo('America/New_York')).date()) if live_date else today
+    history = retain_history(history,final_today)
     enriched = []
     for company in companies:
         entry = dict(company); issuer = mapping.get(entry['ticker'],{})
         if issuer.get('tickerStatus') in ('historical_alias','unconfirmed'):
             entry['tickerIdentityStatus'] = issuer['tickerStatus']
             entry['officialCurrentTickers'] = issuer.get('officialTickers',[])
-        entry = company_fields(entry,history,today)
+        entry = company_fields(entry,history,final_today)
         enriched.append(entry)
         status[entry['ticker']] = company_status(entry,history[entry['ticker']],status.get(entry['ticker'],{}),checked)
     companies = enriched

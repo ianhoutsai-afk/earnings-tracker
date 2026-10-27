@@ -3,6 +3,52 @@ from quarterly_policy import merge_manifest_record
 
 
 class MetricRevisionTests(unittest.TestCase):
+    def test_reviewed_schwab_fiscal_year_correction_retains_comparison_evidence(self):
+        source='https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm'
+        old={**self.original(),'ticker':'SCHW','periodEnd':'2026-09-30','date':'2026-10-15',
+             'fiscalYear':2025,'fiscalQuarter':3,'releaseSourceUrl':source}
+        new={**old,'fiscalYear':2026,'verifiedAt':'2026-10-27'}
+        corrected=merge_manifest_record(old,{k:v for k,v in new.items() if k!='ticker'})
+        self.assertEqual((corrected['fiscalYear'],corrected['fiscalQuarter']),(2026,3))
+        self.assertEqual(corrected['fiscalIdentityCorrectionEvidence']['oldFiscalYear'],2025)
+        self.assertEqual(corrected['fiscalIdentityCorrectionEvidence']['releaseSourceUrl'],source)
+        self.assertEqual(merge_manifest_record(corrected,new)['fiscalIdentityCorrectionEvidence'],
+                         corrected['fiscalIdentityCorrectionEvidence'])
+
+    def test_reviewed_broadridge_earnings_date_overrides_earlier_board_event(self):
+        from datetime import date
+        from verified_history import apply_official_records
+        source='https://www.sec.gov/Archives/edgar/data/1383312/000138331225000024/br-20250804.htm'
+        old={**self.original(),'ticker':'BR','periodEnd':'2025-06-30',
+             'date':'2025-08-04','releaseSourceUrl':source}
+        new={**old,'date':'2025-08-05','verifiedAt':'2026-10-27'}
+        corrected=merge_manifest_record(old,{k:v for k,v in new.items() if k!='ticker'})
+        self.assertEqual(corrected['date'],'2025-08-05')
+        self.assertEqual(corrected['releaseCorrectionEvidence']['oldDate'],'2025-08-04')
+        self.assertEqual(corrected['releaseCorrectionEvidence']['newSourceUrl'],source)
+        self.assertEqual(merge_manifest_record(corrected,new)['releaseCorrectionEvidence'],
+                         corrected['releaseCorrectionEvidence'])
+        old={**old,'periodScope':'quarter','fiscalYear':2025,'fiscalQuarter':4,'currency':'USD'}
+        reviewed=merge_manifest_record(old,{**old,'date':'2025-08-05','verifiedAt':'2026-10-27'})
+        history,_=apply_official_records([{'ticker':'BR'}],{'BR':[]},[old],date(2026,10,27))
+        history,_=apply_official_records([{'ticker':'BR'}],history,[reviewed],date(2026,10,27))
+        self.assertEqual(history['BR'][0]['date'],'2025-08-05')
+        self.assertEqual(history['BR'][0]['releaseCorrectionEvidence']['oldDate'],'2025-08-04')
+
+    def test_reviewed_amcor_release_date_correction_retains_old_evidence_on_repeat(self):
+        base='https://www.sec.gov/Archives/edgar/data/1748790/'
+        old={**self.original(),'ticker':'AMCR','periodEnd':'2025-12-31',
+             'date':'2026-05-06','releaseSourceUrl':base+'000174879026000014/amcr-20260506.htm'}
+        new={**old,'date':'2026-02-03','verifiedAt':'2026-10-26',
+             'releaseSourceUrl':base+'000174879026000004/amcr-20260203.htm'}
+        corrected=merge_manifest_record(old,{k:v for k,v in new.items() if k!='ticker'})
+        self.assertEqual(corrected['date'],'2026-02-03')
+        self.assertEqual(corrected['releaseCorrectionEvidence']['oldDate'],'2026-05-06')
+        self.assertEqual(corrected['releaseCorrectionEvidence']['oldSourceUrl'],old['releaseSourceUrl'])
+        self.assertEqual(corrected['releaseCorrectionEvidence']['newSourceUrl'],new['releaseSourceUrl'])
+        self.assertEqual(merge_manifest_record(corrected,new)['releaseCorrectionEvidence'],
+                         corrected['releaseCorrectionEvidence'])
+
     def test_reviewed_msci_share_count_is_corrected_only_for_exact_source_and_locator(self):
         from official_metrics import parse_statement_metrics
         from test_official_real_documents import document,SOURCES

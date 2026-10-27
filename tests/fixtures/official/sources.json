@@ -1,4 +1,40 @@
 {
+  "NRG-Q3": {"exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1013871/000101387125000023/nrgq32025ex991.htm", "sha256": "c43326c0d7a3e2b96f5c3b1d131ab61bab48a02a0e181c2c07d3147704efa806"}},
+  "CMS": {
+    "primary": {"url": "https://www.sec.gov/Archives/edgar/data/811156/000110465926087288/tm2621427d1_8k.htm", "sha256": "6382364a5eb0486787de99e081854b2aeefb6112f73a338f618104e84baa79eb"},
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/811156/000110465926087288/tm2621427d1_ex99-1.htm", "sha256": "efb70877acc4ab17277aa3709c82a5f5162cd51cdf9b6c7e572fa5144ee20977"}
+  },
+  "SCHW-Q1": {"exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000016/a1q26exhibit991.htm", "sha256": "eae98e577ad8c26069cac08e8fa2a6628339e306a12caebc088dc59e18fb0c76"}},
+  "SCHW-Q2": {"exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000027/a2q26exhibit991.htm", "sha256": "7bd057286dd5c91d76a145b1d56f93b4188c77a66208a2977b539f3c720181bf"}},
+  "SCHW-Q3": {"exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm", "sha256": "a0be1f6a7e89c502b28f978448146543167c5bae4df7fa6b484756b0444f71f0"}},
+  "SYF-Q4": {"exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1601712/000160171226000003/a4q25earningspresentatio.htm", "sha256": "d7dd271951669f078b5085ef6e7936735a7c7425b5cffb336713ed19c6c62ff1"}},
+  "WDAY-FY26-Q2": {
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781125000181/wday-07312025x991.htm", "sha256": "5d001fa4d2d1a7e613b6a8f2d94b394b464c7284af7175df765cdc8e6de9b860"},
+    "filing": {"url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781125000184/wday-20250731.htm", "sha256": "1f0cc535cb1efd301f4a32ccf29dd4a69f849dba92bdee5a1bee92125614b5c2"}
+  },
+  "WDAY-FY26-Q3": {
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781125000196/wday-10312025x991.htm", "sha256": "01b89b442e9e2f5dd5a1f10de69566dc5ba54329240606d814a07f4d79c0fa41"},
+    "filing": {"url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781125000198/wday-20251031.htm", "sha256": "28186f35959b0f3fa1f3b2b0047bac2bcada8febcde215b5ff85cb2cae2656da"}
+  },
+  "WDAY-FY26-Q4": {
+    "filing": {"url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000014/wday-20260131.htm", "sha256": "510ff2df3bf6121900ac69855c72230779744a33e22a8dd47249b51e2e33e83d"}
+  },
+  "BR": {
+    "primary": {"url": "https://www.sec.gov/Archives/edgar/data/1383312/000138331225000024/br-20250804.htm", "sha256": "057016ef6a4b490fc5ea14bc1b605cfcc0ce2f6360e9727c20a029e3937f88ba"},
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1383312/000138331225000024/ex991earningsrelease4q2025.htm", "sha256": "21eadb776d5d2c1e2913804c89d11ac06d77cc751c51f40e640ebcdb66622671"}
+  },
+  "AMCR-Q2": {
+    "primary": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000004/amcr-20260203.htm", "sha256": "30becc9fc7c5e62f8ca3bae17018e2099a84e83946c603ca5ff0cdba654fe021"},
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000004/exhibit991q22026.htm", "sha256": "14b505102e5bd2425abf4cefefe128ad52d166f6d07c08b1c39e3447c247f962"}
+  },
+  "AMCR-Q3": {
+    "primary": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000014/amcr-20260506.htm", "sha256": "72cfcfe8c2c22a2d88015ccaaa3142ce4fae35fb5617d918696f944b9d588baa"},
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000014/exhibit991q32026.htm", "sha256": "71874ef58d0a72112426a7731bfb8243674a5a5b116d892d521a1316179dfa21"}
+  },
+  "AMCR-Q4": {
+    "primary": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcr-20260812.htm", "sha256": "6c4fb800551e16e91d50862c7fa476bb34391c457160be82796b3c19bf5db901"},
+    "exhibit": {"url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcor4q2026ex991-june302026.htm", "sha256": "86cac4f62c2c1ea2fb83fff31e56d7e3d73cc29800b93dab9f5ccebcdc3a06e7"}
+  },
   "SNA": {
     "exhibit": {
       "url": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000169/q32026pressreleaseforpress.htm",

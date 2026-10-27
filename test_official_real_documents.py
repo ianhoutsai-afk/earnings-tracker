@@ -16,6 +16,157 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_nrg_future_acquisition_closing_is_not_the_reported_quarter(self):
+        row = parse_earnings_release(document('NRG-Q3', 'exhibit'), '2025-11-06',
+                                     '2025-11-06', date(2026, 10, 27))
+        self.assertEqual((row['periodEnd'], row['fiscalYear'], row['fiscalQuarter']),
+                         ('2025-09-30', 2025, 3))
+
+    def test_cms_publication_sentence_split_across_lines_keeps_quarter_identity(self):
+        row=parse_earnings_filing(document('CMS','primary'),'2026-07-28','2026-07-28',
+                                  date(2026,10,27),exhibit=document('CMS','exhibit'))
+        self.assertEqual(row['date'],'2026-07-28')
+        self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2026,2))
+
+    def test_broadridge_matching_fiscal_headline_unlocks_quarterly_exhibit_metrics(self):
+        from official_sync import check_issuer
+        primary=SOURCES['BR']['primary']['url'];exhibit=SOURCES['BR']['exhibit']['url']
+        filing_url='https://www.sec.gov/Archives/edgar/data/1383312/000162828025037656/br-20250630.htm'
+        submissions={'cik':1383312,'filings':{'recent':{
+            'form':['8-K','10-K'],'items':['2.02,9.01',''],
+            'accessionNumber':['0001383312-25-000024','0001628280-25-037656'],
+            'primaryDocument':['br-20250804.htm','br-20250630.htm'],
+            'filingDate':['2025-08-05','2025-08-05'],'reportDate':['2025-08-04','2025-06-30']}}}
+        annual=b'''<html><body>
+          <ix:nonNumeric name="dei:DocumentFiscalYearFocus">2025</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentFiscalPeriodFocus">FY</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentPeriodEndDate">2025-06-30</ix:nonNumeric>
+        </body></html>'''
+        def source(url):
+            if url==primary:return document('BR','primary')
+            if url==exhibit:return document('BR','exhibit')
+            if url==filing_url:return annual
+            if url.endswith('/ex992earningspresentatio.htm'):return '<html><h1>Presentation</h1></html>'
+            if url=='https://data.sec.gov/api/xbrl/companyfacts/CIK0001383312.json':return b'{"cik":1383312,"facts":{}}'
+            raise AssertionError(url)
+        rows,_=check_issuer('1383312',submissions,source,date(2026,10,27),depth=1)
+        self.assertEqual(len(rows),1)
+        self.assertEqual((rows[0]['date'],rows[0]['epsGaapDiluted'],rows[0]['revenue']),
+                         ('2025-08-05',3.16,2065400000))
+        self.assertEqual((rows[0]['epsSourceUrl'],rows[0]['revenueSourceUrl']),(exhibit,exhibit))
+
+    def test_schw_prior_year_comparison_does_not_name_the_current_quarter(self):
+        for q,event,end in [('Q1','2026-04-16','2026-03-31'),('Q2','2026-07-21','2026-06-30'),('Q3','2026-10-15','2026-09-30')]:
+            with self.subTest(quarter=q):
+                row=parse_earnings_release(document('SCHW-'+q,'exhibit'),event,event,date(2026,10,27))
+                self.assertEqual(row['periodEnd'],end)
+                self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2026,int(q[-1])))
+
+    def test_synchrony_release_date_year_does_not_replace_fiscal_year(self):
+        row=parse_earnings_release(document('SYF-Q4','exhibit'),'2026-01-27','2026-01-27',date(2026,10,27))
+        self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2025-12-31',2025,4))
+
+    def test_workday_fiscal_exception_does_not_accept_an_unreviewed_filing(self):
+        from official_sync import check_issuer
+        exhibit=SOURCES['WDAY-FY26-Q3']['exhibit']['url']
+        base='https://www.sec.gov/Archives/edgar/data/1327811/000132781125000196/'
+        submissions={'cik':1327811,'filings':{'recent':{
+            'form':['8-K','10-Q'],'items':['2.02,9.01',''],
+            'accessionNumber':['0001327811-25-000196','0001327811-25-000198'],
+            'primaryDocument':['primary.htm','unreviewed.htm'],
+            'filingDate':['2025-11-25','2025-11-26'],'reportDate':['2025-11-25','2025-10-31']}}}
+        def source(url):
+            if url==base+'primary.htm':return f'<a href="{exhibit.rsplit("/",1)[-1]}">Exhibit 99.1 earnings release</a>'
+            if url==exhibit:return document('WDAY-FY26-Q3','exhibit')
+            if url.endswith('/unreviewed.htm'):return document('WDAY-FY26-Q3','filing')
+            raise AssertionError(url)
+        rows,_=check_issuer('1327811',submissions,source,date(2026,10,27),depth=1)
+        self.assertEqual(rows,[])
+
+    def test_workday_fiscal_2026_quarters_use_reviewed_release_identity(self):
+        from official_sync import check_issuer
+        from official_sources import parse_inline_quarter
+        annual=parse_inline_quarter(document('WDAY-FY26-Q4','filing'),'2026-01-31',cik='1327811')
+        self.assertEqual((annual['fiscalYear'],annual['fiscalQuarter']),(2026,4))
+        for q,period,event,filing_day,release_acc,filing_acc,primary in [
+            (2,'2025-07-31','2025-08-21','2025-08-22','0001327811-25-000181','0001327811-25-000184','wday-20250821.htm'),
+            (3,'2025-10-31','2025-11-25','2025-11-26','0001327811-25-000196','0001327811-25-000198','wday-20251125.htm')]:
+            with self.subTest(quarter=q):
+                name=f'WDAY-FY26-Q{q}'
+                exhibit=SOURCES[name]['exhibit']['url'];filing_url=SOURCES[name]['filing']['url']
+                base='https://www.sec.gov/Archives/edgar/data/1327811/'+release_acc.replace('-','')+'/'
+                submissions={'cik':1327811,'filings':{'recent':{
+                    'form':['8-K','10-Q'],'items':['2.02,9.01',''],
+                    'accessionNumber':[release_acc,filing_acc],
+                    'primaryDocument':[primary,filing_url.rsplit('/',1)[-1]],
+                    'filingDate':[event,filing_day],'reportDate':[event,period]}}}
+                old={'ticker':'WDAY','periodEnd':period,'periodScope':'quarter','date':event,
+                     'fiscalYear':2025,'fiscalQuarter':q,'verifiedAt':'2026-10-26',
+                     'releaseSourceUrl':exhibit,'currency':'USD'}
+                def source(url):
+                    if url==base+primary:return f'<a href="{exhibit.rsplit("/",1)[-1]}">Exhibit 99.1 earnings release</a>'
+                    if url==exhibit:return document(name,'exhibit')
+                    if url==filing_url:return document(name,'filing')
+                    if url=='https://data.sec.gov/api/xbrl/companyfacts/CIK0001327811.json':return b'{"cik":1327811,"facts":{}}'
+                    raise AssertionError(url)
+                rows,_=check_issuer('1327811',submissions,source,date(2026,10,27),known_records=[old],depth=1)
+                self.assertEqual((rows[0]['fiscalYear'],rows[0]['fiscalQuarter']),(2026,q))
+                self.assertEqual(rows[0]['fiscalIdentityCorrectionEvidence']['filingFiscalYear'],2025)
+                self.assertEqual(rows[0]['fiscalIdentityCorrectionEvidence']['releaseSourceUrl'],exhibit)
+
+    def test_broadridge_release_date_is_not_the_earlier_board_event(self):
+        row=parse_earnings_filing(document('BR','primary'),'2025-08-04','2025-08-05',
+                                  date(2026,10,27),exhibit=document('BR','exhibit'))
+        self.assertEqual(row['date'],'2025-08-05')
+        self.assertEqual(row['periodEnd'],'2025-06-30')
+
+    def test_amcor_fourth_quarter_statement_uses_explicit_dollar_millions(self):
+        from official_metrics import parse_statement_metrics
+        row = parse_statement_metrics(document('AMCR-Q4', 'exhibit'), '2026-06-30',
+                                      currency='USD', fiscal_year=2026, fiscal_quarter=4)
+        self.assertEqual(row['epsGaapDiluted'], 0.83)
+        self.assertEqual(row['revenue'], 6398000000)
+
+    def test_amcor_filing_fallback_reads_matching_exhibit_metrics_with_their_source(self):
+        from official_sync import check_issuer
+        base='https://www.sec.gov/Archives/edgar/data/1748790/'
+        primary=SOURCES['AMCR-Q4']['primary']['url']
+        exhibit=SOURCES['AMCR-Q4']['exhibit']['url']
+        filing_url=base+'000174879026000022/amcr-20260630.htm'
+        submissions={'cik':1748790,'filings':{'recent':{
+            'form':['8-K','10-K'],'items':['2.02,9.01',''],
+            'accessionNumber':['0001748790-26-000020','0001748790-26-000022'],
+            'primaryDocument':['amcr-20260812.htm','amcr-20260630.htm'],
+            'filingDate':['2026-08-12','2026-08-14'],
+            'reportDate':['2026-08-12','2026-06-30']}}}
+        annual=b'''<html><body>
+          <ix:nonNumeric name="dei:DocumentFiscalYearFocus">2026</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentFiscalPeriodFocus">FY</ix:nonNumeric>
+          <ix:nonNumeric name="dei:DocumentPeriodEndDate">2026-06-30</ix:nonNumeric>
+        </body></html>'''
+        def fetch(url):
+            if url==primary:return document('AMCR-Q4','primary')
+            if url==exhibit:return document('AMCR-Q4','exhibit')
+            if url==filing_url:return annual
+            if url=='https://data.sec.gov/api/xbrl/companyfacts/CIK0001748790.json':
+                return b'{"cik":1748790,"facts":{}}'
+            raise AssertionError(url)
+        rows,_=check_issuer('1748790',submissions,fetch,date(2026,10,26),depth=1)
+        self.assertEqual(len(rows),1)
+        self.assertEqual((rows[0]['periodEnd'],rows[0]['epsGaapDiluted'],rows[0]['revenue']),
+                         ('2026-06-30',0.83,6398000000))
+        self.assertEqual((rows[0]['epsSourceUrl'],rows[0]['revenueSourceUrl']),(exhibit,exhibit))
+
+    def test_amcor_earnings_exhibits_match_their_actual_quarter_periods(self):
+        for quarter, event, end in [('Q2', '2026-02-03', '2025-12-31'),
+                                    ('Q3', '2026-05-06', '2026-03-31'),
+                                    ('Q4', '2026-08-12', '2026-06-30')]:
+            with self.subTest(quarter=quarter):
+                row = parse_earnings_filing(document('AMCR-' + quarter, 'primary'), event,
+                                            event, date(2026, 10, 26),
+                                            exhibit=document('AMCR-' + quarter, 'exhibit'))
+                self.assertEqual((row['date'], row['periodEnd']), (event, end))
+
     def test_snap_on_net_sales_excludes_financial_services_revenue(self):
         from official_metrics import parse_statement_metrics
         row = parse_statement_metrics(document('SNA', 'exhibit'), '2026-10-03',

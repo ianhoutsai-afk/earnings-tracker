@@ -228,7 +228,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             continue
         unit_context = context + ' ' + leading
         scale = None
-        if re.search(r'(?i)\bin (?:USD )?millions\b|\$s? in millions', unit_context):
+        if re.search(r'(?i)\bin (?:USD )?millions\b|\$s? in millions|\$\s*million\b', unit_context):
             scale = Decimal(1000000)
         elif re.search(r'(?i)\bin (?:USD )?thousands\b|\$s? in thousands', unit_context):
             scale = Decimal(1000)

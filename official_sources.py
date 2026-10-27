@@ -59,12 +59,20 @@ def _fiscal_identity(intro):
         r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
         r'(?i)\b(20\d{2})[\s-]+(first|second|third|fourth)[\s-]+quarter\b',
     ]
-    matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text)]
-    matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(patterns[2],identity_text)]
+    def not_comparison(m):
+        prefix=identity_text[max(0,m.start()-40):m.start()]
+        suffix=identity_text[m.end():m.end()+30]
+        return (not re.search(r'(?i)\b(?:versus|vs\.?)\s*$',prefix)
+                and not re.match(r'(?i)\s+(?:acquisition\s+)?closing\b',suffix))
+    matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text) if not_comparison(m)]
+    def not_publication_date(m):
+        prefix=identity_text[max(0,m.start()-40):m.start()+len(m[1])]
+        return not re.search(DATE+r'\s*$',prefix,re.I)
+    matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(patterns[2],identity_text) if not_publication_date(m) and not_comparison(m)]
     matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(
         r'(?i)\b(?:fiscal\s+)?(20\d{2})\s+(?:(?:full[-\s]?year)\s+and\s+)?(first|second|third|fourth|1st|2nd|3rd|4th)\s+quarter\b',
-        identity_text)]
-    matches += [(m.start(),int('20'+m[2]) if len(m[2])==2 else int(m[2]),int(m[1])) for m in re.finditer(r'(?i)\b([1-4])Q\s*(20\d{2}|\d{2})\b',identity_text)]
+        identity_text) if not_publication_date(m) and not_comparison(m)]
+    matches += [(m.start(),int('20'+m[2]) if len(m[2])==2 else int(m[2]),int(m[1])) for m in re.finditer(r'(?i)\b([1-4])Q\s*(20\d{2}|\d{2})\b',identity_text) if not_comparison(m)]
     return min(matches)[1:] if matches else (None,None)
 
 
@@ -111,6 +119,9 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     match=re.search(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
     if not match:raise ValueError('No earnings publication statement')
     section=match[1]
+    # SEC layout sometimes wraps the issuer and completed publication verb
+    # across lines within the same sentence; do not join completed sentences.
+    section=re.sub(r'(?im)(\bOn\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?'+DATE+r'[^\n]{0,220}(?<![.!?]))\n(?=(?:issued|announced|reported|released|posted)\b)',r'\1 ',section)
     statements=list(re.finditer(r'(?i)\bOn\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?('+DATE+r')\s*,?\s+(.{0,350}?(?:reported|announced|issued|released|posted)\b.{0,250})',section))
     statements += list(re.finditer(r'(?i)\b(?:announced|reported)\s+on\s+('+DATE+r')(.{0,400})',section))
     statements += list(re.finditer(r'(?i)(?:press|news)\s+release(?:(?!'+DATE+r').){0,150}?(?:dated|issued(?:\s+by.{0,100}?)?\s+on)\s+('+DATE+r')(.{0,400})',section))
@@ -144,7 +155,13 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     # Exhibit descriptions can explicitly identify a quarter that is not repeated in the body.
     descriptions=re.search(r'(?is)\bItem\s*9\.01\b(.*?)(?=\bSIGNATURES?\b|$)',text)
     publication_text=' '.join(clause for _,clause in supported)
-    end=_completed_period_end(publication_text+' '+(descriptions[1] if descriptions else ''),event)
+    exhibit_index = re.split(r'(?i)\b(?:cautionary statement|forward[- ]looking statements|risk factors)\b',
+                             descriptions[1] if descriptions else '', maxsplit=1)[0]
+    end=_completed_period_end(publication_text+' '+exhibit_index,event)
+    exhibit_end=_completed_period_end(headline,event) if actual_headline else None
+    if end is not None and exhibit_end is not None and end != exhibit_end:
+        raise ValueError('Conflicting official quarterly periods')
+    end=end or exhibit_end
     if end is not None and (event-end).days>180:raise ValueError('Stale earnings period')
     year,quarter=_fiscal_identity(publication_text)
     if exhibit is not None:

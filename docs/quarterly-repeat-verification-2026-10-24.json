@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-10-26T16:42:06.956612+00:00",
+  "generatedAt": "2026-10-27T08:43:45.620242+00:00",
   "ignoredRecordFields": [
     "verifiedAt"
   ],
   "firstBundleHashes": {
-    "data.json": "4ec2f6db51fa1f4efec2c751a25663bd65df996944ce649ce8ed6573adc08b38",
-    "historical_data.json": "c6d3adecb89d5cac1f4167ff5d958bfc5b809c92b21e724a1a52ef5602f3b245",
-    "official_history.json": "099b06b90435ea1f661f54c006f5be877c4f331911198061d3f2dc649b6559ac",
-    "history_status.json": "b2854460aabc211b244e0b48e674f25e4bfe1c0507fd64231490b97214169d25",
-    "official_scan_state.json": "aba6b8f03e812837a24a512a2adfc21528bb8cd78e6bd47d9666a7c795f813f1",
+    "data.json": "c9ffeedfd9ca678d30333db53f22fa32d14401d2d0661095fdd6129051cf75e8",
+    "historical_data.json": "afc64b5eaf2714e5fee9f9dc6cc7a2f55b4c8e8dc89a09d5b57cc588ea1d1383",
+    "official_history.json": "d1470ee778a13851717c908cad9add3df67b00c55735d4e31e64ce1c9ea77496",
+    "history_status.json": "2705d0db70e2ec1646f926f6c26d9e835f9e6a6146c520a713725ae843bd5358",
+    "official_scan_state.json": "19462c5aaa7b15bd0bef4a7bde381d19232df18315a5e5797525dde369b4edc7",
     "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
   },
   "finalBundleHashes": {
-    "data.json": "4ec2f6db51fa1f4efec2c751a25663bd65df996944ce649ce8ed6573adc08b38",
-    "historical_data.json": "c6d3adecb89d5cac1f4167ff5d958bfc5b809c92b21e724a1a52ef5602f3b245",
-    "official_history.json": "099b06b90435ea1f661f54c006f5be877c4f331911198061d3f2dc649b6559ac",
-    "history_status.json": "4d0bff1c80c3b28adbff444080210ab439a6269c3da0e54230a8bdbb013f40e7",
-    "official_scan_state.json": "886d4d022a5966c0e649d29417fc23465b81a413916264851bbc77af649d2ed4",
+    "data.json": "c9ffeedfd9ca678d30333db53f22fa32d14401d2d0661095fdd6129051cf75e8",
+    "historical_data.json": "afc64b5eaf2714e5fee9f9dc6cc7a2f55b4c8e8dc89a09d5b57cc588ea1d1383",
+    "official_history.json": "d1470ee778a13851717c908cad9add3df67b00c55735d4e31e64ce1c9ea77496",
+    "history_status.json": "7ed20774c74587788456d494e75d355c022b07b51a2c7a1b7c2e33b62aa7db1b",
+    "official_scan_state.json": "fffdab1ed675d7f4c855ced69ddd6222181ca16360e3e76f19129f713a46fb49",
     "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
   },
   "files": {
     "official_history.json": {
-      "recordsBefore": 2464,
-      "recordsAfter": 2464,
+      "recordsBefore": 2466,
+      "recordsAfter": 2466,
       "changedRecords": 0,
-      "normalizedDigestBefore": "20b60955d195a77996beac004773213c6081e0c0533454291378a9fad2e3f21f",
-      "normalizedDigestAfter": "20b60955d195a77996beac004773213c6081e0c0533454291378a9fad2e3f21f"
+      "normalizedDigestBefore": "132a47940d144dc3d36cb1569832d8f01fbc0f6327683b99a42f115f7610ba4f",
+      "normalizedDigestAfter": "132a47940d144dc3d36cb1569832d8f01fbc0f6327683b99a42f115f7610ba4f"
     },
     "historical_data.json": {
       "recordsBefore": 503,
       "recordsAfter": 503,
       "changedRecords": 0,
-      "normalizedDigestBefore": "d36abd932002f35afde15ea66bd1a37bfbb895bd3731dabbaefef4c954b98665",
-      "normalizedDigestAfter": "d36abd932002f35afde15ea66bd1a37bfbb895bd3731dabbaefef4c954b98665"
+      "normalizedDigestBefore": "23df814a6d571e0f988bb76cf3641a57449222a42611759d522338e95f166ccd",
+      "normalizedDigestAfter": "23df814a6d571e0f988bb76cf3641a57449222a42611759d522338e95f166ccd"
     }
   },
   "unexpectedRecordChanges": [],
@@ -43,17 +43,17 @@
     "issuersChecked": 499,
     "issuerTargets": 499,
     "deferredCompanies": 0,
-    "newRecords": 39,
+    "newRecords": 0,
     "sourceFailures": 0,
-    "pendingCompanies": 392,
-    "officialQuarters": 2464,
-    "fiveOfficialQuarterCompanies": 441,
-    "fiveCompleteMetricCompanies": 127,
+    "pendingCompanies": 382,
+    "officialQuarters": 2466,
+    "fiveOfficialQuarterCompanies": 444,
+    "fiveCompleteMetricCompanies": 138,
     "latestIdentifiedCompanies": 445,
-    "latestCompleteMetricCompanies": 306,
+    "latestCompleteMetricCompanies": 309,
     "sourceStaleCompanies": 0,
     "sourceFailedCompanies": 0,
-    "checkedAt": "2026-10-26T16:31:29.066912Z",
+    "checkedAt": "2026-10-27T07:42:05.333307Z",
     "healthy": true
   },
   "sourceSummaryAfter": {
@@ -63,15 +63,15 @@
     "deferredCompanies": 0,
     "newRecords": 0,
     "sourceFailures": 0,
-    "pendingCompanies": 392,
-    "officialQuarters": 2464,
-    "fiveOfficialQuarterCompanies": 441,
-    "fiveCompleteMetricCompanies": 127,
+    "pendingCompanies": 382,
+    "officialQuarters": 2466,
+    "fiveOfficialQuarterCompanies": 444,
+    "fiveCompleteMetricCompanies": 138,
     "latestIdentifiedCompanies": 445,
-    "latestCompleteMetricCompanies": 306,
+    "latestCompleteMetricCompanies": 309,
     "sourceStaleCompanies": 0,
     "sourceFailedCompanies": 0,
-    "checkedAt": "2026-10-26T16:39:10.639936Z",
+    "checkedAt": "2026-10-27T07:58:02.685830Z",
     "healthy": true
   },
   "passed": true

@@ -17,6 +17,38 @@ _RSG_NET_REVENUE_CORRECTIONS = {
 
 def _reviewed_baseline_correction(previous, incoming):
     # A newly parsed SEC record receives its ticker only after the inner merge.
+    schw_source='https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm'
+    if (previous.get('ticker') == 'SCHW' and incoming.get('ticker', 'SCHW') == 'SCHW'
+            and incoming.get('periodEnd') == previous.get('periodEnd') == '2026-09-30'
+            and (previous.get('fiscalYear'),previous.get('fiscalQuarter')) == (2025,3)
+            and (incoming.get('fiscalYear'),incoming.get('fiscalQuarter')) == (2026,3)
+            and previous.get('releaseSourceUrl') == incoming.get('releaseSourceUrl') == schw_source):
+        result=copy.deepcopy(incoming)
+        result['fiscalIdentityCorrectionEvidence']={'reason':'prior_year_comparison_was_not_current_quarter',
+            'oldFiscalYear':2025,'newFiscalYear':2026,'fiscalQuarter':3,'releaseSourceUrl':schw_source}
+        return result
+    br_source='https://www.sec.gov/Archives/edgar/data/1383312/000138331225000024/br-20250804.htm'
+    if (previous.get('ticker') == 'BR' and incoming.get('ticker', 'BR') == 'BR'
+            and incoming.get('periodEnd') == previous.get('periodEnd') == '2025-06-30'
+            and previous.get('date') == '2025-08-04' and incoming.get('date') == '2025-08-05'
+            and previous.get('releaseSourceUrl') == incoming.get('releaseSourceUrl') == br_source):
+        result=copy.deepcopy(incoming)
+        result['releaseCorrectionEvidence']={'reason':'earliest_board_event_was_not_earnings_release',
+            'oldDate':'2025-08-04','oldSourceUrl':br_source,'newDate':'2025-08-05','newSourceUrl':br_source,
+            'supportingExhibitUrl':'https://www.sec.gov/Archives/edgar/data/1383312/000138331225000024/ex991earningsrelease4q2025.htm'}
+        return result
+    base='https://www.sec.gov/Archives/edgar/data/1748790/'
+    old_source=base+'000174879026000014/amcr-20260506.htm'
+    new_source=base+'000174879026000004/amcr-20260203.htm'
+    if (previous.get('ticker') == 'AMCR' and incoming.get('ticker', 'AMCR') == 'AMCR'
+            and incoming.get('periodEnd') == previous.get('periodEnd') == '2025-12-31'
+            and previous.get('date') == '2026-05-06' and incoming.get('date') == '2026-02-03'
+            and previous.get('releaseSourceUrl') == old_source and incoming.get('releaseSourceUrl') == new_source):
+        result=copy.deepcopy(incoming)
+        result['releaseCorrectionEvidence']={'reason':'later_quarter_cautionary_reference_was_not_this_release',
+            'oldDate':'2026-05-06','oldSourceUrl':old_source,'newDate':'2026-02-03','newSourceUrl':new_source,
+            'supportingExhibitUrl':base+'000174879026000004/exhibit991q22026.htm'}
+        return result
     if previous.get('ticker') == 'MSCI' and incoming.get('ticker', previous.get('ticker')) == 'MSCI':
         source='https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm'
         old_locator=previous.get('metricLocators',{}).get('epsGaapDiluted',{})
@@ -160,6 +192,10 @@ def company_fields(company, history, today):
 
 def preserve_release_provenance(updated, previous):
     """Keep the earliest confirmed release date and its source identifiers together."""
+    correction=updated.get('releaseCorrectionEvidence',{})
+    if (correction.get('oldDate') == previous.get('date') and correction.get('oldSourceUrl') == previous.get('releaseSourceUrl')
+            and correction.get('newDate') == updated.get('date') and correction.get('newSourceUrl') == updated.get('releaseSourceUrl')):
+        return updated
     if not previous.get('date') or previous['date'] > updated.get('date',''):
         return updated
     same_day=previous['date']==updated.get('date')
@@ -176,6 +212,9 @@ def merge_manifest_record(previous, incoming):
         return copy.deepcopy(previous)
     incoming=_reviewed_baseline_correction(previous,incoming)
     result=copy.deepcopy(incoming)
+    for evidence_field in ('releaseCorrectionEvidence','fiscalIdentityCorrectionEvidence'):
+        if incoming.get(evidence_field) or previous.get(evidence_field):
+            result[evidence_field]=copy.deepcopy(incoming.get(evidence_field) or previous[evidence_field])
     result['metricRevision'] = copy.deepcopy(previous.get('metricRevision', {}))
     result['metricCorrectionEvidence'] = copy.deepcopy(previous.get('metricCorrectionEvidence', {})) | copy.deepcopy(incoming.get('metricCorrectionEvidence', {}))
     result['metricConflicts'] = copy.deepcopy(previous.get('metricConflicts', {}))
