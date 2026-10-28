@@ -121,7 +121,7 @@ def apply_official_records(companies, history, records, today):
                 official_row[field] = record[field]
         for field in ('epsVerificationStatus', 'revenueVerificationStatus', 'metricLocators',
                       'metricConflicts', 'metricRevision', 'metricCorrectionEvidence', 'releaseCorrectionEvidence',
-                      'fiscalIdentityCorrectionEvidence'):
+                      'fiscalIdentityCorrectionEvidence', 'metricConflictResolutionEvidence', 'metricPrecisionEvidence', 'periodEndEvidence', 'metricExclusionEvidence', 'metricStatementEvidence', 'metricDefinitionEvidence'):
             if field in record:
                 official_row[field] = copy.deepcopy(record[field])
         for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:

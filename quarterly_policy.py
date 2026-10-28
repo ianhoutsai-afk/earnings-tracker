@@ -2,6 +2,7 @@
 import copy
 import re
 from datetime import date
+from decimal import Decimal, InvalidOperation
 
 HISTORY_LIMIT = 5
 
@@ -217,6 +218,10 @@ def merge_manifest_record(previous, incoming):
             result[evidence_field]=copy.deepcopy(incoming.get(evidence_field) or previous[evidence_field])
     result['metricRevision'] = copy.deepcopy(previous.get('metricRevision', {}))
     result['metricCorrectionEvidence'] = copy.deepcopy(previous.get('metricCorrectionEvidence', {})) | copy.deepcopy(incoming.get('metricCorrectionEvidence', {}))
+    if previous.get('metricConflictResolutionEvidence') or incoming.get('metricConflictResolutionEvidence'):
+        result['metricConflictResolutionEvidence'] = copy.deepcopy(previous.get('metricConflictResolutionEvidence', {})) | copy.deepcopy(incoming.get('metricConflictResolutionEvidence', {}))
+    if previous.get('metricPrecisionEvidence') or incoming.get('metricPrecisionEvidence'):
+        result['metricPrecisionEvidence'] = copy.deepcopy(previous.get('metricPrecisionEvidence', {})) | copy.deepcopy(incoming.get('metricPrecisionEvidence', {}))
     result['metricConflicts'] = copy.deepcopy(previous.get('metricConflicts', {}))
     for field,evidence in incoming.get('metricConflicts',{}).items():
         saved = result['metricConflicts'].setdefault(field,[])
@@ -231,6 +236,20 @@ def merge_manifest_record(previous, incoming):
         old_value, new_value = previous.get(field), incoming.get(field)
         old_source = previous.get(source_field) or previous.get('metricSourceUrl') or previous.get('releaseSourceUrl')
         new_source = incoming.get(source_field) or incoming.get('metricSourceUrl') or incoming.get('releaseSourceUrl')
+        rounded_match=False
+        locator=incoming.get('metricLocators',{}).get(field,{})
+        if (old_value is not None and new_value is not None and old_value != new_value
+                and previous.get(state_field) == incoming.get(state_field) == 'verified'
+                and previous.get('periodEnd') == incoming.get('periodEnd')
+                and previous.get('secUrl') == incoming.get('secUrl')
+                and str(incoming.get('secUrl','')).startswith('https://www.sec.gov/Archives/edgar/data/')
+                and previous.get('accessionNumber') == incoming.get('accessionNumber')
+                and incoming.get('accessionNumber')):
+            try:
+                precision=Decimal(str(locator.get('precision','0')))
+                rounded_match=precision.is_finite() and precision>0 and abs(Decimal(str(old_value))-Decimal(str(new_value)))<precision/2
+            except (InvalidOperation,ValueError):
+                pass
         if old_revision and new_revision < old_revision:
             result[field], result[source_field] = old_value, old_source
             result[state_field] = previous.get(state_field, 'verified')
@@ -239,6 +258,13 @@ def merge_manifest_record(previous, incoming):
             result['metricRevision'][field] = new_revision
             result['metricConflicts'].pop(field, None)
             result[state_field] = incoming.get(state_field, 'verified')
+        elif rounded_match:
+            result[field],result[source_field],result[state_field]=old_value,old_source,'verified'
+            evidence={'preciseValue':old_value,'preciseSourceUrl':old_source,'roundedValue':new_value,
+                      'roundedSourceUrl':new_source,'locator':copy.deepcopy(locator),'filingSourceUrl':incoming['secUrl']}
+            saved=result.setdefault('metricPrecisionEvidence',{}).setdefault(field,[])
+            if evidence not in saved:saved.append(evidence)
+            continue
         elif (old_value is not None and new_value is not None and old_value != new_value) or incoming.get(state_field) == 'conflict':
             evidence = result['metricConflicts'].setdefault(field, [])
             for value, source in ((old_value, old_source), (new_value, new_source)):
@@ -251,6 +277,93 @@ def merge_manifest_record(previous, incoming):
             result[state_field] = 'conflict'
             continue
         elif previous.get(state_field) == 'conflict':
+            previous_evidence=previous.get('metricConflicts',{}).get(field,[])
+            definition=incoming.get('metricDefinitionEvidence',{}).get(field,{})
+            cik_match=re.match(r'https://www\.sec\.gov/Archives/edgar/data/(\d+)/',str(new_source))
+            facts_url=f'https://data.sec.gov/api/xbrl/companyfacts/CIK{int(cik_match[1]):010d}.json' if cik_match else None
+            def same_definition_fact(item):
+                loc=item.get('locator',{})
+                if (item.get('sourceUrl') != facts_url or loc.get('accession') != incoming.get('accessionNumber')
+                        or loc.get('periodStart') != incoming.get('periodStart')
+                        or loc.get('periodEnd') != incoming.get('periodEnd') or loc.get('unit') != 'USD'):
+                    return False
+                return ((loc.get('tag') == 'RevenuesNetOfInterestExpense' and item.get('value') == new_value)
+                        or (loc.get('tag') == 'Revenues' and item.get('value') != new_value
+                            and item.get('value') in definition.get('otherTaggedValues',[])))
+            if (field == 'revenue' and (old_value is None or old_value == new_value) and new_value is not None
+                    and incoming.get(state_field) == 'verified' and not incoming.get('metricConflicts',{}).get(field)
+                    and previous.get('secUrl') == incoming.get('secUrl') == new_source and cik_match
+                    and previous.get('accessionNumber') == incoming.get('accessionNumber') and incoming.get('accessionNumber')
+                    and previous.get('periodEnd') == incoming.get('periodEnd')
+                    and definition.get('definition') == 'consolidated_revenue_net_of_interest_expense'
+                    and definition.get('selectedTag') == 'RevenuesNetOfInterestExpense'
+                    and definition.get('selectedValue') == new_value and definition.get('sourceUrl') == new_source
+                    and re.fullmatch(r'(?i)total net revenues?|(?:total )?revenues?,? net of interest expense',
+                                     definition.get('statementLocator',{}).get('label',''))
+                    and previous_evidence and all(same_definition_fact(e) for e in previous_evidence)
+                    and any(e.get('locator',{}).get('tag') == 'Revenues' for e in previous_evidence)
+                    and any(e.get('locator',{}).get('tag') == 'RevenuesNetOfInterestExpense' for e in previous_evidence)):
+                result.setdefault('metricConflictResolutionEvidence',{})[field]={
+                    'reason':'gross_and_net_revenue_were_different_statement_definitions','actualValue':new_value,
+                    'actualSourceUrl':new_source,'definitionEvidence':copy.deepcopy(definition),
+                    'previousEvidence':copy.deepcopy(previous_evidence)}
+                result['metricConflicts'].pop(field,None)
+                result[source_field],result[state_field]=new_source,'verified'
+                continue
+            release_base=str(previous.get('releaseSourceUrl','')).rsplit('/',1)[0]+'/'
+            def excluded_adjustment(item):
+                return (field == 'epsGaapDiluted' and item.get('value') != new_value and str(item.get('sourceUrl','')).startswith(release_base)
+                        and bool(re.search(r'(?i)excluding\s+(?:specified|special|certain)\s+(?:items|charges)',
+                                           item.get('locator',{}).get('label',''))))
+            excluded_tables=incoming.get('metricExclusionEvidence',[])
+            def excluded_scope(item):
+                return item.get('value') != new_value and any(e.get('reason') == 'nonconsolidated_statement'
+                    and isinstance(e.get('table'),int) and e['table']>0
+                    and e.get('sourceUrl') == item.get('sourceUrl') and e.get('table') == item.get('locator',{}).get('table')
+                    and re.search(r'(?i)\bjoint[ -]ventures?\b|\bunconsolidated\b|\bsegments?\b',e.get('heading',''))
+                    for e in excluded_tables)
+            def excluded(item):return excluded_adjustment(item) or excluded_scope(item)
+            if ((old_value is None or old_value == new_value) and new_value is not None
+                    and incoming.get(state_field) == 'verified' and not incoming.get('metricConflicts',{}).get(field)
+                    and previous.get('periodEnd') == incoming.get('periodEnd')
+                    and previous.get('secUrl') == incoming.get('secUrl')
+                    and str(new_source).startswith('https://www.sec.gov/Archives/edgar/data/')
+                    and (new_source == previous.get('secUrl') or str(new_source).startswith(release_base))
+                    and release_base == str(incoming.get('releaseSourceUrl','')).rsplit('/',1)[0]+'/'
+                    and previous_evidence and any(excluded(e) for e in previous_evidence)
+                    and all(excluded(e) or (e.get('value') == new_value
+                        and (e.get('sourceUrl') == old_source or str(e.get('sourceUrl','')).startswith(release_base)))
+                        for e in previous_evidence)):
+                result.setdefault('metricConflictResolutionEvidence',{})[field]={
+                    'reason':'excluded_nonconsolidated_statement_rows' if any(excluded_scope(e) for e in previous_evidence) else 'excluded_adjustment_rows_were_not_gaap_actuals',
+                    'actualValue':new_value,'actualSourceUrl':new_source,'previousEvidence':copy.deepcopy(previous_evidence),
+                    'excludedTables':copy.deepcopy(excluded_tables)}
+                result['metricConflicts'].pop(field,None)
+                result[state_field]='verified'
+                continue
+            filing='https://www.sec.gov/Archives/edgar/data/712515/000071251525000030/ea-20250630.htm'
+            exhibit='https://www.sec.gov/Archives/edgar/data/712515/000071251525000027/earningspressrelease2025_0.htm'
+            evidence=previous.get('metricConflicts',{}).get(field,[])
+            def reviewed_ea_item(item):
+                loc=item.get('locator',{})
+                if item.get('value') == 0.79 and item.get('sourceUrl') == filing:
+                    return not loc
+                if item.get('sourceUrl') != exhibit or loc.get('label') != 'Diluted':
+                    return False
+                return ((item.get('value') == 0.58 and (loc.get('table'),loc.get('row'),loc.get('column')) in {(7,35,4),(7,35,5)})
+                        or (item.get('value') == 0.79 and (loc.get('table'),loc.get('row'),loc.get('column')) in {(6,36,4),(6,36,5),(7,35,16),(7,35,17)}))
+            if (previous.get('ticker') == 'EA' and incoming.get('ticker','EA') == 'EA'
+                    and previous.get('periodEnd') == incoming.get('periodEnd') == '2025-06-30'
+                    and field == 'epsGaapDiluted' and old_value == new_value == 0.79
+                    and old_source == new_source == filing and incoming.get(state_field) == 'verified'
+                    and not incoming.get('metricConflicts',{}).get(field) and evidence
+                    and any(e.get('value') == 0.58 for e in evidence) and all(reviewed_ea_item(e) for e in evidence)):
+                result.setdefault('metricConflictResolutionEvidence',{})[field]={'reason':'guidance_column_was_not_actual_earnings',
+                    'actualValue':0.79,'actualSourceUrl':filing,'supportingExhibitUrl':exhibit,
+                    'previousEvidence':copy.deepcopy(evidence)}
+                result['metricConflicts'].pop(field,None)
+                result[state_field]='verified'
+                continue
             result[field], result[source_field] = old_value, old_source
             result[state_field] = 'conflict'
             continue

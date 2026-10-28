@@ -38,7 +38,7 @@ def normalize_proxy_base(value):
 
 
 def _text(tree):
-    return ' '.join(tree.itertext()).replace('\xa0', ' ')
+    return ' '.join(tree.itertext()).replace('\xa0', ' ').replace('\u200b', '').replace('\ufeff', '')
 
 
 def _date(text):
@@ -55,15 +55,15 @@ def _date(text):
 def _fiscal_identity(intro):
     identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b|\bguidance\s+(?:for|:)',intro)[0]
     patterns = [
-        r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
+        r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+|fiscal[\s-]+))?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
         r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
         r'(?i)\b(20\d{2})[\s-]+(first|second|third|fourth)[\s-]+quarter\b',
     ]
     def not_comparison(m):
         prefix=identity_text[max(0,m.start()-40):m.start()]
-        suffix=identity_text[m.end():m.end()+30]
+        suffix=intro[m.end():m.end()+40]
         return (not re.search(r'(?i)\b(?:versus|vs\.?)\s*$',prefix)
-                and not re.match(r'(?i)\s+(?:acquisition\s+)?closing\b',suffix))
+                and not re.match(r'(?i)\s+(?:(?:acquisition\s+)?closing|guidance|outlook|forecast|projections?|targets?)\b',suffix))
     matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text) if not_comparison(m)]
     def not_publication_date(m):
         prefix=identity_text[max(0,m.start()-40):m.start()+len(m[1])]
@@ -144,7 +144,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|reports?|announces?)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results|and)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|regarding|reports?|announces?)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results|and)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
@@ -186,6 +186,16 @@ def _unique_text(nodes):
     return values.pop() if len(values) == 1 else None
 
 
+def _statement_scope(text):
+    normalized=' '.join(text.split())
+    statement=r'statements? of (?:income|operations|earnings)'
+    if re.search(r'(?i)\b(?:joint[ -]ventures?|unconsolidated|segments?)\b.{0,80}\b'+statement,normalized):
+        return 'nonconsolidated'
+    if re.search(r'(?i)\b(?:consolidated|combined) '+statement,normalized):
+        return 'consolidated'
+    return None
+
+
 def _contract_revenue_total(node):
     """Contract revenue is a total only on an explicitly labelled consolidated statement row."""
     rows=[n for n in node.iterancestors() if _local(n)=='tr']
@@ -195,12 +205,16 @@ def _contract_revenue_total(node):
     before=[]
     for cell in cells:
         if node is cell or any(n is node for n in cell.iter()):break
-        before.append(_text(cell))
+        content=' '.join(_text(cell).split())
+        # Labels precede the first amount, including when the current year is
+        # to the right of a comparative amount in the same statement row.
+        if re.fullmatch(r'[$(\d,.)\s%-]+',content):break
+        before.append(content)
     label=' '.join(' '.join(before).split()).strip(' :$')
     if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales)(?: \([a-z0-9]+\))?',label):return False
     table=tables[0]
-    statement=r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)'
-    if re.search(statement,' '.join(_text(table).split())[:700]):return True
+    scope=_statement_scope(' '.join(_text(table).split())[:700])
+    if scope is not None:return scope == 'consolidated'
     # SEC HTML often wraps a whole statement table in a separate layout div.
     # Cross only empty single-child wrappers; another table or note is a boundary.
     current=table
@@ -211,7 +225,8 @@ def _contract_revenue_total(node):
             heading=' '.join(_text(previous).split())
             if _local(previous)=='table' or previous.xpath('.//table'):return False
             if re.search(r'(?i)\bnotes?\s+(?:\d+|to\b)|statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
-            if re.search(statement,heading[-700:]):return True
+            scope=_statement_scope(heading[-700:])
+            if scope is not None:return scope == 'consolidated'
             previous=previous.getprevious()
         parent=current.getparent()
         if parent is None or _local(parent) not in ('div','section') or len(parent)!=1:break
@@ -264,7 +279,13 @@ def parse_inline_quarter(document, period_end, cik=None):
             if 70 <= duration <= 110:
                 contexts[context.get('id')] = start
     units = {}
+    unit_currencies = {}
     for unit in (n for n in nodes if _local(n) == 'unit'):
+        monetary_currencies = set()
+        for measure in _desc(unit,'measure'):
+            currency_match=re.fullmatch(r'(?i)iso4217:([A-Z]{3})',_text(measure).strip())
+            if currency_match:monetary_currencies.add(currency_match[1].lower())
+        if len(monetary_currencies)==1:unit_currencies[unit.get('id')]=next(iter(monetary_currencies))
         numerator = _desc(unit, 'unitnumerator')
         denominator = _desc(unit, 'unitdenominator')
         if numerator and denominator:
@@ -273,7 +294,7 @@ def parse_inline_quarter(document, period_end, cik=None):
         elif (_unique_text(_desc(unit, 'measure')) or '').lower() == 'iso4217:usd':
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
-    eps, revenue, gross_revenue, starts = set(), set(), set(), set()
+    eps, revenue, gross_revenue, starts, net_interest_revenue = set(), set(), set(), set(), set()
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
@@ -303,6 +324,7 @@ def parse_inline_quarter(document, period_end, cik=None):
         except (ValueError, InvalidOperation):
             continue
         (eps if is_eps else gross_revenue if _gross_revenue_line(node) else revenue).add(float(value))
+        if tag.lower() == 'us-gaap:revenuesnetofinterestexpense':net_interest_revenue.add(float(value))
         starts.add(contexts[node.get('contextref')])
     # A tagged gross line cannot stand in for a separately reported contract
     # revenue total. Leave the filing field open for the release statement.
@@ -311,9 +333,65 @@ def parse_inline_quarter(document, period_end, cik=None):
                         for node in nodes)
     if not revenue and not competing_total:
         revenue = gross_revenue
-    return {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
+    result = {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,
             'epsGaapDiluted':next(iter(eps)) if len(eps)==1 else None,
             'revenue':next(iter(revenue)) if len(revenue)==1 else None,
             'epsBasis':'GAAP diluted', 'currency':'USD'}
+    if contexts and (not eps or not revenue or (len(revenue)>1 and len(net_interest_revenue)==1)):
+        # The document identity and quarter are already explicit. Some issuers
+        # use different XBRL concepts for a clearly labelled total diluted EPS;
+        # use the same exact-period consolidated statement reader as releases.
+        from official_metrics import parse_statement_metrics, _net_revenue_total, _grid
+        statement = parse_statement_metrics(document, period_end, currency='USD',
+            fiscal_year=result['fiscalYear'], fiscal_quarter=result['fiscalQuarter'])
+        tables=tree.xpath('//table')
+        def selected_cell_validation(field, locator, value):
+            try:
+                table=tables[locator['table']-1]
+                cell=_grid(table,include_nodes=True)[locator['row']-1][locator['column']-1]
+            except (KeyError,IndexError,TypeError):return None
+            if cell is None:return None
+            facts=[n for n in cell.iter() if _local(n) in ('nonfraction','nonnumeric','fraction')]
+            if facts:
+                for fact in facts:
+                    if (_local(fact) != 'nonfraction' or fact.get('contextref') not in contexts
+                            or units.get(fact.get('unitref')) != ('USD/shares' if field=='epsGaapDiluted' else 'USD')
+                            or fact.get('format','').split(':')[-1] not in ('','num-dot-decimal','numdotdecimal')
+                            or fact.get('sign') not in (None,'-')):return None
+                    raw=''.join(_text(fact).split()).replace(',','')
+                    if not re.fullmatch(r'\d+(?:\.\d+)?',raw):return None
+                    try:
+                        scale=int(fact.get('scale','0'))
+                        if not -12<=scale<=15:return None
+                        actual=Decimal(raw)*Decimal(10)**scale*(-1 if fact.get('sign')=='-' else 1)
+                        precision=Decimal(str(locator.get('precision','0')))
+                        if (not actual.is_finite() or not precision.is_finite() or precision<0
+                                or abs(actual-Decimal(str(value)))>precision/2):return None
+                    except (ValueError,InvalidOperation):return None
+                return 'selected_inline_fact'
+            currencies={unit_currencies[n.get('unitref')] for n in table.iter()
+                if n.get('contextref') in contexts and n.get('unitref') in unit_currencies}
+            return 'untagged_quarter_statement' if currencies=={'usd'} else None
+        if len(revenue)>1 and len(net_interest_revenue)==1:
+            net_value=next(iter(net_interest_revenue))
+            locator=statement.get('metricLocators',{}).get('revenue',{})
+            validation=selected_cell_validation('revenue',locator,net_value) if locator else None
+            if statement.get('revenue') == net_value and _net_revenue_total(locator.get('label','')) and validation:
+                locator={**locator,'validationBasis':validation}
+                result['revenue']=net_value
+                result.setdefault('metricLocators',{})['revenue']=locator
+                result['metricDefinitionEvidence']={'revenue':{
+                    'definition':'consolidated_revenue_net_of_interest_expense',
+                    'selectedTag':'RevenuesNetOfInterestExpense','selectedValue':net_value,
+                    'statementLocator':locator,'otherTaggedValues':sorted(revenue-{net_value})}}
+        for field, values in [('epsGaapDiluted',eps),('revenue',revenue)]:
+            ambiguous_gross = field == 'revenue' and gross_revenue and competing_total
+            if not values and not ambiguous_gross and statement.get(field) is not None:
+                locator=statement['metricLocators'][field]
+                validation=selected_cell_validation(field,locator,statement[field])
+                if not validation:continue
+                result[field]=statement[field]
+                result.setdefault('metricLocators',{})[field]={**locator,'validationBasis':validation}
+    return result

@@ -20,7 +20,7 @@ from zoneinfo import ZoneInfo
 from lxml import html
 
 from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter, _completed_period_end, _fiscal_identity
-from official_metrics import parse_companyfacts, parse_statement_metrics
+from official_metrics import parse_companyfacts, parse_statement_metrics, discover_statement_period
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
@@ -154,6 +154,13 @@ def _parse_events(cik, filings, fetch, today):
                     if first_exhibit is None:
                         first_exhibit,first_exhibit_url=release_doc,url
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
+                if not release.get('periodEnd') and release.get('fiscalYear') and release.get('fiscalQuarter'):
+                    period_doc=first_exhibit if url==base+event['primaryDocument'] else release_doc
+                    period_url=first_exhibit_url if url==base+event['primaryDocument'] else url
+                    period=discover_statement_period(period_doc,release['date'],release['fiscalYear'],release['fiscalQuarter']) if period_doc is not None else None
+                    if period:
+                        release['periodEnd']=period['periodEnd']
+                        release['periodEndEvidence']={'sourceUrl':period_url,'locator':period['locator']}
             except (OSError, TimeoutError) as exc:
                 failures += 1
                 source_errors.append({'stage':'earnings_release','sourceUrl':url,'errorType':type(exc).__name__})
@@ -208,6 +215,8 @@ def _parse_events(cik, filings, fetch, today):
                     metric_pending += 1
                     continue
                 metrics, metric_url, matched_filing = parsed, candidate_url, candidate
+                for evidence in metrics.get('metricDefinitionEvidence',{}).values():
+                    evidence['sourceUrl']=candidate_url
                 break
             if metrics is None and identity_conflict:
                 pending += 1
@@ -226,15 +235,22 @@ def _parse_events(cik, filings, fetch, today):
                 headline = ' '.join(' '.join(html.fromstring(first_exhibit).itertext()).split())[:1200]
                 exhibit_end = _completed_period_end(headline,date.fromisoformat(release['date']))
                 exhibit_identity = _fiscal_identity(headline)
-                if (re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline)
+                table_period=discover_statement_period(first_exhibit,release['date'],metrics['fiscalYear'],metrics['fiscalQuarter'])
+                table_matches=bool(table_period and table_period['periodEnd']==metrics['periodEnd'])
+                if (table_matches or (re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline)
                         and ((exhibit_end is not None and exhibit_end.isoformat() == metrics['periodEnd'])
-                             or (exhibit_end is None and exhibit_identity == (metrics['fiscalYear'],metrics['fiscalQuarter'])))):
+                             or (exhibit_end is None and exhibit_identity == (metrics['fiscalYear'],metrics['fiscalQuarter']))))):
                     document,statement_url=first_exhibit,first_exhibit_url
+                    if table_matches:
+                        metrics['metricStatementEvidence']={'sourceUrl':statement_url,'periodEnd':metrics['periodEnd'],
+                            'locator':table_period['locator'],'matchedFilingUrl':metric_url}
             text = ' '.join(html.fromstring(document).itertext())
             currency = metrics.get('currency') if matched_filing else ('USD' if re.search(r'(?i)U\.S\. dollars|USD|United States dollars', text) else None)
             statement = parse_statement_metrics(document, metrics.get('periodEnd') or release['periodEnd'],
                 currency=currency, fiscal_year=metrics.get('fiscalYear') or release.get('fiscalYear'),
                 fiscal_quarter=metrics.get('fiscalQuarter') or release.get('fiscalQuarter'))
+            if statement.get('excludedStatementTables'):
+                metrics['metricExclusionEvidence']=[{**e,'sourceUrl':statement_url} for e in statement['excludedStatementTables']]
             for field, state_field, source_field in [('epsGaapDiluted','epsVerificationStatus','epsSourceUrl'), ('revenue','revenueVerificationStatus','revenueSourceUrl')]:
                 if metrics.get(field) is not None:
                     metrics[state_field] = 'verified'

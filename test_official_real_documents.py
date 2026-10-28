@@ -16,6 +16,180 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_genuinely_untagged_eps_retains_explicit_statement_fallback(self):
+        from lxml import html
+        from official_sources import parse_inline_quarter
+        tree=html.fromstring(document('ABNB-Q2','filing'))
+        tree.xpath('//*[@id="f-168"]')[0].drop_tag()
+        row=parse_inline_quarter(html.tostring(tree),'2026-06-30',cik='1559720')
+        self.assertEqual(row['epsGaapDiluted'],1.37)
+        self.assertEqual(row['metricLocators']['epsGaapDiluted']['validationBasis'],'untagged_quarter_statement')
+
+    def test_inline_statement_fallback_validates_the_selected_fact_itself(self):
+        import copy
+        from lxml import html,etree
+        from official_sources import parse_inline_quarter,_desc
+        for kind in ('ytd','unknown_context','wrong_issuer','dimension','shares','unknown_unit','missing_unit','format','scale','sign'):
+            with self.subTest(kind=kind):
+                tree=html.fromstring(document('ABNB-Q2','filing'))
+                selected=tree.xpath('//*[@id="f-168"]')[0]
+                if kind=='ytd':selected.set('contextref','c-1')
+                elif kind=='unknown_context':selected.set('contextref','missing-context')
+                elif kind in ('wrong_issuer','dimension'):
+                    context=copy.deepcopy(tree.xpath('//*[@id="c-17"]')[0]);context.set('id','changed-context')
+                    if kind=='wrong_issuer':_desc(context,'identifier')[0].text='9999999'
+                    else:_desc(context,'entity')[0].append(etree.Element('{http://www.xbrl.org/2003/instance}segment'))
+                    tree.append(context);selected.set('contextref','changed-context')
+                elif kind=='shares':selected.set('unitref','shares')
+                elif kind=='unknown_unit':selected.set('unitref','unknown-unit')
+                elif kind=='missing_unit':selected.attrib.pop('unitref',None)
+                elif kind=='format':selected.set('format','ixt:num-comma-decimal')
+                elif kind=='scale':selected.set('scale','6')
+                elif kind=='sign':selected.set('sign','-')
+                row=parse_inline_quarter(html.tostring(tree),'2026-06-30',cik='1559720')
+                self.assertIsNone(row['epsGaapDiluted'])
+
+    def test_ameriprise_net_revenue_is_confirmed_by_statement_and_standard_tag(self):
+        from official_sources import parse_inline_quarter
+        row=parse_inline_quarter(document('AMP-Q2','filing'),'2026-06-30',cik='820027')
+        self.assertEqual(row['revenue'],4940000000)
+        evidence=row['metricDefinitionEvidence']['revenue']
+        self.assertEqual(evidence['selectedTag'],'RevenuesNetOfInterestExpense')
+        self.assertEqual(evidence['statementLocator']['label'],'Total net revenues')
+        self.assertIn(5013000000,evidence['otherTaggedValues'])
+
+    def test_constellation_statement_period_unlocks_attached_actual_metrics(self):
+        from official_sync import check_issuer
+        source=SOURCES['STZ-Q2']
+        submissions={'filings':{'recent':{'form':['8-K','10-Q'],'items':['2.02,9.01',''],
+            'accessionNumber':['0000016918-26-000039','0000016918-26-000040'],
+            'primaryDocument':['stz-20261006.htm','stz-20260831.htm'],
+            'filingDate':['2026-10-06','2026-10-07'],'reportDate':['2026-10-06','2026-08-31']}}}
+        def fetch(url):
+            for kind in ('primary','exhibit','filing','exhibit2'):
+                if url==source[kind]['url']:return document('STZ-Q2',kind)
+            if url.endswith('/CIK0000016918.json'):return b'{"cik":16918,"facts":{}}'
+            raise AssertionError(url)
+        rows,_=check_issuer('16918',submissions,fetch,date(2026,10,27),depth=1)
+        self.assertEqual(len(rows),1)
+        self.assertEqual((rows[0]['epsGaapDiluted'],rows[0]['revenue']),(3.32,2633000000))
+        self.assertEqual(rows[0]['epsSourceUrl'],source['exhibit']['url'])
+        original=document('STZ-Q2','exhibit')
+        wrong=original.replace(b'August 31',b'May 31')
+        self.assertNotEqual(original,wrong)
+        def wrong_period(url):return wrong if url==source['exhibit']['url'] else fetch(url)
+        rejected,_=check_issuer('16918',submissions,wrong_period,date(2026,10,27),depth=1)
+        self.assertFalse(any(r.get('epsGaapDiluted')==3.32 or r.get('revenue')==2633000000 for r in rejected))
+
+    def test_simon_joint_venture_revenue_does_not_conflict_with_consolidated_total(self):
+        from official_metrics import parse_statement_metrics
+        row=parse_statement_metrics(document('SPG-Q2','exhibit'),'2026-06-30',currency='USD',
+            fiscal_year=2026,fiscal_quarter=2)
+        self.assertEqual(row['revenue'],1790598000)
+        self.assertEqual(row['revenueVerificationStatus'],'verified')
+        self.assertTrue(any(e['table']==12 and 'Joint Venture' in e['heading']
+                            for e in row['excludedStatementTables']))
+
+    def test_ross_future_first_quarter_guidance_does_not_replace_actual_fourth_quarter(self):
+        row=parse_earnings_filing(document('ROST-Q4','primary'),'2026-03-03','2026-03-03',
+            date(2026,10,27),exhibit=document('ROST-Q4','exhibit'))
+        self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2025,4))
+
+    def test_factset_headline_fiscal_year_precedes_prior_year_comparison(self):
+        row=parse_earnings_release(document('FDS-Q4','exhibit'),'2025-09-18','2025-09-18',date(2026,10,27))
+        self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2025,4))
+
+    def test_new_boeing_quarter_can_use_dated_release_and_explicit_statement_end(self):
+        from official_sync import check_issuer
+        source=SOURCES['BA-Q3']
+        submissions={'filings':{'recent':{'form':['8-K'],'items':['2.02,9.01'],
+            'accessionNumber':['0001628280-26-067411'],'primaryDocument':['ba-20261027.htm'],
+            'filingDate':['2026-10-27'],'reportDate':['2026-10-27']}}}
+        def fetch(url):
+            for kind in ('primary','exhibit'):
+                if url==source[kind]['url']:return document('BA-Q3',kind)
+            raise AssertionError(url)
+        rows,_=check_issuer('12927',submissions,fetch,date(2026,10,27),depth=1)
+        self.assertEqual(len(rows),1)
+        self.assertEqual((rows[0]['periodEnd'],rows[0]['fiscalYear'],rows[0]['fiscalQuarter']),('2026-09-30',2026,3))
+        self.assertEqual(rows[0]['periodEndEvidence']['sourceUrl'],source['exhibit']['url'])
+
+    def test_current_quarter_end_is_explicit_in_boeing_and_cms_tables(self):
+        from official_metrics import discover_statement_period
+        for ticker in ('BA-Q3','CMS-Q3'):
+            with self.subTest(ticker=ticker):
+                result=discover_statement_period(document(ticker,'exhibit'),'2026-10-27',2026,3)
+                self.assertEqual(result['periodEnd'],'2026-09-30')
+                self.assertTrue(result['locator']['header'])
+        self.assertIsNone(discover_statement_period(document('BA-Q3','exhibit'),'2026-10-27',None,None))
+
+    def test_kdp_word_quarter_header_does_not_select_annual_values(self):
+        from official_metrics import parse_statement_metrics,_target_header
+        row=parse_statement_metrics(document('KDP-Q4','exhibit'),'2025-12-31',currency='USD',
+            fiscal_year=2025,fiscal_quarter=4)
+        self.assertEqual((row['epsGaapDiluted'],row['revenue']),(0.26,4499000000))
+        self.assertFalse(_target_header('Fourth Quarter and Full Year 2025','2025-12-31',2025,4))
+        self.assertFalse(_target_header('Fourth Quarter and Full Fiscal Year 2025','2025-12-31',2025,4))
+        self.assertFalse(_target_header('Fourth Quarter 2025 Guidance','2025-12-31',2025,4))
+        self.assertFalse(_target_header('Fourth Quarter 2025 December 31, 2024','2025-12-31',2025,4))
+
+    def test_abbott_eps_excluding_specified_items_is_not_gaap(self):
+        from official_metrics import parse_statement_metrics
+        row=parse_statement_metrics(document('ABT-Q2','exhibit'),'2026-06-30',currency='USD',
+            fiscal_year=2026,fiscal_quarter=2)
+        self.assertEqual(row['epsVerificationStatus'],'verified')
+        self.assertEqual(row['epsGaapDiluted'],0.53)
+
+    def test_tesla_released_actual_financial_results_attests_publication(self):
+        row=parse_earnings_filing(document('TSLA-Q3','primary'),'2026-10-21','2026-10-21',
+            date(2026,10,27),exhibit=document('TSLA-Q3','exhibit'))
+        self.assertEqual((row['date'],row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),
+                         ('2026-10-21','2026-09-30',2026,3))
+
+    def test_tesla_future_release_does_not_attest_actual_publication(self):
+        upcoming=document('TSLA-Q3','primary').replace(b'released its financial results',b'will release its financial results')
+        with self.assertRaises(ValueError):
+            parse_earnings_filing(upcoming,'2026-10-21','2026-10-21',date(2026,10,27),
+                exhibit=document('TSLA-Q3','exhibit'))
+
+    def test_monster_statement_layout_keeps_exact_quarter_values(self):
+        from official_sources import parse_inline_quarter
+        row=parse_inline_quarter(document('MNST-Q2','filing'),'2026-06-30',cik='865752')
+        self.assertEqual(row['revenue'],2537473000)
+        self.assertEqual(row['epsGaapDiluted'],0.59)
+
+    def test_airbnb_current_revenue_right_of_comparative_retains_total_label(self):
+        from official_sources import parse_inline_quarter
+        row=parse_inline_quarter(document('ABNB-Q2','filing'),'2026-06-30',cik='1559720')
+        self.assertEqual(row['revenue'],3608000000)
+        self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2026,2))
+
+    def test_airbnb_total_diluted_eps_comes_from_exact_quarter_statement(self):
+        from official_sources import parse_inline_quarter
+        row=parse_inline_quarter(document('ABNB-Q2','filing'),'2026-06-30',cik='1559720')
+        self.assertEqual(row['epsGaapDiluted'],1.37)
+        self.assertEqual(row['metricLocators']['epsGaapDiluted']['label'],'Diluted')
+
+    def test_statement_fallback_cannot_bypass_issuer_context_match(self):
+        from official_sources import parse_inline_quarter
+        row=parse_inline_quarter(document('ABNB-Q2','filing'),'2026-06-30',cik='865752')
+        self.assertIsNone(row['revenue'])
+        self.assertIsNone(row['epsGaapDiluted'])
+
+    def test_statement_fallback_cannot_relabel_euro_filing_as_us_dollars(self):
+        from official_sources import parse_inline_quarter
+        euro=document('ABNB-Q2','filing').replace(b'iso4217:USD',b'iso4217:EUR')
+        row=parse_inline_quarter(euro,'2026-06-30',cik='1559720')
+        self.assertIsNone(row['revenue'])
+        self.assertIsNone(row['epsGaapDiluted'])
+
+    def test_ea_guidance_column_does_not_conflict_with_actual_diluted_eps(self):
+        from official_metrics import parse_statement_metrics
+        result = parse_statement_metrics(document('EA-Q1', 'exhibit'), '2025-06-30',
+                                         currency='USD', fiscal_year=2026, fiscal_quarter=1)
+        self.assertEqual(result['epsVerificationStatus'], 'verified')
+        self.assertEqual(result['epsGaapDiluted'], 0.79)
+
     def test_nrg_future_acquisition_closing_is_not_the_reported_quarter(self):
         row = parse_earnings_release(document('NRG-Q3', 'exhibit'), '2025-11-06',
                                      '2025-11-06', date(2026, 10, 27))

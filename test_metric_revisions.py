@@ -3,6 +3,100 @@ from quarterly_policy import merge_manifest_record
 
 
 class MetricRevisionTests(unittest.TestCase):
+    def test_gross_and_net_interest_revenue_require_same_filing_and_definition(self):
+        from official_sources import parse_inline_quarter
+        from test_official_real_documents import document,SOURCES
+        filing=SOURCES['AMP-Q2']['filing']['url']
+        facts='https://data.sec.gov/api/xbrl/companyfacts/CIK0000820027.json'
+        parsed=parse_inline_quarter(document('AMP-Q2','filing'),'2026-06-30',cik='820027')
+        evidence=[{'value':value,'sourceUrl':facts,'locator':{'tag':tag,
+            'accession':'0000820027-26-000043','periodStart':'2026-04-01','periodEnd':'2026-06-30','unit':'USD'}}
+            for tag,value in [('Revenues',5013000000),('RevenuesNetOfInterestExpense',4940000000)]]
+        old={**self.original(),**parsed,'ticker':'AMP','revenue':None,'revenueVerificationStatus':'conflict',
+             'secUrl':filing,'accessionNumber':'0000820027-26-000043','revenueSourceUrl':filing,
+             'epsSourceUrl':filing,'releaseSourceUrl':'https://www.sec.gov/Archives/edgar/data/820027/000082002726000038/q22026er.htm',
+             'metricConflicts':{'revenue':evidence}}
+        new={**old,**parsed,'verifiedAt':'2026-10-28','revenueVerificationStatus':'verified','metricConflicts':{}}
+        new['metricDefinitionEvidence']['revenue']['sourceUrl']=filing
+        row=merge_manifest_record(old,new)
+        self.assertEqual(row['revenueVerificationStatus'],'verified')
+        self.assertEqual(row['revenue'],4940000000)
+        self.assertEqual(row['metricConflictResolutionEvidence']['revenue']['previousEvidence'],evidence)
+        different_accession={**new,'accessionNumber':'0000820027-26-000099'}
+        self.assertEqual(merge_manifest_record(old,different_accession)['revenueVerificationStatus'],'conflict')
+        unknown={**old,'metricConflicts':{'revenue':evidence+[{'value':1,'sourceUrl':facts,'locator':{'tag':'OtherRevenue'}}]}}
+        self.assertEqual(merge_manifest_record(unknown,new)['revenueVerificationStatus'],'conflict')
+
+    def test_joint_venture_conflict_resolution_requires_original_table_evidence(self):
+        release='https://www.sec.gov/Archives/edgar/data/1063761/000110465926093361/tm2620726d2_ex99-1.htm'
+        evidence=[{'value':1790598000,'sourceUrl':release,'locator':{'table':8,'label':'Total revenue'}},
+                  {'value':1041361000,'sourceUrl':release,'locator':{'table':12,'label':'Total revenue'}}]
+        old={**self.original(),'ticker':'SPG','secUrl':None,'releaseSourceUrl':release,
+             'metricSourceUrl':release,'revenueSourceUrl':release,'revenue':None,
+             'revenueVerificationStatus':'conflict','metricConflicts':{'revenue':evidence}}
+        new={**old,'verifiedAt':'2026-10-28','revenue':1790598000,'revenueVerificationStatus':'verified',
+             'metricConflicts':{},'metricExclusionEvidence':[{'sourceUrl':release,'table':12,
+             'reason':'nonconsolidated_statement','heading':'Unaudited Joint Venture Combined Statements of Operations'}]}
+        row=merge_manifest_record(old,new)
+        self.assertEqual(row['revenueVerificationStatus'],'verified')
+        self.assertEqual(row['metricConflictResolutionEvidence']['revenue']['previousEvidence'],evidence)
+        no_proof={k:v for k,v in new.items() if k!='metricExclusionEvidence'}
+        self.assertEqual(merge_manifest_record(old,no_proof)['revenueVerificationStatus'],'conflict')
+        extra={**old,'metricConflicts':{'revenue':evidence+[{'value':99,'sourceUrl':release,'locator':{'table':13}}]}}
+        self.assertEqual(merge_manifest_record(extra,new)['revenueVerificationStatus'],'conflict')
+
+    def test_non_gaap_only_conflict_can_be_resolved_with_same_actual_and_evidence(self):
+        filing='https://www.sec.gov/Archives/edgar/data/1800/000162828026050134/abt-20260630.htm'
+        release='https://www.sec.gov/Archives/edgar/data/1800/000162828026048377/abt-2026q2xexhibitx991.htm'
+        evidence=[{'value':0.53,'sourceUrl':filing},{'value':1.31,'sourceUrl':release,
+            'locator':{'label':'Diluted Earnings per Common Share, excluding Specified Items, as described below'}}]
+        old={**self.original(),'ticker':'ABT','secUrl':filing,'accessionNumber':'0001628280-26-050134',
+             'releaseSourceUrl':release,'epsSourceUrl':filing,'epsGaapDiluted':0.53,
+             'epsVerificationStatus':'conflict','metricConflicts':{'epsGaapDiluted':evidence}}
+        new={**old,'verifiedAt':'2026-10-28','epsVerificationStatus':'verified','metricConflicts':{}}
+        row=merge_manifest_record(old,new)
+        self.assertEqual(row['epsVerificationStatus'],'verified')
+        self.assertEqual(row['metricConflictResolutionEvidence']['epsGaapDiluted']['previousEvidence'],evidence)
+        unknown={**old,'metricConflicts':{'epsGaapDiluted':evidence+[{'value':0.65,'sourceUrl':filing}]}}
+        self.assertEqual(merge_manifest_record(unknown,new)['epsVerificationStatus'],'conflict')
+        different={**new,'epsGaapDiluted':0.54}
+        self.assertEqual(merge_manifest_record(old,different)['epsVerificationStatus'],'conflict')
+        no_previous_value={**old,'epsGaapDiluted':None}
+        from_release={**new,'epsSourceUrl':release}
+        self.assertEqual(merge_manifest_record(no_previous_value,from_release)['epsVerificationStatus'],'verified')
+
+    def test_same_filing_rounded_statement_preserves_precise_verified_value(self):
+        filing='https://www.sec.gov/Archives/edgar/data/1375365/000137536526000014/smci-20260331.htm'
+        old={**self.original(),'ticker':'SMCI','secUrl':filing,'accessionNumber':'0001375365-26-000014',
+             'revenue':10243014000,'revenueVerificationStatus':'verified'}
+        new={**old,'verifiedAt':'2026-10-28','revenue':10243000000,'revenueSourceUrl':filing,
+             'metricLocators':{'revenue':{'table':47,'row':4,'column':5,'label':'Net sales','precision':'100000'}}}
+        row=merge_manifest_record(old,new)
+        self.assertEqual(row['revenue'],10243014000)
+        self.assertEqual(row['revenueVerificationStatus'],'verified')
+        self.assertEqual(row['revenueSourceUrl'],old['revenueSourceUrl'])
+        self.assertEqual(row['metricPrecisionEvidence']['revenue'][0]['roundedValue'],10243000000)
+        repeated=merge_manifest_record(row,new)
+        self.assertEqual(repeated['metricPrecisionEvidence'],row['metricPrecisionEvidence'])
+        other={**new,'secUrl':filing.replace('000014','000099'),'accessionNumber':'0001375365-26-000099'}
+        self.assertEqual(merge_manifest_record(old,other)['revenueVerificationStatus'],'conflict')
+        outside={**new,'revenue':10242900000}
+        self.assertEqual(merge_manifest_record(old,outside)['revenueVerificationStatus'],'conflict')
+
+    def test_reviewed_ea_guidance_conflict_resolution_keeps_evidence(self):
+        filing='https://www.sec.gov/Archives/edgar/data/712515/000071251525000030/ea-20250630.htm'
+        exhibit='https://www.sec.gov/Archives/edgar/data/712515/000071251525000027/earningspressrelease2025_0.htm'
+        evidence=[{'value':0.79,'sourceUrl':filing},
+                  {'value':0.58,'sourceUrl':exhibit,'locator':{'table':7,'row':35,'column':4,'label':'Diluted'}}]
+        old={**self.original(),'ticker':'EA','periodEnd':'2025-06-30','epsGaapDiluted':0.79,
+             'epsSourceUrl':filing,'epsVerificationStatus':'conflict', 'metricConflicts':{'epsGaapDiluted':evidence}}
+        new={**old,'verifiedAt':'2026-10-28','epsVerificationStatus':'verified','metricConflicts':{}}
+        resolved=merge_manifest_record(old,new)
+        self.assertEqual(resolved['epsVerificationStatus'],'verified')
+        self.assertEqual(resolved['metricConflictResolutionEvidence']['epsGaapDiluted']['previousEvidence'],evidence)
+        unknown={**old,'metricConflicts':{'epsGaapDiluted':evidence+[{'value':0.65,'sourceUrl':exhibit}]}}
+        self.assertEqual(merge_manifest_record(unknown,new)['epsVerificationStatus'],'conflict')
+
     def test_reviewed_schwab_fiscal_year_correction_retains_comparison_evidence(self):
         source='https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm'
         old={**self.original(),'ticker':'SCHW','periodEnd':'2026-09-30','date':'2026-10-15',

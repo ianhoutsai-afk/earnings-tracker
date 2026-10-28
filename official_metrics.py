@@ -10,7 +10,7 @@ from decimal import Decimal, InvalidOperation
 
 from lxml import html
 
-from official_sources import DATE, _date, _text
+from official_sources import DATE, _date, _text, _fiscal_identity, _statement_scope
 
 EPS_TAG = 'EarningsPerShareDiluted'
 TOTAL_REVENUE_TAGS = ('Revenues', 'SalesRevenueNet', 'RevenuesNetOfInterestExpense')
@@ -77,7 +77,7 @@ def parse_companyfacts(payload, *, cik, period_end, accessions, today):
     return result
 
 
-def _grid(table):
+def _grid(table, *, include_nodes=False):
     rows, spans = [], {}
     for tr in table.xpath('.//tr'):
         if next(tr.iterancestors('table'), None) is not table:
@@ -91,7 +91,7 @@ def _grid(table):
         for cell in tr.xpath('./td|./th'):
             while column in cells:
                 column += 1
-            text = ' '.join(_text(cell).split())
+            text = cell if include_nodes else ' '.join(_text(cell).split())
             try:
                 width = min(100, max(1, int(cell.get('colspan', '1'))))
                 height = min(100, max(1, int(cell.get('rowspan', '1'))))
@@ -104,7 +104,7 @@ def _grid(table):
             column += width
         spans = next_spans
         if cells:
-            rows.append([cells.get(i, '') for i in range(max(cells) + 1)])
+            rows.append([cells.get(i, None if include_nodes else '') for i in range(max(cells) + 1)])
     return rows
 
 
@@ -122,15 +122,15 @@ def _context(table):
             if previous.tag == 'table' or previous.xpath('.//table'):
                 # A one-line layout table may be the statement's title/units.
                 # Never cross another financial table to borrow its heading.
-                if len(text) < 800 and re.search(r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)', text):
+                if len(text) < 800 and _statement_scope(text) == 'consolidated':
                     snippets.insert(0, text)
                 break
             if re.search(r'(?i)notes? to|non-gaap reconciliation', text):
                 break
             if text:
                 snippets.insert(0, text)
+                count += 1
             previous = previous.getprevious()
-            count += 1
         if snippets or node.getparent() is None:
             break
         node = node.getparent()
@@ -152,10 +152,13 @@ def _numeric(text):
         return None
 
 
-def _target_header(text, period_end, fiscal_year, fiscal_quarter):
-    normalized = ' '.join(text.split())
-    if re.search(r'(?i)non[ -]?gaap|adjusted|adjustments|comparable hotel|percent|%|change', normalized):
-        return False
+def _net_revenue_total(label):
+    clean=re.sub(r'\s*\((?:GAAP|\d+)\)\s*',' ',label,flags=re.I).strip()
+    return bool(re.fullmatch(r'(?i)total net revenues?|(?:total )?revenues?,? net of interest expense',clean))
+
+
+def _header_dates(text):
+    normalized=' '.join(text.split())
     ends = set()
     for match in re.finditer(DATE, normalized, re.I):
         try:
@@ -168,8 +171,17 @@ def _target_header(text, period_end, fiscal_year, fiscal_quarter):
             ends.add(date(year, int(match[1]), int(match[2])).isoformat())
         except ValueError:
             pass
+    return ends
+
+
+def _target_header(text, period_end, fiscal_year, fiscal_quarter):
+    normalized = ' '.join(text.split())
+    normalized = re.sub(r'(?i)\b(three|six|nine|twelve)-months\b',r'\1 months',normalized)
+    if re.search(r'(?i)non[ -]?gaap|adjusted|adjustments|comparable hotel|percent|%|change|\bguidance\b|\bforecast\b|\bvariance\b', normalized):
+        return False
+    ends = _header_dates(normalized)
     quarter_duration = bool(re.search(r'(?i)three months|quarter(?:ly)?\s+ended', normalized))
-    cumulative = bool(re.search(r'(?i)six months|nine months|twelve months|year ended|years ended|(?:two|three|four) (?:fiscal )?quarters|year.to.date', normalized))
+    cumulative = bool(re.search(r'(?i)six months|nine months|twelve months|year ended|years ended|full[ -](?:fiscal[ -])?year|(?:two|three|four) (?:fiscal )?quarters|year.to.date', normalized))
     years = [part.strip() for part in text.splitlines() if re.fullmatch(r'20\d{2}',part.strip())]
     if years and years[-1] != period_end[:4] and ends:
         return False
@@ -177,8 +189,38 @@ def _target_header(text, period_end, fiscal_year, fiscal_quarter):
         return True
     if fiscal_year and fiscal_quarter:
         token = rf'(?i)\b(?:Q{fiscal_quarter}\s*(?:FY\s*)?(?:{fiscal_year}|{str(fiscal_year)[-2:]})|{fiscal_quarter}Q\s*(?:{fiscal_year}|{str(fiscal_year)[-2:]}))\b'
-        return bool(re.search(token, normalized)) and not cumulative
+        if re.search(token, normalized) and not cumulative:return True
+        if ends and ends != {period_end}:return False
+        return _fiscal_identity(normalized) == (fiscal_year,fiscal_quarter) and not cumulative
     return False
+
+
+def discover_statement_period(document, event_date, fiscal_year, fiscal_quarter):
+    """Read an explicit current quarter end from a consolidated income statement."""
+    if not fiscal_year or fiscal_quarter not in (1,2,3,4):return None
+    event=date.fromisoformat(event_date)
+    tree=html.fromstring(document.encode() if isinstance(document,str) else document)
+    candidates={}
+    for table_index,table in enumerate(tree.xpath('//table'),1):
+        rows=_grid(table)
+        if not rows:continue
+        leading=' '.join(' '.join(r) for r in rows[:5])
+        if _statement_scope(_context(table)+' '+leading) != 'consolidated':continue
+        def data_row(row):
+            values=[cell for cell in row if _numeric(cell) is not None]
+            return bool(values) and (any(not re.fullmatch(r'20\d{2}',cell.strip()) for cell in values) or '$' in row)
+        first=next((i for i,r in enumerate(rows) if data_row(r)),len(rows))
+        for col in range(max(map(len,rows))):
+            header='\n'.join(r[col] for r in rows[:first] if col<len(r))
+            if not re.search(r'(?i)three[ -]months|quarter(?:ly)?\s+ended',header):continue
+            identity=_fiscal_identity(header)
+            if identity[0] is not None and identity != (fiscal_year,fiscal_quarter):continue
+            for end in _header_dates(header):
+                if 0<(event-date.fromisoformat(end)).days<=180 and _target_header(header,end,fiscal_year,fiscal_quarter):
+                    candidates.setdefault(end,{'table':table_index,'column':col+1,'header':header})
+    if len(candidates)!=1:return None
+    end=next(iter(candidates))
+    return {'periodEnd':end,'locator':candidates[end]}
 
 
 def parse_statement_metrics(document, period_end, *, currency=None,
@@ -197,7 +239,12 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             continue
         context = _context(table)
         leading = ' '.join(' '.join(row) for row in rows[:5])
-        statement = bool(re.search(r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)', context + ' ' + leading))
+        scope=_statement_scope(context+' '+leading)
+        if scope == 'nonconsolidated':
+            result.setdefault('excludedStatementTables',[]).append({'table':table_index,
+                'reason':'nonconsolidated_statement','heading':context[-700:]+' '+leading[:300]})
+            continue
+        statement = scope == 'consolidated'
         gaap_table = bool(re.search(r'(?i)\bGAAP Metrics\b', leading))
         if not statement and not gaap_table and not any(re.search(r'(?i)total (?:net )?revenue.*\(GAAP\)', ' '.join(r[:2])) for r in rows):
             continue
@@ -256,7 +303,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                 active_gaap = False
             elif re.search(r'(?i)^GAAP Metrics', label):
                 active_gaap = True
-            excluded = bool(re.search(r'(?i)adjusted|non[ -]?gaap|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings', label))
+            excluded = bool(re.search(r'(?i)adjusted|non[ -]?gaap|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings|excluding\s+(?:specified|special|certain)\s+(?:items|charges)', label))
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
             per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:basic |diluted )?(?:common )?share|per share.*(?:earnings|income|loss)', label))
@@ -296,6 +343,9 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                 c[2]['table'] in partial_sales_tables
                 and re.fullmatch(r'(?i)(?:total )?net sales', c[2]['label']))]
             # A consolidated total includes net sales/operating-revenue components.
+            net_totals={loc['table'] for _,_,loc in candidates[field] if _net_revenue_total(loc['label'])}
+            candidates[field]=[c for c in candidates[field] if c[2]['table'] not in net_totals
+                               or _net_revenue_total(c[2]['label'])]
             totals = {loc['table'] for _,_,loc in candidates[field]
                       if re.fullmatch(r'(?i)total (?:net )?revenues?(?:\s*\(GAAP\))?',loc['label'])}
             candidates[field] = [c for c in candidates[field] if c[2]['table'] not in totals
