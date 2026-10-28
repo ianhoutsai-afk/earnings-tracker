@@ -249,16 +249,45 @@ def _gross_revenue_line(node):
     return bool(re.fullmatch(r'(?i)(?:total )?gross revenues?',label))
 
 
+def _document_period_end(nodes):
+    """Normalize equivalent explicit DEI dates before testing their uniqueness.
+
+    Numeric dates require the declared month/day/year transform. Supporting
+    this bounded subset never guesses the order of an untagged numeric date.
+    """
+    dates = set()
+    for node in nodes:
+        if node.get('name', '').lower() != 'dei:documentperiodenddate':
+            continue
+        raw = ' '.join(_text(node).split())
+        transform = node.get('format', '').split(':')[-1]
+        try:
+            if transform in ('date-month-day-year', 'datemonthdayyear'):
+                parts = re.fullmatch(r'(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})', raw)
+                if not parts:
+                    return None
+                value = date(int(parts[3]), int(parts[1]), int(parts[2]))
+            elif transform in ('', 'date-monthname-day-year-en', 'datemonthdayyearen'):
+                if re.fullmatch(r'\d{4}-\d{2}-\d{2}',raw) and not transform:
+                    value = date.fromisoformat(raw)
+                elif re.fullmatch(DATE, raw, re.I):
+                    value = _date(raw)
+                else:
+                    return None
+            else:
+                return None
+            dates.add(value.isoformat())
+        except ValueError:
+            return None
+    return next(iter(dates)) if len(dates) == 1 else None
+
+
 def parse_inline_quarter(document, period_end, cik=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
     def dei(tag):
         return _unique_text(n for n in nodes if n.get('name', '').lower() == 'dei:' + tag.lower())
-    raw_end = dei('DocumentPeriodEndDate')
-    try:
-        document_end = date.fromisoformat(raw_end).isoformat()
-    except (ValueError, TypeError):
-        document_end = _date(raw_end).isoformat() if raw_end and re.fullmatch(DATE, raw_end, re.I) else None
+    document_end = _document_period_end(nodes)
     if document_end != period_end:
         raise ValueError('Official document period does not match release period')
     year, focus = dei('DocumentFiscalYearFocus'), dei('DocumentFiscalPeriodFocus')

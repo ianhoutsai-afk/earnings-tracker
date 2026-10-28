@@ -98,6 +98,35 @@ class OfficialEncodingTests(unittest.TestCase):
   self.assertEqual(parse_earnings_release(prefix+RELEASE,'2026-10-14','2026-10-15',TODAY)['date'],'2026-10-14')
 
 class OfficialDateTransformTests(unittest.TestCase):
+ def test_declared_numeric_month_day_year_period_is_accepted(self):
+  for value,fmt in [('09/30/2026','date-month-day-year'),('9/30/2026','datemonthdayyear')]:
+   with self.subTest(value=value,format=fmt):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate" format="ixt:{fmt}">{value}')
+    result=parse_inline_quarter(doc,'2026-09-30',cik='1')
+    self.assertEqual((result['epsGaapDiluted'],result['revenue']),(1.25,1200000000))
+
+ def test_equivalent_dei_dates_normalize_before_conflict_detection(self):
+  extra='<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026</ix:nonNumeric><ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-monthname-day-year-en">September 30, 2026</ix:nonNumeric>'
+  self.assertEqual(parse_inline_quarter(filing(extra),'2026-09-30',cik='1')['epsGaapDiluted'],1.25)
+
+ def test_unknown_or_missing_numeric_date_transform_stays_rejected(self):
+  for fmt in ('',' format="ixt:unknown-date"',' format="ixt:date-day-month-year"'):
+   with self.subTest(format=fmt):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate"{fmt}>9/30/2026')
+    with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-09-30',cik='1')
+
+ def test_invalid_or_conflicting_transformed_dates_reject_whole_identity(self):
+  for value in ('9/31/2026','6/30/2026','30/9/2026','9/30/26'):
+   with self.subTest(value=value):
+    extra=f'<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">{value}</ix:nonNumeric>'
+    with self.assertRaises(ValueError):parse_inline_quarter(filing(extra),'2026-09-30',cik='1')
+
+ def test_numeric_date_does_not_relax_issuer_or_quarter_context(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='2')['epsGaapDiluted'])
+  doc=doc.replace('contextRef="q"','contextRef="ytd"')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='1')['epsGaapDiluted'])
+
  def test_inline_dei_formatted_month_date_is_normalized(self):
   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-monthname-day-year-en">September 30 , 2026')
   self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['fiscalQuarter'],3)

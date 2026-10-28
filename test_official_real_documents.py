@@ -16,6 +16,39 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_equivalent_numeric_and_named_dei_dates_keep_exact_issuer_metrics(self):
+        from official_sources import parse_inline_quarter
+        for ticker,cik,eps,revenue in (
+            ('HII','1501585',5.27,3418000000),
+            ('ETR','65984',1.03,3523638000),
+            ('CTVA','1755672',1.73,6379000000),
+            ('DLR','1297996',1.21,1924040000),
+        ):
+            with self.subTest(ticker=ticker):
+                row=parse_inline_quarter(document(ticker+'-Q2-date','filing'),'2026-06-30',cik=cik)
+                self.assertEqual((row['fiscalYear'],row['fiscalQuarter']),(2026,2))
+                self.assertEqual((row['epsGaapDiluted'],row['revenue']),(eps,revenue))
+
+    def test_bxp_numeric_date_does_not_override_conflicting_fiscal_focus(self):
+        from official_sources import parse_inline_quarter
+        from official_sync import _parse_events
+        source=SOURCES['BXP-Q2-date']
+        row=parse_inline_quarter(document('BXP-Q2-date','filing'),'2026-06-30',cik='1037540')
+        # The original 10-Q says FY; its release explicitly reports Q2.
+        # Date normalization must not silently invent Q2 from a calendar month.
+        self.assertEqual(row['fiscalQuarter'],4)
+        filings=[{'form':'8-K','accessionNumber':'0001037540-26-000031','primaryDocument':'bxp-20260728.htm',
+                  'filingDate':'2026-07-28','reportDate':'2026-07-28','items':'2.02,9.01'},
+                 {'form':'10-Q','accessionNumber':'0001037540-26-000034','primaryDocument':'bxp-20260630.htm',
+                  'filingDate':'2026-08-06','reportDate':'2026-06-30','items':''}]
+        def fetch(url):
+            for kind in ('primary','exhibit','filing'):
+                if url==source[kind]['url']:return document('BXP-Q2-date',kind)
+            raise OSError('Not in offline fixture')
+        records,status=_parse_events('1037540',filings,fetch,date(2026,10,28))
+        self.assertEqual(records,[])
+        self.assertGreater(status['parsePending'],0)
+
     def test_genuinely_untagged_eps_retains_explicit_statement_fallback(self):
         from lxml import html
         from official_sources import parse_inline_quarter
