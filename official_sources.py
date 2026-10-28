@@ -220,10 +220,14 @@ def _unique_text(nodes):
 
 def _statement_scope(text):
     normalized=' '.join(text.split())
-    statement=r'statements? of (?:income|operations|earnings)'
-    if re.search(r'(?i)\b(?:joint[ -]ventures?|unconsolidated|segments?)\b.{0,80}\b'+statement,normalized):
+    result=r'(?:(?:net |comprehensive )?income|operations|earnings)'
+    statement=rf'statements? of {result}'
+    title=rf'(?:(?:consolidated|combined)(?: condensed)? (?:{statement}|(?:net )?income statements?)|statements? of (?:consolidated|combined) {result})'
+    if re.search(r'(?i)\bpro[ -]?forma\b.{0,180}\b'+title+r'|\b'+title+r'.{0,150}\b(?:pro[ -]?forma|reflecting\b.{0,100}\bas discontinued operations)\b',normalized):
+        return 'recast'
+    if re.search(r'(?i)\b(?:joint[ -]ventures?|unconsolidated|segments?)\b.{0,80}\b(?:'+title+'|'+statement+')',normalized):
         return 'nonconsolidated'
-    if re.search(r'(?i)\b(?:consolidated|combined) '+statement,normalized):
+    if re.search(r'(?i)\b'+title,normalized):
         return 'consolidated'
     return None
 
@@ -243,28 +247,15 @@ def _contract_revenue_total(node):
         if re.fullmatch(r'[$(\d,.)\s%-]+',content):break
         before.append(content)
     label=' '.join(' '.join(before).split()).strip(' :$')
+    label=re.sub(r'(?i)\s*\(notes?\s+\d+(?:\s*(?:,|and)\s*\d+)*\)\s*$','',label).strip()
     if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales)(?: \([a-z0-9]+\))?',label):return False
     table=tables[0]
     scope=_statement_scope(' '.join(_text(table).split())[:700])
     if scope is not None:return scope == 'consolidated'
-    # SEC HTML often wraps a whole statement table in a separate layout div.
-    # Cross only empty single-child wrappers; another table or note is a boundary.
-    current=table
-    for _ in range(4):
-        previous=current.getprevious()
-        for _ in range(6):
-            if previous is None:break
-            heading=' '.join(_text(previous).split())
-            if _local(previous)=='table' or previous.xpath('.//table'):return False
-            if re.search(r'(?i)\bnotes?\s+(?:\d+|to\b)|statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
-            scope=_statement_scope(heading[-700:])
-            if scope is not None:return scope == 'consolidated'
-            previous=previous.getprevious()
-        parent=current.getparent()
-        if parent is None or _local(parent) not in ('div','section') or len(parent)!=1:break
-        if (parent.text or '').strip() or (current.tail or '').strip():break
-        current=parent
-    return False
+    # Use the same bounded heading traversal as the exact-period table reader.
+    # Empty anchors and layout wrappers do not erase an explicit nearby title.
+    from official_metrics import _context
+    return _statement_scope(_context(table)) == 'consolidated'
 
 
 def _gross_revenue_line(node):
@@ -399,7 +390,7 @@ def parse_inline_quarter(document, period_end, cik=None):
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,
             'epsGaapDiluted':next(iter(eps)) if len(eps)==1 else None,
-            'revenue':next(iter(revenue)) if len(revenue)==1 else None,
+            'revenue':next(iter(revenue)) if len(revenue)==1 and not (gross_revenue and competing_total) else None,
             'epsBasis':'GAAP diluted', 'currency':'USD'}
     if contexts and (not eps or not revenue or (len(revenue)>1 and len(net_interest_revenue)==1)):
         # The document identity and quarter are already explicit. Some issuers

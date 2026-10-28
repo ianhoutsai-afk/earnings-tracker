@@ -111,10 +111,17 @@ def _grid(table, *, include_nodes=False):
 def _context(table):
     snippets = []
     node = table
+    barrier=re.compile(r'(?i)\bnotes?\s+(?:\d+|to\b)|non-gaap reconciliation|balance sheets?|statements? of (?:cash flows|financial position)')
     for _ in range(5):
+        boundary = False
+        if node.getparent() is not None and barrier.search(node.getparent().text or ''):
+            break
         previous = node.getprevious()
         count = 0
         while previous is not None and count < 6:
+            if barrier.search(previous.tail or ''):
+                boundary = True
+                break
             if not isinstance(previous.tag,str):
                 previous = previous.getprevious()
                 continue
@@ -122,16 +129,23 @@ def _context(table):
             if previous.tag == 'table' or previous.xpath('.//table'):
                 # A one-line layout table may be the statement's title/units.
                 # Never cross another financial table to borrow its heading.
-                if len(text) < 800 and _statement_scope(text) == 'consolidated':
+                layout_tables=[previous] if previous.tag=='table' else previous.xpath('.//table')
+                layout_rows=[row for row in _grid(layout_tables[0]) if any(row)] if len(layout_tables)==1 else []
+                without_dates=re.sub(DATE,'',text,flags=re.I)
+                if (len(text) < 800 and not barrier.search(text) and _statement_scope(text) == 'consolidated'
+                        and len(layout_tables) == 1 and len(layout_rows) <= 4
+                        and not re.search(r'\d',without_dates) and not previous.xpath('.//*[@contextref]')):
                     snippets.insert(0, text)
+                boundary = True
                 break
-            if re.search(r'(?i)notes? to|non-gaap reconciliation', text):
+            if barrier.search(text):
+                boundary = True
                 break
             if text:
                 snippets.insert(0, text)
                 count += 1
             previous = previous.getprevious()
-        if snippets or node.getparent() is None:
+        if boundary or _statement_scope(' '.join(snippets)) is not None or node.getparent() is None:
             break
         node = node.getparent()
     return ' '.join(snippets)[-2500:]
@@ -240,9 +254,9 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         context = _context(table)
         leading = ' '.join(' '.join(row) for row in rows[:5])
         scope=_statement_scope(context+' '+leading)
-        if scope == 'nonconsolidated':
+        if scope in ('nonconsolidated','recast'):
             result.setdefault('excludedStatementTables',[]).append({'table':table_index,
-                'reason':'nonconsolidated_statement','heading':context[-700:]+' '+leading[:300]})
+                'reason':'supplemental_recast_statement' if scope=='recast' else 'nonconsolidated_statement','heading':context[-700:]+' '+leading[:300]})
             continue
         statement = scope == 'consolidated'
         gaap_table = bool(re.search(r'(?i)\bGAAP Metrics\b', leading))

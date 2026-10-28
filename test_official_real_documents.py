@@ -323,7 +323,7 @@ class OriginalDocumentRegressions(unittest.TestCase):
         # period header. The exact annual filing supplies that evidence below.
         self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),(None,2025,4))
 
-    def test_scoped_release_period_uses_matching_real_annual_filing(self):
+    def test_scoped_release_period_requires_original_period_evidence(self):
         from official_sync import _parse_events
         for key,exhibit_key,cik,end in (
             ('APD-Q4-scope','APD','2969','2025-09-30'),
@@ -341,7 +341,16 @@ class OriginalDocumentRegressions(unittest.TestCase):
                 self.assertEqual((rows[0]['periodEnd'],rows[0]['fiscalYear'],rows[0]['fiscalQuarter']),(end,2025,4))
                 wrong=[filings[0],{**filings[1],'reportDate':'2025-06-30'}]
                 rejected,_=_parse_events(cik,wrong,fetch,date(2026,10,28))
-                self.assertEqual(rejected,[])
+                if key=='APD-Q4-scope':
+                    # Its consolidated condensed title is now recognized. The
+                    # actual release table independently proves the period;
+                    # the mismatched annual filing must not be attached.
+                    self.assertEqual(len(rejected),1)
+                    self.assertEqual(rejected[0]['periodEnd'],'2025-09-30')
+                    self.assertNotIn('secUrl',rejected[0])
+                    self.assertIn('periodEndEvidence',rejected[0])
+                else:
+                    self.assertEqual(rejected,[])
 
     def test_workday_fiscal_exception_does_not_accept_an_unreviewed_filing(self):
         from official_sync import check_issuer
@@ -505,9 +514,10 @@ class OriginalDocumentRegressions(unittest.TestCase):
     def test_air_products_fiscal_2025_fourth_quarter_precedes_2026_guidance(self):
         row = parse_earnings_release(document('APD', 'exhibit'), '2025-11-06',
                                      '2025-11-06', date(2026, 10, 26))
-        # A segment table later in the exhibit cannot name a consolidated
-        # quarter. Its matching original annual filing supplies the period.
-        self.assertIsNone(row['periodEnd'])
+        # The consolidated condensed statement is distinct from the later
+        # segment table and now provides an explicit current-quarter header.
+        self.assertEqual(row['periodEnd'],'2025-09-30')
+        self.assertEqual(row['periodEndEvidence']['locator']['table'],2)
         self.assertEqual((row['fiscalYear'], row['fiscalQuarter']), (2025, 4))
 
     def test_republic_services_does_not_use_gross_tag_when_net_total_exists(self):

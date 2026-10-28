@@ -17,6 +17,33 @@ _RSG_NET_REVENUE_CORRECTIONS = {
 
 
 def _reviewed_baseline_correction(previous, incoming):
+    ftv_base='https://www.sec.gov/Archives/edgar/data/1659166/'
+    ftv_filing=ftv_base+'000165916625000120/ftv-20250627.htm'
+    ftv_release=ftv_base+'000165916625000119/q22025-ex991.htm'
+    ftv_locator=previous.get('metricLocators',{}).get('revenue',{})
+    ftv_exclusions=incoming.get('metricExclusionEvidence',[])
+    ftv_conflicts=previous.get('metricConflicts',{}).get('revenue',[])
+    if (previous.get('ticker') == 'FTV' and incoming.get('ticker','FTV') == 'FTV'
+            and previous.get('periodEnd') == incoming.get('periodEnd') == '2025-06-27'
+            and (incoming.get('fiscalYear'),incoming.get('fiscalQuarter')) == (2025,2)
+            and previous.get('revenue') == 1016400000 and incoming.get('revenue') == 1518800000
+            and previous.get('revenueSourceUrl') == ftv_release and incoming.get('revenueSourceUrl') == ftv_filing
+            and previous.get('secUrl') == incoming.get('secUrl') == ftv_filing
+            and previous.get('releaseSourceUrl') == incoming.get('releaseSourceUrl') == ftv_release
+            and incoming.get('revenueVerificationStatus') == 'verified'
+            and not incoming.get('metricConflicts',{}).get('revenue')
+            and (ftv_locator.get('table'),ftv_locator.get('row'),ftv_locator.get('column'),ftv_locator.get('label')) == (8,5,5,'Sales')
+            and any(e.get('table') == 8 and e.get('reason') == 'supplemental_recast_statement'
+                    and e.get('sourceUrl') == ftv_release for e in ftv_exclusions)
+            and all((e.get('value'),e.get('sourceUrl')) in ((1016400000,ftv_release),(1518800000,ftv_release),(1518800000,ftv_filing)) for e in ftv_conflicts)):
+        result=copy.deepcopy(incoming)
+        result.setdefault('metricRevision',{})['revenue']='2026-10-28-reviewed-recast-table-correction'
+        result.setdefault('metricCorrectionEvidence',{})['revenue']={
+            'reason':'supplemental_discontinued_operations_recast_was_not_original_consolidated_revenue',
+            'oldValue':1016400000,'oldSourceUrl':ftv_release,'oldLocator':copy.deepcopy(ftv_locator),
+            'newValue':1518800000,'newSourceUrl':ftv_filing,'excludedTables':copy.deepcopy(ftv_exclusions),
+            'previousEvidence':copy.deepcopy(ftv_conflicts)}
+        return result
     if (previous.get('ticker') == 'PNR' and incoming.get('ticker','PNR') == 'PNR'
             and previous.get('periodEnd') == incoming.get('periodEnd') == '2026-06-30'
             and (previous.get('fiscalYear'),previous.get('fiscalQuarter')) == (2026,2)
