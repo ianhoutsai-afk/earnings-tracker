@@ -1,0 +1,74 @@
+name: Verified Pages Deployment
+
+on:
+  workflow_run:
+    workflows: [Earnings Tracker Update, Official Quarterly History, Build S&P 500 Cache]
+    types: [completed]
+    branches: [main]
+  push:
+    branches: [main]
+    paths-ignore: ['*.json']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: verified-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - name: Read authorization from this exact producer run
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER_RUN: ${{ github.event.workflow_run.id }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/producer"
+          gh run download "$PRODUCER_RUN" --repo "$GITHUB_REPOSITORY" --name quarterly-publication-result --dir "$RUNNER_TEMP/producer" || echo 'Producer authorization unavailable; skipped until the next writer reconciles it.'
+      - name: Build only a validated exact main commit
+        id: build
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PRODUCER_RUN: ${{ github.event.workflow_run.id }}
+          TRIGGER_SHA: ${{ github.sha }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_run" ]]; then
+            python pages_release.py build --output "$RUNNER_TEMP/pages-site" --producer-result "$RUNNER_TEMP/producer/publication_result.json" --producer-run-id "$PRODUCER_RUN"
+          else
+            python pages_release.py build --output "$RUNNER_TEMP/pages-site" --sha "$TRIGGER_SHA"
+          fi
+      - uses: actions/configure-pages@v5
+        if: steps.build.outputs.deploy == 'true'
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.build.outputs.deploy == 'true'
+        with:
+          path: ${{ runner.temp }}/pages-site
+      - name: Deploy validated static files
+        id: deployment
+        if: steps.build.outputs.deploy == 'true'
+        uses: actions/deploy-pages@v4
+      - name: Verify six public hashes and deployed commit
+        if: steps.build.outputs.deploy == 'true'
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python pages_release.py verify --url "$SITE_URL" --expected "$RUNNER_TEMP/pages-site/deployment.json" --timeout 900

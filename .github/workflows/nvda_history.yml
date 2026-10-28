@@ -25,7 +25,7 @@ concurrency:
 jobs:
   official:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 55
     env:
       SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
       PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
@@ -33,6 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.mode == 'preflight' && github.ref_name || 'main' }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -76,28 +77,21 @@ jobs:
           PY
       - name: Refresh officially verified quarterly history
         id: sync
-        if: inputs.mode != 'preflight'
+        if: github.ref == 'refs/heads/main' && inputs.mode != 'preflight'
         continue-on-error: true
         run: |
-          if [[ "${{ inputs.full }}" == "true" ]]; then
-            python official_sync.py --full
-          else
-            python official_sync.py
-          fi
-      - name: Validate publication bundle
-        id: validate
-        if: ${{ !cancelled() && inputs.mode != 'preflight' }}
-        run: python validate_quarterly_data.py
-      - name: Publish verified data and honest source status
-        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && inputs.mode != 'preflight' && steps.validate.outcome == 'success' }}
-        run: |
-          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
-          if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update official quarterly history and source status [skip ci]'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          mode=window
+          if [[ "${{ inputs.full }}" == "true" ]]; then mode=full; fi
+          python publication.py --mode "$mode" --result "$RUNNER_TEMP/publication_result.json"
+      - name: Preserve publication authorization
+        if: ${{ always() && github.ref == 'refs/heads/main' && inputs.mode != 'preflight' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: quarterly-publication-result
+          path: ${{ runner.temp }}/publication_result.json
+          if-no-files-found: warn
       - uses: actions/cache/save@v4
         if: ${{ always() && inputs.mode != 'preflight' }}
         with:
