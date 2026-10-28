@@ -17,6 +17,57 @@ _RSG_NET_REVENUE_CORRECTIONS = {
 
 
 def _reviewed_baseline_correction(previous, incoming):
+    if (previous.get('ticker') == 'PNR' and incoming.get('ticker','PNR') == 'PNR'
+            and previous.get('periodEnd') == incoming.get('periodEnd') == '2026-06-30'
+            and (previous.get('fiscalYear'),previous.get('fiscalQuarter')) == (2026,2)
+            and (incoming.get('fiscalYear'),incoming.get('fiscalQuarter')) == (2026,2)
+            and previous.get('date') in ('2026-07-10','2026-07-14') and incoming.get('date') == '2026-07-28'
+            and previous.get('releaseSourceUrl') == 'https://www.sec.gov/Archives/edgar/data/77360/000007736026000039/july2026pre-earningsexhibit.htm'
+            and incoming.get('releaseSourceUrl') == 'https://www.sec.gov/Archives/edgar/data/77360/000007736026000042/q22026pressrelease.htm'):
+        result=copy.deepcopy(incoming)
+        result['releaseCorrectionEvidence']={'reason':'preliminary_results_and_personnel_event_were_not_completed_earnings',
+            'oldDate':previous['date'],'oldSourceUrl':previous['releaseSourceUrl'],
+            'newDate':incoming['date'],'newSourceUrl':incoming['releaseSourceUrl']}
+        return result
+    kdp_base='https://www.sec.gov/Archives/edgar/data/1418135/'
+    wrong_quarter_source=kdp_base+'000141813526000048/ex991-keurigdrpepperreport.htm'
+    correct_filing=kdp_base+'000141813526000026/kdp-20260331.htm'
+    correct_release=kdp_base+'000141813526000020/ex991-keurigdrpepperreport.htm'
+    if (previous.get('ticker') == 'KDP' and incoming.get('ticker','KDP') == 'KDP'
+            and previous.get('periodEnd') == incoming.get('periodEnd') == '2026-03-31'
+            and previous.get('fiscalYear') == 2026 and previous.get('fiscalQuarter') in (1,2)
+            and (incoming.get('fiscalYear'),incoming.get('fiscalQuarter')) == (2026,1)
+            and incoming.get('secUrl') == correct_filing
+            and incoming.get('releaseSourceUrl') == correct_release and incoming.get('date') == '2026-04-23'):
+        result=copy.deepcopy(incoming)
+        corrected=False
+        for field,source_field,state_field,old_value,new_value in (
+                ('epsGaapDiluted','epsSourceUrl','epsVerificationStatus',0.04,0.20),
+                ('revenue','revenueSourceUrl','revenueVerificationStatus',7309000000,3976000000)):
+            evidence=previous.get('metricConflicts',{}).get(field,[])
+            known_evidence=all((e.get('value'),e.get('sourceUrl')) in (
+                (old_value,wrong_quarter_source),(new_value,correct_filing)) for e in evidence)
+            if (previous.get(field) == old_value and previous.get(source_field) == wrong_quarter_source
+                    and incoming.get(field) == new_value and incoming.get(source_field) == correct_filing
+                    and incoming.get(state_field) == 'verified'
+                    and not incoming.get('metricConflicts',{}).get(field) and known_evidence):
+                result.setdefault('metricRevision',{})[field]='2026-10-28-reviewed-quarter-association-correction'
+                result.setdefault('metricCorrectionEvidence',{})[field]={
+                    'reason':'second_quarter_values_were_assigned_to_first_quarter',
+                    'oldValue':old_value,'oldSourceUrl':wrong_quarter_source,
+                    'newValue':new_value,'newSourceUrl':correct_filing,
+                    'supportingReleaseUrl':correct_release,'previousEvidence':copy.deepcopy(evidence)}
+                corrected=True
+        if corrected:
+            # These describe the original misassociation, including when a prior
+            # partial run already changed the identity but quarantined its values.
+            result['fiscalIdentityCorrectionEvidence']={'reason':'second_quarter_source_was_attached_to_first_quarter_period',
+                'oldFiscalYear':2026,'oldFiscalQuarter':2,'newFiscalYear':2026,'newFiscalQuarter':1,
+                'oldSourceUrl':wrong_quarter_source,'newSourceUrl':correct_release,'supportingFilingUrl':correct_filing}
+            result['releaseCorrectionEvidence']={'reason':'second_quarter_release_was_attached_to_first_quarter_period',
+                'oldDate':'2026-08-06','oldSourceUrl':wrong_quarter_source,
+                'newDate':'2026-04-23','newSourceUrl':correct_release,'supportingFilingUrl':correct_filing}
+            return result
     # A newly parsed SEC record receives its ticker only after the inner merge.
     schw_source='https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm'
     if (previous.get('ticker') == 'SCHW' and incoming.get('ticker', 'SCHW') == 'SCHW'

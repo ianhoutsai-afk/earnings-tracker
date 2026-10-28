@@ -21,6 +21,21 @@ def filing(extra='', quarter='Q3'):
 
 
 class OfficialParserTests(unittest.TestCase):
+ def test_final_results_can_reference_previously_announced_preliminary_results(self):
+  doc=RELEASE.replace('Adjusted EPS $9.99.','The company previously announced preliminary results. Adjusted EPS $9.99.')
+  self.assertEqual(parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)['fiscalQuarter'],3)
+
+ def test_unrelated_prior_word_cannot_hide_current_preliminary_results(self):
+  doc=RELEASE.replace('Adjusted EPS $9.99.','The prior estimate is superseded. Today the company announced preliminary financial results. Adjusted EPS $9.99.')
+  with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
+ def test_current_result_predicate_can_qualify_the_release_or_named_quarter(self):
+  for qualifier in ('The financial results presented in this release are preliminary.',
+                    'These results for the third quarter are preliminary.'):
+   with self.subTest(qualifier=qualifier):
+    doc=RELEASE.replace('</body>',qualifier+'</body>')
+    with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
  def test_release_date_is_explicit_in_original_release_not_filing_date(self):
   r=parse_earnings_release(RELEASE,'2026-10-14','2026-10-15',TODAY)
   self.assertEqual((r['date'],r['periodEnd'],r['fiscalYear'],r['fiscalQuarter']),('2026-10-14','2026-09-30',2026,3))
@@ -98,6 +113,13 @@ class OfficialEncodingTests(unittest.TestCase):
   self.assertEqual(parse_earnings_release(prefix+RELEASE,'2026-10-14','2026-10-15',TODAY)['date'],'2026-10-14')
 
 class OfficialDateTransformTests(unittest.TestCase):
+ def test_declared_day_and_named_month_remains_an_explicit_date(self):
+  for transform in ('date-day-monthname-year-en','datedaymonthyearen'):
+   with self.subTest(transform=transform):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+        f'name="dei:DocumentPeriodEndDate" format="ixt:{transform}">30 September 2026')
+    self.assertEqual(parse_inline_quarter(doc,'2026-09-30',cik='1')['revenue'],1200000000)
+
  def test_declared_numeric_month_day_year_period_is_accepted(self):
   for value,fmt in [('09/30/2026','date-month-day-year'),('9/30/2026','datemonthdayyear')]:
    with self.subTest(value=value,format=fmt):

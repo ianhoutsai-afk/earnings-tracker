@@ -83,12 +83,31 @@ def _completed_period_end(text, event):
     return max(ends) if ends else None
 
 
+def _preliminary_results(text):
+    intro=text[:3000]
+    historical_modifier=r'(?i)\b(?:previously\s+(?:reported|announced|released)|(?:prior|earlier|previous)(?:\s+reported)?|compared\s+(?:to|with)(?:\s+the)?)\s*$'
+    for match in re.finditer(r'(?i)\bpreliminar\w*\b.{0,160}?\b(?:results|earnings)\b',intro):
+        prefix=intro[max(0,match.start()-75):match.start()]
+        historical=re.search(historical_modifier,prefix)
+        if not historical:
+            return True
+    for match in re.finditer(r'(?i)\b(?:results|earnings)\b([^.!?;\n]{0,160}?)\bpreliminar\w*\b',intro):
+        gap=match[1]
+        prefix=intro[max(0,match.start()-75):match.start()]+match[0][:match.start(1)-match.start()]+gap
+        predicate=re.search(r'(?i)\b(?:are|were|is|remain|remains|(?:reported|presented|shown|considered) as)\s*$',gap)
+        if (predicate or not gap.strip(' \t,:()—-')) and not re.search(historical_modifier,prefix):
+            return True
+    return False
+
+
 def parse_earnings_release(document, event_date, filing_date, today):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     for node in tree.xpath('//script|//style'):
         node.drop_tree()
     text = ' '.join(_text(tree).split())
     intro = text[:3000]
+    if _preliminary_results(intro):
+        raise ValueError('Preliminary results do not confirm the completed earnings release')
     if not re.search(r'(?i)\b(?:results|earnings)\b', intro):
         raise ValueError('Not an earnings release')
     event, filed = date.fromisoformat(event_date), date.fromisoformat(filing_date)
@@ -96,16 +115,26 @@ def parse_earnings_release(document, event_date, filing_date, today):
     intro_dates = {_date(m[0]) for m in re.finditer(DATE, intro, re.I)}
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
-    end = _completed_period_end(text,event)
+    # A later note can refer to a different quarter (for example an acquisition
+    # financing comparison). Only the introduction describes this release;
+    # exact statement headers and matching filings provide remaining evidence.
+    end = _completed_period_end(intro,event)
     year,fiscal_quarter=_fiscal_identity(intro)
+    statement_period=None
+    if end is None and year is not None:
+        from official_metrics import discover_statement_period
+        statement_period=discover_statement_period(document,event.isoformat(),year,fiscal_quarter)
+        if statement_period:end=date.fromisoformat(statement_period['periodEnd'])
     if end is None and year is None:
         raise ValueError('No explicit completed quarterly period or fiscal identity')
     if end is not None and (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
     # Prefer the earliest current headline identity, including joint Q4/FY headlines.
     # Later comparative paragraphs cannot provide the quarter's fiscal year.
-    return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
+    result={'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
             'fiscalYear':year, 'fiscalQuarter':fiscal_quarter}
+    if statement_period:result['periodEndEvidence']={'locator':statement_period['locator']}
+    return result
 
 
 def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
@@ -130,7 +159,10 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     headline=''
     if exhibit is not None:
         release_tree=html.fromstring(exhibit.encode('utf-8') if isinstance(exhibit,str) else exhibit)
-        headline=' '.join(_text(release_tree).split())[:1200]
+        exhibit_intro=' '.join(_text(release_tree).split())[:3000]
+        headline=exhibit_intro[:1200]
+        if _preliminary_results(exhibit_intro):
+            raise ValueError('Preliminary exhibit does not confirm completed earnings')
     actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
     supported=[]
     for m in statements:
@@ -143,7 +175,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         clause=re.split(r'(?i)\b(?:refer|see)\s+(?:to\s+)?(?:our|the|its|their|a)\b|\b(?:our|the|its|their)\s+(?:(?:previous|prior|earlier)\s+)?(?:Quarterly|Annual)\s+Report\b',clause,maxsplit=1)[0]
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
-        if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
+        if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b|\bpreliminar\w*\b',clause):continue
         result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|regarding|reports?|announces?)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results|and)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
@@ -267,7 +299,8 @@ def _document_period_end(nodes):
                 if not parts:
                     return None
                 value = date(int(parts[3]), int(parts[1]), int(parts[2]))
-            elif transform in ('', 'date-monthname-day-year-en', 'datemonthdayyearen'):
+            elif transform in ('', 'date-monthname-day-year-en', 'datemonthdayyearen',
+                               'date-day-monthname-year-en', 'datedaymonthyearen'):
                 if re.fullmatch(r'\d{4}-\d{2}-\d{2}',raw) and not transform:
                     value = date.fromisoformat(raw)
                 elif re.fullmatch(DATE, raw, re.I):

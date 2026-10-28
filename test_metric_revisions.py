@@ -2,6 +2,46 @@ import unittest
 from quarterly_policy import merge_manifest_record
 
 
+class ReviewedQuarterAssociationTests(unittest.TestCase):
+    def test_keurig_wrong_quarter_values_are_corrected_only_with_exact_sources(self):
+        import copy
+        base='https://www.sec.gov/Archives/edgar/data/1418135/'
+        wrong=base+'000141813526000048/ex991-keurigdrpepperreport.htm'
+        filing=base+'000141813526000026/kdp-20260331.htm'
+        release=base+'000141813526000020/ex991-keurigdrpepperreport.htm'
+        for quarter,date in ((2,'2026-08-06'),(1,'2026-04-23')):
+            with self.subTest(priorQuarter=quarter):
+                old=dict(ticker='KDP',periodEnd='2026-03-31',fiscalYear=2026,fiscalQuarter=quarter,date=date,
+                    verifiedAt='2026-10-28',epsGaapDiluted=0.04,revenue=7309000000,
+                    releaseSourceUrl=wrong if quarter==2 else release,epsSourceUrl=wrong,revenueSourceUrl=wrong,
+                    epsVerificationStatus='conflict',revenueVerificationStatus='conflict')
+                new=dict(ticker='KDP',periodEnd='2026-03-31',fiscalYear=2026,fiscalQuarter=1,date='2026-04-23',
+                    verifiedAt='2026-10-28',epsGaapDiluted=0.20,revenue=3976000000,
+                    releaseSourceUrl=release,secUrl=filing,epsSourceUrl=filing,revenueSourceUrl=filing,
+                    epsVerificationStatus='verified',revenueVerificationStatus='verified')
+                result=merge_manifest_record(old,new)
+                self.assertEqual((result['epsGaapDiluted'],result['revenue']),(0.20,3976000000))
+                self.assertEqual((result['epsVerificationStatus'],result['revenueVerificationStatus']),('verified','verified'))
+                self.assertEqual(result['metricCorrectionEvidence']['revenue']['oldSourceUrl'],wrong)
+                self.assertEqual(result['metricCorrectionEvidence']['revenue']['newSourceUrl'],filing)
+                self.assertEqual(merge_manifest_record(result,new)['metricCorrectionEvidence'],result['metricCorrectionEvidence'])
+                unknown=copy.deepcopy(old);unknown['metricConflicts']={'revenue':[{'value':123,'sourceUrl':'https://unknown.test'}]}
+                self.assertEqual(merge_manifest_record(unknown,new)['revenueVerificationStatus'],'conflict')
+                other=copy.deepcopy(new);other['revenueSourceUrl']=filing+'?different'
+                self.assertEqual(merge_manifest_record(old,other)['revenueVerificationStatus'],'conflict')
+
+    def test_pentair_preliminary_event_date_does_not_replace_final_release(self):
+        base='https://www.sec.gov/Archives/edgar/data/77360/'
+        old=dict(ticker='PNR',periodEnd='2026-06-30',fiscalYear=2026,fiscalQuarter=2,date='2026-07-10',
+            verifiedAt='2026-10-28',releaseSourceUrl=base+'000007736026000039/july2026pre-earningsexhibit.htm')
+        new={**old,'date':'2026-07-28','releaseSourceUrl':base+'000007736026000042/q22026pressrelease.htm'}
+        row=merge_manifest_record(old,new)
+        self.assertEqual(row['date'],'2026-07-28')
+        self.assertEqual(row['releaseCorrectionEvidence']['oldDate'],'2026-07-10')
+        self.assertEqual(row['releaseCorrectionEvidence']['newSourceUrl'],new['releaseSourceUrl'])
+        self.assertEqual(merge_manifest_record(row,new)['releaseCorrectionEvidence'],row['releaseCorrectionEvidence'])
+
+
 class MetricRevisionTests(unittest.TestCase):
     def test_gross_and_net_interest_revenue_require_same_filing_and_definition(self):
         from official_sources import parse_inline_quarter

@@ -16,6 +16,54 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_pentair_preliminary_results_are_not_completed_earnings(self):
+        for event in ('2026-07-10','2026-07-14'):
+            with self.subTest(event=event):
+                with self.assertRaises(ValueError):
+                    parse_earnings_release(document('PNR-preliminary','exhibit'),event,'2026-07-14',date(2026,10,28))
+        with self.assertRaises(ValueError):
+            parse_earnings_filing(document('PNR-preliminary','primary'),'2026-07-10','2026-07-14',date(2026,10,28),
+                exhibit=document('PNR-preliminary','exhibit'))
+
+    def test_preliminary_qualifier_after_results_is_still_excluded(self):
+        mutated=document('PNR-preliminary','exhibit').replace(
+            b'Provides Preliminary Second Quarter 2026 Financial Results',
+            b'Provides Second Quarter 2026 Financial Results (Preliminary)')
+        self.assertNotEqual(mutated,document('PNR-preliminary','exhibit'))
+        for event in ('2026-07-10','2026-07-14'):
+            with self.subTest(event=event):
+                with self.assertRaises(ValueError):
+                    parse_earnings_release(mutated,event,'2026-07-14',date(2026,10,28))
+        with self.assertRaises(ValueError):
+            parse_earnings_filing(document('PNR-preliminary','primary'),'2026-07-10','2026-07-14',date(2026,10,28),exhibit=mutated)
+
+    def test_current_preliminary_body_qualifier_cannot_hide_after_title(self):
+        mutated=document('PNR-preliminary','exhibit').replace(b'Provides Preliminary',b'Provides')
+        self.assertNotEqual(mutated,document('PNR-preliminary','exhibit'))
+        with self.assertRaises(ValueError):
+            parse_earnings_release(mutated,'2026-07-14','2026-07-14',date(2026,10,28))
+        with self.assertRaises(ValueError):
+            parse_earnings_filing(document('PNR-preliminary','primary'),'2026-07-10','2026-07-14',date(2026,10,28),exhibit=mutated)
+
+    def test_keurig_second_quarter_does_not_borrow_first_quarter_date_from_notes(self):
+        release=parse_earnings_release(document('KDP-Q2','exhibit'),'2026-08-06','2026-08-06',date(2026,10,28))
+        self.assertNotEqual(release['periodEnd'],'2026-03-31')
+        from official_sync import _parse_events
+        source=SOURCES['KDP-Q2']
+        filings=[{'form':'8-K','accessionNumber':'0001418135-26-000048','primaryDocument':'kdp-20260806.htm',
+                  'filingDate':'2026-08-06','reportDate':'2026-08-06','items':'2.02,9.01'},
+                 {'form':'10-Q','accessionNumber':'0001418135-26-000051','primaryDocument':'kdp-20260630.htm',
+                  'filingDate':'2026-08-10','reportDate':'2026-06-30','items':''}]
+        def fetch(url):
+            for kind in ('primary','exhibit','filing'):
+                if url==source[kind]['url']:return document('KDP-Q2',kind)
+            raise OSError('Not in offline fixture')
+        rows,status=_parse_events('1418135',filings,fetch,date(2026,10,28))
+        self.assertEqual(status['requestFailures'],0)
+        self.assertEqual(len(rows),1)
+        self.assertEqual((rows[0]['periodEnd'],rows[0]['fiscalQuarter']),('2026-06-30',2))
+        self.assertEqual((rows[0]['epsGaapDiluted'],rows[0]['revenue']),(0.04,7309000000))
+
     def test_equivalent_numeric_and_named_dei_dates_keep_exact_issuer_metrics(self):
         from official_sources import parse_inline_quarter
         for ticker,cik,eps,revenue in (
@@ -271,7 +319,29 @@ class OriginalDocumentRegressions(unittest.TestCase):
 
     def test_synchrony_release_date_year_does_not_replace_fiscal_year(self):
         row=parse_earnings_release(document('SYF-Q4','exhibit'),'2026-01-27','2026-01-27',date(2026,10,27))
-        self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2025-12-31',2025,4))
+        # An image-backed supplemental page does not supply a consolidated
+        # period header. The exact annual filing supplies that evidence below.
+        self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),(None,2025,4))
+
+    def test_scoped_release_period_uses_matching_real_annual_filing(self):
+        from official_sync import _parse_events
+        for key,exhibit_key,cik,end in (
+            ('APD-Q4-scope','APD','2969','2025-09-30'),
+            ('SYF-Q4-scope','SYF-Q4','1601712','2025-12-31')):
+            with self.subTest(issuer=key):
+                source=SOURCES[key];exhibit=SOURCES[exhibit_key]['exhibit']['url']
+                filings=[source[kind]['metadata'] for kind in ('primary','filing')]
+                def fetch(url):
+                    if url==exhibit:return document(exhibit_key,'exhibit')
+                    for kind in ('primary','filing'):
+                        if url==source[kind]['url']:return document(key,kind)
+                    raise OSError('Not in offline fixture')
+                rows,_=_parse_events(cik,filings,fetch,date(2026,10,28))
+                self.assertEqual(len(rows),1)
+                self.assertEqual((rows[0]['periodEnd'],rows[0]['fiscalYear'],rows[0]['fiscalQuarter']),(end,2025,4))
+                wrong=[filings[0],{**filings[1],'reportDate':'2025-06-30'}]
+                rejected,_=_parse_events(cik,wrong,fetch,date(2026,10,28))
+                self.assertEqual(rejected,[])
 
     def test_workday_fiscal_exception_does_not_accept_an_unreviewed_filing(self):
         from official_sync import check_issuer
@@ -435,7 +505,9 @@ class OriginalDocumentRegressions(unittest.TestCase):
     def test_air_products_fiscal_2025_fourth_quarter_precedes_2026_guidance(self):
         row = parse_earnings_release(document('APD', 'exhibit'), '2025-11-06',
                                      '2025-11-06', date(2026, 10, 26))
-        self.assertEqual(row['periodEnd'], '2025-09-30')
+        # A segment table later in the exhibit cannot name a consolidated
+        # quarter. Its matching original annual filing supplies the period.
+        self.assertIsNone(row['periodEnd'])
         self.assertEqual((row['fiscalYear'], row['fiscalQuarter']), (2025, 4))
 
     def test_republic_services_does_not_use_gross_tag_when_net_total_exists(self):

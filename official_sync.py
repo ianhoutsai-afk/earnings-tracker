@@ -154,6 +154,8 @@ def _parse_events(cik, filings, fetch, today):
                     if first_exhibit is None:
                         first_exhibit,first_exhibit_url=release_doc,url
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
+                if release.get('periodEndEvidence'):
+                    release['periodEndEvidence']['sourceUrl']=url
                 if not release.get('periodEnd') and release.get('fiscalYear') and release.get('fiscalQuarter'):
                     period_doc=first_exhibit if url==base+event['primaryDocument'] else release_doc
                     period_url=first_exhibit_url if url==base+event['primaryDocument'] else url
