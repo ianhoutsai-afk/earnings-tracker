@@ -51,3 +51,8 @@ class ExpectedReleaseTests(unittest.TestCase):
         self.assertEqual(rows,[])
         self.assertEqual(details['nextEarningsEvent']['date'],'2026-11-04')
         self.assertTrue(details['nextEarningsEvent']['sourceUrl'].endswith('/ex991.htm'))
+
+    def test_release_timing_after_the_date_stays_with_the_release(self):
+        result=self.parse('We will release financial results for the third quarter of 2026 on November 3, 2026, after the market closes, and will also host a conference call and earnings webcast at 5:00 p.m. Eastern time on the same day.')
+        self.assertEqual(result['date'],'2026-11-03')
+        self.assertEqual(result['bmo_amc'],'AMC')
