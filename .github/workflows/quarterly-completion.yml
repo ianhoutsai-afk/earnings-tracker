@@ -18,9 +18,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install lxml requests pandas yfinance
-      - name: Existing regression baseline
+      - name: Quarterly regression suite
         run: python -m unittest discover -q
-      - name: Validate baseline publication
+      - name: Validate publication
         run: python validate_quarterly_data.py
       - name: Read-only source diagnostics
+        if: always()
         run: python diagnose_quarterly_completion.py

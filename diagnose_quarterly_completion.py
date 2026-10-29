@@ -30,11 +30,17 @@ def trace(name, original):
             if name == 'inline' and (result.get('epsGaapDiluted') is None or result.get('revenue') is None):
                 print('INCOMPLETE', latest_url[0], json.dumps(result), flush=True)
                 tree = html.fromstring(document)
-                for table in tree.xpath('//table'):
-                    text = ' '.join(table.text_content().split())
-                    if any(w in text[:1000].lower() for w in ('statements of operations','statements of income','statements of earnings')):
-                        print('STATEMENT', text[:6000], flush=True)
-                        break
+                end = result['periodEnd']
+                contexts = {n.get('id') for n in tree.iter() if str(n.tag).lower().split(':')[-1] == 'context' and end in ' '.join(n.itertext())}
+                facts = [n for n in tree.iter() if 'revenue' in n.get('name','').lower() and n.get('contextref') in contexts]
+                for n in facts[:2]:
+                    print('REVENUE_DOM', latest_url[0], html.tostring(n, encoding='unicode'), flush=True)
+                    ancestors = list(n.iterancestors())
+                    for ancestor in ancestors[:6]:
+                        prev=ancestor.getprevious()
+                        print('ANCESTOR', ancestor.tag, 'TEXT', (ancestor.text or '')[:100], 'PREVIOUS', html.tostring(prev,encoding='unicode')[:1200] if prev is not None else '', flush=True)
+                    row=next((p for p in ancestors if str(p.tag).lower()=='tr'),None)
+                    print('REVENUE_ROW', html.tostring(row,encoding='unicode')[:5500] if row is not None else '', flush=True)
             return result
         except ValueError as exc:
             key = (name, latest_url[0])
