@@ -67,3 +67,9 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         self.assertEqual(rows[0]['revenue'],1200000000)
         self.assertTrue(rows[0]['revenueSourceUrl'].endswith('/ex991.htm'))
         self.assertTrue(rows[0]['secUrl'].endswith('/quarter.htm'))
+
+class EmbeddedStatementHeadingTests(unittest.TestCase):
+    def test_income_statement_title_inside_full_width_header_is_supported(self):
+        from release_metrics import parse_release_quarter_metrics
+        doc=statement().replace('<h2>INCOME STATEMENTS</h2>', '').replace('<table>', '<table><tr><td colspan="5">CONDENSED CONSOLIDATED STATEMENTS OF INCOME</td></tr><tr><td colspan="5">(In millions, except per share amounts)</td></tr>',1)
+        self.assertEqual(parse_release_quarter_metrics(doc,'2026-09-30','0001326801'),{'revenue':1200000000,'epsGaapDiluted':1.25})
