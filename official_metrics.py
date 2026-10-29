@@ -276,7 +276,8 @@ def _percentage_columns(row):
 
 
 def _eps_calculation_input(label):
-    return bool(re.search(r'(?i)\b(?:numerator|denominator)\b',label) or (
+    return bool(re.fullmatch(r'(?i)(?:net )?(?:income|earnings|loss) for (?:basic |diluted )?earnings per (?:common )?share(?: of common stock)?',label)
+        or re.search(r'(?i)\b(?:numerator|denominator)\b',label) or (
         re.search(r'(?i)\b(?:income|earnings|loss)\b',label)
         and re.search(r'(?i)\b(?:calculat\w*|comput\w*|determin\w*)\b',label)
         and re.search(r'(?i)\b(?:per\b.*\bshare|EPS)\b',label)))
@@ -374,6 +375,13 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             elif re.search(r'(?i)^GAAP Metrics', label):
                 active_gaap = True
             numerator=_eps_calculation_input(label)
+            if numerator:
+                for col in columns:
+                    parsed=_numeric(row[col]) if col<len(row) else None
+                    if parsed:
+                        result.setdefault('excludedEpsInputs',[]).append({'value':float(parsed[0]),'periodEnd':period_end,
+                            'reason':'eps_calculation_input','locator':{'table':table_index,
+                            'row':row_index,'column':col+1,'label':label}})
             excluded = numerator or bool(re.search(r'(?i)adjusted|non[ -]?gaap|comprehensive|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings|excluding\s+(?:specified|special|certain)\s+(?:items|charges)', label))
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
             revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))

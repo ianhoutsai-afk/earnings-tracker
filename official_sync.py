@@ -263,6 +263,8 @@ def _parse_events(cik, filings, fetch, today):
                 fiscal_quarter=metrics.get('fiscalQuarter') or release.get('fiscalQuarter'),issuer_cik=cik)
             if statement.get('excludedStatementTables'):
                 metrics['metricExclusionEvidence']=[{**e,'sourceUrl':statement_url} for e in statement['excludedStatementTables']]
+            if statement.get('excludedEpsInputs'):
+                metrics['metricInputExclusionEvidence']=[{**e,'sourceUrl':statement_url} for e in statement['excludedEpsInputs']]
             for field, state_field, source_field in [('epsGaapDiluted','epsVerificationStatus','epsSourceUrl'), ('revenue','revenueVerificationStatus','revenueSourceUrl')]:
                 if metrics.get(field) is not None:
                     metrics[state_field] = 'verified'

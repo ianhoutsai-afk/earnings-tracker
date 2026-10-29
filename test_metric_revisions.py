@@ -43,6 +43,69 @@ class ReviewedQuarterAssociationTests(unittest.TestCase):
 
 
 class MetricRevisionTests(unittest.TestCase):
+    def test_eps_numerator_conflict_requires_exact_original_row_proof(self):
+        import copy
+        from official_metrics import parse_statement_metrics
+        from test_official_real_documents import document,SOURCES
+        release=SOURCES['ON-numerator']['exhibit']['url']
+        filing='https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm'
+        parsed=parse_statement_metrics(document('ON-numerator','exhibit'),'2025-12-31',
+            currency='USD',fiscal_year=2025,fiscal_quarter=4)
+        evidence=[{'value':181.8,'sourceUrl':release,'locator':{'table':19,'row':26,'column':4,
+            'label':'Net income for diluted earnings per share of common stock'}},
+            {'value':0.45,'sourceUrl':release,'locator':{'table':19,'row':30,'column':4,'label':'Diluted'}}]
+        old={**self.original(),'ticker':'ON','periodEnd':'2025-12-31','periodStart':'2025-10-01',
+            'periodScope':'quarter','currency':'USD','fiscalYear':2025,'fiscalQuarter':4,'secUrl':filing,
+            'accessionNumber':'0001097864-26-000006','releaseSourceUrl':release,'epsSourceUrl':release,
+            'epsGaapDiluted':None,'epsVerificationStatus':'conflict','metricConflicts':{'epsGaapDiluted':evidence}}
+        new={**old,'epsGaapDiluted':0.45,'epsVerificationStatus':'verified','metricConflicts':{},
+             'metricLocators':parsed['metricLocators'],'metricInputExclusionEvidence':[
+                 {**e,'sourceUrl':release} for e in parsed['excludedEpsInputs']]}
+        row=merge_manifest_record(old,new)
+        self.assertEqual((row['epsGaapDiluted'],row['epsVerificationStatus']),(0.45,'verified'))
+        saved=row['metricConflictResolutionEvidence']['epsGaapDiluted']
+        self.assertEqual(saved['reason'],'eps_numerator_was_not_a_per_share_value')
+        self.assertEqual(saved['previousEvidence'],evidence)
+        self.assertEqual(merge_manifest_record(row,new)['metricConflictResolutionEvidence'],row['metricConflictResolutionEvidence'])
+        scoped=copy.deepcopy(old)
+        scoped['metricConflicts']['epsGaapDiluted'][0].update(periodEnd='2025-12-31',periodStart='2025-10-01',unit='USD')
+        scoped['metricConflicts']['epsGaapDiluted'][1]['locator'].update(periodEnd='2025-12-31',periodScope='quarter',fiscalYear=2025,fiscalQuarter=4,unit='USD/shares')
+        self.assertEqual(merge_manifest_record(scoped,new)['epsVerificationStatus'],'verified')
+        partial={k:v for k,v in new.items() if k!='metricInputExclusionEvidence'}
+        partial.update(epsGaapDiluted=None,epsVerificationStatus='pending')
+        kept=merge_manifest_record(row,partial)
+        self.assertEqual(kept['metricInputExclusionEvidence'],row['metricInputExclusionEvidence'])
+        self.assertEqual(kept['epsGaapDiluted'],0.45)
+        for mutation in ('missing_proof','other_table','other_row','other_column','other_source','other_value','other_period','unknown_conflict','missing_selected_locator',
+                         'original_item_period','original_locator_period','actual_locator_period','proof_locator_period','original_period_start','missing_identity',
+                         'actual_annual_scope','actual_share_unit','actual_quarter','numerator_unknown_definition',
+                         'previous_record_start','previous_record_scope','previous_record_currency'):
+            with self.subTest(mutation=mutation):
+                a,b=copy.deepcopy(old),copy.deepcopy(new)
+                if mutation=='missing_proof':b['metricInputExclusionEvidence']=[]
+                elif mutation=='other_period':b['periodEnd']='2026-03-31'
+                elif mutation=='unknown_conflict':a['metricConflicts']['epsGaapDiluted'].append({'value':0.46,'sourceUrl':release})
+                elif mutation=='missing_selected_locator':b['metricLocators'].pop('epsGaapDiluted')
+                elif mutation=='original_item_period':a['metricConflicts']['epsGaapDiluted'][0]['periodEnd']='2026-03-31'
+                elif mutation=='original_locator_period':a['metricConflicts']['epsGaapDiluted'][0]['locator']['periodEnd']='2026-03-31'
+                elif mutation=='actual_locator_period':a['metricConflicts']['epsGaapDiluted'][1]['locator']['periodEnd']='2026-03-31'
+                elif mutation=='proof_locator_period':b['metricInputExclusionEvidence'][0]['locator']['periodEnd']='2026-03-31'
+                elif mutation=='original_period_start':a['metricConflicts']['epsGaapDiluted'][0]['periodStart']='2025-01-01'
+                elif mutation=='actual_annual_scope':a['metricConflicts']['epsGaapDiluted'][1]['locator']['periodScope']='annual'
+                elif mutation=='actual_share_unit':a['metricConflicts']['epsGaapDiluted'][1]['locator']['unit']='shares'
+                elif mutation=='actual_quarter':a['metricConflicts']['epsGaapDiluted'][1]['locator']['fiscalQuarter']=1
+                elif mutation=='numerator_unknown_definition':a['metricConflicts']['epsGaapDiluted'][0]['definition']='some_other_metric'
+                elif mutation=='previous_record_start':a['periodStart']='2025-01-01'
+                elif mutation=='previous_record_scope':a['periodScope']='annual'
+                elif mutation=='previous_record_currency':a['currency']='EUR'
+                elif mutation=='missing_identity':
+                    for record in (a,b):
+                        for field in ('fiscalYear','fiscalQuarter','quarter','verificationStatus'):record.pop(field,None)
+                elif mutation=='other_source':b['metricInputExclusionEvidence'][0]['sourceUrl']=filing
+                elif mutation=='other_value':b['metricInputExclusionEvidence'][0]['value']=999
+                else:b['metricInputExclusionEvidence'][0]['locator'][mutation.removeprefix('other_')]=999
+                self.assertEqual(merge_manifest_record(a,b)['epsVerificationStatus'],'conflict')
+
     def test_gross_and_net_interest_revenue_require_same_filing_and_definition(self):
         from official_sources import parse_inline_quarter
         from test_official_real_documents import document,SOURCES

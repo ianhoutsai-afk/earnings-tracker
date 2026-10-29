@@ -8,6 +8,47 @@ ROOT=Path(__file__).parent
 
 
 class StatementConflictTests(unittest.TestCase):
+    def test_original_on_pipeline_preserves_input_exclusion_and_resolves_only_proven_conflict(self):
+        from official_sync import _parse_events
+        from quarterly_policy import merge_manifest_record
+        from verified_history import apply_official_records
+        from test_official_real_documents import SOURCES
+        source=SOURCES['ON-numerator']
+        filings=[{'form':'10-K','accessionNumber':'0001097864-26-000006','primaryDocument':'on-20251231.htm',
+                  'filingDate':'2026-02-09','reportDate':'2025-12-31','items':''},
+                 {'form':'8-K','accessionNumber':'0001140361-26-004405','primaryDocument':'ef20065070_8k.htm',
+                  'filingDate':'2026-02-09','reportDate':'2026-02-09','items':'2.02,9.01'}]
+        def fetch(url):
+            for kind,item in source.items():
+                if url==item['url']:return document('ON-numerator',kind)
+            raise AssertionError(url)
+        rows,status=_parse_events('1097864',filings,fetch,date(2026,10,29))
+        self.assertEqual(status['requestFailures'],0)
+        self.assertEqual(len(rows),1)
+        new={**rows[0],'ticker':'ON'}
+        self.assertEqual((new['epsGaapDiluted'],new['revenue']),(0.45,1530100000))
+        self.assertTrue(new['metricInputExclusionEvidence'])
+        release=source['exhibit']['url']
+        evidence=[{'value':181.8,'sourceUrl':release,'locator':{'table':19,'row':26,'column':4,
+            'label':'Net income for diluted earnings per share of common stock'}},
+            {'value':0.45,'sourceUrl':release,'locator':{'table':19,'row':30,'column':4,'label':'Diluted'}}]
+        old={**new,'epsGaapDiluted':None,'epsVerificationStatus':'conflict','metricConflicts':{'epsGaapDiluted':evidence}}
+        old.pop('metricInputExclusionEvidence')
+        row=merge_manifest_record(old,new)
+        self.assertEqual((row['epsGaapDiluted'],row['epsVerificationStatus']),(0.45,'verified'))
+        history,_=apply_official_records([{'ticker':'ON'}],{},[row],date(2026,10,29))
+        self.assertEqual(history['ON'][0]['metricInputExclusionEvidence'],row['metricInputExclusionEvidence'])
+        self.assertEqual(history['ON'][0]['metricConflictResolutionEvidence']['epsGaapDiluted']['previousEvidence'],evidence)
+
+    def test_net_income_for_diluted_eps_is_a_numerator_not_a_per_share_value(self):
+        row=parse_statement_metrics(document('ON-numerator','exhibit'),'2025-12-31',
+            currency='USD',fiscal_year=2025,fiscal_quarter=4)
+        self.assertEqual(row['epsGaapDiluted'],0.45)
+        self.assertEqual(row['epsVerificationStatus'],'verified')
+        excluded=row['excludedEpsInputs']
+        self.assertTrue(any(e['value']==181.8 and e['locator']=={'table':19,'row':26,'column':4,
+            'label':'Net income for diluted earnings per share of common stock'} for e in excluded))
+
     def test_comprehensive_titles_do_not_erase_explicit_net_income_eps(self):
         for ticker,end,year,quarter,value in (
                 ('DECK','2026-03-31',2026,4,0.96),
@@ -33,6 +74,7 @@ class StatementConflictTests(unittest.TestCase):
 
     def test_eps_calculation_numerators_never_become_per_share_values(self):
         for label in ('Net income for diluted earnings per share calculation',
+                      'Net income for diluted earnings per share of common stock',
                       'Net earnings used in diluted EPS computation',
                       'Diluted earnings per share numerator',
                       'Net income used in the calculation of diluted earnings per share',

@@ -299,7 +299,7 @@ def merge_manifest_record(previous, incoming):
         and all(previous.get(key) == incoming.get(key) for key in
             ('periodEnd','releaseSourceUrl','releaseAccession','secUrl','accessionNumber')))
     if same_association:
-        for field in ('periodEndEvidence','metricStatementEvidence'):
+        for field in ('periodEndEvidence','metricStatementEvidence','metricInputExclusionEvidence'):
             if not result.get(field) and previous.get(field):
                 result[field]=copy.deepcopy(previous[field])
     for evidence_field in ('releaseCorrectionEvidence','fiscalIdentityCorrectionEvidence'):
@@ -367,6 +367,49 @@ def merge_manifest_record(previous, incoming):
             continue
         elif previous.get(state_field) == 'conflict':
             previous_evidence=previous.get('metricConflicts',{}).get(field,[])
+            input_exclusions=incoming.get('metricInputExclusionEvidence',[])
+            def same_row(a,b):
+                return all(a.get(k)==b.get(k) and a.get(k) is not None for k in ('table','row','column','label'))
+            def proven_context(item,unit,*,proof=False):
+                expected={k:incoming.get(k) for k in ('periodStart','periodEnd','fiscalYear','fiscalQuarter')}
+                expected.update(periodScope='quarter',currency='USD',unit=unit)
+                for entry,structural in ((item,{'value','precision','sourceUrl','locator'}|({'reason'} if proof else set())),
+                                          (item.get('locator',{}),{'table','row','column','label','precision'})):
+                    if set(entry)-structural-set(expected):return False
+                    if any(k in entry and (expected[k] is None or entry[k]!=expected[k]) for k in expected):return False
+                return True
+            def excluded_input(item):
+                from official_metrics import _eps_calculation_input
+                return proven_context(item,'USD') and item.get('sourceUrl')==new_source and any(
+                    e.get('reason')=='eps_calculation_input' and e.get('sourceUrl')==new_source
+                    and proven_context(e,'USD',proof=True)
+                    and e.get('periodEnd')==incoming.get('periodEnd')
+                    and e.get('value')==item.get('value') and item.get('value')!=new_value
+                    and same_row(e.get('locator',{}),item.get('locator',{}))
+                    and _eps_calculation_input(e.get('locator',{}).get('label','')) for e in input_exclusions)
+            def selected_actual(item):
+                return (proven_context(item,'USD/shares') and proven_context({'locator':locator},'USD/shares')
+                        and item.get('sourceUrl')==new_source and item.get('value')==new_value
+                        and same_row(item.get('locator',{}),locator))
+            if (field=='epsGaapDiluted' and (old_value is None or old_value==new_value) and new_value is not None
+                    and incoming.get(state_field)=='verified' and not incoming.get('metricConflicts',{}).get(field)
+                    and fiscal_identity(incoming) is not None and same_association
+                    and incoming.get('periodScope')=='quarter' and incoming.get('currency')=='USD'
+                    and previous.get('periodScope')=='quarter' and previous.get('currency')=='USD'
+                    and (not previous.get('periodStart') or previous['periodStart']==incoming.get('periodStart'))
+                    and new_source==incoming.get('releaseSourceUrl')
+                    and str(new_source).startswith('https://www.sec.gov/Archives/edgar/data/')
+                    and previous_evidence and any(excluded_input(e) for e in previous_evidence)
+                    and any(selected_actual(e) for e in previous_evidence)
+                    and all(excluded_input(e) or selected_actual(e) for e in previous_evidence)):
+                result.setdefault('metricConflictResolutionEvidence',{})[field]={
+                    'reason':'eps_numerator_was_not_a_per_share_value','actualValue':new_value,
+                    'actualSourceUrl':new_source,'actualLocator':copy.deepcopy(locator),
+                    'previousEvidence':copy.deepcopy(previous_evidence),'excludedInputs':copy.deepcopy(input_exclusions)}
+                result['metricConflicts'].pop(field,None)
+                result[field],result[source_field],result[state_field]=new_value,new_source,'verified'
+                result['metricLocators'][field]=copy.deepcopy(locator)
+                continue
             definition=incoming.get('metricDefinitionEvidence',{}).get(field,{})
             cik_match=re.match(r'https://www\.sec\.gov/Archives/edgar/data/(\d+)/',str(new_source))
             facts_url=f'https://data.sec.gov/api/xbrl/companyfacts/CIK{int(cik_match[1]):010d}.json' if cik_match else None
