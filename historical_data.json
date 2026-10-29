@@ -36335,14 +36335,14 @@
     {
       "date": "2026-01-28",
       "quarter": "2025 Q4",
-      "eps_reported": "-",
-      "revenue_reported": "-",
+      "eps_reported": "$8.88",
+      "revenue_reported": "$59.89B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
       "periodEnd": "2025-12-31",
       "periodScope": "quarter",
-      "epsBasis": null,
+      "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003832/meta-12312025xexhibit991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
@@ -36352,7 +36352,9 @@
       "releaseFilingDate": "2026-01-28",
       "releaseAccession": "0001628280-26-003832",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003832/meta-12312025xexhibit991.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003832/meta-12312025xexhibit991.htm"
     },
     {
       "date": "2025-10-29",
@@ -36934,7 +36936,7 @@
       "periodEnd": "2026-09-30",
       "periodScope": "quarter",
       "eps_reported": "$4.92",
-      "revenue_reported": "-",
+      "revenue_reported": "$92.28B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436122/msft-ex99_1.htm",
@@ -36950,7 +36952,8 @@
       "releaseAccession": "0001193125-26-436122",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
       "fiscalYear": 2027,
-      "fiscalQuarter": 1
+      "fiscalQuarter": 1,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436122/msft-ex99_1.htm"
     },
     {
       "date": "2026-07-29",
@@ -36962,11 +36965,11 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
-      "metricSourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
       "verifiedAt": "2026-10-29",
       "verificationStatus": "official_verified",
-      "epsSourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
-      "revenueSourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
       "filingDate": "2026-07-29",
@@ -36980,7 +36983,7 @@
       "date": "2026-04-29",
       "quarter": "2026 Q3",
       "eps_reported": "$4.27",
-      "revenue_reported": "-",
+      "revenue_reported": "$82.89B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",
@@ -36998,13 +37001,14 @@
       "releaseAccession": "0001193125-26-191457",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 3
+      "fiscalQuarter": 3,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191457/msft-ex99_1.htm"
     },
     {
       "date": "2026-01-28",
       "quarter": "2026 Q2",
       "eps_reported": "$5.16",
-      "revenue_reported": "-",
+      "revenue_reported": "$81.27B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526027207/msft-20251231.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",
@@ -37022,7 +37026,8 @@
       "releaseAccession": "0001193125-26-027198",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526027207/msft-20251231.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 2
+      "fiscalQuarter": 2,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526027198/msft-ex99_1.htm"
     },
     {
       "date": "2025-10-29",
@@ -37030,7 +37035,7 @@
       "periodEnd": "2025-09-30",
       "periodScope": "quarter",
       "eps_reported": "$3.72",
-      "revenue_reported": "-",
+      "revenue_reported": "$77.67B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256310/msft-20251028.htm",
@@ -37046,7 +37051,8 @@
       "releaseAccession": "0001193125-25-256310",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 1
+      "fiscalQuarter": 1,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256310/msft-ex99_1.htm"
     }
   ],
   "MAA": [
