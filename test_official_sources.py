@@ -21,6 +21,21 @@ def filing(extra='', quarter='Q3'):
 
 
 class OfficialParserTests(unittest.TestCase):
+ def test_final_results_can_reference_previously_announced_preliminary_results(self):
+  doc=RELEASE.replace('Adjusted EPS $9.99.','The company previously announced preliminary results. Adjusted EPS $9.99.')
+  self.assertEqual(parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)['fiscalQuarter'],3)
+
+ def test_unrelated_prior_word_cannot_hide_current_preliminary_results(self):
+  doc=RELEASE.replace('Adjusted EPS $9.99.','The prior estimate is superseded. Today the company announced preliminary financial results. Adjusted EPS $9.99.')
+  with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
+ def test_current_result_predicate_can_qualify_the_release_or_named_quarter(self):
+  for qualifier in ('The financial results presented in this release are preliminary.',
+                    'These results for the third quarter are preliminary.'):
+   with self.subTest(qualifier=qualifier):
+    doc=RELEASE.replace('</body>',qualifier+'</body>')
+    with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
  def test_release_date_is_explicit_in_original_release_not_filing_date(self):
   r=parse_earnings_release(RELEASE,'2026-10-14','2026-10-15',TODAY)
   self.assertEqual((r['date'],r['periodEnd'],r['fiscalYear'],r['fiscalQuarter']),('2026-10-14','2026-09-30',2026,3))
@@ -29,9 +44,14 @@ class OfficialParserTests(unittest.TestCase):
  def test_unconfirmed_event_date_does_not_become_release_date(self):
   with self.assertRaises(ValueError):parse_earnings_release(RELEASE,'2026-10-13','2026-10-15',TODAY)
 
- def test_period_only_and_future_announcements_are_rejected(self):
-  for doc in [RELEASE.replace('October 14, 2026',''),RELEASE.replace('September 30, 2026',''),RELEASE.replace('October 14, 2026','November 14, 2026')]:
+ def test_missing_release_date_and_future_announcement_are_rejected(self):
+  for doc in [RELEASE.replace('October 14, 2026',''),RELEASE.replace('October 14, 2026','November 14, 2026')]:
    with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+
+ def test_explicit_quarter_without_period_end_requires_later_filing_match(self):
+  result=parse_earnings_release(RELEASE.replace('September 30, 2026',''),'2026-10-14','2026-10-15',TODAY)
+  self.assertIsNone(result['periodEnd'])
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2026,3))
 
  def test_quarterly_gaap_uses_exact_dimensionless_contexts_and_units(self):
   r=parse_inline_quarter(filing(),'2026-09-30')
@@ -93,6 +113,64 @@ class OfficialEncodingTests(unittest.TestCase):
   self.assertEqual(parse_earnings_release(prefix+RELEASE,'2026-10-14','2026-10-15',TODAY)['date'],'2026-10-14')
 
 class OfficialDateTransformTests(unittest.TestCase):
+ def test_declared_day_and_named_month_remains_an_explicit_date(self):
+  for transform in ('date-day-monthname-year-en','datedaymonthyearen'):
+   with self.subTest(transform=transform):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+        f'name="dei:DocumentPeriodEndDate" format="ixt:{transform}">30 September 2026')
+    self.assertEqual(parse_inline_quarter(doc,'2026-09-30',cik='1')['revenue'],1200000000)
+
+ def test_declared_numeric_month_day_year_period_is_accepted(self):
+  for value,fmt in [('09/30/2026','date-month-day-year'),('9/30/2026','datemonthdayyear')]:
+   with self.subTest(value=value,format=fmt):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate" format="ixt:{fmt}">{value}')
+    result=parse_inline_quarter(doc,'2026-09-30',cik='1')
+    self.assertEqual((result['epsGaapDiluted'],result['revenue']),(1.25,1200000000))
+
+ def test_equivalent_dei_dates_normalize_before_conflict_detection(self):
+  extra='<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026</ix:nonNumeric><ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-monthname-day-year-en">September 30, 2026</ix:nonNumeric>'
+  self.assertEqual(parse_inline_quarter(filing(extra),'2026-09-30',cik='1')['epsGaapDiluted'],1.25)
+
+ def test_unknown_or_missing_numeric_date_transform_stays_rejected(self):
+  for fmt in ('',' format="ixt:unknown-date"',' format="ixt:date-day-month-year"'):
+   with self.subTest(format=fmt):
+    doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate"{fmt}>9/30/2026')
+    with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-09-30',cik='1')
+
+ def test_invalid_or_conflicting_transformed_dates_reject_whole_identity(self):
+  for value in ('9/31/2026','6/30/2026','30/9/2026','9/30/026','9/30/20266'):
+   with self.subTest(value=value):
+    extra=f'<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">{value}</ix:nonNumeric>'
+    with self.assertRaises(ValueError):parse_inline_quarter(filing(extra),'2026-09-30',cik='1')
+
+ def test_declared_short_year_uses_xbrl_century_and_normalizes_equivalent_dates(self):
+  # XBRL Transformation Registry 5 section 4.55 explicitly defines 1/2-digit
+  # years as 2000-2009 / 2000-2099; no fiscal/calendar guess supplies the century.
+  for fmt in ('date-month-day-year','datemonthdayyear'):
+   for raw in ('9/30/26','09-30-26'):
+    with self.subTest(format=fmt,raw=raw):
+     extra=f'<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:{fmt}">{raw}</ix:nonNumeric>'
+     self.assertEqual(parse_inline_quarter(filing(extra),'2026-09-30',cik='1')['epsGaapDiluted'],1.25)
+  for raw,end in [('9/30/6','2006-09-30'),('9/30/99','2099-09-30')]:
+   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">{raw}')
+   doc=doc.replace('2026-','2006-' if end.startswith('2006') else '2099-')
+   self.assertEqual(parse_inline_quarter(doc,end,cik='1')['epsGaapDiluted'],1.25)
+
+ def test_short_year_requires_transform_and_preserves_identity_guards(self):
+  for attr in ('',' format="ixt:unknown-date"',' format="ixt:date-day-month-year"'):
+   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate"{attr}>9/30/26')
+   with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-09-30',cik='1')
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/26')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='2')['epsGaapDiluted'])
+  self.assertIsNone(parse_inline_quarter(doc.replace('contextRef="q"','contextRef="ytd"'),'2026-09-30',cik='1')['epsGaapDiluted'])
+  with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-06-30',cik='1')
+
+ def test_numeric_date_does_not_relax_issuer_or_quarter_context(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='2')['epsGaapDiluted'])
+  doc=doc.replace('contextRef="q"','contextRef="ytd"')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='1')['epsGaapDiluted'])
+
  def test_inline_dei_formatted_month_date_is_normalized(self):
   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-monthname-day-year-en">September 30 , 2026')
   self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['fiscalQuarter'],3)
@@ -115,6 +193,16 @@ class OfficialFallbackTests(unittest.TestCase):
    self.assertNotIn('secret',str(error.exception))
 
 class OfficialComparativeIdentityTests(unittest.TestCase):
+ def test_headline_guidance_does_not_hide_completed_quarter_in_body(self):
+  doc='''<h1>Example Reports Record 2025 EPS and Introduces 2026 Guidance</h1><p>NEW YORK, January 29, 2026 — Example announced its full year and fourth quarter 2025 results for the three months ended December 31, 2025.</p>'''
+  result=parse_earnings_release(doc,'2026-01-29','2026-01-29',date(2026,10,26))
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(2025,4))
+
+ def test_future_guidance_cannot_supply_completed_quarter_identity(self):
+  doc='''<h1>Example reports fiscal 2025 full-year results</h1><p>NEW YORK, November 6, 2025 — Example reports results for the year and three months ended September 30, 2025.</p><p>Guidance for the first quarter of fiscal 2026 is $1.00.</p>'''
+  result=parse_earnings_release(doc,'2025-11-06','2025-11-06',date(2026,10,26))
+  self.assertEqual((result['fiscalYear'],result['fiscalQuarter']),(None,None))
+
  def test_full_year_headline_beats_prior_year_comparative_text(self):
   doc='<h1>Accenture Reports Fourth-Quarter and Full-Year Fiscal 2026 Results</h1><p>NEW YORK; October 1, 2026 — reported results for the fourth quarter and full fiscal year ended August 31, 2026. All comparisons are to the fourth quarter of fiscal 2025.</p>'
   result=parse_earnings_release(doc,'2026-10-01','2026-10-01',TODAY)

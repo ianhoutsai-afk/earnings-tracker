@@ -13,6 +13,19 @@ STATEMENT = '''<h2>Consolidated Statements of Income</h2>
 
 
 class OfficialMetricTests(unittest.TestCase):
+    def test_period_discovery_rejects_annual_and_ambiguous_current_dates(self):
+        from official_metrics import discover_statement_period
+        annual='<h2>Consolidated Statements of Income</h2><table><tr><td>Year ended September 30, 2026</td></tr><tr><td>Revenue</td><td>100</td></tr></table>'
+        self.assertIsNone(discover_statement_period(annual,'2026-10-27',2026,3))
+        ambiguous='<h2>Consolidated Statements of Income</h2><table><tr><td></td><td>Three months ended September 30, 2026</td><td>Three months ended June 30, 2026</td></tr><tr><td>Revenue</td><td>100</td><td>90</td></tr></table>'
+        self.assertIsNone(discover_statement_period(ambiguous,'2026-10-27',2026,3))
+
+    def test_period_discovery_rejects_non_statement_and_future_period(self):
+        from official_metrics import discover_statement_period
+        table='<table><tr><td>Three months ended September 30, 2026</td></tr><tr><td>Revenue</td><td>100</td></tr></table>'
+        self.assertIsNone(discover_statement_period(table,'2026-10-27',2026,3))
+        self.assertIsNone(discover_statement_period('<h2>Consolidated Statements of Income</h2>'+table,'2026-09-01',2026,3))
+
     def test_real_statement_sections_do_not_create_false_conflicts(self):
         from test_official_real_documents import document, SOURCES
         expected = {'BIIB':(0.66,2736000000), 'BLK':(12.19,7084000000),

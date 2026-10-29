@@ -1,0 +1,6606 @@
+{
+  "before": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 0,
+    "sourceFailures": 0,
+    "pendingCompanies": 363,
+    "officialQuarters": 2476,
+    "fiveOfficialQuarterCompanies": 461,
+    "fiveCompleteMetricCompanies": 169,
+    "latestIdentifiedCompanies": 433,
+    "latestCompleteMetricCompanies": 344,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-29T06:39:22.416280Z",
+    "healthy": true
+  },
+  "after": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 3,
+    "sourceFailures": 0,
+    "pendingCompanies": 352,
+    "officialQuarters": 2476,
+    "fiveOfficialQuarterCompanies": 461,
+    "fiveCompleteMetricCompanies": 182,
+    "latestIdentifiedCompanies": 434,
+    "latestCompleteMetricCompanies": 348,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-29T10:07:36.176659Z",
+    "healthy": true
+  },
+  "changeCounts": {
+    "metric_added": 34
+  },
+  "newQuarters": [
+    {
+      "date": "2026-10-29",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "epsGaapDiluted": null,
+      "revenue": null,
+      "epsBasis": null,
+      "currency": "USD",
+      "periodScope": "quarter",
+      "epsVerificationStatus": "pending",
+      "revenueVerificationStatus": "pending",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026067994/ares-20261029.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026067994/ares-20261029.htm",
+      "verifiedAt": "2026-10-29",
+      "releaseFilingDate": "2026-10-29",
+      "releaseAccession": "0001628280-26-067994",
+      "metricRevision": {},
+      "metricCorrectionEvidence": {},
+      "metricConflicts": {},
+      "metricLocators": {},
+      "ticker": "ARES"
+    },
+    {
+      "date": "2026-10-29",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "epsGaapDiluted": null,
+      "revenue": null,
+      "epsBasis": null,
+      "currency": "USD",
+      "periodScope": "quarter",
+      "epsVerificationStatus": "pending",
+      "revenueVerificationStatus": "pending",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000119312526436795/bldr-ex99_1.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000119312526436795/bldr-ex99_1.htm",
+      "verifiedAt": "2026-10-29",
+      "releaseFilingDate": "2026-10-29",
+      "releaseAccession": "0001193125-26-436795",
+      "metricRevision": {},
+      "metricCorrectionEvidence": {},
+      "metricConflicts": {},
+      "metricLocators": {},
+      "ticker": "BLDR"
+    },
+    {
+      "date": "2026-10-28",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "periodScope": "quarter",
+      "periodStart": "2026-07-01",
+      "epsGaapDiluted": 0.5,
+      "revenue": 49526000000.0,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "epsVerificationStatus": "verified",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
+      "revenueVerificationStatus": "verified",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000190/exhibit99tooctober282026.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
+      "verifiedAt": "2026-10-29",
+      "releaseFilingDate": "2026-10-28",
+      "releaseAccession": "0000037996-26-000190",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
+      "form": "10-Q",
+      "filingDate": "2026-10-29",
+      "accessionNumber": "0000037996-26-000191",
+      "metricRevision": {},
+      "metricCorrectionEvidence": {},
+      "metricConflicts": {},
+      "metricLocators": {},
+      "ticker": "F"
+    },
+    {
+      "date": "2026-10-29",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "periodEndEvidence": {
+        "locator": {
+          "table": 4,
+          "column": 7,
+          "header": "\nThree Months Ended Sept. 30\n2026\n"
+        },
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000178/xcelearningsreleaseq32026.htm"
+      },
+      "epsGaapDiluted": null,
+      "revenue": null,
+      "epsBasis": null,
+      "currency": "USD",
+      "periodScope": "quarter",
+      "epsVerificationStatus": "pending",
+      "revenueVerificationStatus": "pending",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000178/xcelearningsreleaseq32026.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000178/xcelearningsreleaseq32026.htm",
+      "verifiedAt": "2026-10-29",
+      "releaseFilingDate": "2026-10-29",
+      "releaseAccession": "0000072903-26-000178",
+      "metricRevision": {},
+      "metricCorrectionEvidence": {},
+      "metricConflicts": {},
+      "metricLocators": {},
+      "ticker": "XEL"
+    }
+  ],
+  "removedQuarters": [
+    {
+      "ticker": "ARES",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-08-01",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 0.46,
+        "revenue": 1040823000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001176948.json",
+        "metricLocators": {
+          "revenue": {
+            "tag": "Revenues",
+            "accession": "0001628280-25-039330",
+            "periodStart": "2025-04-01",
+            "periodEnd": "2025-06-30",
+            "unit": "USD",
+            "precision": "1E-9"
+          },
+          "epsGaapDiluted": {
+            "table": 9,
+            "row": 39,
+            "column": 5,
+            "label": "Diluted",
+            "precision": "0.01"
+          }
+        },
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025037107/ares-20250801.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-08-01",
+        "releaseAccession": "0001628280-25-037107",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-08",
+        "accessionNumber": "0001628280-25-039330",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+        "ticker": "ARES"
+      }
+    },
+    {
+      "ticker": "BLDR",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-31",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 1.66,
+        "revenue": 4234064000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100548/bldr-ex99_1.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-31",
+        "releaseAccession": "0000950170-25-100548",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-31",
+        "accessionNumber": "0000950170-25-100705",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "BLDR"
+      }
+    },
+    {
+      "ticker": "F",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": -0.01,
+        "revenue": 50184000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000147/f-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000147/f-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000146/exhibit99tojuly302025for.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000147/f-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0000037996-25-000146",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000147/f-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-31",
+        "accessionNumber": "0000037996-25-000147",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "F"
+      }
+    },
+    {
+      "ticker": "XEL",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-31",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodEndEvidence": {
+          "locator": {
+            "table": 5,
+            "column": 7,
+            "header": "\nThree Months Ended June 30\n2025\n"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm"
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 0.75,
+        "revenue": 3287000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "metricLocators": {
+          "revenue": {
+            "table": 20,
+            "row": 8,
+            "column": 4,
+            "label": "Total operating revenues",
+            "scale": 1000000,
+            "precision": "1000000",
+            "validationBasis": "selected_inline_fact"
+          }
+        },
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-31",
+        "releaseAccession": "0000072903-25-000221",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-31",
+        "accessionNumber": "0000072903-25-000225",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "XEL"
+      }
+    }
+  ],
+  "changes": [
+    {
+      "ticker": "ADBE",
+      "periodEnd": "2025-11-28",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 4.45,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000135/adbeex991q425.htm",
+      "locator": {
+        "table": 3,
+        "row": 39,
+        "column": 5,
+        "label": "Diluted net income per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "ADI",
+      "periodEnd": "2025-11-01",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.6,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6281/000000628125000151/adiq425exhibit991.htm",
+      "locator": {
+        "table": 2,
+        "row": 41,
+        "column": 5,
+        "label": "Diluted earnings per common share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "APH",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.79,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926119421/aph-ex99d1.htm",
+      "locator": {
+        "table": 11,
+        "row": 33,
+        "column": 4,
+        "label": "Net income attributable to Amphenol Corporation per common share — Diluted (3)",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "APH",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.93,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
+      "locator": {
+        "table": 16,
+        "row": 33,
+        "column": 4,
+        "label": "Net income attributable to Amphenol Corporation per common share — Diluted (3)",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CMG",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.27,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "CMG",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 3293162000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2026-04-30",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1237066000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526234447/cprt-ex99_1.htm",
+      "locator": {
+        "table": 2,
+        "row": 8,
+        "column": 4,
+        "label": "Total service revenues and vehicle sales",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2026-01-31",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1121674000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526059440/cprt-ex99_1.htm",
+      "locator": {
+        "table": 2,
+        "row": 8,
+        "column": 4,
+        "label": "Total service revenues and vehicle sales",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2025-10-31",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1155030000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312525289803/cprt-ex99_1.htm",
+      "locator": {
+        "table": 2,
+        "row": 8,
+        "column": 4,
+        "label": "Total service revenues and vehicle sales",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2025-07-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.41,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000090007525000017/cprt07312025ex99-1.htm",
+      "locator": {
+        "table": 2,
+        "row": 34,
+        "column": 8,
+        "label": "Diluted net income per common share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2025-07-31",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1125097000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000090007525000017/cprt07312025ex99-1.htm",
+      "locator": {
+        "table": 2,
+        "row": 7,
+        "column": 7,
+        "label": "Total service revenues and vehicle sales",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "CPT",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.18,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051327/cpt-20260630.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "CPT",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.4,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828026029188/cpt-20260331.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "CPT",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050524/cpt-20250930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "CPT",
+      "periodEnd": "2025-06-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.74,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000090634525000034/cpt-20250630.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "DXCM",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.68,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000025/dxcm12312025-exhibit991.htm",
+      "locator": {
+        "table": 2,
+        "row": 21,
+        "column": 5,
+        "label": "Diluted net income per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "FFIV",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 3.26,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000153/ex991-q425earningsreleasef.htm",
+      "locator": {
+        "table": 11,
+        "row": 29,
+        "column": 8,
+        "label": "Net income per share — diluted",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "GNRC",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.83,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926033685/ex_1032565.htm",
+      "locator": {
+        "table": 46,
+        "row": 35,
+        "column": 4,
+        "label": "Net income attributable to common shareholders per common share - diluted",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "GOOG",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 2.12,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "GOOG",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 127577000000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "GOOGL",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 2.12,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "GOOGL",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "kind": "metric_added",
+      "before": null,
+      "after": 127577000000.0,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+      "locator": null,
+      "evidence": null
+    },
+    {
+      "ticker": "HD",
+      "periodEnd": "2026-02-01",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 2.58,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000026/hd_exhibit991x02012026.htm",
+      "locator": {
+        "table": 2,
+        "row": 25,
+        "column": 5,
+        "label": "Diluted earnings per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "HII",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 4.04,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000004/hiiq42025earningsrelease.htm",
+      "locator": {
+        "table": 8,
+        "row": 27,
+        "column": 8,
+        "label": "Diluted earnings per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "INTU",
+      "periodEnd": "2026-07-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.34,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000029/fy26q4earningspressrelease.htm",
+      "locator": {
+        "table": 5,
+        "row": 31,
+        "column": 5,
+        "label": "Diluted net income per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "INTU",
+      "periodEnd": "2025-07-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.35,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000031/fy25q4earningspressrelease.htm",
+      "locator": {
+        "table": 5,
+        "row": 31,
+        "column": 5,
+        "label": "Diluted net income (loss) per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "INVH",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.24,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1687229/000168722926000013/q42025supplemental.htm",
+      "locator": {
+        "table": 11,
+        "row": 39,
+        "column": 8,
+        "label": "Net income per common share — diluted",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "KHC",
+      "periodEnd": "2025-12-27",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.55,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+      "locator": {
+        "table": 4,
+        "row": 28,
+        "column": 4,
+        "label": "Diluted earnings/(loss) per share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "KR",
+      "periodEnd": "2026-05-23",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.46,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926075395/tm2618219d1_ex99-1.htm",
+      "locator": {
+        "table": 12,
+        "row": 33,
+        "column": 4,
+        "label": "NET EARNINGS ATTRIBUTABLE TO THE KROGER CO. PER DILUTED COMMON SHARE",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "KR",
+      "periodEnd": "2026-01-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.35,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm",
+      "locator": {
+        "table": 27,
+        "row": 35,
+        "column": 4,
+        "label": "NET EARNINGS ATTRIBUTABLE TO THE KROGER CO. PER DILUTED COMMON SHARE",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "MA",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 4.52,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000003/ma12312025-exx991xearnings.htm",
+      "locator": {
+        "table": 12,
+        "row": 25,
+        "column": 8,
+        "label": "Diluted Earnings per Share",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "MMM",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.07,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000003/q42025-8kerexx991.htm",
+      "locator": {
+        "table": 5,
+        "row": 39,
+        "column": 8,
+        "label": "Earnings per share — diluted",
+        "precision": "0.01"
+      },
+      "evidence": null
+    },
+    {
+      "ticker": "ON",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 0.45,
+      "beforeState": "conflict",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm",
+      "locator": {
+        "table": 19,
+        "row": 30,
+        "column": 4,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "evidence": {
+        "reason": "eps_numerator_was_not_a_per_share_value",
+        "actualValue": 0.45,
+        "actualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm",
+        "actualLocator": {
+          "table": 19,
+          "row": 30,
+          "column": 4,
+          "label": "Diluted",
+          "precision": "0.01"
+        },
+        "previousEvidence": [
+          {
+            "value": 181.8,
+            "precision": "0.1",
+            "locator": {
+              "table": 19,
+              "row": 26,
+              "column": 4,
+              "label": "Net income for diluted earnings per share of common stock"
+            },
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+          },
+          {
+            "value": 0.45,
+            "precision": "0.01",
+            "locator": {
+              "table": 19,
+              "row": 30,
+              "column": 4,
+              "label": "Diluted"
+            },
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+          }
+        ],
+        "excludedInputs": [
+          {
+            "value": 181.8,
+            "periodEnd": "2025-12-31",
+            "reason": "eps_calculation_input",
+            "locator": {
+              "table": 19,
+              "row": 26,
+              "column": 4,
+              "label": "Net income for diluted earnings per share of common stock"
+            },
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "STLD",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_added",
+      "before": null,
+      "after": 1.82,
+      "beforeState": "pending",
+      "afterState": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926006889/tm264071d1_ex99-1.htm",
+      "locator": {
+        "table": 10,
+        "row": 26,
+        "column": 4,
+        "label": "Diluted earnings per share attributable to Steel Dynamics,Inc. stockholders, including the effect of assumed conversions when dilutive",
+        "precision": "0.01"
+      },
+      "evidence": null
+    }
+  ],
+  "latestStateChanges": [
+    {
+      "ticker": "ARES",
+      "before": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-31",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026051191/ares-20260731.htm",
+        "discoveryAsOf": "2026-10-29T06:39:22.416280Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026067994/ares-20261029.htm",
+        "discoveryAsOf": "2026-10-29T10:07:36.176659Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-29T10:07:36.176659Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001176948.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-29T10:07:36.176659Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0001176948:0001628280-26-047830:https://www.sec.gov/Archives/edgar/data/1176948/000162828026047830/ares-20260710.htm",
+          "accession": "0001628280-26-047830",
+          "filingDate": "2026-07-10",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026047830/ares-20260710.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-29T10:11:02.747624+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "F",
+      "before": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-28",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000155/f-20260728.htm",
+        "discoveryAsOf": "2026-10-29T06:39:22.416280Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-28",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000190/exhibit99tooctober282026.htm",
+        "discoveryAsOf": "2026-10-29T10:07:36.176659Z",
+        "metricsComplete": true
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-29T10:07:36.176659Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000037996.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-29T10:07:36.176659Z",
+        "stale": false
+      },
+      "activeCandidates": []
+    },
+    {
+      "ticker": "LHX",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-07-03",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000054/exhibit991q2cy26earnings.htm",
+        "discoveryAsOf": "2026-10-29T06:39:22.416280Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-07-03",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000054/exhibit991q2cy26earnings.htm",
+        "discoveryAsOf": "2026-10-29T10:07:36.176659Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-29T10:07:36.176659Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000202058.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-29T10:07:36.176659Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0000202058:0000202058-26-000084:https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/hrs-20261029.htm",
+          "accession": "0000202058-26-000084",
+          "filingDate": "2026-10-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/hrs-20261029.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-29T10:08:57.542239+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    }
+  ],
+  "coverageDeclines": [
+    {
+      "ticker": "ARES",
+      "field": "verifiedEps",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "ARES",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-08-01",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.46,
+            "revenue": 1040823000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001176948.json",
+            "metricLocators": {
+              "revenue": {
+                "tag": "Revenues",
+                "accession": "0001628280-25-039330",
+                "periodStart": "2025-04-01",
+                "periodEnd": "2025-06-30",
+                "unit": "USD",
+                "precision": "1E-9"
+              },
+              "epsGaapDiluted": {
+                "table": 9,
+                "row": 39,
+                "column": 5,
+                "label": "Diluted",
+                "precision": "0.01"
+              }
+            },
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025037107/ares-20250801.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-08-01",
+            "releaseAccession": "0001628280-25-037107",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-08",
+            "accessionNumber": "0001628280-25-039330",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "ticker": "ARES"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "ARES",
+      "field": "verifiedRevenue",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "ARES",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-08-01",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.46,
+            "revenue": 1040823000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001176948.json",
+            "metricLocators": {
+              "revenue": {
+                "tag": "Revenues",
+                "accession": "0001628280-25-039330",
+                "periodStart": "2025-04-01",
+                "periodEnd": "2025-06-30",
+                "unit": "USD",
+                "precision": "1E-9"
+              },
+              "epsGaapDiluted": {
+                "table": 9,
+                "row": 39,
+                "column": 5,
+                "label": "Diluted",
+                "precision": "0.01"
+              }
+            },
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025037107/ares-20250801.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-08-01",
+            "releaseAccession": "0001628280-25-037107",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-08",
+            "accessionNumber": "0001628280-25-039330",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "ticker": "ARES"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "ARES",
+      "field": "completeMetrics",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "ARES",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-08-01",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.46,
+            "revenue": 1040823000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001176948.json",
+            "metricLocators": {
+              "revenue": {
+                "tag": "Revenues",
+                "accession": "0001628280-25-039330",
+                "periodStart": "2025-04-01",
+                "periodEnd": "2025-06-30",
+                "unit": "USD",
+                "precision": "1E-9"
+              },
+              "epsGaapDiluted": {
+                "table": 9,
+                "row": 39,
+                "column": 5,
+                "label": "Diluted",
+                "precision": "0.01"
+              }
+            },
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025037107/ares-20250801.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-08-01",
+            "releaseAccession": "0001628280-25-037107",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-08",
+            "accessionNumber": "0001628280-25-039330",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828025039330/ares-20250630.htm",
+            "ticker": "ARES"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "BLDR",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "BLDR",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.66,
+            "revenue": 4234064000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100548/bldr-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000950170-25-100548",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000950170-25-100705",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "BLDR"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "BLDR",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "BLDR",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.66,
+            "revenue": 4234064000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100548/bldr-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000950170-25-100548",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000950170-25-100705",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "BLDR"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "BLDR",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "BLDR",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.66,
+            "revenue": 4234064000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100548/bldr-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000950170-25-100548",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000095017025100705/bldr-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000950170-25-100705",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "BLDR"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "XEL",
+      "field": "verifiedEps",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "XEL",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "locator": {
+                "table": 5,
+                "column": 7,
+                "header": "\nThree Months Ended June 30\n2025\n"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm"
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.75,
+            "revenue": 3287000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 20,
+                "row": 8,
+                "column": 4,
+                "label": "Total operating revenues",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000072903-25-000221",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000072903-25-000225",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "XEL"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "XEL",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "XEL",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "locator": {
+                "table": 5,
+                "column": 7,
+                "header": "\nThree Months Ended June 30\n2025\n"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm"
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.75,
+            "revenue": 3287000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 20,
+                "row": 8,
+                "column": 4,
+                "label": "Total operating revenues",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000072903-25-000221",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000072903-25-000225",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "XEL"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "XEL",
+      "field": "completeMetrics",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "XEL",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-31",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "locator": {
+                "table": 5,
+                "column": 7,
+                "header": "\nThree Months Ended June 30\n2025\n"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm"
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 0.75,
+            "revenue": 3287000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 20,
+                "row": 8,
+                "column": 4,
+                "label": "Total operating revenues",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000221/xcelearningsreleaseq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0000072903-25-000221",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290325000225/xel-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-31",
+            "accessionNumber": "0000072903-25-000225",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "XEL"
+          }
+        }
+      ]
+    }
+  ],
+  "gapReasons": {
+    "quarterly_metric_not_located": 763,
+    "release_date_or_quarter_format_unsupported": 286,
+    "quarter_identity_unconfirmed": 38,
+    "insufficient_verified_history": 42,
+    "official_value_conflict": 2,
+    "historical_or_unconfirmed_ticker": 4
+  },
+  "unexplainedChanges": [],
+  "baselineDataCommit": "8d71edfad4368610ce63919dbb71a30523137b02",
+  "codeCommit": "f6ec5323c725bad1761c1c85a9a15b2cee41780f",
+  "parserVersion": 28,
+  "allRequiredDataComplete": false,
+  "mergeDeploymentAllowed": false,
+  "fieldAdditions": {
+    "epsGaapDiluted": 27,
+    "revenue": 7
+  },
+  "unresolvedNumericFields": 765,
+  "repeatVerification": {
+    "quarterlyValuesDatesAndEvidenceUnchanged": true,
+    "dataFiles": {
+      "data.json": {
+        "sameBytes": true,
+        "sha256": "a50d98f9add13ede25cf91275d4c913952f3e4313852af9f4f0962079cd5e7aa"
+      },
+      "historical_data.json": {
+        "sameBytes": true,
+        "sha256": "64c8e4a836173e46da2dcdba9e9b6253b1f1e2024d901d99c3f32c2829f8302b"
+      },
+      "official_history.json": {
+        "sameBytes": true,
+        "sha256": "5832b992553efb93af55bc4db633497e725f5737914a1f9df6e6f63d3af278c6"
+      },
+      "sp500_mapping.json": {
+        "sameBytes": true,
+        "sha256": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
+      }
+    },
+    "beforeSummary": {
+      "companies": 503,
+      "issuersChecked": 499,
+      "issuerTargets": 499,
+      "deferredCompanies": 0,
+      "newRecords": 3,
+      "sourceFailures": 0,
+      "pendingCompanies": 352,
+      "officialQuarters": 2476,
+      "fiveOfficialQuarterCompanies": 461,
+      "fiveCompleteMetricCompanies": 182,
+      "latestIdentifiedCompanies": 434,
+      "latestCompleteMetricCompanies": 348,
+      "sourceStaleCompanies": 0,
+      "sourceFailedCompanies": 0,
+      "checkedAt": "2026-10-29T10:07:36.176659Z",
+      "healthy": true
+    },
+    "afterSummary": {
+      "companies": 503,
+      "issuersChecked": 499,
+      "issuerTargets": 499,
+      "deferredCompanies": 0,
+      "newRecords": 0,
+      "sourceFailures": 0,
+      "pendingCompanies": 352,
+      "officialQuarters": 2476,
+      "fiveOfficialQuarterCompanies": 461,
+      "fiveCompleteMetricCompanies": 182,
+      "latestIdentifiedCompanies": 434,
+      "latestCompleteMetricCompanies": 348,
+      "sourceStaleCompanies": 0,
+      "sourceFailedCompanies": 0,
+      "checkedAt": "2026-10-29T10:07:36.176659Z",
+      "healthy": true
+    },
+    "expectedOperationalChangeCounts": {
+      "completed_accessions_reused_without_reparse": 500,
+      "successful_repeat_timestamp": 1,
+      "repeat_clock_or_zero_new_records": 1
+    },
+    "operationalChanges": [
+      {
+        "ticker": "MMM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AOS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ABT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ABBV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "ACN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ADBE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AES",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AFL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "A",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "APD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ABNB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AKAM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ALB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ARE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ALGN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ALLE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LNT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ALL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GOOGL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GOOG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMZN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMCR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AEE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AEP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AXP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AIG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AWK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AME",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMGN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "APH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ADI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AON",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "APA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "APO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "AAPL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AMAT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "APP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "APTV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "ACGL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ADM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ARES",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "ANET",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AJG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AIZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "T",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ATO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ADSK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ADP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AZO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "AVB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AVY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AXON",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BKR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BALL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BAC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BAX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 7,
+        "after": 0
+      },
+      {
+        "ticker": "BDX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "BRK-B",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "BBY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TECH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "BIIB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 7,
+        "after": 0
+      },
+      {
+        "ticker": "BLK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "XYZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BNY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BKNG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BSX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BMY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "AVGO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BRO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BF-B",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "BLDR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BXP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CHRW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CDNS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CPT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CPB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CAH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CCL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CARR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CVNA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CASY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CAT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CBOE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CBRE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CDW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CNC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CNP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "CRL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "SCHW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CHTR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CVX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "CMG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "CHD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CIEN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CINF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CTAS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CSCO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "C",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "CFG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CLX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CME",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CMS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "KO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CTSH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COHR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COIN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "CL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CMCSA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FIX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CAG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ED",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "STZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CEG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CPRT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GLW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CPAY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CTVA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "CSGP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "COST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "CRH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CRWD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CCI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "CSX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CMI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CVS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DHR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "DRI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DDOG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DVA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DECK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DELL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DAL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "DVN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "DXCM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "FANG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "DLR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "DLTR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "D",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DPZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DASH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DOV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DOW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DHI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DTE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "DUK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ETN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EBAY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "ECL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "EIX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "ELV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EME",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EMR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "ETR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EOG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "EPAM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EQT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "EFX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EQIX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EQR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ERIE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ESS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EVRG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ES",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "EXC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EXE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EXPE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EXPD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "EXR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FFIV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FDS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FICO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FAST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FRT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "FDX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "FIS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "FITB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "FSLR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "FISV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "F",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FTNT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FTV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FOXA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FOX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "BEN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "FCX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 7,
+        "after": 0
+      },
+      {
+        "ticker": "GRMN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GEHC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "GEV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GEN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GNRC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GIS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GPC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GILD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GPN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GDDY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "GS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HAL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HIG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HAS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HCA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "DOC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HSIC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HSY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HPE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HLT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HON",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "HRL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "HST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HWM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "HPQ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HUBB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HUM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "HBAN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HII",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IBM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "IEX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IDXX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ITW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "INCY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PODD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "INTC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IBKR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ICE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IFF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "INTU",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ISRG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "IVZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "INVH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IQV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "IRM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "JBHT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "JBL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "JKHY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "J",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "JNJ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "JCI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "JPM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "KVUE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KDP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KEY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "KEYS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KMB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "KIM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KMI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KKR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KLAC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KHC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "KR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "LHX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LRCX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LVS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LDOS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LEN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LII",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LLY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LIN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LYV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LMT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "L",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LOW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LULU",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LITE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LYB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MTB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MPC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MAR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MRSH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MLM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MAS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MKC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "MCD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MCK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MDT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MRK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "META",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MET",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "MTD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MGM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MCHP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MU",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MSFT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MAA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MRNA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "TAP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MDLZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MPWR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MNST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MCO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MOS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "MSI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "MSCI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NDAQ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NTAP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "NFLX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NEM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NWSA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NWS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NEE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NKE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NDSN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NSC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NTRS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NOC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NCLH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NRG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "NUE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NVDA",
+        "path": [
+          "checkedAt"
+        ],
+        "reason": "successful_repeat_timestamp",
+        "before": "2026-10-29T10:10:23.421461Z",
+        "after": "2026-10-29T10:19:17.754891Z"
+      },
+      {
+        "ticker": "NVR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NXPI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ORLY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "OXY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "ODFL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "OMC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ON",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "OKE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ORCL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "OTIS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PCAR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PKG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PLTR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PANW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PSKY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "PH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PAYX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PYPL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PNR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "PEP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PFE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PCG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PSX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "PNW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PNC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "POOL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PPG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "PPL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "PFG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "PG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PGR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PLD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PRU",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 9,
+        "after": 0
+      },
+      {
+        "ticker": "PEG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PTC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PSA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PHM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "PWR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "QCOM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "DGX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "Q",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "RL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "RJF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "RTX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "O",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "REG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "REGN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "RF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "RSG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "RMD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "RVTY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "HOOD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "ROK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ROL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ROP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ROST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "RCL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SPGI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "CRM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "SNDK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SBAC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SLB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "STX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SRE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "NOW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "SHW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SPG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SWKS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "SJM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SNA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SOLV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "LUV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SWK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SBUX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "STT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "STLD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "STE",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SYK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SMCI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "SYF",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "SNPS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "SYY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "TMUS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TROW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TTWO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TPR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TRGP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TGT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "TEL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TDY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "TER",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TSLA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 8,
+        "after": 0
+      },
+      {
+        "ticker": "TXN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TPL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TXT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TMO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TJX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TKO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TTD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "TSCO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TDG",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "TRV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TRMB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TFC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TYL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "TSN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "USB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "UBER",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "UDR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "ULTA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "UNP",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "UAL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "UPS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "URI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "UNH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "UHS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VLO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VEEV",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VTR",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VLTO",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VRSN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VRSK",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VZ",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "VRTX",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VRT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VTRS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VICI",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "V",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "VMC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WRB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 3,
+        "after": 0
+      },
+      {
+        "ticker": "GWW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WAB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WMT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "DIS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WBD",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WAT",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WEC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "WFC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WELL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WST",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WDC",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "WSM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WMB",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "WTW",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 6,
+        "after": 0
+      },
+      {
+        "ticker": "WDAY",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 5,
+        "after": 0
+      },
+      {
+        "ticker": "WYNN",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "XEL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "XYL",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "YUM",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ZBRA",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ZBH",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "ticker": "ZTS",
+        "path": [
+          "attemptedAnnouncements"
+        ],
+        "reason": "completed_accessions_reused_without_reparse",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "file": "official_scan_state.json",
+        "path": [
+          "newRecords"
+        ],
+        "before": 3,
+        "after": 0,
+        "reason": "repeat_clock_or_zero_new_records"
+      }
+    ],
+    "unexpectedChanges": [],
+    "allDataComplete": false,
+    "mergeOrDeploymentAccepted": false
+  },
+  "provenanceChanges": {
+    "droppedOrCleared": [
+      {
+        "ticker": "ON",
+        "periodEnd": "2025-12-31",
+        "field": "metricConflicts",
+        "before": {
+          "epsGaapDiluted": [
+            {
+              "value": 181.8,
+              "precision": "0.1",
+              "locator": {
+                "table": 19,
+                "row": 26,
+                "column": 4,
+                "label": "Net income for diluted earnings per share of common stock"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+            },
+            {
+              "value": 0.45,
+              "precision": "0.01",
+              "locator": {
+                "table": 19,
+                "row": 30,
+                "column": 4,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+            }
+          ]
+        },
+        "after": {}
+      }
+    ],
+    "sourceChanges": [
+      {
+        "ticker": "ADBE",
+        "periodEnd": "2025-11-28",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000135/adbeex991q425.htm"
+      },
+      {
+        "ticker": "ADI",
+        "periodEnd": "2025-11-01",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/6281/000000628125000151/adiq425exhibit991.htm"
+      },
+      {
+        "ticker": "APH",
+        "periodEnd": "2026-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/820313/000110465926119421/aph-ex99d1.htm"
+      },
+      {
+        "ticker": "APH",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm"
+      },
+      {
+        "ticker": "CMG",
+        "periodEnd": "2026-09-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm"
+      },
+      {
+        "ticker": "CMG",
+        "periodEnd": "2026-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm"
+      },
+      {
+        "ticker": "CMG",
+        "periodEnd": "2026-09-30",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm"
+      },
+      {
+        "ticker": "CMG",
+        "periodEnd": "2026-09-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000103/cmg-20261028xex991.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm"
+      },
+      {
+        "ticker": "CPRT",
+        "periodEnd": "2026-04-30",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/900075/000119312526234447/cprt-ex99_1.htm"
+      },
+      {
+        "ticker": "CPRT",
+        "periodEnd": "2026-01-31",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/900075/000119312526059440/cprt-ex99_1.htm"
+      },
+      {
+        "ticker": "CPRT",
+        "periodEnd": "2025-10-31",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/900075/000119312525289803/cprt-ex99_1.htm"
+      },
+      {
+        "ticker": "CPRT",
+        "periodEnd": "2025-07-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/900075/000090007525000017/cprt07312025ex99-1.htm"
+      },
+      {
+        "ticker": "CPRT",
+        "periodEnd": "2025-07-31",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/900075/000090007525000017/cprt07312025ex99-1.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-06-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051327/cpt-20260630.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-06-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051327/cpt-20260630.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-06-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051083/exhibit991earningsrelease2.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051327/cpt-20260630.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-03-31",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026029188/cpt-20260331.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-03-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026029188/cpt-20260331.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2026-03-31",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/906345/000162828026028942/exhibit991earningsrelease1.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828026029188/cpt-20260331.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-09-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050524/cpt-20250930.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050524/cpt-20250930.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-09-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050242/exhibit991earningsrelease3.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050524/cpt-20250930.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-06-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000090634525000034/cpt-20250630.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-06-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000090634525000034/cpt-20250630.htm"
+      },
+      {
+        "ticker": "CPT",
+        "periodEnd": "2025-06-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/906345/000090634525000031/exhibit991earningsrelease2.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/906345/000090634525000034/cpt-20250630.htm"
+      },
+      {
+        "ticker": "DXCM",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000025/dxcm12312025-exhibit991.htm"
+      },
+      {
+        "ticker": "FFIV",
+        "periodEnd": "2025-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000153/ex991-q425earningsreleasef.htm"
+      },
+      {
+        "ticker": "GNRC",
+        "periodEnd": "2026-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926033685/ex_1032565.htm"
+      },
+      {
+        "ticker": "GOOG",
+        "periodEnd": "2026-09-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOG",
+        "periodEnd": "2026-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOG",
+        "periodEnd": "2026-09-30",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOG",
+        "periodEnd": "2026-09-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOGL",
+        "periodEnd": "2026-09-30",
+        "field": "secUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOGL",
+        "periodEnd": "2026-09-30",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOGL",
+        "periodEnd": "2026-09-30",
+        "field": "revenueSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "GOOGL",
+        "periodEnd": "2026-09-30",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+      },
+      {
+        "ticker": "HD",
+        "periodEnd": "2026-02-01",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000026/hd_exhibit991x02012026.htm"
+      },
+      {
+        "ticker": "HII",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000004/hiiq42025earningsrelease.htm"
+      },
+      {
+        "ticker": "HII",
+        "periodEnd": "2025-12-31",
+        "field": "metricSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000004/hii-20260205.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000006/hii-20251231.htm"
+      },
+      {
+        "ticker": "INTU",
+        "periodEnd": "2026-07-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000029/fy26q4earningspressrelease.htm"
+      },
+      {
+        "ticker": "INTU",
+        "periodEnd": "2025-07-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000031/fy25q4earningspressrelease.htm"
+      },
+      {
+        "ticker": "INVH",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1687229/000168722926000013/q42025supplemental.htm"
+      },
+      {
+        "ticker": "KHC",
+        "periodEnd": "2025-12-27",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm"
+      },
+      {
+        "ticker": "KR",
+        "periodEnd": "2026-05-23",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/56873/000110465926075395/tm2618219d1_ex99-1.htm"
+      },
+      {
+        "ticker": "KR",
+        "periodEnd": "2026-01-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm"
+      },
+      {
+        "ticker": "MA",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000003/ma12312025-exx991xearnings.htm"
+      },
+      {
+        "ticker": "MMM",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000003/q42025-8kerexx991.htm"
+      },
+      {
+        "ticker": "ON",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": "https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm",
+        "after": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126004405/ef20065070_ex99-1.htm"
+      },
+      {
+        "ticker": "STLD",
+        "periodEnd": "2025-12-31",
+        "field": "epsSourceUrl",
+        "before": null,
+        "after": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926006889/tm264071d1_ex99-1.htm"
+      }
+    ]
+  },
+  "sourceReplayProtocol": {
+    "mode": "idempotence_from_capture_output",
+    "effectiveToday": "2026-10-29",
+    "captureCheckedAt": "2026-10-29T10:07:36.176659Z",
+    "captureInputProtocol": "Live capture started and completed on same New York date; replay explicitly pins that date and audit clock. Responses were fetched over time, not an atomic market snapshot.",
+    "captureHarnessSha256": "7f8e061e55c57a90038504621c025cbcc856c803a2c29ebb83f417a32e575c48",
+    "replayHarnessSha256": "8839f05268c4c60d40ce67930423c201b495949cff1170db37cc7233612a5888",
+    "mutableResponseCount": 789,
+    "sealedImmutableFiles": 11489,
+    "sourceManifestSha256": "d0afaa03aee785ec770a58de1c58a232ed475958117a9a7fdd3eed49905955cf",
+    "noSharedCacheWriters": true
+  },
+  "sourceCollection": {
+    "startedAt": "2026-10-29T10:07:36.176535+00:00",
+    "completedAt": "2026-10-29T10:16:46.886219+00:00",
+    "atomicMarketSnapshot": false,
+    "description": "Each response has its own fetchedAt; replay fixes received source bytes, effective New York date and audit clock. This is output idempotence, not reproduction from original six inputs."
+  },
+  "independentReview": {
+    "status": "targeted_candidate_and_protocol_review_passed",
+    "scope": [
+      "all 34 added fields and four new quarter identities checked against source bytes",
+      "all nine metric coverage declines independently recomputed",
+      "original ON two-candidate conflict retained exactly",
+      "789 captured responses and 11489 sealed immutable files hash checked"
+    ],
+    "limits": "Not a full 503-company numerical audit or completeness/deployment acceptance. Replay output assessed by primary agent, not included in independent reviewer final scope."
+  },
+  "changeAttribution": {
+    "overall": "34 existing null-to-verified fields versus baseline; not all from parser28",
+    "shortYearRepair": "four CPT EPS supported by parser26 date normalization",
+    "sourceArrivals": "six CMG/GOOG/GOOGL fields use newly available 10-Q bytes already parsable by code26; four new quarters ARES/BLDR/F/XEL are separately counted",
+    "conflictResolution": "ON numerator181.8 excluded with row/source proof; actual dilutedEPS0.45 restored, original conflict retained",
+    "statementReader": "share-count row versus heading distinction and explicit combined service/sales total support improve existing cached-source parsing"
+  }
+}

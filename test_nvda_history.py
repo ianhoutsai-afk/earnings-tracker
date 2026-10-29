@@ -92,6 +92,32 @@ class NvdaRollingHistoryTests(unittest.TestCase):
 
 
 class NvdaOfficialSourceTests(unittest.TestCase):
+    def test_transient_newsroom_failure_is_retried_before_marking_source_failed(self):
+        from unittest.mock import patch
+        from official_sync import sync_all
+        from nvda_history import FEED_URL,release_url
+        records=reviewed_records();companies=[{'ticker':'NVDA'}]
+        history,_=apply_official_records(companies,{'NVDA':[]},records,date(2026,10,22))
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            for name,value in {'data.json':companies,'historical_data.json':history,
+                               'official_history.json':records,'history_status.json':{},
+                               'sp500_mapping.json':{'NVDA':{'cik':'0001045810'}}}.items():
+                (root/name).write_text(json.dumps(value))
+            attempts=[]
+            def source(url):
+                attempts.append(url)
+                if url==FEED_URL and attempts.count(url)==1:raise OSError('temporary transport failure')
+                if url==FEED_URL:return '<rss><channel/></rss>'
+                if url==release_url(2027,2):return (FIXTURES/'fy2027-q2.html').read_text()
+                if url==release_url(2027,3):raise HTTPError(url,404,'not published',{},None)
+                raise AssertionError(url)
+            with patch('nvda_history.fetch_official',side_effect=source),patch('official_sync.time.sleep'):
+                result=sync_all(root,today=date(2026,10,22),fetch=lambda url:None,full=True)
+            self.assertTrue(result['healthy'])
+            self.assertEqual(attempts.count(FEED_URL),2)
+            self.assertEqual(attempts.count(release_url(2027,3)),1)
+
     def test_sync_preserves_metric_sources_when_a_reparse_has_no_metrics(self):
         from nvda_history import sync_nvda, FEED_URL, release_url
         from lxml import html

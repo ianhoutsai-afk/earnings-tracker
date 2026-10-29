@@ -1,0 +1,4623 @@
+{
+  "parserVersion": 23,
+  "producerCommit": "ffc59d899ff1cc633f9def699e72a54cf99b58fc",
+  "acceptedForDataCommit": false,
+  "reason": "13 scope-induced false conflicts and 1 unresolved original-source difference require separate treatment",
+  "before": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 10,
+    "sourceFailures": 0,
+    "pendingCompanies": 377,
+    "officialQuarters": 2476,
+    "fiveOfficialQuarterCompanies": 457,
+    "fiveCompleteMetricCompanies": 150,
+    "latestIdentifiedCompanies": 429,
+    "latestCompleteMetricCompanies": 314,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-28T08:13:25.918279Z",
+    "healthy": true
+  },
+  "after": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 17,
+    "sourceFailures": 0,
+    "pendingCompanies": 366,
+    "officialQuarters": 2476,
+    "fiveOfficialQuarterCompanies": 459,
+    "fiveCompleteMetricCompanies": 166,
+    "latestIdentifiedCompanies": 427,
+    "latestCompleteMetricCompanies": 334,
+    "sourceStaleCompanies": 0,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-28T12:36:33.568800Z",
+    "healthy": true
+  },
+  "changeCounts": {
+    "metric_verification_withdrawn": 14,
+    "metric_added": 197
+  },
+  "withdrawals": [
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-08-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 3.29,
+      "after": 3.29,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 3.29,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm"
+        },
+        {
+          "value": 1993174.0,
+          "precision": "1",
+          "locator": {
+            "table": 32,
+            "row": 26,
+            "column": 8,
+            "label": "Net income for diluted earnings per share calculation"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+        },
+        {
+          "value": 3.29,
+          "precision": "0.01",
+          "locator": {
+            "table": 32,
+            "row": 32,
+            "column": 8,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-05-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 3.8,
+      "after": 3.8,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 3.8,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm"
+        },
+        {
+          "value": 2341192.0,
+          "precision": "1",
+          "locator": {
+            "table": 21,
+            "row": 27,
+            "column": 8,
+            "label": "Net income for diluted earnings per share calculation"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+        },
+        {
+          "value": 3.8,
+          "precision": "0.01",
+          "locator": {
+            "table": 21,
+            "row": 33,
+            "column": 8,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-02-28",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 2.93,
+      "after": 2.93,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 2.93,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm"
+        },
+        {
+          "value": 1826953.0,
+          "precision": "1",
+          "locator": {
+            "table": 21,
+            "row": 27,
+            "column": 8,
+            "label": "Net income for diluted earnings per share calculation"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+        },
+        {
+          "value": 2.93,
+          "precision": "0.01",
+          "locator": {
+            "table": 21,
+            "row": 33,
+            "column": 8,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2025-11-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 3.54,
+      "after": 3.54,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 3.54,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm"
+        },
+        {
+          "value": 2213644.0,
+          "precision": "1",
+          "locator": {
+            "table": 21,
+            "row": 27,
+            "column": 8,
+            "label": "Net income for diluted earnings per share calculation"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+        },
+        {
+          "value": 3.54,
+          "precision": "0.01",
+          "locator": {
+            "table": 21,
+            "row": 33,
+            "column": 8,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2025-08-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 2.25,
+      "after": 2.25,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 2.25,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm"
+        },
+        {
+          "value": 1415289.0,
+          "precision": "1",
+          "locator": {
+            "table": 31,
+            "row": 26,
+            "column": 8,
+            "label": "Net income for diluted earnings per share calculation"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+        },
+        {
+          "value": 2.25,
+          "precision": "0.01",
+          "locator": {
+            "table": 31,
+            "row": 32,
+            "column": 8,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 0.69,
+      "after": 0.69,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 0.69,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm"
+        },
+        {
+          "value": 0.69,
+          "precision": "0.01",
+          "locator": {
+            "table": 1,
+            "row": 38,
+            "column": 5,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+        },
+        {
+          "value": 0.66,
+          "precision": "0.01",
+          "locator": {
+            "table": 2,
+            "row": 18,
+            "column": 5,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "kind": "metric_verification_withdrawn",
+      "before": 0.59,
+      "after": 0.59,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 0.59,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm"
+        },
+        {
+          "value": 0.59,
+          "precision": "0.01",
+          "locator": {
+            "table": 1,
+            "row": 38,
+            "column": 5,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+        },
+        {
+          "value": 0.55,
+          "precision": "0.01",
+          "locator": {
+            "table": 2,
+            "row": 18,
+            "column": 5,
+            "label": "Diluted"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2026-07-04",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 3133000000.0,
+      "after": 3133000000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 3133000000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm"
+        },
+        {
+          "value": 3133000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 2,
+            "row": 3,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 3133000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 2,
+            "row": 3,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 3133000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 2,
+            "row": 3,
+            "column": 6,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 3133000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 3133000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2026-04-04",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 2714000000.0,
+      "after": 2714000000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 2714000000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm"
+        },
+        {
+          "value": 2714000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+        },
+        {
+          "value": 2714000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2025-09-27",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 3009000000.0,
+      "after": 3009000000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 3009000000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm"
+        },
+        {
+          "value": 3009000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+        },
+        {
+          "value": 3009000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2025-06-28",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 2765000000.0,
+      "after": 2765000000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 2765000000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm"
+        },
+        {
+          "value": 2765000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+        },
+        {
+          "value": 2765000000.0,
+          "precision": "1000000",
+          "locator": {
+            "table": 3,
+            "row": 6,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+        },
+        {
+          "value": 100000000.0,
+          "precision": "100000.0",
+          "locator": {
+            "table": 3,
+            "row": 53,
+            "column": 5,
+            "label": "Net sales",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "periodEnd": "2026-07-05",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 729688000.0,
+      "after": 729688000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 729688000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm"
+        },
+        {
+          "value": 729688000.0,
+          "precision": "1000",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 8,
+            "label": "Revenue",
+            "scale": 1000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+        },
+        {
+          "value": 711109000.0,
+          "precision": "1000",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 14,
+            "label": "Revenue",
+            "scale": 1000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "periodEnd": "2026-04-05",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 711118000.0,
+      "after": 711118000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 711118000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm"
+        },
+        {
+          "value": 711118000.0,
+          "precision": "1000",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 8,
+            "label": "Revenue",
+            "scale": 1000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+        },
+        {
+          "value": 686912000.0,
+          "precision": "1000",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 14,
+            "label": "Revenue",
+            "scale": 1000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "TKO",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "kind": "metric_verification_withdrawn",
+      "before": 1037995000.0,
+      "after": 1037995000.0,
+      "beforeState": "verified",
+      "afterState": "conflict",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
+      "locator": null,
+      "evidence": [
+        {
+          "value": 1037995000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm"
+        },
+        {
+          "value": 1038100000.0,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071552/tko-ex99_1.htm",
+          "locator": {
+            "table": 7,
+            "row": 6,
+            "column": 4,
+            "label": "Revenue",
+            "scale": 1000000,
+            "precision": "100000.0"
+          }
+        }
+      ]
+    }
+  ],
+  "scopeCorrectionPreflight": [
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-08-31",
+      "field": "epsGaapDiluted",
+      "previousValue": 3.29,
+      "parsedValue": 3.29,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm",
+      "sha256": "e1df20e72b58ecf7664a03df40d56f65732cebadd60a1587475aa44caba0213a",
+      "locator": {
+        "table": 32,
+        "row": 32,
+        "column": 8,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-05-31",
+      "field": "epsGaapDiluted",
+      "previousValue": 3.8,
+      "parsedValue": 3.8,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm",
+      "sha256": "6c92e3d2144aeff99c552a0d8fd95718db66f639bd4ac0a181935901ac5217b9",
+      "locator": {
+        "table": 21,
+        "row": 33,
+        "column": 8,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2026-02-28",
+      "field": "epsGaapDiluted",
+      "previousValue": 2.93,
+      "parsedValue": 2.93,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm",
+      "sha256": "4365cdb0f62e6d0a895fa0fb6bf044cdb127ed7f9d41b14bcb26a9ab67655705",
+      "locator": {
+        "table": 21,
+        "row": 33,
+        "column": 8,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2025-11-30",
+      "field": "epsGaapDiluted",
+      "previousValue": 3.54,
+      "parsedValue": 3.54,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm",
+      "sha256": "17c77227ef6fcd529184c1440e3e007f13403c5d5ad3bca0d7f4c755421ef215",
+      "locator": {
+        "table": 21,
+        "row": 33,
+        "column": 8,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "ACN",
+      "periodEnd": "2025-08-31",
+      "field": "epsGaapDiluted",
+      "previousValue": 2.25,
+      "parsedValue": 2.25,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm",
+      "sha256": "5ee23df456586015c1502c349b41714bd4777de43db2dc00987a2e2a2ffff58b",
+      "locator": {
+        "table": 31,
+        "row": 32,
+        "column": 8,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "IBKR",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "previousValue": 0.69,
+      "parsedValue": 0.69,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm",
+      "sha256": "465b946f0fe93bb64b408f369b55e36754de3f44a55a8a2f03e081cc9623054c",
+      "locator": {
+        "table": 1,
+        "row": 38,
+        "column": 5,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "IBKR",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "previousValue": 0.59,
+      "parsedValue": 0.59,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm",
+      "sha256": "c9d9ef3fd1d6717e20e10ddcc15e4976827883328c2330edd7ba794964d60c57",
+      "locator": {
+        "table": 1,
+        "row": 38,
+        "column": 5,
+        "label": "Diluted",
+        "precision": "0.01"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2026-07-04",
+      "field": "revenue",
+      "previousValue": 3133000000.0,
+      "parsedValue": 3133000000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm",
+      "sha256": "8124e38cb836d15490da5c27114a35e301c09c1accfb9ce55098f2b03d310cbb",
+      "locator": {
+        "table": 2,
+        "row": 3,
+        "column": 4,
+        "label": "Net sales",
+        "scale": 1000000,
+        "precision": "1000000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2026-04-04",
+      "field": "revenue",
+      "previousValue": 2714000000.0,
+      "parsedValue": 2714000000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm",
+      "sha256": "0441ff4ab8afee73679fa76d580a4175b0d03cf3fbf1a4309f9125b8bf2fbf75",
+      "locator": {
+        "table": 3,
+        "row": 6,
+        "column": 4,
+        "label": "Net sales",
+        "scale": 1000000,
+        "precision": "1000000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2025-09-27",
+      "field": "revenue",
+      "previousValue": 3009000000.0,
+      "parsedValue": 3009000000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm",
+      "sha256": "0274ac1293094eb8b19d001b1701ad805bf3ed81c94e370e9fb8da45f7bafac7",
+      "locator": {
+        "table": 3,
+        "row": 6,
+        "column": 4,
+        "label": "Net sales",
+        "scale": 1000000,
+        "precision": "1000000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "MSI",
+      "periodEnd": "2025-06-28",
+      "field": "revenue",
+      "previousValue": 2765000000.0,
+      "parsedValue": 2765000000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm",
+      "sha256": "7743f14db9bd09e8d0d1d4a72d6dba82bd487b8c1835d7da9afc897a984d29b3",
+      "locator": {
+        "table": 3,
+        "row": 6,
+        "column": 4,
+        "label": "Net sales",
+        "scale": 1000000,
+        "precision": "1000000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "RVTY",
+      "periodEnd": "2026-07-05",
+      "field": "revenue",
+      "previousValue": 729688000.0,
+      "parsedValue": 729688000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm",
+      "sha256": "6fc03183333882779874024d38df3d42ea143c618c5ce75e0dd21809eae51ab9",
+      "locator": {
+        "table": 1,
+        "row": 5,
+        "column": 8,
+        "label": "Revenue",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "RVTY",
+      "periodEnd": "2026-04-05",
+      "field": "revenue",
+      "previousValue": 711118000.0,
+      "parsedValue": 711118000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm",
+      "sha256": "92a3befe98a1e033b0c52b5af429d88a914c8f48fd26cfcab970849cec5e7f90",
+      "locator": {
+        "table": 1,
+        "row": 5,
+        "column": 8,
+        "label": "Revenue",
+        "scale": 1000,
+        "precision": "1000"
+      },
+      "preserveConflict": false
+    },
+    {
+      "ticker": "TKO",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "previousValue": 1037995000.0,
+      "parsedValue": 1038100000.0,
+      "state": "verified",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071552/tko-ex99_1.htm",
+      "sha256": "a04cd59840aa238c22f2c5b39419bee7cb487cce21257f62ed0b44e1e9e06b89",
+      "locator": {
+        "table": 7,
+        "row": 6,
+        "column": 4,
+        "label": "Revenue",
+        "scale": 1000000,
+        "precision": "100000.0"
+      },
+      "preserveConflict": true
+    }
+  ],
+  "newQuarters": [
+    {
+      "ticker": "ADP",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000033/q1fy27exhibit99.htm"
+    },
+    {
+      "ticker": "AON",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026067714/ex991prq32026.htm"
+    },
+    {
+      "ticker": "BIIB",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000094/exhibit991-q32026pressrele.htm"
+    },
+    {
+      "ticker": "BSX",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572526000066/earningsrelease_live.htm"
+    },
+    {
+      "ticker": "CHRW",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327726000039/ex991earningsreleaseq30930.htm"
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2026-10-02",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000039/ftv-q3x2026xearningsxpress.htm"
+    },
+    {
+      "ticker": "GEHC",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239326000058/gehc-20261022.htm"
+    },
+    {
+      "ticker": "GEV",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000162/gevpressrelease3q26.htm"
+    },
+    {
+      "ticker": "GNRC",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926033685/ex_1032565.htm"
+    },
+    {
+      "ticker": "GRMN",
+      "periodEnd": "2026-09-26",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1121788/000119312526435066/grmn-ex99_1.htm"
+    },
+    {
+      "ticker": "LH",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000213/form8-kexhibit9913q26.htm"
+    },
+    {
+      "ticker": "LII",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000094/lii-20260930xexx991pressre.htm"
+    },
+    {
+      "ticker": "MAS",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000032/a930268-kex99.htm"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000099/ni-ex991_20260930.htm"
+    },
+    {
+      "ticker": "SW",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000110465926119345/tm2628367d1_ex99-1.htm"
+    },
+    {
+      "ticker": "TER",
+      "periodEnd": "2026-09-27",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000119312526434981/ter-20261027.htm"
+    },
+    {
+      "ticker": "VRT",
+      "periodEnd": "2026-09-30",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm"
+    }
+  ],
+  "removedQuarters": [
+    {
+      "ticker": "ADP",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "periodScope": "quarter",
+        "periodStart": null,
+        "epsGaapDiluted": null,
+        "revenue": null,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "pending",
+        "revenueVerificationStatus": "pending",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867025000026/q4fy25exhibit99.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867025000037/adp-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0000008670-25-000026",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867025000037/adp-20250630.htm",
+        "form": "10-K",
+        "filingDate": "2025-08-06",
+        "accessionNumber": "0000008670-25-000037",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "ADP"
+      }
+    },
+    {
+      "ticker": "AON",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-25",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 2.66,
+        "revenue": 4155000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025035982/ex991prq22025.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-25",
+        "releaseAccession": "0001628280-25-035982",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-25",
+        "accessionNumber": "0001628280-25-036060",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "AON"
+      }
+    },
+    {
+      "ticker": "BIIB",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-31",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodEndEvidence": {
+          "locator": {
+            "table": 6,
+            "column": 7,
+            "header": "\nFor the Three Months Ended June 30,\n2025\n"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000035/exhibit991-q22025pressrele.htm"
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 4.33,
+        "revenue": 2645500000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000033/biib-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000033/biib-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000035/exhibit991-q22025pressrele.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000033/biib-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-31",
+        "releaseAccession": "0000875045-25-000035",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504525000033/biib-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-31",
+        "accessionNumber": "0000875045-25-000033",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "BIIB"
+      }
+    },
+    {
+      "ticker": "BSX",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-23",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodEndEvidence": {
+          "locator": {
+            "table": 3,
+            "column": 4,
+            "header": "\nThree Months Ended June 30,\n2025\n"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000039/q22025earningsrelease.htm"
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 0.53,
+        "revenue": 5061000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000041/bsx-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000041/bsx-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000039/q22025earningsrelease.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000041/bsx-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-23",
+        "releaseAccession": "0000885725-25-000039",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000041/bsx-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-01",
+        "accessionNumber": "0000885725-25-000041",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "BSX"
+      }
+    },
+    {
+      "ticker": "CHRW",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 1.26,
+        "revenue": 4136543000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "metricLocators": {
+          "revenue": {
+            "table": 8,
+            "row": 7,
+            "column": 4,
+            "label": "Total revenues",
+            "scale": 1000,
+            "precision": "1000",
+            "validationBasis": "selected_inline_fact"
+          }
+        },
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000031/ex991earningsreleaseq20630.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-31",
+        "releaseAccession": "0001043277-25-000031",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-01",
+        "accessionNumber": "0001043277-25-000037",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "CHRW"
+      }
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2025-06-27",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-26",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-27",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodEndEvidence": {
+          "locator": {
+            "table": 8,
+            "column": 4,
+            "header": "\nThree Months Ended\nJune 27, 2025\n"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000119/q22025-ex991.htm"
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-03-29",
+        "epsGaapDiluted": 0.49,
+        "revenue": 1016400000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000120/ftv-20250627.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000119/q22025-ex991.htm",
+        "metricLocators": {
+          "revenue": {
+            "table": 8,
+            "row": 5,
+            "column": 5,
+            "label": "Sales",
+            "scale": 1000000,
+            "precision": "100000.0"
+          }
+        },
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000119/q22025-ex991.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000120/ftv-20250627.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0001659166-25-000119",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000120/ftv-20250627.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-30",
+        "accessionNumber": "0001659166-25-000120",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "FTV"
+      }
+    },
+    {
+      "ticker": "GEHC",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 1.06,
+        "revenue": 5007000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239325000049/gehc-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239325000049/gehc-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239325000048/release2q25earnings.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239325000049/gehc-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0001932393-25-000048",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239325000049/gehc-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-30",
+        "accessionNumber": "0001932393-25-000049",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "GEHC"
+      }
+    },
+    {
+      "ticker": "GEV",
+      "periodEnd": "2025-03-31",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-04-23",
+        "periodEnd": "2025-03-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2025-01-01",
+        "epsGaapDiluted": 0.91,
+        "revenue": 8032000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681025000073/gev-20250331.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681025000073/gev-20250331.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681025000072/gevpressrelease1q25.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681025000073/gev-20250331.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-04-23",
+        "releaseAccession": "0001996810-25-000072",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681025000073/gev-20250331.htm",
+        "form": "10-Q",
+        "filingDate": "2025-04-23",
+        "accessionNumber": "0001996810-25-000073",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "GEV"
+      }
+    },
+    {
+      "ticker": "GNRC",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 1.25,
+        "revenue": null,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+        "revenueVerificationStatus": "pending",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925023858/ex_845273.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0001437749-25-023858",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-05",
+        "accessionNumber": "0001437749-25-024879",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "GNRC"
+      }
+    },
+    {
+      "ticker": "GRMN",
+      "periodEnd": "2025-06-28",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-27",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-28",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-03-30",
+        "epsGaapDiluted": 2.07,
+        "revenue": null,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1121788/000095017025099877/grmn-20250628.htm",
+        "revenueVerificationStatus": "pending",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1121788/000095017025099874/grmn-ex99_1.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1121788/000095017025099877/grmn-20250628.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0000950170-25-099874",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1121788/000095017025099877/grmn-20250628.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-30",
+        "accessionNumber": "0000950170-25-099877",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "GRMN"
+      }
+    },
+    {
+      "ticker": "LH",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-24",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 2.84,
+        "revenue": 3527300000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000075/form8-kexhibit9912q25.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-24",
+        "releaseAccession": "0000920148-25-000075",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-01",
+        "accessionNumber": "0000920148-25-000081",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "LH"
+      }
+    },
+    {
+      "ticker": "LII",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-23",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodEndEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+          "locator": {
+            "table": 1,
+            "column": 4,
+            "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+          }
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 7.82,
+        "revenue": 1500900000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "metricStatementEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+          "periodEnd": "2025-06-30",
+          "locator": {
+            "table": 1,
+            "column": 4,
+            "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+          },
+          "matchedFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm"
+        },
+        "metricExclusionEvidence": [
+          {
+            "table": 4,
+            "reason": "nonconsolidated_statement",
+            "heading": "(1) We define segment profit (loss) as a segment's operating income (loss) included in the accompanying Consolidated Statements of Operations, excluding: • Restructuring charges, and; • Loss (gain) on sale of previous dispositions LENNOX INTERNATIONAL INC. AND SUBSIDIARIES Consolidated Balance Sheets                         (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) As of June 30, 2025 As of June 30, 2025 As of June 30, 2025    As of December 31, 2024 As of December 31, 2024 As of Dec",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm"
+          }
+        ],
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-20250723.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-23",
+        "releaseAccession": "0001069202-25-000029",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-23",
+        "accessionNumber": "0001069202-25-000032",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "LII"
+      }
+    },
+    {
+      "ticker": "MAS",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-31",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": 1.28,
+        "revenue": 2051000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299625000029/mas-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299625000029/mas-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299625000028/a630258-kex99.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299625000029/mas-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-31",
+        "releaseAccession": "0000062996-25-000028",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299625000029/mas-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-07-31",
+        "accessionNumber": "0000062996-25-000029",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "MAS"
+      }
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2025-03-31",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-06-30",
+      "originalEvidence": {
+        "date": "2025-05-07",
+        "periodEnd": "2025-03-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2025-01-01",
+        "epsGaapDiluted": 1.0,
+        "revenue": null,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171125000020/nix-20250331.htm",
+        "revenueVerificationStatus": "pending",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171125000019/ni-ex991_20250331.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171125000020/nix-20250331.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-05-07",
+        "releaseAccession": "0001111711-25-000019",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171125000020/nix-20250331.htm",
+        "form": "10-Q",
+        "filingDate": "2025-05-07",
+        "accessionNumber": "0001111711-25-000020",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "NI"
+      }
+    },
+    {
+      "ticker": "SW",
+      "periodEnd": "2025-06-30",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-07-30",
+        "periodEnd": "2025-06-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-04-01",
+        "epsGaapDiluted": -0.05,
+        "revenue": 7940000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "metricLocators": {
+          "revenue": {
+            "table": 10,
+            "row": 4,
+            "column": 2,
+            "label": "Net sales",
+            "scale": 1000000,
+            "precision": "1000000",
+            "validationBasis": "selected_inline_fact"
+          }
+        },
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000110465925071932/tm2521995d1_ex99-1.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0001104659-25-071932",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-07",
+        "accessionNumber": "0002005951-25-000014",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "SW"
+      }
+    },
+    {
+      "ticker": "TER",
+      "periodEnd": "2025-06-29",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-28",
+      "originalEvidence": {
+        "date": "2025-07-29",
+        "periodEnd": "2025-06-29",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-03-31",
+        "epsGaapDiluted": 0.49,
+        "revenue": 651797000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025099876/ter-ex99_1.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-07-30",
+        "releaseAccession": "0000950170-25-099876",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+        "form": "10-Q",
+        "filingDate": "2025-08-01",
+        "accessionNumber": "0000950170-25-101248",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "TER"
+      }
+    },
+    {
+      "ticker": "VRT",
+      "periodEnd": "2025-03-31",
+      "reason": "five_quarter_rollover",
+      "oldestRetainedPeriodEnd": "2025-09-30",
+      "originalEvidence": {
+        "date": "2025-04-23",
+        "periodEnd": "2025-03-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2025-01-01",
+        "epsGaapDiluted": 0.42,
+        "revenue": 2036000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025019372/vrt-20250331.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025018915/q12025exhibit991vrt042325.htm",
+        "metricLocators": {
+          "revenue": {
+            "table": 3,
+            "row": 6,
+            "column": 16,
+            "label": "Net sales",
+            "scale": 1000000,
+            "precision": "100000.0"
+          }
+        },
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025018915/q12025exhibit991vrt042325.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025019372/vrt-20250331.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-04-23",
+        "releaseAccession": "0001628280-25-018915",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025019372/vrt-20250331.htm",
+        "form": "10-Q",
+        "filingDate": "2025-04-23",
+        "accessionNumber": "0001628280-25-019372",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "VRT"
+      }
+    }
+  ],
+  "latestStateChanges": [
+    {
+      "ticker": "AEP",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000055/a2q20268kpressreleaseex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000055/a2q20268kpressreleaseex991.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000004904.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0000004904:0000004904-26-000069:https://www.sec.gov/Archives/edgar/data/4904/000000490426000069/aep-20261028.htm",
+          "accession": "0000004904-26-000069",
+          "filingDate": "2026-10-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000069/aep-20261028.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:36:40.593260+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "BIIB",
+      "before": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000073/exhibit991-q22026pressrele.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-28",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000094/exhibit991-q32026pressrele.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": true
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000875045.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0000875045:0000875045-26-000068:https://www.sec.gov/Archives/edgar/data/875045/000087504526000068/biib-20260701.htm",
+          "accession": "0000875045-26-000068",
+          "filingDate": "2026-07-01",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000068/biib-20260701.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:41:16.802753+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000875045:0000875045-26-000039:https://www.sec.gov/Archives/edgar/data/875045/000087504526000039/biib-20260406.htm",
+          "accession": "0000875045-26-000039",
+          "filingDate": "2026-04-06",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000039/biib-20260406.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:41:17.300591+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000875045:0000875045-26-000003:https://www.sec.gov/Archives/edgar/data/875045/000087504526000003/biib-20260113.htm",
+          "accession": "0000875045-26-000003",
+          "filingDate": "2026-01-14",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/875045/000087504526000003/biib-20260113.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:41:18.678722+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "GEHC",
+      "before": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239326000045/release2q26earnings.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-28",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239326000058/gehc-20261022.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": true
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001932393.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0001932393:0001932393-26-000039:https://www.sec.gov/Archives/edgar/data/1932393/000193239326000039/gehc-20260721.htm",
+          "accession": "0001932393-26-000039",
+          "filingDate": "2026-07-23",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1932393/000193239326000039/gehc-20260721.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:43:56.051582+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "OTIS",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-22",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000110/a2026-06x308xkerexhibit99.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-22",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000110/a2026-06x308xkerexhibit99.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001781335.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0001781335:0001781335-26-000124:https://www.sec.gov/Archives/edgar/data/1781335/000178133526000124/otis-20261028.htm",
+          "accession": "0001781335-26-000124",
+          "filingDate": "2026-10-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000124/otis-20261028.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:39:15.367002+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "PSX",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-05",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000030/psx-20260805.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-05",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000030/psx-20260805.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001534701.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0001534701:0001534701-26-000035:https://www.sec.gov/Archives/edgar/data/1534701/000153470126000035/psx-20261028.htm",
+          "accession": "0001534701-26-000035",
+          "filingDate": "2026-10-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000035/psx-20261028.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:39:20.163507+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0001534701:0001534701-26-000020:https://www.sec.gov/Archives/edgar/data/1534701/000153470126000020/psx-20260429.htm",
+          "accession": "0001534701-26-000020",
+          "filingDate": "2026-04-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000020/psx-20260429.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:46:34.932001+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0001534701:0001534701-26-000015:https://www.sec.gov/Archives/edgar/data/1534701/000153470126000015/psx-20260406.htm",
+          "accession": "0001534701-26-000015",
+          "filingDate": "2026-04-06",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000015/psx-20260406.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:46:35.383080+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    },
+    {
+      "ticker": "TEL",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-26",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-07-22",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926085589/tel-20260722xex99d1.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-26",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-07-22",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926085589/tel-20260722xex99d1.htm",
+        "discoveryAsOf": "2026-10-28T12:36:33.568800Z",
+        "metricsComplete": false
+      },
+      "sourceCheck": {
+        "lastAttemptAt": "2026-10-28T12:36:33.568800Z",
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001385157.json",
+        "state": "checked",
+        "lastSuccessfulDiscoveryAt": "2026-10-28T12:36:33.568800Z",
+        "stale": false
+      },
+      "activeCandidates": [
+        {
+          "key": "0001385157:0001104659-26-119326:https://www.sec.gov/Archives/edgar/data/1385157/000110465926119326/tel-20261028x8k.htm",
+          "accession": "0001104659-26-119326",
+          "filingDate": "2026-10-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926119326/tel-20261028x8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T12:39:46.686803+00:00",
+          "scope": "current_or_unknown"
+        }
+      ]
+    }
+  ],
+  "coverageDeclines": [
+    {
+      "ticker": "ACN",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 0,
+      "relevantChanges": [
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-08-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.29,
+          "after": 3.29,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.29,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm"
+            },
+            {
+              "value": 1993174.0,
+              "precision": "1",
+              "locator": {
+                "table": 32,
+                "row": 26,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.29,
+              "precision": "0.01",
+              "locator": {
+                "table": 32,
+                "row": 32,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-05-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.8,
+          "after": 3.8,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.8,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm"
+            },
+            {
+              "value": 2341192.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.8,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-02-28",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 2.93,
+          "after": 2.93,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2.93,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm"
+            },
+            {
+              "value": 1826953.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 2.93,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2025-11-30",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.54,
+          "after": 3.54,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.54,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm"
+            },
+            {
+              "value": 2213644.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.54,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2025-08-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 2.25,
+          "after": 2.25,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2.25,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm"
+            },
+            {
+              "value": 1415289.0,
+              "precision": "1",
+              "locator": {
+                "table": 31,
+                "row": 26,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+            },
+            {
+              "value": 2.25,
+              "precision": "0.01",
+              "locator": {
+                "table": 31,
+                "row": 32,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 0,
+      "relevantChanges": [
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-08-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.29,
+          "after": 3.29,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.29,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm"
+            },
+            {
+              "value": 1993174.0,
+              "precision": "1",
+              "locator": {
+                "table": 32,
+                "row": 26,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.29,
+              "precision": "0.01",
+              "locator": {
+                "table": 32,
+                "row": 32,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-05-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.8,
+          "after": 3.8,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.8,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000032/acn-20260531.htm"
+            },
+            {
+              "value": 2341192.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.8,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000031/q3fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2026-02-28",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 2.93,
+          "after": 2.93,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2.93,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000014/acn-20260228.htm"
+            },
+            {
+              "value": 1826953.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 2.93,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000013/q2fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2025-11-30",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 3.54,
+          "after": 3.54,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3.54,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000222/acn-20251130.htm"
+            },
+            {
+              "value": 2213644.0,
+              "precision": "1",
+              "locator": {
+                "table": 21,
+                "row": 27,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+            },
+            {
+              "value": 3.54,
+              "precision": "0.01",
+              "locator": {
+                "table": 21,
+                "row": 33,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000221/q1fy26earnings8-kexhibit.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "ACN",
+          "periodEnd": "2025-08-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 2.25,
+          "after": 2.25,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2.25,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm"
+            },
+            {
+              "value": 1415289.0,
+              "precision": "1",
+              "locator": {
+                "table": 31,
+                "row": 26,
+                "column": 8,
+                "label": "Net income for diluted earnings per share calculation"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+            },
+            {
+              "value": 2.25,
+              "precision": "0.01",
+              "locator": {
+                "table": 31,
+                "row": 32,
+                "column": 8,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000213/q4fy25earnings8-kexhibit.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "AON",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "AON",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-25",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.66,
+            "revenue": 4155000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025035982/ex991prq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-25",
+            "releaseAccession": "0001628280-25-035982",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-25",
+            "accessionNumber": "0001628280-25-036060",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "AON"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "AON",
+      "field": "verifiedRevenue",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "AON",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-25",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.66,
+            "revenue": 4155000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025035982/ex991prq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-25",
+            "releaseAccession": "0001628280-25-035982",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-25",
+            "accessionNumber": "0001628280-25-036060",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "AON"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "AON",
+      "field": "completeMetrics",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "AON",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-25",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.66,
+            "revenue": 4155000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025035982/ex991prq22025.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-25",
+            "releaseAccession": "0001628280-25-035982",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828025036060/aon-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-25",
+            "accessionNumber": "0001628280-25-036060",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "AON"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "CHRW",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "CHRW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.26,
+            "revenue": 4136543000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 8,
+                "row": 7,
+                "column": 4,
+                "label": "Total revenues",
+                "scale": 1000,
+                "precision": "1000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000031/ex991earningsreleaseq20630.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0001043277-25-000031",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0001043277-25-000037",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "CHRW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "CHRW",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "CHRW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.26,
+            "revenue": 4136543000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 8,
+                "row": 7,
+                "column": 4,
+                "label": "Total revenues",
+                "scale": 1000,
+                "precision": "1000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000031/ex991earningsreleaseq20630.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0001043277-25-000031",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0001043277-25-000037",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "CHRW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "CHRW",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "CHRW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.26,
+            "revenue": 4136543000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 8,
+                "row": 7,
+                "column": 4,
+                "label": "Total revenues",
+                "scale": 1000,
+                "precision": "1000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000031/ex991earningsreleaseq20630.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-31",
+            "releaseAccession": "0001043277-25-000031",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327725000037/chrw-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0001043277-25-000037",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "CHRW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "GNRC",
+      "field": "verifiedEps",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "GNRC",
+          "periodEnd": "2026-06-30",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 1173510000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926025669/gnrc20260630_10q.htm",
+          "locator": null,
+          "evidence": null
+        },
+        {
+          "ticker": "GNRC",
+          "periodEnd": "2026-03-31",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 1059365000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926014882/gnrc20260331_10q.htm",
+          "locator": null,
+          "evidence": null
+        },
+        {
+          "ticker": "GNRC",
+          "periodEnd": "2025-12-31",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 1091504000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774926003700/ex_919348.htm",
+          "locator": {
+            "table": 23,
+            "row": 4,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000,
+            "precision": "1000"
+          },
+          "evidence": null
+        },
+        {
+          "ticker": "GNRC",
+          "periodEnd": "2025-09-30",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 1114353000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925033048/gnrc20250930_10q.htm",
+          "locator": null,
+          "evidence": null
+        },
+        {
+          "ticker": "GNRC",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 1.25,
+            "revenue": null,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+            "revenueVerificationStatus": "pending",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925023858/ex_845273.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0001437749-25-023858",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1474735/000143774925024879/gnrc20250630_10q.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-05",
+            "accessionNumber": "0001437749-25-024879",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "GNRC"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "field": "verifiedEps",
+      "before": 3,
+      "after": 1,
+      "relevantChanges": [
+        {
+          "ticker": "IBKR",
+          "periodEnd": "2026-06-30",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 0.69,
+          "after": 0.69,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 0.69,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm"
+            },
+            {
+              "value": 0.69,
+              "precision": "0.01",
+              "locator": {
+                "table": 1,
+                "row": 38,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+            },
+            {
+              "value": 0.66,
+              "precision": "0.01",
+              "locator": {
+                "table": 2,
+                "row": 18,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "IBKR",
+          "periodEnd": "2026-03-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 0.59,
+          "after": 0.59,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 0.59,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm"
+            },
+            {
+              "value": 0.59,
+              "precision": "0.01",
+              "locator": {
+                "table": 1,
+                "row": 38,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+            },
+            {
+              "value": 0.55,
+              "precision": "0.01",
+              "locator": {
+                "table": 2,
+                "row": 18,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "field": "completeMetrics",
+      "before": 2,
+      "after": 0,
+      "relevantChanges": [
+        {
+          "ticker": "IBKR",
+          "periodEnd": "2026-06-30",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 0.69,
+          "after": 0.69,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 0.69,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000147/ibkr-20260630.htm"
+            },
+            {
+              "value": 0.69,
+              "precision": "0.01",
+              "locator": {
+                "table": 1,
+                "row": 38,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+            },
+            {
+              "value": 0.66,
+              "precision": "0.01",
+              "locator": {
+                "table": 2,
+                "row": 18,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000118/ibkr-ex99_1.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "IBKR",
+          "periodEnd": "2026-03-31",
+          "field": "epsGaapDiluted",
+          "kind": "metric_verification_withdrawn",
+          "before": 0.59,
+          "after": 0.59,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 0.59,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000093/ibkr-20260331.htm"
+            },
+            {
+              "value": 0.59,
+              "precision": "0.01",
+              "locator": {
+                "table": 1,
+                "row": 38,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+            },
+            {
+              "value": 0.55,
+              "precision": "0.01",
+              "locator": {
+                "table": 2,
+                "row": 18,
+                "column": 5,
+                "label": "Diluted"
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000078/ibkr-ex99_1.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "LH",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LH",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-24",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.84,
+            "revenue": 3527300000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000075/form8-kexhibit9912q25.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-24",
+            "releaseAccession": "0000920148-25-000075",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000920148-25-000081",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LH"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "LH",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LH",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-24",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.84,
+            "revenue": 3527300000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000075/form8-kexhibit9912q25.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-24",
+            "releaseAccession": "0000920148-25-000075",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000920148-25-000081",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LH"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "LH",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LH",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-24",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 2.84,
+            "revenue": 3527300000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000075/form8-kexhibit9912q25.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-24",
+            "releaseAccession": "0000920148-25-000075",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/920148/000092014825000081/lh-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000920148-25-000081",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LH"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "LII",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LII",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-23",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              }
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 7.82,
+            "revenue": 1500900000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricStatementEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "periodEnd": "2025-06-30",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              },
+              "matchedFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm"
+            },
+            "metricExclusionEvidence": [
+              {
+                "table": 4,
+                "reason": "nonconsolidated_statement",
+                "heading": "(1) We define segment profit (loss) as a segment's operating income (loss) included in the accompanying Consolidated Statements of Operations, excluding: • Restructuring charges, and; • Loss (gain) on sale of previous dispositions LENNOX INTERNATIONAL INC. AND SUBSIDIARIES Consolidated Balance Sheets                         (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) As of June 30, 2025 As of June 30, 2025 As of June 30, 2025    As of December 31, 2024 As of December 31, 2024 As of Dec",
+                "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm"
+              }
+            ],
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-20250723.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-23",
+            "releaseAccession": "0001069202-25-000029",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-23",
+            "accessionNumber": "0001069202-25-000032",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LII"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "LII",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LII",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-23",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              }
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 7.82,
+            "revenue": 1500900000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricStatementEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "periodEnd": "2025-06-30",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              },
+              "matchedFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm"
+            },
+            "metricExclusionEvidence": [
+              {
+                "table": 4,
+                "reason": "nonconsolidated_statement",
+                "heading": "(1) We define segment profit (loss) as a segment's operating income (loss) included in the accompanying Consolidated Statements of Operations, excluding: • Restructuring charges, and; • Loss (gain) on sale of previous dispositions LENNOX INTERNATIONAL INC. AND SUBSIDIARIES Consolidated Balance Sheets                         (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) As of June 30, 2025 As of June 30, 2025 As of June 30, 2025    As of December 31, 2024 As of December 31, 2024 As of Dec",
+                "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm"
+              }
+            ],
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-20250723.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-23",
+            "releaseAccession": "0001069202-25-000029",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-23",
+            "accessionNumber": "0001069202-25-000032",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LII"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "LII",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "LII",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-23",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodEndEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              }
+            },
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": 7.82,
+            "revenue": 1500900000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricStatementEvidence": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm",
+              "periodEnd": "2025-06-30",
+              "locator": {
+                "table": 1,
+                "column": 4,
+                "header": "\nFor the Three Months Ended June 30,\nFor the Three Months Ended June 30,\n2025"
+              },
+              "matchedFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm"
+            },
+            "metricExclusionEvidence": [
+              {
+                "table": 4,
+                "reason": "nonconsolidated_statement",
+                "heading": "(1) We define segment profit (loss) as a segment's operating income (loss) included in the accompanying Consolidated Statements of Operations, excluding: • Restructuring charges, and; • Loss (gain) on sale of previous dispositions LENNOX INTERNATIONAL INC. AND SUBSIDIARIES Consolidated Balance Sheets                         (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) (Amounts in millions, except shares and par values) As of June 30, 2025 As of June 30, 2025 As of June 30, 2025    As of December 31, 2024 As of December 31, 2024 As of Dec",
+                "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-2025630xexx991pressrel.htm"
+              }
+            ],
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000029/lii-20250723.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-23",
+            "releaseAccession": "0001069202-25-000029",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000032/lii-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-07-23",
+            "accessionNumber": "0001069202-25-000032",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "LII"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 1,
+      "relevantChanges": [
+        {
+          "ticker": "MSI",
+          "periodEnd": "2026-07-04",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 3133000000.0,
+          "after": 3133000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3133000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 6,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2026-04-04",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 2714000000.0,
+          "after": 2714000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2714000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm"
+            },
+            {
+              "value": 2714000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 2714000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2025-09-27",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 3009000000.0,
+          "after": 3009000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3009000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm"
+            },
+            {
+              "value": 3009000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 3009000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2025-06-28",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 2765000000.0,
+          "after": 2765000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2765000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm"
+            },
+            {
+              "value": 2765000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 2765000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "MSI",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 1,
+      "relevantChanges": [
+        {
+          "ticker": "MSI",
+          "periodEnd": "2026-07-04",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 3133000000.0,
+          "after": 3133000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3133000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000028/msi-20260704.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 2,
+                "row": 3,
+                "column": 6,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 3133000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/msiq22026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2026-04-04",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 2714000000.0,
+          "after": 2714000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2714000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000021/msi-20260404.htm"
+            },
+            {
+              "value": 2714000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 2714000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000018/msiq12026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2025-09-27",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 3009000000.0,
+          "after": 3009000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 3009000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000052/msi-20250927.htm"
+            },
+            {
+              "value": 3009000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 3009000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000050/msiq32025pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "MSI",
+          "periodEnd": "2025-06-28",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 2765000000.0,
+          "after": 2765000000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 2765000000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000040/msi-20250628.htm"
+            },
+            {
+              "value": 2765000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 2765000000.0,
+              "precision": "1000000",
+              "locator": {
+                "table": 3,
+                "row": 6,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 4,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            },
+            {
+              "value": 100000000.0,
+              "precision": "100000.0",
+              "locator": {
+                "table": 3,
+                "row": 53,
+                "column": 5,
+                "label": "Net sales",
+                "scale": 1000000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850525000038/msiq22025pressrelease.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "field": "verifiedRevenue",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2026-07-05",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 729688000.0,
+          "after": 729688000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 729688000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm"
+            },
+            {
+              "value": 729688000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 8,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+            },
+            {
+              "value": 711109000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 14,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2026-04-05",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 711118000.0,
+          "after": 711118000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 711118000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm"
+            },
+            {
+              "value": 711118000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 8,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+            },
+            {
+              "value": 686912000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 14,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2025-12-28",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 772056000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000007/q42025pressrelease.htm",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 8,
+            "label": "Revenue",
+            "scale": 1000,
+            "precision": "1000"
+          },
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "field": "completeMetrics",
+      "before": 4,
+      "after": 2,
+      "relevantChanges": [
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2026-07-05",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 729688000.0,
+          "after": 729688000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 729688000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000027/revv-20260705.htm"
+            },
+            {
+              "value": 729688000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 8,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+            },
+            {
+              "value": 711109000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 14,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000022/q22026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2026-04-05",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 711118000.0,
+          "after": 711118000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 711118000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000019/revv-20260405.htm"
+            },
+            {
+              "value": 711118000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 8,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+            },
+            {
+              "value": 686912000.0,
+              "precision": "1000",
+              "locator": {
+                "table": 1,
+                "row": 5,
+                "column": 14,
+                "label": "Revenue",
+                "scale": 1000
+              },
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000016/q12026pressrelease.htm"
+            }
+          ]
+        },
+        {
+          "ticker": "RVTY",
+          "periodEnd": "2025-12-28",
+          "field": "revenue",
+          "kind": "metric_added",
+          "before": null,
+          "after": 772056000.0,
+          "beforeState": "pending",
+          "afterState": "verified",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000007/q42025pressrelease.htm",
+          "locator": {
+            "table": 1,
+            "row": 5,
+            "column": 8,
+            "label": "Revenue",
+            "scale": 1000,
+            "precision": "1000"
+          },
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "ticker": "SW",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "SW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": -0.05,
+            "revenue": 7940000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 10,
+                "row": 4,
+                "column": 2,
+                "label": "Net sales",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000110465925071932/tm2521995d1_ex99-1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0001104659-25-071932",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-07",
+            "accessionNumber": "0002005951-25-000014",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "SW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "SW",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "SW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": -0.05,
+            "revenue": 7940000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 10,
+                "row": 4,
+                "column": 2,
+                "label": "Net sales",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000110465925071932/tm2521995d1_ex99-1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0001104659-25-071932",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-07",
+            "accessionNumber": "0002005951-25-000014",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "SW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "SW",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "SW",
+          "periodEnd": "2025-06-30",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-30",
+          "originalEvidence": {
+            "date": "2025-07-30",
+            "periodEnd": "2025-06-30",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-04-01",
+            "epsGaapDiluted": -0.05,
+            "revenue": 7940000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "metricLocators": {
+              "revenue": {
+                "table": 10,
+                "row": 4,
+                "column": 2,
+                "label": "Net sales",
+                "scale": 1000000,
+                "precision": "1000000",
+                "validationBasis": "selected_inline_fact"
+              }
+            },
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000110465925071932/tm2521995d1_ex99-1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0001104659-25-071932",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/2005951/000200595125000014/smur-20250630.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-07",
+            "accessionNumber": "0002005951-25-000014",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "ticker": "SW"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "TER",
+      "field": "verifiedEps",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "TER",
+          "periodEnd": "2025-06-29",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-28",
+          "originalEvidence": {
+            "date": "2025-07-29",
+            "periodEnd": "2025-06-29",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-03-31",
+            "epsGaapDiluted": 0.49,
+            "revenue": 651797000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025099876/ter-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0000950170-25-099876",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000950170-25-101248",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "TER"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "TER",
+      "field": "verifiedRevenue",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "TER",
+          "periodEnd": "2025-06-29",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-28",
+          "originalEvidence": {
+            "date": "2025-07-29",
+            "periodEnd": "2025-06-29",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-03-31",
+            "epsGaapDiluted": 0.49,
+            "revenue": 651797000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025099876/ter-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0000950170-25-099876",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000950170-25-101248",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "TER"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "TER",
+      "field": "completeMetrics",
+      "before": 4,
+      "after": 3,
+      "relevantChanges": [
+        {
+          "ticker": "TER",
+          "periodEnd": "2025-06-29",
+          "reason": "five_quarter_rollover",
+          "oldestRetainedPeriodEnd": "2025-09-28",
+          "originalEvidence": {
+            "date": "2025-07-29",
+            "periodEnd": "2025-06-29",
+            "fiscalYear": 2025,
+            "fiscalQuarter": 2,
+            "periodScope": "quarter",
+            "periodStart": "2025-03-31",
+            "epsGaapDiluted": 0.49,
+            "revenue": 651797000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "epsVerificationStatus": "verified",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "revenueVerificationStatus": "verified",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025099876/ter-ex99_1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "verifiedAt": "2026-10-28",
+            "releaseFilingDate": "2025-07-30",
+            "releaseAccession": "0000950170-25-099876",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/97210/000095017025101248/ter-20250629.htm",
+            "form": "10-Q",
+            "filingDate": "2025-08-01",
+            "accessionNumber": "0000950170-25-101248",
+            "metricRevision": {},
+            "metricCorrectionEvidence": {},
+            "metricConflicts": {},
+            "metricLocators": {},
+            "ticker": "TER"
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "TKO",
+      "field": "verifiedRevenue",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "TKO",
+          "periodEnd": "2025-12-31",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 1037995000.0,
+          "after": 1037995000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 1037995000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm"
+            },
+            {
+              "value": 1038100000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071552/tko-ex99_1.htm",
+              "locator": {
+                "table": 7,
+                "row": 6,
+                "column": 4,
+                "label": "Revenue",
+                "scale": 1000000,
+                "precision": "100000.0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticker": "TKO",
+      "field": "completeMetrics",
+      "before": 5,
+      "after": 4,
+      "relevantChanges": [
+        {
+          "ticker": "TKO",
+          "periodEnd": "2025-12-31",
+          "field": "revenue",
+          "kind": "metric_verification_withdrawn",
+          "before": 1037995000.0,
+          "after": 1037995000.0,
+          "beforeState": "verified",
+          "afterState": "conflict",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
+          "locator": null,
+          "evidence": [
+            {
+              "value": 1037995000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm"
+            },
+            {
+              "value": 1038100000.0,
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071552/tko-ex99_1.htm",
+              "locator": {
+                "table": 7,
+                "row": 6,
+                "column": 4,
+                "label": "Revenue",
+                "scale": 1000000,
+                "precision": "100000.0"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unexplainedStructuralChanges": [],
+  "gapReasons": {
+    "quarterly_metric_not_located": 806,
+    "release_date_or_quarter_format_unsupported": 296,
+    "insufficient_verified_history": 44,
+    "official_value_conflict": 16,
+    "quarter_identity_unconfirmed": 38,
+    "historical_or_unconfirmed_ticker": 4
+  },
+  "nextAction": "Regenerate a version24 staged bundle from the complete pre-scan version22 baseline, retain this rejected-candidate audit, then compare every real new quarter and numerical addition."
+}

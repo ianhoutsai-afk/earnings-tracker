@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "sources": {
+    "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/apa8k-20261007.htm": {
+      "originalSha256": "10a0d1a4d204e8619adfa25f7ba7af366e48793df631f410ae725281eb474ab5",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/a3q26supplementalguide-ear.htm",
+      "counterevidenceSha256": "d2b0e48e9a01a5e341086d0886b3f3db9bdc6da14232b5a654fa3f1eca773b20",
+      "reason": "unfinalized_quarter_estimates",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2026-09-30",
+      "reviewedStoredDate": "2026-10-07",
+      "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+    },
+    "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000045/apa8k-20260708.htm": {
+      "originalSha256": "c20174bb56c79ff1642f269c482c752237f78a5b5d7aec8a63821ea9190851ab",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000045/a2q26supplementalguide-ear.htm",
+      "counterevidenceSha256": "1321886516f12bc7ef6f55e8a59bee5a2fb3cbcbf238e39a9aec4995ab5ae798",
+      "reason": "unfinalized_quarter_estimates",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2026-06-30",
+      "reviewedStoredDate": "2026-07-08",
+      "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+    },
+    "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000021/apa8k-20260414.htm": {
+      "originalSha256": "14d2f34de2b4f494186e41912387de0c0d9ed76c7fadb80d73a69a5055a85ed4",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000021/a1q26supplementalguide-ear.htm",
+      "counterevidenceSha256": "c68453c72702419e881140d8b979c6e0b5063de7b8d50500c3a894f5c075c80d",
+      "reason": "unfinalized_quarter_estimates",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2026-03-31",
+      "reviewedStoredDate": "2026-04-14",
+      "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+    },
+    "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000003/apa8k-20260120.htm": {
+      "originalSha256": "f2febd99997a10e6d00c5f6dc952858090147174864147e0b248f6de9cb0be04",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000003/a4q25supplementalguide-ear.htm",
+      "counterevidenceSha256": "49dee13096a29e0e20c64df5fb90b62c673bbe216692973e4f88482d70f5ac03",
+      "reason": "unfinalized_quarter_estimates",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2025-12-31",
+      "reviewedStoredDate": "2026-01-20",
+      "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+    },
+    "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000023/apa8k-20251008.htm": {
+      "originalSha256": "80a356fbae63514d3ec68945cb3a2a758e43c875678534b4540b946437c5e7de",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000023/a3q25supplementalguide-e.htm",
+      "counterevidenceSha256": "5f53cdf679ffeebd8314573a801c957e1887afed9a3a62bf474e78d438ae199d",
+      "reason": "unfinalized_quarter_estimates",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2025-09-30",
+      "reviewedStoredDate": "2025-10-08",
+      "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+    },
+    "https://www.sec.gov/Archives/edgar/data/16918/000001691825000132/stz-20250902.htm": {
+      "originalSha256": "df491f7d378a254bd941e7f1089a20a7a4e0ba92c93ab292911b2272d68ee35e",
+      "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000132/stzex991_922025guidanceupd.htm",
+      "counterevidenceSha256": "548ae418828ec0e9d4d85ce56de3427c63a8b70c8a8b5131be2f88ddac429600",
+      "reason": "outlook_update_not_quarter_results",
+      "reviewedAt": "2026-10-29",
+      "reviewedPeriodEnd": "2025-08-31",
+      "reviewedStoredDate": "2025-09-02",
+      "explanation": "September 2 Exhibit 99.1 explicitly updates fiscal 2026 outlook; the full second-quarter actual earnings exhibit is a later October announcement."
+    }
+  }
+}

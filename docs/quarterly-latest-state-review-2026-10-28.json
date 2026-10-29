@@ -1,0 +1,2027 @@
+{
+  "parserVersion": 22,
+  "checkedAt": "2026-10-28T08:13:25.918279Z",
+  "state": "awaiting_version23_recheck",
+  "explanation": "Existing verified quarters were retained. These source candidates could not be reconfirmed under the narrowed release-period evidence rules; no claim of no new quarter is made.",
+  "companies": [
+    {
+      "ticker": "AVY",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/ex9918k7-30x26.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/ex9918k7-30x26.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000008818:0000008818-26-000127:https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/avy-20260730.htm",
+          "accession": "0000008818-26-000127",
+          "filingDate": "2026-07-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/avy-20260730.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:13:39.077428+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000008818:0000008818-26-000075:https://www.sec.gov/Archives/edgar/data/8818/000000881826000075/avy-20260428.htm",
+          "accession": "0000008818-26-000075",
+          "filingDate": "2026-04-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000075/avy-20260428.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:16:17.793060+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000008818:0000008818-26-000004:https://www.sec.gov/Archives/edgar/data/8818/000000881826000004/avy-20260204.htm",
+          "accession": "0000008818-26-000004",
+          "filingDate": "2026-02-04",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000004/avy-20260204.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:16:18.204489+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000008818:0001193125-25-245839:https://www.sec.gov/Archives/edgar/data/8818/000119312525245839/d79220d8k.htm",
+          "accession": "0001193125-25-245839",
+          "filingDate": "2025-10-22",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525245839/d79220d8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:16:18.293044+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000008818:0001193125-25-162209:https://www.sec.gov/Archives/edgar/data/8818/000119312525162209/d83231d8k.htm",
+          "accession": "0001193125-25-162209",
+          "filingDate": "2025-07-22",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525162209/d83231d8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:16:18.739316+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000008818:0000008818-26-000127:https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/avy-20260730.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/avy-20260730.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000008818:0000008818-26-000075:https://www.sec.gov/Archives/edgar/data/8818/000000881826000075/avy-20260428.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000075/avy-20260428.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000008818:0000008818-26-000004:https://www.sec.gov/Archives/edgar/data/8818/000000881826000004/avy-20260204.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000004/avy-20260204.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000008818:0001193125-25-245839:https://www.sec.gov/Archives/edgar/data/8818/000119312525245839/d79220d8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525245839/d79220d8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000008818:0001193125-25-162209:https://www.sec.gov/Archives/edgar/data/8818/000119312525162209/d83231d8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525162209/d83231d8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000015/avy-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "C",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-13",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d1.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-13",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d1.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000831001:0001104659-26-115323:https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-20261013x8k.htm",
+          "accession": "0001104659-26-115323",
+          "filingDate": "2026-10-13",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-20261013x8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:13:52.453539+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000831001:0001104659-26-115323:https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-20261013x8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-20261013x8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000083100126000011/c-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831001/000083100126000011/c-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "DAL",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-09",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/deltaairlinesannouncessept.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-09",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/deltaairlinesannouncessept.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000027904:0000027904-26-000035:https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/dal-20261009.htm",
+          "accession": "0000027904-26-000035",
+          "filingDate": "2026-10-09",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/dal-20261009.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:02.798084+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000027904:0000027904-26-000029:https://www.sec.gov/Archives/edgar/data/27904/000002790426000029/dal-20260710.htm",
+          "accession": "0000027904-26-000029",
+          "filingDate": "2026-07-10",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000029/dal-20260710.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:12.619558+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000027904:0000027904-26-000020:https://www.sec.gov/Archives/edgar/data/27904/000002790426000020/dal-20260408.htm",
+          "accession": "0000027904-26-000020",
+          "filingDate": "2026-04-08",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000020/dal-20260408.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:12.801985+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000027904:0000027904-26-000008:https://www.sec.gov/Archives/edgar/data/27904/000002790426000008/dal-20260112.htm",
+          "accession": "0000027904-26-000008",
+          "filingDate": "2026-01-13",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000008/dal-20260112.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:13.007617+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000027904:0000027904-25-000018:https://www.sec.gov/Archives/edgar/data/27904/000002790425000018/dal-20251009.htm",
+          "accession": "0000027904-25-000018",
+          "filingDate": "2025-10-09",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790425000018/dal-20251009.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:13.033193+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000027904:0001683168-25-005002:https://www.sec.gov/Archives/edgar/data/27904/000168316825005002/delta_8k.htm",
+          "accession": "0001683168-25-005002",
+          "filingDate": "2025-07-10",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000168316825005002/delta_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:13.122078+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000027904:0000027904-26-000035:https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/dal-20261009.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/dal-20261009.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000027904:0000027904-26-000029:https://www.sec.gov/Archives/edgar/data/27904/000002790426000029/dal-20260710.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000029/dal-20260710.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000027904:0000027904-26-000020:https://www.sec.gov/Archives/edgar/data/27904/000002790426000020/dal-20260408.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000020/dal-20260408.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000027904:0000027904-26-000008:https://www.sec.gov/Archives/edgar/data/27904/000002790426000008/dal-20260112.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000008/dal-20260112.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000027904:0000027904-25-000018:https://www.sec.gov/Archives/edgar/data/27904/000002790425000018/dal-20251009.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790425000018/dal-20251009.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000027904:0001683168-25-005002:https://www.sec.gov/Archives/edgar/data/27904/000168316825005002/delta_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000168316825005002/delta_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000038/dal-20260930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-06-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 2,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000031/dal-20260630.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 1,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000022/dal-20260331.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790425000020/dal-20250930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "field": "fiveQuarterHistory",
+          "reason": "insufficient_verified_history",
+          "missingPeriods": 1,
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027904.json",
+          "nextAction": "extend_official_submission_history"
+        }
+      ]
+    },
+    {
+      "ticker": "ECL",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-27",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl_ex99x2.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-27",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl_ex99x2.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000031462:0001628280-26-067418:https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl-20261027.htm",
+          "accession": "0001628280-26-067418",
+          "filingDate": "2026-10-27",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl-20261027.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:06.626078+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000031462:0001104659-26-035705:https://www.sec.gov/Archives/edgar/data/31462/000110465926035705/ecl-20260327x8k.htm",
+          "accession": "0001104659-26-035705",
+          "filingDate": "2026-03-27",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926035705/ecl-20260327x8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:23.359031+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000031462:0001104659-26-032446:https://www.sec.gov/Archives/edgar/data/31462/000110465926032446/tm269446d1_8k.htm",
+          "accession": "0001104659-26-032446",
+          "filingDate": "2026-03-20",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926032446/tm269446d1_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:17:23.401904+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000031462:0001628280-26-067418:https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl-20261027.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl-20261027.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000031462:0001104659-26-035705:https://www.sec.gov/Archives/edgar/data/31462/000110465926035705/ecl-20260327x8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926035705/ecl-20260327x8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000031462:0001104659-26-032446:https://www.sec.gov/Archives/edgar/data/31462/000110465926032446/tm269446d1_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926032446/tm269446d1_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl_ex99x2.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026067418/ecl_ex99x2.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 1,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926056737/ecl-20260331x10q.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926018357/ecl-20251231x10k.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465925104386/ecl-20250930x10q.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "IBM",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-21",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021xex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-21",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021xex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000051143:0000051143-26-000093:https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021.htm",
+          "accession": "0000051143-26-000093",
+          "filingDate": "2026-10-21",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:27.229252+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000051143:0000051143-26-000070:https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714.htm",
+          "accession": "0000051143-26-000070",
+          "filingDate": "2026-07-14",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:08.240256+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000051143:0000051143-25-000061:https://www.sec.gov/Archives/edgar/data/51143/000005114325000061/ibm-20251022.htm",
+          "accession": "0000051143-25-000061",
+          "filingDate": "2025-10-22",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000061/ibm-20251022.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:10.468355+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000051143:0000051143-26-000093:https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000051143:0000051143-26-000070:https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000051143:0000051143-25-000061:https://www.sec.gov/Archives/edgar/data/51143/000005114325000061/ibm-20251022.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000061/ibm-20251022.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "IEX",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260630xex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-29",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260630xex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000832101:0000832101-26-000019:https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260729.htm",
+          "accession": "0000832101-26-000019",
+          "filingDate": "2026-07-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260729.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:27.216443+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000832101:0000832101-26-000007:https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260429.htm",
+          "accession": "0000832101-26-000007",
+          "filingDate": "2026-04-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260429.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:08.615645+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000832101:0001628280-25-046909:https://www.sec.gov/Archives/edgar/data/832101/000162828025046909/iex-20251029.htm",
+          "accession": "0001628280-25-046909",
+          "filingDate": "2025-10-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000162828025046909/iex-20251029.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:10.445006+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000832101:0000832101-25-000030:https://www.sec.gov/Archives/edgar/data/832101/000083210125000030/iex-20250730.htm",
+          "accession": "0000832101-25-000030",
+          "filingDate": "2025-07-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210125000030/iex-20250730.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:10.633747+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000832101:0000832101-26-000019:https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260729.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260729.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000832101:0000832101-26-000007:https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260429.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260429.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000832101:0001628280-25-046909:https://www.sec.gov/Archives/edgar/data/832101/000162828025046909/iex-20251029.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000162828025046909/iex-20251029.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000832101:0000832101-25-000030:https://www.sec.gov/Archives/edgar/data/832101/000083210125000030/iex-20250730.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210125000030/iex-20250730.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000003/iex-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000003/iex-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "IDXX",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-04",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_ex99-1.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-04",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_ex99-1.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000874716:0001104659-26-090033:https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_8k.htm",
+          "accession": "0001104659-26-090033",
+          "filingDate": "2026-08-04",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:27.988528+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000874716:0001104659-25-105185:https://www.sec.gov/Archives/edgar/data/874716/000110465925105185/tm2530045d1_8k.htm",
+          "accession": "0001104659-25-105185",
+          "filingDate": "2025-11-03",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925105185/tm2530045d1_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:12.930698+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000874716:0001104659-25-073304:https://www.sec.gov/Archives/edgar/data/874716/000110465925073304/tm2522386d1_8k.htm",
+          "accession": "0001104659-25-073304",
+          "filingDate": "2025-08-04",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925073304/tm2522386d1_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:12.952090+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000874716:0001104659-26-090033:https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000874716:0001104659-25-105185:https://www.sec.gov/Archives/edgar/data/874716/000110465925105185/tm2530045d1_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925105185/tm2530045d1_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000874716:0001104659-25-073304:https://www.sec.gov/Archives/edgar/data/874716/000110465925073304/tm2522386d1_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925073304/tm2522386d1_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000087471626000038/idxx-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "ITW",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-27",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/a20260930-3q26ex991pressre.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-27",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/a20260930-3q26ex991pressre.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000049826:0000049826-26-000057:https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/itw-20261027.htm",
+          "accession": "0000049826-26-000057",
+          "filingDate": "2026-10-27",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/itw-20261027.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:28.092571+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000049826:0000049826-26-000057:https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/itw-20261027.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/itw-20261027.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/a20260930-3q26ex991pressre.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000057/a20260930-3q26ex991pressre.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-06-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 2,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000049/itw-20260630.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 1,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000028/itw-20260331.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000008/itw-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000008/itw-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982625000057/itw-20250930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "IP",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/nextgenip-20260630ex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/nextgenip-20260630ex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000051434:0000051434-26-000115:https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/ip-20260730.htm",
+          "accession": "0000051434-26-000115",
+          "filingDate": "2026-07-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/ip-20260730.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:30.186048+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000051434:0000051434-26-000067:https://www.sec.gov/Archives/edgar/data/51434/000005143426000067/ip-20260430.htm",
+          "accession": "0000051434-26-000067",
+          "filingDate": "2026-04-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000067/ip-20260430.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:13.693552+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000051434:0000051434-26-000016:https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/ip-20260129.htm",
+          "accession": "0000051434-26-000016",
+          "filingDate": "2026-01-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/ip-20260129.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:13.870339+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000051434:0000051434-26-000115:https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/ip-20260730.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/ip-20260730.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000051434:0000051434-26-000067:https://www.sec.gov/Archives/edgar/data/51434/000005143426000067/ip-20260430.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000067/ip-20260430.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000051434:0000051434-26-000016:https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/ip-20260129.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/ip-20260129.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/nextgenip-20251231ex991.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/nextgenip-20251231ex991.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "JBL",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-08-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 4,
+        "releaseDate": "2026-09-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930ex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-08-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 4,
+        "releaseDate": "2026-09-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930ex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000898293:0001628280-26-063890:https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930.htm",
+          "accession": "0001628280-26-063890",
+          "filingDate": "2026-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:32.515528+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000898293:0001628280-26-043719:https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+          "accession": "0001628280-26-043719",
+          "filingDate": "2026-06-17",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:18.422262+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000898293:0001628280-26-019043:https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+          "accession": "0001628280-26-019043",
+          "filingDate": "2026-03-18",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:18.520602+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000898293:0001628280-25-057488:https://www.sec.gov/Archives/edgar/data/898293/000162828025057488/jbl-20251217.htm",
+          "accession": "0001628280-25-057488",
+          "filingDate": "2025-12-17",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025057488/jbl-20251217.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:18.526789+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000898293:0001628280-25-042693:https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925.htm",
+          "accession": "0001628280-25-042693",
+          "filingDate": "2025-09-25",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:18:18.532484+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000898293:0001628280-26-063890:https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000898293:0001628280-26-043719:https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000898293:0001628280-26-019043:https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000898293:0001628280-25-057488:https://www.sec.gov/Archives/edgar/data/898293/000162828025057488/jbl-20251217.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025057488/jbl-20251217.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000898293:0001628280-25-042693:https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925.htm",
+          "nextAction": "review_official_announcement"
+        }
+      ]
+    },
+    {
+      "ticker": "KEY",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-20",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/a3q26earningsrelease.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-20",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/a3q26earningsrelease.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000091576:0000091576-26-000020:https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/key-20261020.htm",
+          "accession": "0000091576-26-000020",
+          "filingDate": "2026-10-20",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/key-20261020.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:34.763319+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000091576:0000091576-26-000020:https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/key-20261020.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/key-20261020.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/a3q26earningsrelease.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/a3q26earningsrelease.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026010546/key-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026010546/key-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "KMB",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-15",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-15",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000055785:0001104659-26-115960:https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_8k.htm",
+          "accession": "0001104659-26-115960",
+          "filingDate": "2026-10-15",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:35.222386+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000055785:0001104659-26-115960:https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "PSKY",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-04",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/ex99_q226.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-04",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/ex99_q226.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0002041610:0002041610-26-000052:https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/psky-20260804.htm",
+          "accession": "0002041610-26-000052",
+          "filingDate": "2026-08-04",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/psky-20260804.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:14:58.000850+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0002041610:0002041610-26-000052:https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/psky-20260804.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/psky-20260804.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000011/psky-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "field": "fiveQuarterHistory",
+          "reason": "insufficient_verified_history",
+          "missingPeriods": 1,
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0002041610.json",
+          "nextAction": "extend_official_submission_history"
+        }
+      ]
+    },
+    {
+      "ticker": "PNC",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-15",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/q32026financialhighlightsa.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-15",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/q32026financialhighlightsa.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000713676:0001628280-26-065936:https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/pnc-20261015.htm",
+          "accession": "0001628280-26-065936",
+          "filingDate": "2026-10-15",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/pnc-20261015.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:01.509551+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000713676:0000713676-25-000136:https://www.sec.gov/Archives/edgar/data/713676/000071367625000136/pnc-20251107.htm",
+          "accession": "0000713676-25-000136",
+          "filingDate": "2025-11-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000071367625000136/pnc-20251107.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:19:27.011484+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000713676:0001628280-26-065936:https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/pnc-20261015.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/pnc-20261015.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000713676:0000713676-25-000136:https://www.sec.gov/Archives/edgar/data/713676/000071367625000136/pnc-20251107.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000071367625000136/pnc-20251107.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/q32026financialhighlightsa.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000162828026065936/q32026financialhighlightsa.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000071367626000020/pnc-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/713676/000071367626000020/pnc-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "TFC",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-16",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/ex993-earningsdeck3q26.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-16",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/ex993-earningsdeck3q26.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000092230:0000092230-26-000108:https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/tfc-20261016.htm",
+          "accession": "0000092230-26-000108",
+          "filingDate": "2026-10-16",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/tfc-20261016.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:24.299694+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000092230:0000092230-26-000039:https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/tfc-20260417.htm",
+          "accession": "0000092230-26-000039",
+          "filingDate": "2026-04-17",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/tfc-20260417.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:15.130394+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000092230:0000092230-26-000023:https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/tfc-20260121.htm",
+          "accession": "0000092230-26-000023",
+          "filingDate": "2026-01-21",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/tfc-20260121.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:15.450337+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000092230:0000092230-25-000150:https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/tfc-20251017.htm",
+          "accession": "0000092230-25-000150",
+          "filingDate": "2025-10-17",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/tfc-20251017.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:15.869168+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000092230:0000092230-26-000108:https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/tfc-20261016.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/tfc-20261016.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000092230:0000092230-26-000039:https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/tfc-20260417.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/tfc-20260417.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000092230:0000092230-26-000023:https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/tfc-20260121.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/tfc-20260121.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000092230:0000092230-25-000150:https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/tfc-20251017.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/tfc-20251017.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/ex993-earningsdeck3q26.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/ex993-earningsdeck3q26.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-06-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 2,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000099/tfc-20260630.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 1,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000062/tfc-20260331.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000030/tfc-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000030/tfc-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000157/tfc-20250930.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "UDR",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-21",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-21",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000074208:0000074208-26-000081:https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-20261021x8k.htm",
+          "accession": "0000074208-26-000081",
+          "filingDate": "2026-10-21",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-20261021x8k.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:24.978294+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000074208:0000074208-26-000081:https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-20261021x8k.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-20261021x8k.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000013/udr-20251231x10k.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000013/udr-20251231x10k.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "UNH",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-13",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-13",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000731766:0000731766-26-000255:https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/unh-20261013.htm",
+          "accession": "0000731766-26-000255",
+          "filingDate": "2026-10-13",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/unh-20261013.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:27.369816+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000731766:0000731766-26-000255:https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/unh-20261013.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/unh-20261013.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000062/unh-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000062/unh-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "WRB",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-19",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb93020268-kex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": false
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-10-19",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb93020268-kex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000011544:0000011544-26-000046:https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb-20261019.htm",
+          "accession": "0000011544-26-000046",
+          "filingDate": "2026-10-19",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb-20261019.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:32.010358+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000011544:0000011544-26-000046:https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb-20261019.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb-20261019.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb93020268-kex991.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000046/wrb93020268-kex991.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "epsGaapDiluted",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000005/wrb-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "field": "revenue",
+          "reason": "quarterly_metric_not_located",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/11544/000001154426000005/wrb-20251231.htm",
+          "nextAction": "inspect_official_statement_or_supplement"
+        }
+      ]
+    },
+    {
+      "ticker": "WMT",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-07-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-20",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/earningsreleasefy27q2.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-07-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 2,
+        "releaseDate": "2026-08-20",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/earningsreleasefy27q2.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0000104169:0000104169-26-000145:https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/wmt-20260820.htm",
+          "accession": "0000104169-26-000145",
+          "filingDate": "2026-08-20",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/wmt-20260820.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:32.470116+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000104169:0000104169-26-000095:https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/wmt-20260521.htm",
+          "accession": "0000104169-26-000095",
+          "filingDate": "2026-05-21",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/wmt-20260521.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:31.266241+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000104169:0000104169-26-000032:https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/wmt-20260219.htm",
+          "accession": "0000104169-26-000032",
+          "filingDate": "2026-02-19",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/wmt-20260219.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:31.569970+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000104169:0000104169-25-000177:https://www.sec.gov/Archives/edgar/data/104169/000010416925000177/wmt-20251119.htm",
+          "accession": "0000104169-25-000177",
+          "filingDate": "2025-11-20",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000177/wmt-20251119.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:32.283223+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000104169:0000104169-25-000120:https://www.sec.gov/Archives/edgar/data/104169/000010416925000120/wmt-20250821.htm",
+          "accession": "0000104169-25-000120",
+          "filingDate": "2025-08-21",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000120/wmt-20250821.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:32.539215+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0000104169:0000104169-25-000069:https://www.sec.gov/Archives/edgar/data/104169/000010416925000069/wmt-20250515.htm",
+          "accession": "0000104169-25-000069",
+          "filingDate": "2025-05-15",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000069/wmt-20250515.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:33.126744+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0000104169:0000104169-26-000145:https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/wmt-20260820.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/wmt-20260820.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000104169:0000104169-26-000095:https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/wmt-20260521.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/wmt-20260521.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000104169:0000104169-26-000032:https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/wmt-20260219.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/wmt-20260219.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000104169:0000104169-25-000177:https://www.sec.gov/Archives/edgar/data/104169/000010416925000177/wmt-20251119.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000177/wmt-20251119.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000104169:0000104169-25-000120:https://www.sec.gov/Archives/edgar/data/104169/000010416925000120/wmt-20250821.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000120/wmt-20250821.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0000104169:0000104169-25-000069:https://www.sec.gov/Archives/edgar/data/104169/000010416925000069/wmt-20250515.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000069/wmt-20250515.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "field": "fiveQuarterHistory",
+          "reason": "insufficient_verified_history",
+          "missingPeriods": 1,
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "nextAction": "extend_official_submission_history"
+        }
+      ]
+    },
+    {
+      "ticker": "DIS",
+      "before": {
+        "state": "identified",
+        "periodEnd": "2026-06-27",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-08-05",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+        "discoveryAsOf": "2026-10-28T07:42:41.347709Z",
+        "metricsComplete": true
+      },
+      "after": {
+        "state": "pending_identity",
+        "periodEnd": "2026-06-27",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "releaseDate": "2026-08-05",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+        "discoveryAsOf": "2026-10-28T08:13:25.918279Z",
+        "metricsComplete": false
+      },
+      "pendingCandidates": [
+        {
+          "key": "0001744489:0001744489-26-000056:https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/dis-20260805.htm",
+          "accession": "0001744489-26-000056",
+          "filingDate": "2026-08-05",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/dis-20260805.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:15:32.576452+00:00",
+          "scope": "current_or_unknown"
+        },
+        {
+          "key": "0001744489:0001744489-26-000036:https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/dis-20260506.htm",
+          "accession": "0001744489-26-000036",
+          "filingDate": "2026-05-06",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/dis-20260506.htm",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "attemptedAt": "2026-10-28T08:20:31.335169+00:00",
+          "scope": "current_or_unknown"
+        }
+      ],
+      "gaps": [
+        {
+          "key": "0001744489:0001744489-26-000056:https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/dis-20260805.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/dis-20260805.htm",
+          "nextAction": "review_official_announcement"
+        },
+        {
+          "key": "0001744489:0001744489-26-000036:https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/dis-20260506.htm",
+          "periodEnd": null,
+          "field": "quarterIdentity",
+          "reason": "release_date_or_quarter_format_unsupported",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/dis-20260506.htm",
+          "nextAction": "review_official_announcement"
+        }
+      ]
+    }
+  ]
+}

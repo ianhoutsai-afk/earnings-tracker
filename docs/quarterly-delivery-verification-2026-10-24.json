@@ -1,0 +1,81 @@
+{
+  "verifiedAt": "2026-10-26T16:45:05.177155+00:00",
+  "scope": "isolated branch and local exact-commit Pages artifact; production not merged or switched",
+  "testedCommit": "ab27325e60d00aad83ba667196e511cc6710a06d",
+  "publicBundleHashes": {
+    "data.json": "4ec2f6db51fa1f4efec2c751a25663bd65df996944ce649ce8ed6573adc08b38",
+    "historical_data.json": "c6d3adecb89d5cac1f4167ff5d958bfc5b809c92b21e724a1a52ef5602f3b245",
+    "official_history.json": "099b06b90435ea1f661f54c006f5be877c4f331911198061d3f2dc649b6559ac",
+    "history_status.json": "4d0bff1c80c3b28adbff444080210ab439a6269c3da0e54230a8bdbb013f40e7",
+    "official_scan_state.json": "886d4d022a5966c0e649d29417fc23465b81a413916264851bbc77af649d2ed4",
+    "sp500_mapping.json": "f2ba7d377b9fae413d33bb7547807261d5772e42971777dcd30bc77f1d23c684"
+  },
+  "packageFiles": [
+    ".nojekyll",
+    "data.json",
+    "deployment.json",
+    "historical_data.json",
+    "history_status.json",
+    "i18n.mjs",
+    "index.html",
+    "official_history.json",
+    "official_scan_state.json",
+    "quarterly-history.mjs",
+    "sp500_mapping.json"
+  ],
+  "packagePassed": true,
+  "browser": [
+    {
+      "viewportWidth": 390,
+      "searchAndExpandPassed": true,
+      "languagePassed": true,
+      "gapsExpanded": true,
+      "favoritesAfterFilter": 1,
+      "pageErrors": [],
+      "documentWidth": 390,
+      "healthText": "503 家公司 · 0 家來源異常 · 0 家查詢已過期 · 58 家最新季度待確認 · 441 家有五個核實季度 · 127 家五季 EPS／營收齊全。各項會重疊。"
+    },
+    {
+      "viewportWidth": 1024,
+      "searchAndExpandPassed": true,
+      "languagePassed": true,
+      "gapsExpanded": true,
+      "favoritesAfterFilter": 1,
+      "pageErrors": [],
+      "documentWidth": 1024,
+      "healthText": "503 家公司 · 0 家來源異常 · 0 家查詢已過期 · 58 家最新季度待確認 · 441 家有五個核實季度 · 127 家五季 EPS／營收齊全。各項會重疊。"
+    },
+    {
+      "viewportWidth": 1440,
+      "searchAndExpandPassed": true,
+      "languagePassed": true,
+      "gapsExpanded": true,
+      "favoritesAfterFilter": 1,
+      "pageErrors": [],
+      "documentWidth": 1440,
+      "healthText": "503 家公司 · 0 家來源異常 · 0 家查詢已過期 · 58 家最新季度待確認 · 441 家有五個核實季度 · 127 家五季 EPS／營收齊全。各項會重疊。"
+    }
+  ],
+  "repeatScanPassed": true,
+  "pythonTestsPassed": 224,
+  "javascriptTestsPassed": 29,
+  "bundleValidationPassed": true,
+  "finalSourceFailures": 0,
+  "reviewedMsciEps": {
+    "ticker": "MSCI",
+    "periodEnd": "2025-12-31",
+    "epsGaapDiluted": 3.81,
+    "oldCandidate": 74697,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
+    "mobileUiVerified": true,
+    "mobileUiViewportWidth": 390
+  },
+  "remoteMainCompared": "b94f6e6",
+  "productionPagesVerified": false,
+  "repeatScanGeneratedAt": "2026-10-26T16:42:06.956612+00:00",
+  "repeatFinalBundleHashesMatch": true,
+  "newQuarterRecordsMatchedToExactFiling": 77,
+  "previouslyVerifiedFieldsWithdrawn": 0,
+  "newUnexplainedQuarterRemovals": 0,
+  "remainingGapItems": 1583
+}

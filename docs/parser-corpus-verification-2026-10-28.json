@@ -1,0 +1,75 @@
+{
+  "checked": 2351,
+  "unavailable": 0,
+  "parseErrors": [],
+  "additions": [
+    {
+      "ticker": "AMP",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "before": null,
+      "after": 4940000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820027/000082002726000043/amp-20260630.htm",
+      "locator": {
+        "table": 17,
+        "row": 13,
+        "column": 4,
+        "label": "Total net revenues",
+        "scale": 1000000,
+        "precision": "1000000",
+        "validationBasis": "selected_inline_fact"
+      }
+    },
+    {
+      "ticker": "AMP",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "before": null,
+      "after": 4791000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820027/000082002725000080/amp-20250930.htm",
+      "locator": {
+        "table": 17,
+        "row": 13,
+        "column": 4,
+        "label": "Total net revenues",
+        "scale": 1000000,
+        "precision": "1000000",
+        "validationBasis": "selected_inline_fact"
+      }
+    },
+    {
+      "ticker": "AMP",
+      "periodEnd": "2025-06-30",
+      "field": "revenue",
+      "before": null,
+      "after": 4375000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820027/000082002725000066/amp-20250630.htm",
+      "locator": {
+        "table": 17,
+        "row": 13,
+        "column": 4,
+        "label": "Total net revenues",
+        "scale": 1000000,
+        "precision": "1000000",
+        "validationBasis": "selected_inline_fact"
+      }
+    }
+  ],
+  "differences": [],
+  "generatedAt": "2026-10-28T02:41:26.031286+00:00",
+  "parserVersion": 20,
+  "liveFreshnessVerified": false,
+  "codeHashes": {
+    "official_sources.py": "b27ed66b04a03c47b2bc54200b3e357ef8928974a98254335ea10e47e573b0f8",
+    "official_metrics.py": "4baa3ad0916c7063a62b6b30607eb324425449fddc12452a92ca3acc1877378c",
+    "official_sync.py": "9515d074ec5caa25b287e009130736be655808756df3d1c8dac9aa430c824085",
+    "quarterly_policy.py": "699bfbf0aae584c659ea97d7a87b613d81321097750f5efe1804b62be8e72f2f",
+    "verified_history.py": "2e242dfc78ab1511e2ad7e9188cd725f0fc32f527200a7335c9ce7b06184c3f6"
+  },
+  "inputBundleSha256": "4d909cf88b9e53a19990d5a5117a715a68baca1160a08ed841645289fc570913",
+  "limitations": [
+    "Same-parser cached-source reread; not independent verification of every value.",
+    "Unparsed or missing fields are not complete.",
+    "No production merge or deployment is authorized while gaps remain."
+  ]
+}
