@@ -40,6 +40,17 @@ def _grid(table):
 def _scope(table):
     """Use a nearby income-statement heading, bounded by notes and other tables."""
     prefix = []
+    # Some original exhibits put the statement title in a full-width table row.
+    # Use an exact title before the data, never a loose mention in a note.
+    first_rows = table.xpath('./tr|./thead/tr|./tbody/tr')[:8]
+    title_pattern = r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)'
+    header_text = ' '.join(_text(row) for row in first_rows)
+    for row in first_rows:
+        cells = row.xpath('./td|./th')
+        if len(cells)==1 and re.fullmatch(title_pattern, _text(cells[0])):
+            if re.search(r'(?i)non.gaap|adjusted|comprehensive|segment|notes?\s+(?:\d+|to\b)', header_text):
+                return None
+            return header_text
     caption = table.find('caption')
     if caption is not None:
         prefix.append(_text(caption))

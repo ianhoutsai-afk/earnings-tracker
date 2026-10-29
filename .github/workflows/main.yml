@@ -1,6 +1,9 @@
 name: Earnings Tracker Update
 
 on:
+  push:
+    branches: [main]
+    paths: ['*.py', '.github/workflows/main.yml']
   schedule:
     - cron: '0 1 * * *'
     - cron: '0 13 * * *'
@@ -35,6 +38,8 @@ jobs:
           restore-keys: sec-official-v1-
       - name: Install dependencies
         run: python -m pip install yfinance requests pandas lxml
+      - name: Check quarterly regressions
+        run: python -m unittest discover -q
       - name: Discover dates across all companies without importing third-party actuals
         id: discovery
         continue-on-error: true

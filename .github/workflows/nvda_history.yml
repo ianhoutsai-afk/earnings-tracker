@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install lxml requests pandas yfinance
       - name: Verify quarterly policies and official parsers
-        run: python -m unittest test_quarterly_policy test_official_sources test_official_sync test_nvda_history -q
+        run: python -m unittest discover -q
       - name: Check SEC connections without revealing configuration
         if: inputs.mode == 'preflight'
         run: |
