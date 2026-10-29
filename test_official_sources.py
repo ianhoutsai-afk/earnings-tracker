@@ -138,10 +138,32 @@ class OfficialDateTransformTests(unittest.TestCase):
     with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-09-30',cik='1')
 
  def test_invalid_or_conflicting_transformed_dates_reject_whole_identity(self):
-  for value in ('9/31/2026','6/30/2026','30/9/2026','9/30/26'):
+  for value in ('9/31/2026','6/30/2026','30/9/2026','9/30/026','9/30/20266'):
    with self.subTest(value=value):
     extra=f'<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">{value}</ix:nonNumeric>'
     with self.assertRaises(ValueError):parse_inline_quarter(filing(extra),'2026-09-30',cik='1')
+
+ def test_declared_short_year_uses_xbrl_century_and_normalizes_equivalent_dates(self):
+  # XBRL Transformation Registry 5 section 4.55 explicitly defines 1/2-digit
+  # years as 2000-2009 / 2000-2099; no fiscal/calendar guess supplies the century.
+  for fmt in ('date-month-day-year','datemonthdayyear'):
+   for raw in ('9/30/26','09-30-26'):
+    with self.subTest(format=fmt,raw=raw):
+     extra=f'<ix:nonNumeric name="dei:DocumentPeriodEndDate" format="ixt:{fmt}">{raw}</ix:nonNumeric>'
+     self.assertEqual(parse_inline_quarter(filing(extra),'2026-09-30',cik='1')['epsGaapDiluted'],1.25)
+  for raw,end in [('9/30/6','2006-09-30'),('9/30/99','2099-09-30')]:
+   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">{raw}')
+   doc=doc.replace('2026-','2006-' if end.startswith('2006') else '2099-')
+   self.assertEqual(parse_inline_quarter(doc,end,cik='1')['epsGaapDiluted'],1.25)
+
+ def test_short_year_requires_transform_and_preserves_identity_guards(self):
+  for attr in ('',' format="ixt:unknown-date"',' format="ixt:date-day-month-year"'):
+   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',f'name="dei:DocumentPeriodEndDate"{attr}>9/30/26')
+   with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-09-30',cik='1')
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/26')
+  self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='2')['epsGaapDiluted'])
+  self.assertIsNone(parse_inline_quarter(doc.replace('contextRef="q"','contextRef="ytd"'),'2026-09-30',cik='1')['epsGaapDiluted'])
+  with self.assertRaises(ValueError):parse_inline_quarter(doc,'2026-06-30',cik='1')
 
  def test_numeric_date_does_not_relax_issuer_or_quarter_context(self):
   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30','name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026')

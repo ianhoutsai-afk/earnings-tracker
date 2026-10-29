@@ -331,10 +331,13 @@ def _document_period_end(nodes):
         transform = node.get('format', '').split(':')[-1]
         try:
             if transform in ('date-month-day-year', 'datemonthdayyear'):
-                parts = re.fullmatch(r'(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})', raw)
+                parts = re.fullmatch(r'(\d{1,2})[/.-](\d{1,2})[/.-](\d{1,2}|\d{4})', raw)
                 if not parts:
                     return None
-                value = date(int(parts[3]), int(parts[1]), int(parts[2]))
+                # XBRL Transformation Registry 5, section 4.55: declared
+                # one/two digit years denote 2000-2009 / 2000-2099.
+                year = int(parts[3]) + (2000 if len(parts[3]) < 4 else 0)
+                value = date(year, int(parts[1]), int(parts[2]))
             elif transform in ('', 'date-monthname-day-year-en', 'datemonthdayyearen',
                                'date-day-monthname-year-en', 'datedaymonthyearen'):
                 if re.fullmatch(r'\d{4}-\d{2}-\d{2}',raw) and not transform:

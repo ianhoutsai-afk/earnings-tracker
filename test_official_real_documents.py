@@ -16,6 +16,16 @@ def document(ticker, kind):
 
 
 class OriginalDocumentRegressions(unittest.TestCase):
+    def test_camden_declared_short_year_identifies_exact_quarter_eps(self):
+        from official_sources import parse_inline_quarter
+        for end,eps in [('2026-06-30',0.18),('2026-03-31',0.40),('2025-09-30',1.00),('2025-06-30',0.74)]:
+            with self.subTest(period=end):
+                row=parse_inline_quarter(document('CPT-'+end,'filing'),end,cik='906345')
+                self.assertEqual(row['epsGaapDiluted'],eps)
+                # The small contract-revenue fact is a component of rental
+                # revenue; accepting its date must not turn it into a total.
+                self.assertIsNone(row['revenue'])
+
     def test_pentair_preliminary_results_are_not_completed_earnings(self):
         for event in ('2026-07-10','2026-07-14'):
             with self.subTest(event=event):
