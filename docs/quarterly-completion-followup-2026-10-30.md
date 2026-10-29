@@ -14,7 +14,7 @@ This continues the approved five-quarter plan. It preserves a maximum of five di
 ## Evidence and verification
 
 - Baseline: production commit 562e566bac114d525b4a395d59f40bbfaac389c4, 503 tickers, 2514 stored quarters, 2365 official quarters, 1275 complete-metric quarters, 448 tickers with five official quarters, 29 with five complete-metric quarters.
-- The original 136 Python tests passed before changes. Added regression failures were observed before implementation. The final Python suite has 164 tests.
+- The original 136 Python tests passed before changes. Added regression failures were observed before implementation. The final Python suite has 165 tests.
 - Real-source checks confirm latest TSLA/META quarters on 2026-10-21 and MSFT on 2026-10-28. MSFT and META each return five complete-metric quarters. TSLA's Q4 metrics still require another reviewed layout.
 - Full-source backfill and publication validation: https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/40920285850.
 - Critical-issuer replay compares complete history objects after a second sync, validates the staged bundle, and never publishes its temporary files.
@@ -47,3 +47,5 @@ A complete five-quarter window does not by itself prove the newest unparsed cand
 - TSLA original results publication: https://www.sec.gov/Archives/edgar/data/1318605/000162828026066738/tsla-20261021.htm
 - META original results publication: https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-20261019.htm
 - Microsoft Q4 release with three-month and twelve-month GAAP columns: https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm
+
+Final calendar spot-check: Block/XYZ explicitly schedules its 2026 Q3 financial results for November 3, 2026 after the market closes. The post-date timing regression was observed failing before correction. Source: https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm . The next production sync applies the corrected AMC timing.

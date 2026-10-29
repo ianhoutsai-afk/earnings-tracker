@@ -23,6 +23,9 @@ def parse_expected_release(document, today):
         day = _date(when[0])
         if not today <= day <= today+timedelta(days=180):
             continue
-        timing = 'AMC' if re.search(r'(?i)after (?:the )?market clos(?:e|es)',before) else 'BMO' if re.search(r'(?i)before (?:the )?market open(?:s)?',before) else None
+        # Timing may immediately follow the date; do not borrow it from a later call.
+        after = re.match(r'(?i)\s*,?\s*((?:after (?:the )?market clos(?:e|es)|before (?:the )?market open(?:s)?))\b', tail[when.end():])
+        timing_text = before + (' ' + after[1] if after else '')
+        timing = 'AMC' if re.search(r'(?i)after (?:the )?market clos(?:e|es)',timing_text) else 'BMO' if re.search(r'(?i)before (?:the )?market open(?:s)?',timing_text) else None
         candidates[day.isoformat()] = {'date':day.isoformat(),'bmo_amc':timing,'eventType':'earnings_release'}
     return next(iter(candidates.values())) if len(candidates)==1 else None

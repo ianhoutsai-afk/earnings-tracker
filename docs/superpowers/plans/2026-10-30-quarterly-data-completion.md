@@ -12,7 +12,7 @@ Constraints: at most five quarters; preserve official and per-metric provenance;
 - [x] Observe failing regressions before fixing completed-publication verbs, paired release/call statements and empty SEC layout wrappers.
 - [x] Implement reviewed Microsoft/Meta quarterly statement columns, including Q4 and embedded headings, and explicit official future-release schedules.
 - [x] Separate sourceHealthy, dataComplete and healthy; add source/completeness regression coverage.
-- [x] Run 164 Python tests, real-source smoke checks, two all-company backfills and validated publication bundles.
+- [x] Run 165 Python tests, real-source smoke checks, two all-company backfills and validated publication bundles.
 - [x] Replay TSLA/META/MSFT after final backfill; histories remain identical and contain five distinct quarters.
 - [x] Review code/data diff and record the remaining exceptions in docs/quarterly-completion-results.json.
 - [ ] Merge the final tested change and verify GitHub Pages deployment.
