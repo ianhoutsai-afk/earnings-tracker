@@ -18,23 +18,27 @@
     "pendingCompanies": 492,
     "officialQuarters": 2380,
     "fiveOfficialQuarterCompanies": 451,
-    "fiveCompleteMetricCompanies": 32,
+    "fiveCompleteMetricCompanies": 33,
     "sourceFailedCompanies": 0,
     "checkedAt": "2026-10-29T17:20:47.198970Z",
     "storedQuarters": 2514,
-    "completeMetricQuarters": 1327,
+    "completeMetricQuarters": 1331,
     "sourceHealthy": true,
     "historyComplete": false,
     "metricsComplete": false,
     "dataComplete": false,
     "healthy": false,
-    "dataStatus": "incomplete"
+    "dataStatus": "incomplete",
+    "reconciledMainCommit": "d9bb5e5ab49aad4df4591c167d5e0f1ec9402a3f",
+    "dataMergedAt": "2026-10-29T19:24:51.603926+00:00"
   },
   "officialExpectedReleaseDates": [
     {
       "ticker": "XYZ",
       "date": "2026-11-03",
-      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm"
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm",
+      "bmo_amc": "AMC",
+      "eventType": "earnings_release"
     }
   ],
   "changes": [
@@ -1064,7 +1068,7 @@
       "latestStoredDate": "2026-10-29",
       "recordCount": 5,
       "officialQuarterCount": 5,
-      "metricsVerifiedQuarterCount": 4,
+      "metricsVerifiedQuarterCount": 5,
       "parsePending": 0,
       "metricPending": 1,
       "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1996862/000162828026068051/epr09302026.htm"
@@ -1163,7 +1167,7 @@
       "latestStoredDate": "2026-10-29",
       "recordCount": 5,
       "officialQuarterCount": 5,
-      "metricsVerifiedQuarterCount": 3,
+      "metricsVerifiedQuarterCount": 4,
       "parsePending": 0,
       "metricPending": 2,
       "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1783180/000178318026000035/a99-q32026earningsexhibit.htm"
@@ -4848,7 +4852,7 @@
       "latestStoredDate": "2026-10-29",
       "recordCount": 5,
       "officialQuarterCount": 5,
-      "metricsVerifiedQuarterCount": 3,
+      "metricsVerifiedQuarterCount": 4,
       "parsePending": 0,
       "metricPending": 2,
       "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1113169/000111316926000003/earningsreleaseq32026.htm"
@@ -5035,7 +5039,7 @@
       "latestStoredDate": "2026-10-29",
       "recordCount": 5,
       "officialQuarterCount": 5,
-      "metricsVerifiedQuarterCount": 3,
+      "metricsVerifiedQuarterCount": 4,
       "parsePending": 0,
       "metricPending": 2,
       "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1466258/000146625826000001/exhibit991-q32026earningsr.htm"
@@ -5634,5 +5638,13 @@
       "metricPending": 1,
       "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000038/exhibit99q22026.htm"
     }
-  ]
+  ],
+  "reconciledMainCommit": "d9bb5e5ab49aad4df4591c167d5e0f1ec9402a3f",
+  "validation": {
+    "pythonTests": 165,
+    "javascriptTests": 26,
+    "criticalIssuerReplay": "passed",
+    "publicationConsistency": "passed",
+    "reconciliationRun": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/40939789503"
+  }
 }

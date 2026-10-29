@@ -26,9 +26,9 @@ This continues the approved five-quarter plan. It preserves a maximum of five di
 | Measure | Before | After |
 | --- | ---: | ---: |
 | Officially verified quarters | 2365 | 2380 |
-| Complete revenue and GAAP diluted EPS quarters | 1275 | 1327 |
+| Complete revenue and GAAP diluted EPS quarters | 1275 | 1331 |
 | Tickers with five official quarters | 448 | 451 |
-| Tickers with five complete-metric quarters | 29 | 32 |
+| Tickers with five complete-metric quarters | 29 | 33 |
 | Stored quarters | 2514 | 2514 |
 
 The latest full scan checked all 499 SEC issuer targets, plus the separate NVIDIA source, with zero recorded source failures and no deferred issuers. There remain 492 tickers with a parse or completeness exception. Explicit official future-release coverage in this snapshot is only 1 ticker; third-party estimates elsewhere are not relabelled as official.
@@ -48,4 +48,6 @@ A complete five-quarter window does not by itself prove the newest unparsed cand
 - META original results publication: https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-20261019.htm
 - Microsoft Q4 release with three-month and twelve-month GAAP columns: https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm
 
-Final calendar spot-check: Block/XYZ explicitly schedules its 2026 Q3 financial results for November 3, 2026 after the market closes. The post-date timing regression was observed failing before correction. Source: https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm . The next production sync applies the corrected AMC timing.
+Final calendar spot-check: Block/XYZ explicitly schedules its 2026 Q3 financial results for November 3, 2026 after the market closes. The post-date timing regression was observed failing before correction. Source: https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm . The reconciled publication includes the corrected AMC timing.
+
+Concurrent scheduled update d9bb5e5ab49aad4df4591c167d5e0f1ec9402a3f was reconciled without losing its official values or later-quarter records. Final retained coverage is 1331 complete-metric quarters and 33 five-complete-metric tickers. Reconciliation, 165 Python tests, 26 JavaScript tests and publication validation passed: https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/40939789503 .
