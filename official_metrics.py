@@ -12,6 +12,7 @@ from lxml import html
 
 from official_sources import DATE, _date, _text, _fiscal_identity, _statement_scope
 from official_paged_statement import statement_page, page_candidates
+from official_narratives import net_income_eps_candidates
 
 EPS_TAG = 'EarningsPerShareDiluted'
 TOTAL_REVENUE_TAGS = ('Revenues', 'SalesRevenueNet', 'RevenuesNetOfInterestExpense')
@@ -282,7 +283,7 @@ def _eps_calculation_input(label):
 
 
 def parse_statement_metrics(document, period_end, *, currency=None,
-                            fiscal_year=None, fiscal_quarter=None):
+                            fiscal_year=None, fiscal_quarter=None, issuer_cik=None):
     result = _empty(currency)
     if currency != 'USD':
         return result
@@ -290,6 +291,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
     for node in tree.xpath('//script|//style'):
         node.drop_tree()
     candidates = {'epsGaapDiluted': [], 'revenue': []}
+    statement_period_proof=None
     partial_sales_tables = set()
     for table_index, table in enumerate(tree.xpath('//table'), 1):
         rows = _grid(table)
@@ -329,6 +331,10 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             period_end, fiscal_year, fiscal_quarter)]
         if not columns:
             continue
+        if statement and statement_period_proof is None:
+            col=columns[0]
+            statement_period_proof={'table':table_index,'column':col+1,'periodEnd':period_end,
+                'header':'\n'.join(row[col] for row in header_rows if col<len(row))}
         unit_context = context + ' ' + leading
         comprehensive_title=re.search(r'(?i)\bstatements?\s+of\s+(?:consolidated\s+)?comprehensive\s+(?:income|earnings|loss)\b',unit_context)
         comprehensive_statement=bool(comprehensive_title and not re.match(
@@ -345,7 +351,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
         segment_section = False
         seen_data = False
         active_gaap = statement
-        comprehensive_section = False
+        comprehensive_section = comprehensive_statement
         for row_index, row in enumerate(rows, 1):
             label_parts = []
             for text in row:
@@ -376,6 +382,13 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                 comprehensive_section=True
             elif per_share and not excluded and re.match(r'(?i)^(?:diluted\s+)?net\s+(?:income|earnings|loss)\b',label):
                 comprehensive_section=False
+            elif (not excluded and not per_share and re.fullmatch(
+                    r'(?i)net\s+(?:income|earnings|loss)(?:\s*\(loss\)|\s*\(income\))?(?:\s+attributable\s+to\s+.+)?',label)
+                    and any(col<len(row) and _numeric(row[col]) is not None for col in columns)):
+                # Some main income statements use a comprehensive-income
+                # title but explicitly establish net income before generic
+                # EPS. A subsequent comprehensive-income line resets this.
+                comprehensive_section=False
             share_count = bool(re.search(r'(?i)weighted.average|average common shares|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
             if share_count:
                 shares_section = True
@@ -400,13 +413,15 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                     continue
                 value, precision = parsed
                 seen_data = True
-                if diluted_eps and active_gaap and not comprehensive_statement and not comprehensive_section:
+                if diluted_eps and active_gaap and not comprehensive_section:
                     candidates['epsGaapDiluted'].append((value, precision,
                         {'table': table_index, 'row': row_index, 'column': column + 1, 'label': label}))
                 if eligible_revenue and value >= 0:
                     candidates['revenue'].append((value * scale, precision * scale,
                         {'table': table_index, 'row': row_index, 'column': column + 1, 'label': label, 'scale': int(scale)}))
     page=statement_page(tree,fiscal_year,fiscal_quarter)
+    candidates['epsGaapDiluted'].extend(net_income_eps_candidates(tree,issuer_cik,
+        fiscal_year,fiscal_quarter,statement_period_proof,_numeric))
     page_values=page_candidates(page,_numeric) if page and page['periodEnd']==period_end else {}
     for field, state_key in [('epsGaapDiluted', 'epsVerificationStatus'), ('revenue', 'revenueVerificationStatus')]:
         if field == 'revenue':

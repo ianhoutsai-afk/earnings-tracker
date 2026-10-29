@@ -8,6 +8,17 @@ ROOT=Path(__file__).parent
 
 
 class StatementConflictTests(unittest.TestCase):
+    def test_comprehensive_titles_do_not_erase_explicit_net_income_eps(self):
+        for ticker,end,year,quarter,value in (
+                ('DECK','2026-03-31',2026,4,0.96),
+                ('RCL','2025-12-31',2025,4,2.76),
+                ('VEEV','2026-01-31',2026,4,1.45)):
+            with self.subTest(ticker=ticker):
+                row=parse_statement_metrics(document(ticker+'-net-eps','exhibit'),end,
+                    currency='USD',fiscal_year=year,fiscal_quarter=quarter)
+                self.assertEqual(row['epsGaapDiluted'],value)
+                self.assertEqual(row['epsVerificationStatus'],'verified')
+
     def test_original_statements_do_not_compare_different_metric_scopes(self):
         for ticker,end,year,quarter,field,value in (
                 ('ACN','2026-08-31',2026,4,'epsGaapDiluted',3.29),

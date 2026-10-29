@@ -77,6 +77,7 @@ def _fiscal_identity(intro):
 
 
 def _completed_period_end(text, event):
+    text=re.sub(r'(?i)\bthree[ -]month\s+period\b','three months',text)
     periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+(?:ended|ending)\s+(' + DATE + ')', text)]
     periods += [m[1] for m in re.finditer(r'(?i)quarter\s+(?:of\s+)?(?:fiscal\s+)?(?:year\s+)?20\d{2},?\s+which\s+ended\s+(?:on\s+)?('+DATE+')',text[:3000])]
     ends = {_date(p) for p in periods if _date(p) < event}
@@ -100,7 +101,45 @@ def _preliminary_results(text):
     return False
 
 
+def non_actual_release_reason(document):
+    """Positive original-text counterevidence, never a parse-failure heuristic."""
+    tree=html.fromstring(document.encode('utf-8') if isinstance(document,str) else document)
+    for node in tree.xpath('//script|//style'):
+        node.drop_tree()
+    intro=' '.join(_text(tree).split())[:3000]
+    if (re.search(r'(?i)\bsubject to finalization of the financial reporting process\b',intro)
+            and re.search(r'(?i)\bthis information is intended only to provide additional information regarding current estimates\b',intro)):
+        return 'unfinalized_quarter_estimates'
+    if (re.search(r"(?i)\bannounced today updates to management['’]s current financial outlook\b",intro)
+            and not list(_current_results_claims(intro))):
+        return 'outlook_update_not_quarter_results'
+    return None
+
+
+def _current_results_claims(intro):
+    for match in re.finditer(r'(?i)\btoday\s+(?:announced|reported|released)\b[^.!?;]{0,300}',intro):
+        clause=match[0]
+        prefix=intro[max(0,match.start()-60):match.start()]
+        prefix=re.split(r'(?<=[.!?;])\s+',prefix)[-1]
+        if re.search(r'(?i)\b(?:previously|earlier|prior|compared\s+(?:to|with)|versus)\b',prefix):continue
+        if re.search(r'(?i)\b(?:guidance|outlook|forecast|expected|projected|target|plans)\b',clause):continue
+        if re.search(r'(?i)\b(?:results|earnings)\b',clause):yield clause
+
+
+def _announced_result_identity(intro):
+    # A forecast headline can precede the actual results paragraph. Only a
+    # completed, current announcement with its own explicit identity can
+    # recover what the ordinary comparison/guidance boundary omitted.
+    claims=set()
+    for clause in _current_results_claims(intro):
+        identity=_fiscal_identity(clause)
+        if identity[0] is not None:claims.add(identity)
+    return next(iter(claims)) if len(claims)==1 else (None,None)
+
+
 def parse_earnings_release(document, event_date, filing_date, today):
+    if non_actual_release_reason(document):
+        raise ValueError('Original document explicitly describes estimates or an outlook update')
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     for node in tree.xpath('//script|//style'):
         node.drop_tree()
@@ -120,6 +159,8 @@ def parse_earnings_release(document, event_date, filing_date, today):
     # exact statement headers and matching filings provide remaining evidence.
     end = _completed_period_end(intro,event)
     year,fiscal_quarter=_fiscal_identity(intro)
+    if year is None:
+        year,fiscal_quarter=_announced_result_identity(intro)
     statement_period=None
     if end is None and year is not None:
         from official_metrics import discover_statement_period
@@ -139,6 +180,8 @@ def parse_earnings_release(document, event_date, filing_date, today):
 
 def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     """An explicit Item 2.02 publication statement is release evidence, not its cover date."""
+    if non_actual_release_reason(document):
+        raise ValueError('Original filing explicitly describes estimates or an outlook update')
     tree=html.fromstring(document.encode('utf-8') if isinstance(document,str) else document)
     # Keep block boundaries so a nearby footnote cannot become part of a publication.
     for node in tree.iter():
@@ -158,6 +201,8 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     filed=date.fromisoformat(filing_date)
     headline=''
     if exhibit is not None:
+        if non_actual_release_reason(exhibit):
+            raise ValueError('Linked exhibit explicitly describes estimates or an outlook update')
         release_tree=html.fromstring(exhibit.encode('utf-8') if isinstance(exhibit,str) else exhibit)
         exhibit_intro=' '.join(_text(release_tree).split())[:3000]
         headline=exhibit_intro[:1200]

@@ -19,12 +19,22 @@ from zoneinfo import ZoneInfo
 
 from lxml import html
 
-from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter, _completed_period_end, _fiscal_identity
+from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter, _completed_period_end, _fiscal_identity, non_actual_release_reason
 from official_metrics import parse_companyfacts, parse_statement_metrics, discover_statement_period
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
 from coverage_state import company_status, PARSER_VERSION
+
+REVIEWED_RELEASE_SOURCES=json.loads(Path(__file__).with_name('reviewed_release_sources.json').read_text())['sources']
+
+
+def _reviewed_release_proof(evidence):
+    reviewed=REVIEWED_RELEASE_SOURCES.get(evidence.get('originalSourceUrl'))
+    return bool(reviewed and evidence.get('originalSourceSha256')==reviewed['originalSha256']
+        and evidence.get('sourceUrl')==reviewed['counterevidenceUrl']
+        and evidence.get('sourceSha256')==reviewed['counterevidenceSha256']
+        and evidence.get('reason')==reviewed['reason'])
 
 
 class OfficialScanDeferred(Exception):
@@ -250,7 +260,7 @@ def _parse_events(cik, filings, fetch, today):
             currency = metrics.get('currency') if matched_filing else ('USD' if re.search(r'(?i)U\.S\. dollars|USD|United States dollars', text) else None)
             statement = parse_statement_metrics(document, metrics.get('periodEnd') or release['periodEnd'],
                 currency=currency, fiscal_year=metrics.get('fiscalYear') or release.get('fiscalYear'),
-                fiscal_quarter=metrics.get('fiscalQuarter') or release.get('fiscalQuarter'))
+                fiscal_quarter=metrics.get('fiscalQuarter') or release.get('fiscalQuarter'),issuer_cik=cik)
             if statement.get('excludedStatementTables'):
                 metrics['metricExclusionEvidence']=[{**e,'sourceUrl':statement_url} for e in statement['excludedStatementTables']]
             for field, state_field, source_field in [('epsGaapDiluted','epsVerificationStatus','epsSourceUrl'), ('revenue','revenueVerificationStatus','revenueSourceUrl')]:
@@ -319,7 +329,7 @@ def _parse_events(cik, filings, fetch, today):
     return rows, {'releaseCandidates':len(releases), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors}
 
 
-def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, known_records=None):
+def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, known_records=None, release_records=None):
     """Resume a versioned source cursor; never call a partial check complete."""
     if submissions.get('cik') is not None and str(submissions['cik']).zfill(10) != str(cik).zfill(10):
         raise ValueError('Submission issuer mismatch')
@@ -338,6 +348,9 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
     filings.update(recent)
     loaded = set(progress.get('loadedSubmissionFiles', []))
     source_errors, attempted, was_deferred = [], 0, False
+    invalidations=[copy.deepcopy(e) for e in progress.get('releaseSourceInvalidations',progress.get('releaseInvalidations',[]))
+        if _reviewed_release_proof(e)]
+    validated_sources=set(progress.get('validatedReleaseSources',[])) if same_parser else set()
     # Freeze the campaign date, while always including the current submissions response.
     audit_as_of = progress.get('auditAsOf') or _now(today).isoformat().replace('+00:00','Z')
     files = [e for e in submissions.get('filings', {}).get('files', [])
@@ -372,6 +385,49 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
             and r['filingDate'] >= (latest_floor if depth==1 else floor)),
             key=lambda r:(r['filingDate'],r['accessionNumber']), reverse=True)
     try:
+        associations=release_records if release_records is not None else list(records.values())
+        if associations:
+            # Only original documents independently reviewed as false release
+            # associations can withdraw legacy records. Text classification
+            # alone cannot invalidate previously verified data.
+            for record in associations:
+                end=record['periodEnd']
+                source=record.get('releaseSourceUrl','')
+                proof=next((e for e in invalidations if e['originalSourceUrl']==source),None)
+                if proof:
+                    if not any(e['originalSourceUrl']==source and e['originalRecord'].get('periodEnd')==end
+                            and e['originalRecord'].get('date')==record.get('date') for e in invalidations):
+                        invalidations.append({**copy.deepcopy(proof),'originalRecord':copy.deepcopy(record)})
+                    existing=records.get(end,{})
+                    if (existing.get('releaseSourceUrl'),existing.get('date')) == (source,record.get('date')):
+                        records.pop(end)
+                    continue
+                if source in validated_sources or not source.startswith(f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/'):
+                    continue
+                reviewed=REVIEWED_RELEASE_SOURCES.get(source)
+                if not reviewed:
+                    validated_sources.add(source)
+                    continue
+                try:
+                    original=fetch(source)
+                    body=fetch(reviewed['counterevidenceUrl'])
+                    evidence={'reason':reviewed['reason'],'sourceUrl':reviewed['counterevidenceUrl'],
+                        'sourceSha256':hashlib.sha256(body.encode('utf-8') if isinstance(body,str) else body).hexdigest(),
+                        'originalSourceUrl':source,
+                        'originalSourceSha256':hashlib.sha256(original.encode('utf-8') if isinstance(original,str) else original).hexdigest(),
+                        'originalRecord':copy.deepcopy(record),'checkedAt':_now(today).isoformat()}
+                    if not _reviewed_release_proof(evidence):
+                        source_errors.append({'stage':'release_revalidation','sourceUrl':source,'errorType':'ReviewedSourceChanged'})
+                        continue
+                    invalidations.append(evidence)
+                    existing=records.get(end,{})
+                    if (existing.get('releaseSourceUrl'),existing.get('date')) == (source,record.get('date')):
+                        records.pop(end)
+                    validated_sources.add(source)
+                except (OSError,TimeoutError) as exc:
+                    source_errors.append({'stage':'release_revalidation','sourceUrl':source,'errorType':type(exc).__name__})
+                except (ValueError,html.etree.ParserError):
+                    pass
         if depth == 5:
             for entry in files:
                 if entry.get('filingTo','') >= floor:
@@ -438,12 +494,13 @@ def check_issuer(cik, submissions, fetch, today, *, depth=5, progress=None, know
         'loadedSubmissionFiles':sorted(loaded),'filings':sorted(filings.values(),key=lambda r:r['accessionNumber']),
         'candidates':list(candidates.values()),'phase':'latest' if depth==1 else 'five_quarters',
         'state':'deferred' if was_deferred else 'source_failed' if source_errors else 'scanned',
-        'historyExhausted':all(e['name'] in loaded for e in files) and len(rows)<depth}
+        'historyExhausted':all(e['name'] in loaded for e in files) and len(rows)<depth,
+        'releaseSourceInvalidations':invalidations,'validatedReleaseSources':sorted(validated_sources)}
     return rows, {'releaseCandidates':len(release_events()),'parsedQuarters':len(rows),
         'parsePending':pending,'metricPending':sum(r.get('epsGaapDiluted') is None or r.get('revenue') is None for r in rows),
         'requestFailures':len(source_errors),'sourceErrors':source_errors,'candidates':list(candidates.values()),
         'deferred':was_deferred,'discoveryComplete':not was_deferred and not source_errors,'backfillProgress':cursor,
-        'attemptedAnnouncements':attempted}
+        'attemptedAnnouncements':attempted,'releaseInvalidations':invalidations}
 
 
 def _now(today):
@@ -542,7 +599,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
             submissions_cache[cik] = json.loads(paced(f'https://data.sec.gov/submissions/CIK{cik}.json'))
         prior = status.get(aliases[0],{})
         return check_issuer(cik,submissions_cache[cik],paced,today,depth=depth,
-            progress=prior.get('backfillProgress'),known_records=[r for r in manifest if r['ticker']==aliases[0]])
+            progress=prior.get('backfillProgress'),known_records=[r for r in manifest if r['ticker']==aliases[0]],
+            release_records=[r for r in manifest if r['ticker'] in aliases])
     def merge_result(cik, depth, result=None, error=None):
         nonlocal history, manifest, parsed_count
         aliases = groups[cik]
@@ -572,8 +630,46 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
         state = ('official_check_deferred' if details.get('deferred') else 'official_source_failed' if details['requestFailures']
                  else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked')
         for ticker in aliases:
+            # Remove only the disproved source association, retaining the full
+            # original record and official counterevidence in the public ledger.
+            invalid=[]
+            saved_invalid=status.get(ticker,{}).get('releaseInvalidations',[])
+            def same_proof(a,b):
+                return (a['originalSourceUrl'],a['originalRecord'].get('periodEnd'),a['originalRecord'].get('date'),a['reason'],a['sourceSha256']) == (
+                    b['originalSourceUrl'],b['originalRecord'].get('periodEnd'),b['originalRecord'].get('date'),b['reason'],b['sourceSha256'])
+            for evidence in details.get('releaseInvalidations',[]):
+                def matches(row):
+                    return (row.get('periodEnd') == evidence['originalRecord'].get('periodEnd')
+                        and row.get('date') == evidence['originalRecord'].get('date')
+                        and row.get('releaseSourceUrl') == evidence['originalSourceUrl'])
+                originals=[r for r in manifest if r['ticker']==ticker and matches(r)]
+                history_originals=[r for r in history.get(ticker,[]) if matches(r)]
+                saved=next((e for e in saved_invalid if same_proof(e,evidence)),None)
+                if originals or history_originals:
+                    entry=copy.deepcopy(evidence)
+                    if originals:entry['originalRecord']=copy.deepcopy(originals[0])
+                    elif saved:entry['originalRecord']=copy.deepcopy(saved['originalRecord'])
+                    else:entry['originalRecord']={**entry['originalRecord'],'ticker':ticker}
+                    entry['originalHistoryRows']=copy.deepcopy(history_originals)
+                    invalid.append(entry)
+                elif saved:
+                    invalid.append(copy.deepcopy(saved))
+            def disproved(row):
+                return any(row.get('periodEnd') == e['originalRecord'].get('periodEnd')
+                    and row.get('date') == e['originalRecord'].get('date')
+                    and row.get('releaseSourceUrl') == e['originalSourceUrl'] for e in invalid)
+            manifest=[r for r in manifest if r['ticker'] != ticker or not disproved(r)]
+            history[ticker]=[r for r in history.get(ticker,[]) if not disproved(r)]
             by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
             incoming = [merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),{**r,'ticker':ticker}) for r in records]
+            for row in incoming:
+                evidence=next((e for e in invalid if e['originalRecord'].get('periodEnd')==row['periodEnd']
+                    and e['originalSourceUrl'] != row.get('releaseSourceUrl')),None)
+                if evidence:
+                    row['releaseCorrectionEvidence']={'reason':evidence['reason'],
+                        'oldDate':evidence['originalRecord'].get('date'),'oldSourceUrl':evidence['originalSourceUrl'],
+                        'newDate':row['date'],'newSourceUrl':row['releaseSourceUrl'],
+                        'counterevidenceSourceUrl':evidence['sourceUrl'],'counterevidenceSha256':evidence['sourceSha256']}
             history, added = apply_official_records(companies,history,incoming,today)
             parsed_count += added
             manifest = retain_manifest(manifest+incoming)
@@ -582,9 +678,9 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                       'state':'deferred' if details.get('deferred') else 'failed' if details['requestFailures'] else 'checked'}
             if depth == 1 and details.get('discoveryComplete'):
                 source['lastSuccessfulDiscoveryAt'] = checked
-            progress = details.get('backfillProgress',{})
+            progress = dict(details.get('backfillProgress',{}))
             progress.setdefault('auditAsOf',prior.get('backfillProgress',{}).get('auditAsOf') or checked)
-            status[ticker] = {**prior,**details,'backfillProgress':progress,'status':state,
+            status[ticker] = {**prior,**details,'releaseInvalidations':invalid,'backfillProgress':progress,'status':state,
                 'reason':'sec_earnings_exhibits_checked' if state=='official_source_checked' else 'sec_release_or_metric_check_pending',
                 'sourceCheck':source,'discoverySource':'SEC submissions and earnings exhibits','officialCheckedAt':checked,'checkedAt':checked,'cik':cik}
     def run_phase(depth, selected=None):

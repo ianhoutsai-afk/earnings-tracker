@@ -291,6 +291,17 @@ def merge_manifest_record(previous, incoming):
         return copy.deepcopy(previous)
     incoming=_reviewed_baseline_correction(previous,incoming)
     result=copy.deepcopy(incoming)
+    # A repeated scan can obtain the same identity from a matching filing
+    # instead of reparsing the exhibit's period header. Keep its original
+    # proof only while both document associations and fiscal identity agree.
+    same_association = (bool(incoming.get('periodEnd'))
+        and fiscal_identity(previous) == fiscal_identity(incoming)
+        and all(previous.get(key) == incoming.get(key) for key in
+            ('periodEnd','releaseSourceUrl','releaseAccession','secUrl','accessionNumber')))
+    if same_association:
+        for field in ('periodEndEvidence','metricStatementEvidence'):
+            if not result.get(field) and previous.get(field):
+                result[field]=copy.deepcopy(previous[field])
     for evidence_field in ('releaseCorrectionEvidence','fiscalIdentityCorrectionEvidence'):
         if incoming.get(evidence_field) or previous.get(evidence_field):
             result[evidence_field]=copy.deepcopy(incoming.get(evidence_field) or previous[evidence_field])

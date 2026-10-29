@@ -1,0 +1,1421 @@
+{
+  "scope": "Parser24 isolated candidate, not production data or final acceptance",
+  "inputManifestSha256": "97970a79842c765aa90b9def0629deb07528e4ffbacc3d89ee9d4070c49c4fa0",
+  "summary": {
+    "parsed": 2357,
+    "cache_or_format_unavailable": 11,
+    "unsupported_or_rejected": 108,
+    "positiveRiskRecords": 14,
+    "differentIdentityRecords": 0
+  },
+  "confirmedIncorrectReleaseAssociations": [
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-09-30",
+      "originalRecord": {
+        "date": "2026-10-07",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": null,
+        "revenue": null,
+        "epsBasis": null,
+        "currency": "USD",
+        "periodScope": "quarter",
+        "epsVerificationStatus": "pending",
+        "revenueVerificationStatus": "pending",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/apa8k-20261007.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/apa8k-20261007.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2026-10-07",
+        "releaseAccession": "0001841666-26-000058",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {},
+        "ticker": "APA"
+      },
+      "review": {
+        "originalSha256": "10a0d1a4d204e8619adfa25f7ba7af366e48793df631f410ae725281eb474ab5",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/a3q26supplementalguide-ear.htm",
+        "counterevidenceSha256": "d2b0e48e9a01a5e341086d0886b3f3db9bdc6da14232b5a654fa3f1eca773b20",
+        "reason": "unfinalized_quarter_estimates",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2026-09-30",
+        "reviewedStoredDate": "2026-10-07",
+        "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000058/apa8k-20261007.htm"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-06-30",
+      "originalRecord": {
+        "date": "2026-07-08",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2026-04-01",
+        "epsGaapDiluted": 2.11,
+        "revenue": 2373000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000053/apa-20260630.htm",
+        "revenueVerificationStatus": "verified",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000045/apa8k-20260708.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000053/apa-20260630.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2026-07-08",
+        "releaseAccession": "0001841666-26-000045",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000053/apa-20260630.htm",
+        "form": "10-Q",
+        "filingDate": "2026-08-06",
+        "accessionNumber": "0001841666-26-000053",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {
+          "revenue": {
+            "table": 1,
+            "row": 12,
+            "column": 4,
+            "label": "Total revenues",
+            "scale": 1000000,
+            "precision": "1000000"
+          }
+        },
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000050/exhibit9912q26earningsrele.htm",
+        "ticker": "APA"
+      },
+      "review": {
+        "originalSha256": "c20174bb56c79ff1642f269c482c752237f78a5b5d7aec8a63821ea9190851ab",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000045/a2q26supplementalguide-ear.htm",
+        "counterevidenceSha256": "1321886516f12bc7ef6f55e8a59bee5a2fb3cbcbf238e39a9aec4995ab5ae798",
+        "reason": "unfinalized_quarter_estimates",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2026-06-30",
+        "reviewedStoredDate": "2026-07-08",
+        "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000045/apa8k-20260708.htm"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-03-31",
+      "originalRecord": {
+        "date": "2026-04-14",
+        "periodEnd": "2026-03-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2026-01-01",
+        "epsGaapDiluted": 1.26,
+        "revenue": 2327000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000034/apa-20260331.htm",
+        "revenueVerificationStatus": "verified",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000021/apa8k-20260414.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000034/apa-20260331.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2026-04-14",
+        "releaseAccession": "0001841666-26-000021",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000034/apa-20260331.htm",
+        "form": "10-Q",
+        "filingDate": "2026-05-07",
+        "accessionNumber": "0001841666-26-000034",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {
+          "revenue": {
+            "table": 1,
+            "row": 12,
+            "column": 7,
+            "label": "Total revenues",
+            "scale": 1000000,
+            "precision": "1000000"
+          }
+        },
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000027/exhibit9911q26earningsrele.htm",
+        "ticker": "APA"
+      },
+      "review": {
+        "originalSha256": "14d2f34de2b4f494186e41912387de0c0d9ed76c7fadb80d73a69a5055a85ed4",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000021/a1q26supplementalguide-ear.htm",
+        "counterevidenceSha256": "c68453c72702419e881140d8b979c6e0b5063de7b8d50500c3a894f5c075c80d",
+        "reason": "unfinalized_quarter_estimates",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2026-03-31",
+        "reviewedStoredDate": "2026-04-14",
+        "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000021/apa8k-20260414.htm"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2025-12-31",
+      "originalRecord": {
+        "date": "2026-01-20",
+        "periodEnd": "2025-12-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "periodScope": "quarter",
+        "periodStart": null,
+        "epsGaapDiluted": 0.79,
+        "revenue": 1991000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "revenueVerificationStatus": "verified",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000003/apa8k-20260120.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000015/apa-20251231.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2026-01-20",
+        "releaseAccession": "0001841666-26-000003",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000015/apa-20251231.htm",
+        "form": "10-K",
+        "filingDate": "2026-02-26",
+        "accessionNumber": "0001841666-26-000015",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "metricLocators": {
+          "epsGaapDiluted": {
+            "table": 1,
+            "row": 42,
+            "column": 5,
+            "label": "Diluted",
+            "precision": "0.01"
+          },
+          "revenue": {
+            "table": 1,
+            "row": 12,
+            "column": 4,
+            "label": "Total revenues",
+            "scale": 1000000,
+            "precision": "1000000"
+          }
+        },
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000012/exhibit9914q25earningsrele.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000012/exhibit9914q25earningsrele.htm",
+        "ticker": "APA"
+      },
+      "review": {
+        "originalSha256": "f2febd99997a10e6d00c5f6dc952858090147174864147e0b248f6de9cb0be04",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000003/a4q25supplementalguide-ear.htm",
+        "counterevidenceSha256": "49dee13096a29e0e20c64df5fb90b62c673bbe216692973e4f88482d70f5ac03",
+        "reason": "unfinalized_quarter_estimates",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2025-12-31",
+        "reviewedStoredDate": "2026-01-20",
+        "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000003/apa8k-20260120.htm"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2025-09-30",
+      "originalRecord": {
+        "date": "2025-10-08",
+        "periodEnd": "2025-09-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "periodEndEvidence": {
+          "locator": {
+            "table": 1,
+            "column": 4,
+            "header": "\nFor the Quarter Ended\nSeptember 30,\n2025\n\n"
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000028/exhibit9913q25earningsrele.htm"
+        },
+        "periodScope": "quarter",
+        "periodStart": "2025-07-01",
+        "epsGaapDiluted": 0.57,
+        "revenue": 2115000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000031/apa-20250930.htm",
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000028/exhibit9913q25earningsrele.htm",
+        "metricLocators": {
+          "revenue": {
+            "table": 1,
+            "row": 12,
+            "column": 4,
+            "label": "Total revenues",
+            "scale": 1000000,
+            "precision": "1000000"
+          }
+        },
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000023/apa8k-20251008.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000031/apa-20250930.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-10-08",
+        "releaseAccession": "0001841666-25-000023",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000031/apa-20250930.htm",
+        "form": "10-Q",
+        "filingDate": "2025-11-06",
+        "accessionNumber": "0001841666-25-000031",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "APA"
+      },
+      "review": {
+        "originalSha256": "80a356fbae63514d3ec68945cb3a2a758e43c875678534b4540b946437c5e7de",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000023/a3q25supplementalguide-e.htm",
+        "counterevidenceSha256": "5f53cdf679ffeebd8314573a801c957e1887afed9a3a62bf474e78d438ae199d",
+        "reason": "unfinalized_quarter_estimates",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2025-09-30",
+        "reviewedStoredDate": "2025-10-08",
+        "explanation": "Original linked exhibit explicitly says current estimates remain subject to financial-reporting finalization; later final-quarter metrics cannot turn this into an earnings release."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000023/apa8k-20251008.htm"
+    },
+    {
+      "ticker": "STZ",
+      "periodEnd": "2025-08-31",
+      "originalRecord": {
+        "date": "2025-09-02",
+        "periodEnd": "2025-08-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2025-06-01",
+        "epsGaapDiluted": 2.65,
+        "revenue": 2481000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "metricStatementEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000140/stzex991_83120258kearnings.htm",
+          "periodEnd": "2025-08-31",
+          "locator": {
+            "table": 15,
+            "column": 4,
+            "header": "\nThree Months Ended\nAugust 31, 2025\n"
+          },
+          "matchedFilingUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000141/stz-20250831.htm"
+        },
+        "epsVerificationStatus": "verified",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000140/stzex991_83120258kearnings.htm",
+        "metricLocators": {
+          "epsGaapDiluted": {
+            "table": 15,
+            "row": 27,
+            "column": 5,
+            "label": "Net income (loss) per common share attributable to CBI – diluted",
+            "precision": "0.01"
+          },
+          "revenue": {
+            "table": 15,
+            "row": 7,
+            "column": 4,
+            "label": "Net sales",
+            "scale": 1000000,
+            "precision": "100000.0"
+          }
+        },
+        "revenueVerificationStatus": "verified",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000140/stzex991_83120258kearnings.htm",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000132/stz-20250902.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000141/stz-20250831.htm",
+        "verifiedAt": "2026-10-28",
+        "releaseFilingDate": "2025-09-02",
+        "releaseAccession": "0000016918-25-000132",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000141/stz-20250831.htm",
+        "form": "10-Q",
+        "filingDate": "2025-10-07",
+        "accessionNumber": "0000016918-25-000141",
+        "metricRevision": {},
+        "metricCorrectionEvidence": {},
+        "metricConflicts": {},
+        "ticker": "STZ"
+      },
+      "review": {
+        "originalSha256": "df491f7d378a254bd941e7f1089a20a7a4e0ba92c93ab292911b2272d68ee35e",
+        "counterevidenceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000132/stzex991_922025guidanceupd.htm",
+        "counterevidenceSha256": "548ae418828ec0e9d4d85ce56de3427c63a8b70c8a8b5131be2f88ddac429600",
+        "reason": "outlook_update_not_quarter_results",
+        "reviewedAt": "2026-10-29",
+        "reviewedPeriodEnd": "2025-08-31",
+        "reviewedStoredDate": "2025-09-02",
+        "explanation": "September 2 Exhibit 99.1 explicitly updates fiscal 2026 outlook; the full second-quarter actual earnings exhibit is a later October announcement."
+      },
+      "originalSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000132/stz-20250902.htm"
+    }
+  ],
+  "unresolvedCachedSourceChecks": [
+    {
+      "ticker": "AAPL",
+      "periodEnd": "2026-06-27",
+      "sourceUrl": "https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/",
+      "storedDate": "2026-07-30",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "ADBE",
+      "periodEnd": "2026-08-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000147/adbeex991q326.htm",
+      "storedDate": "2026-09-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "368a0df5a79ac9f0b3b74982ebb5ea33a626447d414ef2dcfa1a1b22258919cb"
+    },
+    {
+      "ticker": "ADBE",
+      "periodEnd": "2025-11-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000135/adbeex991q425.htm",
+      "storedDate": "2025-12-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "9445ac3af12ba530fe8ad35d921bc8a169439952fb9e9ceb60fb84b596a43bbc"
+    },
+    {
+      "ticker": "ALLE",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1579241/000157924126000032/exhibit991-pressreleasedat.htm",
+      "storedDate": "2026-10-22",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a43a25770346d699f6f8592118454a32636f77cb1a62026d531ed52c9694203c"
+    },
+    {
+      "ticker": "ALLE",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1579241/000157924126000026/exhibit991-pressreleasedat.htm",
+      "storedDate": "2026-07-23",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a4a2d6fad4f09b7cecaab79e442aeb5569ecd9b675fcb5233e547c14610346ef"
+    },
+    {
+      "ticker": "ALLE",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1579241/000157924126000013/exhibit991-pressreleasedat.htm",
+      "storedDate": "2026-04-28",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "959836e31a34e338435d30d4195cf0bed5672043900ee4721e98bdd3fa1ec70f"
+    },
+    {
+      "ticker": "ALLE",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1579241/000157924126000006/exhibit991-pressreleasedat.htm",
+      "storedDate": "2026-02-17",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "5e7a26892fbc4e5ef201641b914a04addd65761789912240670e7bd3b1a97f5e"
+    },
+    {
+      "ticker": "ALLE",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1579241/000157924125000041/exhibit991-pressreleasedat.htm",
+      "storedDate": "2025-10-23",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "0c3a86b9b85b68fa93640b9095dc0a5f22c5043140b2e8d943f2e06e37ecd56c"
+    },
+    {
+      "ticker": "AMZN",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light",
+      "storedDate": "2026-07-30",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "AVY",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/ex9918k7-30x26.htm",
+      "storedDate": "2026-07-30",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "15fa25175cc377290e1680521fa4258f2685f02c5de9646d9a3f793367d13a4a"
+    },
+    {
+      "ticker": "AVY",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000075/ex9918k4-28x26.htm",
+      "storedDate": "2026-04-28",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "602aac8cf54d8d7b518618ddcf73ecc98e0ea2ae6fe03ca861d8cb35da9e0766"
+    },
+    {
+      "ticker": "AVY",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000004/ex9918k2-4x26.htm",
+      "storedDate": "2026-02-04",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "63339ffda46824d3fe1bddc686b514a4e5743dbcf033d137b7db2708dfd9a5e9"
+    },
+    {
+      "ticker": "AVY",
+      "periodEnd": "2025-09-27",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525245839/d79220dex991.htm",
+      "storedDate": "2025-10-22",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "f4009553099b1e451b7e7bb1b5a8c167d3334a1a8924a518e59b28f282e24e6f"
+    },
+    {
+      "ticker": "AVY",
+      "periodEnd": "2025-06-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8818/000119312525162209/d83231dex991.htm",
+      "storedDate": "2025-07-22",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "04426109d45c02dc23674e9223764a3415372fa3f9c25b6e6ae694cb8184c1dd"
+    },
+    {
+      "ticker": "BEN",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/38777/000003877725000234/exhibit991q4fy25.htm",
+      "storedDate": "2025-11-07",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "79b5d8ba0afe8c044deb32d0c5453d0a89756f8ee3098545ab19af0b0b5beabc"
+    },
+    {
+      "ticker": "CARR",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1783180/000178318026000005/a8-kerexhibit99xq42025.htm",
+      "storedDate": "2026-02-05",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "25cef61f8c937802897dd8b02f19a11aa4e06a40bd757503c2bdae40241680d4"
+    },
+    {
+      "ticker": "CCL",
+      "periodEnd": "2025-08-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509725000082/a20253qearningsrelease8-k.htm",
+      "storedDate": "2025-09-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "c379adec09085f86c8974bba61457d54032bdb5318d986ded32c2aa17221fb9f"
+    },
+    {
+      "ticker": "CHD",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313927/000119312526326749/chd-ex99_1.htm",
+      "storedDate": "2026-07-31",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "db369481d18ba95f57bd5f88950b1ad5f2c79f49b2c3574963f002308a1e943c"
+    },
+    {
+      "ticker": "CLX",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000028/ex991-pressreleasedatedaug.htm",
+      "storedDate": "2026-08-03",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "ef2c158c8b05217ff0ae379f13e5e51d8cd71d738f4d8bccbbb361e2dd950722"
+    },
+    {
+      "ticker": "CLX",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/21076/000002107625000035/ex991-pressreleasedatedjul.htm",
+      "storedDate": "2025-07-31",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "f5fc1c2e57ede5133cec1f979d3eaa6237f37362ff5825b8164f12d9789b381a"
+    },
+    {
+      "ticker": "COP",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000056/cop-20251106.htm",
+      "storedDate": "2025-11-06",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "6b9c95e706a9b78699439d58c8a2237c8c3977e5a9c6b258a1822b6ceb667c6f"
+    },
+    {
+      "ticker": "CPB",
+      "periodEnd": "2026-08-02",
+      "sourceUrl": "https://investor.thecampbellscompany.com/news-releases/news-release-details/campbells-reports-fourth-quarter-fiscal-2026-results",
+      "storedDate": "2026-09-03",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "CRH",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/849395/000162828026009032/fullyearresultsannouncemen.htm",
+      "storedDate": "2026-02-18",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "0e5c0d24437d84d7b31183761465e183aa1079345833ed2aa3e725526c17370f"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000035/deltaairlinesannouncessept.htm",
+      "storedDate": "2026-10-09",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "5b136bb694fe31e664638abfe6f6ab11552a22afae148a220f59d6225f850e8e"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000029/deltaairlinesannouncesjune.htm",
+      "storedDate": "2026-07-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7a8ec161bc977a5f6c2c385a21ab26fd9a10ee51ab534941f1468705556a1342"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000020/deltaairlinesannouncesmarc.htm",
+      "storedDate": "2026-04-08",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7e8436b71053a9e651b0a1a2e69c17700cc125046ea0a3f603aed21f2e2b9e5c"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000002790425000018/deltaairlinesannouncessept.htm",
+      "storedDate": "2025-10-09",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "d0f816f7170bfc7578a40ff129264145191ebc0cfafab5599e4fecc00ab95119"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27904/000168316825005002/delta_ex9901.htm",
+      "storedDate": "2025-07-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "30343cf5f4c2d77ad0efd388b935f549886a3240383b30dc2d4858031808d2ea"
+    },
+    {
+      "ticker": "DIS",
+      "periodEnd": "2026-06-27",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+      "storedDate": "2026-08-05",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "6b3fdc755cccddc7f64497d95e73ba165443bb141e70d846c39759c2895ccacb"
+    },
+    {
+      "ticker": "DIS",
+      "periodEnd": "2026-03-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/fy2026_q2xprxex991.htm",
+      "storedDate": "2026-05-06",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "d4f8a49168825fa5323130fb1210b2de9cafce14120e6f9ce6f3e8688556638e"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000051/exhibit991-123125.htm",
+      "storedDate": "2026-02-17",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a60e5641b230f2463e7e5dcfd903cc46eeece64475e2b765dc2be0fa6e611b84"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634025000219/exhibit991-093025.htm",
+      "storedDate": "2025-10-30",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "6dfc07a29e5bad075af83b18582c7e7a7138cb13e9b16f481045f6113ba9f415"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634025000181/exhibit991-063025.htm",
+      "storedDate": "2025-07-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7d137efd2d4c49dd8a6fe3a62646061a3f79eb4a4728c08ee526c1707ef9576c"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251526000053/ea-20260501.htm",
+      "storedDate": "2026-05-05",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "1ccaf57bbe77dd2462d58445504429cf67d0df4a275accb6a78945878bcf4935"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251526000012/ea-20260129.htm",
+      "storedDate": "2026-02-03",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "5e6d61d4d4225635c3f9189a6b00a125236a8d4f7c68b9cc0c5049e3046a607e"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000063/ea-20251024.htm",
+      "storedDate": "2025-10-28",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "578b12b24a9a21ab6d38ad278d6029e1d0964ad3e380212ad6b23b32ff5d09d8"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000027/ea-20250725.htm",
+      "storedDate": "2025-07-29",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "0ee5a87f63efcd10d6510ec569efd930b50c5db1efffa7ec1d05b1a0f956b8a2"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2025-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/ea-20250501.htm",
+      "storedDate": "2025-05-06",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "ae2ead22d4553ac5ac1af2a258f3290a9a58138323775e6958f2e98b4c6ceecd"
+    },
+    {
+      "ticker": "ECL",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000162828026049933/ecl_ex99x1.htm",
+      "storedDate": "2026-07-28",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "269bc445037d91efe1e194a8d09efdb96dca0f77a5bf7e5169028293b105051c"
+    },
+    {
+      "ticker": "ED",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1047862/000104786226000028/ed-20251231xexx991.htm",
+      "storedDate": "2026-02-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "9f0d245bc91977f1cea0932c8eaa278d8dfa4cc9513982438fdf3c7d17f81824"
+    },
+    {
+      "ticker": "EL",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm",
+      "storedDate": "2026-08-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "e337794c37376cebbec504feab3ac20320bf915bee27be6c42b4051b3c41c06c"
+    },
+    {
+      "ticker": "EL",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125025000097/elq4fy2025exhibit991.htm",
+      "storedDate": "2025-08-20",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "69424894eecb54bd3266d215dc39fc6b751f0fac926e118d07b796c0f7eedaf3"
+    },
+    {
+      "ticker": "EVRG",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000119312526058075/d29762dex991.htm",
+      "storedDate": "2026-02-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a774f2447c9e6bb095b95a4d0e7706e62c17bd950eedf9a432b4394b373622f5"
+    },
+    {
+      "ticker": "EW",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099800/000109980026000006/ex-991q42025.htm",
+      "storedDate": "2026-02-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "4cdd714a5ba8ade1e8ae5ef4ec7e99a3d732bef644fa8e10d3330c999ed22608"
+    },
+    {
+      "ticker": "FDX",
+      "periodEnd": "2025-08-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000042/fdx-earningsreleasefy2026q1.htm",
+      "storedDate": "2025-09-18",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "2aca5cf550bcce52fcbe05fb5a462f92a5a61faf82f36bba60ad93e9f098dca9"
+    },
+    {
+      "ticker": "FIS",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000009/q42025ex991.htm",
+      "storedDate": "2026-02-24",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "ed50f19869c65a26d99f2a3cdff1392dea83352f683a75a2887f04f099e9f58c"
+    },
+    {
+      "ticker": "GEN",
+      "periodEnd": "2026-04-03",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/849399/000084939926000014/ex9901q4fy26.htm",
+      "storedDate": "2026-05-07",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a6a02e6279ca867ffb7162185a373c9273d49be80ca4de35179632fc8b832345"
+    },
+    {
+      "ticker": "HAS",
+      "periodEnd": "2026-03-29",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm",
+      "storedDate": "2026-04-23",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "50126cf261a4e468c3655fa4eaf3894ec62df49cc22b5e8d00aacbac75b7a3a7"
+    },
+    {
+      "ticker": "HCA",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526302539/hca-ex99_1.htm",
+      "storedDate": "2026-07-14",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "29dbd70ac25922de5eba45e9e9e7beffbee850b55ce58960dc62812fc49aca08"
+    },
+    {
+      "ticker": "HON",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000141/exhibit99-q32026earningsre.htm",
+      "storedDate": "2026-10-22",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "78f2297a2b4ba591fb8291bb916b714b392d57737edf8fbf4494092d45a4c05d"
+    },
+    {
+      "ticker": "HON",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000055/exhibit99-q12026earningsre.htm",
+      "storedDate": "2026-04-23",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "28c3e98f6acadb85c87aaed09631d44d5eebdca57614dd171ba75559dd16659d"
+    },
+    {
+      "ticker": "HON",
+      "periodEnd": "2025-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000035/exhibit99-q12025earningsre.htm",
+      "storedDate": "2025-04-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "8f5aa9e78581278484ccba694ae42ea9eedddf027a6a92bbe23b2371f28a0dbe"
+    },
+    {
+      "ticker": "HRL",
+      "periodEnd": "2026-01-25",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846526000013/exhibit991-2172026.htm",
+      "storedDate": "2026-02-17",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "e6ab63c3364cc7b5a22cd70dfd27b8e80bf2e3433d3937ce5916b8929e712d04"
+    },
+    {
+      "ticker": "HSY",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/47111/000162828026005604/exhibit991-q42025.htm",
+      "storedDate": "2026-02-05",
+      "result": "unsupported_or_rejected",
+      "reason": "Release period is not current for this event",
+      "sha256": "38154e0a09d5ec2dba74577377caf71d6a9c36b93d06f22c7a22f0ce5ad27fb1"
+    },
+    {
+      "ticker": "IBM",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021xex991.htm",
+      "storedDate": "2026-10-21",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "961fa451e4ef500305511c4d6c5c0475fbce7e3a74f50ab660d863ca03020e36"
+    },
+    {
+      "ticker": "IBM",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm",
+      "storedDate": "2026-07-14",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "875e58adabd73c7c52769c13741f3ae3e649827bfd2515617ff1ae2a18fe323c"
+    },
+    {
+      "ticker": "IBM",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000061/ibm-20251022xex991.htm",
+      "storedDate": "2025-10-22",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "b055dd96e685681eb171a61c2452dbed1d75a52e9febb91fe13771ab131eb937"
+    },
+    {
+      "ticker": "IDXX",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926090033/tm2622041d1_ex99-1.htm",
+      "storedDate": "2026-08-04",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7388f93751476a1c4237d75c7c75bee75f5543b060ec54d9f88886aaa0544a5c"
+    },
+    {
+      "ticker": "IDXX",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465926055203/tm2613510d1_ex99-1.htm",
+      "storedDate": "2026-05-05",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "896c38d381af757ca510d746f190a70d79f29d05dc39afc074b7b7377d6ffe66"
+    },
+    {
+      "ticker": "IDXX",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925105185/tm2530045d1_ex99-1.htm",
+      "storedDate": "2025-11-03",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "53883d58786ee843b9998f95281135ea15efe2c2467a14f449d820427b85a95e"
+    },
+    {
+      "ticker": "IDXX",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874716/000110465925073304/tm2522386d1_ex99-1.htm",
+      "storedDate": "2025-08-04",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "8c6626e1d21cb1b816b528de5f5a362cb7f58d8ee03d0c8191d033b209439546"
+    },
+    {
+      "ticker": "IEX",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260630xex991.htm",
+      "storedDate": "2026-07-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "15d9c8dd0917a00616666197456acd26c31e4292193e9b66f6da0ba965a5a5ae"
+    },
+    {
+      "ticker": "IEX",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260331xex991.htm",
+      "storedDate": "2026-04-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "c0a18306c388c62a9e843cc296c2cb4c7dbd55cbdcea79829170d49f8b47331a"
+    },
+    {
+      "ticker": "IEX",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000162828025046909/iex-20250930xex991.htm",
+      "storedDate": "2025-10-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "af0488d5044cd0ad1a68b8c118b12e8b84977197c93771014d96a41c08ec4347"
+    },
+    {
+      "ticker": "IEX",
+      "periodEnd": "2025-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/832101/000083210125000030/iex-20250630xex991.htm",
+      "storedDate": "2025-07-30",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "601bc1dcc66734922f2059c3cb4e900c4ced8170df2646648894871da82170cf"
+    },
+    {
+      "ticker": "INTC",
+      "periodEnd": "2025-09-27",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000169/intc-20251023.htm",
+      "storedDate": "2025-10-23",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "0835b3729304fb7d5e0539be5a4311d223e598feea8a1b51fbe176b3b35380bd"
+    },
+    {
+      "ticker": "IP",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/nextgenip-20260630ex991.htm",
+      "storedDate": "2026-07-30",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "b1c0759e2d985589ae352039ef712f8daaf1be4b9acdfcff521414f8fab34c63"
+    },
+    {
+      "ticker": "IP",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000067/nextgenip-20260331ex991.htm",
+      "storedDate": "2026-04-30",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "787489688eee793aaeacfb1d22bd73a57301f64f8d177c8b09068fbd3b1984a8"
+    },
+    {
+      "ticker": "IP",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000016/nextgenip-20251231ex991.htm",
+      "storedDate": "2026-01-29",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "8456d86483f91b08d619c4b64904e7836386e033fb5abfe584ae49cc500acaee"
+    },
+    {
+      "ticker": "ISRG",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000003/q425ex-991q4prexreleaseq4o.htm",
+      "storedDate": "2026-01-14",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "7c666566ce9fcb9b2e5b40428f9032fad014644448e01b8fa30e0dc6c62f5131"
+    },
+    {
+      "ticker": "JBL",
+      "periodEnd": "2026-08-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930ex991.htm",
+      "storedDate": "2026-09-30",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "1ef41e7a47761cf48f4e0bb983a864b4bdd4d74e26d1ca60e9292337a65d6044"
+    },
+    {
+      "ticker": "JBL",
+      "periodEnd": "2026-05-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+      "storedDate": "2026-06-17",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "09941c519e60e1b471afcf2c4e33834de2f5eb99eaac62aef15696a03390f9c3"
+    },
+    {
+      "ticker": "JBL",
+      "periodEnd": "2026-02-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+      "storedDate": "2026-03-18",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary exhibit does not confirm completed earnings",
+      "sha256": "433a8ace47e9ee849ee4494d082517451973849124731297d30d3b2bf275deb5"
+    },
+    {
+      "ticker": "JBL",
+      "periodEnd": "2025-11-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025057488/jbl-20251217ex991.htm",
+      "storedDate": "2025-12-17",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "bb7858794204f943364d9d96b00513ba15cb7c92933933ae2c7a32d95c4e1a0d"
+    },
+    {
+      "ticker": "JBL",
+      "periodEnd": "2025-08-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925ex991.htm",
+      "storedDate": "2025-09-25",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "811c501a2b9e8899bd5a116298214c6f669df49818170a7edaaeaacc49343bac"
+    },
+    {
+      "ticker": "KMB",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+      "storedDate": "2026-10-15",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "69b9a3056a4f734324ed0b5e809f25414789c013cd542fe410f9227da80046df"
+    },
+    {
+      "ticker": "KMB",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026052113/kmbq22026ex-991.htm",
+      "storedDate": "2026-08-04",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "c12a63dfdc74230d336d0ebee4b0e49cccc12e9d8868fd348a3c8de0d0c8347b"
+    },
+    {
+      "ticker": "KMB",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026003514/kmb2025q48kex-991.htm",
+      "storedDate": "2026-01-27",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "5d65a5e00dda6e1d8ada1c3a7af7295dd5bb9112534335d8c5dfc1875a226238"
+    },
+    {
+      "ticker": "LNT",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/352541/000035254126000005/lnt021920268-kex991.htm",
+      "storedDate": "2026-02-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "08a652397fb4c0cb1f54987016f26211eb3fd9a73fa6c45746aae86058efc5e7"
+    },
+    {
+      "ticker": "MDLZ",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026005016/mdlzearningsreleasecontent.htm",
+      "storedDate": "2026-02-03",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "bb65cba3ac3cc8eac00e1a96ced93c065340607e4d05c7e21cd4a2a616dd6473"
+    },
+    {
+      "ticker": "META",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/",
+      "storedDate": "2026-07-29",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "MSFT",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+      "storedDate": "2026-07-29",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "NVDA",
+      "periodEnd": "2026-07-26",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+      "storedDate": "2026-08-26",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "NVDA",
+      "periodEnd": "2026-04-26",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
+      "storedDate": "2026-05-20",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "NVDA",
+      "periodEnd": "2026-01-25",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+      "storedDate": "2026-02-25",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "NVDA",
+      "periodEnd": "2025-10-26",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
+      "storedDate": "2025-11-19",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "NVDA",
+      "periodEnd": "2025-07-27",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2026",
+      "storedDate": "2025-08-27",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "ORCL",
+      "periodEnd": "2026-05-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526265848/orcl-ex99_1.htm",
+      "storedDate": "2026-06-10",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "3da332e76ebfe87dea8317718ffa8825978e8dfe49ea3aca31b482d29ce7d3d3"
+    },
+    {
+      "ticker": "PCG",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000147/pge-q32025pressrelease.htm",
+      "storedDate": "2025-10-23",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "f97e8bce69b3743064ced20fdc2c7b4c74d4f096a9088aabd387f38458282ece"
+    },
+    {
+      "ticker": "PSKY",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/ex99_q226.htm",
+      "storedDate": "2026-08-04",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "e9412c854d1b725386488eb1c5665b19703f66ba159f60fa72437a094a96c329"
+    },
+    {
+      "ticker": "PSKY",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000022/ex99_q126.htm",
+      "storedDate": "2026-05-04",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7de8b2d05e3e96ac9192df8a8e425c80ed31a0e40c8143dfb41fb2f086907881"
+    },
+    {
+      "ticker": "Q",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2058873/000205887325000018/exhibit991-bupressreleasex.htm",
+      "storedDate": "2025-11-06",
+      "result": "unsupported_or_rejected",
+      "reason": "Release period is not current for this event",
+      "sha256": "00251103c8cba9a6a8d015efd8d23671a2aab7b5aca2897a435b6a0f9e3b2e65"
+    },
+    {
+      "ticker": "RTX",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000003/a2026-01x278xkerexhibit99.htm",
+      "storedDate": "2026-01-27",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "040b6fe451bd9527ad53079cdaaec023a9d2da68222de9c97fabf6da63aa840c"
+    },
+    {
+      "ticker": "RVTY",
+      "periodEnd": "2025-12-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000003/q42025pre-earningspressrel.htm",
+      "storedDate": "2026-01-12",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "d98f7455086f733daf73c4da450bea5ee475bf733a2ec7e28cf6e2586e3d0719"
+    },
+    {
+      "ticker": "SBUX",
+      "periodEnd": "2025-09-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
+      "storedDate": "2025-10-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "8d8ab2cda2cfc0e428f7dcfcd386894382a3d88e2cd25cd71a1fc470f80dee5e"
+    },
+    {
+      "ticker": "SMCI",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000019/fq42026businessupdate.htm",
+      "storedDate": "2026-07-21",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "bfd657fa49974242416bb33bebffa01ed06e616aff8276b41de5ba1e5ef8f8a8"
+    },
+    {
+      "ticker": "SRE",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1032208/000103220826000008/ex99_1x20251231xearningsta.htm",
+      "storedDate": "2026-02-26",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "cb1fc4ffdeda68c83977135d266f1d42848577b76bbf63f6085a2a0f8ae92ee6"
+    },
+    {
+      "ticker": "SWKS",
+      "periodEnd": "2026-01-02",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000005/q1268-kex991earningsrelease.htm",
+      "storedDate": "2026-02-03",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "4bebe05a2f6f9382737f1b392ea590b9714d678ad3454fbc2c12415016883cce"
+    },
+    {
+      "ticker": "SWKS",
+      "periodEnd": "2025-10-03",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000110465925102814/tm2529602d1_ex99-1.htm",
+      "storedDate": "2025-10-28",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "0920088485b6aae3bb0d30c1558ea2d08b7437c9a428a920e317a5f2aa18f946"
+    },
+    {
+      "ticker": "SYK",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000006/sykex991earningsq42025.htm",
+      "storedDate": "2026-01-29",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "e7082b6ed482fc3f6f5d0a8ed06c04bad527489a516d5b5d3adca107ab9faf4b"
+    },
+    {
+      "ticker": "TGT",
+      "periodEnd": "2026-05-02",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000020/a2026q1ex-99.htm",
+      "storedDate": "2026-05-20",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "fd471e9d04a1ce46983d14aa36c50a8ff7cf380e376492bdcd2ed5d2caec6c99"
+    },
+    {
+      "ticker": "TGT",
+      "periodEnd": "2025-11-01",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000123/a2025q3ex-99.htm",
+      "storedDate": "2025-11-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "595403bcae10433e45d30b62a9bdd252fad52830f56867b02f84c7817713c906"
+    },
+    {
+      "ticker": "TGT",
+      "periodEnd": "2025-08-02",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000115/a2025q2ex-99.htm",
+      "storedDate": "2025-08-20",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a8e34f5e39b58a9bd521b94c379eba0cbff74edd38fca79eb2282b4b288e13e8"
+    },
+    {
+      "ticker": "TSLA",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://ir.tesla.com/press-release/tesla-releases-second-quarter-2026-financial-results",
+      "storedDate": "2026-07-22",
+      "result": "cache_or_format_unavailable",
+      "reason": "FileNotFoundError"
+    },
+    {
+      "ticker": "UAL",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100517/000010051726000184/ual_erx09302026xex991.htm",
+      "storedDate": "2026-10-20",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "6e41457ec3760f1f674b88a78583df84c52e6d7331592e3465c978806b9dec0d"
+    },
+    {
+      "ticker": "UAL",
+      "periodEnd": "2026-06-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100517/000010051726000135/ual_erx06302026xex991.htm",
+      "storedDate": "2026-07-15",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "a0c0e0cbfaea01268bd72495f39c4003a78bdd0372657905d6721a51d1b06648"
+    },
+    {
+      "ticker": "UAL",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100517/000010051726000089/ual_erx03312026xex991.htm",
+      "storedDate": "2026-04-21",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "edee5dd28853c7c2e2213a7dc1c8d956fd87a6a223d6dae147b5f41417e0c6c8"
+    },
+    {
+      "ticker": "UAL",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100517/000010051725000190/ual_09302025erex991.htm",
+      "storedDate": "2025-10-15",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "ab5547d8e0b63963626aa099f2b0b33446f8e04e68cdc0e3cb55fe9f84f85f00"
+    },
+    {
+      "ticker": "UDR",
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+      "storedDate": "2026-10-21",
+      "result": "unsupported_or_rejected",
+      "reason": "Preliminary results do not confirm the completed earnings release",
+      "sha256": "b60ca2a02dd64578ded93aef7b282cd9786fe2e9c88da370ecd36fa4e4d91253"
+    },
+    {
+      "ticker": "UNH",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
+      "storedDate": "2026-01-27",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "eb6dd687c7b2ebdbc158203a4b15d25917770a34ccc1bbb0698e5b0c7115aa18"
+    },
+    {
+      "ticker": "URI",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067701/000106770126000009/uri-12312025xex991.htm",
+      "storedDate": "2026-01-28",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "78f9201f1efff9c38bb044388e0e0a26b13fba5c88399c371b2a046a8e26f6c0"
+    },
+    {
+      "ticker": "WMT",
+      "periodEnd": "2026-07-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/earningsreleasefy27q2.htm",
+      "storedDate": "2026-08-20",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "fa7183758137668907bbe5816b11265eb7717aea1a32d92b07e82bc8ac203b28"
+    },
+    {
+      "ticker": "WMT",
+      "periodEnd": "2026-04-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/earningsreleasefy27q1.htm",
+      "storedDate": "2026-05-21",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "ed33cb212e1fe0ccc910317456ca8a5f0a1185a575582464fae142b22f13bc43"
+    },
+    {
+      "ticker": "WMT",
+      "periodEnd": "2026-01-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/earningsreleasefy26q4.htm",
+      "storedDate": "2026-02-19",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "7c01be33744bebf2875ae3bb2115167a16e68099cdf74d3a0cfdb0b2e8bb894d"
+    },
+    {
+      "ticker": "WMT",
+      "periodEnd": "2025-07-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000120/earningsreleasefy26q2.htm",
+      "storedDate": "2025-08-21",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "86293933afa5cf71774fdc825ee341e68ffea4939f6dab8593f0a41aa2776703"
+    },
+    {
+      "ticker": "WMT",
+      "periodEnd": "2025-04-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000069/earningsreleasefy26q1.htm",
+      "storedDate": "2025-05-15",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "1f6f3058367e4ee0270d21dd11e584bcf23626a4335c96c92231b1ed2a34c3d1"
+    },
+    {
+      "ticker": "WY",
+      "periodEnd": "2026-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/106535/000119312526197281/wy-ex99_1.htm",
+      "storedDate": "2026-04-30",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "c7cb9ddab88dc4882dff6e7dc6bfa9daaa2513bf21faadb700755823af40d813"
+    },
+    {
+      "ticker": "WY",
+      "periodEnd": "2025-03-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/106535/000095017025058035/wy-ex99_1.htm",
+      "storedDate": "2025-04-24",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "ad6d119ac98ce5a95a63af5ab762facbbc5a4a4001561c105abc9e849078b1e4"
+    },
+    {
+      "ticker": "XEL",
+      "periodEnd": "2025-12-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000006/xcelearningsreleaseq42025.htm",
+      "storedDate": "2026-02-05",
+      "result": "unsupported_or_rejected",
+      "reason": "No explicit completed quarterly period or fiscal identity",
+      "sha256": "5933bc8ad6d8e9e5ca2d970dbc7a5a6f5c09a8925ba39c0d52279dfa589d509d"
+    }
+  ],
+  "classificationLimits": {
+    "parsedIsNotAccuracyCertification": true,
+    "keywordRiskFlagsAreNotAutomaticInvalidation": true,
+    "unavailableCacheIsNotProofOfUnavailableOfficialSource": true
+  },
+  "parser25DataScanAndRepeat": "pending"
+}
