@@ -125,10 +125,21 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         if re.search(r'(?i)\b(?:announced|reported)\s+on\s*$',before_date):
             clause='reported '+clause
         clause=re.split(r'(?i)\b(?:refer|see)\s+(?:to\s+)?(?:our|the|its|their|a)\b|\b(?:our|the|its|their)\s+(?:(?:previous|prior|earlier)\s+)?(?:Quarterly|Annual)\s+Report\b',clause,maxsplit=1)[0]
+        # A completed release and a later call can share one sentence. Require
+        # independent actual-results evidence in the dated exhibit before
+        # accepting this narrow construction; a call/date announcement is not enough.
+        paired_call = re.search(r'(?i)\bissued\s+(?:a|the)\s+(?:press|news)\s+release\s+and\s+will\s+hold\s+a\s+conference\s+call\s+regarding\s+its\s+financial\s+results\b', clause)
+        if paired_call and actual_headline and re.search(r'(?i)\btoday\s+(?:reported|announced|released)\b', headline):
+            try:
+                parse_earnings_release(exhibit, _date(m[1]).isoformat(), filing_date, today)
+            except ValueError:
+                continue
+            supported.append((m, clause))
+            continue
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
@@ -192,7 +203,11 @@ def _contract_revenue_total(node):
             if re.search(statement,heading[-700:]):return True
             previous=previous.getprevious()
         parent=current.getparent()
-        if parent is None or _local(parent) not in ('div','section') or len(parent)!=1:break
+        if parent is None or _local(parent) not in ('div','section'):break
+        # Empty formatting spans beside a table do not change its statement.
+        # Any textual sibling or additional table remains a hard boundary.
+        siblings = [child for child in parent if child is not current]
+        if any(_text(child).strip() or _local(child)=='table' or child.xpath('.//table') for child in siblings):break
         if (parent.text or '').strip() or (current.tail or '').strip():break
         current=parent
     return False

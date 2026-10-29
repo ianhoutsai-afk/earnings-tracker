@@ -372,7 +372,15 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
                'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
                'sourceFailedCompanies':sum(s.get('status')=='official_source_failed' for s in status.values()),
-               'checkedAt':checked, 'healthy':source_failures==0 and deferred==0}
+               'checkedAt':checked}
+    summary['storedQuarters'] = sum(s.get('recordCount', 0) for s in status.values())
+    summary['completeMetricQuarters'] = sum(s.get('metricsVerifiedQuarterCount', 0) for s in status.values())
+    summary['sourceHealthy'] = source_failures == 0 and deferred == 0
+    summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
+    summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
+    summary['dataComplete'] = summary['historyComplete'] and summary['metricsComplete']
+    summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
+    summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
         root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,
         root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
@@ -386,5 +394,5 @@ if __name__=='__main__':
     args=parser.parse_args()
     summary=sync_all(args.root,full=args.full)
     print(json.dumps(summary))
-    if not summary['healthy']:
+    if not summary['sourceHealthy']:
         raise SystemExit('Official checks incomplete; prior history preserved and per-company status saved')
