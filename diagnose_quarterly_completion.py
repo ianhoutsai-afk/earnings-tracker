@@ -29,6 +29,16 @@ def trace(name, original):
             result = original(document, *args, **kwargs)
             if name == 'inline' and (result.get('epsGaapDiluted') is None or result.get('revenue') is None):
                 print('INCOMPLETE', latest_url[0], json.dumps(result), flush=True)
+                if result['fiscalQuarter'] == 4:
+                    for cached_url, cached_doc in list(cache.items()):
+                        if '/Archives/' not in cached_url or 'ex99' not in cached_url.lower(): continue
+                        release_tree=html.fromstring(cached_doc)
+                        for table in release_tree.xpath('//table'):
+                            text=' '.join(table.text_content().split())
+                            if 'Revenue' in text and 'Diluted' in text and len(text) < 20000:
+                                print('RELEASE_TABLE_HTML', cached_url, html.tostring(table,encoding='unicode')[:28000],flush=True)
+                                break
+                        break
                 tree = html.fromstring(document)
                 end = result['periodEnd']
                 contexts = {n.get('id') for n in tree.iter() if str(n.tag).lower().split(':')[-1] == 'context' and end in ' '.join(n.itertext())}

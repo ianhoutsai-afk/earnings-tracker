@@ -47,3 +47,36 @@ class CompletedPublicationRegressions(unittest.TestCase):
         doc = '<h2>Item 2.02 Results of Operations</h2><p>On October 21, 2026, the Company will release financial results for the third quarter ended September 30, 2026.</p>'
         with self.assertRaises(ValueError):
             parse_earnings_filing(doc, '2026-10-21', '2026-10-21', TODAY)
+
+class ConsolidatedRevenueLayoutRegressions(unittest.TestCase):
+    def test_currency_cell_and_empty_span_wrapper_preserve_total_revenue(self):
+        from official_sources import parse_inline_quarter
+        original = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+        fact = original.replace('us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+        statement = '<div>CONDENSED CONSOLIDATED STATEMENTS OF INCOME</div><div>(In millions)</div><div>(Unaudited)</div><div><span> </span><table><tr><td>Revenue</td><td>$</td><td>'+fact+'</td></tr></table></div>'
+        self.assertEqual(parse_inline_quarter(filing().replace(original, statement), '2026-09-30')['revenue'], 1200000000)
+
+    def test_note_inside_wrapper_still_blocks_statement_heading(self):
+        from official_sources import parse_inline_quarter
+        original = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+        fact = original.replace('us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+        for extra in ['<span>Note 2. Revenue</span>', '<table><tr><td>Other table</td></tr></table>']:
+            statement = '<div>CONSOLIDATED STATEMENTS OF INCOME</div><div>'+extra+'<table><tr><td>Revenue</td><td>'+fact+'</td></tr></table></div>'
+            self.assertIsNone(parse_inline_quarter(filing().replace(original, statement), '2026-09-30')['revenue'])
+
+class CoverageHealthRegressions(unittest.TestCase):
+    def test_transport_success_does_not_claim_complete_quarterly_data(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from official_sync import sync_all
+        from test_official_sync import OfficialSyncTests
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            OfficialSyncTests().setup_root(root)
+            summary = sync_all(root, date(2026,10,22), fetch=fetch, full=True)
+            self.assertTrue(summary['sourceHealthy'])
+            self.assertFalse(summary['dataComplete'])
+            self.assertFalse(summary['healthy'])
+            self.assertEqual(summary['completeMetricQuarters'], 2)
+            self.assertEqual(summary['storedQuarters'], 10)
