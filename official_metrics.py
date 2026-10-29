@@ -349,6 +349,7 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             scale = Decimal(1)
         eps_parent = False
         shares_section = False
+        shares_heading = False
         segment_section = False
         seen_data = False
         active_gaap = statement
@@ -384,7 +385,8 @@ def parse_statement_metrics(document, period_end, *, currency=None,
                             'row':row_index,'column':col+1,'label':label}})
             excluded = numerator or bool(re.search(r'(?i)adjusted|non[ -]?gaap|comprehensive|ffo|continuing operations|discontinued operations|continuing EPS|normalized|core earnings|excluding\s+(?:specified|special|certain)\s+(?:items|charges)', label))
             revenue_label = re.sub(r'\s*\((?:GAAP|\d+)\)\s*', '', label, flags=re.I)
-            revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label))
+            revenue = bool(re.fullmatch(r'(?i)(?:total )?(?:net )?(?:operating )?(?:revenues?|sales)(?:,? net of interest expense)?', revenue_label)
+                           or revenue_label.lower()=='total service revenues and vehicle sales')
             per_share = bool(re.search(r'(?i)(?:earnings|income|loss).*per (?:basic |diluted )?(?:common )?share|per share.*(?:earnings|income|loss)', label))
             if re.search(r'(?i)\bcomprehensive\b',label):
                 comprehensive_section=True
@@ -400,8 +402,14 @@ def parse_statement_metrics(document, period_end, *, currency=None,
             share_count = bool(re.search(r'(?i)weighted.average|average common shares|number of shares|shares (?:of .* )?outstanding|shares.*(?:used|comput|calculat)',label))
             if share_count:
                 shares_section = True
-            elif per_share and not re.search(r'(?i)^(?:for\b|in\s+(?:computing|calculating|determining)\b)', label) and not any(_numeric(cell) for cell in row) and not excluded:
+                shares_heading = not any(_numeric(cell) is not None for cell in row)
+            elif per_share and not re.search(r'(?i)^(?:for\b|in\s+(?:computing|calculating|determining)\b)', label) and not excluded and (
+                    not shares_heading or not any(_numeric(cell) is not None for cell in row)):
+                # An explicitly labelled actual per-share row establishes a
+                # new EPS section even when its amount is on that same row.
+                # Share counts and calculation inputs have already been excluded.
                 shares_section = False
+                shares_heading = False
             if re.search(r'(?i)homebuilding|mortgage banking|business unit|segment',label) and not any(_numeric(cell) for cell in row):
                 segment_section = True
             if excluded or share_count or re.search(r'(?i)funds from operations|discontinued operations', label):

@@ -8,6 +8,48 @@ ROOT=Path(__file__).parent
 
 
 class StatementConflictTests(unittest.TestCase):
+    def test_explicit_diluted_net_eps_can_follow_weighted_average_share_counts(self):
+        for end,year,quarter,eps in [('2026-07-31',2026,4,0.35),('2026-04-30',2026,3,0.43),
+                                    ('2026-01-31',2026,2,0.36),('2025-10-31',2026,1,0.41),('2025-07-31',2025,4,0.41)]:
+            with self.subTest(period=end):
+                row=parse_statement_metrics(document('CPRT-'+end,'exhibit'),end,
+                    currency='USD',fiscal_year=year,fiscal_quarter=quarter)
+                self.assertEqual(row['epsGaapDiluted'],eps)
+                self.assertEqual(row['epsVerificationStatus'],'verified')
+
+    def test_explicit_combined_service_revenue_and_vehicle_sales_total_is_consolidated_revenue(self):
+        for end,year,quarter,revenue in [('2026-07-31',2026,4,1152439000),('2026-04-30',2026,3,1237066000),
+                                    ('2026-01-31',2026,2,1121674000),('2025-10-31',2026,1,1155030000),('2025-07-31',2025,4,1125097000)]:
+            with self.subTest(period=end):
+                row=parse_statement_metrics(document('CPRT-'+end,'exhibit'),end,
+                    currency='USD',fiscal_year=year,fiscal_quarter=quarter)
+                self.assertEqual(row['revenue'],revenue)
+                self.assertEqual(row['metricLocators']['revenue']['label'],'Total service revenues and vehicle sales')
+
+
+    def test_numeric_actual_per_share_line_resets_share_count_section_only_for_actual_eps(self):
+        body=('<h2>Consolidated Statements of Income</h2><p>USD in millions</p><table>'
+            '<tr><td></td><td>Three months ended September 30, 2026</td></tr>'
+            '<tr><td>Weighted average common shares outstanding</td><td>999</td></tr>'
+            '<tr><td>Diluted</td><td>998</td></tr>'
+            '<tr><td>Diluted net income per common share</td><td>1.23</td></tr>'
+            '<tr><td>Diluted weighted average common shares outstanding</td><td>997</td></tr></table>')
+        self.assertEqual(parse_statement_metrics(body,'2026-09-30',currency='USD')['epsGaapDiluted'],1.23)
+        for label in ('Adjusted diluted net income per common share','Diluted net income per common share excluding specified items',
+                      'Weighted average shares used in diluted net income per common share computation',
+                      'Net income for diluted earnings per share of common stock'):
+            with self.subTest(label=label):
+                mutated=body.replace('Diluted net income per common share',label)
+                self.assertIsNone(parse_statement_metrics(mutated,'2026-09-30',currency='USD')['epsGaapDiluted'])
+
+    def test_explicit_per_share_label_under_weighted_share_heading_is_still_a_count(self):
+        for label in ('Diluted earnings per share attributable to Example Inc.', 'Diluted net income per common share'):
+            body=('<h2>Consolidated Statements of Income</h2><p>USD in millions</p><table>'
+                '<tr><td></td><td>Three months ended September 30, 2026</td></tr>'
+                '<tr><td>Weighted-average shares used in calculating:</td></tr>'
+                '<tr><td>'+label+'</td><td>999</td></tr></table>')
+            self.assertIsNone(parse_statement_metrics(body,'2026-09-30',currency='USD')['epsGaapDiluted'])
+
     def test_original_on_pipeline_preserves_input_exclusion_and_resolves_only_proven_conflict(self):
         from official_sync import _parse_events
         from quarterly_policy import merge_manifest_record
