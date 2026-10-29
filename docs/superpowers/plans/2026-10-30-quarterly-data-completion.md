@@ -15,6 +15,8 @@ Constraints: at most five quarters; preserve official and per-metric provenance;
 - [x] Run 165 Python tests, real-source smoke checks, two all-company backfills and validated publication bundles.
 - [x] Replay TSLA/META/MSFT after final backfill; histories remain identical and contain five distinct quarters.
 - [x] Review code/data diff and record the remaining exceptions in docs/quarterly-completion-results.json.
-- [ ] Merge the final tested change and verify GitHub Pages deployment.
+- [x] Merge the final tested change and verify GitHub Pages deployment.
 
 Actual coverage and remaining source-adapter/calendar work are documented in docs/quarterly-completion-followup-2026-10-30.md. This increment does not claim universal data completeness or punctual cron execution.
+
+PR #13 merged as 764c11db97d5e7f260f75cf0f9e2b990aaf55bdb. GitHub Pages deployment 40940426229 succeeded. Final verification passed 165 Python tests, 26 JavaScript tests, publication consistency, full-source checks and critical-issuer replay. Reconciled snapshot: 2380 official quarters, 1331 complete-metric quarters, 451 five-official-quarter tickers and 33 five-complete-metric tickers. Direct browser verification was unavailable after the host disconnected; local Git synchronization was blocked by the network proxy.
