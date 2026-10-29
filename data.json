@@ -807,9 +807,9 @@
     "ticker": "XYZ",
     "name": "Block, Inc.",
     "reportDate": "2026-11-03",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486dex991.htm",
+    "bmo_amc": "AMC",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q2",
@@ -2551,7 +2551,9 @@
     "reportDateSourceUrl": null,
     "bmo_amc": null,
     "eps": "-",
-    "revenue": "-"
+    "revenue": "-",
+    "latestPublishedQuarter": "2026 Q3",
+    "latestPublishedDate": "2026-10-20"
   },
   {
     "ticker": "GEHC",
@@ -3377,7 +3379,9 @@
     "reportDateSourceUrl": null,
     "bmo_amc": null,
     "eps": "-",
-    "revenue": "-"
+    "revenue": "-",
+    "latestPublishedQuarter": "2026 Q2",
+    "latestPublishedDate": "2026-07-29"
   },
   {
     "ticker": "LH",
@@ -3712,8 +3716,8 @@
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
-    "latestPublishedQuarter": "2026 Q2",
-    "latestPublishedDate": "2026-07-29"
+    "latestPublishedQuarter": "2026 Q3",
+    "latestPublishedDate": "2026-10-21"
   },
   {
     "ticker": "MET",
@@ -5256,8 +5260,8 @@
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
-    "latestPublishedQuarter": "2026 Q2",
-    "latestPublishedDate": "2026-07-22"
+    "latestPublishedQuarter": "2026 Q3",
+    "latestPublishedDate": "2026-10-21"
   },
   {
     "ticker": "TXN",

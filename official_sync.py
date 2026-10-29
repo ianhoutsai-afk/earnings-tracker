@@ -19,6 +19,8 @@ from zoneinfo import ZoneInfo
 from lxml import html
 
 from official_sources import parse_earnings_release, parse_earnings_filing, parse_inline_quarter
+from release_metrics import parse_release_quarter_metrics
+from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
 from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
@@ -101,6 +103,7 @@ def _exhibit_links(document, base):
 def check_issuer(cik, submissions, fetch, today):
     filings = _filings(submissions, today)
     records, pending, failures, metric_pending = {}, 0, 0, 0
+    next_event = None
     source_errors=[]
     # Main SEC submissions may cover only weeks for high-volume debt issuers.
     cutoff=today-timedelta(days=550)
@@ -138,6 +141,7 @@ def check_issuer(cik, submissions, fetch, today):
         accepted = False
         event_conflict=False
         first_exhibit=None
+        first_exhibit_url=None
         for url in links+[base+event['primaryDocument']]:
             try:
                 if url==base+event['primaryDocument']:
@@ -145,7 +149,11 @@ def check_issuer(cik, submissions, fetch, today):
                     release=parse_earnings_filing(primary_doc,event['reportDate'],event['filingDate'],today,exhibit=first_exhibit)
                 else:
                     release_doc = fetch(url)
-                    if first_exhibit is None:first_exhibit=release_doc
+                    if first_exhibit is None:
+                        first_exhibit, first_exhibit_url = release_doc, url
+                    scheduled = parse_expected_release(release_doc, today)
+                    if scheduled and next_event is None:
+                        next_event = {**scheduled, 'sourceUrl':url, 'announcementFilingDate':event['filingDate']}
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
             except (OSError, TimeoutError) as exc:
                 failures += 1
@@ -190,6 +198,16 @@ def check_issuer(cik, submissions, fetch, today):
                 if not release.get('periodEnd') or not release.get('fiscalYear') or not release.get('fiscalQuarter'):
                     continue
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
+            metric_release = first_exhibit if url == base+event['primaryDocument'] else release_doc
+            metric_release_url = first_exhibit_url if url == base+event['primaryDocument'] else url
+            if metric_release is not None:
+                extra = parse_release_quarter_metrics(metric_release, metrics.get('periodEnd') or release['periodEnd'], cik)
+                for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
+                    if metrics.get(field) is None and extra.get(field) is not None:
+                        metrics[field] = extra[field]
+                        metrics[source_field] = metric_release_url
+                if metrics.get('epsGaapDiluted') is not None:
+                    metrics['epsBasis'] = 'GAAP diluted'
             if metrics.get('epsGaapDiluted') is None or metrics.get('revenue') is None:
                 metric_pending += 1
             record = {**release, **metrics, 'releaseSourceUrl':url, 'metricSourceUrl':metric_url,
@@ -209,7 +227,7 @@ def check_issuer(cik, submissions, fetch, today):
         if not accepted:
             pending += 1
     rows = sorted(records.values(), key=lambda r:r['periodEnd'], reverse=True)[:5]
-    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors[:20]}
+    return rows, {'releaseCandidates':len(releases[:12]), 'parsedQuarters':len(rows), 'parsePending':pending, 'metricPending':metric_pending, 'requestFailures':failures,'sourceErrors':source_errors[:20], 'nextEarningsEvent':next_event}
 
 
 def _now(today):
@@ -349,6 +367,10 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     for company in companies:
         entry=dict(company)
         issuer=mapping.get(entry['ticker'],{})
+        scheduled = status.get(entry['ticker'], {}).get('nextEarningsEvent')
+        if scheduled and scheduled.get('date', '') >= today.isoformat():
+            entry.update(reportDate=scheduled['date'], bmo_amc=scheduled.get('bmo_amc'),
+                         reportDateSource='official', reportDateSourceUrl=scheduled['sourceUrl'])
         if issuer.get('tickerStatus') in ('historical_alias','unconfirmed'):
             entry['tickerIdentityStatus']=issuer['tickerStatus']
             entry['officialCurrentTickers']=issuer.get('officialTickers',[])
@@ -372,7 +394,15 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
                'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
                'sourceFailedCompanies':sum(s.get('status')=='official_source_failed' for s in status.values()),
-               'checkedAt':checked, 'healthy':source_failures==0 and deferred==0}
+               'checkedAt':checked}
+    summary['storedQuarters'] = sum(s.get('recordCount', 0) for s in status.values())
+    summary['completeMetricQuarters'] = sum(s.get('metricsVerifiedQuarterCount', 0) for s in status.values())
+    summary['sourceHealthy'] = source_failures == 0 and deferred == 0
+    summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
+    summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
+    summary['dataComplete'] = summary['historyComplete'] and summary['metricsComplete']
+    summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
+    summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,
         root/'official_history.json':retain_manifest(manifest),root/'history_status.json':status,
         root/'official_scan_state.json':summary,root/'sp500_mapping.json':mapping})
@@ -386,5 +416,5 @@ if __name__=='__main__':
     args=parser.parse_args()
     summary=sync_all(args.root,full=args.full)
     print(json.dumps(summary))
-    if not summary['healthy']:
+    if not summary['sourceHealthy']:
         raise SystemExit('Official checks incomplete; prior history preserved and per-company status saved')
