@@ -52,6 +52,18 @@ class StrykerStatementTests(unittest.TestCase):
             self.assertTrue(rows[0][field].endswith('/sykex991.htm'))
         self.assertNotIn('secUrl',rows[0])
 
+    def test_generic_millions_wording_cannot_bypass_currency_evidence(self):
+        self.assertEqual(self.parse(self.document().replace('Millions of Dollars','In millions of Euros')), {})
+
+    def test_contradictory_full_width_dates_and_years_stay_pending(self):
+        from lxml import html
+        for text in ('For the Three and Nine Months June 30','2025'):
+            tree=html.fromstring(self.document())
+            row=next(row for row in tree.xpath('.//tr') if ''.join(row.itertext()).strip().startswith('Net sales'))
+            row.addprevious(html.fromstring('<tr><td colspan="36">'+text+'</td></tr>'))
+            with self.subTest(text=text):
+                self.assertEqual(self.parse(html.tostring(tree,encoding='unicode')), {})
+
 class TeslaUpdateTests(unittest.TestCase):
     def document(self):
         from pathlib import Path
@@ -88,3 +100,10 @@ class TeslaUpdateTests(unittest.TestCase):
 
     def test_conflicting_statement_slides_remain_pending(self):
         self.assertEqual(self.parse('<div>'+self.document()+self.document().replace('24,901','24,902').replace('$       0.24','$       0.25')+'</div>'), {})
+
+    def test_explicit_adjusted_basis_cannot_keep_a_gaap_statement_marker(self):
+        title='S T A T E M E N T   O F   O P E R A T I O N S'
+        for prefix in ('NON-GAAP ','ADJUSTED ','A D J U S T E D '):
+            document=self.document().replace(title,prefix+title).replace('$       0.24','$       0.50')
+            with self.subTest(prefix=prefix):
+                self.assertEqual(self.parse(document), {})
