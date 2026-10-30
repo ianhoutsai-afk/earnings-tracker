@@ -18,8 +18,10 @@ Full scan: 499 SEC issuer targets checked, no source failures or deferred issuer
 
 The scan admitted new quarters for LNT, AMZN, CVX, KVUE, LYB and REGN. Four companies' complete-quarter counts fell by one as a new incomplete quarter displaced the oldest completed quarter. The audit checks that every still-retained verified value is unchanged and any removed verified quarter is older than the five retained periods. New-quarter admission and other source-driven fills must not all be attributed to these two adapters. The complete history objects for TSLA/SYK/META/MSFT were unchanged after a second source sync.
 
+Raw manifest comparison confirms 14 newly populated numeric fields across eight existing issuer/period records, no replacement of an existing non-null revenue or EPS value, and six oldest-quarter removals accompanying six new-quarter admissions. Exactly four of these new fields (TSLA/SYK) come from the new adapters; the other ten come from newly available SEC filings through existing logic.
+
 ## Decisions and limits
 - Continue the existing approved metric design without reopening product scope or metric definitions.
-- The code reviewer did not judge the pending live data bundle; its audit, consistency validation and replay are verified separately by the executor.
+- The code reviewer did not judge the pending live data bundle; its audit, consistency validation and replay are verified separately by the executor. Final guarded-code replay and publication consistency passed in run 41044265097.
 - No Critical or Minor review findings remained. All three Important findings are covered by regressions.
 - Banks, insurers, REITs, foreign-currency reports and other unreviewed layouts remain pending. This increment does not establish full-market completeness or guarantee punctual cron execution.

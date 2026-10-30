@@ -129,5 +129,156 @@
       "TSLA"
     ],
     "idempotent": true
+  },
+  "rawFieldAudit": {
+    "additions": [
+      {
+        "ticker": "FTNT",
+        "end": "2026-09-30",
+        "field": "revenue",
+        "before": null,
+        "after": 2078400000,
+        "source": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm"
+      },
+      {
+        "ticker": "FTNT",
+        "end": "2026-09-30",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 0.86,
+        "source": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm"
+      },
+      {
+        "ticker": "GDDY",
+        "end": "2026-09-30",
+        "field": "revenue",
+        "before": null,
+        "after": 1341800000,
+        "source": "https://www.sec.gov/Archives/edgar/data/1609711/000160971126000120/gddy-20260930.htm"
+      },
+      {
+        "ticker": "GDDY",
+        "end": "2026-09-30",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 2.08,
+        "source": "https://www.sec.gov/Archives/edgar/data/1609711/000160971126000120/gddy-20260930.htm"
+      },
+      {
+        "ticker": "GILD",
+        "end": "2026-09-30",
+        "field": "revenue",
+        "before": null,
+        "after": 8300000000,
+        "source": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm"
+      },
+      {
+        "ticker": "GILD",
+        "end": "2026-09-30",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 1.94,
+        "source": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm"
+      },
+      {
+        "ticker": "INTC",
+        "end": "2026-09-26",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 0.6,
+        "source": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/intc-20260926.htm"
+      },
+      {
+        "ticker": "RMD",
+        "end": "2026-09-30",
+        "field": "revenue",
+        "before": null,
+        "after": 1414814000,
+        "source": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm"
+      },
+      {
+        "ticker": "RMD",
+        "end": "2026-09-30",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 2.92,
+        "source": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm"
+      },
+      {
+        "ticker": "SYK",
+        "end": "2026-09-30",
+        "field": "revenue",
+        "before": null,
+        "after": 6520000000,
+        "source": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000059/sykex991earningsq32026.htm"
+      },
+      {
+        "ticker": "SYK",
+        "end": "2026-09-30",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 1.96,
+        "source": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000059/sykex991earningsq32026.htm"
+      },
+      {
+        "ticker": "TSLA",
+        "end": "2025-12-31",
+        "field": "revenue",
+        "before": null,
+        "after": 24901000000,
+        "source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm"
+      },
+      {
+        "ticker": "TSLA",
+        "end": "2025-12-31",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 0.24,
+        "source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm"
+      },
+      {
+        "ticker": "VLTO",
+        "end": "2026-10-02",
+        "field": "epsGaapDiluted",
+        "before": null,
+        "after": 1.03,
+        "source": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000048/vlto-20261002.htm"
+      }
+    ],
+    "changed": [],
+    "removed": [
+      {
+        "ticker": "AMZN",
+        "end": "2025-06-30"
+      },
+      {
+        "ticker": "CVX",
+        "end": "2025-06-30"
+      },
+      {
+        "ticker": "KVUE",
+        "end": "2025-06-29"
+      },
+      {
+        "ticker": "LNT",
+        "end": "2025-06-30"
+      },
+      {
+        "ticker": "LYB",
+        "end": "2025-03-31"
+      },
+      {
+        "ticker": "REGN",
+        "end": "2025-06-30"
+      }
+    ]
+  },
+  "validation": {
+    "pythonTests": 182,
+    "javascriptTests": 26,
+    "sourceBackfillRun": 41043397229,
+    "guardedParserRun": 41044032444,
+    "finalCandidateRun": 41044265097,
+    "finalCandidateCommit": "bd0f383e5c547b77780da5e38d73c8801bf67f2e"
   }
 }
