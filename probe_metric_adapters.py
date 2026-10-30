@@ -16,6 +16,11 @@ for ticker,cik,end,url in targets:
  tree=html.fromstring(body)
  print('SOURCE',json.dumps({'ticker':ticker,'url':url,'sha256':hashlib.sha256(body).hexdigest(),'bytes':len(body),'currentParsed':parse_release_quarter_metrics(body,end,cik)}),flush=True)
  print('INTRO',_text(tree)[:4500],flush=True)
+ if ticker=='TSLA':
+  print('DOCUMENT',json.dumps({'ticker':ticker,'html':body.decode('utf-8')}),flush=True)
+  for node in tree.iter():
+   if len(node)==0 and node.text and ('Total revenues' in node.text or 'EPS attributable' in node.text or 'STATEMENTS OF OPERATIONS' in node.text):
+    print('STRUCTURE',json.dumps({'tag':node.tag,'parent':html.tostring(node.getparent(),encoding='unicode')[:18000]}),flush=True)
  print('LINKS',json.dumps([(a.get('href'),_text(a)) for a in tree.xpath('//a[@href]')][:35]),flush=True)
  for i,table in enumerate(tree.xpath('//table')):
   if table.xpath('.//table'):continue
