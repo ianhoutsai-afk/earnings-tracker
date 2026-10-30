@@ -2,7 +2,7 @@ name: Reviewed Metric Evidence
 on:
   push:
     branches: [codex/reviewed-quarter-metrics-20261030]
-    paths: ['probe_metric_adapters.py', '.github/workflows/metric-evidence.yml']
+    paths: ['*.py', 'tests/fixtures/reviewed/**', '.github/workflows/metric-evidence.yml']
 permissions:
   contents: read
 jobs:
@@ -19,6 +19,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install lxml requests pandas yfinance
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
       - run: python probe_metric_adapters.py
       - uses: actions/upload-artifact@v4
         if: always()
