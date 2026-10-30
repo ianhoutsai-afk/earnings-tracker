@@ -101,15 +101,17 @@ def _stryker_columns(headers, end):
     """Stryker shares month/day above separate duration and year columns."""
     shared = {row[0] for row in headers if row and row[0] and len(set(row)) == 1}
     period = r'For the Three(?: and (?:Six|Nine))? Months ' + end.strftime('%B') + ' ' + str(end.day)
-    dates = {text for text in shared if re.fullmatch(period, text, re.I)}
-    if len(dates) != 1:
+    dates = {text for text in shared if re.search(r'(?i)\bmonths\b', text)}
+    if (len(dates) != 1 or not re.fullmatch(period, next(iter(dates)), re.I)
+            or any(re.fullmatch(r'20\d{2}', text) for text in shared)):
         return []
     columns = []
     for x in range(1, max(map(len, headers), default=0)):
         # The common title lists all durations; only the column's own duration
         # and year may choose a quarter. Percent-change columns have no year.
         parts = [row[x] for row in headers if x < len(row) and row[x] and row[x] not in shared]
-        if ('Three Months' in parts and str(end.year) in parts
+        years = {p for p in parts if re.fullmatch(r'20\d{2}', p)}
+        if ('Three Months' in parts and years == {str(end.year)}
                 and not any(re.search(r'(?i)six|nine|twelve|year|%|change', p) for p in parts)):
             columns.append(x)
     return columns
@@ -130,7 +132,9 @@ def _tesla_update_metrics(tree, end):
     units = 'In millions of USD or shares as applicable, except per share data '
     for node in tree.xpath('//font[not(*)]'):
         text = _text(node)
-        if not text.startswith(units) or 'STATEMENTOFOPERATIONS(Unaudited)' not in re.sub(r'\s+', '', text):
+        compact = re.sub(r'\s+', '', text)
+        if (not text.startswith(units) or 'STATEMENTOFOPERATIONS(Unaudited)' not in compact
+                or any(word in compact.lower() for word in ('non-gaap','non–gaap','adjusted','segment','comprehensive'))):
             continue
         header, separator, _ = text.partition(' REVENUES ')
         columns = header[len(units):].split()
@@ -186,7 +190,10 @@ def parse_release_quarter_metrics(document, period_end, cik):
             continue
         headers = grid[:boundary]
         units = scope+' '+' '.join(' '.join(row) for row in headers)
-        if not re.search(r'(?i)\bin millions\b', units) and not (cik == '0000310764' and re.search(r'(?i)\bmillions of dollars\b', units)):
+        if cik == '0000310764':
+            if not re.search(r'(?i)\bmillions of dollars\b', units) or re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
+                continue
+        elif not re.search(r'(?i)\bin millions\b', units):
             continue
         width = max(map(len,grid), default=0)
         columns = []

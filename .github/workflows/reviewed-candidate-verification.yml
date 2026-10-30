@@ -1,0 +1,33 @@
+name: Reviewed Candidate Verification
+on:
+  push:
+    branches: [codex/reviewed-quarter-metrics-20261030]
+    paths: ['release_metrics.py', '.github/workflows/reviewed-candidate-verification.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install lxml requests pandas yfinance
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
+      - run: python validate_quarterly_data.py
+      - run: python verify_reviewed_metric_adapters.py
+      - name: Replay all four critical issuers using final guarded code
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          source=Path('replay_quarterly_completion.py').read_text()
+          assert "tickers={'TSLA','META','MSFT'}" in source
+          exec(compile(source.replace("tickers={'TSLA','META','MSFT'}","tickers={'TSLA','META','MSFT','SYK'}"),'replay_reviewed_candidate','exec'))
+          PY
