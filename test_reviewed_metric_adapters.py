@@ -42,7 +42,7 @@ class StrykerStatementTests(unittest.TestCase):
             'form':['8-K'], 'accessionNumber':['0000310764-26-000059'],
             'primaryDocument':['syk-20261029.htm'], 'filingDate':['2026-10-29'],
             'reportDate':['2026-10-29'], 'items':['2.02,9.01']}}}
-        primary='<p>Item 2.02</p><p>On October 29, 2026, Stryker reported results for its third quarter 2026 ended September 30, 2026.</p><p>Item 9.01</p><a href="sykex991.htm">99.1</a>'
+        primary='<p>Item 2.02</p><p>On October 29, 2026, Stryker reported third quarter 2026 results for the quarter ended September 30, 2026.</p><p>Item 9.01</p><a href="sykex991.htm">99.1</a>'
         def fetch(url):
             return self.document() if url.endswith('sykex991.htm') else primary
         rows,_=check_issuer('0000310764',submissions,fetch,date(2026,10,30))

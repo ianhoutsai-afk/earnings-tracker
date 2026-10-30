@@ -1,7 +1,7 @@
 """Explicit quarterly GAAP statement columns for reviewed USD issuer layouts.
 
-Supported issuer review: Microsoft income statements and Meta condensed
-consolidated statements of income. Do not generalize currency or taxonomy
+Supported issuer review: Microsoft, Meta, Stryker and Tesla shareholder
+statements. Do not generalize currency or taxonomy
 assumptions to unreviewed issuers. Q4 is read directly, never subtracted.
 """
 import re
@@ -9,7 +9,7 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from lxml import html
 
-SUPPORTED_ISSUERS = {'0000789019', '0001326801'}
+SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764'}
 
 def _text(node):
     return ' '.join(' '.join(node.itertext()).split())
@@ -97,12 +97,78 @@ def _number(raw):
     except InvalidOperation:
         return None
 
+def _stryker_columns(headers, end):
+    """Stryker shares month/day above separate duration and year columns."""
+    shared = {row[0] for row in headers if row and row[0] and len(set(row)) == 1}
+    period = r'For the Three(?: and (?:Six|Nine))? Months ' + end.strftime('%B') + ' ' + str(end.day)
+    dates = {text for text in shared if re.fullmatch(period, text, re.I)}
+    if len(dates) != 1:
+        return []
+    columns = []
+    for x in range(1, max(map(len, headers), default=0)):
+        # The common title lists all durations; only the column's own duration
+        # and year may choose a quarter. Percent-change columns have no year.
+        parts = [row[x] for row in headers if x < len(row) and row[x] and row[x] not in shared]
+        if ('Three Months' in parts and str(end.year) in parts
+                and not any(re.search(r'(?i)six|nine|twelve|year|%|change', p) for p in parts)):
+            columns.append(x)
+    return columns
+
+
+def _tesla_update_metrics(tree, end):
+    """Read the reviewed SEC image-exhibit's embedded statement-slide text.
+
+    The incoming period is independently verified by the official filing.
+    Calendar-quarter labels bind columns only for Tesla's reviewed calendar;
+    this does not establish fiscal identity or apply to other issuers.
+    """
+    quarter = {(3,31):1, (6,30):2, (9,30):3, (12,31):4}.get((end.month,end.day))
+    if quarter is None:
+        return {}
+    wanted = f'Q{quarter}-{end.year}'
+    values = {'revenue': set(), 'epsGaapDiluted': set()}
+    units = 'In millions of USD or shares as applicable, except per share data '
+    for node in tree.xpath('//font[not(*)]'):
+        text = _text(node)
+        if not text.startswith(units) or 'STATEMENTOFOPERATIONS(Unaudited)' not in re.sub(r'\s+', '', text):
+            continue
+        header, separator, _ = text.partition(' REVENUES ')
+        columns = header[len(units):].split()
+        if (not separator or not 1 <= len(columns) <= 8 or len(set(columns)) != len(columns)
+                or not all(re.fullmatch(r'Q[1-4]-20\d{2}', col) for col in columns)
+                or wanted not in columns):
+            continue
+        x = columns.index(wanted)
+        revenue = re.search(r'\bTotal revenues\s+(.*?)\s+COST OF REVENUES\b', text)
+        eps = re.search(r'Net income per share of common stock attributable to common stockholders\s+'
+                        r'Basic(?:\s+\(\d+\))?\s+.*?\s+Diluted(?:\s+\(\d+\))?\s+'
+                        r'(.*?)\s+Weighted average shares\b', text)
+        for metric, match in (('revenue', revenue), ('epsGaapDiluted', eps)):
+            if match is None:
+                continue
+            tokens = match[1].replace('$','').split()
+            parsed = [_number(token) for token in tokens]
+            if len(parsed) != len(columns) or any(value is None for value in parsed):
+                continue
+            value = parsed[x]
+            if metric == 'revenue' and value < 0:
+                continue
+            values[metric].add(float(value * 1000000 if metric == 'revenue' else value))
+    return {key: next(iter(found)) for key,found in values.items() if len(found)==1}
+
+
 def parse_release_quarter_metrics(document, period_end, cik):
     """Return only unambiguous directly reported quarterly totals and diluted EPS."""
-    if str(cik).zfill(10) not in SUPPORTED_ISSUERS:
+    cik = str(cik).zfill(10)
+    if cik not in SUPPORTED_ISSUERS and cik != '0001318605':
         return {}
     end = date.fromisoformat(period_end)
-    tree = html.fromstring(document.encode('utf-8') if isinstance(document,str) else document)
+    if isinstance(document, str):
+        tree = html.fromstring(document.encode('utf-8'), parser=html.HTMLParser(encoding='utf-8'))
+    else:
+        tree = html.fromstring(document)
+    if cik == '0001318605':
+        return _tesla_update_metrics(tree, end)
     values = {'revenue': set(), 'epsGaapDiluted': set()}
     for table in tree.xpath('//table'):
         if table.xpath('.//table'):
@@ -119,7 +185,8 @@ def parse_release_quarter_metrics(document, period_end, cik):
         if boundary is None:
             continue
         headers = grid[:boundary]
-        if not re.search(r'(?i)\bin millions\b', scope+' '+' '.join(' '.join(row) for row in headers)):
+        units = scope+' '+' '.join(' '.join(row) for row in headers)
+        if not re.search(r'(?i)\bin millions\b', units) and not (cik == '0000310764' and re.search(r'(?i)\bmillions of dollars\b', units)):
             continue
         width = max(map(len,grid), default=0)
         columns = []
@@ -130,6 +197,8 @@ def parse_release_quarter_metrics(document, period_end, cik):
             month = end.strftime('%B')
             if re.search(r'(?i)\b'+month+r'\s+'+str(end.day)+r'\s*,?\s+'+str(end.year)+r'\b',header):
                 columns.append(x)
+        if cik == '0000310764':
+            columns = _stryker_columns(headers, end)
         if not columns:
             continue
         group = ''
@@ -151,3 +220,4 @@ def parse_release_quarter_metrics(document, period_end, cik):
                 if value is not None and (metric != 'revenue' or value >= 0):
                     values[metric].add(float(value * 1000000 if metric=='revenue' else value))
     return {key: next(iter(found)) for key,found in values.items() if len(found)==1}
+

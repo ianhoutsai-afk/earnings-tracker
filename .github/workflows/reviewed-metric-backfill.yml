@@ -1,0 +1,43 @@
+name: Reviewed Metric Backfill
+on:
+  push:
+    branches: [codex/reviewed-quarter-metrics-20261030]
+    paths: ['release_metrics.py', 'test_reviewed_metric_adapters.py', 'verify_reviewed_metric_adapters.py', 'run_reviewed_metric_backfill.py', '.github/workflows/reviewed-metric-backfill.yml']
+permissions:
+  contents: write
+concurrency:
+  group: reviewed-metric-branch-backfill
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: reviewed-metric-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python -m pip install lxml requests pandas yfinance
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
+      - run: python verify_reviewed_metric_adapters.py
+      - run: python run_reviewed_metric_backfill.py
+      - name: Save validated candidate on this branch only
+        run: |
+          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json docs/reviewed-metric-results-2026-10-30.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Save source-validated reviewed metric backfill [skip ci]'
+          git push origin HEAD:${{ github.ref_name }}
