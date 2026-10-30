@@ -1,0 +1,133 @@
+{
+  "summary": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 8,
+    "sourceFailures": 0,
+    "pendingCompanies": 491,
+    "officialQuarters": 2380,
+    "fiveOfficialQuarterCompanies": 451,
+    "fiveCompleteMetricCompanies": 33,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-10-30T10:48:33.875434Z",
+    "storedQuarters": 2514,
+    "completeMetricQuarters": 1339,
+    "sourceHealthy": true,
+    "historyComplete": false,
+    "metricsComplete": false,
+    "dataComplete": false,
+    "healthy": false,
+    "dataStatus": "incomplete"
+  },
+  "changes": [
+    {
+      "ticker": "LNT",
+      "beforeComplete": 4,
+      "afterComplete": 3,
+      "beforeLatest": "2026-06-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "AMZN",
+      "beforeComplete": 1,
+      "afterComplete": 1,
+      "beforeLatest": "2026-06-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "CVX",
+      "beforeComplete": 4,
+      "afterComplete": 3,
+      "beforeLatest": "2026-06-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "FTNT",
+      "beforeComplete": 3,
+      "afterComplete": 4,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "GILD",
+      "beforeComplete": 3,
+      "afterComplete": 4,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "GDDY",
+      "beforeComplete": 3,
+      "afterComplete": 4,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "INTC",
+      "beforeComplete": 0,
+      "afterComplete": 0,
+      "beforeLatest": "2026-09-26",
+      "afterLatest": "2026-09-26"
+    },
+    {
+      "ticker": "KVUE",
+      "beforeComplete": 4,
+      "afterComplete": 3,
+      "beforeLatest": "2026-06-28",
+      "afterLatest": "2026-09-27"
+    },
+    {
+      "ticker": "LYB",
+      "beforeComplete": 5,
+      "afterComplete": 4,
+      "beforeLatest": "2026-06-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "REGN",
+      "beforeComplete": 0,
+      "afterComplete": 0,
+      "beforeLatest": "2026-06-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "RMD",
+      "beforeComplete": 3,
+      "afterComplete": 4,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "SYK",
+      "beforeComplete": 4,
+      "afterComplete": 5,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "TSLA",
+      "beforeComplete": 4,
+      "afterComplete": 5,
+      "beforeLatest": "2026-09-30",
+      "afterLatest": "2026-09-30"
+    },
+    {
+      "ticker": "VLTO",
+      "beforeComplete": 0,
+      "afterComplete": 0,
+      "beforeLatest": "2026-10-02",
+      "afterLatest": "2026-10-02"
+    }
+  ],
+  "replay": {
+    "tickers": [
+      "META",
+      "MSFT",
+      "SYK",
+      "TSLA"
+    ],
+    "idempotent": true
+  }
+}
