@@ -31,9 +31,22 @@ jobs:
           path: .sec_cache/official
           key: sec-official-v1-${{ github.run_id }}
       - name: Refresh publication fields after possible New York midnight rollover
-        run: python verified_history.py
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from quarterly_policy import company_fields
+          from verified_history import write_json_bundle
+          today=datetime.now(ZoneInfo('America/New_York')).date()
+          history=json.loads(Path('historical_data.json').read_text())
+          companies=json.loads(Path('data.json').read_text())
+          write_json_bundle({Path('data.json'):[company_fields(c,history,today) for c in companies]})
+          PY
       - run: python validate_quarterly_data.py
-      - name: Preserve exact tested candidate for independent data audit
+      - name: Preserve candidate and validation evidence on isolated branch
+        if: always()
         run: |
           git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
           if git diff --cached --quiet; then exit 0; fi
