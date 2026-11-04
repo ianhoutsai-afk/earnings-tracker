@@ -1,0 +1,23 @@
+name: Quarterly completion regression evidence
+on:
+  push:
+    branches: [codex/quarterly-completion-20261104]
+    paths: ['test_completion_followup.py','.github/workflows/completion-regressions.yml']
+permissions:
+  contents: read
+jobs:
+  regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - name: Reproduce remaining heading failures
+        run: |
+          if python -m unittest test_completion_followup.RevenueTests.test_reviewed_heading_orders_and_customer_sales_label -v; then
+            exit 1
+          fi
+      - name: Probe original publication clauses
+        run: python diagnose_publication_clauses.py

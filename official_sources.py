@@ -38,6 +38,8 @@ def normalize_proxy_base(value):
 
 
 def _text(tree):
+    if not isinstance(tree.tag, str):
+        return ''
     return ' '.join(tree.itertext()).replace('\xa0', ' ')
 
 
@@ -104,9 +106,9 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         if _local(node) in ('p','div','tr','h1','h2','h3','h4'):
             node.tail=(node.tail or '')+'\n'
     text='\n'.join(' '.join(line.split()) for line in _text(tree).splitlines() if line.strip())
-    match=re.search(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
-    if not match:raise ValueError('No earnings publication statement')
-    section=match[1]
+    sections=re.findall(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
+    if not sections:raise ValueError('No earnings publication statement')
+    section='\n'.join(sections)
     statements=list(re.finditer(r'(?i)\bOn\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?('+DATE+r')\s*,?\s+(.{0,350}?(?:reported|announced|issued|released|posted)\b.{0,250})',section))
     statements += list(re.finditer(r'(?i)\b(?:announced|reported)\s+on\s+('+DATE+r')(.{0,400})',section))
     statements += list(re.finditer(r'(?i)(?:press|news)\s+release(?:(?!'+DATE+r').){0,150}?(?:dated|issued(?:\s+by.{0,100}?)?\s+on)\s+('+DATE+r')(.{0,400})',section))
@@ -139,7 +141,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|contained|setting\s+forth|relating\s+to|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
@@ -259,6 +261,11 @@ def parse_inline_quarter(document, period_end, cik=None):
         tag = node.get('name', '')
         is_eps = tag.lower() == 'us-gaap:earningspersharediluted'
         is_revenue = tag.lower() in {t.lower() for t in REVENUE_TAGS}
+        # Extension names need an explicit consolidated total row and the same
+        # dimensionless quarter context and USD unit as standard facts.
+        if (not is_revenue and ':' in tag and tag.split(':')[0].lower() not in ('us-gaap','dei')
+                and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])):
+            is_revenue = _contract_revenue_total(node)
         if not is_eps and not is_revenue:
             continue
         if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
