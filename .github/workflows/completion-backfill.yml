@@ -36,4 +36,4 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -m 'Backfill latest official quarters and missing quarterly totals [skip ci]'
-          git push origin HEAD
+          git push origin HEAD:refs/heads/codex/completion-data-${{ github.run_id }}

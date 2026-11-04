@@ -87,14 +87,17 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
-    if end is None:
-        raise ValueError('No explicit completed quarterly period')
-    if (event - end).days > 180:
-        raise ValueError('Release period is not current for this event')
-    # Prefer the earliest current headline identity, including joint Q4/FY headlines.
-    # Later comparative paragraphs cannot provide the quarter's fiscal year.
+    # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
-    return {'date': event.isoformat(), 'periodEnd': end.isoformat(),
+    if end is None or (event - end).days > 180:
+        # Some actual-results releases put the period only in the later financial
+        # tables. The dated, completed-results sentence and explicit fiscal focus
+        # can join a matching 10-Q/10-K. No filing means no new quarter is admitted.
+        actual = re.search(r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?(?:financial\s+)?results\s+for\b',intro)
+        if not actual or year is None or fiscal_quarter is None:
+            raise ValueError('No explicit completed quarterly period')
+        end = None
+    return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
             'fiscalYear':year, 'fiscalQuarter':fiscal_quarter}
 
 
@@ -122,7 +125,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
     supported=[]
     for m in statements:
-        clause=re.split(r'(?<!\b[A-Z]\.)(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        clause=re.split(r'(?<!\b[A-Z]\.)(?<!\bInc\.)(?<!\bCorp\.)(?<!\bLtd\.)(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
         # In "announced on DATE, its results", the completed verb precedes the date.
         before_date=m[0][:m.start(1)-m.start()]
         if re.search(r'(?i)\bearnings\s+release\b.*\bwas\s+posted\b',before_date):
@@ -146,7 +149,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|contained|setting\s+forth|relating\s+to|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|contained|setting\s+forth|relating\s+to|regarding|reports|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
