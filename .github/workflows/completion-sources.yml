@@ -1,0 +1,17 @@
+name: Quarterly completion original-source regression evidence
+on:
+  push:
+    branches: [codex/quarterly-completion-20261104]
+    paths: ['test_official_completion_sources.py','.github/workflows/completion-sources.yml']
+permissions: {contents: read}
+jobs:
+  source-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - name: Reproduce missing directly reported metrics
+        run: |
+          if python -m unittest test_official_completion_sources -v; then exit 1; fi
