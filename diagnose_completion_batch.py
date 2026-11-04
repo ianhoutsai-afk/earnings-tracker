@@ -3,6 +3,8 @@ from pathlib import Path
 from lxml import html
 from official_sync import fetch_sec
 from official_sources import _text,_local,_contract_revenue_total,REVENUE_TAGS
+def safe_text(node):
+ return _text(node) if isinstance(node.tag,str) else ''
 report=json.loads(Path('_diagnostics/report.json').read_text())
 root=Path('_diagnostics/sources');root.mkdir(exist_ok=True)
 index=[]
@@ -29,7 +31,7 @@ for r in report:
     siblings=[];prev=a.getprevious()
     for i in range(5):
      if prev is None:break
-     siblings.append({'tag':str(prev.tag),'text':' '.join(_text(prev).split())[:700]})
+     siblings.append({'tag':str(prev.tag),'text':' '.join(safe_text(prev).split())[:700]})
      prev=prev.getprevious()
     ancestors.append({'tag':str(a.tag),'text':(a.text or '')[:120],'previous':siblings})
    facts.append({'tag':n.get('name'),'context':n.get('contextref'),'row':row[:400],'acceptedTotal':_contract_revenue_total(n),'ancestors':ancestors})
