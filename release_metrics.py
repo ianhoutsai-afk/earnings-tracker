@@ -9,9 +9,12 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from lxml import html
 
-SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764'}
+SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764',
+                     '0000320193', '0000002488', '0001018724', '0001596532', '0000001800'}
 
 def _text(node):
+    if not isinstance(node.tag, str):
+        return ''
     return ' '.join(' '.join(node.itertext()).split())
 
 def _grid(table):
@@ -43,7 +46,7 @@ def _scope(table):
     # Some original exhibits put the statement title in a full-width table row.
     # Use an exact title before the data, never a loose mention in a note.
     first_rows = table.xpath('./tr|./thead/tr|./tbody/tr')[:8]
-    title_pattern = r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)'
+    title_pattern = r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?'
     header_text = ' '.join(_text(row) for row in first_rows)
     for row in first_rows:
         cells = row.xpath('./td|./th')
@@ -57,7 +60,7 @@ def _scope(table):
     current = table
     for _ in range(4):
         previous = current.getprevious()
-        for _ in range(8):
+        for _ in range(12):
             if previous is None:
                 break
             if previous.tag == 'table' or previous.xpath('.//table'):
@@ -66,7 +69,7 @@ def _scope(table):
             prefix.append(text)
             if re.search(r'(?i)non.gaap|adjusted|comprehensive|segment|notes?\s+(?:\d+|to\b)|balance sheet|cash flow', text):
                 return None
-            if re.fullmatch(r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)', text):
+            if re.fullmatch(r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?', text):
                 return ' '.join(prefix)
             previous = previous.getprevious()
         parent = current.getparent()
@@ -78,7 +81,7 @@ def _scope(table):
             break
         current = parent
     # Captions must also be explicit GAAP income-statement titles.
-    if caption is not None and re.fullmatch(r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)', _text(caption)):
+    if caption is not None and re.fullmatch(r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?', _text(caption)):
         return ' '.join(prefix)
     return None
 
@@ -184,7 +187,7 @@ def parse_release_quarter_metrics(document, period_end, cik):
             grid = _grid(table)
         except (ValueError, TypeError):
             continue
-        labels = [next((value for value in row if value), '') for row in grid]
+        labels = [re.sub(r'\s*\(\d+\)$', '', next((value for value in row if value and not re.fullmatch(r'\d+\)|\(\d+\)',value)), '')) for row in grid]
         boundary = next((i for i,label in enumerate(labels) if re.fullmatch(r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?',label)), None)
         if boundary is None:
             continue
@@ -193,7 +196,9 @@ def parse_release_quarter_metrics(document, period_end, cik):
         if cik == '0000310764':
             if not re.search(r'(?i)\bmillions of dollars\b', units) or re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
                 continue
-        elif not re.search(r'(?i)\bin millions\b', units):
+        elif not re.search(r'(?i)\b(?:in\s+)?millions\b' if cik == '0000002488' else r'(?i)\bin millions\b', units):
+            continue
+        if re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
             continue
         width = max(map(len,grid), default=0)
         columns = []
@@ -206,19 +211,31 @@ def parse_release_quarter_metrics(document, period_end, cik):
                 columns.append(x)
         if cik == '0000310764':
             columns = _stryker_columns(headers, end)
+        if cik == '0000001800':
+            # Abbott's reviewed calendar-quarter statement has exact month/day
+            # and two years in its title, and explicit 3Q26-style columns.
+            quarter = {(3,31):1,(6,30):2,(9,30):3,(12,31):4}.get((end.month,end.day))
+            period_title = (r'(?i)\b'+({1:'First',2:'Second',3:'Third',4:'Fourth'}.get(quarter,'UNSUPPORTED'))
+                            + r' Quarter Ended '+end.strftime('%B')+r'\s+'+str(end.day)+r',?\s+'+str(end.year)+r'\b')
+            columns = []
+            if re.search(period_title, scope):
+                for x in range(1,width):
+                    parts = {row[x] for row in headers if x<len(row) and row[x]}
+                    if parts == {str(quarter)+'Q'+str(end.year)[2:]}:
+                        columns.append(x)
         if not columns:
             continue
         group = ''
         for row,label in zip(grid[boundary:], labels[boundary:]):
             if re.search(r'(?i)weighted|shares (?:outstanding|used)',label):
                 group = 'shares'
-            elif re.search(r'(?i)(?:earnings|income) per share',label):
+            elif re.search(r'(?i)(?:earnings|income) per (?:common )?share',label):
                 group = 'eps'
             metric = None
             if re.fullmatch(r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?',label):
                 metric = 'revenue'
-            elif (re.fullmatch(r'(?i)diluted(?:\s+(?:earnings|income)\s+per\s+share(?:\s*\(EPS\))?)?',label)
-                  and (group == 'eps' or 'per share' in label.lower())):
+            elif (re.fullmatch(r'(?i)diluted(?:\s+(?:earnings|income)\s+per\s+(?:common\s+)?share(?:\s*\(EPS\))?)?',label)
+                  and (group == 'eps' or re.search(r'(?i)per (?:common )?share',label))):
                 metric = 'epsGaapDiluted'
             if metric is None:
                 continue
