@@ -188,9 +188,9 @@ def _contract_revenue_total(node):
         if node is cell or any(n is node for n in cell.iter()):break
         before.append(_text(cell))
     label=' '.join(' '.join(before).split()).strip(' :$')
-    if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales)(?: \([a-z0-9]+\))?',label):return False
+    if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales(?: to customers)?)(?: \((?:Note )?[a-z0-9]+\))?',label):return False
     table=tables[0]
-    statement=r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)'
+    statement=r'(?i)(?:(?:(?:consolidated|combined|condensed)\s+)+(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings))'
     if re.search(statement,' '.join(_text(table).split())[:700]):return True
     # SEC HTML often wraps a whole statement table in a separate layout div.
     # Cross only empty single-child wrappers; another table or note is a boundary.
