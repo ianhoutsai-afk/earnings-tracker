@@ -57,3 +57,46 @@ class ExplicitActualReleaseWithoutPeriodTests(unittest.TestCase):
  def test_issued_result_title_with_inc_abbreviation(self):
   doc='<p>Item 2.02</p><p>On October 14, 2026, Example Inc. issued a press release entitled “Example Inc. Reports Third Quarter Ended September 30, 2026 Financial and Operating Results.”</p><p>Item 9.01</p>'
   self.assertEqual(parse_earnings_filing(doc,'2026-10-14','2026-10-14',TODAY)['periodEnd'],'2026-09-30')
+
+class FinalReviewRegressions(unittest.TestCase):
+ def test_no_period_release_cannot_take_its_conference_call_date(self):
+  from official_sources import parse_earnings_release
+  doc='<h1>Example Reports Third Quarter 2026 Results</h1><p>October 13, 2026 - Example today announced financial results for the third quarter 2026. Revenue was $1.2 billion.</p><p>A conference call will take place October 14, 2026.</p>'
+  with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-14',TODAY)
+  self.assertEqual(parse_earnings_release(doc,'2026-10-13','2026-10-14',TODAY)['date'],'2026-10-13')
+
+ def test_primary_publication_date_wins_over_later_exhibit_call(self):
+  from official_sync import check_issuer
+  from test_official_sync import SUBMISSIONS,fetch
+  import copy
+  submissions=copy.deepcopy(SUBMISSIONS)
+  primary='<p>Item 2.02</p><p>On October 13, 2026, Example announced its financial results for the third quarter ended September 30, 2026.</p><p>Item 9.01</p><a href="ex991.htm">99.1</a>'
+  exhibit='<h1>Example Reports Third Quarter 2026 Results</h1><p>October 13, 2026 - Example today announced financial results for the third quarter 2026. Revenue was $1.2 billion.</p><p>A conference call will take place October 14, 2026.</p>'
+  def source(url):
+   if url.endswith('results.htm'):return primary
+   if url.endswith('ex991.htm'):return exhibit
+   return fetch(url)
+  rows,_=check_issuer('0000000001',submissions,source,TODAY)
+  self.assertEqual(rows[0]['date'],'2026-10-13')
+  self.assertEqual(rows[0]['periodEnd'],'2026-09-30')
+
+ def test_adjusted_pro_forma_and_narrative_extensions_are_not_gaap_totals(self):
+  base=RevenueTests()
+  for title in ('NON-GAAP CONSOLIDATED STATEMENTS OF OPERATIONS','Unaudited Pro Forma Condensed Consolidated Statements of Income','Revenue recognized in the Consolidated Statements of Income is reconciled below:'):
+   for tag in ('example:AdjustedRevenue','example:TotalRevenue','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax'):
+    with self.subTest(title=title,tag=tag):
+     self.assertIsNone(parse_inline_quarter(base.statement(heading=title,tag=tag),'2026-09-30')['revenue'])
+
+ def test_adjusted_table_does_not_conflict_with_genuine_gaap_total(self):
+  doc=RevenueTests().statement()
+  adjusted=RevenueTests().statement(heading='NON-GAAP CONSOLIDATED STATEMENTS OF OPERATIONS',tag='example:AdjustedRevenue')
+  extra=adjusted.split('<body>',1)[1].rsplit('</body>',1)[0].replace('1,200','1,500')
+  self.assertEqual(parse_inline_quarter(doc.replace('</body>',extra+'</body>'),'2026-09-30')['revenue'],1200000000)
+
+ def test_extension_tag_itself_cannot_claim_adjusted_revenue(self):
+  self.assertIsNone(parse_inline_quarter(RevenueTests().statement(tag='example:AdjustedRevenue'),'2026-09-30')['revenue'])
+
+ def test_authoritative_issuer_name_can_prefix_exact_gaap_heading(self):
+  doc=RevenueTests().statement(heading='Example Inc. and subsidiaries consolidated statements of earnings')
+  doc=doc.replace('<body>','<body><ix:nonNumeric name="dei:EntityRegistrantName">Example Inc.</ix:nonNumeric>')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['revenue'],1200000000)

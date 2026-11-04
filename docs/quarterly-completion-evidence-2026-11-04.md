@@ -10,3 +10,13 @@
 - Dated actual release/explicit fiscal identity and Inc. title cases observed RED in 41776008039.
 - No framework, UI, watchlist, notification or future-calendar changes are included.
 - Operational decision: GitHub source snapshots replace the unavailable local runtime; tests remain mandatory. Publication candidates use unique branch names to preserve the exact tested source revision.
+
+## Final independent review
+
+The fresh read-only reviewer independently ran 61 parser tests and verified all 11 source fixture SHA-256 hashes. It identified two Important false positives: a no-period release could take its later conference-call date, and generic extension revenue could inherit adjusted/pro forma/reconciliation scopes. Both were reproduced before correction (13 failing assertions across six regression methods). The fixes bind the candidate date to the actual-publication dateline, require exact GAAP statement headings (optionally prefixed by the authoritative DEI registrant name), and reject explicitly adjusted extension tags. Final local suite: 204 Python tests and 26 JavaScript tests pass.
+
+Minor deferred: the opening release_metrics.py module overview still lists only the earlier reviewed issuers. The supported-issuer constant, source fixtures, tests and this change's documentation identify all five additional reviewed issuers.
+
+Items the reviewer declined to judge are owned by final publication validation: issuer freshness and retained metric/provenance changes; fresh full-source availability; aggregate completeness versus newer parse exceptions; temporary workflow cleanup; merge reconciliation and deployment. Unsupported issuer layouts remain explicitly incomplete rather than being treated as complete because transport succeeded.
+
+The first full source scan (41775846497) checked all 499 issuers with zero transport failures and produced 2421 official quarters / 1459 complete metric quarters. It was not published: validation crossed New York midnight and found an expired next-event date. Candidate preparation now refreshes existing publication fields after the scan and before validation. A fresh scan with the final reviewed parser is required before publication; this earlier count is not the final result.

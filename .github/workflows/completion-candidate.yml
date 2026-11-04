@@ -26,6 +26,10 @@ jobs:
           key: sec-official-v1-${{ github.run_id }}
           restore-keys: sec-official-v1-
       - run: python official_sync.py --full
+      - uses: actions/cache/save@v4
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
       - name: Refresh publication fields after possible New York midnight rollover
         run: python verified_history.py
       - run: python validate_quarterly_data.py

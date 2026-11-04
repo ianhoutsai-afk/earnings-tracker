@@ -99,6 +99,9 @@ def parse_earnings_release(document, event_date, filing_date, today):
         malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
         if not actual or year is None or fiscal_quarter is None or malformed_period:
             raise ValueError('No explicit completed quarterly period')
+        publication_dates = [m for m in re.finditer(DATE, intro[:actual.start()], re.I)]
+        if not publication_dates or _date(publication_dates[-1][0]) != event:
+            raise ValueError('Candidate date does not attest completed publication')
         end = None
     return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
             'fiscalYear':year, 'fiscalQuarter':fiscal_quarter}
@@ -201,8 +204,19 @@ def _contract_revenue_total(node):
     label=' '.join(' '.join(before).split()).strip(' :$')
     if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales(?: to customers)?)(?: \((?:Note )?[a-z0-9]+\))?',label):return False
     table=tables[0]
-    statement=r'(?i)(?:(?:(?:consolidated|combined|condensed)\s+)+(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings))'
-    if re.search(statement,' '.join(_text(table).split())[:700]):return True
+    statement=r'(?i)(?:(?:(?:consolidated|combined|condensed)\s+)+(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings))(?:\s*\(unaudited\))?'
+    root=node.getroottree().getroot()
+    issuer=_unique_text(n for n in root.iter() if isinstance(n.tag,str) and n.get('name','').lower()=='dei:entityregistrantname')
+    def is_statement_heading(text):
+        text=' '.join(text.split())
+        if issuer:
+            text=re.sub(r'(?i)^'+re.escape(issuer)+r'(?:\s+and\s+(?:its\s+)?subsidiaries)?\s+', '', text)
+        return bool(re.fullmatch(statement,text))
+    forbidden=r'(?i)non.gaap|adjusted|pro[\s-]*forma|reconcil|\bsegment\b|\bnotes?\s+(?:\d+|to\b)'
+    first=table.xpath('./caption|./tr|./thead/tr|./tbody/tr')[:8]
+    title_rows=[r for r in first if _local(r)=='caption' or len(r.xpath('./td|./th'))==1]
+    if any(re.search(forbidden,' '.join(_text(r).split())) for r in title_rows):return False
+    if any(is_statement_heading(_text(r)) for r in first):return True
     # SEC HTML often wraps a whole statement table in a separate layout div.
     # Cross only empty single-child wrappers; another table or note is a boundary.
     current=table
@@ -212,8 +226,8 @@ def _contract_revenue_total(node):
             if previous is None:break
             heading=' '.join(_text(previous).split())
             if _local(previous)=='table' or previous.xpath('.//table'):return False
-            if re.search(r'(?i)\bnotes?\s+(?:\d+|to\b)|statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
-            if re.search(statement,heading[-700:]):return True
+            if re.search(forbidden,heading) or re.search(r'(?i)statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
+            if is_statement_heading(heading):return True
             previous=previous.getprevious()
         parent=current.getparent()
         if parent is None or _local(parent) not in ('div','section'):break
@@ -275,7 +289,8 @@ def parse_inline_quarter(document, period_end, cik=None):
         # Extension names need an explicit consolidated total row and the same
         # dimensionless quarter context and USD unit as standard facts.
         if (not is_revenue and ':' in tag and tag.split(':')[0].lower() not in ('us-gaap','dei')
-                and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])):
+                and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])
+                and not re.search(r'(?i)adjusted|nongaap|proforma|segment',tag)):
             is_revenue = _contract_revenue_total(node)
         if not is_eps and not is_revenue:
             continue
