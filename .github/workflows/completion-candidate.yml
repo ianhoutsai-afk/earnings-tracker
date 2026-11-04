@@ -1,0 +1,39 @@
+name: Quarterly completion candidate validation
+on:
+  push:
+    branches: [codex/quarterly-completion-20261104]
+    paths: ['official_sources.py','release_metrics.py','.github/workflows/completion-candidate.yml']
+permissions: {contents: write}
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python official_sync.py --full
+      - name: Refresh publication fields after possible New York midnight rollover
+        run: python verified_history.py
+      - run: python validate_quarterly_data.py
+      - name: Preserve exact tested candidate for independent data audit
+        run: |
+          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Candidate official quarter completion [skip ci]'
+          git push origin HEAD:refs/heads/codex/completion-data-${{ github.run_id }}

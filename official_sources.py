@@ -89,12 +89,15 @@ def parse_earnings_release(document, event_date, filing_date, today):
     end = _completed_period_end(text,event)
     # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
-    if end is None or (event - end).days > 180:
+    if end is not None and (event - end).days > 180:
+        raise ValueError('Release period is not current for this event')
+    if end is None:
         # Some actual-results releases put the period only in the later financial
         # tables. The dated, completed-results sentence and explicit fiscal focus
         # can join a matching 10-Q/10-K. No filing means no new quarter is admitted.
         actual = re.search(r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?(?:financial\s+)?results\s+for\b',intro)
-        if not actual or year is None or fiscal_quarter is None:
+        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
+        if not actual or year is None or fiscal_quarter is None or malformed_period:
             raise ValueError('No explicit completed quarterly period')
         end = None
     return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
