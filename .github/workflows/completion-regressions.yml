@@ -2,7 +2,7 @@ name: Quarterly completion regression evidence
 on:
   push:
     branches: [codex/quarterly-completion-20261104]
-    paths: ['test_completion_followup.py','.github/workflows/completion-regressions.yml']
+    paths: ['official_sources.py','.github/workflows/completion-regressions.yml']
 permissions: {contents: read}
 jobs:
   regressions:
@@ -12,7 +12,5 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: pip install lxml requests pandas yfinance
-      - name: Reproduce wrapped publication failures
-        run: |
-          if python -m unittest test_completion_followup.WrappedPublicationTests -v; then exit 1; fi
-      - run: python -m unittest test_completion_followup.RevenueTests -v
+      - run: python -m unittest test_completion_followup -v
+      - run: python diagnose_publication_clauses.py
