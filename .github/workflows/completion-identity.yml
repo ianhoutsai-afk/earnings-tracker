@@ -1,0 +1,16 @@
+name: Explicit actual release identity regression
+on:
+  push:
+    branches: [codex/quarterly-completion-20261104]
+    paths: ['test_completion_followup.py','.github/workflows/completion-identity.yml']
+permissions: {contents: read}
+jobs:
+  regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - run: |
+          if python -m unittest test_completion_followup.ExplicitActualReleaseWithoutPeriodTests -v; then exit 1; fi

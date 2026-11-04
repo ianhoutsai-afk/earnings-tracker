@@ -43,3 +43,17 @@ class WrappedPublicationTests(unittest.TestCase):
  def test_future_date_release_stays_rejected_after_wrapping(self):
   doc='<p>Item 2.02</p><p>On October 14, 2026, Example\nCompany issued a press release announcing the date of financial results for the third quarter ended September 30, 2026.</p><p>Item 9.01</p>'
   with self.assertRaises(ValueError):parse_earnings_filing(doc,'2026-10-14','2026-10-14',TODAY)
+
+class ExplicitActualReleaseWithoutPeriodTests(unittest.TestCase):
+ def test_dated_actuals_with_explicit_fiscal_identity_can_join_filing(self):
+  from official_sources import parse_earnings_release
+  doc='<h1>Example Reports Third Quarter 2026 Results</h1><p>October 14, 2026 - Example today announced financial results for the third quarter 2026. Revenue was $1.2 billion.</p>'
+  r=parse_earnings_release(doc,'2026-10-14','2026-10-14',TODAY)
+  self.assertEqual((r['date'],r['periodEnd'],r['fiscalYear'],r['fiscalQuarter']),('2026-10-14',None,2026,3))
+ def test_schedule_with_identity_cannot_join_filing(self):
+  from official_sources import parse_earnings_release
+  doc='<h1>Example Announces Third Quarter 2026 Earnings Date</h1><p>October 14, 2026 - Example today announced financial results will be released next week.</p>'
+  with self.assertRaises(ValueError):parse_earnings_release(doc,'2026-10-14','2026-10-14',TODAY)
+ def test_issued_result_title_with_inc_abbreviation(self):
+  doc='<p>Item 2.02</p><p>On October 14, 2026, Example Inc. issued a press release entitled “Example Inc. Reports Third Quarter Ended September 30, 2026 Financial and Operating Results.”</p><p>Item 9.01</p>'
+  self.assertEqual(parse_earnings_filing(doc,'2026-10-14','2026-10-14',TODAY)['periodEnd'],'2026-09-30')
