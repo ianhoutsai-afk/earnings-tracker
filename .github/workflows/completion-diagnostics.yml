@@ -1,0 +1,29 @@
+name: Quarterly completion source diagnostics
+on:
+  push:
+    branches: [codex/quarterly-completion-20261104]
+    paths: ['diagnose_completion_batch.py', '.github/workflows/completion-diagnostics.yml']
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install lxml requests pandas yfinance
+      - run: python diagnose_completion_batch.py
+      - name: Save read-only source evidence on isolated branch
+        run: |
+          git add _diagnostics
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Record official source diagnostics [skip ci]'
+          git push origin HEAD
