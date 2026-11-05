@@ -79,7 +79,8 @@ def inspect(record,body,cik):
  if (parsed['fiscalYear'],parsed['fiscalQuarter'])!=(record['fiscalYear'],record['fiscalQuarter']):return None,'fiscal_identity'
  tree=html.fromstring(body)
  nodes=[n for n in tree.iter() if isinstance(n.tag,str)]
- issuer=_unique_text(n for n in nodes if n.get('name','').lower()=='dei:entityregistrantname')
+ issuer_values={text(n) for n in nodes if n.get('name','').lower()=='dei:entityregistrantname' and text(n)}
+ issuer=next(iter(issuer_values)) if len(issuer_values)==1 else None
  if not issuer:
   key=str(cik).zfill(10)
   if key not in ISSUER_NAMES:
@@ -120,34 +121,28 @@ def inspect(record,body,cik):
  values={c['value'] for c in candidates}
  if len(values)!=1:return None,'missing_or_conflicting_total'
  return candidates[0],None
-
 records=json.loads(Path('official_history.json').read_text());mapping=json.loads(Path('sp500_mapping.json').read_text())
-report=[]
-for record in records:
- if record['ticker']!='NOW' or record.get('revenue') is not None or record.get('form')!='10-Q':continue
- url=record['secUrl'];cache=Path('.sec_cache/official')/(hashlib.sha256(url.encode()).hexdigest()+'.body')
- body=decode_sec_body(cache.read_bytes()) if cache.exists() else fetch_sec(url)
- evidence,reason=inspect(record,body,mapping['NOW']['cik'])
- tree=html.fromstring(body);nodes=[n for n in tree.iter() if isinstance(n.tag,str)]
- issuer=_unique_text(n for n in nodes if n.get('name','').lower()=='dei:entityregistrantname')
- contexts={}
- for c in (n for n in nodes if _local(n)=='context'):
-  start=_unique_text(_desc(c,'startdate'));end=_unique_text(_desc(c,'enddate'))
-  if start and end==record['periodEnd'] and not _desc(c,'segment') and not _desc(c,'scenario') and 70<=(date.fromisoformat(end)-date.fromisoformat(start)).days+1<=110:contexts[c.get('id')]=True
- facts=[]
- for n in nodes:
-  if n.get('contextref') not in contexts:continue
-  tag=n.get('name','').lower()
-  if tag not in ALLOWED_TAGS and tag!='us-gaap:revenuenotfromcontractwithcustomer':continue
-  rows=n.xpath('ancestor::tr');tables=n.xpath('ancestor::table')
-  label=label_before_numbers(rows[-1]) if rows else None
-  heading=scope(tables[-1],issuer) if tables else None
-  trail=[];current=tables[-1] if tables else None
-  for depth in range(5):
-   if current is None:break
-   trail.append({'tag':_local(current),'text':clean(current.text or '')[:300],'tail':clean(current.tail or '')[:300],'siblings':[{'tag':_local(p),'text':text(p)[:900],'harmless':harmless(text(p),issuer),'title':title(text(p),issuer)} for p in list(current.itersiblings(preceding=True))[:20]]})
-   current=current.getparent()
-  facts.append({'tag':n.get('name'),'value':text(n),'scale':n.get('scale'),'label':label,'heading':heading,'trail':trail})
- report.append({'ticker':'NOW','periodEnd':record['periodEnd'],'issuer':issuer,'reason':reason,'evidence':evidence,'facts':facts})
-Path('audit-50/now-debug.json').write_text(json.dumps(report,indent=2)+'\n')
-print('Read-only diagnosis of '+str(len(report))+' ServiceNow periods')
+targets=sorted([r for r in records if r['ticker']=='NOW' and r.get('revenue') is None and r.get('secUrl') and r.get('form')=='10-Q' and (mapping.get(r['ticker'],{}).get('sector') not in ('Financials','Real Estate') or r['ticker'] in {'ARES','BEN','ERIE','FISV','IVZ','MSCI','SPGI'}) and mapping.get(r['ticker'],{}).get('tickerStatus') not in ('historical_alias','unconfirmed')],key=lambda r:(-date.fromisoformat(r['periodEnd']).toordinal(),r['epsGaapDiluted'] is None,r['ticker']))
+previous=json.loads(Path('audit-50/candidates.json').read_text())
+selected=previous['selected'];skipped=previous['skipped'];bodies={};inspected=previous['inspected']
+for record in targets:
+ if len(selected)==LIMIT:break
+ url=record['secUrl']
+ try:
+  if url not in bodies:
+   cache=Path('.sec_cache/official')/(hashlib.sha256(url.encode()).hexdigest()+'.body')
+   bodies[url]=decode_sec_body(cache.read_bytes()) if cache.exists() else fetch_sec(url)
+   if not cache.exists():time.sleep(.2)
+  body=bodies[url];inspected+=1
+  evidence,reason=inspect(record,body,mapping[record['ticker']]['cik'])
+  if evidence:
+   selected.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'fiscalYear':record['fiscalYear'],'fiscalQuarter':record['fiscalQuarter'],'field':'revenue','priorValue':None,'sourceUrl':url,'sourceSha256':hashlib.sha256(body).hexdigest(),'evidence':evidence})
+   print('Selected evidence '+str(len(selected))+'/50 '+record['ticker']+' '+record['periodEnd'],flush=True)
+  else:skipped.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'reason':reason})
+ except Exception as exc:skipped.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'reason':type(exc).__name__})
+selected.sort(key=lambda item:(-date.fromisoformat(item['periodEnd']).toordinal(),item['ticker']))
+selected_keys={(item['ticker'],item['periodEnd']) for item in selected}
+skipped=[item for item in skipped if (item['ticker'],item['periodEnd']) not in selected_keys]
+Path('audit-50').mkdir(exist_ok=True)
+Path('audit-50/candidates.json').write_text(json.dumps({'limit':LIMIT,'count':len(selected),'inspected':inspected,'selected':selected,'skipped':skipped},indent=2)+'\n')
+print(json.dumps({'selected':len(selected),'inspected':inspected,'skipped':len(skipped)}))
