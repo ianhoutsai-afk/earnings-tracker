@@ -38,6 +38,8 @@ def normalize_proxy_base(value):
 
 
 def _text(tree):
+    if not isinstance(tree.tag, str):
+        return ''
     return ' '.join(tree.itertext()).replace('\xa0', ' ')
 
 
@@ -66,7 +68,7 @@ def _fiscal_identity(intro):
 
 
 def _completed_period_end(text, event):
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:full\s+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:for\s+(?:the\s+)?)?(?:full[\s-]+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
 
@@ -85,14 +87,23 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
-    if end is None:
-        raise ValueError('No explicit completed quarterly period')
-    if (event - end).days > 180:
-        raise ValueError('Release period is not current for this event')
-    # Prefer the earliest current headline identity, including joint Q4/FY headlines.
-    # Later comparative paragraphs cannot provide the quarter's fiscal year.
+    # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
-    return {'date': event.isoformat(), 'periodEnd': end.isoformat(),
+    if end is not None and (event - end).days > 180:
+        raise ValueError('Release period is not current for this event')
+    if end is None:
+        # Some actual-results releases put the period only in the later financial
+        # tables. The dated, completed-results sentence and explicit fiscal focus
+        # can join a matching 10-Q/10-K. No filing means no new quarter is admitted.
+        actual = re.search(r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?(?:financial\s+)?results\s+for\b',intro)
+        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
+        if not actual or year is None or fiscal_quarter is None or malformed_period:
+            raise ValueError('No explicit completed quarterly period')
+        publication_dates = [m for m in re.finditer(DATE, intro[:actual.start()], re.I)]
+        if not publication_dates or _date(publication_dates[-1][0]) != event:
+            raise ValueError('Candidate date does not attest completed publication')
+        end = None
+    return {'date': event.isoformat(), 'periodEnd': end.isoformat() if end else None,
             'fiscalYear':year, 'fiscalQuarter':fiscal_quarter}
 
 
@@ -104,13 +115,14 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         if _local(node) in ('p','div','tr','h1','h2','h3','h4'):
             node.tail=(node.tail or '')+'\n'
     text='\n'.join(' '.join(line.split()) for line in _text(tree).splitlines() if line.strip())
-    match=re.search(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
-    if not match:raise ValueError('No earnings publication statement')
-    section=match[1]
+    sections=re.findall(r'(?is)\bItem\s*2\.02\b(.*?)(?=\bItem\s*(?!(?:2\.02|7\.01)\b)\d+\.\d+\b|\bSIGNATURES?\b|$)',text)
+    if not sections:raise ValueError('No earnings publication statement')
+    section=' '.join(' '.join(sections).split())
     statements=list(re.finditer(r'(?i)\bOn\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?('+DATE+r')\s*,?\s+(.{0,350}?(?:reported|announced|issued|released|posted)\b.{0,250})',section))
     statements += list(re.finditer(r'(?i)\b(?:announced|reported)\s+on\s+('+DATE+r')(.{0,400})',section))
     statements += list(re.finditer(r'(?i)(?:press|news)\s+release(?:(?!'+DATE+r').){0,150}?(?:dated|issued(?:\s+by.{0,100}?)?\s+on)\s+('+DATE+r')(.{0,400})',section))
     statements += list(re.finditer(r'(?i)('+DATE+r')\s+press\s+release(.{0,400})',section))
+    statements += list(re.finditer(r'(?i)\b(?:first|second|third|fourth)[\s-]+quarter\s+20\d{2}\s+earnings\s+release\b.{0,220}?\bwas\s+posted\b.{0,220}?\bon\s+('+DATE+r')(.{0,100})',section))
     filed=date.fromisoformat(filing_date)
     headline=''
     if exhibit is not None:
@@ -119,9 +131,13 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     actual_headline=bool(re.search(r'(?i)\b(?:reports?|announces?)\b.{0,180}\b(?:results|earnings)\b',headline))
     supported=[]
     for m in statements:
-        clause=re.split(r'(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
+        clause=re.split(r'(?<!\b[A-Z]\.)(?<!\bInc\.)(?<!\bCorp\.)(?<!\bLtd\.)(?<=[.!?])\s+(?=[A-Z])',m[2],maxsplit=1)[0]
         # In "announced on DATE, its results", the completed verb precedes the date.
         before_date=m[0][:m.start(1)-m.start()]
+        if re.search(r'(?i)\bearnings\s+release\b.*\bwas\s+posted\b',before_date):
+            if re.search(r'(?i)preliminary|will|would',before_date):
+                continue
+            clause='posted results '+before_date
         if re.search(r'(?i)\b(?:announced|reported)\s+on\s*$',before_date):
             clause='reported '+clause
         clause=re.split(r'(?i)\b(?:refer|see)\s+(?:to\s+)?(?:our|the|its|their|a)\b|\b(?:our|the|its|their)\s+(?:(?:previous|prior|earlier)\s+)?(?:Quarterly|Annual)\s+Report\b',clause,maxsplit=1)[0]
@@ -139,7 +155,7 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
         # Evaluate the whole publication clause, including language after its object.
         # A schedule/date/call announcement does not attest release of the actuals.
         if re.search(r'(?i)\bwill\b|\bwould\b|\bschedul\w*|\bupcoming\b|\bforthcoming\b|\bplans?\s+to\b|\bdate\b|\btiming\b|\bconference\b|\bcall\b|\bwebcast\b',clause):continue
-        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|regarding|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
+        result=re.search(r'(?i)\b(?:reported|announced|released|posted|reporting|announcing|containing|contained|setting\s+forth|relating\s+to|regarding|reports|report)\b(.{0,140}?)\b(?:results(?!\s+(?:conference|call|webcast))|earnings(?=\s+(?:for|of|results)\b|\s*[:$.,;]|\s*$)|sales|net\s+income)\b',clause)
         actual_results=result and not re.search(r'(?i)conference|\bcall\b|webcast|guidance|forecast|\bdate\b|schedul|timing|expect|preliminar',result[1])
         dated_release=bool(re.search(r'(?i)(?:press|news)\s+release.{0,160}\bdated\b',m[0]))
         if actual_results or (dated_release and actual_headline):supported.append((m,clause))
@@ -186,10 +202,21 @@ def _contract_revenue_total(node):
         if node is cell or any(n is node for n in cell.iter()):break
         before.append(_text(cell))
     label=' '.join(' '.join(before).split()).strip(' :$')
-    if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales)(?: \([a-z0-9]+\))?',label):return False
+    if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales(?: to customers)?)(?: \((?:Note )?[a-z0-9]+\))?',label):return False
     table=tables[0]
-    statement=r'(?i)(?:consolidated|combined) statements? of (?:income|operations|earnings)'
-    if re.search(statement,' '.join(_text(table).split())[:700]):return True
+    statement=r'(?i)(?:(?:(?:consolidated|combined|condensed)\s+)+(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings))(?:\s*\(unaudited\))?'
+    root=node.getroottree().getroot()
+    issuer=_unique_text(n for n in root.iter() if isinstance(n.tag,str) and n.get('name','').lower()=='dei:entityregistrantname')
+    def is_statement_heading(text):
+        text=' '.join(text.split())
+        if issuer:
+            text=re.sub(r'(?i)^'+re.escape(issuer)+r'(?:\s+and\s+(?:its\s+)?subsidiaries)?\s+', '', text)
+        return bool(re.fullmatch(statement,text))
+    forbidden=r'(?i)non.gaap|adjusted|pro[\s-]*forma|reconcil|\bsegment\b|\bnotes?\s+(?:\d+|to\b)'
+    first=table.xpath('./caption|./tr|./thead/tr|./tbody/tr')[:8]
+    title_rows=[r for r in first if _local(r)=='caption' or len(r.xpath('./td|./th'))==1]
+    if any(re.search(forbidden,' '.join(_text(r).split())) for r in title_rows):return False
+    if any(is_statement_heading(_text(r)) for r in first):return True
     # SEC HTML often wraps a whole statement table in a separate layout div.
     # Cross only empty single-child wrappers; another table or note is a boundary.
     current=table
@@ -199,8 +226,8 @@ def _contract_revenue_total(node):
             if previous is None:break
             heading=' '.join(_text(previous).split())
             if _local(previous)=='table' or previous.xpath('.//table'):return False
-            if re.search(r'(?i)\bnotes?\s+(?:\d+|to\b)|statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
-            if re.search(statement,heading[-700:]):return True
+            if re.search(forbidden,heading) or re.search(r'(?i)statements? of (?:cash flows|financial position)|balance sheets?',heading):return False
+            if is_statement_heading(heading):return True
             previous=previous.getprevious()
         parent=current.getparent()
         if parent is None or _local(parent) not in ('div','section'):break
@@ -259,6 +286,12 @@ def parse_inline_quarter(document, period_end, cik=None):
         tag = node.get('name', '')
         is_eps = tag.lower() == 'us-gaap:earningspersharediluted'
         is_revenue = tag.lower() in {t.lower() for t in REVENUE_TAGS}
+        # Extension names need an explicit consolidated total row and the same
+        # dimensionless quarter context and USD unit as standard facts.
+        if (not is_revenue and ':' in tag and tag.split(':')[0].lower() not in ('us-gaap','dei')
+                and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])
+                and not re.search(r'(?i)adjusted|nongaap|proforma|segment',tag)):
+            is_revenue = _contract_revenue_total(node)
         if not is_eps and not is_revenue:
             continue
         if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
