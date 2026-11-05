@@ -7,6 +7,7 @@ from lxml import html
 from official_sync import fetch_sec,decode_sec_body
 from official_sources import parse_inline_quarter,_local,_desc,_unique_text,REVENUE_TAGS
 LIMIT=150
+ISSUER_NAMES={}
 BAD=re.compile(r'(?i)non[\s-]*gaap|adjusted|pro[\s-]*forma|reconcil|\bsegment\b|\bnotes?\b')
 ALLOWED_TAGS={t.lower() for t in REVENUE_TAGS}|{'us-gaap:regulatedandunregulatedoperatingrevenue'}
 def text(n):
@@ -26,12 +27,15 @@ def title(raw,issuer):
  return bool(re.fullmatch(p,x))
 def harmless(raw,issuer):
  s=clean(raw)
- return not s or compact(s)==compact(issuer) or bool(re.fullmatch(r'(?i)\(?\s*(?:unaudited|(?:in|u\.?s\.?\s+dollars|dollars)[^()]{0,200})\s*\)?',s))
+ words=set(re.findall('[a-z]+',s.lower()))
+ period_words=set('for the three six nine twelve and months month quarter quarters ended ending first second third fourth fiscal unaudited january february march april may june july august september october november december jan feb mar apr jun jul aug sep sept oct nov dec'.split())
+ period_header='ended' in words and words<=period_words
+ return period_header or bool(re.fullmatch(r'\d{1,3}',s)) or not s or compact(s)==compact(issuer) or bool(re.fullmatch(r'(?i)\(?\s*(?:unaudited|(?:in|u\.?s\.?\s+dollars|dollars)[^()]{0,200})\s*\)?',s))
 def scope(table,issuer):
  # Only explicit original GAAP income-statement titles may establish scope.
  for row in table.xpath('./caption|./tr|./thead/tr|./tbody/tr')[:24]:
   if any(_local(n)=='nonfraction' for n in row.iter()):break
-  strings=[text(row)]+[text(c) for c in row.xpath('./td|./th')]
+  strings=[text(row)]+[text(c) for c in row.iterdescendants() if isinstance(c.tag,str) and not any(_local(n)=='nonfraction' for n in c.iter())]
   if any(BAD.search(s) for s in strings):return None
   for s in strings:
    if title(s,issuer):return s
@@ -76,7 +80,15 @@ def inspect(record,body,cik):
  tree=html.fromstring(body)
  nodes=[n for n in tree.iter() if isinstance(n.tag,str)]
  issuer=_unique_text(n for n in nodes if n.get('name','').lower()=='dei:entityregistrantname')
- if not issuer:return None,'issuer_name'
+ if not issuer:
+  key=str(cik).zfill(10)
+  if key not in ISSUER_NAMES:
+   payload=json.loads(fetch_sec('https://data.sec.gov/submissions/CIK'+key+'.json'))
+   if int(payload.get('cik',0))!=int(cik):return None,'issuer_identity'
+   ISSUER_NAMES[key]=payload.get('name')
+   time.sleep(.2)
+  issuer=ISSUER_NAMES[key]
+  if not issuer:return None,'issuer_name'
  contexts={}
  for c in (n for n in nodes if _local(n)=='context'):
   entity=_unique_text(_desc(c,'identifier'));start=_unique_text(_desc(c,'startdate'));end=_unique_text(_desc(c,'enddate'))
