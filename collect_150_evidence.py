@@ -122,6 +122,9 @@ def inspect(record,body,cik):
  return candidates[0],None
 records=json.loads(Path('official_history.json').read_text());mapping=json.loads(Path('sp500_mapping.json').read_text())
 targets=sorted([r for r in records if r.get('revenue') is None and r.get('secUrl') and r.get('form')=='10-Q' and mapping.get(r['ticker'],{}).get('sector') not in ('Financials','Real Estate') and mapping.get(r['ticker'],{}).get('tickerStatus') not in ('historical_alias','unconfirmed')],key=lambda r:(-date.fromisoformat(r['periodEnd']).toordinal(),r['epsGaapDiluted'] is None,r['ticker']))
+
+debugged=set();debug=[]
+
 selected=[];skipped=[];bodies={};inspected=0
 for record in targets:
  if len(selected)==LIMIT:break
@@ -133,6 +136,26 @@ for record in targets:
    if not cache.exists():time.sleep(.2)
   body=bodies[url];inspected+=1
   evidence,reason=inspect(record,body,mapping[record['ticker']]['cik'])
+
+  if reason and record['ticker'] not in debugged and record['ticker'] in {'APH','BALL','DECK','FAST','NCLH','ITW','NOW','NSC','ODFL','REGN','ROL','STLD','OTIS','GD'}:
+   debugged.add(record['ticker'])
+   root=html.fromstring(body)
+   facts=[]
+   for n in root.iter():
+    if n.get('name','').lower() not in ALLOWED_TAGS:continue
+    rows=n.xpath('ancestor::tr');tables=n.xpath('ancestor::table')
+    if not rows or not tables:continue
+    label=label_before_numbers(rows[-1])
+    if not eligible_label(label):continue
+    trail=[];cur=tables[-1]
+    for depth in range(6):
+     trail.append({'tag':_local(cur),'text':clean(cur.text or '')[:300],'tail':clean(cur.tail or '')[:300],'prev':[{'tag':_local(x),'text':text(x)[:1500]} for x in list(cur.itersiblings(preceding=True))[:8]]})
+     cur=cur.getparent()
+     if cur is None:break
+    facts.append({'label':label,'tag':n.get('name'),'value':text(n),'trail':trail})
+    if len(facts)==1:break
+   debug.append({'ticker':record['ticker'],'facts':facts})
+
   if evidence:
    selected.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'fiscalYear':record['fiscalYear'],'fiscalQuarter':record['fiscalQuarter'],'field':'revenue','priorValue':None,'sourceUrl':url,'sourceSha256':hashlib.sha256(body).hexdigest(),'evidence':evidence})
    print('Selected evidence '+str(len(selected))+'/150 '+record['ticker']+' '+record['periodEnd'],flush=True)
@@ -140,4 +163,5 @@ for record in targets:
  except Exception as exc:skipped.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'reason':type(exc).__name__})
 Path('audit-150').mkdir(exist_ok=True)
 Path('audit-150/candidates.json').write_text(json.dumps({'limit':LIMIT,'count':len(selected),'inspected':inspected,'selected':selected,'skipped':skipped},indent=2)+'\n')
+Path('audit-150/layout-debug.json').write_text(json.dumps(debug,indent=2)+'\n')
 print(json.dumps({'selected':len(selected),'inspected':inspected,'skipped':len(skipped)}))
