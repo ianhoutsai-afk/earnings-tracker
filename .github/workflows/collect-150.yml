@@ -24,7 +24,7 @@ jobs:
           restore-keys: sec-official-v1-
       - run: python collect_150_evidence.py
       - run: |
-          git add audit-150/candidates.json
+          git add audit-150/candidates.json audit-150/layout-debug.json
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -m 'Stage up to 150 official source evidence items without changing site data'
