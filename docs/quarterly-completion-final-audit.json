@@ -1,0 +1,1756 @@
+{
+  "baselineMainCommit": "3c55faf5351747a0c48164a0f2a6d8f13983dceb",
+  "baseline": {
+    "companies": 503,
+    "issuersChecked": 387,
+    "issuerTargets": 387,
+    "deferredCompanies": 0,
+    "newRecords": 19,
+    "sourceFailures": 0,
+    "pendingCompanies": 491,
+    "officialQuarters": 2388,
+    "fiveOfficialQuarterCompanies": 455,
+    "fiveCompleteMetricCompanies": 35,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-11-04T23:41:35.748940Z",
+    "storedQuarters": 2514,
+    "completeMetricQuarters": 1364,
+    "sourceHealthy": true,
+    "historyComplete": false,
+    "metricsComplete": false,
+    "dataComplete": false,
+    "healthy": false,
+    "dataStatus": "incomplete"
+  },
+  "candidate": {
+    "companies": 503,
+    "issuersChecked": 499,
+    "issuerTargets": 499,
+    "deferredCompanies": 0,
+    "newRecords": 3,
+    "sourceFailures": 0,
+    "pendingCompanies": 488,
+    "officialQuarters": 2432,
+    "fiveOfficialQuarterCompanies": 468,
+    "fiveCompleteMetricCompanies": 38,
+    "sourceFailedCompanies": 0,
+    "checkedAt": "2026-11-05T02:17:32.352886Z",
+    "storedQuarters": 2514,
+    "completeMetricQuarters": 1460,
+    "sourceHealthy": true,
+    "historyComplete": false,
+    "metricsComplete": false,
+    "dataComplete": false,
+    "healthy": false,
+    "dataStatus": "incomplete"
+  },
+  "populatedFields": [
+    {
+      "ticker": "AAPL",
+      "periodEnd": "2026-09-26",
+      "field": "revenue",
+      "value": 114477000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000024/a8-kex991q4202609262026.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AAPL",
+      "periodEnd": "2026-09-26",
+      "field": "epsGaapDiluted",
+      "value": 2.1,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000024/a8-kex991q4202609262026.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ABT",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "value": 11459000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800/000162828026002982/abt-2025q4xexhibitx991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ABT",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "value": 1.01,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800/000162828026002982/abt-2025q4xexhibitx991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ADP",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 5490700000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000044/adp-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ADP",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 5939200000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000022/adp-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ADP",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "value": 5359300000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000011/adp-20251231.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ADP",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 5175200000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867025000047/adp-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMAT",
+      "periodEnd": "2026-07-26",
+      "field": "revenue",
+      "value": 9115000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMAT",
+      "periodEnd": "2026-04-26",
+      "field": "revenue",
+      "value": 7910000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026037227/amat-20260426.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMD",
+      "periodEnd": "2025-12-27",
+      "field": "revenue",
+      "value": 10270000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000014/q42025991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMD",
+      "periodEnd": "2025-12-27",
+      "field": "epsGaapDiluted",
+      "value": 0.92,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000014/q42025991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMZN",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 201944000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMZN",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "value": 213386000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMZN",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "value": 1.95,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AMZN",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 180169000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000121/amzn-20250930xex991.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 3657600000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000254/anet-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 3035700000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000175/anet-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 2709000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000078/anet-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "value": 2487800000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000010/ex991q425-earningsrelease.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "value": 0.75,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000010/ex991q425-earningsrelease.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ANET",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 2308300000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653225000286/anet-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "AOS",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 942500000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000150/aos-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "AOS",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 0.94,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000150/aos-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "AOS",
+      "periodEnd": "2025-06-30",
+      "field": "revenue",
+      "value": 1011300000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000100/aos-20250630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "AOS",
+      "periodEnd": "2025-06-30",
+      "field": "epsGaapDiluted",
+      "value": 1.07,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000100/aos-20250630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 671182000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000076/are-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": -3.74,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000076/are-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 662784000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000066/are-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": -0.43,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000066/are-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 671022000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000042/are-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 2.1,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000042/are-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 751944000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544325000198/are-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ARE",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": -1.38,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544325000198/are-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "BLK",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 7752000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526447043/blk-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BLK",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 10.57,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526447043/blk-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BNY",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 5676000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000120/bk-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BNY",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 5698000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000086/bk-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BNY",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 5409000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000060/bk-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BNY",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 5081000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077725000159/bk-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BR",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 1668700000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026069260/br-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BR",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 1953600000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026028675/br-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BR",
+      "periodEnd": "2025-12-31",
+      "field": "revenue",
+      "value": 1713900000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026004859/br-20251231.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "BR",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 1589400000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000162828025048668/br-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CAG",
+      "periodEnd": "2026-08-30",
+      "field": "epsGaapDiluted",
+      "value": 0.36,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/23217/000110465926112354/tmb-20260830x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "CAG",
+      "periodEnd": "2026-02-22",
+      "field": "epsGaapDiluted",
+      "value": 0.42,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/23217/000110465926038548/tmb-20260222x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "CAG",
+      "periodEnd": "2025-11-23",
+      "field": "epsGaapDiluted",
+      "value": -1.39,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/23217/000110465925123200/tmb-20251123x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "CAG",
+      "periodEnd": "2025-08-24",
+      "field": "epsGaapDiluted",
+      "value": 0.34,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/23217/000110465925095651/tmb-20250824x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "CDNS",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 1633311000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000121/cdns-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CDNS",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 1584451000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000092/cdns-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CDNS",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 1474220000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000047/cdns-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CDNS",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 1338838000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/813672/000081367225000148/cdns-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CSX",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 4017000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/277948/000027794826000040/csx-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CSX",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 3935000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/277948/000027794826000032/csx-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CSX",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 3482000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/277948/000027794826000014/csx-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CSX",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 3587000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/277948/000027794825000054/csx-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CTAS",
+      "periodEnd": "2026-08-31",
+      "field": "revenue",
+      "value": 3013981000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723254/000072325426000047/ctas-20260831.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CTAS",
+      "periodEnd": "2026-02-28",
+      "field": "revenue",
+      "value": 2841444000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723254/000072325426000012/ctas-20260228.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CTAS",
+      "periodEnd": "2025-11-30",
+      "field": "revenue",
+      "value": 2799992000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723254/000072325426000002/ctas-20251130.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "CTAS",
+      "periodEnd": "2025-08-31",
+      "field": "revenue",
+      "value": 2718122000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723254/000072325425000033/ctas-20250831.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "DG",
+      "periodEnd": "2026-07-31",
+      "field": "epsGaapDiluted",
+      "value": 2.48,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/29534/000110465926101932/dg-20260731x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "DG",
+      "periodEnd": "2025-08-01",
+      "field": "epsGaapDiluted",
+      "value": 1.86,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/29534/000155837025011786/dg-20250801x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "DHR",
+      "periodEnd": "2026-09-25",
+      "field": "revenue",
+      "value": 6554000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "DHR",
+      "periodEnd": "2026-06-26",
+      "field": "revenue",
+      "value": 6265000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000161/dhr-20260626.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "DHR",
+      "periodEnd": "2026-03-27",
+      "field": "revenue",
+      "value": 5951000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000107/dhr-20260327.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "DHR",
+      "periodEnd": "2025-09-26",
+      "field": "revenue",
+      "value": 6053000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000182/dhr-20250926.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ES",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 0.14,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828026051906/es-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ES",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 1.61,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828026032278/es-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ES",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 0.99,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828025050033/es-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "EW",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 1553100000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099800/000109980025000062/ew-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "FICO",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 10.45,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000030/fico-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "FICO",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 11.14,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000021/fico-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2026-10-02",
+      "field": "revenue",
+      "value": 1107500000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000040/ftv-20261002.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2026-07-03",
+      "field": "revenue",
+      "value": 1096800000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000034/ftv-20260703.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2026-04-03",
+      "field": "revenue",
+      "value": 1069400000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000013/ftv-20260403.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "FTV",
+      "periodEnd": "2025-09-26",
+      "field": "revenue",
+      "value": 1027100000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1659166/000165916625000131/ftv-20250926.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "HWM",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 0.95,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4281/000162828025047584/hwm-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ISRG",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 3048700000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000071/isrg-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ISRG",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 2892300000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ISRG",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 2770800000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000032/isrg-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "ISRG",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 2505100000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035267/000103526725000209/isrg-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "JNJ",
+      "periodEnd": "2026-09-27",
+      "field": "revenue",
+      "value": 25399000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/jnj-20260927.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "JNJ",
+      "periodEnd": "2026-06-28",
+      "field": "revenue",
+      "value": 25310000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000153/jnj-20260628.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "JNJ",
+      "periodEnd": "2026-03-29",
+      "field": "revenue",
+      "value": 24062000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000087/jnj-20260329.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "JNJ",
+      "periodEnd": "2025-09-28",
+      "field": "revenue",
+      "value": 23993000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "KR",
+      "periodEnd": "2025-11-08",
+      "field": "epsGaapDiluted",
+      "value": -2.02,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465925120642/kr-20251108x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "KR",
+      "periodEnd": "2025-08-16",
+      "field": "epsGaapDiluted",
+      "value": 0.91,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465925091648/kr-20250816x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 9404000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 3.66,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 9289000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026051289/lin-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 4.15,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026051289/lin-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 8615000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025047710/lin-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "LIN",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 4.09,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025047710/lin-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "NDSN",
+      "periodEnd": "2025-07-31",
+      "field": "revenue",
+      "value": 741509000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72331/000007233125000114/ndsn-20250731.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "NDSN",
+      "periodEnd": "2025-07-31",
+      "field": "epsGaapDiluted",
+      "value": 2.22,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72331/000007233125000114/ndsn-20250731.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "NEM",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 5524000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1164727/000116472725000046/nem-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "NOW",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 3407000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "NVR",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 2402430000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000104/nvr-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "NVR",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 89.45,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000104/nvr-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "ODFL",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 1.65,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000033/odfl-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "OKE",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 12455000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000039/oke-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "OKE",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 9618000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000017/oke-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "OKE",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 8634000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968425000123/oke-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "OKE",
+      "periodEnd": "2025-06-30",
+      "field": "revenue",
+      "value": 7887000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968425000114/oke-20250630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 4616400000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926120103/pfg-20260930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 2.91,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926120103/pfg-20260930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 3905800000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926088071/pfg-20260630x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 1.84,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926088071/pfg-20260630x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 3529100000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926051384/pfg-20260331x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 1.93,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926051384/pfg-20260331x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 3681600000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465925103708/pfg-20250930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "PFG",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 0.95,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465925103708/pfg-20250930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "RSG",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 5205000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000327/rsg-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "RSG",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 1.93,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000327/rsg-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "RSG",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 4699000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000212/rsg-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "RSG",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 1.7,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000212/rsg-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SHW",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 6860000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000056/shw-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "SHW",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 6789300000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000049/shw-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "SHW",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 5666900000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000038/shw-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "SHW",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 6358200000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/89800/000008980025000126/shw-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 9449000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 0.49,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 8972000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526322595/slb-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 0.52,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526322595/slb-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 8721000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526190101/slb-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "SLB",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 0.5,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526190101/slb-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "STLD",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 5.26,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926118461/stld-20260930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "STLD",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 3.69,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926087414/stld-20260630x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "STLD",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 2.74,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465925102052/stld-20250930x10q.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "TMUS",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 23584000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000129/tmus-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "TMUS",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 22791000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000101/tmus-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "TMUS",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 23107000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000063/tmus-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "TMUS",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 21957000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369925000154/tmus-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "UPS",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 22853000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026070246/ups-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "UPS",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 22834000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026053249/ups-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "UPS",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 21202000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026031154/ups-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "UPS",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 21415000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090727/000162828025049661/ups-20250930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 7712000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000044/usb-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 1.35,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000044/usb-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 7288000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000024/usb-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2026-03-31",
+      "field": "epsGaapDiluted",
+      "value": 1.18,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000024/usb-20260331.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2025-09-30",
+      "field": "revenue",
+      "value": 7329000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000064/usb-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "USB",
+      "periodEnd": "2025-09-30",
+      "field": "epsGaapDiluted",
+      "value": 1.22,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000064/usb-20250930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "VEEV",
+      "periodEnd": "2026-07-31",
+      "field": "revenue",
+      "value": 927963000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VEEV",
+      "periodEnd": "2026-04-30",
+      "field": "revenue",
+      "value": 882948000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000026/veev-20260430.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VEEV",
+      "periodEnd": "2025-10-31",
+      "field": "revenue",
+      "value": 811236000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305225000078/veev-20251031.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VEEV",
+      "periodEnd": "2025-07-31",
+      "field": "revenue",
+      "value": 789081000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305225000067/veev-20250731.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VLTO",
+      "periodEnd": "2026-10-02",
+      "field": "revenue",
+      "value": 1509000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000048/vlto-20261002.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VLTO",
+      "periodEnd": "2026-07-03",
+      "field": "revenue",
+      "value": 1474000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000044/vlto-20260703.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VLTO",
+      "periodEnd": "2026-04-03",
+      "field": "revenue",
+      "value": 1422000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000024/vlto-20260403.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VLTO",
+      "periodEnd": "2025-10-03",
+      "field": "revenue",
+      "value": 1404000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768025000136/vlto-20251003.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VMC",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 2184600000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026068102/vmc-20260930.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VMC",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 2155800000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026050486/vmc-20260630.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "VMC",
+      "periodEnd": "2026-03-31",
+      "field": "revenue",
+      "value": 1755900000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026028318/vmc-20260331.htm",
+      "newPeriod": false
+    },
+    {
+      "ticker": "WTW",
+      "periodEnd": "2026-09-30",
+      "field": "revenue",
+      "value": 2460000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140536/000119312526437327/wtw-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "WTW",
+      "periodEnd": "2026-09-30",
+      "field": "epsGaapDiluted",
+      "value": 3.24,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140536/000119312526437327/wtw-20260930.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "WTW",
+      "periodEnd": "2026-06-30",
+      "field": "revenue",
+      "value": 2466000000.0,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140536/000119312526325374/wtw-20260630.htm",
+      "newPeriod": true
+    },
+    {
+      "ticker": "WTW",
+      "periodEnd": "2026-06-30",
+      "field": "epsGaapDiluted",
+      "value": 2.43,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140536/000119312526325374/wtw-20260630.htm",
+      "newPeriod": true
+    }
+  ],
+  "retainedValueReplacements": [],
+  "lostRetainedValues": [],
+  "latestPeriodAdvances": [
+    {
+      "ticker": "ARE",
+      "before": null,
+      "after": "2026-09-30",
+      "date": "2026-10-26",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000077/are-20261026.htm"
+    },
+    {
+      "ticker": "AMCR",
+      "before": "2025-12-31",
+      "after": "2026-06-30",
+      "date": "2026-08-12",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcr-20260812.htm"
+    },
+    {
+      "ticker": "CAG",
+      "before": null,
+      "after": "2026-08-30",
+      "date": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/23217/000002321726000052/tmb-ex99d1.htm"
+    },
+    {
+      "ticker": "DG",
+      "before": "2026-05-01",
+      "after": "2026-07-31",
+      "date": "2026-08-27",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/29534/000110465926101918/tm2623914d1_8k.htm"
+    },
+    {
+      "ticker": "LIN",
+      "before": "2026-03-31",
+      "after": "2026-09-30",
+      "date": "2026-10-29",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426009199/lin_8k.htm"
+    },
+    {
+      "ticker": "MNST",
+      "before": null,
+      "after": "2026-06-30",
+      "date": "2026-08-06",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092046/tm2622396d1_8k.htm"
+    },
+    {
+      "ticker": "NVR",
+      "before": "2026-06-30",
+      "after": "2026-09-30",
+      "date": "2026-10-22",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000099/q32026ex991_earningsrelease.htm"
+    },
+    {
+      "ticker": "ODFL",
+      "before": "2026-06-30",
+      "after": "2026-09-30",
+      "date": "2026-10-28",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000031/odfl-20261028.htm"
+    },
+    {
+      "ticker": "PFG",
+      "before": null,
+      "after": "2026-09-30",
+      "date": "2026-10-26",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926118774/tm2628273d1_8k.htm"
+    },
+    {
+      "ticker": "RSG",
+      "before": "2026-06-30",
+      "after": "2026-09-30",
+      "date": "2026-10-29",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000326/rsg-20261028.htm"
+    },
+    {
+      "ticker": "SLB",
+      "before": "2025-12-31",
+      "after": "2026-09-30",
+      "date": "2026-10-23",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/87347/000119312526429435/d151271d8k.htm"
+    },
+    {
+      "ticker": "STLD",
+      "before": "2026-03-31",
+      "after": "2026-09-30",
+      "date": "2026-10-19",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926117217/tm2627861d2_8k.htm"
+    },
+    {
+      "ticker": "USB",
+      "before": null,
+      "after": "2026-09-30",
+      "date": "2026-10-15",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000054/usb-20261015.htm"
+    },
+    {
+      "ticker": "WTW",
+      "before": "2026-03-31",
+      "after": "2026-09-30",
+      "date": "2026-10-29",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140536/000117184326006942/f8k_102826.htm"
+    }
+  ],
+  "releaseDateChanges": [],
+  "newOfficialPeriods": [
+    [
+      "PFG",
+      "2026-06-30"
+    ],
+    [
+      "AOS",
+      "2025-09-30"
+    ],
+    [
+      "MNST",
+      "2026-03-31"
+    ],
+    [
+      "MNST",
+      "2025-09-30"
+    ],
+    [
+      "MNST",
+      "2025-12-31"
+    ],
+    [
+      "ARE",
+      "2026-03-31"
+    ],
+    [
+      "ARE",
+      "2025-12-31"
+    ],
+    [
+      "LIN",
+      "2025-09-30"
+    ],
+    [
+      "LIN",
+      "2025-12-31"
+    ],
+    [
+      "DRI",
+      "2026-05-31"
+    ],
+    [
+      "FICO",
+      "2026-03-31"
+    ],
+    [
+      "DG",
+      "2026-07-31"
+    ],
+    [
+      "SLB",
+      "2026-09-30"
+    ],
+    [
+      "DG",
+      "2025-08-01"
+    ],
+    [
+      "PFG",
+      "2025-09-30"
+    ],
+    [
+      "PFG",
+      "2025-12-31"
+    ],
+    [
+      "CAG",
+      "2025-11-23"
+    ],
+    [
+      "RSG",
+      "2026-09-30"
+    ],
+    [
+      "ODFL",
+      "2026-09-30"
+    ],
+    [
+      "NVR",
+      "2026-09-30"
+    ],
+    [
+      "STLD",
+      "2025-12-31"
+    ],
+    [
+      "USB",
+      "2026-09-30"
+    ],
+    [
+      "SLB",
+      "2026-03-31"
+    ],
+    [
+      "CAG",
+      "2026-08-30"
+    ],
+    [
+      "HWM",
+      "2025-09-30"
+    ],
+    [
+      "WTW",
+      "2026-06-30"
+    ],
+    [
+      "CAG",
+      "2025-08-24"
+    ],
+    [
+      "ARE",
+      "2026-06-30"
+    ],
+    [
+      "ES",
+      "2026-03-31"
+    ],
+    [
+      "LIN",
+      "2026-06-30"
+    ],
+    [
+      "ES",
+      "2025-12-31"
+    ],
+    [
+      "KR",
+      "2025-11-08"
+    ],
+    [
+      "NDSN",
+      "2025-07-31"
+    ],
+    [
+      "FICO",
+      "2026-06-30"
+    ],
+    [
+      "ARE",
+      "2026-09-30"
+    ],
+    [
+      "LIN",
+      "2026-09-30"
+    ],
+    [
+      "USB",
+      "2026-03-31"
+    ],
+    [
+      "USB",
+      "2025-12-31"
+    ],
+    [
+      "KR",
+      "2026-01-31"
+    ],
+    [
+      "ELV",
+      "2025-12-31"
+    ],
+    [
+      "PFG",
+      "2026-09-30"
+    ],
+    [
+      "ARE",
+      "2025-09-30"
+    ],
+    [
+      "STLD",
+      "2026-06-30"
+    ],
+    [
+      "SLB",
+      "2026-06-30"
+    ],
+    [
+      "AMCR",
+      "2026-06-30"
+    ],
+    [
+      "CAG",
+      "2026-02-22"
+    ],
+    [
+      "AOS",
+      "2025-06-30"
+    ],
+    [
+      "ES",
+      "2026-06-30"
+    ],
+    [
+      "STLD",
+      "2026-09-30"
+    ],
+    [
+      "MNST",
+      "2025-06-30"
+    ],
+    [
+      "KR",
+      "2025-08-16"
+    ],
+    [
+      "PFG",
+      "2026-03-31"
+    ],
+    [
+      "GWW",
+      "2025-12-31"
+    ],
+    [
+      "USB",
+      "2026-06-30"
+    ],
+    [
+      "STLD",
+      "2025-09-30"
+    ],
+    [
+      "ES",
+      "2025-09-30"
+    ],
+    [
+      "RSG",
+      "2026-03-31"
+    ],
+    [
+      "HWM",
+      "2025-12-31"
+    ],
+    [
+      "MNST",
+      "2026-06-30"
+    ],
+    [
+      "WTW",
+      "2026-09-30"
+    ],
+    [
+      "CAG",
+      "2026-05-31"
+    ],
+    [
+      "USB",
+      "2025-09-30"
+    ]
+  ],
+  "removedOldOfficialPeriods": [
+    [
+      "RSG",
+      "2025-06-30"
+    ],
+    [
+      "STLD",
+      "2025-03-31"
+    ],
+    [
+      "HWM",
+      "2025-06-30"
+    ],
+    [
+      "SLB",
+      "2025-03-31"
+    ],
+    [
+      "ODFL",
+      "2025-06-30"
+    ],
+    [
+      "RSG",
+      "2025-03-31"
+    ],
+    [
+      "HWM",
+      "2025-03-31"
+    ],
+    [
+      "NVR",
+      "2025-03-31"
+    ],
+    [
+      "ELV",
+      "2025-06-30"
+    ],
+    [
+      "WTW",
+      "2025-06-30"
+    ],
+    [
+      "DG",
+      "2025-05-02"
+    ],
+    [
+      "AOS",
+      "2025-03-31"
+    ],
+    [
+      "WTW",
+      "2025-03-31"
+    ],
+    [
+      "FICO",
+      "2025-06-30"
+    ],
+    [
+      "FICO",
+      "2025-03-31"
+    ],
+    [
+      "GWW",
+      "2025-06-30"
+    ],
+    [
+      "NDSN",
+      "2025-04-30"
+    ],
+    [
+      "SLB",
+      "2025-06-30"
+    ]
+  ],
+  "remainingMetricGaps": 1054,
+  "unverifiedLatestTickers": [
+    "AES",
+    "AEP",
+    "BAX",
+    "CFG",
+    "COIN",
+    "SATS",
+    "FITB",
+    "KDP",
+    "MTD",
+    "ON",
+    "RF",
+    "SWKS",
+    "VZ"
+  ]
+}
