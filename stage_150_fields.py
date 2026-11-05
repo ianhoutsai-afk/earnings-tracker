@@ -3,6 +3,8 @@ import copy,json,hashlib,re
 from datetime import date,datetime,timezone
 from pathlib import Path
 from decimal import Decimal
+from zoneinfo import ZoneInfo
+today=datetime.now(ZoneInfo('America/New_York')).date()
 from lxml import html
 from verified_history import apply_official_records,write_json_bundle
 from quarterly_policy import company_fields
@@ -33,12 +35,12 @@ for item in candidates:
  assert 'consolidated' in heading or 'combined' in heading
  assert not re.search(r'(?i)non[\s-]*gaap|adjusted|pro[\s-]*forma|reconcil|\bsegment\b|\bnotes?\b',e['statementHeading'])
  row['revenue']=e['value'];row['revenueSourceUrl']=item['sourceUrl']
- row['verifiedAt']=date.today().isoformat()
+ row['verifiedAt']=today.isoformat()
  seen.add(key);selected.append(item)
  if len(selected)==LIMIT:break
 assert len(selected)==LIMIT, f'Need exactly 150 currently missing fields, got {len(selected)}'
 companies=before['data.json']
-history,added=apply_official_records(companies,before['historical_data.json'],[bykey[(s['ticker'],s['periodEnd'])] for s in selected],date.today())
+history,added=apply_official_records(companies,before['historical_data.json'],[bykey[(s['ticker'],s['periodEnd'])] for s in selected],today)
 assert added==0
 assert set(history)==set(before['historical_data.json'])
 def identity(rows):return [(r.get('periodEnd'),r.get('date'),r.get('quarter')) for r in rows]
@@ -76,8 +78,8 @@ state['metricsComplete']=state['fiveCompleteMetricCompanies']==len(companies)
 state['dataComplete']=state['historyComplete'] and state['metricsComplete']
 state['healthy']=state['sourceHealthy'] and state['dataComplete']
 state['dataStatus']='complete' if state['dataComplete'] else 'incomplete'
-state['metricBackfill']={'date':date.today().isoformat(),'filledFields':150,'evidence':'docs/data-backfill-150-2026-11-05.json'}
-companies=[company_fields(c,history,date.today()) for c in companies]
+state['metricBackfill']={'date':today.isoformat(),'filledFields':150,'evidence':'docs/data-backfill-150-2026-11-05.json'}
+companies=[company_fields(c,history,today) for c in companies]
 report={'baselineCommit':'55839bb08b29c80fb7102f88cdcf6bb6aee4a4c2','collectorCommit':'42ca7dd68dad0cf097fb60ef0242626c4541de9e','methodology':'Direct dimensionless USD revenue fact in the issuer GAAP income statement for an explicit 70-110 day quarter; no annual subtraction or estimated numbers. One item is one previously null numeric field.','limit':150,'filledFields':len(changes),'revenueFields':150,'epsFields':0,'companies':len({s['ticker'] for s in selected}),'quarters':len(seen),
 'retainedNonNullChanges':0,'tickerAndQuarterWindowsChanged':False,
 'before':before['official_scan_state.json'],'after':state,
