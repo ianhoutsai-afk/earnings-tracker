@@ -81,7 +81,8 @@ def inspect(record,body,cik):
  nodes=[n for n in tree.iter() if isinstance(n.tag,str)]
  issuer_values={text(n) for n in nodes if n.get('name','').lower()=='dei:entityregistrantname' and text(n)}
  issuer=next(iter(issuer_values)) if len(issuer_values)==1 else None
- if not issuer:
+ # ServiceNow's cover name is continuation-split; validate its canonical SEC CIK name.
+ if not issuer or record['ticker']=='NOW':
   key=str(cik).zfill(10)
   if key not in ISSUER_NAMES:
    payload=json.loads(fetch_sec('https://data.sec.gov/submissions/CIK'+key+'.json'))
@@ -90,6 +91,7 @@ def inspect(record,body,cik):
    time.sleep(.2)
   issuer=ISSUER_NAMES[key]
   if not issuer:return None,'issuer_name'
+  print('SEC registrant name '+record['ticker']+': '+issuer,flush=True)
  contexts={}
  for c in (n for n in nodes if _local(n)=='context'):
   entity=_unique_text(_desc(c,'identifier'));start=_unique_text(_desc(c,'startdate'));end=_unique_text(_desc(c,'enddate'))
