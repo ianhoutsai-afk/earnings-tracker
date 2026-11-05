@@ -1,0 +1,32 @@
+name: Stage and validate exactly 150 missing official fields
+on:
+  push:
+    branches: [codex/fill-150-official-metrics-20261105]
+    paths: ['stage_150_fields.py','.github/workflows/stage-150.yml']
+permissions: {contents: write}
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - name: Apply capped batch and assert data preservation
+        run: python stage_150_fields.py
+      - name: Python regressions
+        run: python -m unittest discover -q
+      - name: JavaScript regressions
+        run: node --test test_*.mjs
+      - name: Publication consistency
+        run: python validate_quarterly_data.py
+      - name: Retain reviewed data and evidence only
+        run: |
+          git rm -r audit-150 inspect_missing_150.py collect_150_evidence.py .github/workflows/inspect-150.yml .github/workflows/collect-150.yml
+          git rm stage_150_fields.py .github/workflows/stage-150.yml
+          git add official_history.json historical_data.json data.json history_status.json official_scan_state.json docs/data-backfill-150-2026-11-05.json
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Fill exactly 150 missing official quarterly revenue values with field evidence'
+          git push origin HEAD
