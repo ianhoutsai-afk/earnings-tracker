@@ -1,0 +1,58 @@
+[
+  {
+    "ticker": "GD",
+    "periodEnd": "2026-04-05",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "field": "revenue",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000010/gd-20260405exhibit991.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000010/gd-20260405exhibit991.htm",
+    "sourceSha256": "8f567f5eac9ea4f9713b1632f0547752fdb0465233bb25af1ea69ce870b31534",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 13481000000.0,
+      "rawValue": "13,481",
+      "scale": 6,
+      "unitMeasure": "USD",
+      "statementHeading": "CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)",
+      "statementText": "Three Months Ended Variance April 5, 2026 March 30, 2025 $ % Revenue $ 13,481 $ 12,223 $ 1,258 10.3 % Operating costs and expenses (12,061) (10,955) (1,106) Operating earnings 1,420 1,268 152 12.0 % Other, net 18 21 (3) Interest, net (69) (89) 20 Earnings before income tax 1,369 1,200 169 14.1 % Provision for income tax, net (244) (206) (38) Net earnings $ 1,125 $ 994 $ 131 13.2 % Earnings per share\u2014basic $ 4.16 $ 3.69 $ 0.47 12.7 % Basic weighted average shares outstanding 270.2 269.0 Earnings per share\u2014diluted $ 4.10 $ 3.66 $ 0.44 12.0 % Diluted weighted average shares outstanding 274.1 271.7",
+      "rowLabel": "Revenue",
+      "rowText": "Revenue | Revenue | Revenue | $ | 13,481 |  |  |  |  | $ | 12,223 |  |  |  |  | $ | 1,258 |  |  |  |  | 10.3 | 10.3 | %",
+      "header": "Three Months Ended April 5, 2026",
+      "unitCaption": "CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)                            Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    Variance Variance Variance Variance Variance Variance Variance Variance Variance    April 5, 2026 April 5, 2026 April 5, 2026    March 30, 2025 March 30, 2025 March 30, 2025    $ $ $    % % %   DOLLARS IN MILLIONS, EXCEPT PER SHARE AMOUNTS CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)",
+      "tableIndex": 1,
+      "columnIndex": 4,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  },
+  {
+    "ticker": "GD",
+    "periodEnd": "2026-04-05",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "field": "epsGaapDiluted",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000010/gd-20260405exhibit991.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000010/gd-20260405exhibit991.htm",
+    "sourceSha256": "8f567f5eac9ea4f9713b1632f0547752fdb0465233bb25af1ea69ce870b31534",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 4.1,
+      "rawValue": "4.10",
+      "scale": 0,
+      "unitMeasure": "USD/shares",
+      "statementHeading": "CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)",
+      "statementText": "Three Months Ended Variance April 5, 2026 March 30, 2025 $ % Revenue $ 13,481 $ 12,223 $ 1,258 10.3 % Operating costs and expenses (12,061) (10,955) (1,106) Operating earnings 1,420 1,268 152 12.0 % Other, net 18 21 (3) Interest, net (69) (89) 20 Earnings before income tax 1,369 1,200 169 14.1 % Provision for income tax, net (244) (206) (38) Net earnings $ 1,125 $ 994 $ 131 13.2 % Earnings per share\u2014basic $ 4.16 $ 3.69 $ 0.47 12.7 % Basic weighted average shares outstanding 270.2 269.0 Earnings per share\u2014diluted $ 4.10 $ 3.66 $ 0.44 12.0 % Diluted weighted average shares outstanding 274.1 271.7",
+      "rowLabel": "Earnings per share\u2014diluted",
+      "rowText": "Earnings per share\u2014diluted | Earnings per share\u2014diluted | Earnings per share\u2014diluted | $ | 4.10 |  |  |  |  | $ | 3.66 |  |  |  |  | $ | 0.44 |  |  |  |  | 12.0 | 12.0 | %",
+      "header": "Three Months Ended April 5, 2026",
+      "unitCaption": "CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)                            Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    Variance Variance Variance Variance Variance Variance Variance Variance Variance    April 5, 2026 April 5, 2026 April 5, 2026    March 30, 2025 March 30, 2025 March 30, 2025    $ $ $    % % %   DOLLARS IN MILLIONS, EXCEPT PER SHARE AMOUNTS CONSOLIDATED STATEMENT OF EARNINGS - (UNAUDITED)",
+      "tableIndex": 1,
+      "columnIndex": 4,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  }
+]
