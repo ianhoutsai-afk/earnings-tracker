@@ -48,7 +48,7 @@ for item in items:
    assert re.search(r'(?i)\b(?:three months|quarters?|(?:twelve|thirteen|fourteen) weeks)\s+ended\b',h)
    assert not re.search(r'(?i)\b(?:six|nine|twelve) months|\byears?\s+ended\b|\bfiscal year\b',h)
    assert re.search(r'(?i)\b'+end.strftime('%B')+r'\s+'+str(end.day)+r'\b',h) or re.search(r'(?i)\b'+end.strftime('%b')+r'\.?\s+'+str(end.day)+r'\b',h) or (end.month==9 and re.search(r'(?i)\bSept\.?\s+'+str(end.day)+r'\b',h))
-   assert not re.search(r'(?i)\bEUR|GBP|CAD|AUD|JPY|CNY|euros?|renminbi|yen\b',e['unitCaption'])
+   assert not re.search(r'(?i)\b(?:EUR|GBP|CAD|AUD|JPY|CNY|euros?|renminbi|yen)\b',e['unitCaption'])
    if mapping[ticker].get('sector')=='Utilities' and compact(mapping[ticker].get('name','')) not in compact(e['statementHeading']):
     raise ValueError('Combined utility issuer requires explicit parent identity; keep pending')
    if field=='epsGaapDiluted':
