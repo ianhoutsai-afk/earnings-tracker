@@ -1,5 +1,5 @@
 {
-  "inspected": 240,
+  "inspected": 250,
   "selected": [
     {
       "ticker": "FISV",
@@ -991,6 +991,36 @@
     {
       "ticker": "JCI",
       "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MGM",
+      "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "LHX",
+      "periodEnd": "2025-06-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CCL",
+      "periodEnd": "2025-05-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COHR",
+      "periodEnd": "2025-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TECH",
+      "periodEnd": "2025-03-31",
       "reason": "missing_or_conflicting_total"
     }
   ]
