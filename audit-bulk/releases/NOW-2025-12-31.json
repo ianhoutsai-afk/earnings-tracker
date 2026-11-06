@@ -1,0 +1,30 @@
+[
+  {
+    "ticker": "NOW",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2025,
+    "fiscalQuarter": 4,
+    "field": "revenue",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000005/erq4fy25.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000005/erq4fy25.htm",
+    "sourceSha256": "82627b357bae711751944e2b511102c6f14ce7582753b5ceca458342b55dce90",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 3568000000.0,
+      "rawValue": "3,568",
+      "scale": 6,
+      "unitMeasure": "USD",
+      "statementHeading": "Condensed Consolidated Statements of Operations",
+      "statementText": "Three Months Ended Year Ended December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 Revenues: Subscription $ 3,466 $ 2,866 $ 12,883 $ 10,646 Professional services and other 102 91 395 338 Total revenues 3,568 2,957 13,278 10,984 Cost of revenues (1) : Subscription 717 536 2,569 1,942 Professional services and other 117 95 414 345 Total cost of revenues 834 631 2,983 2,287 Gross profit 2,734 2,326 10,295 8,697 Operating expenses (1) : Sales and marketing 1,150 1,027 4,388 3,854 Research and development 773 668 2,960 2,543 General and administrative 368 257 1,123 936 Total operating expenses 2,291 1,952 8,471 7,333 Income from operations 443 374 1,824 1,364 Interest income 105 106 451 419 Other expense, net (7) (17) (14) (45) Income before income taxes 541 463 2,261 1,738 Provision for income taxes 140 79 513 313 Net income $ 401 $ 384 $ 1,748 $ 1,425 Net income per share - basic (2) $ 0.39 $ 0.37 $ 1.69 $ 1.38 Net income per share - diluted (2) $ 0.38 $ 0.37 $ 1.67 $ 1.37 Weighted-average shares used to compute net income per share - basic (2) 1,039 1,032 1,037 1,029 Weighted-average shares used to compute net income per share - diluted (2) 1,047 1,047 1,047 1,042",
+      "rowLabel": "Total revenues",
+      "rowText": "Total revenues | Total revenues | Total revenues | 3,568 | 3,568 |  |  |  |  | 2,957 | 2,957 |  |  |  |  | 13,278 | 13,278 |  |  |  |  | 10,984 | 10,984 | ",
+      "header": "Three Months Ended December 31, 2025",
+      "unitCaption": "Condensed Consolidated Statements of Operations                            Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    Year Ended Year Ended Year Ended Year Ended Year Ended Year Ended Year Ended Year Ended Year Ended    December 31, 2025 December 31, 2025 December 31, 2025    December 31, 2024 December 31, 2024 December 31, 2024    December 31, 2025 December 31, 2025 December 31, 2025    December 31, 2024 December 31, 2024 December 31, 2024 (unaudited) (in millions, except per share data) Condensed Consolidated Statements of Operations",
+      "tableIndex": 4,
+      "columnIndex": 3,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  }
+]
