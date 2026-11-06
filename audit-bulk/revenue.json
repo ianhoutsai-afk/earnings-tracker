@@ -1,0 +1,1027 @@
+{
+  "inspected": 250,
+  "selected": [
+    {
+      "ticker": "FISV",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000042/fisv-20260930.htm",
+      "sourceSha256": "110a92e119285f322b2d956784edfba3555cf88f55c4fc62e066bbe3ba6dccbf",
+      "evidence": {
+        "value": 5196000000.0,
+        "rawValue": "5196",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-21",
+        "context": {
+          "entity": "0000798354",
+          "start": "2026-07-01",
+          "end": "2026-09-30"
+        },
+        "issuerName": "FISERV, INC.",
+        "statementHeading": "Consolidated Statements of Income (Loss)",
+        "rowLabel": "Total revenue",
+        "rowText": "Total revenue 5,196 5,263 15,515 15,909",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 37pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">Total revenue</span></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-21\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-65\">5,196</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-22\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-66\">5,263</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-67\">15,515</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-23\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-68\">15,909</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+        "statementText": "Three Months Ended September 30, Nine Months Ended September 30, 2026 2025 2026 2025 Revenue: Processing and services (1) $ 4,231 $ 4,273 $ 12,593 $ 12,622 Product 965 990 2,922 3,287 Total revenue 5,196 5,263 15,515 15,909 Expenses: Cost of processing and services 1,726 1,486 5,042 4,287 Cost of product 713 679 2,099 2,057 Selling, general and administrative 1,901 1,762 5,674 5,155 Net gain on disposition of businesses and other assets ( 102 ) ( 100 ) ( 191 ) ( 117 ) Goodwill impairment 6,452 \u2014 6,452 \u2014 Total expenses 10,690 3,827 19,076 11,382 Operating income (loss) ( 5,494 ) 1,436 ( 3,561 ) 4,527 Interest expense, net ( 333 ) ( 422 ) ( 1,050 ) ( 1,118 ) Gain on early debt extinguishment 29 \u2014 183 \u2014 Other expense, net ( 4 ) ( 50 ) ( 6 ) ( 107 ) Income (loss) before income taxes and income (loss) from investments in unconsolidated affiliates ( 5,802 ) 964 ( 4,434 ) 3,302 Income tax provision ( 137 ) ( 173 ) ( 317 ) ( 609 ) Income (loss) from investments in unconsolidated affiliates \u2014 8 15 ( 16 ) Net income (loss) ( 5,939 ) 799 ( 4,736 ) 2,677 Less: net income attributable to noncontrolling interests 2 7 7 8 Net income (loss) attributable to Fiserv, Inc. $ ( 5,941 ) $ 792 $ ( 4,743 ) $ 2,669 Net income (loss) attributable to Fiserv, Inc. per share: Basic $ ( 11.17 ) $ 1.46 $ ( 8.90 ) $ 4.85 Diluted $ ( 11.17 ) $ 1.46 $ ( 8.90 ) $ 4.83 Shares used in computing net income (loss) attributable to Fiserv, Inc. per share: Basic 531.8 540.2 532.9 550.8 Diluted 531.8 541.8 532.9 553.0",
+        "contextHtml": "<xbrli:context id=\"c-21\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000798354</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": true
+      }
+    },
+    {
+      "ticker": "ODFL",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000033/odfl-20260930.htm",
+      "sourceSha256": "8dbe7e8b16a5367c9a1f3d22d0e8eb07b0694221d7a20813cd041de523cc951a",
+      "evidence": {
+        "value": 1590726000.0,
+        "rawValue": "1590726",
+        "scale": 3,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "C_186b7afc-03c7-4704-aa18-af12f62d5b6b",
+        "context": {
+          "entity": "0000878927",
+          "start": "2026-07-01",
+          "end": "2026-09-30"
+        },
+        "issuerName": "OLD DOMINION FREIGHT LINE, INC.",
+        "statementHeading": "OLD DOMINION FREIGHT LINE, INC. | CONDENSED STATEME NTS OF OPERATIONS",
+        "rowLabel": "Revenue from operations",
+        "rowText": "Revenue from operations $ 1,590,726 $ 1,406,511 $ 4,479,426 $ 4,189,093",
+        "rowHtml": "<tr style=\"height:10pt;background-color:#cff0fc;word-break:break-word;\">\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:top;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">Revenue from operations</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_6e581a59-2be4-4373-8c59-d8b02ad7cb36\" contextref=\"C_186b7afc-03c7-4704-aa18-af12f62d5b6b\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,590,726</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_1ec71d32-9565-45a0-a636-618272e6d21c\" contextref=\"C_5ec3a0a8-2964-403b-b6f8-32dbeb76ba0f\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,406,511</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_88fb4d31-3afc-46d7-bbe3-9fe0d31b6086\" contextref=\"C_45dcd0e0-76c0-4fa8-afe9-c34e3d3e9475\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">4,479,426</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_4d81f21b-1ec7-44ba-be0d-17b59859b04d\" contextref=\"C_52369290-1d44-4c0b-8a6d-e16fd28b1c26\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">4,189,093</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"tab-size:26.66px;font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n    </tr>\n    ",
+        "statementText": "Three Months Ended Nine Months Ended September 30, September 30, (In thousands, except per share data) 2026 2025 2026 2025 Revenue from operations $ 1,590,726 $ 1,406,511 $ 4,479,426 $ 4,189,093 Operating expenses: Salaries, wages and benefits 704,838 663,034 2,030,481 1,993,212 Operating supplies and expenses 189,329 144,185 513,730 436,534 General supplies and expenses 48,830 45,075 142,312 126,631 Operating taxes and licenses 33,907 34,582 101,229 105,168 Insurance and claims 18,883 18,803 55,508 55,077 Communications and utilities 8,890 9,568 26,702 29,667 Depreciation and amortization 90,422 92,219 274,437 272,014 Purchased transportation 35,021 28,274 96,562 84,481 Miscellaneous expense, net 7,961 9,927 3,178 29,515 Total operating expenses 1,138,081 1,045,667 3,244,139 3,132,299 Operating income 452,645 360,844 1,235,287 1,056,794 Non-operating (income) expense: Interest expense 32 4 407 12 Interest income ( 4,168 ) ( 559 ) ( 8,889 ) ( 2,905 ) Other expense, net 1,757 1,098 3,599 3,526 Total non-operating (income) expense ( 2,379 ) 543 ( 4,883 ) 633 Income before income taxes 455,024 360,301 1,240,170 1,056,161 Provision for income taxes 111,275 89,354 307,562 261,928 Net income $ 343,749 $ 270,947 $ 932,608 $ 794,233 Earnings per share: Basic $ 1.66 $ 1.29 $ 4.49 $ 3.76 Diluted $ 1.65 $ 1.28 $ 4.47 $ 3.74 Weighted average shares outstanding: Basic 207,085 209,850 207,669 211,102 Diluted 208,122 210,898 208,714 212,173 Dividends declared per share $ 0.29 $ 0.28 $ 0.87 $ 0.84",
+        "contextHtml": "<xbrli:context id=\"C_186b7afc-03c7-4704-aa18-af12f62d5b6b\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000878927</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "FISV",
+      "periodEnd": "2026-06-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 2,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000031/fisv-20260630.htm",
+      "sourceSha256": "488c9ecf521e11d2964a88d0a87c217363956c65b53b0efc250ec3decf85fd1d",
+      "evidence": {
+        "value": 5292000000.0,
+        "rawValue": "5292",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-21",
+        "context": {
+          "entity": "0000798354",
+          "start": "2026-04-01",
+          "end": "2026-06-30"
+        },
+        "issuerName": "FISERV, INC.",
+        "statementHeading": "Consolidated Statements of Income",
+        "rowLabel": "Total revenue",
+        "rowText": "Total revenue 5,292 5,516 10,319 10,646",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 37pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">Total revenue</span></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-21\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-65\">5,292</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-22\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-66\">5,516</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-67\">10,319</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-23\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-68\">10,646</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+        "statementText": "Three Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 Revenue: Processing and services (1) $ 4,292 $ 4,304 $ 8,362 $ 8,349 Product 1,000 1,212 1,957 2,297 Total revenue 5,292 5,516 10,319 10,646 Expenses: Cost of processing and services 1,706 1,412 3,316 2,801 Cost of product 689 694 1,386 1,378 Selling, general and administrative 1,888 1,711 3,773 3,393 Net (gain) loss on sale of assets ( 6 ) 3 ( 89 ) ( 17 ) Total expenses 4,277 3,820 8,386 7,555 Operating income 1,015 1,696 1,933 3,091 Interest expense, net ( 370 ) ( 365 ) ( 717 ) ( 696 ) Gain on early debt extinguishment 154 \u2014 154 \u2014 Other expense, net ( 24 ) ( 39 ) ( 2 ) ( 57 ) Income before income taxes and income (loss) from investments in unconsolidated affiliates 775 1,292 1,368 2,338 Income tax provision ( 156 ) ( 246 ) ( 180 ) ( 436 ) Income (loss) from investments in unconsolidated affiliates 11 ( 16 ) 15 ( 24 ) Net income 630 1,030 1,203 1,878 Less: net income attributable to noncontrolling interests 3 4 5 1 Net income attributable to Fiserv, Inc. $ 627 $ 1,026 $ 1,198 $ 1,877 Net income attributable to Fiserv, Inc. per share: Basic $ 1.18 $ 1.86 $ 2.25 $ 3.38 Diluted $ 1.17 $ 1.86 $ 2.24 $ 3.36 Shares used in computing net income attributable to Fiserv, Inc. per share: Basic 532.6 550.8 533.4 556.1 Diluted 533.7 552.7 534.5 558.7",
+        "contextHtml": "<xbrli:context id=\"c-21\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000798354</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": true
+      }
+    },
+    {
+      "ticker": "ITW",
+      "periodEnd": "2026-06-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 2,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000049/itw-20260630.htm",
+      "sourceSha256": "ac13059b894a3f37f09c53bf4bdd9f4062c5be09afa4e8db938cb0b67ee6f858",
+      "evidence": {
+        "value": 4301000000.0,
+        "rawValue": "4301",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-10",
+        "context": {
+          "entity": "0000049826",
+          "start": "2026-04-01",
+          "end": "2026-06-30"
+        },
+        "issuerName": "ILLINOIS TOOL WORKS INC",
+        "statementHeading": "Illinois Tool Works Inc. and Subsidiaries | Statement of Income (Unaudited)",
+        "rowLabel": "Operating Revenue",
+        "rowText": "Operating Revenue $ 4,301 $ 4,053 $ 8,317 $ 7,892",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Operating Revenue</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-10\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-52\">4,301</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-11\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-53\">4,053</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-54\">8,317</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-12\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-55\">7,892</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+        "statementText": "Three Months Ended Six Months Ended June 30, June 30, In millions except per share amounts 2026 2025 2026 2025 Operating Revenue $ 4,301 $ 4,053 $ 8,317 $ 7,892 Cost of revenue 2,403 2,271 4,659 4,432 Selling, administrative, and research and development expenses 735 693 1,457 1,399 Amortization and impairment of intangible assets 16 21 34 42 Operating Income 1,147 1,068 2,167 2,019 Interest expense ( 79 ) ( 74 ) ( 152 ) ( 142 ) Other income (expense) 12 4 32 16 Income Before Taxes 1,080 998 2,047 1,893 Income Taxes 265 243 464 438 Net Income $ 815 $ 755 $ 1,583 $ 1,455 Net Income Per Share: Basic $ 2.85 $ 2.58 $ 5.51 $ 4.97 Diluted $ 2.84 $ 2.58 $ 5.50 $ 4.95 Shares of Common Stock Outstanding During the Period: Average 286.4 292.3 287.3 292.9 Average assuming dilution 287.0 292.9 288.1 293.7",
+        "contextHtml": "<xbrli:context id=\"c-10\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000049826</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "ODFL",
+      "periodEnd": "2026-06-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 2,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000023/odfl-20260630.htm",
+      "sourceSha256": "afb58b9ad7749509b449d8a11d94e45b6da342f62ce12dddf7ca647253d60f5e",
+      "evidence": {
+        "value": 1554004000.0,
+        "rawValue": "1554004",
+        "scale": 3,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "C_7a075b58-21b6-4ecc-97ee-4330469feac5",
+        "context": {
+          "entity": "0000878927",
+          "start": "2026-04-01",
+          "end": "2026-06-30"
+        },
+        "issuerName": "OLD DOMINION FREIGHT LINE, INC.",
+        "statementHeading": "OLD DOMINION FREIGHT LINE, INC. | CONDENSED STATEME NTS OF OPERATIONS",
+        "rowLabel": "Revenue from operations",
+        "rowText": "Revenue from operations $ 1,554,004 $ 1,407,724 $ 2,888,700 $ 2,782,582",
+        "rowHtml": "<tr style=\"height:10pt;background-color:#cff0fc;word-break:break-word;\">\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:top;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">Revenue from operations</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_44334771-0772-4a77-ad4b-0d8edf7f09af\" contextref=\"C_7a075b58-21b6-4ecc-97ee-4330469feac5\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,554,004</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_603ae0d3-0373-4b5f-b150-cbadb62dc50b\" contextref=\"C_70f9d60e-00c7-473a-803f-1a24bd64b3d4\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,407,724</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_6ebd38ec-ee68-46b7-9598-955ec1fcf4f0\" contextref=\"C_3ecf8151-71a9-4f3d-9af9-4d3d2b84e04d\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">2,888,700</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_af1de7c0-da4e-4dee-b141-f9c17afc5b1d\" contextref=\"C_ef3717e4-b400-4ab3-8fde-7832010c6776\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">2,782,582</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n    </tr>\n    ",
+        "statementText": "Three Months Ended Six Months Ended June 30, June 30, (In thousands, except per share data) 2026 2025 2026 2025 Revenue from operations $ 1,554,004 $ 1,407,724 $ 2,888,700 $ 2,782,582 Operating expenses: Salaries, wages and benefits 687,348 672,093 1,325,643 1,330,178 Operating supplies and expenses 177,683 142,457 324,401 292,349 General supplies and expenses 46,413 41,676 93,482 81,556 Operating taxes and licenses 34,293 34,983 67,322 70,586 Insurance and claims 18,919 18,794 36,625 36,274 Communications and utilities 8,190 9,296 17,812 20,099 Depreciation and amortization 91,708 90,663 184,015 179,795 Purchased transportation 33,779 28,544 61,541 56,207 Miscellaneous (income) expense, net ( 9,630 ) 11,323 ( 4,783 ) 19,588 Total operating expenses 1,088,703 1,049,829 2,106,058 2,086,632 Operating income 465,301 357,895 782,642 695,950 Non-operating (income) expense: Interest expense 76 6 375 8 Interest income ( 2,441 ) ( 684 ) ( 4,721 ) ( 2,346 ) Other expense, net 198 1,357 1,842 2,428 Total non-operating (income) expense ( 2,167 ) 679 ( 2,504 ) 90 Income before income taxes 467,468 357,216 785,146 695,860 Provision for income taxes 116,867 88,590 196,287 172,574 Net income $ 350,601 $ 268,626 $ 588,859 $ 523,286 Earnings per share: Basic $ 1.69 $ 1.27 $ 2.83 $ 2.47 Diluted $ 1.68 $ 1.27 $ 2.82 $ 2.46 Weighted average shares outstanding: Basic 207,659 211,083 207,966 211,739 Diluted 208,715 212,164 209,014 212,821 Dividends declared per share $ 0.29 $ 0.28 $ 0.58 $ 0.56",
+        "contextHtml": "<xbrli:context id=\"C_7a075b58-21b6-4ecc-97ee-4330469feac5\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000878927</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "FISV",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000018/fisv-20260331.htm",
+      "sourceSha256": "a1833de386731d8d785f937aec0bc507fdced7a8bc404f4c7b41bac7a7ab63b3",
+      "evidence": {
+        "value": 5027000000.0,
+        "rawValue": "5027",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000798354",
+          "start": "2026-01-01",
+          "end": "2026-03-31"
+        },
+        "issuerName": "FISERV, INC.",
+        "statementHeading": "Consolidated Statements of Income",
+        "rowLabel": "Total revenue",
+        "rowText": "Total revenue 5,027 5,130",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt 2px 37pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">Total revenue</span></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-55\">5,027</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-56\">5,130</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>",
+        "statementText": "Three Months Ended March 31, 2026 2025 Revenue: Processing and services (1) $ 4,070 $ 4,045 Product 957 1,085 Total revenue 5,027 5,130 Expenses: Cost of processing and services 1,610 1,389 Cost of product 697 684 Selling, general and administrative 1,885 1,682 Net gain on sale of assets ( 83 ) ( 20 ) Total expenses 4,109 3,735 Operating income 918 1,395 Interest expense, net ( 347 ) ( 331 ) Other income (expense), net 22 ( 18 ) Income before income taxes and income (loss) from investments in unconsolidated affiliates 593 1,046 Income tax provision ( 24 ) ( 190 ) Income (loss) from investments in unconsolidated affiliates 4 ( 8 ) Net income 573 848 Less: net income (loss) attributable to noncontrolling interests 2 ( 3 ) Net income attributable to Fiserv, Inc. $ 571 $ 851 Net income attributable to Fiserv, Inc. per share: Basic $ 1.07 $ 1.52 Diluted $ 1.07 $ 1.51 Shares used in computing net income attributable to Fiserv, Inc. per share: Basic 534.3 561.3 Diluted 535.4 564.7",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000798354</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": true
+      }
+    },
+    {
+      "ticker": "ITW",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000028/itw-20260331.htm",
+      "sourceSha256": "7c33869c29f4c79310af86bb0a25a7bdfaaecfb94db3c03611def483b56e92ec",
+      "evidence": {
+        "value": 4016000000.0,
+        "rawValue": "4016",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000049826",
+          "start": "2026-01-01",
+          "end": "2026-03-31"
+        },
+        "issuerName": "ILLINOIS TOOL WORKS INC",
+        "statementHeading": "Illinois Tool Works Inc. and Subsidiaries | Statement of Income (Unaudited)",
+        "rowLabel": "Operating Revenue",
+        "rowText": "Operating Revenue $ 4,016 $ 3,839",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Operating Revenue</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-52\">4,016</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-10\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-53\">3,839</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>",
+        "statementText": "Three Months Ended March 31, In millions except per share amounts 2026 2025 Operating Revenue $ 4,016 $ 3,839 Cost of revenue 2,256 2,161 Selling, administrative, and research and development expenses 722 706 Amortization and impairment of intangible assets 18 21 Operating Income 1,020 951 Interest expense ( 73 ) ( 68 ) Other income (expense) 20 12 Income Before Taxes 967 895 Income Taxes 199 195 Net Income $ 768 $ 700 Net Income Per Share: Basic $ 2.66 $ 2.39 Diluted $ 2.66 $ 2.38 Shares of Common Stock Outstanding During the Period: Average 288.3 293.6 Average assuming dilution 289.1 294.5",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000049826</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "ODFL",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000011/odfl-20260331.htm",
+      "sourceSha256": "e66d9e56ae78ce1284ff5d4f88a77568e23e44841fb9b9267ff57cfc5b86c422",
+      "evidence": {
+        "value": 1334696000.0,
+        "rawValue": "1334696",
+        "scale": 3,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "C_55677512-9957-4f1c-bd35-6a9c80626ae9",
+        "context": {
+          "entity": "0000878927",
+          "start": "2026-01-01",
+          "end": "2026-03-31"
+        },
+        "issuerName": "OLD DOMINION FREIGHT LINE, INC.",
+        "statementHeading": "OLD DOMINION FREIGHT LINE, INC. | CONDENSED STATEME NTS OF OPERATIONS",
+        "rowLabel": "Revenue from operations",
+        "rowText": "Revenue from operations $ 1,334,696 $ 1,374,858",
+        "rowHtml": "<tr style=\"height:10pt;background-color:#cff0fc;word-break:break-word;\">\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:top;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">Revenue from operations</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_0a15d2b9-ae03-4ec3-89af-6897855e3534\" contextref=\"C_55677512-9957-4f1c-bd35-6a9c80626ae9\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,334,696</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_113a35fd-a69e-4911-80bb-5d9da8765336\" contextref=\"C_9fdd136b-f357-4367-8235-53e50a42a289\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,374,858</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n    </tr>\n    ",
+        "statementText": "Three Months Ended March 31, (In thousands, except per share data) 2026 2025 Revenue from operations $ 1,334,696 $ 1,374,858 Operating expenses: Salaries, wages and benefits 638,295 658,085 Operating supplies and expenses 146,718 149,892 General supplies and expenses 47,069 39,880 Operating taxes and licenses 33,029 35,603 Insurance and claims 17,706 17,480 Communications and utilities 9,622 10,803 Depreciation and amortization 92,307 89,132 Purchased transportation 27,762 27,663 Miscellaneous expenses, net 4,847 8,265 Total operating expenses 1,017,355 1,036,803 Operating income 317,341 338,055 Non-operating (income) expense: Interest expense 299 2 Interest income ( 2,280 ) ( 1,662 ) Other expense, net 1,644 1,071 Total non-operating income ( 337 ) ( 589 ) Income before income taxes 317,678 338,644 Provision for income taxes 79,420 83,984 Net income $ 238,258 $ 254,660 Earnings per share: Basic $ 1.14 $ 1.20 Diluted $ 1.14 $ 1.19 Weighted average shares outstanding: Basic 208,277 212,402 Diluted 209,317 213,484 Dividend declared per share $ 0.29 $ 0.28",
+        "contextHtml": "<xbrli:context id=\"C_55677512-9957-4f1c-bd35-6a9c80626ae9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000878927</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "ITW",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982625000057/itw-20250930.htm",
+      "sourceSha256": "45971ad8088a6f47fbb1864bfe2bfb4f1940efe1875fadf8c05e5a3d29b8a275",
+      "evidence": {
+        "value": 4059000000.0,
+        "rawValue": "4059",
+        "scale": 6,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "c-10",
+        "context": {
+          "entity": "0000049826",
+          "start": "2025-07-01",
+          "end": "2025-09-30"
+        },
+        "issuerName": "ILLINOIS TOOL WORKS INC",
+        "statementHeading": "Illinois Tool Works Inc. and Subsidiaries | Statement of Income (Unaudited)",
+        "rowLabel": "Operating Revenue",
+        "rowText": "Operating Revenue $ 4,059 $ 3,966 $ 11,951 $ 11,966",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Operating Revenue</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-10\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-48\">4,059</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-11\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-49\">3,966</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-50\">11,951</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-12\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-51\">11,966</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>",
+        "statementText": "Three Months Ended Nine Months Ended September 30, September 30, In millions except per share amounts 2025 2024 2025 2024 Operating Revenue $ 4,059 $ 3,966 $ 11,951 $ 11,966 Cost of revenue 2,253 2,230 6,685 6,637 Selling, administrative, and research and development expenses 676 658 2,075 2,020 Amortization and impairment of intangible assets 18 26 60 76 Operating Income 1,112 1,052 3,131 3,233 Interest expense ( 75 ) ( 69 ) ( 217 ) ( 215 ) Other income (expense) 12 379 28 421 Income Before Taxes 1,049 1,362 2,942 3,439 Income Taxes 228 202 666 701 Net Income $ 821 $ 1,160 $ 2,276 $ 2,738 Net Income Per Share: Basic $ 2.82 $ 3.92 $ 7.79 $ 9.20 Diluted $ 2.81 $ 3.91 $ 7.77 $ 9.17 Shares of Common Stock Outstanding During the Period: Average 290.8 296.1 292.2 297.6 Average assuming dilution 291.7 297.0 293.0 298.5",
+        "contextHtml": "<xbrli:context id=\"c-10\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000049826</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-07-01</xbrli:startdate><xbrli:enddate>2025-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    },
+    {
+      "ticker": "ODFL",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3,
+      "field": "revenue",
+      "priorValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000119312525268415/odfl-20250930.htm",
+      "sourceSha256": "a5fc839e58266149d9720ae686cc9715b793f77bc87115c7d8089e8812f87130",
+      "evidence": {
+        "value": 1406511000.0,
+        "rawValue": "1406511",
+        "scale": 3,
+        "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+        "unitMeasure": "iso4217:USD",
+        "contextId": "C_dc1789fd-8ac5-405c-af3f-ce56cb755312",
+        "context": {
+          "entity": "0000878927",
+          "start": "2025-07-01",
+          "end": "2025-09-30"
+        },
+        "issuerName": "OLD DOMINION FREIGHT LINE, INC.",
+        "statementHeading": "OLD DOMINION FREIGHT LINE, INC. | CONDENSED STATEME NTS OF OPERATIONS",
+        "rowLabel": "Revenue from operations",
+        "rowText": "Revenue from operations $ 1,406,511 $ 1,470,211 $ 4,189,093 $ 4,428,981",
+        "rowHtml": "<tr style=\"height:10pt;background-color:#cff0fc;word-break:break-word;\">\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:top;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">Revenue from operations</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_7a437b7c-0610-4b20-87f1-dc96802432d8\" contextref=\"C_dc1789fd-8ac5-405c-af3f-ce56cb755312\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,406,511</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_25328680-543d-48b1-bb00-a9989ec8f1ae\" contextref=\"C_34a301a1-01e9-418b-aad8-6807ff77306e\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,470,211</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_919c7eeb-34d9-47e3-9daf-70beb4950ce1\" contextref=\"C_59ca96f5-2e9a-4c40-8ede-5da92bf02914\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">4,189,093</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_682f5e57-6e67-49e4-a911-3ee04ef6c3fb\" contextref=\"C_9f2c9af2-1e50-40f5-9417-261809c443fb\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">4,428,981</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\">\u00a0</span></p></td>\n    </tr>\n    ",
+        "statementText": "Three Months Ended Nine Months Ended September 30, September 30, (In thousands, except per share data) 2025 2024 2025 2024 Revenue from operations $ 1,406,511 $ 1,470,211 $ 4,189,093 $ 4,428,981 Operating expenses: Salaries, wages and benefits 663,034 681,238 1,993,212 2,033,412 Operating supplies and expenses 144,185 156,177 436,534 489,669 General supplies and expenses 45,075 46,040 126,631 135,987 Operating taxes and licenses 34,582 36,733 105,168 108,853 Insurance and claims 18,803 17,209 55,077 52,544 Communications and utilities 9,568 10,056 29,667 31,209 Depreciation and amortization 92,219 86,666 272,014 255,760 Purchased transportation 28,274 30,941 84,481 93,661 Miscellaneous expenses, net 9,927 3,290 29,515 17,908 Total operating expenses 1,045,667 1,068,350 3,132,299 3,219,003 Operating income 360,844 401,861 1,056,794 1,209,978 Non-operating expense (income): Interest expense 4 19 12 187 Interest income ( 559 ) ( 1,775 ) ( 2,905 ) ( 15,108 ) Other expense, net 1,098 523 3,526 2,477 Total non-operating expense (income) 543 ( 1,233 ) 633 ( 12,444 ) Income before income taxes 360,301 403,094 1,056,161 1,222,422 Provision for income taxes 89,354 94,514 261,928 299,493 Net income $ 270,947 $ 308,580 $ 794,233 $ 922,929 Earnings per share: Basic $ 1.29 $ 1.44 $ 3.76 $ 4.27 Diluted $ 1.28 $ 1.43 $ 3.74 $ 4.25 Weighted average shares outstanding: Basic 209,850 214,089 211,102 216,010 Diluted 210,898 215,227 212,173 217,185 Dividends declared per share $ 0.28 $ 0.26 $ 0.84 $ 0.78",
+        "contextHtml": "<xbrli:context id=\"C_dc1789fd-8ac5-405c-af3f-ce56cb755312\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000878927</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-07-01</xbrli:startdate><xbrli:enddate>2025-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+        "hasNoncontractFacts": false
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "GD",
+      "periodEnd": "2026-10-04",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CMI",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CVNA",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HON",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MGM",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MO",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MPC",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEE",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEM",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NSC",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "OTIS",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PKG",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PM",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PSX",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "REGN",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROL",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SW",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TAP",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "UNP",
+      "periodEnd": "2026-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HSIC",
+      "periodEnd": "2026-09-26",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SYY",
+      "periodEnd": "2026-09-26",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "STZ",
+      "periodEnd": "2026-08-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "BF-B",
+      "periodEnd": "2026-07-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COO",
+      "periodEnd": "2026-07-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "GD",
+      "periodEnd": "2026-07-05",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CMI",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CVNA",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "EMR",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "FFIV",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HON",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "JCI",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MGM",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MO",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MPC",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEE",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEM",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NSC",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "OTIS",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PKG",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PM",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PSX",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "REGN",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROK",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROL",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SW",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TAP",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "UNP",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "XOM",
+      "periodEnd": "2026-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HSIC",
+      "periodEnd": "2026-06-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "STZ",
+      "periodEnd": "2026-05-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "KR",
+      "periodEnd": "2026-05-23",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COO",
+      "periodEnd": "2026-04-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2026-04-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CRWD",
+      "periodEnd": "2026-04-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "GD",
+      "periodEnd": "2026-04-05",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CMI",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COHR",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CVNA",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DAL",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "EMR",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "FFIV",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "JBHT",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "JCI",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MGM",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MPC",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEE",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEM",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NSC",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "OTIS",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PKG",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PM",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PSX",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "REGN",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROK",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROL",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SMCI",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SW",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TAP",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "UNP",
+      "periodEnd": "2026-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HSIC",
+      "periodEnd": "2026-03-28",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SYY",
+      "periodEnd": "2026-03-28",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "BF-B",
+      "periodEnd": "2026-01-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COO",
+      "periodEnd": "2026-01-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2026-01-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DECK",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "EMR",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "FFIV",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "JCI",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROK",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SMCI",
+      "periodEnd": "2025-12-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SYY",
+      "periodEnd": "2025-12-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "STZ",
+      "periodEnd": "2025-11-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CPRT",
+      "periodEnd": "2025-10-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CRWD",
+      "periodEnd": "2025-10-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "LHX",
+      "periodEnd": "2025-10-03",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "APA",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CVNA",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DECK",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "DTE",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MO",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MPC",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NEE",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NSC",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "OTIS",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PKG",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PM",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PSKY",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "PSX",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "RCL",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "REGN",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "ROL",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SMCI",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TAP",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "UNP",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "VMC",
+      "periodEnd": "2025-09-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "GD",
+      "periodEnd": "2025-09-28",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "HSIC",
+      "periodEnd": "2025-09-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "SYY",
+      "periodEnd": "2025-09-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "STZ",
+      "periodEnd": "2025-08-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "GIS",
+      "periodEnd": "2025-08-24",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "BF-B",
+      "periodEnd": "2025-07-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COO",
+      "periodEnd": "2025-07-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CRWD",
+      "periodEnd": "2025-07-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "JCI",
+      "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "MGM",
+      "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "NI",
+      "periodEnd": "2025-06-30",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "LHX",
+      "periodEnd": "2025-06-27",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "CCL",
+      "periodEnd": "2025-05-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "COHR",
+      "periodEnd": "2025-03-31",
+      "reason": "missing_or_conflicting_total"
+    },
+    {
+      "ticker": "TECH",
+      "periodEnd": "2025-03-31",
+      "reason": "missing_or_conflicting_total"
+    }
+  ]
+}

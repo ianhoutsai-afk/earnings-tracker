@@ -1,0 +1,58 @@
+[
+  {
+    "ticker": "CHTR",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2025,
+    "fiscalQuarter": 4,
+    "field": "revenue",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000016/chtrex991earningsrelease12.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000016/chtrex991earningsrelease12.htm",
+    "sourceSha256": "ba6bbc00c3cb8e2a2bd9d6c2513cab93dfeef636fe0eeea93bf482dcb62ac280",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 13601000000.0,
+      "rawValue": "13,601",
+      "scale": 6,
+      "unitMeasure": "USD",
+      "statementHeading": "UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS",
+      "statementText": "Three Months Ended December 31, Year Ended December 31, 2025 2024 2025 2024 REVENUES $ 13,601 $ 13,926 $ 54,774 $ 55,085 COSTS AND EXPENSES: Operating costs and expenses (exclusive of items shown separately below) 8,053 8,304 32,739 33,167 Depreciation and amortization 2,194 2,168 8,711 8,673 Other operating expenses, net 93 65 416 127 10,340 10,537 41,866 41,967 Income from operations 3,261 3,389 12,908 13,118 OTHER INCOME (EXPENSES): Interest expense, net (1,270) (1,274) (5,042) (5,229) Other expenses, net (30) (69) (408) (387) (1,300) (1,343) (5,450) (5,616) Income before income taxes 1,961 2,046 7,458 7,502 Income tax expense (415) (370) (1,692) (1,649) Consolidated net income 1,546 1,676 5,766 5,853 Less: Net income attributable to noncontrolling interests (214) (210) (779) (770) Net income attributable to Charter shareholders $ 1,332 $ 1,466 $ 4,987 $ 5,083 EARNINGS PER COMMON SHARE ATTRIBUTABLE TO CHARTER SHAREHOLDERS: Basic $ 10.47 $ 10.32 $ 36.90 $ 35.53 Diluted $ 10.34 $ 10.10 $ 36.21 $ 34.97 Weighted average common shares outstanding, basic 127,233,218 142,115,129 135,155,309 143,061,337 Weighted average common shares outstanding, diluted 128,927,643 145,269,468 137,743,676 145,363,771",
+      "rowLabel": "REVENUES",
+      "rowText": "REVENUES | REVENUES | REVENUES | $ | 13,601 |  |  |  |  | $ | 13,926 |  |  |  |  | $ | 54,774 |  |  |  |  | $ | 55,085 | ",
+      "header": "Three Months Ended December 31, 2025",
+      "unitCaption": "UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS                            Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31,    Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31,    2025 2025 2025    2024 2024 2024    2025 2025 2025    2024 2024 2024  (dollars in millions, except per share data) UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS",
+      "tableIndex": 5,
+      "columnIndex": 4,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  },
+  {
+    "ticker": "CHTR",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2025,
+    "fiscalQuarter": 4,
+    "field": "epsGaapDiluted",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000016/chtrex991earningsrelease12.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000016/chtrex991earningsrelease12.htm",
+    "sourceSha256": "ba6bbc00c3cb8e2a2bd9d6c2513cab93dfeef636fe0eeea93bf482dcb62ac280",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 10.34,
+      "rawValue": "10.34",
+      "scale": 0,
+      "unitMeasure": "USD/shares",
+      "statementHeading": "UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS",
+      "statementText": "Three Months Ended December 31, Year Ended December 31, 2025 2024 2025 2024 REVENUES $ 13,601 $ 13,926 $ 54,774 $ 55,085 COSTS AND EXPENSES: Operating costs and expenses (exclusive of items shown separately below) 8,053 8,304 32,739 33,167 Depreciation and amortization 2,194 2,168 8,711 8,673 Other operating expenses, net 93 65 416 127 10,340 10,537 41,866 41,967 Income from operations 3,261 3,389 12,908 13,118 OTHER INCOME (EXPENSES): Interest expense, net (1,270) (1,274) (5,042) (5,229) Other expenses, net (30) (69) (408) (387) (1,300) (1,343) (5,450) (5,616) Income before income taxes 1,961 2,046 7,458 7,502 Income tax expense (415) (370) (1,692) (1,649) Consolidated net income 1,546 1,676 5,766 5,853 Less: Net income attributable to noncontrolling interests (214) (210) (779) (770) Net income attributable to Charter shareholders $ 1,332 $ 1,466 $ 4,987 $ 5,083 EARNINGS PER COMMON SHARE ATTRIBUTABLE TO CHARTER SHAREHOLDERS: Basic $ 10.47 $ 10.32 $ 36.90 $ 35.53 Diluted $ 10.34 $ 10.10 $ 36.21 $ 34.97 Weighted average common shares outstanding, basic 127,233,218 142,115,129 135,155,309 143,061,337 Weighted average common shares outstanding, diluted 128,927,643 145,269,468 137,743,676 145,363,771",
+      "rowLabel": "Diluted",
+      "rowText": "Diluted | Diluted | Diluted | $ | 10.34 |  |  |  |  | $ | 10.10 |  |  |  |  | $ | 36.21 |  |  |  |  | $ | 34.97 | ",
+      "header": "Three Months Ended December 31, 2025",
+      "unitCaption": "UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS                            Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31,    Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31, Year Ended December 31,    2025 2025 2025    2024 2024 2024    2025 2025 2025    2024 2024 2024  (dollars in millions, except per share data) UNAUDITED CONSOLIDATED STATEMENTS OF OPERATIONS",
+      "tableIndex": 5,
+      "columnIndex": 4,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  }
+]
