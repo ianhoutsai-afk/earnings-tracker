@@ -47,6 +47,13 @@ def scope(table,issuer):
    s=text(prev)
    contains_table=_local(prev)=='table' or bool(prev.xpath('.//table'))
    if title(s,issuer) and not any(_local(n)=='nonfraction' for n in prev.iter()):return s
+   if compact(issuer)=='illinoistoolworksinc' and compact(s)=='statementofincomeunaudited':
+    anchor=prev.getprevious()
+    for blank in range(8):
+     if anchor is None or text(anchor):break
+     anchor=anchor.getprevious()
+    if anchor is not None and compact(text(anchor))=='illinoistoolworksincandsubsidiaries':
+     return text(anchor)+' | '+s
    if contains_table or BAD.search(s) or not harmless(s,issuer):return None
    prev=prev.getprevious()
   parent=current.getparent()
@@ -130,7 +137,7 @@ bykey={(r['ticker'],r['periodEnd']):r for r in records}
 seed=json.loads(Path('audit-50/candidates.json').read_text())['selected']
 selected=[x for x in seed if (x['ticker'],x['periodEnd']) in bykey and bykey[(x['ticker'],x['periodEnd'])].get('revenue') is None]
 selected_keys={(x['ticker'],x['periodEnd']) for x in selected}
-targets=sorted([r for r in records if r.get('revenue') is None and r.get('secUrl') and r.get('form')=='10-Q' and (r['ticker'],r['periodEnd']) not in selected_keys and (mapping.get(r['ticker'],{}).get('sector') not in ('Financials','Real Estate') or r['ticker'] in {'ARES','BEN','ERIE','FISV','IVZ','MSCI','SPGI'}) and mapping.get(r['ticker'],{}).get('tickerStatus') not in ('historical_alias','unconfirmed')],key=lambda r:(-date.fromisoformat(r['periodEnd']).toordinal(),r.get('epsGaapDiluted') is None,r['ticker']))
+targets=sorted([r for r in records if r['ticker']=='ITW' and r['periodEnd']=='2026-09-30' and r.get('revenue') is None and r.get('secUrl') and r.get('form')=='10-Q' and (r['ticker'],r['periodEnd']) not in selected_keys and (mapping.get(r['ticker'],{}).get('sector') not in ('Financials','Real Estate') or r['ticker'] in {'ARES','BEN','ERIE','FISV','IVZ','MSCI','SPGI'}) and mapping.get(r['ticker'],{}).get('tickerStatus') not in ('historical_alias','unconfirmed')],key=lambda r:(-date.fromisoformat(r['periodEnd']).toordinal(),r.get('epsGaapDiluted') is None,r['ticker']))
 skipped=[];bodies={};inspected=0
 for record in targets:
  if len(selected)==LIMIT:break
@@ -158,6 +165,14 @@ for record in targets:
    print('Selected evidence '+str(len(selected))+'/50 '+record['ticker']+' '+record['periodEnd'],flush=True)
   else:skipped.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'reason':reason})
  except Exception as exc:skipped.append({'ticker':record['ticker'],'periodEnd':record['periodEnd'],'reason':type(exc).__name__})
+source_dir=Path('audit-50/sources');source_dir.mkdir(exist_ok=True)
+for item in selected:
+ if item['ticker'] not in {'ABNB','DUK','SRE','WYNN','ITW'} or item['periodEnd']!='2026-09-30':continue
+ url=item['sourceUrl'];cache=Path('.sec_cache/official')/(hashlib.sha256(url.encode()).hexdigest()+'.body')
+ body=bodies.get(url)
+ if body is None:body=decode_sec_body(cache.read_bytes()) if cache.exists() else fetch_sec(url)
+ assert hashlib.sha256(body).hexdigest()==item['sourceSha256']
+ (source_dir/(item['ticker']+'-'+item['periodEnd']+'.html')).write_bytes(body)
 selected.sort(key=lambda item:(-date.fromisoformat(item['periodEnd']).toordinal(),item['ticker']))
 Path('audit-50/candidates.json').write_text(json.dumps({'limit':LIMIT,'count':len(selected),'inspected':inspected,'selected':selected,'skipped':skipped},indent=2)+'\n')
 print(json.dumps({'selected':len(selected),'inspected':inspected,'skipped':len(skipped)}))
