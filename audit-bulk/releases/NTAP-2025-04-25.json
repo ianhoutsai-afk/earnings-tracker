@@ -1,0 +1,30 @@
+[
+  {
+    "ticker": "NTAP",
+    "periodEnd": "2025-04-25",
+    "fiscalYear": 2025,
+    "fiscalQuarter": 4,
+    "field": "revenue",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000095017025078936/ntap-ex99_1.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000095017025078936/ntap-20250523.htm",
+    "sourceSha256": "ed61debe975451617e69c53b8c6839de655c0906670765dc2dbc722bdecfcb88",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 1732000000.0,
+      "rawValue": "1,732",
+      "scale": 6,
+      "unitMeasure": "USD",
+      "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
+      "statementText": "Three Months Ended Year Ended April 25, 2025 April 26, 2024 April 25, 2025 April 26, 2024 Revenues: Product $ 845 $ 806 $ 3,040 $ 2,849 Services 887 862 3,532 3,419 Net revenues 1,732 1,668 6,572 6,268 Cost of revenues: Cost of product 378 314 1,284 1,137 Cost of services 161 178 675 698 Total cost of revenues 539 492 1,959 1,835 Gross profit 1,193 1,176 4,613 4,433 Operating expenses: Sales and marketing 458 460 1,865 1,828 Research and development 256 271 1,012 1,029 General and administrative 85 78 311 308 Restructuring charges 45 \u2014 83 44 Acquisition-related expense 1 1 5 10 Total operating expenses 845 810 3,276 3,219 Income from operations 348 366 1,337 1,214 Other income, net 6 14 46 49 Income before income taxes 354 380 1,383 1,263 Provision for income taxes 14 89 197 277 Net income $ 340 $ 291 $ 1,186 $ 986 Net income per share: Basic $ 1.67 $ 1.41 $ 5.81 $ 4.74 Diluted $ 1.65 $ 1.37 $ 5.67 $ 4.63 Shares used in net income per share calculations: Basic 203 206 204 208 Diluted 206 212 209 213",
+      "rowLabel": "Net revenues",
+      "rowText": "Net revenues |  |  | 1,732 |  |  |  | 1,668 |  |  |  | 6,572 |  |  |  | 6,268 | ",
+      "header": "Three Months Ended April 25, 2025",
+      "unitCaption": "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS                    Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended   Year Ended Year Ended Year Ended Year Ended Year Ended Year Ended    April 25, 2025 April 25, 2025   April 26, 2024 April 26, 2024   April 25, 2025 April 25, 2025   April 26, 2024 April 26, 2024                    (Unaudited) (In millions, except per share amounts) CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS   ",
+      "tableIndex": 3,
+      "columnIndex": 3,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  }
+]
