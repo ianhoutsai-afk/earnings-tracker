@@ -1,0 +1,28 @@
+name: Collect official missing revenue and diagnose GAAP EPS
+on:
+  push:
+    branches: [codex/official-data-completion-20261107]
+    paths: ['bulk_evidence.py','.github/workflows/bulk-evidence.yml']
+permissions: {contents: write}
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install lxml requests pandas yfinance
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: sec-official-v1-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          python bulk_evidence.py --form 10-Q
