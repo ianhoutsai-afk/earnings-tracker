@@ -1,0 +1,49 @@
+{
+  "ticker": "WMB",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000017/wmb-20260331.htm",
+  "sourceSha256": "ae396ffc03aca79729add71e8333ec23f88d109898da522d205571c4d42c71fe",
+  "evidence": {
+    "value": 0.7,
+    "rawValue": ".70",
+    "scale": 0,
+    "sign": null,
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "unitMeasure": "USD/shares",
+    "contextId": "c-2",
+    "context": {
+      "entity": "0000107263",
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "dimensions": []
+    },
+    "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000107263</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+    "issuerName": "WILLIAMS COMPANIES, INC.",
+    "statementHeading": "Consolidated Statement of Comprehensive Income",
+    "statementText": "Three Months Ended March 31, 2026 2025 (Millions, except per-share amounts) Revenues: Service revenues $ 2,206 $ 2,003 Service revenues – commodity consideration 46 49 Product sales 1,137 1,058 Net gain (loss) from commodity derivatives ( 359 ) ( 62 ) Total revenues 3,030 3,048 Costs and expenses: Product costs 543 615 Net processing commodity expenses 15 28 Operating and maintenance expenses 565 542 Depreciation, depletion, and amortization expenses 584 585 General and administrative expenses 193 194 Gain on sale of certain assets (Note 3) ( 182 ) — Other operating (income) expense – net ( 9 ) ( 10 ) Total costs and expenses 1,709 1,954 Operating income (loss) 1,321 1,094 Equity earnings (losses) 161 155 Other investing income (loss) – net 24 8 Interest expense ( 376 ) ( 349 ) Other income (expense) – net 26 14 Income (loss) before income taxes 1,156 922 Less: Provision (benefit) for income taxes 244 193 Net income (loss) 912 729 Less: Net income (loss) attributable to noncontrolling interests 47 38 Net income (loss) attributable to The Williams Companies, Inc. 865 691 Less: Preferred stock dividends 1 1 Net income (loss) available to common stockholders $ 864 $ 690 Basic earnings (loss) per common share: Net income (loss) available to common stockholders $ .71 $ .57 Weighted-average shares (millions) 1,223 1,221 Diluted earnings (loss) per common share: Net income (loss) available to common stockholders $ .70 $ .56 Weighted-average shares (millions) 1,226 1,225 Comprehensive income (loss): Net income (loss) $ 912 $ 729 Other comprehensive income (loss), net of taxes of $ 1 in 2026 and $ — in 2025 ( 2 ) — Comprehensive income (loss) 910 729 Less: Comprehensive income (loss) attributable to noncontrolling interests 47 38 Comprehensive income (loss) attributable to The Williams Companies, Inc. $ 863 $ 691",
+    "rowLabel": "Net income (loss) available to common stockholders",
+    "rowText": "Net income (loss) available to common stockholders $ .70 $ .56",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">        Net income (loss) available to common stockholders</span></div></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-136\">.70</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-137\">.56</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>",
+    "combinedBasicDilutedCaption": false,
+    "stockClassBasis": "dimensionless",
+    "stockSymbolEvidence": [
+      {
+        "symbol": "WMB",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-44\">WMB</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000107263</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ],
+    "allPrimaryDilutedClassValues": [
+      {
+        "value": 0.7,
+        "dimensions": []
+      }
+    ]
+  }
+}

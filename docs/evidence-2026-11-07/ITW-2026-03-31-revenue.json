@@ -1,0 +1,32 @@
+{
+  "ticker": "ITW",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000028/itw-20260331.htm",
+  "sourceSha256": "7c33869c29f4c79310af86bb0a25a7bdfaaecfb94db3c03611def483b56e92ec",
+  "evidence": {
+    "value": 4016000000.0,
+    "rawValue": "4016",
+    "scale": 6,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "iso4217:USD",
+    "contextId": "c-1",
+    "context": {
+      "entity": "0000049826",
+      "start": "2026-01-01",
+      "end": "2026-03-31"
+    },
+    "issuerName": "ILLINOIS TOOL WORKS INC",
+    "statementHeading": "Illinois Tool Works Inc. and Subsidiaries | Statement of Income (Unaudited)",
+    "rowLabel": "Operating Revenue",
+    "rowText": "Operating Revenue $ 4,016 $ 3,839",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Operating Revenue</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-52\">4,016</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-10\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-53\">3,839</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>",
+    "statementText": "Three Months Ended March 31, In millions except per share amounts 2026 2025 Operating Revenue $ 4,016 $ 3,839 Cost of revenue 2,256 2,161 Selling, administrative, and research and development expenses 722 706 Amortization and impairment of intangible assets 18 21 Operating Income 1,020 951 Interest expense ( 73 ) ( 68 ) Other income (expense) 20 12 Income Before Taxes 967 895 Income Taxes 199 195 Net Income $ 768 $ 700 Net Income Per Share: Basic $ 2.66 $ 2.39 Diluted $ 2.66 $ 2.38 Shares of Common Stock Outstanding During the Period: Average 288.3 293.6 Average assuming dilution 289.1 294.5",
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000049826</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false
+  }
+}
