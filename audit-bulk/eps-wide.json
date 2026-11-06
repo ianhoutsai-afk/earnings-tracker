@@ -958,5 +958,1015 @@
         "contextHtml": "<xbrli:context id=\"C_61719959-51fa-4ef0-ab69-88e44571bcaa\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000879101</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
       }
     ]
+  },
+  {
+    "ticker": "MNST",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:BasicEarningsPerShareProForma",
+        "raw": "0.30",
+        "sign": null,
+        "label": "Basic",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Pro forma Weighted-Average Shares Outstanding and Net Income per Common Share Three-Months Ended Six-Months Ended June 30, June 30, 2026 2025 2026 2025 Numerator: Net income $ 584,540 $ 488,794 $ 1,154,025 $ 931,787 Denominator: Weighted-average shares outstanding: Basic 1,957,325 1,951,499 1,956,973 1,949,383 Dilutive 19,632 16,496 19,938 16,113 Diluted 1,976,957 1,967,995 1,976,911 1,965,496 Net income per common share: Basic $ 0.30 $ 0.25 $ 0.59 $ 0.48 Diluted $ 0.30 $ 0.25 $ 0.58 $ 0.47"
+      },
+      {
+        "tag": "us-gaap:DilutedEarningsPerShareProForma",
+        "raw": "0.30",
+        "sign": null,
+        "label": "Diluted",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Pro forma Weighted-Average Shares Outstanding and Net Income per Common Share Three-Months Ended Six-Months Ended June 30, June 30, 2026 2025 2026 2025 Numerator: Net income $ 584,540 $ 488,794 $ 1,154,025 $ 931,787 Denominator: Weighted-average shares outstanding: Basic 1,957,325 1,951,499 1,956,973 1,949,383 Dilutive 19,632 16,496 19,938 16,113 Diluted 1,976,957 1,967,995 1,976,911 1,965,496 Net income per common share: Basic $ 0.30 $ 0.25 $ 0.59 $ 0.48 Diluted $ 0.30 $ 0.25 $ 0.58 $ 0.47"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "MNST",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"Duration_1_1_2026_To_6_30_2026_0wtw0qa7BkeLu89eUoF_Lg\" name=\"dei:TradingSymbol\" id=\"Tc_JIt5s-n6HUaWKst4ehma-A_2_1\">MNST</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"Duration_1_1_2026_To_6_30_2026_0wtw0qa7BkeLu89eUoF_Lg\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000865752</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "NTRS",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasicUndistributed",
+        "raw": "4.25",
+        "sign": null,
+        "label": "Net Income \u2013 Basic",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME (UNAUDITED) NORTHERN TRUST CORPORATION",
+        "dimensions": [],
+        "statementText": "THREE MONTHS ENDED JUNE 30, SIX MONTHS ENDED JUNE 30, (In Millions Except Share Information) 2026 2025 2026 2025 Noninterest Income Trust, Investment and Other Servicing Fees $ 1,349.5 $ 1,231.1 $ 2,690.9 $ 2,444.9 Foreign Exchange Trading Income 97.1 50.6 184.8 109.3 Security Commissions and Trading Income 55.6 39.6 107.7 78.7 Other Operating Income (1) 594.2 66.1 664.7 126.4 Investment Security Gains (Losses), net ( 73.9 ) \u2014 ( 73.9 ) \u2014 Total Noninterest Income 2,022.5 1,387.4 3,574.2 2,759.3 Net Interest Income Interest Income 2,189.3 2,212.8 4,423.4 4,353.7 Interest Expense 1,513.8 1,602.3 3,093.9 3,175.1 Net Interest Income 675.5 610.5 1,329.5 1,178.6 Provision for Credit Losses ( 5.3 ) 16.5 ( 8.3 ) 17.5 Net Interest Income after Provision for Credit Losses 680.8 594.0 1,337.8 1,161.1 Noninterest Expense Compensation and Benefits 868.0 732.5 1,690.2 1,486.6 Outside Services 246.3 247.0 483.0 492.2 Equipment and Software 378.5 293.7 686.6 574.6 Occupancy 53.5 52.5 104.8 105.9 Other Operating Expense 92.3 90.9 182.0 174.9 Total Noninterest Expense 1,638.6 1,416.6 3,146.6 2,834.2 Income before Income Taxes 1,064.7 564.8 1,765.4 1,086.2 Provision for Income Taxes 272.5 143.5 447.6 272.9 Net Income $ 792.2 $ 421.3 $ 1,317.8 $ 813.3 Preferred Stock Dividends 4.7 4.7 20.9 20.9 Net Income Applicable to Common Stock $ 787.5 $ 416.6 $ 1,296.9 $ 792.4 Per Common Share Net Income \u2013 Basic $ 4.25 $ 2.14 $ 6.97 $ 4.05 \u2013 Diluted 4.23 2.13 6.93 4.03 Average Number of Common Shares Outstanding \u2013 Basic 183,993,670 192,751,910 184,742,283 193,965,606 \u2013 Diluted 184,889,944 193,374,888 185,709,785 194,742,332"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDilutedUndistributed",
+        "raw": "4.23",
+        "sign": null,
+        "label": "\u2013 Diluted",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME (UNAUDITED) NORTHERN TRUST CORPORATION",
+        "dimensions": [],
+        "statementText": "THREE MONTHS ENDED JUNE 30, SIX MONTHS ENDED JUNE 30, (In Millions Except Share Information) 2026 2025 2026 2025 Noninterest Income Trust, Investment and Other Servicing Fees $ 1,349.5 $ 1,231.1 $ 2,690.9 $ 2,444.9 Foreign Exchange Trading Income 97.1 50.6 184.8 109.3 Security Commissions and Trading Income 55.6 39.6 107.7 78.7 Other Operating Income (1) 594.2 66.1 664.7 126.4 Investment Security Gains (Losses), net ( 73.9 ) \u2014 ( 73.9 ) \u2014 Total Noninterest Income 2,022.5 1,387.4 3,574.2 2,759.3 Net Interest Income Interest Income 2,189.3 2,212.8 4,423.4 4,353.7 Interest Expense 1,513.8 1,602.3 3,093.9 3,175.1 Net Interest Income 675.5 610.5 1,329.5 1,178.6 Provision for Credit Losses ( 5.3 ) 16.5 ( 8.3 ) 17.5 Net Interest Income after Provision for Credit Losses 680.8 594.0 1,337.8 1,161.1 Noninterest Expense Compensation and Benefits 868.0 732.5 1,690.2 1,486.6 Outside Services 246.3 247.0 483.0 492.2 Equipment and Software 378.5 293.7 686.6 574.6 Occupancy 53.5 52.5 104.8 105.9 Other Operating Expense 92.3 90.9 182.0 174.9 Total Noninterest Expense 1,638.6 1,416.6 3,146.6 2,834.2 Income before Income Taxes 1,064.7 564.8 1,765.4 1,086.2 Provision for Income Taxes 272.5 143.5 447.6 272.9 Net Income $ 792.2 $ 421.3 $ 1,317.8 $ 813.3 Preferred Stock Dividends 4.7 4.7 20.9 20.9 Net Income Applicable to Common Stock $ 787.5 $ 416.6 $ 1,296.9 $ 792.4 Per Common Share Net Income \u2013 Basic $ 4.25 $ 2.14 $ 6.97 $ 4.05 \u2013 Diluted 4.23 2.13 6.93 4.03 Average Number of Common Shares Outstanding \u2013 Basic 183,993,670 192,751,910 184,742,283 193,965,606 \u2013 Diluted 184,889,944 193,374,888 185,709,785 194,742,332"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "0.80",
+        "sign": null,
+        "label": "Common Stock,",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "SIX MONTHS ENDED JUNE 30, 2026 (In Millions Except Per Share Information) PREFERRED STOCK COMMON STOCK ADDITIONAL PAID-IN CAPITAL RETAINED EARNINGS ACCUMULATED OTHER COMPREHENSIVE INCOME (LOSS) TREASURY STOCK TOTAL Balance at December 31, 2025 $ 884.9 $ 408.6 $ 1,039.0 $ 16,709.3 $ ( 590.5 ) $ ( 5,493.4 ) $ 12,957.9 Net Income \u2014 \u2014 \u2014 525.5 \u2014 \u2014 525.5 Other Comprehensive Income (Loss) (Net of Tax and Reclassifications) \u2014 \u2014 \u2014 \u2014 ( 46.1 ) \u2014 ( 46.1 ) Dividends Declared: Common Stock, $ 0.80 per share \u2014 \u2014 \u2014 ( 150.8 ) \u2014 \u2014 ( 150.8 ) Preferred Stock \u2014 \u2014 \u2014 ( 16.2 ) \u2014 \u2014 ( 16.2 ) Stock Awards and Options Exercised \u2014 \u2014 ( 35.7 ) \u2014 \u2014 113.3 77.6 Stock Purchased \u2014 \u2014 \u2014 \u2014 \u2014 ( 358.9 ) ( 358.9 ) Excise Tax on Share Repurchases \u2014 \u2014 \u2014 \u2014 \u2014 ( 1.7 ) ( 1.7 ) Balance at March 31, 2026 $ 884.9 $ 408.6 $ 1,003.3 $ 17,067.8 $ ( 636.6 ) $ ( 5,740.7 ) $ 12,987.3 Net Income \u2014 \u2014 \u2014 792.2 \u2014 \u2014 792.2 Other Comprehensive Income (Loss) (Net of Tax and Reclassifications) \u2014 \u2014 \u2014 \u2014 84.9 \u2014 84.9 Dividends Declared: Common Stock, $ 0.80 per share \u2014 \u2014 \u2014 ( 148.8 ) \u2014 \u2014 ( 148.8 ) Preferred Stock \u2014 \u2014 \u2014 ( 4.7 ) \u2014 \u2014 ( 4.7 ) Stock Awards and Options Exercised \u2014 \u2014 41.1 \u2014 \u2014 3.6 44.7 Stock Purchased \u2014 \u2014 \u2014 \u2014 \u2014 ( 350.6 ) ( 350.6 ) Excise Tax on Share Repurchases \u2014 \u2014 \u2014 \u2014 \u2014 ( 3.4 ) ( 3.4 ) Balance at June 30, 2026 $ 884.9 $ 408.6 $ 1,044.4 $ 17,706.5 $ ( 551.7 ) $ ( 6,091.1 ) $ 13,401.6"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasicUndistributed",
+        "raw": "4.25",
+        "sign": null,
+        "label": "Basic Net Income Per Common Share",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "THREE MONTHS ENDED JUNE 30, SIX MONTHS ENDED JUNE 30, ($ In Millions Except Per Common Share Information) 2026 2025 2026 2025 Basic Net Income Per Common Share Average Number of Common Shares Outstanding 183,993,670 192,751,910 184,742,283 193,965,606 Net Income $ 792.2 $ 421.3 $ 1,317.8 $ 813.3 Less: Dividends on Preferred Stock 4.7 4.7 20.9 20.9 Net Income Applicable to Common Stock 787.5 416.6 1,296.9 792.4 Less: Earnings Allocated to Participating Securities 5.3 3.8 9.8 7.4 Earnings Allocated to Common Shares Outstanding 782.2 412.8 1,287.1 785.0 Basic Net Income Per Common Share $ 4.25 $ 2.14 $ 6.97 $ 4.05 Diluted Net Income Per Common Share Average Number of Common Shares Outstanding 183,993,670 192,751,910 184,742,283 193,965,606 Plus: Dilutive Effect of Share-based Compensation 896,274 622,978 967,502 776,726 Average Common and Potential Common Shares 184,889,944 193,374,888 185,709,785 194,742,332 Earnings Allocated to Common and Potential Common Shares $ 782.3 $ 412.8 $ 1,287.0 $ 785.0 Diluted Net Income Per Common Share 4.23 2.13 6.93 4.03"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDilutedUndistributed",
+        "raw": "4.23",
+        "sign": null,
+        "label": "Diluted Net Income Per Common Share",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "THREE MONTHS ENDED JUNE 30, SIX MONTHS ENDED JUNE 30, ($ In Millions Except Per Common Share Information) 2026 2025 2026 2025 Basic Net Income Per Common Share Average Number of Common Shares Outstanding 183,993,670 192,751,910 184,742,283 193,965,606 Net Income $ 792.2 $ 421.3 $ 1,317.8 $ 813.3 Less: Dividends on Preferred Stock 4.7 4.7 20.9 20.9 Net Income Applicable to Common Stock 787.5 416.6 1,296.9 792.4 Less: Earnings Allocated to Participating Securities 5.3 3.8 9.8 7.4 Earnings Allocated to Common Shares Outstanding 782.2 412.8 1,287.1 785.0 Basic Net Income Per Common Share $ 4.25 $ 2.14 $ 6.97 $ 4.05 Diluted Net Income Per Common Share Average Number of Common Shares Outstanding 183,993,670 192,751,910 184,742,283 193,965,606 Plus: Dilutive Effect of Share-based Compensation 896,274 622,978 967,502 776,726 Average Common and Potential Common Shares 184,889,944 193,374,888 185,709,785 194,742,332 Earnings Allocated to Common and Potential Common Shares $ 782.3 $ 412.8 $ 1,287.0 $ 785.0 Diluted Net Income Per Common Share 4.23 2.13 6.93 4.03"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "NTRS",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-16\">NTRS</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000073124</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "PSKY",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": ".04",
+        "sign": null,
+        "label": "Basic net earnings per common share attributable to Parent",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Successor Predecessor Successor Predecessor Three Months Ended June 30, Three Months Ended June 30, Six Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 Revenues $ 6,913 $ 6,849 $ 14,260 $ 14,041 Costs and expenses: Operating 4,443 4,624 9,298 9,585 Selling, general and administrative 1,443 1,401 2,854 2,944 Depreciation and amortization 364 87 726 175 Impairment charges \u2014 157 \u2014 157 Restructuring and transaction-related items 188 181 291 266 Total costs and expenses 6,438 6,450 13,169 13,127 Gain on dispositions \u2014 \u2014 \u2014 35 Operating income 475 399 1,091 949 Interest expense ( 255 ) ( 214 ) ( 493 ) ( 431 ) Interest income 29 32 67 70 Other items, net ( 34 ) ( 39 ) ( 58 ) ( 76 ) Earnings before income taxes and equity in loss of investee companies 215 178 607 512 Provision for income taxes ( 120 ) ( 50 ) ( 275 ) ( 150 ) Equity in loss of investee companies, net of tax ( 54 ) ( 67 ) ( 116 ) ( 140 ) Net earnings (Parent and noncontrolling interests) 41 61 216 222 Net earnings attributable to noncontrolling interests \u2014 ( 4 ) ( 7 ) ( 13 ) Net earnings attributable to Parent $ 41 $ 57 $ 209 $ 209 Basic net earnings per common share attributable to Parent $ .04 $ .08 $ .19 $ .31 Diluted net earnings per common share attributable to Parent $ .04 $ .08 $ .19 $ .31 Weighted average number of common shares outstanding: Basic 1,117 675 1,113 673 Diluted 1,120 680 1,119 679"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": ".04",
+        "sign": null,
+        "label": "Diluted net earnings per common share attributable to Parent",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Successor Predecessor Successor Predecessor Three Months Ended June 30, Three Months Ended June 30, Six Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 Revenues $ 6,913 $ 6,849 $ 14,260 $ 14,041 Costs and expenses: Operating 4,443 4,624 9,298 9,585 Selling, general and administrative 1,443 1,401 2,854 2,944 Depreciation and amortization 364 87 726 175 Impairment charges \u2014 157 \u2014 157 Restructuring and transaction-related items 188 181 291 266 Total costs and expenses 6,438 6,450 13,169 13,127 Gain on dispositions \u2014 \u2014 \u2014 35 Operating income 475 399 1,091 949 Interest expense ( 255 ) ( 214 ) ( 493 ) ( 431 ) Interest income 29 32 67 70 Other items, net ( 34 ) ( 39 ) ( 58 ) ( 76 ) Earnings before income taxes and equity in loss of investee companies 215 178 607 512 Provision for income taxes ( 120 ) ( 50 ) ( 275 ) ( 150 ) Equity in loss of investee companies, net of tax ( 54 ) ( 67 ) ( 116 ) ( 140 ) Net earnings (Parent and noncontrolling interests) 41 61 216 222 Net earnings attributable to noncontrolling interests \u2014 ( 4 ) ( 7 ) ( 13 ) Net earnings attributable to Parent $ 41 $ 57 $ 209 $ 209 Basic net earnings per common share attributable to Parent $ .04 $ .08 $ .19 $ .31 Diluted net earnings per common share attributable to Parent $ .04 $ .08 $ .19 $ .31 Weighted average number of common shares outstanding: Basic 1,117 675 1,113 673 Diluted 1,120 680 1,119 679"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": ".05",
+        "sign": null,
+        "label": "Dividends declared per common share",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Successor Predecessor Successor Predecessor Three Months Ended June 30, Three Months Ended June 30, Six Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 Class A and Class B Common Stock Dividends declared per common share $ .05 $ .05 $ .10 $ .10 Total common stock dividends $ 59 $ 35 $ 119 $ 70"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "PSKY",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">PSKY</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0002041610</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "REG",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "0.755000",
+        "sign": null,
+        "label": "Common Stock",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three months ended June 30, Six months ended June 30, 2026 2025 2026 2025 Common Stock $ 0.755000 $ 0.705000 $ 1.510000 $ 1.410000 Series A Preferred Stock $ 0.390625 $ 0.390625 $ 0.781250 $ 0.781250 Series B Preferred Stock $ 0.367200 $ 0.367200 $ 0.734400 $ 0.734400"
+      },
+      {
+        "tag": "us-gaap:PreferredStockDividendsPerShareDeclared",
+        "raw": "0.390625",
+        "sign": null,
+        "label": "Series A Preferred Stock",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:SeriesAPreferredStockMember"
+          ]
+        ],
+        "statementText": "Three months ended June 30, Six months ended June 30, 2026 2025 2026 2025 Common Stock $ 0.755000 $ 0.705000 $ 1.510000 $ 1.410000 Series A Preferred Stock $ 0.390625 $ 0.390625 $ 0.781250 $ 0.781250 Series B Preferred Stock $ 0.367200 $ 0.367200 $ 0.734400 $ 0.734400"
+      },
+      {
+        "tag": "us-gaap:PreferredStockDividendsPerShareDeclared",
+        "raw": "0.367200",
+        "sign": null,
+        "label": "Series B Preferred Stock",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:SeriesBPreferredStockMember"
+          ]
+        ],
+        "statementText": "Three months ended June 30, Six months ended June 30, 2026 2025 2026 2025 Common Stock $ 0.755000 $ 0.705000 $ 1.510000 $ 1.410000 Series A Preferred Stock $ 0.390625 $ 0.390625 $ 0.781250 $ 0.781250 Series B Preferred Stock $ 0.367200 $ 0.367200 $ 0.734400 $ 0.734400"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "REG",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric id=\"F_391fe6f5-c008-48d0-ad56-d9438aa6177d\" contextref=\"C_d073db7c-44f3-48a0-af3c-06243f5fd2f2\" name=\"dei:TradingSymbol\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\">REG</span></ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"C_d073db7c-44f3-48a0-af3c-06243f5fd2f2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000910606</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "VRSN",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "0.81",
+        "sign": null,
+        "label": "Cash dividends declared per common share",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 Total stockholders\u2019 deficit, beginning of period $ ( 2,213.4 ) $ ( 1,977.0 ) $ ( 2,154.2 ) $ ( 1,957.9 ) Common stock and additional paid-in capital Beginning balance 9,349.9 10,427.2 9,623.5 10,645.3 Repurchase of common stock ( 201.4 ) ( 166.8 ) ( 426.8 ) ( 408.5 ) Common stock cash dividends ( 73.6 ) ( 72.1 ) ( 147.8 ) ( 72.1 ) Stock-based compensation 19.7 16.2 39.0 33.9 Issuance of common stock under stock plans \u2014 \u2014 8.5 7.9 Excise tax on repurchase of common stock ( 1.9 ) ( 1.5 ) ( 3.7 ) ( 3.5 ) Balance, end of period 9,092.7 10,203.0 9,092.7 10,203.0 Accumulated deficit Beginning balance ( 11,560.5 ) ( 12,401.4 ) ( 11,775.0 ) ( 12,600.7 ) Net income 216.5 207.4 431.0 406.7 Balance, end of period ( 11,344.0 ) ( 12,194.0 ) ( 11,344.0 ) ( 12,194.0 ) Accumulated other comprehensive loss Beginning balance ( 2.8 ) ( 2.8 ) ( 2.7 ) ( 2.5 ) Other comprehensive loss \u2014 \u2014 ( 0.1 ) ( 0.3 ) Balance, end of period ( 2.8 ) ( 2.8 ) ( 2.8 ) ( 2.8 ) Total stockholders\u2019 deficit, end of period $ ( 2,254.1 ) $ ( 1,993.8 ) $ ( 2,254.1 ) $ ( 1,993.8 ) Cash dividends declared per common share $ 0.81 $ 0.77 $ 1.62 $ 0.77"
+      },
+      {
+        "tag": "vrsn:TreasuryStockSharesRepurchasedAverageCostPerShare",
+        "raw": "275.00",
+        "sign": null,
+        "label": "Total repurchases under the repurchase plans",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended June 30, 2026 Six Months Ended June 30, 2026 Shares Total Costs Average Price Shares Total Costs Average Price (In millions, except average price amounts) Total repurchases under the repurchase plans 0.7 $ 196.8 $ 275.00 1.6 $ 411.2 $ 252.51 Total repurchases for tax withholdings \u2014 4.6 $ 303.80 0.1 15.6 $ 246.03 Total repurchases 0.7 $ 201.4 $ 275.59 1.7 $ 426.8 $ 252.27"
+      },
+      {
+        "tag": "vrsn:TotalRepurchasesForTaxWithholdingsAndOtherAverageCostPerShare",
+        "raw": "303.80",
+        "sign": null,
+        "label": "Total repurchases for tax withholdings",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended June 30, 2026 Six Months Ended June 30, 2026 Shares Total Costs Average Price Shares Total Costs Average Price (In millions, except average price amounts) Total repurchases under the repurchase plans 0.7 $ 196.8 $ 275.00 1.6 $ 411.2 $ 252.51 Total repurchases for tax withholdings \u2014 4.6 $ 303.80 0.1 15.6 $ 246.03 Total repurchases 0.7 $ 201.4 $ 275.59 1.7 $ 426.8 $ 252.27"
+      },
+      {
+        "tag": "us-gaap:TreasuryStockAcquiredAverageCostPerShare",
+        "raw": "275.59",
+        "sign": null,
+        "label": "Total repurchases",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended June 30, 2026 Six Months Ended June 30, 2026 Shares Total Costs Average Price Shares Total Costs Average Price (In millions, except average price amounts) Total repurchases under the repurchase plans 0.7 $ 196.8 $ 275.00 1.6 $ 411.2 $ 252.51 Total repurchases for tax withholdings \u2014 4.6 $ 303.80 0.1 15.6 $ 246.03 Total repurchases 0.7 $ 201.4 $ 275.59 1.7 $ 426.8 $ 252.27"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "0.81",
+        "sign": null,
+        "label": "May 19, 2026 May 27, 2026",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Record Date Payment Date Dividend Per Share Total (In millions, except per share amounts) February 19, 2026 February 27, 2026 $ 0.81 $ 74.2 May 19, 2026 May 27, 2026 0.81 73.6 $ 1.62 $ 147.8"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "VRSN",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-15\">VRSN</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001014473</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "WEC",
+    "periodEnd": "2026-06-30",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "0.9525",
+        "sign": null,
+        "label": "Common stock dividends of",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "CONDENSED CONSOLIDATED STATEMENTS OF EQUITY (Unaudited) WEC Energy Group Common Shareholders' Equity (in millions, except per share amounts) Common Stock Additional Paid In Capital Retained Earnings Accumulated Other Comprehensive Loss Total Common Shareholders' Equity Preferred Stock of Subsidiary Non-controlling Interests Total Equity Balance at December 31, 2025 $ 3.3 $ 5,124.4 $ 8,493.5 $ ( 7.6 ) $ 13,613.6 $ 30.4 $ 408.8 $ 14,052.8 Net income attributed to common shareholders \u2014 \u2014 804.4 \u2014 804.4 \u2014 \u2014 804.4 Net income attributed to noncontrolling interests \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 1.4 1.4 Other comprehensive income \u2014 \u2014 \u2014 0.1 0.1 \u2014 \u2014 0.1 Issuance of common stock, net \u2014 12.8 \u2014 \u2014 12.8 \u2014 \u2014 12.8 Common stock dividends of $ 0.9525 per share \u2014 \u2014 ( 310.1 ) \u2014 ( 310.1 ) \u2014 \u2014 ( 310.1 ) Exercise of stock options \u2014 7.4 \u2014 \u2014 7.4 \u2014 \u2014 7.4 Capital contributions from noncontrolling interest \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 0.8 0.8 Distributions to noncontrolling interests \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 ( 3.1 ) ( 3.1 ) Stock-based compensation and other \u2014 2.8 \u2014 \u2014 2.8 \u2014 \u2014 2.8 Balance at March 31, 2026 $ 3.3 $ 5,147.4 $ 8,987.8 $ ( 7.5 ) $ 14,131.0 $ 30.4 $ 407.9 $ 14,569.3 Net income attributed to common shareholders \u2014 \u2014 299.2 \u2014 299.2 \u2014 \u2014 299.2 Net income attributed to noncontrolling interests \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 1.5 1.5 Issuance of common stock, net \u2014 11.0 \u2014 \u2014 11.0 \u2014 \u2014 11.0 Common stock dividends of $ 0.9525 per share \u2014 \u2014 ( 310.2 ) \u2014 ( 310.2 ) \u2014 \u2014 ( 310.2 ) Exercise of stock options \u2014 1.7 \u2014 \u2014 1.7 \u2014 \u2014 1.7 Distributions to noncontrolling interests \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 ( 2.1 ) ( 2.1 ) Stock-based compensation and other \u2014 2.2 \u2014 \u2014 2.2 \u2014 0.4 2.6 Balance at June 30, 2026 $ 3.3 $ 5,162.3 $ 8,976.8 $ ( 7.5 ) $ 14,134.9 $ 30.4 $ 407.7 $ 14,573.0"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "WEC",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-17\">WEC</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000783325</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "XOM",
+    "periodEnd": "2026-06-30",
+    "facts": [],
+    "symbols": []
+  },
+  {
+    "ticker": "HSY",
+    "periodEnd": "2026-06-28",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "2.32",
+        "sign": null,
+        "label": "Common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "2.11",
+        "sign": null,
+        "label": "Class B common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.26",
+        "sign": null,
+        "label": "Common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.11",
+        "sign": null,
+        "label": "Class B common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "1.452",
+        "sign": null,
+        "label": "Common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "1.320",
+        "sign": null,
+        "label": "Class B common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF INCOME",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three Months Ended Six Months Ended June 28, 2026 June 29, 2025 June 28, 2026 June 29, 2025 Net sales $ 2,787,306 $ 2,614,718 $ 5,891,473 $ 5,420,137 Cost of sales 1,523,998 1,818,445 3,405,434 3,679,597 Gross profit 1,263,308 796,273 2,486,039 1,740,540 Selling, marketing and administrative expense 620,552 603,207 1,196,592 1,161,879 Business realignment costs 115 255 6,113 16,629 Operating profit 642,641 192,811 1,283,334 562,032 Interest expense, net 49,963 46,035 99,781 90,657 Other (income) expense, net 4,398 ( 2,336 ) 2,578 ( 1,391 ) Income before income taxes 588,280 149,112 1,180,975 472,766 Provision for income taxes 130,615 86,393 288,205 185,844 Net income $ 457,665 $ 62,719 $ 892,770 $ 286,922 Net income per share\u2014basic: Common stock $ 2.32 $ 0.32 $ 4.52 $ 1.45 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.31 Net income per share\u2014diluted: Common stock $ 2.26 $ 0.31 $ 4.39 $ 1.41 Class B common stock $ 2.11 $ 0.29 $ 4.10 $ 1.32 Dividends paid per share: Common stock $ 1.452 $ 1.370 $ 2.904 $ 2.740 Class B common stock $ 1.320 $ 1.245 $ 2.640 $ 2.490"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "1.452",
+        "sign": null,
+        "label": "Common Stock,",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Preferred Stock Common Stock Class B Common Stock Additional Paid-in Capital Retained Earnings Treasury Common Stock Accumulated Other Comprehensive (Loss) Income Total Stockholders\u2019 Equity Balance, March 29, 2026 $ \u2014 $ 166,939 $ 54,614 $ 1,435,194 $ 5,643,428 $ ( 2,316,416 ) $ ( 249,911 ) $ 4,733,848 Net income 457,665 457,665 Other comprehensive income 19,362 19,362 Dividends (including dividend equivalents): Common Stock, $ 1.452 per share ( 214,839 ) ( 214,839 ) Class B Common Stock, $ 1.320 per share ( 72,090 ) ( 72,090 ) Stock-based compensation 19,618 19,618 Exercise of stock options and incentive-based transactions ( 7,529 ) 998 ( 6,531 ) Repurchase of common stock (including excise tax) ( 374,343 ) ( 374,343 ) Balance, June 28, 2026 $ \u2014 $ 166,939 $ 54,614 $ 1,447,283 $ 5,814,164 $ ( 2,689,761 ) $ ( 230,549 ) $ 4,562,690"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "1.320",
+        "sign": null,
+        "label": "Class B Common Stock,",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Preferred Stock Common Stock Class B Common Stock Additional Paid-in Capital Retained Earnings Treasury Common Stock Accumulated Other Comprehensive (Loss) Income Total Stockholders\u2019 Equity Balance, March 29, 2026 $ \u2014 $ 166,939 $ 54,614 $ 1,435,194 $ 5,643,428 $ ( 2,316,416 ) $ ( 249,911 ) $ 4,733,848 Net income 457,665 457,665 Other comprehensive income 19,362 19,362 Dividends (including dividend equivalents): Common Stock, $ 1.452 per share ( 214,839 ) ( 214,839 ) Class B Common Stock, $ 1.320 per share ( 72,090 ) ( 72,090 ) Stock-based compensation 19,618 19,618 Exercise of stock options and incentive-based transactions ( 7,529 ) 998 ( 6,531 ) Repurchase of common stock (including excise tax) ( 374,343 ) ( 374,343 ) Balance, June 28, 2026 $ \u2014 $ 166,939 $ 54,614 $ 1,447,283 $ 5,814,164 $ ( 2,689,761 ) $ ( 230,549 ) $ 4,562,690"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "2.32",
+        "sign": null,
+        "label": "Earnings Per Share\u2014basic",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended June 28, 2026 June 29, 2025 Common Stock Class B Common Stock Common Stock Class B Common Stock Basic earnings per share: Numerator: Allocation of distributed earnings (cash dividends paid) $ 214,306 $ 72,090 $ 203,237 $ 67,994 Allocation of undistributed earnings 128,154 43,115 ( 156,214 ) ( 52,298 ) Total earnings\u2014basic $ 342,460 $ 115,205 $ 47,023 $ 15,696 Denominator (shares in thousands): Total weighted-average shares\u2014basic 147,573 54,614 148,247 54,614 Earnings Per Share\u2014basic $ 2.32 $ 2.11 $ 0.32 $ 0.29 Diluted earnings per share: Numerator: Allocation of total earnings used in basic computation $ 342,460 $ 115,205 $ 47,023 $ 15,696 Reallocation of total earnings as a result of conversion of Class B common stock to Common stock 115,205 \u2014 15,696 \u2014 Reallocation of undistributed earnings \u2014 ( 122 ) \u2014 86 Total earnings\u2014diluted $ 457,665 $ 115,083 $ 62,719 $ 15,782 Denominator (shares in thousands): Number of shares used in basic computation 147,573 54,614 148,247 54,614 Weighted-average effect of dilutive securities: Conversion of Class B common stock to Common shares outstanding 54,614 \u2014 54,614 \u2014 Employee stock options 80 \u2014 190 \u2014 Performance and restricted stock units 478 \u2014 137 \u2014 Total weighted-average shares\u2014diluted 202,745 54,614 203,188 54,614 Earnings Per Share\u2014diluted $ 2.26 $ 2.11 $ 0.31 $ 0.29"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "2.11",
+        "sign": null,
+        "label": "Earnings Per Share\u2014basic",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three Months Ended June 28, 2026 June 29, 2025 Common Stock Class B Common Stock Common Stock Class B Common Stock Basic earnings per share: Numerator: Allocation of distributed earnings (cash dividends paid) $ 214,306 $ 72,090 $ 203,237 $ 67,994 Allocation of undistributed earnings 128,154 43,115 ( 156,214 ) ( 52,298 ) Total earnings\u2014basic $ 342,460 $ 115,205 $ 47,023 $ 15,696 Denominator (shares in thousands): Total weighted-average shares\u2014basic 147,573 54,614 148,247 54,614 Earnings Per Share\u2014basic $ 2.32 $ 2.11 $ 0.32 $ 0.29 Diluted earnings per share: Numerator: Allocation of total earnings used in basic computation $ 342,460 $ 115,205 $ 47,023 $ 15,696 Reallocation of total earnings as a result of conversion of Class B common stock to Common stock 115,205 \u2014 15,696 \u2014 Reallocation of undistributed earnings \u2014 ( 122 ) \u2014 86 Total earnings\u2014diluted $ 457,665 $ 115,083 $ 62,719 $ 15,782 Denominator (shares in thousands): Number of shares used in basic computation 147,573 54,614 148,247 54,614 Weighted-average effect of dilutive securities: Conversion of Class B common stock to Common shares outstanding 54,614 \u2014 54,614 \u2014 Employee stock options 80 \u2014 190 \u2014 Performance and restricted stock units 478 \u2014 137 \u2014 Total weighted-average shares\u2014diluted 202,745 54,614 203,188 54,614 Earnings Per Share\u2014diluted $ 2.26 $ 2.11 $ 0.31 $ 0.29"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.26",
+        "sign": null,
+        "label": "Earnings Per Share\u2014diluted",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended June 28, 2026 June 29, 2025 Common Stock Class B Common Stock Common Stock Class B Common Stock Basic earnings per share: Numerator: Allocation of distributed earnings (cash dividends paid) $ 214,306 $ 72,090 $ 203,237 $ 67,994 Allocation of undistributed earnings 128,154 43,115 ( 156,214 ) ( 52,298 ) Total earnings\u2014basic $ 342,460 $ 115,205 $ 47,023 $ 15,696 Denominator (shares in thousands): Total weighted-average shares\u2014basic 147,573 54,614 148,247 54,614 Earnings Per Share\u2014basic $ 2.32 $ 2.11 $ 0.32 $ 0.29 Diluted earnings per share: Numerator: Allocation of total earnings used in basic computation $ 342,460 $ 115,205 $ 47,023 $ 15,696 Reallocation of total earnings as a result of conversion of Class B common stock to Common stock 115,205 \u2014 15,696 \u2014 Reallocation of undistributed earnings \u2014 ( 122 ) \u2014 86 Total earnings\u2014diluted $ 457,665 $ 115,083 $ 62,719 $ 15,782 Denominator (shares in thousands): Number of shares used in basic computation 147,573 54,614 148,247 54,614 Weighted-average effect of dilutive securities: Conversion of Class B common stock to Common shares outstanding 54,614 \u2014 54,614 \u2014 Employee stock options 80 \u2014 190 \u2014 Performance and restricted stock units 478 \u2014 137 \u2014 Total weighted-average shares\u2014diluted 202,745 54,614 203,188 54,614 Earnings Per Share\u2014diluted $ 2.26 $ 2.11 $ 0.31 $ 0.29"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.11",
+        "sign": null,
+        "label": "Earnings Per Share\u2014diluted",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three Months Ended June 28, 2026 June 29, 2025 Common Stock Class B Common Stock Common Stock Class B Common Stock Basic earnings per share: Numerator: Allocation of distributed earnings (cash dividends paid) $ 214,306 $ 72,090 $ 203,237 $ 67,994 Allocation of undistributed earnings 128,154 43,115 ( 156,214 ) ( 52,298 ) Total earnings\u2014basic $ 342,460 $ 115,205 $ 47,023 $ 15,696 Denominator (shares in thousands): Total weighted-average shares\u2014basic 147,573 54,614 148,247 54,614 Earnings Per Share\u2014basic $ 2.32 $ 2.11 $ 0.32 $ 0.29 Diluted earnings per share: Numerator: Allocation of total earnings used in basic computation $ 342,460 $ 115,205 $ 47,023 $ 15,696 Reallocation of total earnings as a result of conversion of Class B common stock to Common stock 115,205 \u2014 15,696 \u2014 Reallocation of undistributed earnings \u2014 ( 122 ) \u2014 86 Total earnings\u2014diluted $ 457,665 $ 115,083 $ 62,719 $ 15,782 Denominator (shares in thousands): Number of shares used in basic computation 147,573 54,614 148,247 54,614 Weighted-average effect of dilutive securities: Conversion of Class B common stock to Common shares outstanding 54,614 \u2014 54,614 \u2014 Employee stock options 80 \u2014 190 \u2014 Performance and restricted stock units 478 \u2014 137 \u2014 Total weighted-average shares\u2014diluted 202,745 54,614 203,188 54,614 Earnings Per Share\u2014diluted $ 2.26 $ 2.11 $ 0.31 $ 0.29"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "HSY",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">HSY</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000047111</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-06-28</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "KR",
+    "periodEnd": "2026-05-23",
+    "facts": [],
+    "symbols": [
+      {
+        "symbol": "KR",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"Duration_2_1_2026_To_5_23_2026_pzjo5dGNjkaNIkCjDCmqyg\" name=\"dei:TradingSymbol\" id=\"Tc_T4ixYYx1IEac4xCXHRnHZQ_2_1\"><span style=\"font-size:8pt;\">KR</span></ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"Duration_2_1_2026_To_5_23_2026_pzjo5dGNjkaNIkCjDCmqyg\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000056873</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-02-01</xbrli:startdate><xbrli:enddate>2026-05-23</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "CPB",
+    "periodEnd": "2026-05-03",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": ".42",
+        "sign": null,
+        "label": "Net earnings attributable to The Campbell's Company",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended Nine Months Ended May 3, 2026 April 27, 2025 May 3, 2026 April 27, 2025 Net sales $ 2,366 $ 2,475 $ 7,607 $ 7,932 Costs and expenses Cost of products sold 1,716 1,747 5,448 5,518 Marketing and selling expenses 214 216 719 722 Administrative expenses 155 162 482 502 Research and development expenses 25 23 71 74 Other expenses / (income) 8 160 24 244 Restructuring charges 9 6 15 17 Total costs and expenses 2,127 2,314 6,759 7,077 Earnings before interest and taxes 239 161 848 855 Interest expense 83 85 246 260 Interest income 3 5 6 17 Earnings before taxes 159 81 608 612 Taxes on earnings 35 15 145 155 Net earnings 124 66 463 457 Less: Net earnings (loss) attributable to noncontrolling interests \u2014 \u2014 \u2014 \u2014 Net earnings attributable to The Campbell's Company $ 124 $ 66 $ 463 $ 457 Per Share \u2014 Basic Net earnings attributable to The Campbell's Company $ .42 $ .22 $ 1.55 $ 1.53 Weighted average shares outstanding \u2014 basic 298 298 298 298 Per Share \u2014 Assuming Dilution Net earnings attributable to The Campbell's Company $ .41 $ .22 $ 1.55 $ 1.52 Weighted average shares outstanding \u2014 assuming dilution 299 299 299 300"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": ".41",
+        "sign": null,
+        "label": "Net earnings attributable to The Campbell's Company",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended Nine Months Ended May 3, 2026 April 27, 2025 May 3, 2026 April 27, 2025 Net sales $ 2,366 $ 2,475 $ 7,607 $ 7,932 Costs and expenses Cost of products sold 1,716 1,747 5,448 5,518 Marketing and selling expenses 214 216 719 722 Administrative expenses 155 162 482 502 Research and development expenses 25 23 71 74 Other expenses / (income) 8 160 24 244 Restructuring charges 9 6 15 17 Total costs and expenses 2,127 2,314 6,759 7,077 Earnings before interest and taxes 239 161 848 855 Interest expense 83 85 246 260 Interest income 3 5 6 17 Earnings before taxes 159 81 608 612 Taxes on earnings 35 15 145 155 Net earnings 124 66 463 457 Less: Net earnings (loss) attributable to noncontrolling interests \u2014 \u2014 \u2014 \u2014 Net earnings attributable to The Campbell's Company $ 124 $ 66 $ 463 $ 457 Per Share \u2014 Basic Net earnings attributable to The Campbell's Company $ .42 $ .22 $ 1.55 $ 1.53 Weighted average shares outstanding \u2014 basic 298 298 298 298 Per Share \u2014 Assuming Dilution Net earnings attributable to The Campbell's Company $ .41 $ .22 $ 1.55 $ 1.52 Weighted average shares outstanding \u2014 assuming dilution 299 299 299 300"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": ".39",
+        "sign": null,
+        "label": "Dividends (",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "The Campbell's Company Shareholders\u2019 Equity Capital Stock Additional Paid-in Capital Earnings Retained in the Business Accumulated Other Comprehensive Income (Loss) Noncontrolling Interests Issued In Treasury Total Equity Shares Amount Shares Amount Balance at January 26, 2025 323 $ 12 ( 25 ) $ ( 1,208 ) $ 406 $ 4,716 $ ( 16 ) $ 2 $ 3,912 Net earnings (loss) 66 \u2014 66 Other comprehensive income (loss) 1 \u2014 1 Dividends ($ .39 per share) ( 117 ) ( 117 ) Treasury stock purchased \u2014 ( 4 ) ( 4 ) Treasury stock issued under stock-based compensation plans \u2014 5 9 \u2014 14 Balance at April 27, 2025 323 $ 12 ( 25 ) $ ( 1,207 ) $ 415 $ 4,665 $ ( 15 ) $ 2 $ 3,872 Balance at July 28, 2024 323 $ 12 ( 25 ) $ ( 1,207 ) $ 437 $ 4,569 $ ( 17 ) $ 2 $ 3,796 Net earnings (loss) 457 \u2014 457 Other comprehensive income (loss) 2 \u2014 2 Dividends ($ 1.15 per share) ( 345 ) ( 345 ) Treasury stock purchased ( 1 ) ( 60 ) ( 60 ) Treasury stock issued under stock-based compensation plans 1 60 ( 22 ) ( 16 ) 22 Balance at April 27, 2025 323 $ 12 ( 25 ) $ ( 1,207 ) $ 415 $ 4,665 $ ( 15 ) $ 2 $ 3,872 Balance at February 1, 2026 323 $ 12 ( 25 ) $ ( 1,188 ) $ 396 $ 4,796 $ ( 11 ) $ 2 $ 4,007 Net earnings (loss) 124 \u2014 124 Other comprehensive income (loss) 2 \u2014 2 Dividends ($ .39 per share) ( 117 ) ( 117 ) Treasury stock purchased \u2014 \u2014 \u2014 Treasury stock issued under stock-based compensation plans \u2014 5 9 \u2014 14 Balance at May 3, 2026 323 $ 12 ( 25 ) $ ( 1,183 ) $ 405 $ 4,803 $ ( 9 ) $ 2 $ 4,030 Balance at August 3, 2025 323 $ 12 ( 25 ) $ ( 1,207 ) $ 418 $ 4,694 $ ( 15 ) $ 2 $ 3,904 Net earnings (loss) 463 \u2014 463 Other comprehensive income (loss) 6 \u2014 6 Dividends ($ 1.17 per share) ( 352 ) ( 352 ) Treasury stock purchased ( 1 ) ( 26 ) ( 26 ) Treasury stock issued under stock-based compensation plans 1 50 ( 13 ) ( 2 ) 35 Balance at May 3, 2026 323 $ 12 ( 25 ) $ ( 1,183 ) $ 405 $ 4,803 $ ( 9 ) $ 2 $ 4,030"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": ".41",
+        "sign": null,
+        "label": "Net earnings attributable to The Campbell's Company",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended May 3, 2026 April 27, 2025 (Millions, except per share amounts) Earnings Impact EPS Impact Earnings Impact EPS Impact Net earnings attributable to The Campbell's Company $ 124 $ .41 $ 66 $ .22 Costs associated with cost savings and optimization initiatives $ (52) $ (.17) $ (24) $ (.08) Commodity mark-to-market gains (losses) 5 .02 (7) (.02) Pension actuarial and curtailment gains 23 .08 \u2014 \u2014 Costs associated with acquisition (2) (.01) \u2014 \u2014 Certain litigation expenses \u2014 \u2014 (4) (.01) Impairment charges \u2014 \u2014 (112) (.37) Accelerated amortization \u2014 \u2014 (5) (.02) Impact of items on Net earnings (1) $ (26) $ (.09) $ (152) $ (.51)"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "CPB",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">CPB</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000016732</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-08-04</xbrli:startdate><xbrli:enddate>2026-05-03</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "GD",
+    "periodEnd": "2026-04-05",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "0.16",
+        "sign": null,
+        "label": "Diluted earnings per share",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:changeinaccountingestimatebytypeaxis",
+            "us-gaap:ContractsAccountedForUnderPercentageOfCompletionMember"
+          ]
+        ],
+        "statementText": "Three Months Ended April 5, 2026 March 30, 2025 Revenue $ 57 $ 78 Operating earnings 54 31 Diluted earnings per share $ 0.16 $ 0.09"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "GD",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">GD</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000040533</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-04-05</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "ABNB",
+    "periodEnd": "2026-03-31",
+    "facts": [],
+    "symbols": [
+      {
+        "symbol": "ABNB",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">ABNB</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001559720</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "ARES",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasicUndistributed",
+        "raw": "0.89",
+        "sign": "-",
+        "label": "Dividends in excess of earnings per share of Class A and non-voting common stock $ (",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "ares:ClassACommonStockAndNonVotingCommonStockMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Basic earnings per share of Class A and non-voting common stock Net income attributable to Ares Management Corporation Class A and non-voting common stockholders $ 117,276 $ 21,857 Dividends declared and paid on Class A and non-voting common stock ( 304,339 ) ( 244,588 ) Distributions on unvested restricted units ( 13,222 ) ( 10,794 ) Dividends in excess of earnings available to Class A and non-voting common stockholders $ ( 200,285 ) $ ( 233,525 ) Basic weighted-average shares of Class A and non-voting common stock 224,033,628 209,350,849 Dividends in excess of earnings per share of Class A and non-voting common stock $ ( 0.89 ) $ ( 1.12 ) Dividend declared and paid per Class A and non-voting common stock 1.35 1.12 Basic earnings per share of Class A and non-voting common stock $ 0.46 $ 0.00 Diluted earnings per share of Class A and non-voting common stock Net income attributable to Ares Management Corporation Class A and non-voting common stockholders $ 117,276 $ 21,857 Distributions on unvested restricted units ( 13,222 ) ( 10,794 ) Net income available to Class A and non-voting common stockholders $ 104,054 $ 11,063 Diluted weighted-average shares of Class A and non-voting common stock 224,033,628 209,350,849 Diluted earnings per share of Class A and non-voting common stock $ 0.46 $ 0.00"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "1.35",
+        "sign": null,
+        "label": "Dividend declared and paid per Class A and non-voting common stock",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "ares:ClassACommonStockAndNonVotingCommonStockMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Basic earnings per share of Class A and non-voting common stock Net income attributable to Ares Management Corporation Class A and non-voting common stockholders $ 117,276 $ 21,857 Dividends declared and paid on Class A and non-voting common stock ( 304,339 ) ( 244,588 ) Distributions on unvested restricted units ( 13,222 ) ( 10,794 ) Dividends in excess of earnings available to Class A and non-voting common stockholders $ ( 200,285 ) $ ( 233,525 ) Basic weighted-average shares of Class A and non-voting common stock 224,033,628 209,350,849 Dividends in excess of earnings per share of Class A and non-voting common stock $ ( 0.89 ) $ ( 1.12 ) Dividend declared and paid per Class A and non-voting common stock 1.35 1.12 Basic earnings per share of Class A and non-voting common stock $ 0.46 $ 0.00 Diluted earnings per share of Class A and non-voting common stock Net income attributable to Ares Management Corporation Class A and non-voting common stockholders $ 117,276 $ 21,857 Distributions on unvested restricted units ( 13,222 ) ( 10,794 ) Net income available to Class A and non-voting common stockholders $ 104,054 $ 11,063 Diluted weighted-average shares of Class A and non-voting common stock 224,033,628 209,350,849 Diluted earnings per share of Class A and non-voting common stock $ 0.46 $ 0.00"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "1.35",
+        "sign": null,
+        "label": "March 17, 2026",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Record Date Dividends Per Share Dividend Equivalents Paid March 17, 2026 $ 1.35 $ 25,442"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "ARES",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "ares:ClassACommonStockParValue0.01PerShareMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-17\">ARES</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001176948</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">ares:ClassACommonStockParValue0.01PerShareMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "BRK-B",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "7,027",
+        "sign": null,
+        "label": "Net earnings per average equivalent Class A share",
+        "heading": "CONSOLIDATED STATEM ENTS OF EARNINGS",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "brka:EquivalentClassAMember"
+          ]
+        ],
+        "statementText": "First Quarter 2026 2025 Revenues: Insurance and Other: Insurance premiums earned $ 22,005 $ 21,804 Sales and service revenues 50,946 47,815 Leasing revenues 2,671 2,431 Interest, dividend and other investment income 5,430 5,632 81,052 77,682 Railroad, Utilities and Energy: Railroad transportation revenues 5,940 5,671 Utilities and energy operating revenues 5,807 5,494 Service revenues and other income 876 878 12,623 12,043 Total revenues 93,675 89,725 Investment gains (losses) ( 1,605 ) ( 6,435 ) Costs and expenses: Insurance and Other: Insurance losses and loss adjustment expenses 14,204 14,646 Life, annuity and health insurance benefits 1,019 1,068 Insurance underwriting expenses 4,517 4,368 Cost of sales and services 41,207 38,551 Cost of leasing 2,027 1,887 Selling, general and administrative expenses 6,556 7,681 Interest expense 324 340 69,854 68,541 Railroad, Utilities and Energy: Railroad transportation expenses 3,923 3,873 Utilities and energy cost of sales and other expenses 4,317 4,091 Other expenses 856 846 Interest expense 977 917 10,073 9,727 Total costs and expenses 79,927 78,268 Earnings before income taxes and equity method earnings 12,143 5,022 Equity method earnings 176 126 Earnings before income taxes 12,319 5,148 Income tax expense 2,140 476 Net earnings 10,179 4,672 Earnings attributable to noncontrolling interests 73 69 Net earnings attributable to Berkshire shareholders $ 10,106 $ 4,603 Net earnings per average equivalent Class A share $ 7,027 $ 3,200 Net earnings per average equivalent Class B share* $ 4.68 $ 2.13 Average equivalent Class A shares outstanding 1,438,124 1,438,223 Average equivalent Class B shares outstanding 2,157,185,889 2,157,335,139"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "4.68",
+        "sign": null,
+        "label": "Net earnings per average equivalent Class B share*",
+        "heading": "CONSOLIDATED STATEM ENTS OF EARNINGS",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "brka:EquivalentClassBMember"
+          ]
+        ],
+        "statementText": "First Quarter 2026 2025 Revenues: Insurance and Other: Insurance premiums earned $ 22,005 $ 21,804 Sales and service revenues 50,946 47,815 Leasing revenues 2,671 2,431 Interest, dividend and other investment income 5,430 5,632 81,052 77,682 Railroad, Utilities and Energy: Railroad transportation revenues 5,940 5,671 Utilities and energy operating revenues 5,807 5,494 Service revenues and other income 876 878 12,623 12,043 Total revenues 93,675 89,725 Investment gains (losses) ( 1,605 ) ( 6,435 ) Costs and expenses: Insurance and Other: Insurance losses and loss adjustment expenses 14,204 14,646 Life, annuity and health insurance benefits 1,019 1,068 Insurance underwriting expenses 4,517 4,368 Cost of sales and services 41,207 38,551 Cost of leasing 2,027 1,887 Selling, general and administrative expenses 6,556 7,681 Interest expense 324 340 69,854 68,541 Railroad, Utilities and Energy: Railroad transportation expenses 3,923 3,873 Utilities and energy cost of sales and other expenses 4,317 4,091 Other expenses 856 846 Interest expense 977 917 10,073 9,727 Total costs and expenses 79,927 78,268 Earnings before income taxes and equity method earnings 12,143 5,022 Equity method earnings 176 126 Earnings before income taxes 12,319 5,148 Income tax expense 2,140 476 Net earnings 10,179 4,672 Earnings attributable to noncontrolling interests 73 69 Net earnings attributable to Berkshire shareholders $ 10,106 $ 4,603 Net earnings per average equivalent Class A share $ 7,027 $ 3,200 Net earnings per average equivalent Class B share* $ 4.68 $ 2.13 Average equivalent Class A shares outstanding 1,438,124 1,438,223 Average equivalent Class B shares outstanding 2,157,185,889 2,157,335,139"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "BRK-B",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric id=\"F_048e8c54-0e72-4f62-a487-5a6942ff5706\" contextref=\"C_8caf9930-a106-452e-bdb8-b975b1e0cfea\" name=\"dei:TradingSymbol\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">BRK.B</span></ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"C_8caf9930-a106-452e-bdb8-b975b1e0cfea\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001067983</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassBMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "CAH",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "0.5107",
+        "sign": null,
+        "label": "Cash dividends declared per common share",
+        "heading": "Condensed Consolidated Statements of Earnings",
+        "dimensions": [],
+        "statementText": "Three Months Ended March 31, Nine Months Ended March 31, (in millions, except per common share amounts) 2026 2025 2026 2025 Revenue $ 60,940 $ 54,878 $ 190,576 $ 162,419 Cost of products sold 58,442 52,755 183,362 156,453 Gross margin 2,498 2,123 7,214 5,966 Operating expenses: Distribution, selling, general and administrative expenses 1,542 1,315 4,507 3,898 Restructuring and employee severance 25 28 66 61 Amortization and other acquisition-related costs 114 152 348 331 Acquisition-related cash and share-based compensation costs 112 20 243 20 Impairments and (gain)/loss on disposal of assets, net 185 ( 17 ) 173 ( 15 ) Litigation (recoveries)/charges, net 11 ( 105 ) ( 7 ) ( 176 ) Operating earnings 509 730 1,884 1,847 Other (income)/expense, net 16 ( 9 ) ( 5 ) ( 11 ) Interest expense, net 101 74 269 141 Earnings before income taxes 392 665 1,620 1,717 Provision for income taxes 12 157 315 391 Net earnings 380 508 1,305 1,326 Less: Net (earnings)/loss attributable to noncontrolling interests 19 ( 2 ) 11 ( 4 ) Net earnings attributable to Cardinal Health, Inc. $ 399 $ 506 $ 1,316 $ 1,322 Earnings per common share attributable to Cardinal Health, Inc.: Basic $ 1.69 $ 2.11 $ 5.56 $ 5.47 Diluted 1.69 2.10 5.54 5.44 Weighted-average number of common shares outstanding: Basic 235 240 237 242 Diluted 236 241 238 243 Cash dividends declared per common share $ 0.5107 $ 0.5056 $ 1.5321 $ 1.5168"
+      },
+      {
+        "tag": "us-gaap:TreasuryStockAcquiredAverageCostPerShare",
+        "raw": "215.42",
+        "sign": null,
+        "label": "Q3 FY26 4/20/2026",
+        "heading": null,
+        "dimensions": [
+          [
+            "cah:sharerepurchaseprogramaggregatepurchasepriceaxis",
+            "cah:A250MillionShareRepurchaseProgramMember"
+          ],
+          [
+            "us-gaap:statementequitycomponentsaxis",
+            "us-gaap:TreasuryStockCommonMember"
+          ]
+        ],
+        "statementText": "Quarter Entered Date Concluded Aggregate Purchase Price (in millions) Initial Shares (in millions) Reference Price Final Shares (in millions) Weighted Average Price per Common Share Q3 FY26 4/20/2026 $ 250 0.9 $ 215.42 0.3 $ 209.55 Q2 FY26 12/15/2025 $ 375 1.6 $ 190.22 0.3 $ 200.00 Q1 FY26 10/31/2025 $ 375 2.0 $ 148.12 0.4 $ 151.88 Q3 FY25 3/11/2025 $ 375 2.4 $ 125.33 0.6 $ 125.87 Q1 FY25 10/30/2024 $ 375 2.7 $ 109.65 0.7 $ 110.10"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "CAH",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">CAH</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000721371</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-07-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "EMR",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareCashPaid",
+        "raw": "0.555",
+        "sign": null,
+        "label": "Dividends paid (per share",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended March 31, Six Months Ended March 31, 2025 2026 2025 2026 Common stock $ 477 477 $ 477 477 Additional paid-in-capital Beginning balance 113 16 169 85 Stock plans 42 48 ( 14 ) ( 44 ) Purchase of noncontrolling interest ( 1,400 ) \u2014 ( 1,400 ) \u2014 Settlement of AspenTech share awards ( 76 ) \u2014 ( 76 ) \u2014 Reclass negative APIC to retained earnings 1,321 \u2014 1,321 23 Ending balance \u2014 64 \u2014 64 Retained earnings Beginning balance 41,112 40,871 40,830 40,603 Net earnings common stockholders 485 618 1,070 1,223 Dividends paid (per share: $ 0.5275 , $ 0.555 , $ 1.055 and $ 1.11 , respectively) ( 299 ) ( 313 ) ( 602 ) ( 627 ) Reclass negative APIC to retained earnings ( 1,321 ) \u2014 ( 1,321 ) ( 23 ) Ending balance 39,977 41,176 39,977 41,176 Accumulated other comprehensive income (loss) Beginning balance ( 1,340 ) ( 828 ) ( 868 ) ( 821 ) Foreign currency translation 187 ( 36 ) ( 298 ) ( 55 ) Pension and postretirement 3 4 6 8 Cash flow hedges \u2014 ( 1 ) 10 7 Ending balance ( 1,150 ) ( 861 ) ( 1,150 ) ( 861 ) Treasury stock Beginning balance ( 19,872 ) ( 20,259 ) ( 18,972 ) ( 20,062 ) Purchases ( 189 ) ( 296 ) ( 1,135 ) ( 548 ) Issued under stock plans 6 2 52 57 Ending balance ( 20,055 ) ( 20,553 ) ( 20,055 ) ( 20,553 ) Common stockholders' equity 19,249 20,303 19,249 20,303 Noncontrolling interests in subsidiaries Beginning balance 5,889 15 5,873 16 Net earnings (loss) ( 55 ) \u2014 ( 48 ) 1 Stock plans 14 \u2014 30 \u2014 Dividends paid ( 1 ) \u2014 ( 1 ) ( 1 ) Purchase of noncontrolling interest ( 5,832 ) \u2014 ( 5,832 ) \u2014 Other comprehensive income 2 1 ( 5 ) \u2014 Ending balance 17 16 17 16 Total equity $ 19,266 20,319 $ 19,266 20,319"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "EMR",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "emr:CommonStockof0.50parvaluepershareMember"
+          ],
+          [
+            "dei:entitylistingsexchangeaxis",
+            "exch:XNYS"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric contextref=\"c-3\" name=\"dei:TradingSymbol\" id=\"f-17\"><ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-18\">EMR</ix:nonnumeric></ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-3\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000032604</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">emr:CommonStockof0.50parvaluepershareMember</xbrldi:explicitmember><xbrldi:explicitmember dimension=\"dei:EntityListingsExchangeAxis\">exch:XNYS</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2025-10-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      },
+      {
+        "symbol": "EMR",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "emr:CommonStockof0.50parvaluepershareMember"
+          ],
+          [
+            "dei:entitylistingsexchangeaxis",
+            "exch:XCHI"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-18\">EMR</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000032604</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">emr:CommonStockof0.50parvaluepershareMember</xbrldi:explicitmember><xbrldi:explicitmember dimension=\"dei:EntityListingsExchangeAxis\">exch:XCHI</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2025-10-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "ERIE",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "3.23",
+        "sign": null,
+        "label": "Class A common stock \u2013 basic",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.88",
+        "sign": null,
+        "label": "Class A common stock \u2013 diluted",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "485",
+        "sign": null,
+        "label": "Class B common stock \u2013 basic and diluted",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "485",
+        "sign": null,
+        "label": "Class B common stock \u2013 basic and diluted",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "1.4625",
+        "sign": null,
+        "label": "Class A common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "219.375",
+        "sign": null,
+        "label": "Class B common stock",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "1.4625",
+        "sign": null,
+        "label": "Class A",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "Class A common stock Class B common stock Additional paid-in-capital Accumulated other comprehensive loss Retained earnings Treasury stock Deferred compensation Total shareholders' equity Balance, December 31, 2025 $ 1,992 $ 178 $ 16,492 $ ( 52,021 ) $ 3,462,823 $ ( 1,171,014 ) $ 24,924 $ 2,283,374 Net income 150,474 150,474 Other comprehensive loss ( 12,226 ) ( 12,226 ) Dividends declared: Class A $ 1.4625 per share ( 67,551 ) ( 67,551 ) Class B $ 219.375 per share ( 558 ) ( 558 ) Net purchase of treasury stock (1) 8 0 8 Deferred compensation ( 670 ) 670 0 Rabbi trust distribution (2) 524 ( 524 ) 0 Balance, March 31, 2026 $ 1,992 $ 178 $ 16,500 $ ( 64,247 ) $ 3,545,188 $ ( 1,171,160 ) $ 25,070 $ 2,353,521"
+      },
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "219.375",
+        "sign": null,
+        "label": "Class B",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "Class A common stock Class B common stock Additional paid-in-capital Accumulated other comprehensive loss Retained earnings Treasury stock Deferred compensation Total shareholders' equity Balance, December 31, 2025 $ 1,992 $ 178 $ 16,492 $ ( 52,021 ) $ 3,462,823 $ ( 1,171,014 ) $ 24,924 $ 2,283,374 Net income 150,474 150,474 Other comprehensive loss ( 12,226 ) ( 12,226 ) Dividends declared: Class A $ 1.4625 per share ( 67,551 ) ( 67,551 ) Class B $ 219.375 per share ( 558 ) ( 558 ) Net purchase of treasury stock (1) 8 0 8 Deferred compensation ( 670 ) 670 0 Rabbi trust distribution (2) 524 ( 524 ) 0 Balance, March 31, 2026 $ 1,992 $ 178 $ 16,500 $ ( 64,247 ) $ 3,545,188 $ ( 1,171,160 ) $ 25,070 $ 2,353,521"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "3.23",
+        "sign": null,
+        "label": "Income available to Class A stockholders",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "2.88",
+        "sign": null,
+        "label": "Income available to Class A stockholders on Class A equivalent shares",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "raw": "485",
+        "sign": null,
+        "label": "Income available to Class B stockholders",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "raw": "485",
+        "sign": null,
+        "label": "Income available to Class B stockholders",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassBMember"
+          ]
+        ],
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "ERIE",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">ERIE</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
+  },
+  {
+    "ticker": "KIM",
+    "periodEnd": "2026-03-31",
+    "facts": [
+      {
+        "tag": "us-gaap:CommonStockDividendsPerShareDeclared",
+        "raw": "0.26000",
+        "sign": null,
+        "label": "Common Shares",
+        "heading": null,
+        "dimensions": [],
+        "statementText": "Three Months Ended March 31, 2026 2025 Common Shares $ 0.26000 $ 0.25000 Class L Depositary Shares $ 0.32031 $ 0.32031 Class M Depositary Shares $ 0.32813 $ 0.32813 Class N Depositary Shares $ 0.90625 $ 0.90625"
+      },
+      {
+        "tag": "us-gaap:PreferredStockDividendsPerShareDeclared",
+        "raw": "0.32031",
+        "sign": null,
+        "label": "Class L Depositary Shares",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "kim:SeriesLPreferredStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended March 31, 2026 2025 Common Shares $ 0.26000 $ 0.25000 Class L Depositary Shares $ 0.32031 $ 0.32031 Class M Depositary Shares $ 0.32813 $ 0.32813 Class N Depositary Shares $ 0.90625 $ 0.90625"
+      },
+      {
+        "tag": "us-gaap:PreferredStockDividendsPerShareDeclared",
+        "raw": "0.32813",
+        "sign": null,
+        "label": "Class M Depositary Shares",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "kim:SeriesMPreferredStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended March 31, 2026 2025 Common Shares $ 0.26000 $ 0.25000 Class L Depositary Shares $ 0.32031 $ 0.32031 Class M Depositary Shares $ 0.32813 $ 0.32813 Class N Depositary Shares $ 0.90625 $ 0.90625"
+      },
+      {
+        "tag": "us-gaap:PreferredStockDividendsPerShareDeclared",
+        "raw": "0.90625",
+        "sign": null,
+        "label": "Class N Depositary Shares",
+        "heading": null,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "kim:ClassNPreferredStockMember"
+          ]
+        ],
+        "statementText": "Three Months Ended March 31, 2026 2025 Common Shares $ 0.26000 $ 0.25000 Class L Depositary Shares $ 0.32031 $ 0.32031 Class M Depositary Shares $ 0.32813 $ 0.32813 Class N Depositary Shares $ 0.90625 $ 0.90625"
+      }
+    ],
+    "symbols": [
+      {
+        "symbol": "KIM",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonStockMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric id=\"F_253ec97a-886e-46db-9889-45b015310fb1\" contextref=\"C_675a06cb-513c-4e95-85fd-3207ed729e8f\" name=\"dei:TradingSymbol\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">KIM</span></ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"C_675a06cb-513c-4e95-85fd-3207ed729e8f\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000879101</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ]
   }
 ]
