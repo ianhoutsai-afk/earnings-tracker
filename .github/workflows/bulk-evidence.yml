@@ -2,7 +2,7 @@ name: Collect official missing revenue and diagnose GAAP EPS
 on:
   push:
     branches: [codex/official-data-completion-20261107]
-    paths: ['bulk_evidence.py','.github/workflows/bulk-evidence.yml']
+    paths: ['bulk_expand.py','.github/workflows/bulk-evidence.yml']
 permissions: {contents: write}
 jobs:
   collect:
@@ -25,4 +25,4 @@ jobs:
       - run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          python bulk_evidence.py --form 10-Q
+          python bulk_expand.py
