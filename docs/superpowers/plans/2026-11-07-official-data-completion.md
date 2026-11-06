@@ -9,3 +9,10 @@ User instruction: continue filling data using available resources. Prior capped1
 5. Report actual completed fields and remaining source limitations; do not claim complete data while gaps remain.
 
 Execution record: baseline is b166038b3fce74e7350472613a0755ea5f58f35a. Current source profile:2434 official quarters;1661 have revenue and GAAP diluted EPS;700 revenue fields and599 EPS fields missing. Most remaining gaps are annual/Q4 or release-only sources. Review focus: consolidated revenue vs component; explicit quarter vs annual duration; exact issuer in combined filings; USD vs USD/share and sign/scale; common-stock EPS class conflicts.
+
+
+Source scan complete:250 missing-field10-Q filings and all773 incomplete official quarters' release URLs scanned.399 candidate fields were gathered; source admission, deduplication and conservative exclusions leave354 fields (210revenue,144GAAP dilutedEPS) across183companies264periods, before publication. No conflicting accepted source values.
+
+EPS clarification: where stock-class values differ, an exact SEC DEI TradingSymbol-to-stock-class-context match may identify the listed ticker's diluted EPS; such values receive a bilingual class note. Otherwise all reported common-class diluted values must agree. This replaces the initial overly restrictive all-classes-equal assumption with explicit listed-class evidence; no class is guessed. Dimensional contract-estimate impacts, basic-only EPS, continuing/discontinued component EPS, mixed adjusted sections and unclear combined-utility parent scope remain pending.
+
+Read-only audit correction verified: currency codes match whole words, so UNAUDITED is not misread as AUD. The previous false positive was reproduced and corrected; nine foreign currency labels are still excluded. All forthcoming data changes must pass raw/display/source/window preservation audits and the full existing suite before publication.
