@@ -3910,5 +3910,759 @@
         "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Net earnings per share of Class A common stock - diluted</span></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-25\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-834\">1.69</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-26\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-835\">1.51</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>"
       }
     ]
+  },
+  {
+    "ticker": "EL",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000019/el-20260331.htm",
+    "sourceSha256": "c1aeefe0549c2057f0fcb68723b489787e9d7c5c1b754f43fb01d6c6779abdd1",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 3,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": ".25",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-4",
+        "context": {
+          "entity": "0001001250",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-4\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001001250</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Basic",
+        "rowText": "Basic $ .25 $ .44 $ .82 $ ( 1.63 )",
+        "heading": "CONSOLIDATED STATEMENTS OF EARNINGS (LOSS)",
+        "statementText": "Three Months Ended March 31, Nine Months Ended March 31, (In millions, except per share data) 2026 2025 2026 2025 Net sales $ 3,712 $ 3,550 $ 11,422 $ 10,915 Cost of sales 876 889 2,797 2,774 Gross profit 2,836 2,661 8,625 8,141 Operating expenses Selling, general and administrative 2,279 2,258 7,202 7,141 Restructuring and other charges 224 97 520 375 Securities class action litigation settlement 84 \u2014 84 \u2014 Impairment of goodwill and other intangible assets \u2014 \u2014 \u2014 861 Talcum litigation settlement agreements \u2014 \u2014 \u2014 159 Total operating expenses 2,587 2,355 7,806 8,536 Operating income (loss) 249 306 819 ( 395 ) Interest expense 82 87 253 269 Interest income and investment income, net 15 27 66 85 Other components of net periodic benefit cost 3 5 11 10 Earnings (loss) before income taxes 179 241 621 ( 589 ) Provision (benefit) for income taxes 90 82 323 ( 2 ) Net earnings (loss) $ 89 $ 159 $ 298 $ ( 587 ) Net earnings (loss) per common share Basic $ .25 $ .44 $ .82 $ ( 1.63 ) Diluted $ .24 $ .44 $ .82 $ ( 1.63 ) Weighted average common shares outstanding Basic 362.7 360.3 362.0 359.9 Diluted 365.4 361.4 364.5 359.9",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Basic</span></div></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-95\">.25</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-5\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-96\">.44</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-97\">.82</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-6\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-98\">1.63</ix:nonfraction>)</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": ".24",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-4",
+        "context": {
+          "entity": "0001001250",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-4\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001001250</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Diluted",
+        "rowText": "Diluted $ .24 $ .44 $ .82 $ ( 1.63 )",
+        "heading": "CONSOLIDATED STATEMENTS OF EARNINGS (LOSS)",
+        "statementText": "Three Months Ended March 31, Nine Months Ended March 31, (In millions, except per share data) 2026 2025 2026 2025 Net sales $ 3,712 $ 3,550 $ 11,422 $ 10,915 Cost of sales 876 889 2,797 2,774 Gross profit 2,836 2,661 8,625 8,141 Operating expenses Selling, general and administrative 2,279 2,258 7,202 7,141 Restructuring and other charges 224 97 520 375 Securities class action litigation settlement 84 \u2014 84 \u2014 Impairment of goodwill and other intangible assets \u2014 \u2014 \u2014 861 Talcum litigation settlement agreements \u2014 \u2014 \u2014 159 Total operating expenses 2,587 2,355 7,806 8,536 Operating income (loss) 249 306 819 ( 395 ) Interest expense 82 87 253 269 Interest income and investment income, net 15 27 66 85 Other components of net periodic benefit cost 3 5 11 10 Earnings (loss) before income taxes 179 241 621 ( 589 ) Provision (benefit) for income taxes 90 82 323 ( 2 ) Net earnings (loss) $ 89 $ 159 $ 298 $ ( 587 ) Net earnings (loss) per common share Basic $ .25 $ .44 $ .82 $ ( 1.63 ) Diluted $ .24 $ .44 $ .82 $ ( 1.63 ) Weighted average common shares outstanding Basic 362.7 360.3 362.0 359.9 Diluted 365.4 361.4 364.5 359.9",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Diluted</span></div></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-99\">.24</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-5\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-100\">.44</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-101\">.82</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-6\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-102\">1.63</ix:nonfraction>)</span></td><td style=\"background-color:#ffffff;border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": ".25",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-4",
+        "context": {
+          "entity": "0001001250",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-4\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001001250</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Basic",
+        "rowText": "Basic $ .25 $ .44 $ .82 $ ( 1.63 )",
+        "heading": null,
+        "statementText": "Three Months Ended March 31, Nine Months Ended March 31, (In millions, except per share data) 2026 2025 2026 2025 Numerator: Net earnings (loss) $ 89 $ 159 $ 298 $ ( 587 ) Denominator: Weighted average common shares outstanding \u2013 Basic 362.7 360.3 362.0 359.9 Effect of dilutive stock options 0.2 \u2014 0.1 \u2014 Effect of PSUs \u2014 0.2 \u2014 \u2014 Effect of RSUs 2.5 0.9 2.4 \u2014 Weighted average common shares outstanding \u2013 Diluted 365.4 361.4 364.5 359.9 Net earnings (loss) per common share: Basic $ .25 $ .44 $ .82 $ ( 1.63 ) Diluted $ .24 $ .44 $ .82 $ ( 1.63 )",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Basic</span></div></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1125\">.25</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-5\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1126\">.44</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1127\">.82</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-6\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1128\">1.63</ix:nonfraction>)</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": ".24",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-4",
+        "context": {
+          "entity": "0001001250",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-4\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001001250</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Diluted",
+        "rowText": "Diluted $ .24 $ .44 $ .82 $ ( 1.63 )",
+        "heading": null,
+        "statementText": "Three Months Ended March 31, Nine Months Ended March 31, (In millions, except per share data) 2026 2025 2026 2025 Numerator: Net earnings (loss) $ 89 $ 159 $ 298 $ ( 587 ) Denominator: Weighted average common shares outstanding \u2013 Basic 362.7 360.3 362.0 359.9 Effect of dilutive stock options 0.2 \u2014 0.1 \u2014 Effect of PSUs \u2014 0.2 \u2014 \u2014 Effect of RSUs 2.5 0.9 2.4 \u2014 Weighted average common shares outstanding \u2013 Diluted 365.4 361.4 364.5 359.9 Net earnings (loss) per common share: Basic $ .25 $ .44 $ .82 $ ( 1.63 ) Diluted $ .24 $ .44 $ .82 $ ( 1.63 )",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Diluted</span></div></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-1129\">.24</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-5\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-1130\">.44</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-1131\">.82</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-6\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-1132\">1.63</ix:nonfraction>)</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "EMR",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000035/emr-20260331.htm",
+    "sourceSha256": "d89f6e2a67a2ab12e9e17dd51d388285cc5b6734d407c16130f3b2de8dd6b0cb",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 2,
+    "facts": []
+  },
+  {
+    "ticker": "ERIE",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026026866/erie-20260331.htm",
+    "sourceSha256": "1eb064600ebb4b15434d8130c394784178886b8844948431a2da565109d97531",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "3.23",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-13",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassAMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-13\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Class A common stock \u2013 basic",
+        "rowText": "Class A common stock \u2013 basic $ 3.23 $ 2.97",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt 2px 19pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Class\u00a0A common stock \u2013 basic</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-13\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-69\">3.23</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-14\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-70\">2.97</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "2.88",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-13",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassAMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-13\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Class A common stock \u2013 diluted",
+        "rowText": "Class A common stock \u2013 diluted $ 2.88 $ 2.65",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt 2px 19pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:100%\">Class\u00a0A common stock \u2013 diluted</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-13\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-71\">2.88</ix:nonfraction></span><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-top:3pt double #000000;padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-14\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-72\">2.65</ix:nonfraction></span><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "485",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-15",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassBMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-15\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassBMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Class B common stock \u2013 basic and diluted",
+        "rowText": "Class B common stock \u2013 basic and diluted $ 485 $ 446",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt 2px 19pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Class\u00a0B common stock \u2013 basic and diluted</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-73\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-74\">485</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-top:3pt double #000000;padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-75\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-76\">446</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "485",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-15",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassBMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-15\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassBMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Class B common stock \u2013 basic and diluted",
+        "rowText": "Class B common stock \u2013 basic and diluted $ 485 $ 446",
+        "heading": "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "Three months ended March 31, 2026 2025 Operating revenue Management fee revenue - policy issuance and renewal services $ 786,399 $ 755,049 Management fee revenue - administrative services 19,475 17,645 Administrative services reimbursement revenue 200,096 210,273 Service agreement revenue 5,941 6,432 Total operating revenue 1,011,911 989,399 Operating expenses Cost of operations - policy issuance and renewal services 645,028 627,750 Cost of operations - administrative services 200,096 210,273 Total operating expenses 845,124 838,023 Operating income 166,787 151,376 Investment income Net investment income 23,560 19,948 Net realized and unrealized investment (losses) gains ( 765 ) 502 Net impairment losses recognized in earnings ( 676 ) ( 914 ) Total investment income 22,119 19,536 Other income 1,420 3,834 Income before income taxes 190,326 174,746 Income tax expense 39,852 36,329 Net income $ 150,474 $ 138,417 Net income per share Class A common stock \u2013 basic $ 3.23 $ 2.97 Class A common stock \u2013 diluted $ 2.88 $ 2.65 Class B common stock \u2013 basic and diluted $ 485 $ 446 Weighted average shares outstanding \u2013 Basic Class A common stock 46,188,850 46,188,903 Class B common stock 2,542 2,542 Weighted average shares outstanding \u2013 Diluted Class A common stock 52,300,180 52,304,384 Class B common stock 2,542 2,542 Dividends declared per share Class A common stock $ 1.4625 $ 1.365 Class B common stock $ 219.375 $ 204.75",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt 2px 19pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Class\u00a0B common stock \u2013 basic and diluted</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-73\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-74\">485</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-top:3pt double #000000;padding:0 1pt\"></td><td style=\"border-top:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-top:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-75\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-76\">446</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-top:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "3.23",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-13",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassAMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-13\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Income available to Class A stockholders",
+        "rowText": "Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97",
+        "heading": null,
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">Income available to Class\u00a0A stockholders</span></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-13\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-404\">149,242</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"2\" style=\"padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-13\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-405\">46,188,850</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-13\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-406\">3.23</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-14\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-407\">137,284</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"2\" style=\"padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-14\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-408\">46,188,903</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-14\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-409\">2.97</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "2.88",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-13",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassAMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-13\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Income available to Class A stockholders on Class A equivalent shares",
+        "rowText": "Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65",
+        "heading": null,
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:9pt;text-indent:-9pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">Income available to Class\u00a0A stockholders on Class\u00a0A equivalent shares</span></div></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-13\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-418\">150,474</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"2\" style=\"padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-13\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-419\">52,300,180</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-13\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-420\">2.88</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-14\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-421\">138,417</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"2\" style=\"padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-14\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-422\">52,304,384</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-14\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-423\">2.65</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "485",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-15",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassBMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-15\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassBMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Income available to Class B stockholders",
+        "rowText": "Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "heading": null,
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">Income available to Class\u00a0B stockholders</span></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-424\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-425\">1,232</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td colspan=\"2\" style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-426\"><ix:nonfraction unitref=\"shares\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-427\">2,542</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-428\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-429\">485</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-16\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-430\"><ix:nonfraction unitref=\"usd\" contextref=\"c-16\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-431\">1,133</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td colspan=\"2\" style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-432\"><ix:nonfraction unitref=\"shares\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-433\">2,542</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-434\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-435\">446</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "485",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-15",
+        "context": {
+          "entity": "0000922621",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonClassBMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-15\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922621</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassBMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Income available to Class B stockholders",
+        "rowText": "Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "heading": null,
+        "statementText": "2026 2025 (dollars in thousands, except per share data) Allocated net income (numerator) Weighted shares (denominator) Per-share amount Allocated net income (numerator) Weighted shares (denominator) Per-share amount Class A \u2013 Basic EPS: Income available to Class A stockholders $ 149,242 46,188,850 $ 3.23 $ 137,284 46,188,903 $ 2.97 Dilutive effect of stock-based awards 0 10,530 \u2014 0 14,681 \u2014 Assumed conversion of Class B shares 1,232 6,100,800 \u2014 1,133 6,100,800 \u2014 Class A \u2013 Diluted EPS: Income available to Class A stockholders on Class A equivalent shares $ 150,474 52,300,180 $ 2.88 $ 138,417 52,304,384 $ 2.65 Class B \u2013 Basic and diluted EPS: Income available to Class B stockholders $ 1,232 2,542 $ 485 $ 1,133 2,542 $ 446",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">Income available to Class\u00a0B stockholders</span></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-424\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-425\">1,232</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td colspan=\"2\" style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-426\"><ix:nonfraction unitref=\"shares\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-427\">2,542</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-428\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-15\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-429\">485</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-16\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-430\"><ix:nonfraction unitref=\"usd\" contextref=\"c-16\" decimals=\"-3\" name=\"us-gaap:NetIncomeLossAttributableToParentDiluted\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-431\">1,133</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td colspan=\"2\" style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"shares\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfSharesOutstandingBasic\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-432\"><ix:nonfraction unitref=\"shares\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\" format=\"ixt:num-dot-decimal\" scale=\"0\" id=\"f-433\">2,542</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"border-bottom:3pt double #000000;padding:0 1pt\"></td><td style=\"border-bottom:3pt double #000000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"0\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-434\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-16\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-435\">446</ix:nonfraction></ix:nonfraction>\u00a0</span></td><td style=\"border-bottom:3pt double #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "KEY",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
+    "sourceSha256": "6cf6fba298cc9ee962257ca602d22a5579c2fe8e10f1f5cbacd140c7cf4836dd",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": ".45",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000091576",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000091576</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net income (loss) attributable to Key common shareholders",
+        "rowText": "Net income (loss) attributable to Key common shareholders (a) .45 .34",
+        "heading": "Consolidated Statements of Income",
+        "statementText": "Dollars in millions, except per share amounts Three months ended March 31, (Unaudited) 2026 2025 INTEREST INCOME Loans $ 1,416 $ 1,401 Loans held for sale 14 14 Securities available for sale 370 392 Held-to-maturity securities 86 63 Trading account assets 11 17 Short-term investments 103 174 Other investments 5 9 Total interest income 2,005 2,070 INTEREST EXPENSE Deposits 598 753 Federal funds purchased and securities sold under repurchase agreements 14 1 Bank notes and other short-term borrowings 20 27 Long-term debt 151 193 Total interest expense 783 974 NET INTEREST INCOME 1,222 1,096 Provision for credit losses 106 118 Net interest income after provision for credit losses 1,116 978 NONINTEREST INCOME Trust and investment services income 157 139 Investment banking and debt placement fees 197 175 Cards and payments income 86 82 Service charges on deposit accounts 77 69 Corporate services income 71 65 Commercial mortgage servicing fees 62 76 Corporate-owned life insurance income 34 33 Consumer mortgage income 13 13 Operating lease income and other leasing gains 8 9 Other income 18 7 Total noninterest income 723 668 NONINTEREST EXPENSE Personnel 743 680 Net occupancy 68 67 Computer processing 111 107 Business services and professional fees 36 40 Equipment 19 20 Operating lease expense 7 11 Marketing 18 21 Other expense 179 185 Total noninterest expense 1,181 1,131 INCOME (LOSS) FROM CONTINUING OPERATIONS BEFORE INCOME TAXES 658 515 Income taxes 136 109 INCOME (LOSS) FROM CONTINUING OPERATIONS 522 406 Income (loss) from discontinued operations \u2014 ( 1 ) NET INCOME (LOSS) $ 522 $ 405 Income (loss) from continuing operations attributable to Key common shareholders $ 486 $ 370 Net income (loss) attributable to Key common shareholders 486 369 Per Common Share: Income (loss) from continuing operations attributable to Key common shareholders $ .45 $ .34 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (a) .45 .34 Per Common Share \u2014 assuming dilution: Income (loss) from continuing operations attributable to Key common shareholders $ .44 $ .33 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (a) .44 .33 Weighted-average Common Shares outstanding (000) 1,084,277 1,096,654 Effect of Common Share options and other stock awards 10,091 9,486 Weighted-average Common Shares and potential Common Shares outstanding (000) (b) 1,094,368 1,106,140",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">Net income (loss) attributable to Key common shareholders\u00a0</span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:4.55pt;font-weight:400;line-height:100%;position:relative;top:-2.44pt;vertical-align:baseline\">(a)</span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">\u00a0</span></div></td><td colspan=\"2\" style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-212\">.45</ix:nonfraction></span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"2\" style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-12\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-213\">.34</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": ".44",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000091576",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000091576</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net income (loss) attributable to Key common shareholders",
+        "rowText": "Net income (loss) attributable to Key common shareholders (a) .44 .33",
+        "heading": "Consolidated Statements of Income",
+        "statementText": "Dollars in millions, except per share amounts Three months ended March 31, (Unaudited) 2026 2025 INTEREST INCOME Loans $ 1,416 $ 1,401 Loans held for sale 14 14 Securities available for sale 370 392 Held-to-maturity securities 86 63 Trading account assets 11 17 Short-term investments 103 174 Other investments 5 9 Total interest income 2,005 2,070 INTEREST EXPENSE Deposits 598 753 Federal funds purchased and securities sold under repurchase agreements 14 1 Bank notes and other short-term borrowings 20 27 Long-term debt 151 193 Total interest expense 783 974 NET INTEREST INCOME 1,222 1,096 Provision for credit losses 106 118 Net interest income after provision for credit losses 1,116 978 NONINTEREST INCOME Trust and investment services income 157 139 Investment banking and debt placement fees 197 175 Cards and payments income 86 82 Service charges on deposit accounts 77 69 Corporate services income 71 65 Commercial mortgage servicing fees 62 76 Corporate-owned life insurance income 34 33 Consumer mortgage income 13 13 Operating lease income and other leasing gains 8 9 Other income 18 7 Total noninterest income 723 668 NONINTEREST EXPENSE Personnel 743 680 Net occupancy 68 67 Computer processing 111 107 Business services and professional fees 36 40 Equipment 19 20 Operating lease expense 7 11 Marketing 18 21 Other expense 179 185 Total noninterest expense 1,181 1,131 INCOME (LOSS) FROM CONTINUING OPERATIONS BEFORE INCOME TAXES 658 515 Income taxes 136 109 INCOME (LOSS) FROM CONTINUING OPERATIONS 522 406 Income (loss) from discontinued operations \u2014 ( 1 ) NET INCOME (LOSS) $ 522 $ 405 Income (loss) from continuing operations attributable to Key common shareholders $ 486 $ 370 Net income (loss) attributable to Key common shareholders 486 369 Per Common Share: Income (loss) from continuing operations attributable to Key common shareholders $ .45 $ .34 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (a) .45 .34 Per Common Share \u2014 assuming dilution: Income (loss) from continuing operations attributable to Key common shareholders $ .44 $ .33 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (a) .44 .33 Weighted-average Common Shares outstanding (000) 1,084,277 1,096,654 Effect of Common Share options and other stock awards 10,091 9,486 Weighted-average Common Shares and potential Common Shares outstanding (000) (b) 1,094,368 1,106,140",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">Net income (loss) attributable to Key common shareholders\u00a0</span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:4.55pt;font-weight:400;line-height:100%;position:relative;top:-2.44pt;vertical-align:baseline\">(a)</span></div></td><td colspan=\"2\" style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-218\">.44</ix:nonfraction></span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"2\" style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-12\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-219\">.33</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": ".45",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000091576",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000091576</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net income (loss) attributable to Key common shareholders",
+        "rowText": "Net income (loss) attributable to Key common shareholders (c) .45 .34",
+        "heading": null,
+        "statementText": "Three months ended March 31, Dollars in millions, except per share amounts 2026 2025 EARNINGS Income (loss) from continuing operations $ 522 $ 406 Less: Dividends on Preferred Stock 36 36 Income (loss) from continuing operations attributable to Key common shareholders 486 370 Income (loss) from discontinued operations, net of taxes \u2014 ( 1 ) Net income (loss) attributable to Key common shareholders $ 486 $ 369 WEIGHTED-AVERAGE COMMON SHARES Weighted-average Common Shares outstanding (000) 1,084,277 1,096,654 Effect of Common Share options and other stock awards (a) 10,091 9,486 Weighted-average Common Shares and potential Common Shares outstanding (000) (b) 1,094,368 1,106,140 EARNINGS PER COMMON SHARE Income (loss) from continuing operations attributable to Key common shareholders $ .45 $ .34 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (c) .45 .34 Income (loss) from continuing operations attributable to Key common shareholders \u2014 assuming dilution $ .44 $ .33 Income (loss) from discontinued operations, net of taxes \u2014 assuming dilution \u2014 \u2014 Net income (loss) attributable to Key common shareholders\u2014assuming dilution (c) .44 .33",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">Net income (loss) attributable to Key common shareholders </span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:4.55pt;font-weight:400;line-height:100%;position:relative;top:-2.44pt;vertical-align:baseline\">(c)</span></div></td><td colspan=\"2\" style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-460\">.45</ix:nonfraction></span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"2\" style=\"background-color:#ffffff;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-12\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-461\">.34</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": ".44",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000091576",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000091576</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net income (loss) attributable to Key common shareholders\u2014assuming dilution",
+        "rowText": "Net income (loss) attributable to Key common shareholders\u2014assuming dilution (c) .44 .33",
+        "heading": null,
+        "statementText": "Three months ended March 31, Dollars in millions, except per share amounts 2026 2025 EARNINGS Income (loss) from continuing operations $ 522 $ 406 Less: Dividends on Preferred Stock 36 36 Income (loss) from continuing operations attributable to Key common shareholders 486 370 Income (loss) from discontinued operations, net of taxes \u2014 ( 1 ) Net income (loss) attributable to Key common shareholders $ 486 $ 369 WEIGHTED-AVERAGE COMMON SHARES Weighted-average Common Shares outstanding (000) 1,084,277 1,096,654 Effect of Common Share options and other stock awards (a) 10,091 9,486 Weighted-average Common Shares and potential Common Shares outstanding (000) (b) 1,094,368 1,106,140 EARNINGS PER COMMON SHARE Income (loss) from continuing operations attributable to Key common shareholders $ .45 $ .34 Income (loss) from discontinued operations, net of taxes \u2014 \u2014 Net income (loss) attributable to Key common shareholders (c) .45 .34 Income (loss) from continuing operations attributable to Key common shareholders \u2014 assuming dilution $ .44 $ .33 Income (loss) from discontinued operations, net of taxes \u2014 assuming dilution \u2014 \u2014 Net income (loss) attributable to Key common shareholders\u2014assuming dilution (c) .44 .33",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;border-bottom:2pt solid #000000;padding:2px 1pt;text-align:left;vertical-align:bottom\"><div><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">Net income (loss) attributable to Key common shareholders\u2014assuming dilution</span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:4.55pt;font-weight:400;line-height:100%;position:relative;top:-2.44pt;vertical-align:baseline\">(c)</span></div></td><td colspan=\"2\" style=\"background-color:#ffffff;border-bottom:2pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-466\">.44</ix:nonfraction></span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\">\u00a0</span></td><td style=\"background-color:#ffffff;border-bottom:2pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-bottom:2pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:7pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-12\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-467\">.33</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#ffffff;border-bottom:2pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "KIM",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/879101/000119312526195304/kim-20260331.htm",
+    "sourceSha256": "4391e9a19a74b62abc86f6c295161498f348104d5ecea2cb35bc8b9e8534f7d7",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": []
+  },
+  {
+    "ticker": "KKR",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000017/kkr-20260331.htm",
+    "sourceSha256": "d72e5158d21f606522439f9094b418f1ac6e54669b92f59a744d0f2e90f47954",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "0.41",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-2",
+        "context": {
+          "entity": "0001404912",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonStockMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001404912</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Basic",
+        "rowText": "Basic $ 0.41 $ ( 0.22 )",
+        "heading": "KKR & CO. INC. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "KKR & CO. INC. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED) (Amounts in Thousands, Except Share and Per Share Data) Three Months Ended March 31, 2026 2025 Income Tax Expense (Benefit) 185,385 86,569 Net Income (Loss) 277,505 684,498 Net Income (Loss) Attributable to Redeemable Noncontrolling Interests ( 983 ) 8,494 Net Income (Loss) Attributable to Noncontrolling Interests ( 126,741 ) 861,928 Net Income (Loss) Attributable to KKR & Co. Inc. 405,229 ( 185,924 ) Series D Mandatory Convertible Preferred Stock Dividends 40,430 \u2014 Net Income (Loss) Attributable to KKR & Co. Inc. Common Stockholders $ 364,799 $ ( 185,924 ) Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock Basic $ 0.41 $ ( 0.22 ) Diluted $ 0.38 $ ( 0.22 ) Weighted Average Shares of Common Stock Outstanding Basic 891,145,378 888,246,698 Diluted 954,219,620 888,246,698",
+        "rowHtml": "<tr style=\"height:14.25pt\"><td style=\"background-color:#eef3f9;font-size:0;text-align:left;vertical-align:top\"><div style=\"position:var(--position);top:319.5pt;width:361.5pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:361.5pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;left:20.63pt;position:var(--position);text-decoration:none;white-space:pre\">Basic</span></div></div></div></td><td style=\"background-color:#eef3f9;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:361.5pt;position:var(--position);top:319.5pt;width:74.25pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:74.25pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:47.56pt\"></span></span><span style=\"left:54.75pt;position:var(--position)\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-347\">0.41</ix:nonfraction><span style=\"display:inline-block;height:6.75pt;width:2.8pt\"></span></span></span></div></div></div></td><td style=\"background-color:#eef3f9;font-size:0;text-align:left;vertical-align:top\"></td><td style=\"background-color:#eef3f9;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:438.75pt;position:var(--position);top:319.5pt;width:74.25pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:74.25pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:44.84pt\"></span></span><span style=\"left:52.03pt;position:var(--position)\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-46\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-348\">0.22</ix:nonfraction>)<span style=\"display:inline-block;height:6.75pt;width:0.08pt\"></span></span></span></div></div></div></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "0.38",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-2",
+        "context": {
+          "entity": "0001404912",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonStockMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001404912</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Diluted",
+        "rowText": "Diluted $ 0.38 $ ( 0.22 )",
+        "heading": "KKR & CO. INC. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "statementText": "KKR & CO. INC. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED) (Amounts in Thousands, Except Share and Per Share Data) Three Months Ended March 31, 2026 2025 Income Tax Expense (Benefit) 185,385 86,569 Net Income (Loss) 277,505 684,498 Net Income (Loss) Attributable to Redeemable Noncontrolling Interests ( 983 ) 8,494 Net Income (Loss) Attributable to Noncontrolling Interests ( 126,741 ) 861,928 Net Income (Loss) Attributable to KKR & Co. Inc. 405,229 ( 185,924 ) Series D Mandatory Convertible Preferred Stock Dividends 40,430 \u2014 Net Income (Loss) Attributable to KKR & Co. Inc. Common Stockholders $ 364,799 $ ( 185,924 ) Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock Basic $ 0.41 $ ( 0.22 ) Diluted $ 0.38 $ ( 0.22 ) Weighted Average Shares of Common Stock Outstanding Basic 891,145,378 888,246,698 Diluted 954,219,620 888,246,698",
+        "rowHtml": "<tr style=\"height:14.25pt\"><td style=\"background-color:#ffffff;font-size:0;text-align:left;vertical-align:top\"><div style=\"position:var(--position);top:333.75pt;width:361.5pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:361.5pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;left:20.63pt;position:var(--position);text-decoration:none;white-space:pre\">Diluted</span></div></div></div></td><td style=\"background-color:#ffffff;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:361.5pt;position:var(--position);top:333.75pt;width:74.25pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:74.25pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:47.56pt\"></span></span><span style=\"left:54.75pt;position:var(--position)\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-349\">0.38</ix:nonfraction><span style=\"display:inline-block;height:6.75pt;width:2.8pt\"></span></span></span></div></div></div></td><td style=\"background-color:#ffffff;font-size:0;text-align:left;vertical-align:top\"></td><td style=\"background-color:#ffffff;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:438.75pt;position:var(--position);top:333.75pt;width:74.25pt\"><div><div style=\"line-height:9pt;position:var(--position);top:3.75pt;width:74.25pt\"><span style=\"color:#0a2535;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:normal;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:44.84pt\"></span></span><span style=\"left:52.03pt;position:var(--position)\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-46\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-350\">0.22</ix:nonfraction>)<span style=\"display:inline-block;height:6.75pt;width:0.08pt\"></span></span></span></div></div></div></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "0.41",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-2",
+        "context": {
+          "entity": "0001404912",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonStockMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001404912</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Basic",
+        "rowText": "Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Basic $ 0.41 $ ( 0.22 )",
+        "heading": null,
+        "statementText": "Three Months Ended March 31, 2026 2025 Net Income (Loss) Attributable to KKR & Co. Inc. Common Stockholders $ 364,799 $ ( 185,924 ) (-) Accumulated Series D Mandatory Convertible Preferred Dividend (1) \u2014 13,477 Net Income (Loss) Available to KKR & Co. Inc. Common Stockholders - Basic $ 364,799 $ ( 199,401 ) (+) Series D Mandatory Convertible Preferred Dividend (if dilutive) (2) \u2014 \u2014 Net Income (Loss) Available to KKR & Co. Inc. Common Stockholders - Diluted $ 364,799 $ ( 199,401 ) Basic Net Income (Loss) Per Share of Common Stock Weighted Average Shares of Common Stock Outstanding - Basic 891,145,378 888,246,698 Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Basic $ 0.41 $ ( 0.22 ) Diluted Net Income (Loss) Per Share of Common Stock Weighted Average Shares of Common Stock Outstanding - Basic 891,145,378 888,246,698 Incremental Common Shares: Assumed vesting of dilutive equity awards (3) 63,074,242 \u2014 Assumed conversion of Series D Mandatory Convertible Preferred Stock (2) \u2014 \u2014 Weighted Average Shares of Common Stock Outstanding - Diluted 954,219,620 888,246,698 Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Diluted $ 0.38 $ ( 0.22 )",
+        "rowHtml": "<tr style=\"height:24pt\"><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"position:var(--position);top:173.25pt;width:357pt\"><div><div style=\"line-height:9pt;position:var(--position);top:2.7pt;width:357pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;left:8.63pt;position:var(--position);text-decoration:none;white-space:pre\">Net Income (Loss) Attributable to KKR\u00a0&amp; Co. Inc. </span></div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:357pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;left:8.63pt;position:var(--position);text-decoration:none;white-space:pre\">Per Share of Common Stock - Basic</span></div></div></div></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:357pt;position:var(--position);top:173.25pt;width:75.75pt\"><div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:75.75pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:48.93pt\"></span></span><span style=\"left:56.120000000000005pt;position:var(--position)\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-3635\">0.41</ix:nonfraction><span style=\"display:inline-block;height:6.75pt;width:2.8pt\"></span></span></span></div></div></div></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:436.5pt;position:var(--position);top:173.25pt;width:75.75pt\"><div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:75.75pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:46.13pt\"></span></span><span style=\"left:53.32pt;position:var(--position)\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-46\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-3636\">0.22</ix:nonfraction>)</span></span></div></div></div></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": "0.38",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-2",
+        "context": {
+          "entity": "0001404912",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [
+            {
+              "axis": "us-gaap:StatementClassOfStockAxis",
+              "member": "us-gaap:CommonStockMember"
+            }
+          ],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001404912</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonStockMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Diluted",
+        "rowText": "Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Diluted $ 0.38 $ ( 0.22 )",
+        "heading": null,
+        "statementText": "Three Months Ended March 31, 2026 2025 Net Income (Loss) Attributable to KKR & Co. Inc. Common Stockholders $ 364,799 $ ( 185,924 ) (-) Accumulated Series D Mandatory Convertible Preferred Dividend (1) \u2014 13,477 Net Income (Loss) Available to KKR & Co. Inc. Common Stockholders - Basic $ 364,799 $ ( 199,401 ) (+) Series D Mandatory Convertible Preferred Dividend (if dilutive) (2) \u2014 \u2014 Net Income (Loss) Available to KKR & Co. Inc. Common Stockholders - Diluted $ 364,799 $ ( 199,401 ) Basic Net Income (Loss) Per Share of Common Stock Weighted Average Shares of Common Stock Outstanding - Basic 891,145,378 888,246,698 Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Basic $ 0.41 $ ( 0.22 ) Diluted Net Income (Loss) Per Share of Common Stock Weighted Average Shares of Common Stock Outstanding - Basic 891,145,378 888,246,698 Incremental Common Shares: Assumed vesting of dilutive equity awards (3) 63,074,242 \u2014 Assumed conversion of Series D Mandatory Convertible Preferred Stock (2) \u2014 \u2014 Weighted Average Shares of Common Stock Outstanding - Diluted 954,219,620 888,246,698 Net Income (Loss) Attributable to KKR & Co. Inc. Per Share of Common Stock - Diluted $ 0.38 $ ( 0.22 )",
+        "rowHtml": "<tr style=\"height:24pt\"><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"position:var(--position);top:282.75pt;width:357pt\"><div><div style=\"line-height:9pt;position:var(--position);top:2.7pt;width:357pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;left:8.63pt;position:var(--position);text-decoration:none;white-space:pre\">Net Income (Loss) Attributable to KKR\u00a0&amp; Co. Inc. </span></div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:357pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;left:8.63pt;position:var(--position);text-decoration:none;white-space:pre\">Per Share of Common Stock - Diluted</span></div></div></div></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:357pt;position:var(--position);top:282.75pt;width:75.75pt\"><div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:75.75pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:48.93pt\"></span></span><span style=\"left:56.120000000000005pt;position:var(--position)\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-3645\">0.38</ix:nonfraction><span style=\"display:inline-block;height:6.75pt;width:2.8pt\"></span></span></span></div></div></div></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"></td><td style=\"background-color:#4c5c67;font-size:0;text-align:left;vertical-align:top\"><div style=\"left:436.5pt;position:var(--position);top:282.75pt;width:75.75pt\"><div><div style=\"line-height:9pt;position:var(--position);top:13.5pt;width:75.75pt\"><span style=\"color:#ffffff;font-family:'Calibri', sans-serif;font-size:9pt;font-style:normal;font-weight:bold;text-decoration:none;white-space:pre\"><span style=\"left:2.63pt;position:var(--position)\">$<span style=\"display:inline-block;height:6.75pt;width:46.13pt\"></span></span><span style=\"left:53.32pt;position:var(--position)\">(<ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-46\" decimals=\"2\" sign=\"-\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-3646\">0.22</ix:nonfraction>)</span></span></div></div></div></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "MNST",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/865752/000110465926057398/mnst-20260331x10q.htm",
+    "sourceSha256": "8e85ffdffae90c31feef0f9438ec7d62eafe941c91d3306a3af3be924627aabc",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": []
+  },
+  {
+    "ticker": "PPL",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/922224/000092222426000026/ppl-20260331.htm",
+    "sourceSha256": "b4a609535a433d5d089677371ed274f57bcf8328ee865285259794263c0a7ab8",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": "0.60",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0000922224",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000922224</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Net Income available to PPL common shareowners",
+        "rowText": "Net Income available to PPL common shareowners $ 0.60 $ 0.56",
+        "heading": null,
+        "statementText": "Three Months 2026 2025 Income (Numerator) Net income attributable to PPL $ 452 $ 414 Less amounts allocated to participating securities 1 1 Net income available to PPL common shareowners - Basic and Diluted $ 451 $ 413 Shares of Common Stock (Denominator) Weighted-average shares - Basic EPS 751,764 738,691 Add: Dilutive share-based payment awards (a) 2,297 2,709 Add: Forward sale agreements 644 \u2014 Add: Exchangeable Notes 2,453 \u2014 Weighted-average shares - Diluted EPS 757,158 741,400 Basic and Diluted EPS Net Income available to PPL common shareowners $ 0.60 $ 0.56",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt 2px 7.75pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">Net Income available to PPL common shareowners</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1425\">0.60</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-12\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-1426\">0.56</ix:nonfraction>\u00a0</span></td><td style=\"background-color:#cceeff;border-bottom:3pt double #000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "PSKY",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000026/psky-20260331.htm",
+    "sourceSha256": "8bd1b6f29f4c996cdfd048338f60907bf762a3dd1515d228b14e4a67bbed9977",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": [
+      {
+        "tag": "us-gaap:EarningsPerShareBasic",
+        "rawValue": ".15",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0002041610",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0002041610</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Basic net earnings per common share attributable to Parent",
+        "rowText": "Basic net earnings per common share attributable to Parent $ .15 $ .23",
+        "heading": null,
+        "statementText": "Successor Predecessor Three Months Ended March 31, Three Months Ended March 31, 2026 2025 Revenues $ 7,347 $ 7,192 Costs and expenses: Operating 4,855 4,961 Selling, general and administrative 1,411 1,543 Depreciation and amortization 362 88 Restructuring and transaction-related items 103 85 Total costs and expenses 6,731 6,677 Gain on dispositions \u2014 35 Operating income 616 550 Interest expense ( 238 ) ( 217 ) Interest income 38 38 Other items, net ( 24 ) ( 37 ) Earnings before income taxes and equity in loss of investee companies 392 334 Provision for income taxes ( 155 ) ( 100 ) Equity in loss of investee companies, net of tax ( 62 ) ( 73 ) Net earnings (Parent and noncontrolling interests) 175 161 Net earnings attributable to noncontrolling interests ( 7 ) ( 9 ) Net earnings attributable to Parent $ 168 $ 152 Basic net earnings per common share attributable to Parent $ .15 $ .23 Diluted net earnings per common share attributable to Parent $ .15 $ .22 Weighted average number of common shares outstanding: Basic 1,110 672 Diluted 1,118 678",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Basic net earnings per common share attributable to Parent</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-65\">.15</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"3\" style=\"border-left:2pt solid #000;padding:0 1pt\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareBasic\" scale=\"0\" id=\"f-66\">.23</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td></tr>"
+      },
+      {
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "rawValue": ".15",
+        "sign": null,
+        "scale": "0",
+        "format": null,
+        "contextId": "c-1",
+        "context": {
+          "entity": "0002041610",
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "dimensions": [],
+          "hasTyped": false,
+          "scenario": false,
+          "html": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0002041610</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>"
+        },
+        "unit": {
+          "text": "iso4217:USD xbrli:shares",
+          "html": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>"
+        },
+        "rowLabel": "Diluted net earnings per common share attributable to Parent",
+        "rowText": "Diluted net earnings per common share attributable to Parent $ .15 $ .22",
+        "heading": null,
+        "statementText": "Successor Predecessor Three Months Ended March 31, Three Months Ended March 31, 2026 2025 Revenues $ 7,347 $ 7,192 Costs and expenses: Operating 4,855 4,961 Selling, general and administrative 1,411 1,543 Depreciation and amortization 362 88 Restructuring and transaction-related items 103 85 Total costs and expenses 6,731 6,677 Gain on dispositions \u2014 35 Operating income 616 550 Interest expense ( 238 ) ( 217 ) Interest income 38 38 Other items, net ( 24 ) ( 37 ) Earnings before income taxes and equity in loss of investee companies 392 334 Provision for income taxes ( 155 ) ( 100 ) Equity in loss of investee companies, net of tax ( 62 ) ( 73 ) Net earnings (Parent and noncontrolling interests) 175 161 Net earnings attributable to noncontrolling interests ( 7 ) ( 9 ) Net earnings attributable to Parent $ 168 $ 152 Basic net earnings per common share attributable to Parent $ .15 $ .23 Diluted net earnings per common share attributable to Parent $ .15 $ .22 Weighted average number of common shares outstanding: Basic 1,110 672 Diluted 1,118 678",
+        "rowHtml": "<tr><td colspan=\"3\" style=\"padding:2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">Diluted net earnings per common share attributable to Parent</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-1\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-67\">.15</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td colspan=\"3\" style=\"border-left:2pt solid #000;padding:0 1pt\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td><td style=\"padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">$</span></td><td style=\"padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-4\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-68\">.22</ix:nonfraction>\u00a0</span></td><td style=\"padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"padding:0 1pt\"></td></tr>"
+      }
+    ]
+  },
+  {
+    "ticker": "REG",
+    "periodEnd": "2026-03-31",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312526203537/reg-20260331.htm",
+    "sourceSha256": "097e4cb12390a137d151a0672b4cb53b186cbb417fac189e32be099fd320ab04",
+    "fiscalYear": 2026,
+    "fiscalQuarter": 1,
+    "facts": []
   }
 ]
