@@ -1,0 +1,30 @@
+[
+  {
+    "ticker": "NDSN",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2025,
+    "fiscalQuarter": 4,
+    "field": "revenue",
+    "priorValue": null,
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72331/000007233125000138/ndsn-20251213xex991.htm",
+    "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/72331/000007233125000138/ndsn-20251213xex991.htm",
+    "sourceSha256": "f47c831a89580cadb40836b693338a67d89f6aea5e9e41a8c3abc00015328716",
+    "sourceKind": "explicit_quarter_release_table",
+    "evidence": {
+      "value": 751820000.0,
+      "rawValue": "751,820",
+      "scale": 3,
+      "unitMeasure": "USD",
+      "statementHeading": "CONSOLIDATED STATEMENT OF INCOME (Unaudited)",
+      "statementText": "Three Months Ended Twelve Months Ended October 31, 2025 October 31, 2024 October 31, 2025 October 31, 2024 Sales $ 751,820 $ 744,482 $ 2,791,687 $ 2,689,921 Cost of sales 328,353 341,658 1,251,903 1,203,792 Gross profit 423,467 402,824 1,539,784 1,486,129 Gross margin % 56.3 % 54.1 % 55.2 % 55.2 % Selling & administrative expenses 208,872 223,932 815,514 812,128 Divestiture and related charges 334 \u2014 12,545 \u2014 Operating profit 214,261 178,892 711,725 674,001 Interest expense - net (23,770) (27,282) (101,105) (84,011) Other expense - net (7,592) (3,538) (12,972) (4,509) Income before income taxes 182,899 148,072 597,648 585,481 Income taxes 31,265 25,904 113,174 118,197 Net Income $ 151,634 $ 122,168 $ 484,474 $ 467,284 Weighted-average common shares outstanding: Basic 56,077 57,188 56,606 57,176 Diluted 56,417 57,603 56,916 57,616 Earnings per share: Basic earnings $ 2.70 $ 2.14 $ 8.56 $ 8.17 Diluted earnings $ 2.69 $ 2.12 $ 8.51 $ 8.11",
+      "rowLabel": "Sales",
+      "rowText": "Sales | Sales | Sales | $ | 751,820 |  |  |  |  | $ | 744,482 |  |  |  |  | $ | 2,791,687 |  |  |  |  | $ | 2,689,921 | ",
+      "header": "Three Months Ended October 31, 2025",
+      "unitCaption": "CONSOLIDATED STATEMENT OF INCOME (Unaudited)                            Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended    October 31, 2025 October 31, 2025 October 31, 2025    October 31, 2024 October 31, 2024 October 31, 2024    October 31, 2025 October 31, 2025 October 31, 2025    October 31, 2024 October 31, 2024 October 31, 2024                         (Dollars in thousands except for per-share amounts) CONSOLIDATED STATEMENT OF INCOME (Unaudited)",
+      "tableIndex": 2,
+      "columnIndex": 4,
+      "signFromSplitParentheses": false,
+      "rowHtml": null
+    }
+  }
+]
