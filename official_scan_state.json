@@ -3,25 +3,20 @@
   "issuersChecked": 329,
   "issuerTargets": 329,
   "deferredCompanies": 0,
-  "newRecords": 0,
+  "newRecords": 5,
   "sourceFailures": 0,
   "pendingCompanies": 487,
   "officialQuarters": 2434,
   "fiveOfficialQuarterCompanies": 469,
   "fiveCompleteMetricCompanies": 80,
   "sourceFailedCompanies": 0,
-  "checkedAt": "2026-11-06T10:55:57.179564Z",
+  "checkedAt": "2026-11-06T17:59:23.067106Z",
   "storedQuarters": 2514,
-  "completeMetricQuarters": 1761,
+  "completeMetricQuarters": 1763,
   "sourceHealthy": true,
   "historyComplete": false,
   "metricsComplete": false,
   "dataComplete": false,
   "healthy": false,
-  "dataStatus": "incomplete",
-  "metricBackfill": {
-    "date": "2026-11-06",
-    "filledFields": 294,
-    "evidence": "docs/data-backfill-2026-11-07.json"
-  }
+  "dataStatus": "incomplete"
 }
