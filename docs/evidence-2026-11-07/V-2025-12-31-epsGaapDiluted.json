@@ -1,0 +1,91 @@
+{
+  "ticker": "V",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000045/v-20251231.htm",
+  "sourceSha256": "cdb185b7a090497d06989759271719c39202b45418300c04c4db65eed16a64ae",
+  "evidence": {
+    "value": 3.03,
+    "rawValue": "3.03",
+    "scale": 0,
+    "sign": null,
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "unitMeasure": "USD/shares",
+    "contextId": "c-2",
+    "context": {
+      "entity": "0001403161",
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "dimensions": [
+        [
+          "us-gaap:statementclassofstockaxis",
+          "us-gaap:CommonClassAMember"
+        ]
+      ]
+    },
+    "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001403161</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2025-10-01</xbrli:startdate><xbrli:enddate>2025-12-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+    "issuerName": "VISA INC.",
+    "statementHeading": "CONSOLIDATED STATEMENTS OF OPERATIONS",
+    "statementText": "Three Months Ended December 31, 2025 2024 (in millions, except per share data) Net revenue $ 10,901 $ 9,510 Operating Expenses Personnel 1,764 1,813 Marketing 410 306 Network and processing 233 207 Professional fees 208 143 Depreciation and amortization 326 282 General and administrative 515 481 Litigation provision 708 44 Total operating expenses 4,164 3,276 Operating income 6,737 6,234 Non-operating Income (Expense) Interest expense ( 194 ) ( 182 ) Investment income (expense) and other 183 148 Total non-operating income (expense) ( 11 ) ( 34 ) Income before income taxes 6,726 6,200 Income tax provision 873 1,081 Net income $ 5,853 $ 5,119 Basic Earnings Per Share Class A common stock $ 3.03 $ 2.58 Class B-1 common stock $ 4.71 $ 4.04 Class B-2 common stock $ 4.61 $ 3.99 Class C common stock $ 12.13 $ 10.33 Basic Weighted-average Shares Outstanding Class A common stock 1,687 1,729 Class B-1 common stock 5 5 Class B-2 common stock 120 120 Class C common stock 9 10 Diluted Earnings Per Share Class A common stock $ 3.03 $ 2.58 Class B-1 common stock $ 4.71 $ 4.04 Class B-2 common stock $ 4.61 $ 3.98 Class C common stock $ 12.11 $ 10.32 Diluted Weighted-average Shares Outstanding Class A common stock 1,933 1,985 Class B-1 common stock 5 5 Class B-2 common stock 120 120 Class C common stock 9 10",
+    "rowLabel": "Class A common stock",
+    "rowText": "Class A common stock $ 3.03 $ 2.58",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2px 1pt 2px 19pt;text-align:left;vertical-align:top\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:400;line-height:100%\">Class A common stock</span></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:700;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:700;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-210\">3.03</ix:nonfraction></span><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:400;line-height:100%\"> </span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2px 0 2px 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2px 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:8pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-25\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-211\">2.58</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td></tr>",
+    "combinedBasicDilutedCaption": false,
+    "stockClassBasis": "exact SEC trading-symbol stock-class context",
+    "stockSymbolEvidence": [
+      {
+        "symbol": "V",
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-16\">V</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001403161</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2025-10-01</xbrli:startdate><xbrli:enddate>2025-12-31</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ],
+    "allPrimaryDilutedClassValues": [
+      {
+        "value": 3.03,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ]
+      },
+      {
+        "value": 4.71,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "v:CommonClassB1Member"
+          ]
+        ]
+      },
+      {
+        "value": 4.61,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "v:CommonClassB2Member"
+          ]
+        ]
+      },
+      {
+        "value": 12.11,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassCMember"
+          ]
+        ]
+      }
+    ]
+  }
+}

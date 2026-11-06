@@ -1,0 +1,32 @@
+{
+  "ticker": "FISV",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000018/fisv-20260331.htm",
+  "sourceSha256": "a1833de386731d8d785f937aec0bc507fdced7a8bc404f4c7b41bac7a7ab63b3",
+  "evidence": {
+    "value": 5027000000.0,
+    "rawValue": "5027",
+    "scale": 6,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "iso4217:USD",
+    "contextId": "c-1",
+    "context": {
+      "entity": "0000798354",
+      "start": "2026-01-01",
+      "end": "2026-03-31"
+    },
+    "issuerName": "FISERV, INC.",
+    "statementHeading": "Consolidated Statements of Income",
+    "rowLabel": "Total revenue",
+    "rowText": "Total revenue 5,027 5,130",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2px 1pt 2px 37pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">Total revenue</span></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-55\">5,027</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 0 2px 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-15\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-56\">5,130</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2px 1pt 2px 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>",
+    "statementText": "Three Months Ended March 31, 2026 2025 Revenue: Processing and services (1) $ 4,070 $ 4,045 Product 957 1,085 Total revenue 5,027 5,130 Expenses: Cost of processing and services 1,610 1,389 Cost of product 697 684 Selling, general and administrative 1,885 1,682 Net gain on sale of assets ( 83 ) ( 20 ) Total expenses 4,109 3,735 Operating income 918 1,395 Interest expense, net ( 347 ) ( 331 ) Other income (expense), net 22 ( 18 ) Income before income taxes and income (loss) from investments in unconsolidated affiliates 593 1,046 Income tax provision ( 24 ) ( 190 ) Income (loss) from investments in unconsolidated affiliates 4 ( 8 ) Net income 573 848 Less: net income (loss) attributable to noncontrolling interests 2 ( 3 ) Net income attributable to Fiserv, Inc. $ 571 $ 851 Net income attributable to Fiserv, Inc. per share: Basic $ 1.07 $ 1.52 Diluted $ 1.07 $ 1.51 Shares used in computing net income attributable to Fiserv, Inc. per share: Basic 534.3 561.3 Diluted 535.4 564.7",
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000798354</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": true
+  }
+}

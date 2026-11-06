@@ -1,0 +1,59 @@
+{
+  "ticker": "CVNA",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000067/cvna-20260930.htm",
+  "sourceSha256": "96055fd3917f1c253c9af8e255bddfa435cde735a4cd8f2e8e0a3b8742462fbf",
+  "evidence": {
+    "value": 0.39,
+    "rawValue": "0.39",
+    "scale": 0,
+    "sign": null,
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "unitMeasure": "USD/shares",
+    "contextId": "c-39",
+    "context": {
+      "entity": "0001690820",
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "dimensions": [
+        [
+          "us-gaap:statementclassofstockaxis",
+          "us-gaap:CommonClassAMember"
+        ]
+      ]
+    },
+    "contextHtml": "<xbrli:context id=\"c-39\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001690820</xbrli:identifier><xbrli:segment><xbrldi:explicitmember dimension=\"us-gaap:StatementClassOfStockAxis\">us-gaap:CommonClassAMember</xbrldi:explicitmember></xbrli:segment></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+    "issuerName": "CARVANA CO.",
+    "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
+    "statementText": "Three Months Ended September 30, Nine Months Ended September 30, 2026 2025 2026 2025 Sales and operating revenues: Retail vehicle sales, net $ 6,144 $ 3,996 $ 16,479 $ 10,381 Wholesale sales and revenues, including $ 8 , $ 11 , $ 34 and $ 28 , respectively, from related parties 1,302 1,177 3,723 3,064 Other sales and revenues, including $ 129 , $ 93 , $ 360 and $ 248 , respectively, from related parties 594 474 1,646 1,274 Net sales and operating revenues 8,040 5,647 21,848 14,719 Cost of sales, including $ 4 , $ 3 , $ 13 and $ 10 , respectively, to related parties 6,519 4,499 17,672 11,578 Gross profit 1,521 1,148 4,176 3,141 Selling, general and administrative expenses, including $ 12 , $ 9 , $ 34 and $ 24 , respectively, to related parties 805 595 2,199 1,681 Other operating expense, net 2 1 2 3 Operating income 714 552 1,975 1,457 Interest expense, net 98 125 298 407 Loss on debt extinguishment 53 14 53 16 Other expense, net 11 154 52 92 Net income before income taxes 552 259 1,572 942 Income tax provision (benefit) 69 ( 4 ) 171 ( 2 ) Net income 483 263 1,401 944 Net income attributable to non-controlling interests 194 112 552 394 Net income attributable to Carvana Co. $ 289 $ 151 $ 849 $ 550 Net earnings per share of Class A common stock - basic $ 0.40 $ 0.22 $ 1.18 $ 0.81 Net earnings per share of Class A common stock - diluted $ 0.39 $ 0.21 $ 1.15 $ 0.76 Weighted-average shares of Class A common stock outstanding - basic 720,857 696,066 717,456 681,236 Weighted-average shares of Class A common stock outstanding - diluted 739,910 731,374 740,051 720,501",
+    "rowLabel": "Net earnings per share of Class A common stock - diluted",
+    "rowText": "Net earnings per share of Class A common stock - diluted $ 0.39 $ 0.21 $ 1.15 $ 0.76",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Net earnings per share of Class A common stock - diluted</span></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-39\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-227\">0.39</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-40\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-228\">0.21</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-41\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-229\">1.15</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-42\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-230\">0.76</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+    "combinedBasicDilutedCaption": false,
+    "stockClassBasis": "all reported common-stock diluted EPS facts agree",
+    "stockSymbolEvidence": [
+      {
+        "symbol": "CVNA",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-1\" name=\"dei:TradingSymbol\" id=\"f-16\">CVNA</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001690820</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ],
+    "allPrimaryDilutedClassValues": [
+      {
+        "value": 0.39,
+        "dimensions": [
+          [
+            "us-gaap:statementclassofstockaxis",
+            "us-gaap:CommonClassAMember"
+          ]
+        ]
+      }
+    ]
+  }
+}

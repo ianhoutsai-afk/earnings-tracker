@@ -1,0 +1,49 @@
+{
+  "ticker": "WMB",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000036/wmb-20260930.htm",
+  "sourceSha256": "dd3d4996366c50951db708fe9e46576e2791c212498d08e7e545d36cc8e6ae2c",
+  "evidence": {
+    "value": 0.56,
+    "rawValue": ".56",
+    "scale": 0,
+    "sign": null,
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "unitMeasure": "USD/shares",
+    "contextId": "c-23",
+    "context": {
+      "entity": "0000107263",
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "dimensions": []
+    },
+    "contextHtml": "<xbrli:context id=\"c-23\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000107263</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usdPerShare\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+    "issuerName": "WILLIAMS COMPANIES, INC.",
+    "statementHeading": "Consolidated Statement of Comprehensive Income",
+    "statementText": "Three Months Ended September 30, Nine Months Ended September 30, 2026 2025 2026 2025 (Millions, except per-share amounts) Revenues: Service revenues $ 2,319 $ 2,121 $ 6,677 $ 6,165 Service revenues – commodity consideration 57 45 148 141 Product sales 845 701 2,744 2,416 Net gain (loss) from commodity derivatives 2 56 ( 263 ) 30 Total revenues 3,223 2,923 9,306 8,752 Costs and expenses: Product costs 618 471 1,670 1,560 Net processing commodity expenses 14 14 35 46 Operating and maintenance expenses 639 583 1,801 1,697 Depreciation, depletion, and amortization expenses 620 564 1,796 1,754 General and administrative expenses 275 168 648 530 Gain on sale of certain assets (Note 3) ( 83 ) — ( 277 ) — Other operating (income) expense – net 4 14 ( 6 ) 17 Total costs and expenses 2,087 1,814 5,667 5,604 Operating income (loss) 1,136 1,109 3,639 3,148 Equity earnings (losses) 157 152 477 449 Other investing income (loss) – net (Note 3) 30 19 188 31 Interest expense ( 385 ) ( 372 ) ( 1,132 ) ( 1,071 ) Other income (expense) – net 50 21 108 51 Income (loss) before income taxes 988 929 3,280 2,608 Less: Provision (benefit) for income taxes 221 246 725 613 Net income (loss) 767 683 2,555 1,995 Less: Net income (loss) attributable to noncontrolling interests 67 36 163 111 Net income (loss) attributable to The Williams Companies, Inc. 700 647 2,392 1,884 Less: Preferred stock dividends 1 1 2 2 Net income (loss) available to common stockholders $ 699 $ 646 $ 2,390 $ 1,882 Basic earnings (loss) per common share: Net income (loss) available to common stockholders $ .56 $ .53 $ 1.95 $ 1.54 Weighted-average shares (millions) 1,238 1,222 1,228 1,221 Diluted earnings (loss) per common share: Net income (loss) available to common stockholders $ .56 $ .53 $ 1.94 $ 1.54 Weighted-average shares (millions) 1,239 1,225 1,230 1,224 Comprehensive income (loss): Net income (loss) $ 767 $ 683 $ 2,555 $ 1,995 Other comprehensive income (loss), net of taxes of $ — and $ 1 in 2026 and $ 3 and $ 2 in 2025 1 ( 4 ) ( 2 ) ( 3 ) Comprehensive income (loss) 768 679 2,553 1,992 Less: Comprehensive income (loss) attributable to noncontrolling interests 67 36 163 111 Comprehensive income (loss) attributable to The Williams Companies, Inc. $ 701 $ 643 $ 2,390 $ 1,881",
+    "rowLabel": "Net income (loss) available to common stockholders",
+    "rowText": "Net income (loss) available to common stockholders $ .56 $ .53 $ 1.94 $ 1.54",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:1.5pt 1pt;text-align:left;vertical-align:bottom\"><div style=\"padding-left:6.75pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">        Net income (loss) available to common stockholders</span></div></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-23\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-190\">.56</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-24\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-191\">.53</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-2\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-192\">1.94</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td style=\"background-color:#ffffff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#ffffff;padding:1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usdPerShare\" contextref=\"c-25\" decimals=\"2\" name=\"us-gaap:EarningsPerShareDiluted\" scale=\"0\" id=\"f-193\">1.54</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"display:none\"></td><td colspan=\"3\" style=\"display:none\"></td></tr>",
+    "combinedBasicDilutedCaption": false,
+    "stockClassBasis": "dimensionless",
+    "stockSymbolEvidence": [
+      {
+        "symbol": "WMB",
+        "dimensions": [],
+        "factHtml": "<ix:nonnumeric contextref=\"c-2\" name=\"dei:TradingSymbol\" id=\"f-44\">WMB</ix:nonnumeric>",
+        "contextHtml": "<xbrli:context id=\"c-2\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000107263</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>"
+      }
+    ],
+    "allPrimaryDilutedClassValues": [
+      {
+        "value": 0.56,
+        "dimensions": []
+      }
+    ]
+  }
+}

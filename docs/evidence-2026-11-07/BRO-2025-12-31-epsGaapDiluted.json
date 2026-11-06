@@ -1,0 +1,28 @@
+{
+  "ticker": "BRO",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/79282/000119312526022760/bro-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/79282/000119312526022760/bro-ex99_1.htm",
+  "sourceSha256": "2b0b28da91f510d8ab80ba93638cbe8ee5683a493d952674328d9b594a0fc064",
+  "sourceKind": "explicit_quarter_release_table",
+  "evidence": {
+    "value": 0.59,
+    "rawValue": "0.59",
+    "scale": 0,
+    "unitMeasure": "USD/shares",
+    "statementHeading": "Consolidated Statements of Income",
+    "statementText": "Three Months Ended December 31, Twelve Months Ended December 31, 2025 2024 2025 2024 REVENUES Commissions and fees $ 1,580 $ 1,161 $ 5,763 $ 4,705 Investment and other income 27 23 139 100 Total revenues 1,607 1,184 5,902 4,805 EXPENSES Employee compensation and benefits 819 582 2,935 2,406 Other operating expenses 286 212 959 710 Loss/(gain) on disposal 1 (1 ) 2 (31 ) Amortization 116 48 312 178 Depreciation 19 11 55 44 Interest 100 46 297 193 Change in estimated acquisition earn-out payables 7 11 25 2 Mark-to-market of escrow liability (62 ) — (54 ) — Total expenses 1,286 909 4,531 3,502 Income before income taxes 321 275 1,371 1,303 Income taxes 53 63 304 301 Net income before non-controlling interests 268 212 1,067 1,002 Less: Net income attributable to non-controlling interests 4 2 13 9 Net income attributable to the Company $ 264 $ 210 $ 1,054 $ 993 Net income per share: Basic $ 0.78 $ 0.73 $ 3.37 $ 3.48 Diluted $ 0.59 $ 0.73 $ 3.16 $ 3.46 Weighted average number of shares outstanding: Basic 333 283 310 282 Diluted 339 284 313 284",
+    "rowLabel": "Diluted",
+    "rowText": "Diluted |  | $ | 0.59 |  |  | $ | 0.73 |  |  | $ | 3.16 |  |  | $ | 3.46 | ",
+    "header": "Three Months Ended December 31, 2025",
+    "unitCaption": "Consolidated Statements of Income                    Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31,   Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31,    2025 2025   2024 2024   2025 2025   2024 2024   (in millions, except per share data; unaudited) Consolidated Statements of Income   3",
+    "tableIndex": 3,
+    "columnIndex": 3,
+    "signFromSplitParentheses": false,
+    "rowHtml": null
+  }
+}

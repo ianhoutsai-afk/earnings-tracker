@@ -1,0 +1,28 @@
+{
+  "ticker": "NFLX",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/nflx-20260120.htm",
+  "sourceSha256": "780311d5a2e32e3de4887e610422bfa005959e95e27a78062472d371c2d1b054",
+  "sourceKind": "explicit_quarter_release_table",
+  "evidence": {
+    "value": 0.56,
+    "rawValue": "0.56",
+    "scale": 0,
+    "unitMeasure": "USD/shares",
+    "statementHeading": "Consolidated Statements of Operations",
+    "statementText": "Three Months Ended Twelve Months Ended December 31, 2025 September 30, 2025 December 31, 2024 December 31, 2025 December 31, 2024 Revenues $ 12,050,762 $ 11,510,307 $ 10,246,513 $ 45,183,036 $ 39,000,966 Cost of revenues 6,522,621 6,164,250 5,767,364 23,275,329 21,038,464 Sales and marketing 1,113,376 786,295 976,204 3,301,306 2,917,554 Technology and development 890,300 853,584 776,505 3,391,390 2,925,295 General and administrative 567,802 457,931 453,674 1,888,408 1,702,039 Operating income 2,956,663 3,248,247 2,272,766 13,326,603 10,417,614 Other income (expense): Interest expense (234,395) (175,294) (192,603) (776,510) (718,733) Interest and other income 45,473 36,457 54,105 172,459 266,776 Income before income taxes 2,767,741 3,109,410 2,134,268 12,722,552 9,965,657 Provision for income taxes (349,220) (562,494) (265,661) (1,741,351) (1,254,026) Net income $ 2,418,521 $ 2,546,916 $ 1,868,607 $ 10,981,201 $ 8,711,631 Earnings per share*: Basic $ 0.57 $ 0.60 $ 0.44 $ 2.58 $ 2.03 Diluted $ 0.56 $ 0.59 $ 0.43 $ 2.53 $ 1.98 Weighted-average shares of common stock outstanding*: Basic 4,229,221 4,244,553 4,277,159 4,249,512 4,295,191 Diluted 4,317,144 4,340,392 4,377,861 4,343,863 4,392,608",
+    "rowLabel": "Diluted",
+    "rowText": "Diluted | Diluted | Diluted | $ | 0.56 |  |  |  |  | $ | 0.59 |  |  |  |  | $ | 0.43 |  |  |  |  | $ | 2.53 |  |  |  |  | $ | 1.98 | ",
+    "header": "Three Months Ended December 31, 2025",
+    "unitCaption": "Consolidated Statements of Operations                                  Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended    December 31, 2025 December 31, 2025 December 31, 2025    September 30, 2025 September 30, 2025 September 30, 2025    December 31, 2024 December 31, 2024 December 31, 2024    December 31, 2025 December 31, 2025 December 31, 2025    December 31, 2024 December 31, 2024 December 31, 2024  (in thousands, except per share data) (unaudited) Consolidated Statements of Operations",
+    "tableIndex": 16,
+    "columnIndex": 4,
+    "signFromSplitParentheses": false,
+    "rowHtml": null
+  }
+}

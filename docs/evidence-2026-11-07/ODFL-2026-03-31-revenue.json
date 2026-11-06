@@ -1,0 +1,32 @@
+{
+  "ticker": "ODFL",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000011/odfl-20260331.htm",
+  "sourceSha256": "e66d9e56ae78ce1284ff5d4f88a77568e23e44841fb9b9267ff57cfc5b86c422",
+  "evidence": {
+    "value": 1334696000.0,
+    "rawValue": "1334696",
+    "scale": 3,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+    "unitMeasure": "iso4217:USD",
+    "contextId": "C_55677512-9957-4f1c-bd35-6a9c80626ae9",
+    "context": {
+      "entity": "0000878927",
+      "start": "2026-01-01",
+      "end": "2026-03-31"
+    },
+    "issuerName": "OLD DOMINION FREIGHT LINE, INC.",
+    "statementHeading": "OLD DOMINION FREIGHT LINE, INC. | CONDENSED STATEME NTS OF OPERATIONS",
+    "rowLabel": "Revenue from operations",
+    "rowText": "Revenue from operations $ 1,334,696 $ 1,374,858",
+    "rowHtml": "<tr style=\"height:10pt;background-color:#cff0fc;word-break:break-word;\">\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:top;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\">Revenue from operations</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"> </span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-weight:bold;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_0a15d2b9-ae03-4ec3-89af-6897855e3534\" contextref=\"C_55677512-9957-4f1c-bd35-6a9c80626ae9\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,334,696</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\"> </span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"> </span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"color:#000000;font-kerning:none;min-width:fit-content;\">$</span></p></td>\n     <td style=\"padding-top:0.01in;white-space:pre-wrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:center;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:right;\"><span style=\"color:#000000;white-space:pre-wrap;font-kerning:none;min-width:fit-content;\"><ix:nonfraction id=\"F_113a35fd-a69e-4911-80bb-5d9da8765336\" contextref=\"C_9fdd136b-f357-4367-8235-53e50a42a289\" name=\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\" unitref=\"U_USD\" scale=\"3\" decimals=\"-3\" format=\"ixt:num-dot-decimal\">1,374,858</ix:nonfraction></span></p></td>\n     <td style=\"padding-top:0.01in;white-space:nowrap;padding-left:0in;vertical-align:bottom;padding-bottom:0in;padding-right:0.01in;text-align:left;\"><p style=\"font-size:10pt;margin-top:0;font-family:Times New Roman;margin-bottom:0;text-align:left;\"><span style=\"font-kerning:none;min-width:fit-content;\"> </span></p></td>\n    </tr>\n    ",
+    "statementText": "Three Months Ended March 31, (In thousands, except per share data) 2026 2025 Revenue from operations $ 1,334,696 $ 1,374,858 Operating expenses: Salaries, wages and benefits 638,295 658,085 Operating supplies and expenses 146,718 149,892 General supplies and expenses 47,069 39,880 Operating taxes and licenses 33,029 35,603 Insurance and claims 17,706 17,480 Communications and utilities 9,622 10,803 Depreciation and amortization 92,307 89,132 Purchased transportation 27,762 27,663 Miscellaneous expenses, net 4,847 8,265 Total operating expenses 1,017,355 1,036,803 Operating income 317,341 338,055 Non-operating (income) expense: Interest expense 299 2 Interest income ( 2,280 ) ( 1,662 ) Other expense, net 1,644 1,071 Total non-operating income ( 337 ) ( 589 ) Income before income taxes 317,678 338,644 Provision for income taxes 79,420 83,984 Net income $ 238,258 $ 254,660 Earnings per share: Basic $ 1.14 $ 1.20 Diluted $ 1.14 $ 1.19 Weighted average shares outstanding: Basic 208,277 212,402 Diluted 209,317 213,484 Dividend declared per share $ 0.29 $ 0.28",
+    "contextHtml": "<xbrli:context id=\"C_55677512-9957-4f1c-bd35-6a9c80626ae9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000878927</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false
+  }
+}
