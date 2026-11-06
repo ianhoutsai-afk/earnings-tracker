@@ -1,0 +1,28 @@
+{
+  "ticker": "MSI",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000006/msiq42025pressrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000006/msiq42025pressrelease.htm",
+  "sourceSha256": "03c49405855e75da0ba58ae983da218e0ec8566e732db9b42943a53ea35f0b2e",
+  "sourceKind": "explicit_quarter_release_table",
+  "evidence": {
+    "value": 3380000000.0,
+    "rawValue": "3,380",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "statementHeading": "Consolidated Statements of Operations",
+    "statementText": "Three Months Ended December 31, 2025 December 31, 2024 Net sales from products $ 2,038 $ 1,815 Net sales from services 1,342 1,195 Net sales 3,380 3,010 Costs of products sales 828 733 Costs of services sales 784 729 Costs of sales 1,612 1,462 Gross margin 1,768 1,548 Selling, general and administrative expenses 499 487 Research and development expenditures 270 246 Other charges (37) (38) Intangibles amortization 92 39 Operating earnings 944 814 Other income (expense): Interest expense, net (110) (56) Other, net 27 29 Total other expense (83) (27) Net earnings before income taxes 861 787 Income tax expense 211 175 Net earnings 650 612 Less: Earnings attributable to noncontrolling interests 1 1 Net earnings attributable to Motorola Solutions, Inc. $ 649 $ 611 Earnings per common share: Basic $ 3.90 $ 3.66 Diluted $ 3.86 $ 3.56 Weighted average common shares outstanding: Basic 166.2 167.1 Diluted 168.1 171.4",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales | Net sales | Net sales | 3,380 | 3,380 |  |  |  |  | 3,010 | 3,010 | ",
+    "header": "Three Months Ended December 31, 2025 $ 1,342",
+    "unitCaption": "Consolidated Statements of Operations                Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    December 31, 2025 December 31, 2025 December 31, 2025    December 31, 2024 December 31, 2024 December 31, 2024 Net sales from products Net sales from products Net sales from products $ 2,038     $ 1,815  Net sales from services Net sales from services Net sales from services 1,342 1,342     1,195 1,195  (In millions, except per share amount) Consolidated Statements of Operations",
+    "tableIndex": 2,
+    "columnIndex": 3,
+    "signFromSplitParentheses": false,
+    "rowHtml": null
+  }
+}

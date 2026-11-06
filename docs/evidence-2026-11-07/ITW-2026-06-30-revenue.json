@@ -1,0 +1,32 @@
+{
+  "ticker": "ITW",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000049/itw-20260630.htm",
+  "sourceSha256": "ac13059b894a3f37f09c53bf4bdd9f4062c5be09afa4e8db938cb0b67ee6f858",
+  "evidence": {
+    "value": 4301000000.0,
+    "rawValue": "4301",
+    "scale": 6,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "iso4217:USD",
+    "contextId": "c-10",
+    "context": {
+      "entity": "0000049826",
+      "start": "2026-04-01",
+      "end": "2026-06-30"
+    },
+    "issuerName": "ILLINOIS TOOL WORKS INC",
+    "statementHeading": "Illinois Tool Works Inc. and Subsidiaries | Statement of Income (Unaudited)",
+    "rowLabel": "Operating Revenue",
+    "rowText": "Operating Revenue $ 4,301 $ 4,053 $ 8,317 $ 7,892",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:2.62pt 1pt 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Operating Revenue</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-10\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-52\">4,301</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-11\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-53\">4,053</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-54\">8,317</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 0 1.5pt 0;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-12\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-55\">7,892</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;border-top:0.5pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+    "statementText": "Three Months Ended Six Months Ended June 30, June 30, In millions except per share amounts 2026 2025 2026 2025 Operating Revenue $ 4,301 $ 4,053 $ 8,317 $ 7,892 Cost of revenue 2,403 2,271 4,659 4,432 Selling, administrative, and research and development expenses 735 693 1,457 1,399 Amortization and impairment of intangible assets 16 21 34 42 Operating Income 1,147 1,068 2,167 2,019 Interest expense ( 79 ) ( 74 ) ( 152 ) ( 142 ) Other income (expense) 12 4 32 16 Income Before Taxes 1,080 998 2,047 1,893 Income Taxes 265 243 464 438 Net Income $ 815 $ 755 $ 1,583 $ 1,455 Net Income Per Share: Basic $ 2.85 $ 2.58 $ 5.51 $ 4.97 Diluted $ 2.84 $ 2.58 $ 5.50 $ 4.95 Shares of Common Stock Outstanding During the Period: Average 286.4 292.3 287.3 292.9 Average assuming dilution 287.0 292.9 288.1 293.7",
+    "contextHtml": "<xbrli:context id=\"c-10\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000049826</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false
+  }
+}

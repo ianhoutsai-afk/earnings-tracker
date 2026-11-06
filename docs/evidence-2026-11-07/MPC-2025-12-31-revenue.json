@@ -1,0 +1,28 @@
+{
+  "ticker": "MPC",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "priorValue": null,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000003/mpcq42025earningsrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000003/mpc-20260203.htm",
+  "sourceSha256": "d526ae453fb08d751beaabe39668b8b4f9e54f559252aeb51b51d28b62eae1e7",
+  "sourceKind": "explicit_quarter_release_table",
+  "evidence": {
+    "value": 32574000000.0,
+    "rawValue": "32,574",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "statementHeading": "Consolidated Statements of Income (unaudited)",
+    "statementText": "Three Months Ended December 31, Twelve Months Ended December 31, (In millions, except per-share data) 2025 2024 2025 2024 Revenues and other income: Sales and other operating revenues $ 32,574 $ 33,137 $ 132,699 $ 138,864 Income from equity method investments 204 252 1,622 1,048 Net gain on disposal of assets 169 11 173 28 Other income 475 66 728 472 Total revenues and other income 33,422 33,466 135,222 140,412 Costs and expenses: Cost of revenues (excludes items below) 28,861 30,558 119,446 126,240 Depreciation and amortization 828 826 3,251 3,337 Selling, general and administrative expenses 836 804 3,349 3,221 Other taxes 203 137 885 818 Total costs and expenses 30,728 32,325 126,931 133,616 Income from operations 2,694 1,141 8,291 6,796 Net interest and other financial costs 343 245 1,276 839 Income before income taxes 2,351 896 7,015 5,957 Provision for income taxes 372 111 1,137 890 Net income 1,979 785 5,878 5,067 Less net income attributable to: Redeemable noncontrolling interest — 6 — 27 Noncontrolling interests 444 408 1,831 1,595 Net income attributable to MPC $ 1,535 $ 371 $ 4,047 $ 3,445 Per share data Basic: Net income attributable to MPC per share $ 5.13 $ 1.16 $ 13.24 $ 10.11 Weighted average shares outstanding (in millions) 299 320 305 340 Diluted: Net income attributable to MPC per share $ 5.12 $ 1.15 $ 13.22 $ 10.08 Weighted average shares outstanding (in millions) 300 321 306 341",
+    "rowLabel": "Sales and other operating revenues",
+    "rowText": "Sales and other operating revenues | Sales and other operating revenues | Sales and other operating revenues | $ | $ | $ | 32,574 | 32,574 |  |  |  |  | $ | $ | $ | 33,137 | 33,137 |  |  |  |  | $ | $ | $ | 132,699 | 132,699 |  |  |  |  | $ | $ | $ | 138,864 | 138,864 | ",
+    "header": "Three Months Ended December 31, 2025",
+    "unitCaption": "Consolidated Statements of Income (unaudited)                                           Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31, Three Months Ended December 31,       Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, Twelve Months Ended December 31, (In millions, except per-share data) (In millions, except per-share data) (In millions, except per-share data)    2025 2025 2025       2024 2024 2024       2025 2025 2025       2024 2024 2024 Revenues and other income: Revenues and other income: Revenues and other income:                                  Consolidated Statements of Income (unaudited)",
+    "tableIndex": 3,
+    "columnIndex": 6,
+    "signFromSplitParentheses": false,
+    "rowHtml": null
+  }
+}
