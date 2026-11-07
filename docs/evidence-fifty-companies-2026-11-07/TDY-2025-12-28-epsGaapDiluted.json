@@ -1,0 +1,30 @@
+{
+  "ticker": "TDY",
+  "periodEnd": "2025-12-28",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 5.84,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1094285/000109428526000008/q4-2025earningsrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1094285/000109428526000008/q4-2025earningsrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 5.84,
+    "rawValue": "$5.84",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1094285,
+    "rowLabel": "Explicit GAAP diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-01-21",
+      "periodEnd": "2025-12-28",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "• Fourth quarter GAAP diluted earnings per share of $5.84",
+    "matchedText": "GAAP diluted earnings per share of $5.84",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "6fef56cb86718aea356ecf80d29676418975d4623c4151b31f879ac69e30370d"
+  }
+}

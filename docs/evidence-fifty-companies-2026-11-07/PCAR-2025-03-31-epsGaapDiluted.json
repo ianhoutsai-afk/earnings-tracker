@@ -1,0 +1,37 @@
+{
+  "ticker": "PCAR",
+  "periodEnd": "2025-03-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.96,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000095017025061813/pcar-20250331.htm",
+  "evidence": {
+    "contextId": "C_b01675dc-4c8e-4d85-9fed-164d9682182c",
+    "unitId": "U_UnitedStatesOfAmericaDollarsShare",
+    "rawValue": ".96",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted $ .96 $ 2.27",
+    "sourceSha256": "4d4e9feb261a9d1f32be98c2bf827db45609e1b0ea50c93d784ffb695d52bf83",
+    "entity": 75362,
+    "start": "2025-01-01",
+    "end": "2025-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000075362.json",
+    "companyfactsSha256": "175b5d91142bbefcd93dde4e72eba7c09cad99aaadb2fdce31da70a4a91b87f0",
+    "companyfactsFact": {
+      "start": "2025-01-01",
+      "end": "2025-03-31",
+      "val": 0.96,
+      "accn": "0000950170-25-061813",
+      "fy": 2025,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2025-05-01"
+    },
+    "filingReportDate": "2025-03-31",
+    "value": 0.96
+  }
+}

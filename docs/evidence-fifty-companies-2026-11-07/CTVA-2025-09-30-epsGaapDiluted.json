@@ -1,0 +1,38 @@
+{
+  "ticker": "CTVA",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": -0.47,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000022/ctva-20250930.htm",
+  "evidence": {
+    "contextId": "c-12",
+    "unitId": "usdPerShare",
+    "rawValue": "0.47",
+    "scale": 0,
+    "sign": "-",
+    "rowText": "Diluted earnings (loss) per share of common stock $ ( 0.47 ) $ ( 0.76 ) $ 2.41 $ 1.35",
+    "sourceSha256": "46813796adb2a879870bb5316ad0ebd513eb78aa51054ca17bbf179752be621f",
+    "entity": 1755672,
+    "start": "2025-07-01",
+    "end": "2025-09-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001755672.json",
+    "companyfactsSha256": "ec6d194fdc705cdbe63c4e90f533ab90be465245882c73f449d2d89356d14d28",
+    "companyfactsFact": {
+      "start": "2025-07-01",
+      "end": "2025-09-30",
+      "val": -0.47,
+      "accn": "0001755672-25-000022",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-11-05",
+      "frame": "CY2025Q3"
+    },
+    "filingReportDate": "2025-09-30",
+    "value": -0.47
+  }
+}

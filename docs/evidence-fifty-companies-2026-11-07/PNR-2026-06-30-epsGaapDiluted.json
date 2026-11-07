@@ -1,0 +1,38 @@
+{
+  "ticker": "PNR",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "epsGaapDiluted",
+  "value": 0.8,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/77360/000007736026000045/pnr-20260630.htm",
+  "evidence": {
+    "contextId": "c-3",
+    "unitId": "usdPerShare",
+    "rawValue": "0.80",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted earnings per ordinary share $ 0.80 $ 0.90 $ 1.85 $ 1.83",
+    "sourceSha256": "15e8d80f04b603d1edccd1424f572936a320f51d31bb8e8bb19badf6ec075ffc",
+    "entity": 77360,
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000077360.json",
+    "companyfactsSha256": "718bdaaaa4dbb773f15f8beb0bbfb4ec85f7c58095a6688bb6ee80faa362dd5f",
+    "companyfactsFact": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "val": 0.8,
+      "accn": "0000077360-26-000045",
+      "fy": 2026,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2026-07-28",
+      "frame": "CY2026Q2"
+    },
+    "filingReportDate": "2026-06-30",
+    "value": 0.8
+  }
+}

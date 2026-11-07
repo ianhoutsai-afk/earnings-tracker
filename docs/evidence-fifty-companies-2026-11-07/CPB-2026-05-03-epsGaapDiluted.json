@@ -1,0 +1,38 @@
+{
+  "ticker": "CPB",
+  "periodEnd": "2026-05-03",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 0.41,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16732/000001673226000012/cpb-20260503.htm",
+  "evidence": {
+    "contextId": "c-3",
+    "unitId": "usdPerShare",
+    "rawValue": ".41",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Net earnings attributable to The Campbell's Company $ .41 $ .22 $ 1.55 $ 1.52",
+    "sourceSha256": "8c0fb64942c0a3a9734bf8f3990b1cd1355bf079a5b42cf77a7b134619829a6e",
+    "entity": 16732,
+    "start": "2026-02-02",
+    "end": "2026-05-03",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000016732.json",
+    "companyfactsSha256": "7fe30aa1d0907099e195b1a37f491261e5ed59d466e4174f53215b5f1c345bb4",
+    "companyfactsFact": {
+      "start": "2026-02-02",
+      "end": "2026-05-03",
+      "val": 0.41,
+      "accn": "0000016732-26-000012",
+      "fy": 2026,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2026-06-08",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-05-03",
+    "value": 0.41
+  }
+}

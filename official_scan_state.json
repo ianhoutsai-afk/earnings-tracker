@@ -8,11 +8,11 @@
   "pendingCompanies": 487,
   "officialQuarters": 2437,
   "fiveOfficialQuarterCompanies": 471,
-  "fiveCompleteMetricCompanies": 107,
+  "fiveCompleteMetricCompanies": 125,
   "sourceFailedCompanies": 0,
   "checkedAt": "2026-11-07T02:50:14.642332Z",
   "storedQuarters": 2514,
-  "completeMetricQuarters": 1799,
+  "completeMetricQuarters": 1842,
   "sourceHealthy": true,
   "historyComplete": false,
   "metricsComplete": false,
@@ -20,8 +20,8 @@
   "healthy": false,
   "dataStatus": "incomplete",
   "metricBackfill": {
-    "date": "2026-11-06",
-    "filledFields": 32,
-    "evidence": "docs/eps-section-backfill-2026-11-07.json"
+    "date": "2026-11-07",
+    "filledFields": 71,
+    "evidence": "docs/fifty-company-backfill-2026-11-07.json"
   }
 }

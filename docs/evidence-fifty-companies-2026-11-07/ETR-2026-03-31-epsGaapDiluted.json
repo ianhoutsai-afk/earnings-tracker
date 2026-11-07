@@ -1,0 +1,38 @@
+{
+  "ticker": "ETR",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.83,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/65984/000006598426000222/etr-20260331.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": "0.83",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted $ 0.83 $ 0.82",
+    "sourceSha256": "fa35485957abc45aba7278439c6814f1f0184c7cdaec841f78071abef757c5d6",
+    "entity": 65984,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000065984.json",
+    "companyfactsSha256": "3cdbcdab9c4a521e3553beabfe831051557f6e8d8ca564305e945f1a6da04a7c",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 0.83,
+      "accn": "0000065984-26-000222",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-05-01",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 0.83
+  }
+}

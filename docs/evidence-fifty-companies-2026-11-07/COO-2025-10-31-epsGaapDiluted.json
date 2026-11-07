@@ -1,0 +1,30 @@
+{
+  "ticker": "COO",
+  "periodEnd": "2025-10-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.43,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/711404/000162828025055405/cooperq42025pressrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/711404/000162828025055405/cooperq42025pressrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.43,
+    "rawValue": "$0.43",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 711404,
+    "rowLabel": "Explicit GAAP diluted EPS",
+    "releaseIdentity": {
+      "date": "2025-12-04",
+      "periodEnd": "2025-10-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "• Fourth quarter 2025 GAAP diluted earnings per share (EPS) of $0.43, down 27%. Fiscal 2025 GAAP diluted EPS of $1.87, down 4%.",
+    "matchedText": "Fourth quarter 2025 GAAP diluted earnings per share (EPS) of $0.43",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "095a54b77f3c0536c45ab33d44ff4b56afc338f40ee00623a56408ad9cfb6967"
+  }
+}

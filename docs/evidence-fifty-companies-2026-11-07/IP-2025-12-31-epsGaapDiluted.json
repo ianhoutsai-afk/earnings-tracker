@@ -1,0 +1,38 @@
+{
+  "ticker": "IP",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": -4.52,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000055/ip-20251231.htm",
+  "evidence": {
+    "contextId": "c-630",
+    "unitId": "usdPerShare",
+    "rawValue": "4.52",
+    "scale": 0,
+    "sign": "-",
+    "rowText": "Net earnings (loss) ( 0.24 ) 0.14 ( 2.09 ) ( 4.52 ) ( 6.95 )",
+    "sourceSha256": "09be318451a45ab6eb5cf2aba8569f89a4377e26bf07ad469cd1a76242cdbf37",
+    "entity": 51434,
+    "start": "2025-10-01",
+    "end": "2025-12-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051434.json",
+    "companyfactsSha256": "f275d7b0302d7945198de128259ac2c0b45ff963df0e1812bf79ff9295c7e083",
+    "companyfactsFact": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "val": -4.52,
+      "accn": "0000051434-26-000055",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-27",
+      "frame": "CY2025Q4"
+    },
+    "filingReportDate": "2025-12-31",
+    "value": -4.52
+  }
+}

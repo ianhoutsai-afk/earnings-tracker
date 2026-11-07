@@ -1,0 +1,38 @@
+{
+  "ticker": "SPG",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 9.35,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926019419/spg-20251231x10k.htm",
+  "evidence": {
+    "contextId": "Duration_10_1_2025_To_12_31_2025_31Bn3TmGKUW8kHnYgI9FoQ",
+    "unitId": "Unit_Divide_USD_shares_DiJt7NMYUEG77bn3Np-XHQ",
+    "rawValue": "9.35",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Net income per share — Basic and Diluted ​ $ 1.27 ​ $ 1.70 ​ $ 1.86 ​ $ 9.35 ​",
+    "sourceSha256": "a77612988ca756627c2a070e7c5777c12e905110167dc869392695c1ea32a6fc",
+    "entity": 1063761,
+    "start": "2025-10-01",
+    "end": "2025-12-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001063761.json",
+    "companyfactsSha256": "e4f43ff40c09100b97b57f7e57333907aa651008b58f29cac0aec34f8bff1dbe",
+    "companyfactsFact": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "val": 9.35,
+      "accn": "0001104659-26-019419",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "frame": "CY2025Q4"
+    },
+    "filingReportDate": "2025-12-31",
+    "value": 9.35
+  }
+}

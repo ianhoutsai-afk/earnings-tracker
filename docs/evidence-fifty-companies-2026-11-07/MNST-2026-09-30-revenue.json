@@ -1,0 +1,37 @@
+{
+  "ticker": "MNST",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 2563053000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/mnst-20260930x10q.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 2563053000,
+    "rawValue": "2563053",
+    "scale": 3,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "USD",
+    "contextId": "Duration_7_1_2026_To_9_30_2026_lnUOVORseEKJ95BYXDOTIg",
+    "context": {
+      "entity": "0000865752",
+      "start": "2026-07-01",
+      "end": "2026-09-30"
+    },
+    "issuerName": "Monster Beverage Corp",
+    "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+    "rowLabel": "NET SALES",
+    "rowText": "NET SALES $ 2,563,053 $ 2,197,139 $ 7,453,817 $ 6,163,290",
+    "rowHtml": "<tr style=\"height:10.59pt;\"><td style=\"vertical-align:bottom;width:300pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;padding-left:7.2pt;text-indent:-7.2pt;margin:0pt;\">NET SALES</p></td><td style=\"vertical-align:top;white-space:nowrap;width:9.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:10pt;margin:0pt;\"><span style=\"font-size:9pt;visibility:hidden;\">​</span></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:6.05pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;margin:0pt;\">$</p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:44.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;text-align:right;margin:0pt 3pt 0pt 0pt;\"> <ix:nonfraction unitref=\"Unit_Standard_USD_ctlqb4gQ8ESfOj445xmqHA\" contextref=\"Duration_7_1_2026_To_9_30_2026_lnUOVORseEKJ95BYXDOTIg\" decimals=\"-3\" format=\"ixt:num-dot-decimal\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" scale=\"3\" id=\"Tc_8YBaKyxtKEOpw-iBQoqf1A_4_3\">2,563,053</ix:nonfraction></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:9.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:10pt;margin:0pt;\"><span style=\"font-size:9pt;visibility:hidden;\">​</span></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:6.05pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;margin:0pt;\">$</p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:44.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;text-align:right;margin:0pt 3pt 0pt 0pt;\"> <ix:nonfraction unitref=\"Unit_Standard_USD_ctlqb4gQ8ESfOj445xmqHA\" contextref=\"Duration_7_1_2025_To_9_30_2025_NucIUX0aa0WH64cdUqt-DA\" decimals=\"-3\" format=\"ixt:num-dot-decimal\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" scale=\"3\" id=\"Tc__pDLegq19kmwzWwLLOHZDA_4_6\">2,197,139</ix:nonfraction></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:9.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:10pt;margin:0pt;\"><span style=\"font-size:9pt;visibility:hidden;\">​</span></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:6.05pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;margin:0pt;\">$</p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:44.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;text-align:right;margin:0pt 3pt 0pt 0pt;\"> <ix:nonfraction unitref=\"Unit_Standard_USD_ctlqb4gQ8ESfOj445xmqHA\" contextref=\"Duration_1_1_2026_To_9_30_2026__m-_9WXmk0itayLGsXYckA\" decimals=\"-3\" format=\"ixt:num-dot-decimal\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" scale=\"3\" id=\"Tc_ba17p-rZvkKtHu8nLbVwmA_4_9\">7,453,817</ix:nonfraction></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:9.5pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:10pt;margin:0pt;\"><span style=\"font-size:9pt;visibility:hidden;\">​</span></p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:6.05pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;margin:0pt;\">$</p></td><td style=\"vertical-align:bottom;white-space:nowrap;width:44.3pt;background:#cceeff;margin:0pt;padding:0pt;\"><p style=\"font-family:'Times New Roman','Times','serif';font-size:9pt;text-align:right;margin:0pt 3pt 0pt 0pt;\"> <ix:nonfraction unitref=\"Unit_Standard_USD_ctlqb4gQ8ESfOj445xmqHA\" contextref=\"Duration_1_1_2025_To_9_30_2025_cbzlk0tpdkSCEmlwKp4VOA\" decimals=\"-3\" format=\"ixt:num-dot-decimal\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" scale=\"3\" id=\"Tc_kaClflIQx0WdIs9m33mpQg_4_12\">6,163,290</ix:nonfraction></p></td></tr>",
+    "statementText": "Three-Months Ended Nine-Months Ended September 30, September 30, 2026 2025 2026 2025 NET SALES $ 2,563,053 $ 2,197,139 $ 7,453,817 $ 6,163,290 COST OF SALES 1,162,318 972,653 3,340,099 2,714,428 GROSS PROFIT 1,400,735 1,224,486 4,113,718 3,448,862 OPERATING EXPENSES 682,018 549,134 1,924,600 1,572,142 OPERATING INCOME 718,717 675,352 2,189,118 1,876,720 INTEREST and OTHER INCOME, net 34,779 14,185 82,776 37,522 INCOME BEFORE PROVISION FOR INCOME TAXES 753,496 689,537 2,271,894 1,914,242 PROVISION FOR INCOME TAXES 185,069 165,082 549,442 458,000 NET INCOME $ 568,427 $ 524,455 $ 1,722,452 $ 1,456,242 NET INCOME PER COMMON SHARE 1 : Basic $ 0.29 $ 0.27 $ 0.88 $ 0.75 Diluted $ 0.29 $ 0.27 $ 0.87 $ 0.74 WEIGHTED AVERAGE NUMBER OF SHARES OF COMMON STOCK AND COMMON STOCK EQUIVALENTS 1 : Basic 1,958,641 1,953,217 1,957,535 1,950,675 Diluted 1,980,113 1,969,933 1,978,204 1,967,064",
+    "contextHtml": "<xbrli:context id=\"Duration_7_1_2026_To_9_30_2026_lnUOVORseEKJ95BYXDOTIg\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000865752</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"Unit_Standard_USD_ctlqb4gQ8ESfOj445xmqHA\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false,
+    "sourceSha256": "cfa9ef5a1ec35c6c2d9e735215fa37b37e622d844c892463817ef9a2025a37b8",
+    "entity": 865752,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "filingForm": "10-Q"
+  }
+}

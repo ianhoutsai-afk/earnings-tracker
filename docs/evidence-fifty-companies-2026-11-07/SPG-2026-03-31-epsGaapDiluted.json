@@ -1,0 +1,38 @@
+{
+  "ticker": "SPG",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 1.48,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926058640/spg-20260331x10q.htm",
+  "evidence": {
+    "contextId": "Duration_1_1_2026_To_3_31_2026_iQMSkAsBGUimqXx2KYOjvw",
+    "unitId": "Unit_Divide_USD_shares_7lYDRPgu-Uq2kKYxEMcwLg",
+    "rawValue": "1.48",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Net income attributable to common stockholders ​ $ 1.48 ​ $ 1.27",
+    "sourceSha256": "c0bac6885e66435489ff50b30f4a6fd19bac2b4e278bd7b1b7b3d9b259903458",
+    "entity": 1063761,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001063761.json",
+    "companyfactsSha256": "e4f43ff40c09100b97b57f7e57333907aa651008b58f29cac0aec34f8bff1dbe",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 1.48,
+      "accn": "0001104659-26-058640",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-05-11",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 1.48
+  }
+}

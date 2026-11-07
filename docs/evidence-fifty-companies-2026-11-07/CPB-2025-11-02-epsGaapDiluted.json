@@ -1,0 +1,38 @@
+{
+  "ticker": "CPB",
+  "periodEnd": "2025-11-02",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.65,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16732/000001673225000126/cpb-20251102.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": ".65",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Net earnings attributable to The Campbell's Company $ .65 $ .72",
+    "sourceSha256": "d178423a9b9d8531b53a1a337c29d199b0bc1398f402ebdd562182b0ecd7d49e",
+    "entity": 16732,
+    "start": "2025-08-04",
+    "end": "2025-11-02",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000016732.json",
+    "companyfactsSha256": "7fe30aa1d0907099e195b1a37f491261e5ed59d466e4174f53215b5f1c345bb4",
+    "companyfactsFact": {
+      "start": "2025-08-04",
+      "end": "2025-11-02",
+      "val": 0.65,
+      "accn": "0000016732-25-000126",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2025-12-09",
+      "frame": "CY2025Q3"
+    },
+    "filingReportDate": "2025-11-02",
+    "value": 0.65
+  }
+}

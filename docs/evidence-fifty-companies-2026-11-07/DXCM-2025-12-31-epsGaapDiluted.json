@@ -1,0 +1,30 @@
+{
+  "ticker": "DXCM",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.68,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000025/dxcm12312025-exhibit991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000025/dxcm12312025-exhibit991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.68,
+    "rawValue": "$0.68",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1093557,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-02-12",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net Income and Diluted Net Income Per Share: GAAP net income was $267.3 million, or $0.68 per diluted share, for the fourth quarter of 2025, compared to GAAP net income of $151.7 million, or $0.38 per diluted share, for the fourth quarter of 2024.",
+    "matchedText": "GAAP net income was $267.3 million, or $0.68 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "66fd67fbce2b2f7f6b221441e64aa33df02abd6e0304050a807dfc6a25c7dda9"
+  }
+}

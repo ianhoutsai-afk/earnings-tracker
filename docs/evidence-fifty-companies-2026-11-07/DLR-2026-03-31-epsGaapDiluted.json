@@ -1,0 +1,38 @@
+{
+  "ticker": "DLR",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.46,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926054255/dlr-20260331x10q.htm",
+  "evidence": {
+    "contextId": "Duration_1_1_2026_To_3_31_2026_9xIReM_ockKQK47xsi8sYQ",
+    "unitId": "Unit_Divide_USD_shares_Ud_liPOAmEGdB4du4DgD3A",
+    "rawValue": "0.46",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted ​ $ 0.46 ​ $ 0.27",
+    "sourceSha256": "b6b8baf5d9f0177910c10b308ab4df6b4f261d7c1813547539f60b4556be63a2",
+    "entity": 1297996,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001297996.json",
+    "companyfactsSha256": "838cdf3278a14084e7da17fa62a306c49787118f1f9b53dc5b73c10db992c531",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 0.46,
+      "accn": "0001104659-26-054255",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-05-01",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 0.46
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ticker": "REG",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 0.41,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312526450159/reg-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312526450159/reg-ex99_1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.41,
+    "rawValue": "$0.41",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 910606,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-11-05",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "For the three months ended September 30, 2026, Net Income Attributable to Common Shareholders was $75.1 million, or $0.41 per diluted share, compared to Net Income Attributable to Common Shareholders of $106.0 million, or $0.58 per diluted share, for the same period in 2025. Net Income in the third quarter of 2026 includes provisions for impairment of $65.1 million, or $0.35 per diluted share, and gains on sale of real estate of $23.8 million, or $0.13 per diluted share.",
+    "matchedText": "Net Income Attributable to Common Shareholders was $75.1 million, or $0.41 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "4a43d7da2a18e0bf11f5ac5893e022892cd712e925f977a7305aa62b786179af"
+  }
+}
