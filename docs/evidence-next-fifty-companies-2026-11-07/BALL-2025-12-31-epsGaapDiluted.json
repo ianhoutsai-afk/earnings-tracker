@@ -1,0 +1,50 @@
+{
+  "ticker": "BALL",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.75,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/9389/000000938926000039/ball-20260203xex99.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/9389/000000938926000039/ball-20260203xex99.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.75,
+    "rawValue": "0.75",
+    "signedRawValue": "0.75",
+    "scale": 0,
+    "signFromSplitParentheses": false,
+    "unitMeasure": "USD/shares",
+    "entity": 9389,
+    "rowLabel": "Total diluted earnings per share",
+    "rowCells": [
+      "Total diluted earnings per share",
+      "",
+      "$",
+      "0.75",
+      "",
+      "$",
+      "(0.11)",
+      "",
+      "$",
+      "3.30",
+      "",
+      "$",
+      "13.00"
+    ],
+    "columnIndex": 3,
+    "sectionRows": null,
+    "header": "Three Months Ended December 31, 2025 3,347 (2,699) (159) (150) (12) 10 (78) (19) 240 (50) 7 197 3 200 — 0.74 0.01 0.75",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Unaudited Condensed Consolidated Statements of Earnings",
+    "releaseIdentity": {
+      "date": "2026-02-03",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "tableExcerpt": "Earnings per share: Basic - continuing operations $ 0.74 $ (0.01) $ 3.33 $ 1.39 Basic - discontinued operations 0.01 (0.10) — 11.73 Total basic earnings per share $ 0.75 $ (0.11) $ 3.33 $ 13.12  Diluted - continuing operations $ 0.74 $ (0.01) $ 3.30 $ 1.37 Diluted - discontinued operations 0.01 (0.10) — 11.63 Total diluted earnings per share $ 0.75 $ (0.11) $ 3.30 $ 13.00  Weighted average shares outstanding (000s):",
+    "sourceSha256": "35b57e3287dccbbc2e2ecbfc73f93ae44e6f91d2419cb0a4687e3db1e850fd6a",
+    "reviewedQuarterLabel": "Total diluted earnings per share"
+  }
+}

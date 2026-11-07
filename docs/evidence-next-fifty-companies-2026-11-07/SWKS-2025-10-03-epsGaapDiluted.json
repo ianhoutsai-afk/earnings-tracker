@@ -1,0 +1,53 @@
+{
+  "ticker": "SWKS",
+  "periodEnd": "2025-10-03",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.07,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000110465925102814/tm2529602d1_ex99-1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/4127/000110465925102814/tm2529602d1_ex99-1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.07,
+    "rawValue": "1.07",
+    "scale": 0,
+    "signFromSplitParentheses": false,
+    "unitMeasure": "USD/shares",
+    "entity": 4127,
+    "rowLabel": "GAAP net income per share, diluted",
+    "rowCells": [
+      "GAAP net income per share, diluted",
+      "",
+      "$",
+      "1.07",
+      "",
+      "",
+      "$",
+      "0.37",
+      "",
+      "",
+      "$",
+      "3.20",
+      "",
+      "",
+      "$",
+      "3.69",
+      ""
+    ],
+    "columnIndex": 3,
+    "sectionRows": null,
+    "header": "Three Months Ended October 3, 2025",
+    "headerBasis": "explicit-date",
+    "statementHeading": null,
+    "unitCaption": "   Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended   Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended Twelve Months Ended    October 3, 2025 October 3, 2025   September 27, 2024 September 27, 2024   October 3, 2025 October 3, 2025   September 27, 2024 September 27, 2024 ",
+    "releaseIdentity": {
+      "date": "2025-10-28",
+      "periodEnd": "2025-10-03",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "tableExcerpt": "Three Months Ended Twelve Months Ended October 3, 2025 September 27, 2024 October 3, 2025 September 27, 2024 GAAP net income per share, diluted $ 1.07 $ 0.37 $ 3.20 $ 3.69 Share-based compensation expense [a] 0.43 0.24 1.50 1.12 Acquisition-related expenses 0.01 — 0.03 0.01 Amortization of acquisition-related intangibles 0.25 0.25 0.99 1.00 Settlements, gains, losses, and impairments (0.02 ) 0.82 (0.03 ) 0.87 Restructuring and other charges 0.19 0.02 0.55 0.09 Tax adjustments (0.17 ) (0.15 ) (0.31 ) (0.51 ) Non-GAAP net income per share, diluted $ 1.76 $ 1.55 $ 5.93 $ 6.27",
+    "sourceSha256": "0920088485b6aae3bb0d30c1558ea2d08b7437c9a428a920e317a5f2aa18f946"
+  }
+}

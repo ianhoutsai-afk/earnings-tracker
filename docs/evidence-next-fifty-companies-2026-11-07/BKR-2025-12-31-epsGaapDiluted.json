@@ -1,0 +1,49 @@
+{
+  "ticker": "BKR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.88,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000003/earningsreleaseex991123120.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000003/earningsreleaseex991123120.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.88,
+    "rawValue": "0.88",
+    "signedRawValue": "0.88",
+    "scale": 0,
+    "signFromSplitParentheses": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1701605,
+    "rowLabel": "Diluted income per Class A common share",
+    "rowCells": [
+      "Diluted income per Class A common share",
+      "Diluted income per Class A common share",
+      "Diluted income per Class A common share",
+      "$",
+      "0.88",
+      "",
+      "$",
+      "0.61",
+      "",
+      "$",
+      "1.18",
+      ""
+    ],
+    "columnIndex": 4,
+    "sectionRows": null,
+    "header": "Three Months Ended December 31, 2025 7,386 5,633 636 147 215 166 61 528 359 887 11 876 Per share amounts: 0.89",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Condensed Consolidated Statements of Income",
+    "releaseIdentity": {
+      "date": "2026-01-25",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "tableExcerpt": "Benefit (provision) for income taxes Benefit (provision) for income taxes Benefit (provision) for income taxes 359 359 (204) (204) 398 398 Net income Net income Net income 887 887 617 617 1,190 1,190 Less: Net income attributable to noncontrolling interests Less: Net income attributable to noncontrolling interests Less: Net income attributable to noncontrolling interests 11 11 8 8 11 11 Net income attributable to Baker Hughes Company Net income attributable to Baker Hughes Company Net income attributable to Baker Hughes Company $ 876 $ 609 $ 1,179  Per share amounts: Per share amounts: Per share amounts: Per share amounts: Per share amounts: Per share amounts: Basic income per Class A common share Basic income per Class A common share Basic income per Class A common share $ 0.89 $ 0.62 $ 1.19 Diluted income per Class A common share Diluted income per Class A common share Diluted income per Class A common share $ 0.88 $ 0.61 $ 1.18  Weighted average shares: Weighted average shares: Weighted average shares:",
+    "sourceSha256": "9753e9d978f19b326da78cfd3fdadb0b9735f6034400c2004ff902758584e443",
+    "reviewedQuarterLabel": "Diluted income per Class A common share"
+  }
+}
