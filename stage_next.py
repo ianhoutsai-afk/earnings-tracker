@@ -57,7 +57,7 @@ for item in items:
  e=item['evidence']
  ticker=item['ticker']
  source=urlparse(item['sourceUrl'])
- assert field in ('epsGaapDiluted','revenue') and row.get(field) is None
+ assert field in ('epsGaapDiluted','revenue') and row.get(field) is None,(ticker,item['periodEnd'],field,row.get(field))
  assert (row['fiscalYear'],row['fiscalQuarter'])==(item['fiscalYear'],item['fiscalQuarter'])
  assert mapping[ticker].get('tickerStatus') not in ('historical_alias','unconfirmed')
  assert source.scheme=='https' and source.hostname=='www.sec.gov' and not source.username and not source.password
