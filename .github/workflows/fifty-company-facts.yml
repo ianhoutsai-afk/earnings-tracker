@@ -1,0 +1,33 @@
+name: Verify direct SEC quarterly facts
+on:
+  push:
+    branches: [codex/verified-50-companies-20261107]
+    paths: ['collect_facts.py','.github/workflows/fifty-company-facts.yml']
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install lxml requests pandas yfinance
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: fifty-company-facts-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python collect_facts.py
+      - run: |
+          git add fact-candidates.json
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Checkpoint SEC quarterly fact evidence'
+          git push origin HEAD
