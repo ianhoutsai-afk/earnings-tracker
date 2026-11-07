@@ -1,0 +1,38 @@
+{
+  "ticker": "BX",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 0.83,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526451802/d179995d10q.htm",
+  "evidence": {
+    "contextId": "P07_01_2026To09_30_2026",
+    "unitId": "Unit_USD_per_Share",
+    "rawValue": "0.83",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted $ 0.83 $ 0.80 $ 3.19 $ 2.57",
+    "sourceSha256": "3d26225fa16e1d3274c5b35f40fdeb04f689af1e31e593548173046b53c383c1",
+    "entity": 1393818,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001393818.json",
+    "companyfactsSha256": "87c3e84295dba99c9f8893e09ebd76248bc15aa9692b23512b856cd07b848106",
+    "companyfactsFact": {
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "val": 0.83,
+      "accn": "0001193125-26-451802",
+      "fy": 2026,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2026-11-06",
+      "frame": "CY2026Q3"
+    },
+    "filingReportDate": "2026-09-30",
+    "value": 0.83
+  }
+}

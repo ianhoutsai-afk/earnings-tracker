@@ -1,0 +1,38 @@
+{
+  "ticker": "PSKY",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "epsGaapDiluted",
+  "value": 0.04,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000054/psky-20260630.htm",
+  "evidence": {
+    "contextId": "c-4",
+    "unitId": "usdPerShare",
+    "rawValue": ".04",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted net earnings per common share attributable to Parent $ .04 $ .08 $ .19 $ .31",
+    "sourceSha256": "ec35a628dad8152f4d68fa12d3a3ff900cde4fb16b21c92eec215870c06075cf",
+    "entity": 2041610,
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002041610.json",
+    "companyfactsSha256": "e922375a616b1df99624e5aa01e3143587f2ba5772debd8db8961231445bee12",
+    "companyfactsFact": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "val": 0.04,
+      "accn": "0002041610-26-000054",
+      "fy": 2026,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2026-08-04",
+      "frame": "CY2026Q2"
+    },
+    "filingReportDate": "2026-06-30",
+    "value": 0.04
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ticker": "ICE",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 3630000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000015/ice-20260930.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 3630000000,
+    "rawValue": "3630",
+    "scale": 6,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "USD",
+    "contextId": "c-20",
+    "context": {
+      "entity": "0001571949",
+      "start": "2026-07-01",
+      "end": "2026-09-30"
+    },
+    "issuerName": "Intercontinental Exchange, Inc.",
+    "statementHeading": "Consolidated Statements of Income",
+    "rowLabel": "Total revenues",
+    "rowText": "Total revenues 10,907 9,498 3,630 3,007",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#ffffff;padding:2.62pt 1pt 1.5pt 1pt;text-align:left;vertical-align:top\"><div style=\"padding-left:11.25pt;text-indent:-9pt\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:9pt;font-weight:400;line-height:100%\">Total revenues</span></div></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-153\">10,907</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-19\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-154\">9,498</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-20\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-155\">3,630</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td><td colspan=\"3\" style=\"background-color:#ffffff;padding:0 1pt\"></td><td colspan=\"2\" style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 0 1.5pt 1pt;text-align:right;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Arial',sans-serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-21\" decimals=\"-6\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"6\" id=\"f-156\">3,007</ix:nonfraction> </span></td><td style=\"background-color:#ffffff;border-top:1pt solid #000000;padding:2.62pt 1pt 1.5pt 0;text-align:right;vertical-align:bottom\"></td></tr>",
+    "statementText": "Nine Months Ended September 30, Three Months Ended September 30, 2026 2025 2026 2025 Revenues: Exchanges $ 7,286 $ 6,118 $ 2,407 $ 1,861 Fixed income and data services 1,976 1,811 674 618 Mortgage technology 1,645 1,569 549 528 Total revenues 10,907 9,498 3,630 3,007 Transaction-based expenses: Section 31 fees 571 412 283 — Cash liquidity payments, routing and clearing 1,928 1,659 582 596 Total revenues, less transaction-based expenses 8,408 7,427 2,765 2,411 Operating expenses: Compensation and benefits 1,540 1,463 526 483 Professional services 109 120 37 39 Acquisition-related transaction and integration costs 102 51 49 9 Technology and communication 725 647 245 219 Rent and occupancy 72 64 25 23 Selling, general and administrative 222 219 74 77 Depreciation and amortization 1,172 1,171 399 387 Total operating expenses 3,942 3,735 1,355 1,237 Operating income 4,466 3,692 1,410 1,174 Other income/(expense): Interest income 94 92 43 28 Interest expense ( 630 ) ( 599 ) ( 222 ) ( 192 ) Other income, net 496 95 11 71 Total other income/(expense), net ( 40 ) ( 412 ) ( 168 ) ( 93 ) Income before income tax expense 4,426 3,280 1,242 1,081 Income tax expense 1,063 772 286 250 Net income $ 3,363 $ 2,508 $ 956 $ 831 Net income attributable to non-controlling interests ( 52 ) ( 44 ) ( 16 ) ( 15 ) Net income attributable to Intercontinental Exchange, Inc. $ 3,311 $ 2,464 $ 940 $ 816 Earnings per share attributable to Intercontinental Exchange, Inc. common stockholders: Basic $ 5.87 $ 4.30 $ 1.68 $ 1.43 Diluted $ 5.85 $ 4.28 $ 1.67 $ 1.42 Weighted average common shares outstanding: Basic 564 573 561 572 Diluted 566 576 563 574",
+    "contextHtml": "<xbrli:context id=\"c-20\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001571949</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false,
+    "sourceSha256": "79642e1c9f9ad7ff52992827e36ba13722f15bd1943f53c66b6bcdec8d66cc68",
+    "entity": 1571949,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "filingForm": "10-Q"
+  }
+}

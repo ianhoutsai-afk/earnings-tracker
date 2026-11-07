@@ -1,0 +1,38 @@
+{
+  "ticker": "XEL",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.89,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000073/xel-20260331.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": "0.89",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted 0.89 0.84",
+    "sourceSha256": "d075b16715116b2e97d604d3c0690ad78216e35fa47f4283cc7d1fc81c49e8cd",
+    "entity": 72903,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000072903.json",
+    "companyfactsSha256": "485b042553a1813247b9ec918659b1138e814c97a6394fb89a581e22c6fe2799",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 0.89,
+      "accn": "0000072903-26-000073",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-04-30",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 0.89
+  }
+}

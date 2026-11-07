@@ -1,0 +1,38 @@
+{
+  "ticker": "PSKY",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.15,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000026/psky-20260331.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": ".15",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted net earnings per common share attributable to Parent $ .15 $ .22",
+    "sourceSha256": "8bd1b6f29f4c996cdfd048338f60907bf762a3dd1515d228b14e4a67bbed9977",
+    "entity": 2041610,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002041610.json",
+    "companyfactsSha256": "e922375a616b1df99624e5aa01e3143587f2ba5772debd8db8961231445bee12",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 0.15,
+      "accn": "0002041610-26-000026",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-05-04",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 0.15
+  }
+}

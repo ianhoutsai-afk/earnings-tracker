@@ -1,0 +1,38 @@
+{
+  "ticker": "TXT",
+  "periodEnd": "2025-09-27",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 1.31,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000044/txt-20261003.htm",
+  "evidence": {
+    "contextId": "c-16",
+    "unitId": "usdPerShare",
+    "rawValue": "1.31",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted $ 1.56 $ 1.31 $ 4.23 $ 3.79",
+    "sourceSha256": "68342232ae87c1df347b78307153a4ace5a79d7d5f4581dad4b86bd78c193b1e",
+    "entity": 217346,
+    "start": "2025-06-29",
+    "end": "2025-09-27",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000217346.json",
+    "companyfactsSha256": "00e3e23a2dcdf24f16701cef75d6bff63b120fc48bc0db447cf9c8d6d3b0a727",
+    "companyfactsFact": {
+      "start": "2025-06-29",
+      "end": "2025-09-27",
+      "val": 1.31,
+      "accn": "0000217346-26-000044",
+      "fy": 2026,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2026-10-29",
+      "frame": "CY2025Q3"
+    },
+    "filingReportDate": "2026-10-03",
+    "value": 1.31
+  }
+}

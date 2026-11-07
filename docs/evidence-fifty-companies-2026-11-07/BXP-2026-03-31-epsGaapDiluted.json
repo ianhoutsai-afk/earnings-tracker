@@ -1,0 +1,38 @@
+{
+  "ticker": "BXP",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 0.64,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000019/bxp-20260331.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": "0.64",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Net income $ 0.64 $ 0.39",
+    "sourceSha256": "c296c9fdb2e82ac8d12eaca195ea9256621165bb4a306162f6dd106b6c2992db",
+    "entity": 1037540,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001037540.json",
+    "companyfactsSha256": "3d37574f2cc838fdf137bd98d2ee7442126c345dd316659436f63a0c9431f1a2",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 0.64,
+      "accn": "0001037540-26-000019",
+      "fy": 2026,
+      "fp": "FY",
+      "form": "10-Q",
+      "filed": "2026-05-07",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 0.64
+  }
+}

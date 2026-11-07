@@ -1,0 +1,37 @@
+{
+  "ticker": "ES",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 2978890000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828026071541/es-20260930.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 2978890000,
+    "rawValue": "2978890",
+    "scale": 3,
+    "factTag": "us-gaap:Revenues",
+    "unitMeasure": "USD",
+    "contextId": "c-11",
+    "context": {
+      "entity": "0000072741",
+      "start": "2026-07-01",
+      "end": "2026-09-30"
+    },
+    "issuerName": "EVERSOURCE ENERGY",
+    "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+    "rowLabel": "Operating Revenues",
+    "rowText": "Operating Revenues $ 2,978,890 $ 3,220,625 $ 10,386,443 $ 10,177,048",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">Operating Revenues</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-11\" decimals=\"-3\" name=\"us-gaap:Revenues\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-169\">2,978,890</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-12\" decimals=\"-3\" name=\"us-gaap:Revenues\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-170\">3,220,625</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-1\" decimals=\"-3\" name=\"us-gaap:Revenues\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-171\">10,386,443</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:9pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-13\" decimals=\"-3\" name=\"us-gaap:Revenues\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-172\">10,177,048</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td></tr>",
+    "statementText": "For the Three Months Ended September 30, For the Nine Months Ended September 30, (Thousands of Dollars, Except Share Information) 2026 2025 2026 2025 Operating Revenues $ 2,978,890 $ 3,220,625 $ 10,386,443 $ 10,177,048 Operating Expenses: Purchased Power, Purchased Natural Gas and Transmission 1,103,471 1,049,254 3,561,159 3,208,337 Operations and Maintenance 504,653 518,341 1,492,073 1,473,349 Depreciation 381,676 395,388 1,226,072 1,160,563 Amortization ( 119,539 ) 108,246 238,903 672,798 Energy Efficiency Programs 188,991 173,104 653,722 565,945 Taxes Other Than Income Taxes 289,901 287,610 856,395 817,931 Sale of Aquarion — — 111,360 — Total Operating Expenses 2,349,153 2,531,943 8,139,684 7,898,923 Operating Income 629,737 688,682 2,246,759 2,278,125 Interest Expense 348,695 318,065 1,069,443 912,107 Losses on Offshore Wind — 284,000 194,000 284,000 Other Income, Net 117,256 85,830 362,446 273,536 Income Before Income Tax Expense 398,298 172,447 1,345,762 1,355,554 Income Tax Expense/(Benefit) 50,404 ( 196,982 ) 333,587 78,849 Net Income 347,894 369,429 1,012,175 1,276,705 Net Income Attributable to Noncontrolling Interests 1,880 1,880 5,639 5,639 Net Income Attributable to Common Shareholders $ 346,014 $ 367,549 $ 1,006,536 $ 1,271,066 Basic and Diluted Earnings Per Common Share $ 0.92 $ 0.99 $ 2.67 $ 3.44 Weighted Average Common Shares Outstanding: Basic 377,055,832 371,914,953 376,523,310 369,299,065 Diluted 377,658,965 372,262,732 377,080,488 369,619,180",
+    "contextHtml": "<xbrli:context id=\"c-11\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000072741</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": true,
+    "sourceSha256": "88f4f63459e2b3ce2cebc08814d8058dd3f9573c6d5ef873fe65f6234395bf1f",
+    "entity": 72741,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "filingForm": "10-Q"
+  }
+}

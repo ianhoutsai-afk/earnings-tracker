@@ -1,0 +1,30 @@
+{
+  "ticker": "TRV",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 11.06,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000008/a991pressrelease123125.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000008/a991pressrelease123125.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 11.06,
+    "rawValue": "$11.06",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 86312,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-01-21",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "New York, January 21, 2026 — The Travelers Companies, Inc. today reported net income of $2.496 billion, or $11.06 per diluted share, for the quarter ended December 31, 2025, compared to $2.082 billion, or $8.96 per diluted share, in the prior year quarter. Core income in the current quarter was $2.511 billion, or $11.13 per diluted share, compared to $2.126 billion, or $9.15 per diluted share, in the prior year quarter. Core income increased primarily due to a higher underlying underwriting gain (i.e., excluding net prior year reserve development and catastrophe losses), higher net investment income, lower catastrophe losses and higher net favorable prior year reserve development. Net realized investment losses in the current quarter were $20 million pre-tax ($15 million after-tax), compared to $55 million pre-tax ($44 million after-tax) in the prior year quarter. Per diluted share amounts benefited from the impact of share repurchases.",
+    "matchedText": "net income of $2.496 billion, or $11.06 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "1c7e5fdfc9994326aa5842d7aac8b015f7c7c07f5c841d2da5fdc29bc2c23a6d"
+  }
+}

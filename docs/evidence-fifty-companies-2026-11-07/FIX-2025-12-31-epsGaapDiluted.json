@@ -1,0 +1,30 @@
+{
+  "ticker": "FIX",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 9.37,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035983/000110465926017529/fix-20260219xex99d1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1035983/000110465926017529/fix-20260219xex99d1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 9.37,
+    "rawValue": "$9.37",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1035983,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-02-19",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "For the quarter ended December 31, 2025, net income was $330.8 million, or $9.37 per diluted share, as compared to $145.9 million, or $4.09 per diluted share, for the quarter ended December 31, 2024. Revenue for the fourth quarter of 2025 was $2.65 billion compared to $1.87 billion in 2024. The Company reported operating cash flow of $468.5 million in the current quarter compared to $210.5 million in 2024.",
+    "matchedText": "net income was $330.8 million, or $9.37 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "184924a52d7444eaff46a8241939239071ad05583a370a8f1219eb7c7eb01a7b"
+  }
+}

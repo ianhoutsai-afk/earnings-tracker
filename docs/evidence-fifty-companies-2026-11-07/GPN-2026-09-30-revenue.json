@@ -1,0 +1,37 @@
+{
+  "ticker": "GPN",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 3306284000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1123360/000112336026000093/gpn-20260930.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 3306284000,
+    "rawValue": "3306284",
+    "scale": 3,
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "unitMeasure": "USD",
+    "contextId": "c-5",
+    "context": {
+      "entity": "0001123360",
+      "start": "2026-07-01",
+      "end": "2026-09-30"
+    },
+    "issuerName": "GLOBAL PAYMENTS INC",
+    "statementHeading": "UNAUDITED CONSOLIDATED STATEMENTS OF INCOME",
+    "rowLabel": "Revenues",
+    "rowText": "Revenues $ 3,306,284 $ 2,019,509",
+    "rowHtml": "<tr><td colspan=\"3\" style=\"background-color:#cceeff;padding:1.5pt 1pt;text-align:left;vertical-align:bottom\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">Revenues</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-5\" decimals=\"-3\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-33\">3,306,284</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td><td colspan=\"3\" style=\"background-color:#cceeff;padding:0 1pt\"></td><td style=\"background-color:#cceeff;padding:1.5pt 0 1.5pt 1pt;text-align:left;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\">$</span></td><td style=\"background-color:#cceeff;padding:1.5pt 0;text-align:right;vertical-align:middle\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:100%\"><ix:nonfraction unitref=\"usd\" contextref=\"c-6\" decimals=\"-3\" name=\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\" format=\"ixt:num-dot-decimal\" scale=\"3\" id=\"f-34\">2,019,509</ix:nonfraction> </span></td><td style=\"background-color:#cceeff;padding:1.5pt 1pt 1.5pt 0;text-align:right;vertical-align:middle\"></td></tr>",
+    "statementText": "Three Months Ended September 30, 2026 September 30, 2025 Revenues $ 3,306,284 $ 2,019,509 Operating expenses: Cost of service 1,296,701 559,090 Selling, general and administrative 1,763,352 1,030,282 Gain on business disposition — ( 343,891 ) 3,060,053 1,245,481 Operating income 246,231 774,028 Interest and other income 34,061 21,469 Interest and other expense ( 276,229 ) ( 144,062 ) ( 242,168 ) ( 122,593 ) Income from continuing operations before income taxes and equity in income of equity method investments 4,063 651,435 Income tax expense (benefit) ( 66,749 ) 199,535 Income from continuing operations before equity in income of equity method investments 70,812 451,900 Equity in income of equity method investments, net of tax 17,580 16,874 Income from continuing operations 88,392 468,774 Income from discontinued operations, net of tax 201,804 191,821 Net income 290,196 660,595 Net income attributable to noncontrolling interests ( 9,308 ) ( 25,386 ) Net income attributable to Global Payments $ 280,888 $ 635,209 Basic earnings per share attributable to Global Payments: Continuing operations $ 0.30 $ 1.85 Discontinued operations 0.76 0.80 Total basic earnings per share attributable to Global Payments $ 1.06 $ 2.65 Diluted earnings per share attributable to Global Payments: Continuing operations $ 0.30 $ 1.85 Discontinued operations 0.76 0.79 Total diluted earnings per share attributable to Global Payments $ 1.06 $ 2.64",
+    "contextHtml": "<xbrli:context id=\"c-5\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001123360</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "hasNoncontractFacts": false,
+    "sourceSha256": "4e8971d29a53edb2e3f70b2eef0a5a51a54108672c8346bb4c501e12149ce866",
+    "entity": 1123360,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "filingForm": "10-Q"
+  }
+}

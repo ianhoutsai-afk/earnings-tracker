@@ -1,0 +1,30 @@
+{
+  "ticker": "ZTS",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.37,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000008/exhibit9912-31x25q4.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000008/exhibit9912-31x25q4.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.37,
+    "rawValue": "$1.37",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1555280,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-02-12",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "• Reports Revenue of $2.4 Billion, Growing 3%, and Net Income of $603 Million, or $1.37 per Diluted Share, Increasing 4% and 6%, Respectively, on a Reported Basis for Fourth Quarter 2025",
+    "matchedText": "Net Income of $603 Million, or $1.37 per Diluted Share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "64958f893397d8ed4e26daf8a190eacefa6e1308e1d6e7da9155441db1b18b67"
+  }
+}

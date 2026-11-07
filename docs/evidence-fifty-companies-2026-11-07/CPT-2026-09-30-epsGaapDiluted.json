@@ -1,0 +1,38 @@
+{
+  "ticker": "CPT",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 8.71,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828026071470/cpt-20260930.htm",
+  "evidence": {
+    "contextId": "c-5",
+    "unitId": "usdPerShare",
+    "rawValue": "8.71",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Earnings per share – diluted 8.71 1.00 9.26 2.10",
+    "sourceSha256": "b1ce4d8fce94f297801198fb732a4e6bdb04e383653dd8837ef6a4957faa02e5",
+    "entity": 906345,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000906345.json",
+    "companyfactsSha256": "daef56baaa796edced2688d492d51f9155484332e8b334e0dc91bbe80e420e87",
+    "companyfactsFact": {
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "val": 8.71,
+      "accn": "0001628280-26-071470",
+      "fy": 2026,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2026-11-06",
+      "frame": "CY2026Q3"
+    },
+    "filingReportDate": "2026-09-30",
+    "value": 8.71
+  }
+}

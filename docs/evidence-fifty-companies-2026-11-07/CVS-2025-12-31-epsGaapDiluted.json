@@ -1,0 +1,30 @@
+{
+  "ticker": "CVS",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 2.3,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000009/cvs_ex99x1q4-25.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000009/cvs_ex99x1q4-25.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 2.3,
+    "rawValue": "$2.30",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 64803,
+    "rowLabel": "Explicit GAAP diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-02-10",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter GAAP diluted EPS of $2.30 increased from $1.30 in the prior year. Adjusted EPS of $1.09 decreased from $1.19 in the prior year, primarily due to a decline in adjusted operating income in the Health Care Benefits segment, reflecting changes in the seasonality of the Medicare Part D program due to the impact of the Inflation Reduction Act (“IRA”).",
+    "matchedText": "GAAP diluted EPS of $2.30",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "cbdb95fc1ea6649331f1df7b0d12f94fc5dbedd9146c0b945ae88e2d5735415f"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ticker": "HON",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "epsGaapDiluted",
+  "value": 17.83,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
+  "evidence": {
+    "contextId": "c-17",
+    "unitId": "usdPerShare",
+    "rawValue": "17.83",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Total earnings per share of common stock—assuming dilution 1 $ 17.83 $ 4.90 $ 20.39 $ 9.34",
+    "sourceSha256": "51aafe23487107209c069cc883e579e7b676f6d407a77f79793e1a5d48f3a1de",
+    "entity": 773840,
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000773840.json",
+    "companyfactsSha256": "ef98dc309c39aebcf0b47b11a618b20d812b226b0c709bc4ef7f838e803aab68",
+    "companyfactsFact": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "val": 17.83,
+      "accn": "0000773840-26-000124",
+      "fy": 2026,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2026-07-23",
+      "frame": "CY2026Q2"
+    },
+    "filingReportDate": "2026-06-30",
+    "value": 17.83
+  }
+}

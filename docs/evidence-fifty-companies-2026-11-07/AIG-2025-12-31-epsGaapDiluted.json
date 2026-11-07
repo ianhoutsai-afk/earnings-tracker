@@ -1,0 +1,30 @@
+{
+  "ticker": "AIG",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.35,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000014/q42025earningsrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000014/q42025earningsrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.35,
+    "rawValue": "$1.35",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 5272,
+    "rowLabel": "Net result per diluted share",
+    "releaseIdentity": {
+      "date": "2026-02-10",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "For the fourth quarter of 2025, net income attributable to AIG common shareholders was $735 million, or $1.35 per diluted common share, compared to net income of $898 million, or $1.43 per diluted common share, in the prior year quarter. The year-over-year decrease was primarily a result of a change in unrealized losses related to AIG’s ownership interest in Corebridge Financial, Inc. (Corebridge) and a gain from the divestiture of the global personal travel business in the prior year, partially offset by higher underwriting income and net investment income in General Insurance and tax benefit as a result of a one-time release of deferred income tax valuation allowance.",
+    "matchedText": "net income attributable to AIG common shareholders was $735 million, or $1.35 per diluted common share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "sourceSha256": "c388267f4f9b744d188555d7632eafe4f79b5070d76e529b2767d9f4c8fb14bf"
+  }
+}

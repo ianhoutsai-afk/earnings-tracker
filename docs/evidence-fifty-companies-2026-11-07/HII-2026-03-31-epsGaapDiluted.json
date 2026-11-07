@@ -1,0 +1,38 @@
+{
+  "ticker": "HII",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 3.79,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000029/hii-20260331.htm",
+  "evidence": {
+    "contextId": "c-1",
+    "unitId": "usdPerShare",
+    "rawValue": "3.79",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted earnings per share $ 3.79 $ 3.79",
+    "sourceSha256": "a391d874bff116c54cc21433409e69731497c034a3885855e3983723d0cebcc6",
+    "entity": 1501585,
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001501585.json",
+    "companyfactsSha256": "09121cdf98f002a6e7d6a9049eb5f8061e5b0ec5e16e158c89eea09f193738f8",
+    "companyfactsFact": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "val": 3.79,
+      "accn": "0001501585-26-000029",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-05-05",
+      "frame": "CY2026Q1"
+    },
+    "filingReportDate": "2026-03-31",
+    "value": 3.79
+  }
+}

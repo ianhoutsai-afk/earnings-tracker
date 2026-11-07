@@ -1,0 +1,37 @@
+{
+  "ticker": "CTVA",
+  "periodEnd": "2025-06-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 6456000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000017/ctva-20250630.htm",
+  "evidence": {
+    "contextId": "c-12",
+    "unitId": "usd",
+    "rawValue": "6456",
+    "scale": 6,
+    "sign": null,
+    "rowText": "Net sales $ 6,456 $ 6,112 $ 10,873 $ 10,604",
+    "sourceSha256": "2e87f646c4d9b88f0cfdf3a13bfd1cde031e5e57d4137eb65aeb6387d9d8e4b1",
+    "entity": 1755672,
+    "start": "2025-04-01",
+    "end": "2025-06-30",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001755672.json",
+    "companyfactsSha256": "ec6d194fdc705cdbe63c4e90f533ab90be465245882c73f449d2d89356d14d28",
+    "companyfactsFact": {
+      "start": "2025-04-01",
+      "end": "2025-06-30",
+      "val": 6456000000,
+      "accn": "0001755672-25-000017",
+      "fy": 2025,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2025-08-07"
+    },
+    "filingReportDate": "2025-06-30",
+    "value": 6456000000
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ticker": "HII",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 5.48,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000056/hii-20260930.htm",
+  "evidence": {
+    "contextId": "c-11",
+    "unitId": "usdPerShare",
+    "rawValue": "5.48",
+    "scale": 0,
+    "sign": null,
+    "rowText": "Diluted earnings per share $ 5.48 $ 3.68 $ 14.53 $ 11.35",
+    "sourceSha256": "45130a928a3b797e471c24058c20b19c86e546a41afb85ec796aa8619f3dbede",
+    "entity": 1501585,
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "companyfactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001501585.json",
+    "companyfactsSha256": "09121cdf98f002a6e7d6a9049eb5f8061e5b0ec5e16e158c89eea09f193738f8",
+    "companyfactsFact": {
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "val": 5.48,
+      "accn": "0001501585-26-000056",
+      "fy": 2026,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2026-10-29",
+      "frame": "CY2026Q3"
+    },
+    "filingReportDate": "2026-09-30",
+    "value": 5.48
+  }
+}
