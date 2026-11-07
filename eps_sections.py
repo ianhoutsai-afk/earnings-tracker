@@ -163,7 +163,7 @@ def eps_diagnostic(record,body,cik):
 from urllib.parse import urljoin,urlparse
 from release_metrics import _grid
 records=json.loads(Path('official_history.json').read_text());mapping=json.loads(Path('sp500_mapping.json').read_text())
-out=Path('audit-bulk');(out/'releases').mkdir(exist_ok=True)
+out=Path('audit-bulk');(out/'releases').mkdir(parents=True,exist_ok=True)
 eps_selected=[];wide=[];release_selected=[];skipped=[]
 def num(raw,sign=None,scale=0):
  v=clean(raw).replace(',','').replace('$','').replace(' ','')
