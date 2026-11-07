@@ -1,0 +1,38 @@
+name: Verify EPS statement sections
+on:
+  push:
+    branches: [codex/eps-section-backfill-20261107]
+    paths: ['eps_sections.py','.github/workflows/eps-sections.yml']
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install lxml requests pandas yfinance
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: eps-sections-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python eps_sections.py
+      - run: python eps_stage.py --apply
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
+      - run: python validate_quarterly_data.py
+      - run: |
+          git rm eps_sections.py eps_stage.py eps-seeds.json .github/workflows/eps-sections.yml
+          git add official_history.json historical_data.json history_status.json official_scan_state.json data.json docs/eps-section-backfill-2026-11-07.json docs/evidence-eps-sections-2026-11-07
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Fill directly reported quarterly diluted EPS from verified per-share sections'
+          git push origin HEAD
