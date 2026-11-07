@@ -1,0 +1,88 @@
+{
+  "ticker": "ULTA",
+  "periodEnd": "2026-01-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 8.01,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926027061/ulta-20260312xex99d1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926027061/ulta-20260312x8k.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 8.01,
+    "rawValue": "8.01",
+    "scale": 0,
+    "signFromSplitParentheses": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1403568,
+    "rowLabel": "Diluted",
+    "rowCells": [
+      "Diluted",
+      "",
+      "$",
+      "8.01",
+      "",
+      "",
+      "",
+      "$",
+      "8.46",
+      "",
+      ""
+    ],
+    "columnIndex": 3,
+    "sectionRows": [
+      [
+        "Net income per common share:",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Basic",
+        "",
+        "$",
+        "8.05",
+        "",
+        "",
+        "",
+        "$",
+        "8.50",
+        "",
+        ""
+      ],
+      [
+        "Diluted",
+        "",
+        "$",
+        "8.01",
+        "",
+        "",
+        "",
+        "$",
+        "8.46",
+        "",
+        ""
+      ]
+    ],
+    "header": "13 Weeks Ended January 31, 2026 (Unaudited)",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Consolidated Statements of Income",
+    "unitCaption": "Consolidated Statements of Income              13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended 13 Weeks Ended   January 31, January 31, January 31, January 31,  February 1, February 1, February 1, February 1,   2026 2026 2026 2026  2025 2025 2025 2025   (Unaudited) (Unaudited) (Unaudited) (Unaudited)  (Unaudited) (Unaudited) (Unaudited) (Unaudited)",
+    "releaseIdentity": {
+      "date": "2026-03-12",
+      "periodEnd": null,
+      "fiscalYear": null,
+      "fiscalQuarter": null,
+      "eventSource": "same-accession actual results; period independently attested in column"
+    },
+    "tableExcerpt": "13 Weeks Ended January 31, February 1, 2026 2025 (Unaudited) (Unaudited) Net sales $ 3,898,361 100.0% $ 3,487,619 100.0% Cost of sales 2,414,717 61.9% 2,153,967 61.8% Gross profit 1,483,644 38.1% 1,333,652 38.2% Selling, general and administrative expenses 1,003,141 25.7% 815,599 23.4% Pre-opening expenses 3,561 0.1% 1,732 0.0% Operating income 476,942 12.2% 516,321 14.8% Interest expense (income), net 2,624 0.1% (1,994) (0.1%) Income before income taxes and equity net loss of affiliate 474,318 12.2% 518,315 14.9% Income tax expense 115,994 3.0% 125,045 3.6% Income before equity net loss of affiliate 358,324 9.2% 393,270 11.3% Equity net loss of affiliate 1,647 0.0% — 0.0% Net income $ 356,677 9.1% $ 393,270 11.3% Net income per common share: Basic $ 8.05 $ 8.50 Diluted $ 8.01 $ 8.46 Weighted average common shares outstanding: Basic 44,320 46,270 Diluted 44,521 46,476",
+    "sourceSha256": "d4eff4e7592b179dd4acf5cad8c5cce499fd5e785b58c584aa9bd264215e3564"
+  }
+}

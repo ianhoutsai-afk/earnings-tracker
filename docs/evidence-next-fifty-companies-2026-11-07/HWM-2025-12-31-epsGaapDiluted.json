@@ -1,0 +1,81 @@
+{
+  "ticker": "HWM",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.92,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4281/000110465926013832/tm266060d1_ex99-1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/4281/000110465926013832/tm266060d1_8k.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.92,
+    "rawValue": "0.92",
+    "signedRawValue": "0.92",
+    "scale": 0,
+    "signFromSplitParentheses": false,
+    "unitMeasure": "USD/shares",
+    "entity": 4281,
+    "rowLabel": "Net income per share",
+    "rowCells": [
+      "Net income per share",
+      "",
+      "$",
+      "0.92",
+      "",
+      "",
+      "$",
+      "0.95",
+      "",
+      "",
+      "$",
+      "0.77",
+      ""
+    ],
+    "columnIndex": 3,
+    "sectionRows": [
+      [
+        "Earnings per share - diluted (1) :",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Net income per share",
+        "",
+        "$",
+        "0.92",
+        "",
+        "",
+        "$",
+        "0.95",
+        "",
+        "",
+        "$",
+        "0.77",
+        ""
+      ]
+    ],
+    "header": "Quarter ended December 31, 2025 2,168 1,412 96 10 73 88 489 15 37 7 430 58 372 0.92 402",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Statement of Consolidated Operations (unaudited)",
+    "releaseIdentity": {
+      "date": "2026-02-12",
+      "periodEnd": null,
+      "fiscalYear": null,
+      "fiscalQuarter": null
+    },
+    "tableExcerpt": " Amounts Attributable to Howmet Aerospace Common Shareholders: Earnings per share - basic (1) : Net income per share $ 0.92 $ 0.96 $ 0.77 Average number of shares (2)(3) 402 403 406  Earnings per share - diluted (1) : Net income per share $ 0.92 $ 0.95 $ 0.77 Average number of shares (2)(3) 404 405 408 ",
+    "sourceSha256": "458c35a42134516ca89ad38b356dfe437ab959f8a87d0c890ede119538727b37",
+    "reviewedQuarterLabel": "Net income per share"
+  }
+}
