@@ -1,0 +1,32 @@
+{
+  "ticker": "HRL",
+  "periodEnd": "2025-10-26",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 3200000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846525000056/hrlearningsrelease2025q4.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846525000056/hrlearningsrelease2025q4.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 3200000000,
+    "rawValue": "$3.2",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 48465,
+    "rowLabel": "Net sales",
+    "releaseIdentity": {
+      "date": "2025-12-04",
+      "periodEnd": "2025-10-26",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net sales of $3.2 billion; organic net sales 1 up 2%",
+    "matchedText": "Net sales of $3.2 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "EXECUTIVE SUMMARY – FOURTH QUARTER",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "3c1a89078ef732c3ced30eab1cd37ea7425e12a56a34145ef8e7075471fd9c96"
+  }
+}

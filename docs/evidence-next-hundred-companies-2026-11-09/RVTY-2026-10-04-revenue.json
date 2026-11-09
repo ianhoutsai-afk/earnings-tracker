@@ -1,0 +1,32 @@
+{
+  "ticker": "RVTY",
+  "periodEnd": "2026-10-04",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 729000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000031/q32026pressrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000031/q32026pressrelease.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 729000000,
+    "rawValue": "$729",
+    "scale": 6,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 31791,
+    "rowLabel": "Revenue",
+    "releaseIdentity": {
+      "date": "2026-11-03",
+      "periodEnd": "2026-10-04",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "Revenue of $729 million; pro forma revenue of $710 million; 7% pro forma revenue growth; 7% pro forma organic revenue growth",
+    "matchedText": "Revenue of $729 million",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Revvity Announces Financial Results for the Third Quarter of 2026",
+    "sourcePrecisionUnit": "million",
+    "sourceSha256": "0f8c1abf9fadd2bd12dc1f7f974724a38c530da00099ed85b6b4bf6a9f68d5bb"
+  }
+}

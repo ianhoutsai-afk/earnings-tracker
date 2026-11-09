@@ -1,0 +1,32 @@
+{
+  "ticker": "AFL",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 2.64,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 2.64,
+    "rawValue": "$2.64",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "sourcePrecisionUnit": null,
+    "entity": 4977,
+    "rowLabel": "Diluted net earnings per share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "releaseIdentity": {
+      "date": "2026-02-04",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "matchedText": "Net earnings were $1.4 billion, or $2.64 per diluted share",
+    "paragraph": "X-99.1 Document News Release Aflac Incorporated Announces Fourth Quarter Results, Reports Fourth Quarter Net Earnings of $1.4 Billion, Reiterates Increase in First Quarter Dividend of 5.2% COLUMBUS, Ga. - February 4, 2026 - Aflac Incorporated (NYSE: AFL) today reported its fourth quarter results. Total revenues were $4.9 billion in the fourth quarter of 2025, compared with $5.4 billion in the fourth quarter of 2024. Net earnings were $1.4 billion, or $2.64 per diluted share, compared with $1.9 billion, or $3.42 per diluted share a year ago. Net earnings in the fourth quarter of 2025 included net investment gains of $537 million, or $1.03 pe",
+    "quarterAnchor": "fourth quarter of 2025",
+    "sourceSha256": "329cea68993f10a6e4cb341364598e5588732f07ae72e01d1ed3b7f656ea64d7"
+  }
+}

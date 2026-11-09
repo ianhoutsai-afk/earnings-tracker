@@ -1,0 +1,32 @@
+{
+  "ticker": "HSY",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 3091000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/47111/000162828026005604/exhibit991-q42025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/47111/000162828026005604/exhibit991-q42025.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 3091000000,
+    "rawValue": "$3,091.0",
+    "scale": 6,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 47111,
+    "rowLabel": "Consolidated net sales",
+    "releaseIdentity": {
+      "date": "2026-02-05",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Consolidated net sales of $3,091.0 million, an increase of 7.0%.",
+    "matchedText": "Consolidated net sales of $3,091.0 million",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth-Quarter 2025 Financial Results Summary 1",
+    "sourcePrecisionUnit": "million",
+    "sourceSha256": "38154e0a09d5ec2dba74577377caf71d6a9c36b93d06f22c7a22f0ce5ad27fb1"
+  }
+}

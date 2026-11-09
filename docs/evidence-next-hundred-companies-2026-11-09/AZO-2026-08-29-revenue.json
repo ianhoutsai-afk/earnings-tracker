@@ -1,0 +1,32 @@
+{
+  "ticker": "AZO",
+  "periodEnd": "2026-08-29",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 6600000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 6600000000,
+    "rawValue": "$6.6",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 866787,
+    "rowLabel": "reported net sales",
+    "releaseIdentity": {
+      "date": "2026-09-22",
+      "periodEnd": "2026-08-29",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "MEMPHIS, Tenn., Sept. 22, 2026 (GLOBE NEWSWIRE) -- AutoZone, Inc. (NYSE: AZO) today reported net sales of $6.6 billion for its fourth quarter (16 weeks) ended August 29, 2026, an increase of 5.6% from the fourth quarter of fiscal 2025 (16 weeks). Same store sales, or sales for our domestic and international stores open at least one year, are as follows:",
+    "matchedText": "reported net sales of $6.6 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "MEMPHIS, Tenn., Sept. 22, 2026 (GLOBE NEWSWIRE) -- AutoZone, Inc. (NYSE: AZO) today reported net sales of $6.6 billion for its fourth quarter (16 weeks) ended August 29, 2026, an increase of 5.6% from the fourth quarter of fiscal 2025 (16 weeks).",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "5c99e8493898ea33383a1fd32c023a65336a4803c73d02e42577fb7501155358"
+  }
+}

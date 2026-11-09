@@ -1,0 +1,36 @@
+{
+  "ticker": "MO",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 6072000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/764180/000076418025000130/mo-20250930.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/764180/000076418025000128/mo-20251029.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 6072000000,
+    "rawValue": "6072",
+    "scale": 6,
+    "sign": null,
+    "entity": 764180,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-07-01",
+    "end": "2025-09-30",
+    "context": {
+      "start": "2025-07-01",
+      "end": "2025-09-30",
+      "entity": 764180
+    },
+    "contextHtml": "<xbrli:context id=\"c-9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000764180</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-07-01</xbrli:startdate><xbrli:enddate>2025-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net revenues",
+    "rowText": "Net revenues $ 17,433 $ 18,044 $ 6,072 $ 6,259",
+    "statementHeading": "Condensed Consolidated Statements of Earnings",
+    "structuralScope": false,
+    "statementText": "For the Nine Months Ended September 30, For the Three Months Ended September 30, 2025 2024 2025 2024 Net revenues $ 17,433 $ 18,044 $ 6,072 $ 6,259 Cost of sales 4,149 4,575 1,439 1,536 Excise taxes on products 2,373 2,706 821 915 Gross profit 10,911 10,763 3,812 3,808 Marketing, administration and research costs 1,787 2,050 580 656 Asset impairment and exit costs 3 354 2 — Impairment of goodwill 873 — — — Operating income 8,248 8,359 3,230 3,152 Interest and other debt expense, net 815 782 278 267 Net periodic benefit income, excluding service cost ( 45 ) ( 74 ) ( 16 ) ( 25 ) (Income) losses from investments in equity securities ( 398 ) ( 530 ) ( 107 ) ( 116 ) Gain on the sale of IQOS System commercialization rights — ( 2,700 ) — — Earnings before income taxes 7,876 10,881 3,075 3,026 Provision for income taxes 2,046 2,656 700 733 Net earnings $ 5,830 $ 8,225 $ 2,375 $ 2,293 Per share data: Basic and diluted earnings per share $ 3.45 $ 4.75 $ 1.41 $ 1.34",
+    "filingForm": "10-Q",
+    "sourceSha256": "47ba3b3160da25ddbf00f6357bcde70da1b3131ab68784eb876e4012fb4e9b5a"
+  }
+}

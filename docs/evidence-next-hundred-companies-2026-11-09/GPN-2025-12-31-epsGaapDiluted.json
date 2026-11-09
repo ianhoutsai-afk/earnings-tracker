@@ -1,0 +1,32 @@
+{
+  "ticker": "GPN",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.92,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1123360/000112336026000004/exhibit99120251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1123360/000112336026000004/exhibit99120251231.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.92,
+    "rawValue": "$0.92",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1123360,
+    "rowLabel": "GAAP diluted earnings per share (EPS)",
+    "releaseIdentity": {
+      "date": "2026-02-18",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter 2025 GAAP diluted earnings per share (EPS) of $0.92 1 and adjusted EPS of $3.18, an increase of 11% constant currency",
+    "matchedText": "GAAP diluted earnings per share (EPS) of $0.92",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter 2025 GAAP diluted earnings per share (EPS) of $0.92 1 and adjusted EPS of $3.18, an increase of 11% constant currency",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "38af91ca6a1e0c9545b2e9c4e9e9298579395d5a89e352da3fd269195151d805"
+  }
+}
