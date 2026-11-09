@@ -1,0 +1,32 @@
+{
+  "ticker": "KHC",
+  "periodEnd": "2025-12-27",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.55,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.55,
+    "rawValue": "$0.55",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1637459,
+    "rowLabel": "Diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-02-11",
+      "periodEnd": "2025-12-27",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Diluted EPS was $0.55, down 68.8%; Adjusted EPS was $0.67, down 20.2%",
+    "matchedText": "Diluted EPS was $0.55",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter Highlights",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "49276d268e17713ac83eee5483ee658a9ecf417b6d6dda6d20f3fb8edf8af697"
+  }
+}

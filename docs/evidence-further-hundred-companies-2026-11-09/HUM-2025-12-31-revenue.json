@@ -1,0 +1,138 @@
+{
+  "ticker": "HUM",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 32515000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x1briefxfeb.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 49071,
+    "sourceSha256": "dbcb26838f1989b01eb88689b3a05b886d700bb8cf8ab0c70cd060228699b0e9",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000049071.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 41155000000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 41155000000,
+          "accn": "0000049071-26-000066",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-11-06",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 40867000000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 40867000000,
+          "accn": "0000049071-26-000050",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-29",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 39648000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 39648000000,
+          "accn": "0000049071-26-000023",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-29",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 32649000000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 32649000000,
+          "accn": "0000049071-25-000057",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-11-05"
+        }
+      }
+    ],
+    "value": 32515000000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 129664000000,
+      "accn": "0000049071-26-000009",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-19",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 97149000000,
+      "accn": "0000049071-25-000057",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-11-05"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907125000057/hum-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 32112000000,
+        "accn": "0000049071-25-000023",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-04-30"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 32388000000,
+        "accn": "0000049071-25-000042",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-30"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 32649000000,
+        "accn": "0000049071-25-000057",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-11-05"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

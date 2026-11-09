@@ -1,0 +1,32 @@
+{
+  "ticker": "ROK",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 3.11,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447826000045/fy2026ex99.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447826000045/fy2026ex99.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 3.11,
+    "rawValue": "$3.11",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1024478,
+    "rowLabel": "diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-11-05",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter diluted EPS of $3.11 and Adjusted EPS of $3.88; up 153% and 16% year over year, respectively",
+    "matchedText": "diluted EPS of $3.11",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter diluted EPS of $3.11 and Adjusted EPS of $3.88; up 153% and 16% year over year, respectively",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "56c1515cb696bb10408f63e97d4c8f19dcc2d956aae15f14003a0e56f0322139"
+  }
+}

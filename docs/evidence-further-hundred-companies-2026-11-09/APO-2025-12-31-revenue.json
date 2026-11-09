@@ -1,0 +1,138 @@
+{
+  "ticker": "APO",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 9864000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1858681/000185868126000013/apo-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1858681/000185868126000007/erex9914q2025.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 1858681,
+    "sourceSha256": "e6d998d9788801fc40eae6c336b242cd4cee7cc12f6f026387eed1ab7a7ef325",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001858681.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 4739000000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 4739000000,
+          "accn": "0001858681-26-000067",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-11-05",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 11153000000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 11153000000,
+          "accn": "0001858681-26-000040",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-08-10",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 5059000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 5059000000,
+          "accn": "0001858681-26-000026",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-05-07",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 9823000000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 9823000000,
+          "accn": "0001858681-25-000139",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-11-10"
+        }
+      }
+    ],
+    "value": 9864000000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 32049000000,
+      "accn": "0001858681-26-000013",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 22185000000,
+      "accn": "0001858681-25-000139",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-11-10"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/1858681/000185868126000013/apo-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/1858681/000185868125000139/apo-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 5548000000,
+        "accn": "0001858681-25-000049",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-05-07"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 6814000000,
+        "accn": "0001858681-25-000117",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-08-07"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 9823000000,
+        "accn": "0001858681-25-000139",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-11-10"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

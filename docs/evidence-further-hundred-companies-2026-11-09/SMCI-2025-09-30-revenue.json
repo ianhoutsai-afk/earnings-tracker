@@ -1,0 +1,80 @@
+{
+  "ticker": "SMCI",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 5017790000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000137536525000030/smci-20250930.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000162828025045989/fq12026businessupdatev9ms.htm",
+  "sourceKind": "companyfacts_direct",
+  "evidence": {
+    "entity": 1375365,
+    "sourceSha256": "604122b3f2f7cf4e7d1d0e1a8f0721d2127220622ac965226354af16ac593c7a",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001375365.json",
+    "filingForm": "10-Q",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 19945832000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 19945832000,
+          "accn": "0001375365-26-000027",
+          "fy": 2027,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-11-06",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 10243014000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 10243014000,
+          "accn": "0001375365-26-000014",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-05-11",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-12-31",
+        "baselineValue": 12682491000,
+        "fact": {
+          "start": "2025-10-01",
+          "end": "2025-12-31",
+          "val": 12682491000,
+          "accn": "0001375365-26-000007",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-02-06",
+          "frame": "CY2025Q4"
+        }
+      }
+    ],
+    "value": 5017790000,
+    "start": "2025-07-01",
+    "end": "2025-09-30",
+    "companyfactsFact": {
+      "start": "2025-07-01",
+      "end": "2025-09-30",
+      "val": 5017790000,
+      "accn": "0001375365-25-000030",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2025-11-07"
+    }
+  }
+}

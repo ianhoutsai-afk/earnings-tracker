@@ -1,0 +1,138 @@
+{
+  "ticker": "VTR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1566017000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000006/vtr-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 740260,
+    "sourceSha256": "b6e01d4991a2e95d0dae531eb75190b764c6e302ff55e84364385aec602dbed4",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000740260.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 1831791000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 1831791000,
+          "accn": "0000740260-26-000030",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-10-28",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 1729614000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 1729614000,
+          "accn": "0000740260-26-000024",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-30",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 1656944000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 1656944000,
+          "accn": "0000740260-26-000018",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-28",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 1488996000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 1488996000,
+          "accn": "0000740260-25-000277",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-30"
+        }
+      }
+    ],
+    "value": 1566017000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 5833980000,
+      "accn": "0000740260-26-000006",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-06",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 4267963000,
+      "accn": "0000740260-25-000277",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-30"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000006/vtr-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026025000277/vtr-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 1358074000,
+        "accn": "0000740260-25-000155",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-05-01"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 1420893000,
+        "accn": "0000740260-25-000231",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-31"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 1488996000,
+        "accn": "0000740260-25-000277",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-30"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

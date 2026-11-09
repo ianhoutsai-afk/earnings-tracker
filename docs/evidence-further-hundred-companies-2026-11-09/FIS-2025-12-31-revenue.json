@@ -1,0 +1,95 @@
+{
+  "ticker": "FIS",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 2812000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000013/fis-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000009/q42025ex991.htm",
+  "sourceKind": "companyfacts_direct",
+  "evidence": {
+    "entity": 1136893,
+    "sourceSha256": "176002c3637b22d75b4bbcd1e54395ca850b3391f41351a4d321822641d78a8d",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001136893.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 3454000000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 3454000000,
+          "accn": "0001136893-26-000063",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-11-04",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 3377000000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 3377000000,
+          "accn": "0001136893-26-000050",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-08-04",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 3295000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 3295000000,
+          "accn": "0001136893-26-000040",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-05-08",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 2717000000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 2717000000,
+          "accn": "0001136893-25-000128",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-11-05"
+        }
+      }
+    ],
+    "value": 2812000000,
+    "start": "2025-10-01",
+    "end": "2025-12-31",
+    "companyfactsFact": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "val": 2812000000,
+      "accn": "0001136893-26-000013",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-24",
+      "frame": "CY2025Q4"
+    }
+  }
+}

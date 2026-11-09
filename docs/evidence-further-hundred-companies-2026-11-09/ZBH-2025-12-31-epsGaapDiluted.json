@@ -1,0 +1,32 @@
+{
+  "ticker": "ZBH",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.7,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526043620/zbh-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526043620/zbh-ex99_1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.7,
+    "rawValue": "$0.70",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1136869,
+    "rowLabel": "diluted earnings per share",
+    "releaseIdentity": {
+      "date": "2026-02-10",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter diluted earnings per share were $0.70, a decrease of 41.7%; adjusted 1 diluted earnings per share were $2.42, an increase of 4.8%",
+    "matchedText": "diluted earnings per share were $0.70",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter diluted earnings per share were $0.70, a decrease of 41.7%; adjusted 1 diluted earnings per share were $2.42, an increase of 4.8%",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "652d43a07a58786734b050380414aa55a4e710e503d6951ac165dca5bbb4d092"
+  }
+}

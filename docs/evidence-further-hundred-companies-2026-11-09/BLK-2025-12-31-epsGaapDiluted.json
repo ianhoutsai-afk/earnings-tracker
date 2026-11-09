@@ -1,0 +1,32 @@
+{
+  "ticker": "BLK",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 7.16,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526013503/blk-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526013503/blk-ex99_1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 7.16,
+    "rawValue": "$7.16",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 2012383,
+    "rowLabel": "Diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-01-15",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth Quarter 2025 Diluted EPS of $7.16, or $13.16 as adjusted",
+    "matchedText": "Diluted EPS of $7.16",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter 2025 Diluted EPS of $7.16, or $13.16 as adjusted",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "fcb561ecd1258a21e49ab4ee4b962eb79b6a95d6180061685220f81d59b60f0e"
+  }
+}

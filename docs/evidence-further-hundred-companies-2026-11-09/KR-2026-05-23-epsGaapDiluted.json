@@ -1,0 +1,34 @@
+{
+  "ticker": "KR",
+  "periodEnd": "2026-05-23",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 1.46,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926078236/kr-20260523x10q.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926075395/tm2618219d1_8k.htm",
+  "sourceKind": "inline_statement_eps",
+  "evidence": {
+    "value": 1.46,
+    "rawValue": "1.46",
+    "scale": 0,
+    "sign": null,
+    "entity": 56873,
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "start": "2026-02-01",
+    "end": "2026-05-23",
+    "context": {
+      "start": "2026-02-01",
+      "end": "2026-05-23",
+      "entity": 56873
+    },
+    "contextHtml": "<xbrli:context id=\"Duration_2_1_2026_To_5_23_2026_pzjo5dGNjkaNIkCjDCmqyg\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000056873</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-02-01</xbrli:startdate><xbrli:enddate>2026-05-23</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"Unit_Divide_USD_shares_85-yzD9id06VUPc481Di1A\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+    "rowLabel": "Net earnings attributable to The Kroger Co. per diluted common share",
+    "rowText": "Net earnings attributable to The Kroger Co. per diluted common share $ 1.46 $ 1.29",
+    "statementHeading": "Whole-issuer US GAAP diluted earnings per share fact with an exact quarterly context",
+    "filingForm": "10-Q",
+    "sourceSha256": "004da735b13159de7df2c34e4797b80614d0380a8f5e9eb51a0c06cc6cbd8245"
+  }
+}

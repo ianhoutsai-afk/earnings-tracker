@@ -1,0 +1,32 @@
+{
+  "ticker": "MCK",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 13.71,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000066/mck_exhibit991x3312026.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000066/mck_exhibit991x3312026.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 13.71,
+    "rawValue": "$13.71",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 927653,
+    "rowLabel": "Earnings per diluted share",
+    "releaseIdentity": {
+      "date": "2026-05-07",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Earnings per diluted share of $13.71 increased $3.70.",
+    "matchedText": "Earnings per diluted share of $13.71",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter Highlights:",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "ac598fb710ea6456da54863e5a22f303731f87ab64842d6f322ef2e8cdf28f2c"
+  }
+}
