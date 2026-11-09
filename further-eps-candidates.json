@@ -1,0 +1,297 @@
+{
+  "visited": 248,
+  "companies": 8,
+  "failures": [],
+  "selected": [
+    {
+      "ticker": "KR",
+      "periodEnd": "2026-05-23",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1,
+      "field": "epsGaapDiluted",
+      "value": 1.46,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926078236/kr-20260523x10q.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926075395/tm2618219d1_8k.htm",
+      "sourceKind": "inline_statement_eps",
+      "evidence": {
+        "value": 1.46,
+        "rawValue": "1.46",
+        "scale": 0,
+        "sign": null,
+        "entity": 56873,
+        "unitMeasure": "USD/shares",
+        "factTag": "us-gaap:EarningsPerShareDiluted",
+        "start": "2026-02-01",
+        "end": "2026-05-23",
+        "context": {
+          "start": "2026-02-01",
+          "end": "2026-05-23",
+          "entity": 56873
+        },
+        "contextHtml": "<xbrli:context id=\"Duration_2_1_2026_To_5_23_2026_pzjo5dGNjkaNIkCjDCmqyg\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000056873</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-02-01</xbrli:startdate><xbrli:enddate>2026-05-23</xbrli:enddate></xbrli:period></xbrli:context>",
+        "unitHtml": "<xbrli:unit id=\"Unit_Divide_USD_shares_85-yzD9id06VUPc481Di1A\"><xbrli:divide><xbrli:unitnumerator><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unitnumerator><xbrli:unitdenominator><xbrli:measure>xbrli:shares</xbrli:measure></xbrli:unitdenominator></xbrli:divide></xbrli:unit>",
+        "rowLabel": "Net earnings attributable to The Kroger Co. per diluted common share",
+        "rowText": "Net earnings attributable to The Kroger Co. per diluted common share $ 1.46 $ 1.29",
+        "statementHeading": "Whole-issuer US GAAP diluted earnings per share fact with an exact quarterly context",
+        "filingForm": "10-Q",
+        "sourceSha256": "004da735b13159de7df2c34e4797b80614d0380a8f5e9eb51a0c06cc6cbd8245"
+      }
+    },
+    {
+      "ticker": "MCK",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 13.71,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000066/mck_exhibit991x3312026.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000066/mck_exhibit991x3312026.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 13.71,
+        "rawValue": "$13.71",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 927653,
+        "rowLabel": "Earnings per diluted share",
+        "releaseIdentity": {
+          "date": "2026-05-07",
+          "periodEnd": "2026-03-31",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Earnings per diluted share of $13.71 increased $3.70.",
+        "matchedText": "Earnings per diluted share of $13.71",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth Quarter Highlights:",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "ac598fb710ea6456da54863e5a22f303731f87ab64842d6f322ef2e8cdf28f2c"
+      }
+    },
+    {
+      "ticker": "BLK",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 7.16,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526013503/blk-ex99_1.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526013503/blk-ex99_1.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 7.16,
+        "rawValue": "$7.16",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 2012383,
+        "rowLabel": "Diluted EPS",
+        "releaseIdentity": {
+          "date": "2026-01-15",
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Fourth Quarter 2025 Diluted EPS of $7.16, or $13.16 as adjusted",
+        "matchedText": "Diluted EPS of $7.16",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth Quarter 2025 Diluted EPS of $7.16, or $13.16 as adjusted",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "fcb561ecd1258a21e49ab4ee4b962eb79b6a95d6180061685220f81d59b60f0e"
+      }
+    },
+    {
+      "ticker": "IVZ",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": -2.61,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": -2.61,
+        "rawValue": "$(2.61)",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 914208,
+        "rowLabel": "Diluted EPS",
+        "releaseIdentity": {
+          "date": "2026-01-27",
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Invesco Announces Fourth Quarter Diluted EPS of $(2.61); Adjusted Diluted EPS (1) of $0.62",
+        "matchedText": "Diluted EPS of $(2.61)",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Invesco Announces Fourth Quarter Diluted EPS of $(2.61); Adjusted Diluted EPS (1) of $0.62",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "1e9a6aaa84636e9e1cba295786e5e21afc1102ec6a6d44d3e82db385296f7780"
+      }
+    },
+    {
+      "ticker": "ZBH",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 0.7,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526043620/zbh-ex99_1.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526043620/zbh-ex99_1.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 0.7,
+        "rawValue": "$0.70",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 1136869,
+        "rowLabel": "diluted earnings per share",
+        "releaseIdentity": {
+          "date": "2026-02-10",
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Fourth quarter diluted earnings per share were $0.70, a decrease of 41.7%; adjusted 1 diluted earnings per share were $2.42, an increase of 4.8%",
+        "matchedText": "diluted earnings per share were $0.70",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth quarter diluted earnings per share were $0.70, a decrease of 41.7%; adjusted 1 diluted earnings per share were $2.42, an increase of 4.8%",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "652d43a07a58786734b050380414aa55a4e710e503d6951ac165dca5bbb4d092"
+      }
+    },
+    {
+      "ticker": "KHC",
+      "periodEnd": "2025-12-27",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 0.55,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 0.55,
+        "rawValue": "$0.55",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 1637459,
+        "rowLabel": "Diluted EPS",
+        "releaseIdentity": {
+          "date": "2026-02-11",
+          "periodEnd": "2025-12-27",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Diluted EPS was $0.55, down 68.8%; Adjusted EPS was $0.67, down 20.2%",
+        "matchedText": "Diluted EPS was $0.55",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth Quarter Highlights",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "49276d268e17713ac83eee5483ee658a9ecf417b6d6dda6d20f3fb8edf8af697"
+      }
+    },
+    {
+      "ticker": "HRL",
+      "periodEnd": "2025-10-26",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": -0.1,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846525000056/hrlearningsrelease2025q4.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846525000056/hrlearningsrelease2025q4.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": -0.1,
+        "rawValue": "$0.10",
+        "scale": 0,
+        "signFromLossWording": true,
+        "unitMeasure": "USD/shares",
+        "entity": 48465,
+        "rowLabel": "Diluted loss per share",
+        "releaseIdentity": {
+          "date": "2025-12-04",
+          "periodEnd": "2025-10-26",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Diluted loss per share of $0.10; adjusted diluted earnings per share 1 of $0.32",
+        "matchedText": "Diluted loss per share of $0.10",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "EXECUTIVE SUMMARY \u2013 FOURTH QUARTER",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "3c1a89078ef732c3ced30eab1cd37ea7425e12a56a34145ef8e7075471fd9c96"
+      }
+    },
+    {
+      "ticker": "ROK",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 3.11,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447826000045/fy2026ex99.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447826000045/fy2026ex99.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 3.11,
+        "rawValue": "$3.11",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 1024478,
+        "rowLabel": "diluted EPS",
+        "releaseIdentity": {
+          "date": "2026-11-05",
+          "periodEnd": "2026-09-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Fourth quarter diluted EPS of $3.11 and Adjusted EPS of $3.88; up 153% and 16% year over year, respectively",
+        "matchedText": "diluted EPS of $3.11",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth quarter diluted EPS of $3.11 and Adjusted EPS of $3.88; up 153% and 16% year over year, respectively",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "56c1515cb696bb10408f63e97d4c8f19dcc2d956aae15f14003a0e56f0322139"
+      }
+    },
+    {
+      "ticker": "ROK",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "value": 1.23,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447825000112/fy2025ex99.htm",
+      "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447825000112/fy2025ex99.htm",
+      "sourceKind": "explicit_release_eps",
+      "evidence": {
+        "value": 1.23,
+        "rawValue": "$1.23",
+        "scale": 0,
+        "signFromLossWording": false,
+        "unitMeasure": "USD/shares",
+        "entity": 1024478,
+        "rowLabel": "diluted EPS",
+        "releaseIdentity": {
+          "date": "2025-11-06",
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4
+        },
+        "paragraph": "Fourth quarter diluted EPS of $1.23 and Adjusted EPS of $3.34; down (41)% and up 32% year over year",
+        "matchedText": "diluted EPS of $1.23",
+        "headerBasis": "explicit-quarter-paragraph",
+        "quarterAnchor": "Fourth quarter diluted EPS of $1.23 and Adjusted EPS of $3.34; down (41)% and up 32% year over year",
+        "sourcePrecisionUnit": null,
+        "sourceSha256": "2cfc225e28274c61c7222b61e32090e5a29b16e3da60bcdb1873de4405781811"
+      }
+    }
+  ]
+}
