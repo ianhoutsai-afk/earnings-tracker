@@ -1,0 +1,33 @@
+name: Collect original evidence for 25 complete issuers
+on:
+  push:
+    branches: [codex/complete-25-issuer-financials-20261109]
+    paths: ['collect_complete25.py','.github/workflows/complete25-collect.yml']
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install lxml requests pandas yfinance
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: fifty-wide-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python collect_complete25.py
+      - run: |
+          git add complete25-candidates.json
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Record supplemental original quarterly metric evidence'
+          git push origin HEAD
