@@ -1,0 +1,32 @@
+{
+  "ticker": "SPGI",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 3.75,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 3.75,
+    "rawValue": "$3.75",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 64040,
+    "rowLabel": "GAAP diluted earnings per share",
+    "releaseIdentity": {
+      "date": "2026-02-10",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "The Company reported fourth quarter 2025 reported revenue of $3.916 billion, an increase of 9% compared to the fourth quarter of 2024. Fourth quarter GAAP net income increased 29% to $1,134 million and GAAP diluted earnings per share increased 32% to $3.75 driven primarily by strong revenue and operating profit growth in Ratings and Indices. Adjusted net income for the fourth quarter increased 12% to $1.299 billion and adjusted diluted earnings per share increased 14% to $4.30.",
+    "matchedText": "GAAP diluted earnings per share increased 32% to $3.75",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter GAAP net income increased 29% to $1,134 million and GAAP diluted earnings per share increased 32% to $3.75 driven primarily by strong revenue and operating profit growth in Ratings and Indices.",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "839796eca08615f43a58af941a48dd2fee285af6743b204981fdb0eb2e8a9af1"
+  }
+}

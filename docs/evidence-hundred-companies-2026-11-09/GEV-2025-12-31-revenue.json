@@ -1,0 +1,43 @@
+{
+  "ticker": "GEV",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 10956000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000012/gevpressrelease4q25.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000012/gevpressrelease4q25.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 10956000000,
+    "rawValue": "10,956",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "entity": 1996810,
+    "rowLabel": "Total revenues",
+    "rowCells": [
+      "Total revenues",
+      "10,956",
+      "10,559",
+      "4 %",
+      "",
+      "38,068",
+      "34,935",
+      "9 %"
+    ],
+    "columnIndex": 1,
+    "header": "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) Three months ended December 31 2025 $ 5,963 4,993",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "unitCaption": "Income statement structure with revenue, costs, net result, and diluted EPS         CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)    Three months ended December 31 Three months ended December 31 Three months ended December 31  Twelve months ended December 31 Twelve months ended December 31 Twelve months ended December 31 (In millions, except per share amounts) 2025 2024 V%  2025 2024 V% Sales of equipment $ 5,963 $ 5,852   $ 20,934 $ 18,952  Sales of services 4,993 4,707   17,134 15,983  ",
+    "releaseIdentity": {
+      "date": "2026-01-28",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "tableExcerpt": "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) Three months ended December 31 Twelve months ended December 31 (In millions, except per share amounts) 2025 2024 V% 2025 2024 V% Sales of equipment $ 5,963 $ 5,852 $ 20,934 $ 18,952 Sales of services 4,993 4,707 17,134 15,983 Total revenues 10,956 10,559 4 % 38,068 34,935 9 % Cost of equipment 5,413 5,368 18,759 17,989 Cost of services 3,221 3,067 11,774 10,861 Gross profit 2,323 2,123 9 % 7,535 6,085 24 % Selling, general, and administrative expenses 1,355 1,266 4,949 4,632 Research and development expenses 366 265 1,197 982 Operating income (loss) 602 593 2 % 1,388 471 F Interest and other financial income (charges) – net 44 38 186 120 Non-operating benefit income 119 137 459 536 Other income (expense) – net 340 346 795 1,372 Income (loss) before income taxes 1,105 1,114 (1) % 2,828 2,498 13 % Provision (benefit) for income taxes (2,565) 630 (2,051) 939 Net income (loss) 3,670 484 F 4,879 1,559 F Net loss (income) attributable to noncontrolling interests (6) — 4 (7) Net income (loss) attributable to GE Vernova $ 3,664 $ 484 F $ 4,884 $ 1,552 F Earnings (loss) per share attributable to GE Vernova: Basic $ 13.56 $ 1.75 F $ 17.92 $ 5.65 F Diluted $ 13.39 $ 1.73 F $ 17.69 $ 5.58 F Weighted-average number of common shares outstanding: Basic 270 276 (2) % 272 275 (1) % Diluted 274 280 (2) % 276 278 (1) %",
+    "sourceSha256": "49c4a4ff7dee683f919067936bccad7d24af6e575cee9db0d5e00765ace705c9"
+  }
+}

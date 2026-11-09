@@ -1,0 +1,35 @@
+{
+  "ticker": "CRWD",
+  "periodEnd": "2026-04-30",
+  "fiscalYear": 2027,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 1385629000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 1385629000,
+    "rawValue": "1385629",
+    "scale": 3,
+    "sign": null,
+    "entity": 1535527,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+    "start": "2026-02-01",
+    "end": "2026-04-30",
+    "context": {
+      "start": "2026-02-01",
+      "end": "2026-04-30",
+      "entity": 1535527
+    },
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001535527</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-02-01</xbrli:startdate><xbrli:enddate>2026-04-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Total revenue",
+    "rowText": "Total revenue 1,385,629 1,103,434",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended April 30, 2026 2025 Revenue Subscription $ 1,320,853 $ 1,050,768 Professional services 64,776 52,666 Total revenue 1,385,629 1,103,434 Cost of revenue Subscription 288,463 241,360 Professional services 53,814 46,515 Total cost of revenue 342,277 287,875 Gross profit 1,043,352 815,559 Operating expenses Sales and marketing 488,674 439,211 Research and development 408,326 330,926 General and administrative 176,952 164,135 Total operating expenses 1,073,952 934,272 Loss from operations ( 30,600 ) ( 118,713 ) Interest expense ( 6,116 ) ( 6,715 ) Interest income 40,542 45,380 Other income (expense), net 35,237 ( 3,896 ) Income (loss) before provision for income taxes 39,063 ( 83,944 ) Provision (benefit) for income taxes ( 6,903 ) 21,106 Net income (loss) 45,966 ( 105,050 ) Net income (loss) attributable to non-controlling interest 18,192 ( 786 ) Net income (loss) attributable to CrowdStrike $ 27,774 $ ( 104,264 ) Net income (loss) per share attributable to CrowdStrike common stockholders: Basic $ 0.11 $ ( 0.42 ) Diluted $ 0.11 $ ( 0.42 ) Weighted-average shares used in computing net income (loss) per share attributable to CrowdStrike common stockholders: Basic 253,732 248,432 Diluted 257,881 248,432",
+    "filingForm": "10-Q",
+    "sourceSha256": "eec7473d1d58f9580fa91313019c871a301596a46d1573f0df0a4157c24c8acc"
+  }
+}

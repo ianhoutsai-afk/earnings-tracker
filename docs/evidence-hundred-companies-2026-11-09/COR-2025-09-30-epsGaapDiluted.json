@@ -1,0 +1,32 @@
+{
+  "ticker": "COR",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": -1.75,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085925000128/exhibit991-q42025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085925000128/exhibit991-q42025.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": -1.75,
+    "rawValue": "$(1.75)",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1140859,
+    "rowLabel": "GAAP Diluted EPS",
+    "releaseIdentity": {
+      "date": "2025-11-05",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth Quarter GAAP Diluted EPS of $(1.75) and Adjusted Diluted EPS of $3.84",
+    "matchedText": "GAAP Diluted EPS of $(1.75)",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter GAAP Diluted EPS of $(1.75) and Adjusted Diluted EPS of $3.84",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "f56b8622a71fdd1f1c48e4a46bc169ffc3277f41f0edfd09494aa522e66405ef"
+  }
+}

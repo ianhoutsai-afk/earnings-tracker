@@ -1,0 +1,35 @@
+{
+  "ticker": "TECH",
+  "periodEnd": "2025-03-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 316181000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000155837025006990/tech-20250331x10q.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 316181000,
+    "rawValue": "316181",
+    "scale": 3,
+    "sign": null,
+    "entity": 842023,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-01-01",
+    "end": "2025-03-31",
+    "context": {
+      "start": "2025-01-01",
+      "end": "2025-03-31",
+      "entity": 842023
+    },
+    "contextHtml": "<xbrli:context id=\"Duration_1_1_2025_To_3_31_2025_6rmT3I3C_EWBT2A_k8homw\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000842023</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-01-01</xbrli:startdate><xbrli:enddate>2025-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"Unit_Standard_USD_24z4DMoLDUqO8OhrpDxjWg\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 316,181 $ 303,428 $ 902,671 $ 852,961",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Quarter Ended Nine Months Ended March 31, March 31, 2025 2024 2025 2024 Net sales $ 316,181 $ 303,428 $ 902,671 $ 852,961 Cost of sales 101,625 98,829 311,211 286,584 Gross margin 214,556 204,599 591,460 566,377 Operating expenses: Selling, general and administrative 151,269 111,840 391,881 332,839 Research and development 24,579 25,761 73,464 72,675 Total operating expenses 175,848 137,601 465,345 405,514 Operating income 38,708 66,998 126,115 160,863 Other income (expense) ( 434 ) ( 5,914 ) ( 4,793 ) ( 16,835 ) Earnings before income taxes 38,274 61,084 121,322 144,028 Income taxes 15,686 12,025 30,244 16,511 Net earnings $ 22,588 $ 49,059 $ 91,078 $ 127,517 Other comprehensive income (loss): Foreign currency translation income (loss) 5,311 ( 11,981 ) 1,049 ( 5,558 ) Unrealized gains (losses) on derivative instruments - cash flow hedges, net of tax ( 1,713 ) 335 ( 4,785 ) ( 3,685 ) Other comprehensive income (loss) 3,598 ( 11,646 ) ( 3,736 ) ( 9,243 ) Comprehensive income $ 26,186 $ 37,413 $ 87,342 $ 118,274 Earnings per share: Basic $ 0.14 $ 0.31 $ 0.58 $ 0.81 Diluted $ 0.14 $ 0.31 $ 0.57 $ 0.79 Weighted average common shares outstanding: Basic 157,372 157,309 158,117 157,655 Diluted 158,944 160,496 160,662 160,817",
+    "filingForm": "10-Q",
+    "sourceSha256": "90145aed0d056936aa0c6820758448d93c5f846cc6bae2736b27243765e53583"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "ticker": "MGM",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 4454718000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/789570/000078957026000034/mgmex991q12026earningrelea.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/789570/000078957026000034/mgmex991q12026earningrelea.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 4454718000,
+    "rawValue": "4,454,718",
+    "scale": 3,
+    "unitMeasure": "USD",
+    "entity": 789570,
+    "rowLabel": "Consolidated revenue subtotal immediately before Expenses",
+    "rowCells": [
+      "",
+      "",
+      "",
+      "4,454,718",
+      "4,454,718",
+      "",
+      "",
+      "",
+      "",
+      "4,277,082",
+      "4,277,082",
+      ""
+    ],
+    "columnIndex": 3,
+    "header": "Three Months Ended March 31, 2026",
+    "headerBasis": "explicit-date",
+    "statementHeading": "CONSOLIDATED STATEMENTS OF OPERATIONS",
+    "releaseIdentity": {
+      "date": "2026-04-29",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1
+    },
+    "unitCaption": "               Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended Three Months Ended    March 31, 2026 March 31, 2026 March 31, 2026    March 31, 2025 March 31, 2025 March 31, 2025  (Unaudited) (In thousands, except per share data) CONSOLIDATED STATEMENTS OF OPERATIONS MGM RESORTS INTERNATIONAL AND SUBSIDIARIES    Page 6 of 9 ",
+    "tableExcerpt": "Three Months Ended March 31, 2026 March 31, 2025 Revenues Casino $ 2,378,855 $ 2,252,148 Rooms 867,854 863,408 Food and beverage 804,840 770,173 Entertainment, retail and other 403,169 391,353 4,454,718 4,277,082 Expenses Casino 1,349,552 1,244,310 Rooms 285,276 280,849 Food and beverage 576,280 560,295 Entertainment, retail and other 253,420 234,429 General and administrative 1,282,832 1,164,898 Corporate expense 137,220 142,351 Preopening and start-up expenses 977 85 Property transactions, net 14,220 15,468 Depreciation and amortization 263,725 236,444 4,163,502 3,879,129 Income (loss) from unconsolidated affiliates 10,026 (12,896) Operating income 301,242 385,057 Non-operating income (expense) Interest expense, net of amounts capitalized (100,689) (107,269) Non-operating items from unconsolidated affiliates (2,507) 262 Other, net 4,203 (11,266) (98,993) (118,273) Income before income taxes 202,249 266,784 Provision for income taxes (27,457) (40,053) Net income 174,792 226,731 Less: Net income attributable to noncontrolling interests (49,656) (78,177) Net income attributable to MGM Resorts International $ 125,136 $ 148,554 Earnings per share Basic $ 0.49 $ 0.52 Diluted $ 0.48 $ 0.51 Weighted average common shares outstanding Basic 256,348 287,125 Diluted 258,877 289,096",
+    "sourceSha256": "ff242a8e5133d070eaeb8908e1722a72ab290987b8544ae60c67aea5c67948c1"
+  }
+}

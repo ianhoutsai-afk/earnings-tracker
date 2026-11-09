@@ -1,0 +1,32 @@
+{
+  "ticker": "CVNA",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 5647000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082025000352/ex99_2q32025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082025000352/ex99_2q32025.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 5647000000,
+    "rawValue": "$5.647",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 1690820,
+    "rowLabel": "total Revenue",
+    "releaseIdentity": {
+      "date": "2025-10-29",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "In Q3 2025, Carvana sold 155,941 retail units (+44% YoY) for total Revenue of $5.647 billion (+55% YoY), both all-time quarterly records. This growth was paired with industry-leading Q3 profitability, including:",
+    "matchedText": "total Revenue of $5.647 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "In Q3 2025, Carvana sold 155,941 retail units (+44% YoY) for total Revenue of $5.647 billion (+55% YoY), both all-time quarterly records.",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "8ee35f132ea82f67786548cf34a29b0e5837d73b7896f062987f10dc6072164c"
+  }
+}

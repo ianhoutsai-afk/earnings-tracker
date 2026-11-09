@@ -1,0 +1,32 @@
+{
+  "ticker": "MAR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.65,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.65,
+    "rawValue": "$1.65",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1048286,
+    "rowLabel": "reported diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-02-10",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter reported diluted EPS totaled $1.65 and adjusted diluted EPS totaled $2.58. For the full year, reported diluted EPS total ed $9.51 and adjusted diluted EPS totale d $10.02",
+    "matchedText": "reported diluted EPS totaled $1.65",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter reported diluted EPS totaled $1.65 and adjusted diluted EPS totaled $2.58.",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "89b4bd7e339d21f7969828470c5ab503e521bc3826bdef05fea43e779a1c7dd9"
+  }
+}

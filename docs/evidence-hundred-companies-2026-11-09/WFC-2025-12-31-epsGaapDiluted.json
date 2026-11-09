@@ -1,0 +1,32 @@
+{
+  "ticker": "WFC",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.62,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000009/wfc4qer01-14x26ex991xrelea.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000009/wfc4qer01-14x26ex991xrelea.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.62,
+    "rawValue": "$1.62",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 72971,
+    "rowLabel": "Net Income",
+    "releaseIdentity": {
+      "date": "2026-01-14",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Wells Fargo Reports Fourth Quarter 2025 Net Income of $5.4 billion, or $1.62 per Diluted Share",
+    "matchedText": "Net Income of $5.4 billion, or $1.62 per Diluted Share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Wells Fargo Reports Fourth Quarter 2025 Net Income of $5.4 billion, or $1.62 per Diluted Share",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "e4ece1f56c596e9e02414eded03375a5d60ab05b5f6229219a8cac7f1044aa5a"
+  }
+}

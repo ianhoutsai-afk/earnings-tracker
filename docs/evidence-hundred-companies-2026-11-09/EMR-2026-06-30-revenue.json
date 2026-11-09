@@ -1,0 +1,35 @@
+{
+  "ticker": "EMR",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 4873000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000043/emr-20260630.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 4873000000,
+    "rawValue": "4873",
+    "scale": 6,
+    "sign": null,
+    "entity": 32604,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "context": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "entity": 32604
+    },
+    "contextHtml": "<xbrli:context id=\"c-9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000032604</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 4,553 4,873 $ 13,161 13,781",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended June 30, Nine Months Ended June 30, 2025 2026 2025 2026 Net sales $ 4,553 4,873 $ 13,161 13,781 Cost of sales 2,160 2,218 6,161 6,393 Selling, general and administrative expenses 1,266 1,343 3,773 3,902 Other deductions, net 298 311 944 744 Interest expense (net of interest income of $ 31 , $ 25 , $ 120 and $ 77 , respectively) 95 85 145 258 Earnings from continuing operations before income taxes 734 916 2,138 2,484 Income taxes 154 198 536 542 Earnings from continuing operations 580 718 1,602 1,942 Discontinued operations, net of tax of $ 2 , $ — , $ 2 , and $ — , respectively 6 — 7 — Net earnings 586 718 1,609 1,942 Less: Noncontrolling interests in subsidiaries — — ( 48 ) 1 Net earnings common stockholders $ 586 718 $ 1,657 1,941 Earnings common stockholders: Earnings from continuing operations $ 580 718 $ 1,650 1,941 Discontinued operations 6 — 7 — Net earnings common stockholders $ 586 718 $ 1,657 1,941 Basic earnings per share common stockholders Earnings from continuing operations $ 1.03 1.28 $ 2.92 3.46 Discontinued operations 0.01 — 0.01 — Basic earnings per common share $ 1.04 1.28 $ 2.93 3.46 Diluted earnings per share common stockholders: Earnings from continuing operations $ 1.03 1.28 $ 2.91 3.45 Discontinued operations 0.01 — 0.01 — Diluted earnings per common share $ 1.04 1.28 $ 2.92 3.45 Weighted average outstanding shares: Basic 562.1 558.8 564.5 560.4 Diluted 564.7 561.1 567.1 562.7",
+    "filingForm": "10-Q",
+    "sourceSha256": "86ded9525504186aabb73d157900bf041d06b55daf1390ebc248ebe62e00454f"
+  }
+}

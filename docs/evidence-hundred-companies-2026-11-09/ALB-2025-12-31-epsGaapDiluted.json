@@ -1,0 +1,32 @@
+{
+  "ticker": "ALB",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": -3.87,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591326000016/a4q25earningsreleaseex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591326000016/a4q25earningsreleaseex991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": -3.87,
+    "rawValue": "($3.87)",
+    "scale": 0,
+    "signFromLossWording": true,
+    "unitMeasure": "USD/shares",
+    "entity": 915913,
+    "rowLabel": "net loss",
+    "releaseIdentity": {
+      "date": "2026-02-11",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter net loss of ($414) million, or ($3.87) per diluted share, includes tax-related items and the write-down of assets in relation to the expected Ketjen transaction value; adjusted diluted loss per share of ($0.53) (a) .",
+    "matchedText": "net loss of ($414) million, or ($3.87) per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter net loss of ($414) million, or ($3.87) per diluted share, includes tax-related items and the write-down of assets in relation to the expected Ketjen transaction value; adjusted diluted loss per share of ($0.53) (a) .",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "e1a1b77e43242c3a1bfb5c0233f53ceeda5af903acf110f9015c01a12d8881d1"
+  }
+}

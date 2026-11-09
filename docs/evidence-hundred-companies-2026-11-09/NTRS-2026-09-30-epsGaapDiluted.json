@@ -1,0 +1,33 @@
+{
+  "ticker": "NTRS",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 3.4,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000063/q32026earningsreleaseex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000063/ntrs-20261021.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 3.4,
+    "rawValue": "$3.40",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "sourcePrecisionUnit": null,
+    "entity": 73124,
+    "rowLabel": "Diluted Earnings per Common Share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "releaseIdentity": {
+      "date": "2026-10-21",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": null,
+      "fiscalQuarter": null,
+      "periodEndBasis": "baseline official filing and reviewed same-accession fiscal-quarter wording"
+    },
+    "matchedText": "third quarter net income per diluted common share of $3.40",
+    "paragraph": "leaseex991.htm EX-99.1 Document Exhibit 99.1 NEWS RELEASE www.northerntrust.com INVESTOR CONTACT: Stephen Carroll | 312-557-3474 | Stephen.Carroll@ntrs.com MEDIA CONTACT: John O'Connell | 312-444-2388 | John.O'Connell@ntrs.com NORTHERN TRUST CORPORATION REPORTS THIRD QUARTER NET INCOME OF $642.9 MILLION, EARNINGS PER DILUTED COMMON SHARE OF $3.40 CHICAGO , OCTOBER 21, 2026 — Northern Trust Corporation today reported third quarter net income per diluted common share of $3.40, compared to $4.23 in the second quarter of 2026 and $2.29 in the third quarter of 2025. Net income was $642.9 million, compared to $792.2 million in the prior quarter a",
+    "quarterAnchor": "THIRD QUARTER",
+    "sourceSha256": "ba4147a61ec97ec22b2bde909bd702e07807a57e76a2b2cd8db2bdd8ff536131"
+  }
+}

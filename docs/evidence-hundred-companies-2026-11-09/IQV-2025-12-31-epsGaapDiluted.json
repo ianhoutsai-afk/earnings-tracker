@@ -1,0 +1,32 @@
+{
+  "ticker": "IQV",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 2.99,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1478242/000162828026005605/iqv-q4x2025earningspressre.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1478242/000162828026005605/iqv-q4x2025earningspressre.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 2.99,
+    "rawValue": "$2.99",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1478242,
+    "rowLabel": "GAAP Diluted Earnings per Share",
+    "releaseIdentity": {
+      "date": "2026-02-05",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "GAAP Diluted Earnings per Share of $2.99 for the fourth quarter, $7.84 for the full year",
+    "matchedText": "GAAP Diluted Earnings per Share of $2.99",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "GAAP Diluted Earnings per Share of $2.99 for the fourth quarter, $7.84 for the full year",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "cee946ec337cfcfcb879fd74ec99e09bc98cf51f635ee134d653074ad3005cb3"
+  }
+}

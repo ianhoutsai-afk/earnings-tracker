@@ -1,0 +1,32 @@
+{
+  "ticker": "CMI",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 4.27,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/26172/000002617226000004/cmi2025q48-kex99.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/26172/000002617226000004/cmi2025q48-kex99.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 4.27,
+    "rawValue": "$4.27",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 26172,
+    "rowLabel": "Net income attributable to Cummins in the fourth quarter",
+    "releaseIdentity": {
+      "date": "2026-02-05",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net income attributable to Cummins in the fourth quarter was $593 million, or $4.27 per diluted share, compared to $418 million, or $3.02 per diluted share, in 2024. The current quarter results include charges related to the electrolyzer business within Accelera of $218 million, or $1.54 per diluted share. The fourth quarter of 2024 included Accelera reorganization actions of $312 million, or $2.14 per diluted share, which were primarily non-cash charges.",
+    "matchedText": "Net income attributable to Cummins in the fourth quarter was $593 million, or $4.27 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Net income attributable to Cummins in the fourth quarter was $593 million, or $4.27 per diluted share, ",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "edaa77e2cfccd6635caadd2384fe6da087151857c7bcd307e07a72545571c44d"
+  }
+}

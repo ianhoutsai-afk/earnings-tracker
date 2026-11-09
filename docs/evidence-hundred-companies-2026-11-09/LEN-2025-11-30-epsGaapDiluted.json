@@ -1,0 +1,32 @@
+{
+  "ticker": "LEN",
+  "periodEnd": "2025-11-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.93,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/920760/000162828025057408/ex991-20251130x8kq4.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/920760/000162828025057408/ex991-20251130x8kq4.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.93,
+    "rawValue": "$1.93",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 920760,
+    "rowLabel": "Net earnings per diluted share",
+    "releaseIdentity": {
+      "date": "2025-12-16",
+      "periodEnd": "2025-11-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net earnings per diluted share of $1.93; $2.03 excluding adjustments of:",
+    "matchedText": "Net earnings per diluted share of $1.93",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "2025 Fourth Quarter Highlights",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "7ebfd4f965f8bebeb9e758af1899dbeb7d4b56046437ed4c96e2174c732e535f"
+  }
+}

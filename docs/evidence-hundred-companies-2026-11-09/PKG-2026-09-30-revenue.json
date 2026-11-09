@@ -1,0 +1,35 @@
+{
+  "ticker": "PKG",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 2601700000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75677/000119312526449161/pkg-20260930.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 2601700000,
+    "rawValue": "2601.7",
+    "scale": 6,
+    "sign": null,
+    "entity": 75677,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "context": {
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "entity": 75677
+    },
+    "contextHtml": "<xbrli:context id=\"C_2df4caf5-b9fd-4509-8c11-67a81c97b8dd\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000075677</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 2,601.7 $ 2,313.4 $ 7,459.3 $ 6,625.7",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended Nine Months Ended September 30, September 30, 2026 2025 2026 2025 Statements of Income: Net sales $ 2,601.7 $ 2,313.4 $ 7,459.3 $ 6,625.7 Cost of sales ( 1,997.8 ) ( 1,809.1 ) ( 5,890.2 ) ( 5,183.6 ) Gross profit 603.9 504.3 1,569.1 1,442.1 Selling, general and administrative expenses ( 182.7 ) ( 154.3 ) ( 542.3 ) ( 468.9 ) Other expense, net ( 35.9 ) ( 25.5 ) ( 99.1 ) ( 34.7 ) Income from operations 385.3 324.5 927.7 938.5 Non-operating pension income 1.2 — 3.5 — Interest expense, net ( 32.3 ) ( 19.3 ) ( 98.3 ) ( 45.2 ) Income before taxes 354.2 305.2 832.9 893.3 Provision for income taxes ( 91.9 ) ( 78.3 ) ( 207.6 ) ( 221.0 ) Net income $ 262.3 $ 226.9 $ 625.3 $ 672.3 Net income per common share: Basic $ 2.94 $ 2.52 $ 7.02 $ 7.48 Diluted $ 2.93 $ 2.51 $ 6.98 $ 7.45 Dividends declared per common share $ 1.50 $ 1.25 $ 4.25 $ 3.75 Statements of Comprehensive Income: Net income $ 262.3 $ 226.9 $ 625.3 $ 672.3 Other comprehensive income, net of tax: Changes in unrealized (losses) gains on marketable debt securities, net of tax of $ 0.1 million, $ 0.0 million, $ 0.3 million, and ($ 0.1 ) million, respectively ( 0.4 ) — ( 0.9 ) 0.2 Amortization of pension and postretirement plans actuarial loss and prior service cost, net of tax of ($ 0.3 ) million, ($ 0.3 ) million, ($ 0.9 ) million, and ($ 0.9 ) million, respectively 0.9 1.0 2.8 2.8 Other comprehensive income 0.5 1.0 1.9 3.0 Comprehensive income $ 262.8 $ 227.9 $ 627.2 $ 675.3",
+    "filingForm": "10-Q",
+    "sourceSha256": "904ba263bd8a73df78c91e3cd1b6d18495fdb1d33ff5fae7a6bfd92f7062b2e2"
+  }
+}

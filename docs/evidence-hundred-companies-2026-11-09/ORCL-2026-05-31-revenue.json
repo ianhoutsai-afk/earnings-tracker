@@ -1,0 +1,52 @@
+{
+  "ticker": "ORCL",
+  "periodEnd": "2026-05-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 19184000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526265848/orcl-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526265848/orcl-ex99_1.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 19184000000,
+    "rawValue": "19,184",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "entity": 1341439,
+    "rowLabel": "Total revenues",
+    "rowCells": [
+      "Total revenues",
+      "",
+      "",
+      "19,184",
+      "",
+      "",
+      "100%",
+      "",
+      "",
+      "15,903",
+      "",
+      "",
+      "100%",
+      "",
+      "21%",
+      "",
+      "20%"
+    ],
+    "columnIndex": 3,
+    "header": "Three Months Ended May 31, 2026",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "unitCaption": "Income statement structure with revenue, costs, net result, and diluted EPS                    Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31, Three Months Ended May 31,  % Increase  % Increase (Decrease)   2026 2026   % of Revenues  2025 2025   % of Revenues  (Decrease) in US $  in Constant Currency (1) ($ in millions, except per share data) CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS Q4 FISCAL 2026 FINANCIAL RESULTS ORACLE CORPORATION",
+    "releaseIdentity": {
+      "date": "2026-06-10",
+      "periodEnd": "2026-05-31",
+      "fiscalYear": null,
+      "fiscalQuarter": null
+    },
+    "tableExcerpt": "Three Months Ended May 31, % Increase % Increase (Decrease) 2026 % of Revenues 2025 % of Revenues (Decrease) in US $ in Constant Currency (1) REVENUES Cloud $ 9,913 52% $ 6,737 43% 47% 46% Software 6,824 35% 6,968 44% (2%) (3%) Hardware 924 5% 850 5% 9% 7% Services 1,523 8% 1,348 8% 13% 12% Total revenues 19,184 100% 15,903 100% 21% 20% OPERATING EXPENSES Cloud and software 5,224 27% 3,343 21% 56% 56% Hardware 293 2% 252 2% 16% 13% Services 1,155 6% 1,145 7% 1% 0% Sales and marketing 2,068 11% 2,306 15% (10%) (12%) Research and development 2,613 14% 2,654 17% (2%) (1%) General and administrative 444 2% 467 3% (5%) (5%) Amortization of intangible assets 431 2% 544 3% (21%) (21%) Restructuring and other 823 4% 83 0% 899% 901% Total operating expenses 13,051 68% 10,794 68% 21% 20% OPERATING INCOME 6,133 32% 5,109 32% 20% 18% Interest expense (1,438 ) (8%) (978 ) (6%) 47% 47% Non-operating income, net 675 4% 20 0% * * INCOME BEFORE INCOME TAXES 5,370 28% 4,151 26% 29% 27% Provision for income taxes 1,066 6% 724 4% 47% 45% NET INCOME $ 4,304 22% $ 3,427 22% 26% 23% Preferred stock dividends 81 — NET INCOME AVAILABLE TO COMMON SHAREHOLDERS $ 4,223 $ 3,427 EARNINGS PER SHARE ATTRIBUTABLE TO COMMON SHAREHOLDERS: Basic $ 1.47 $ 1.22 Diluted $ 1.45 $ 1.19 WEIGHTED AVERAGE COMMON SHARES OUTSTANDING: Basic 2,878 2,805 Diluted 2,915 2,871",
+    "sourceSha256": "ef211b7042fb6b541a9262cd687d8295d9cf1e76407ebe06606b33161bd62a15"
+  }
+}

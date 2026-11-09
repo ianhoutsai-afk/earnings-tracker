@@ -1,0 +1,32 @@
+{
+  "ticker": "TMO",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 5.21,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000012/q42025earnings8kex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000012/q42025earnings8kex99_1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 5.21,
+    "rawValue": "$5.21",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 97745,
+    "rowLabel": "GAAP diluted earnings per share (EPS)",
+    "releaseIdentity": {
+      "date": "2026-01-29",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter GAAP diluted earnings per share (EPS) grew 9% to $5.21.",
+    "matchedText": "GAAP diluted earnings per share (EPS) grew 9% to $5.21",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter GAAP diluted earnings per share (EPS) grew 9% to $5.21.",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "868aed34e90824f2d581dc15b9c4e9de8b88c4a0ed30af0716586207dc664764"
+  }
+}

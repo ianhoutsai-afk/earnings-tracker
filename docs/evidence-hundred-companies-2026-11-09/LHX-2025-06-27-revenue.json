@@ -1,0 +1,35 @@
+{
+  "ticker": "LHX",
+  "periodEnd": "2025-06-27",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 5426000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000151/hrs-20250627.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 5426000000,
+    "rawValue": "5426",
+    "scale": 6,
+    "sign": null,
+    "entity": 202058,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-03-29",
+    "end": "2025-06-27",
+    "context": {
+      "start": "2025-03-29",
+      "end": "2025-06-27",
+      "entity": 202058
+    },
+    "contextHtml": "<xbrli:context id=\"c-3\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000202058</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-03-29</xbrli:startdate><xbrli:enddate>2025-06-27</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Revenue",
+    "rowText": "Revenue $ 5,426 $ 5,299 $ 10,558 $ 10,510",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Second Quarter Year to Date (In millions, except per share amounts) 2025 2024 2025 2024 Revenue $ 5,426 $ 5,299 $ 10,558 $ 10,510 Cost of revenue ( 4,091 ) ( 3,939 ) ( 7,873 ) ( 7,802 ) General and administrative expenses ( 764 ) ( 884 ) ( 1,589 ) ( 1,854 ) Operating income 571 476 1,096 854 Non-service FAS pension income and other, net (1) 105 86 189 174 Interest expense, net ( 152 ) ( 172 ) ( 302 ) ( 348 ) Income before income taxes 524 390 983 680 Income taxes ( 66 ) ( 23 ) ( 139 ) ( 28 ) Net income 458 367 844 652 Noncontrolling interests, net of income taxes — ( 1 ) — ( 3 ) Net income attributable to L3Harris $ 458 $ 366 $ 844 $ 649 Earnings per share attributable to common shareholders Basic $ 2.45 $ 1.93 $ 4.50 $ 3.42 Diluted $ 2.44 $ 1.92 $ 4.48 $ 3.40",
+    "filingForm": "10-Q",
+    "sourceSha256": "2e6d9e3d6a12f25c75720e2c966017cd09a74b3e3f340ed4b34cb847bff907c4"
+  }
+}

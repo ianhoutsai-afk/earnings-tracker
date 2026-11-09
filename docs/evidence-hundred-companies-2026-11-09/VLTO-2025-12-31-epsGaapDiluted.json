@@ -1,0 +1,32 @@
+{
+  "ticker": "VLTO",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.01,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.01,
+    "rawValue": "$1.01",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1967680,
+    "rowLabel": "Net earnings",
+    "releaseIdentity": {
+      "date": "2026-02-03",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net earnings were $254 million, or $1.01 per diluted common share",
+    "matchedText": "Net earnings were $254 million, or $1.01 per diluted common share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Key Fourth Quarter 2025 Results",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "7a7fd941618ef7fa5ebf0bb6d6e21df1959f7b7b86281e595982f0505b1875c8"
+  }
+}

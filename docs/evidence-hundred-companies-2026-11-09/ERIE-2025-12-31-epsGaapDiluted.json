@@ -1,0 +1,32 @@
+{
+  "ticker": "ERIE",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.21,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026010640/ex-99112312025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026010640/erie-20260219.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.21,
+    "rawValue": "$1.21",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 922621,
+    "rowLabel": "Net income",
+    "releaseIdentity": {
+      "date": "2026-02-23",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Erie, Pa. - February 23, 2026 - Erie Indemnity Company (NASDAQ: ERIE) today announced financial results for the full year and quarter ending December 31, 2025. Net income was $559.3 million, or $10.69 per diluted share, in 2025, compared to $600.3 million, or $11.48 per diluted share, in 2024. Net income was $63.4 million, or $1.21 per diluted share, in the fourth quarter of 2025, compared to $152.0 million, or $2.91 per diluted share, in the fourth quarter of 2024. Net income was reduced by $80.6 million, or $1.54 per diluted share, in the fourth quarter and year ended December 31, 2025, reflecting the after-tax impact of a $100 million charitable contribution made to the Erie Insurance Foundation, a tax-exempt private charitable foundation formed in 2025 to create long-term sustainability for charitable contributions and grantmaking.",
+    "matchedText": "Net income was $63.4 million, or $1.21 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Net income was $63.4 million, or $1.21 per diluted share, in the fourth quarter of 2025, ",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "cce7447288e2a8bee66ea5f76bd03caaaecb910b516db3fec4eb78d96d43abca"
+  }
+}
