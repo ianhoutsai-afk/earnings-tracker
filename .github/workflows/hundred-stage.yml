@@ -1,0 +1,38 @@
+name: Validate the hundred-company quarterly backfill
+on:
+  push:
+    branches: [codex/quarterly-backfill-100-20261109]
+    paths: ['stage_hundred.py','.github/workflows/hundred-stage.yml']
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      SEC_PROXY_URL: ${{ secrets.SEC_PROXY_URL }}
+      PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
+      SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install lxml requests pandas yfinance
+      - uses: actions/cache/restore@v4
+        with:
+          path: .sec_cache/official
+          key: hundred-stage-${{ github.run_id }}
+          restore-keys: sec-official-v1-
+      - run: python refine_hundred.py
+      - run: python stage_hundred.py
+      - run: python -m unittest discover -q
+      - run: node --test test_*.mjs
+      - run: python validate_quarterly_data.py
+      - run: |
+          git rm -f collect_hundred.py hundred-candidates.json refine_hundred.py selected-hundred.json stage_hundred.py .github/workflows/hundred-collect.yml .github/workflows/hundred-stage.yml
+          git add official_history.json historical_data.json history_status.json official_scan_state.json data.json docs/hundred-company-backfill-2026-11-09.json docs/evidence-hundred-companies-2026-11-09
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Fill source-verified quarterly metrics for 100 companies'
+          git push origin HEAD
