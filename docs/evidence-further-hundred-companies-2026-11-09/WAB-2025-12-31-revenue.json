@@ -1,0 +1,138 @@
+{
+  "ticker": "WAB",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 2965000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026008067/wab-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/wab-20260211.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 943452,
+    "sourceSha256": "0eb026df94883da614dc2dca61103a361bc47302f407a4eb5ca03f02c3c63fc6",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000943452.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 3120000000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 3120000000,
+          "accn": "0001628280-26-066629",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-10-21",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 3179000000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 3179000000,
+          "accn": "0001628280-26-049139",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-22",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 2950000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 2950000000,
+          "accn": "0001628280-26-026422",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-22",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 2886000000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 2886000000,
+          "accn": "0001628280-25-045790",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-22"
+        }
+      }
+    ],
+    "value": 2965000000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 11167000000,
+      "accn": "0001628280-26-008067",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-13",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 8202000000,
+      "accn": "0001628280-25-045790",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-22"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026008067/wab-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828025045790/wab-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 2610000000,
+        "accn": "0001628280-25-019005",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-04-23"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 2706000000,
+        "accn": "0001628280-25-035852",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-24"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 2886000000,
+        "accn": "0001628280-25-045790",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-22"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

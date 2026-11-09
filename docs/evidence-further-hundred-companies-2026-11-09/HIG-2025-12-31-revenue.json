@@ -1,0 +1,138 @@
+{
+  "ticker": "HIG",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 7339000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000012/hig-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 874766,
+    "sourceSha256": "e5f9f62b9f64bff59e2c233598d540496ec8c143baa9e8461ea9c6c6472aed49",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000874766.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-09-30",
+        "baselineValue": 7220000000,
+        "fact": {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "val": 7220000000,
+          "accn": "0000874766-26-000078",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-10-26",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-06-30",
+        "baselineValue": 7263000000,
+        "fact": {
+          "start": "2026-04-01",
+          "end": "2026-06-30",
+          "val": 7263000000,
+          "accn": "0000874766-26-000060",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-23",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 7226000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 7226000000,
+          "accn": "0000874766-26-000037",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-23",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 7232000000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 7232000000,
+          "accn": "0000874766-25-000107",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-27"
+        }
+      }
+    ],
+    "value": 7339000000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 28368000000,
+      "accn": "0000874766-26-000012",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-20",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 21029000000,
+      "accn": "0000874766-25-000107",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-27"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000012/hig-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476625000107/hig-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 6810000000,
+        "accn": "0000874766-25-000052",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-04-24"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 6987000000,
+        "accn": "0000874766-25-000084",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-28"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 7232000000,
+        "accn": "0000874766-25-000107",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-27"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

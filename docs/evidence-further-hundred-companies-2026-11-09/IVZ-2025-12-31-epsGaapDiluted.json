@@ -1,0 +1,32 @@
+{
+  "ticker": "IVZ",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": -2.61,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": -2.61,
+    "rawValue": "$(2.61)",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 914208,
+    "rowLabel": "Diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-01-27",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Invesco Announces Fourth Quarter Diluted EPS of $(2.61); Adjusted Diluted EPS (1) of $0.62",
+    "matchedText": "Diluted EPS of $(2.61)",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Invesco Announces Fourth Quarter Diluted EPS of $(2.61); Adjusted Diluted EPS (1) of $0.62",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "1e9a6aaa84636e9e1cba295786e5e21afc1102ec6a6d44d3e82db385296f7780"
+  }
+}

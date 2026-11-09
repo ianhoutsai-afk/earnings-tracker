@@ -1,0 +1,64 @@
+{
+  "ticker": "CCL",
+  "periodEnd": "2025-05-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 6328000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509725000052/ccl-20250531.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509725000047/a20252qearningsrelease8-k.htm",
+  "sourceKind": "companyfacts_direct",
+  "evidence": {
+    "entity": 815097,
+    "sourceSha256": "c207466469f69d3af50817c174fb9dc501bb65e4d2f64fdd51f2b3a3b9f3e5c9",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000815097.json",
+    "filingForm": "10-Q",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-02-28",
+        "baselineValue": 6165000000,
+        "fact": {
+          "start": "2025-12-01",
+          "end": "2026-02-28",
+          "val": 6165000000,
+          "accn": "0000815097-26-000037",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-03-27",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-08-31",
+        "baselineValue": 8153000000,
+        "fact": {
+          "start": "2025-06-01",
+          "end": "2025-08-31",
+          "val": 8153000000,
+          "accn": "0000815097-25-000084",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-09-29"
+        }
+      }
+    ],
+    "value": 6328000000,
+    "start": "2025-03-01",
+    "end": "2025-05-31",
+    "companyfactsFact": {
+      "start": "2025-03-01",
+      "end": "2025-05-31",
+      "val": 6328000000,
+      "accn": "0000815097-25-000052",
+      "fy": 2025,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2025-06-26"
+    }
+  }
+}

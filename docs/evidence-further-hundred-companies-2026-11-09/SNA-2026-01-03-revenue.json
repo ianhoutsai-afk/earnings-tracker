@@ -1,0 +1,144 @@
+{
+  "ticker": "SNA",
+  "periodEnd": "2026-01-03",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1339900000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000045/sna-20260103.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/sna-20260205.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 91440,
+    "sourceSha256": "a58d7ce09df62f8347063499fb4484e1f43d66f393882a7bfd0ca2664b3395f7",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000091440.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-10-03",
+        "baselineValue": 1282300000,
+        "fact": {
+          "start": "2026-07-05",
+          "end": "2026-10-03",
+          "val": 1282300000,
+          "accn": "0000091440-26-000172",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-10-22",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-07-04",
+        "baselineValue": 1334800000,
+        "fact": {
+          "start": "2026-04-05",
+          "end": "2026-07-04",
+          "val": 1334800000,
+          "accn": "0000091440-26-000144",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-23",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-04-04",
+        "baselineValue": 1308300000,
+        "fact": {
+          "start": "2026-01-04",
+          "end": "2026-04-04",
+          "val": 1308300000,
+          "accn": "0000091440-26-000109",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-23",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-27",
+        "baselineValue": 1291900000,
+        "fact": {
+          "start": "2025-06-29",
+          "end": "2025-09-27",
+          "val": 1291900000,
+          "accn": "0000091440-25-000081",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-16"
+        }
+      }
+    ],
+    "value": 1339900000,
+    "annual": {
+      "start": "2024-12-29",
+      "end": "2026-01-03",
+      "val": 5156100000,
+      "accn": "0000091440-26-000045",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2024-12-29",
+      "end": "2025-09-27",
+      "val": 3816200000,
+      "accn": "0000091440-25-000081",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-16"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000045/sna-20260103.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144025000081/sna-20250927.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2024-12-29",
+        "end": "2025-03-29",
+        "val": 1243200000,
+        "accn": "0000091440-25-000031",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-04-17"
+      },
+      {
+        "start": "2025-03-30",
+        "end": "2025-06-28",
+        "val": 1281100000,
+        "accn": "0000091440-25-000064",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-17"
+      },
+      {
+        "start": "2025-06-29",
+        "end": "2025-09-27",
+        "val": 1291900000,
+        "accn": "0000091440-25-000081",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-16"
+      }
+    ],
+    "corroboratingQuarterFacts": [],
+    "releaseConfirmation": {
+      "url": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm",
+      "section": "Fourth Quarter 2025",
+      "rowLabel": "Total revenues",
+      "value": 1339900000
+    }
+  }
+}

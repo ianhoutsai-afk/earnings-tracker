@@ -1,0 +1,34 @@
+{
+  "ticker": "XOM",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "epsGaapDiluted",
+  "value": 3.48,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000003408826000093/xom-20260630.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000006/xom-20260731.htm",
+  "sourceKind": "companyfacts_direct",
+  "evidence": {
+    "entity": 2115436,
+    "sourceSha256": "a645889498c0edf616388372a882fc895a0ed1e6f0e5e3892b99388302552d21",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002115436.json",
+    "filingForm": "10-Q",
+    "value": 3.48,
+    "unitMeasure": "USD/shares",
+    "factTag": "us-gaap:EarningsPerShareDiluted",
+    "rowLabel": "Reported GAAP diluted EPS",
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "companyfactsFact": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "val": 3.48,
+      "accn": "0000034088-26-000093",
+      "fy": 2026,
+      "fp": "Q2",
+      "form": "10-Q",
+      "filed": "2026-08-03",
+      "frame": "CY2026Q2"
+    }
+  }
+}

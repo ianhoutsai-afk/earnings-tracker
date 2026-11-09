@@ -1,0 +1,111 @@
+{
+  "ticker": "EVRG",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1340200000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000171126926000017/evrg-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000119312526058075/d29762dex991.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 1711269,
+    "sourceSha256": "307342a0a7d889af23eae44a88cfb33e984796cc11320de68af7f078da1c46e2",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001711269.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-03-31",
+        "baselineValue": 1443700000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-03-31",
+          "val": 1443700000,
+          "accn": "0001711269-26-000057",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-05-07",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 1809900000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 1809900000,
+          "accn": "0001711269-25-000041",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-11-06",
+          "frame": "CY2025Q3"
+        }
+      }
+    ],
+    "value": 1340200000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 5961600000,
+      "accn": "0001711269-26-000017",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-19",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 4621400000,
+      "accn": "0001711269-25-000041",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-11-06"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000171126926000017/evrg-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000171126925000041/evrg-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 1374500000,
+        "accn": "0001711269-25-000010",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-05-08"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 1437000000,
+        "accn": "0001711269-25-000022",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-08-07",
+        "frame": "CY2025Q2"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 1809900000,
+        "accn": "0001711269-25-000041",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-11-06",
+        "frame": "CY2025Q3"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

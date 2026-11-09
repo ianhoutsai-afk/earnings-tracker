@@ -1,0 +1,80 @@
+{
+  "ticker": "KR",
+  "periodEnd": "2026-05-23",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 46121000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926078236/kr-20260523x10q.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926075395/tm2618219d1_8k.htm",
+  "sourceKind": "companyfacts_direct",
+  "evidence": {
+    "entity": 56873,
+    "sourceSha256": "f960cd5977a109fbba07f6fbb5da02280c3c4b71e4f89e01f7e46bd4610fe1a0",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000056873.json",
+    "filingForm": "10-Q",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-08-15",
+        "baselineValue": 34621000000,
+        "fact": {
+          "start": "2026-05-24",
+          "end": "2026-08-15",
+          "val": 34621000000,
+          "accn": "0001104659-26-108926",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-09-18",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2025-11-08",
+        "baselineValue": 33859000000,
+        "fact": {
+          "start": "2025-08-17",
+          "end": "2025-11-08",
+          "val": 33859000000,
+          "accn": "0001104659-25-120642",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-12-12",
+          "frame": "CY2025Q3"
+        }
+      },
+      {
+        "periodEnd": "2025-08-16",
+        "baselineValue": 33940000000,
+        "fact": {
+          "start": "2025-05-25",
+          "end": "2025-08-16",
+          "val": 33940000000,
+          "accn": "0001104659-25-091648",
+          "fy": 2025,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2025-09-19"
+        }
+      }
+    ],
+    "value": 46121000000,
+    "start": "2026-02-01",
+    "end": "2026-05-23",
+    "companyfactsFact": {
+      "start": "2026-02-01",
+      "end": "2026-05-23",
+      "val": 46121000000,
+      "accn": "0001104659-26-078236",
+      "fy": 2026,
+      "fp": "Q1",
+      "form": "10-Q",
+      "filed": "2026-06-26",
+      "frame": "CY2026Q2"
+    }
+  }
+}

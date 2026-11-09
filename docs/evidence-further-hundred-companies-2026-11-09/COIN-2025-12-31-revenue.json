@@ -1,0 +1,121 @@
+{
+  "ticker": "COIN",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1781129000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000015/coin-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000011/coin-20260212.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 1679788,
+    "sourceSha256": "0206e8a8e19418d06a025c32266b284709920daf85bfece27f6e83734856a182",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001679788.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:Revenues",
+    "rowLabel": "Revenues",
+    "basisMatches": [
+      {
+        "periodEnd": "2025-09-30",
+        "baselineValue": 1868693000,
+        "fact": {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "val": 1868693000,
+          "accn": "0001679788-25-000208",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-30"
+        }
+      },
+      {
+        "periodEnd": "2025-06-30",
+        "baselineValue": 1497208000,
+        "fact": {
+          "start": "2025-04-01",
+          "end": "2025-06-30",
+          "val": 1497208000,
+          "accn": "0001679788-25-000154",
+          "fy": 2025,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2025-07-31"
+        }
+      },
+      {
+        "periodEnd": "2025-03-31",
+        "baselineValue": 2034295000,
+        "fact": {
+          "start": "2025-01-01",
+          "end": "2025-03-31",
+          "val": 2034295000,
+          "accn": "0001679788-25-000089",
+          "fy": 2025,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2025-05-08"
+        }
+      }
+    ],
+    "value": 1781129000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 7181325000,
+      "accn": "0001679788-26-000015",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-09-30",
+      "val": 5400196000,
+      "accn": "0001679788-25-000208",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-30"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000015/coin-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978825000208/coin-20250930.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-03-31",
+        "val": 2034295000,
+        "accn": "0001679788-25-000089",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-05-08"
+      },
+      {
+        "start": "2025-04-01",
+        "end": "2025-06-30",
+        "val": 1497208000,
+        "accn": "0001679788-25-000154",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-31"
+      },
+      {
+        "start": "2025-07-01",
+        "end": "2025-09-30",
+        "val": 1868693000,
+        "accn": "0001679788-25-000208",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-30"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}

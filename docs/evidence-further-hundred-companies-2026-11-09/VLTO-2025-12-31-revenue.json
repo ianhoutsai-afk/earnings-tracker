@@ -1,0 +1,138 @@
+{
+  "ticker": "VLTO",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1396000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000011/vlto-20251231.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
+  "sourceKind": "companyfacts_quarter_revenue",
+  "evidence": {
+    "entity": 1967680,
+    "sourceSha256": "cea924f6c24f5a777d601a032963b4199cffa50c351b153b4d1ccb88eff75c10",
+    "companyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001967680.json",
+    "filingForm": "10-K",
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "rowLabel": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "basisMatches": [
+      {
+        "periodEnd": "2026-10-02",
+        "baselineValue": 1509000000,
+        "fact": {
+          "start": "2026-07-04",
+          "end": "2026-10-02",
+          "val": 1509000000,
+          "accn": "0001967680-26-000048",
+          "fy": 2026,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2026-10-30",
+          "frame": "CY2026Q3"
+        }
+      },
+      {
+        "periodEnd": "2026-07-03",
+        "baselineValue": 1474000000,
+        "fact": {
+          "start": "2026-04-04",
+          "end": "2026-07-03",
+          "val": 1474000000,
+          "accn": "0001967680-26-000044",
+          "fy": 2026,
+          "fp": "Q2",
+          "form": "10-Q",
+          "filed": "2026-07-29",
+          "frame": "CY2026Q2"
+        }
+      },
+      {
+        "periodEnd": "2026-04-03",
+        "baselineValue": 1422000000,
+        "fact": {
+          "start": "2026-01-01",
+          "end": "2026-04-03",
+          "val": 1422000000,
+          "accn": "0001967680-26-000024",
+          "fy": 2026,
+          "fp": "Q1",
+          "form": "10-Q",
+          "filed": "2026-04-29",
+          "frame": "CY2026Q1"
+        }
+      },
+      {
+        "periodEnd": "2025-10-03",
+        "baselineValue": 1404000000,
+        "fact": {
+          "start": "2025-07-05",
+          "end": "2025-10-03",
+          "val": 1404000000,
+          "accn": "0001967680-25-000136",
+          "fy": 2025,
+          "fp": "Q3",
+          "form": "10-Q",
+          "filed": "2025-10-29"
+        }
+      }
+    ],
+    "value": 1396000000,
+    "annual": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "val": 5503000000,
+      "accn": "0001967680-26-000011",
+      "fy": 2025,
+      "fp": "FY",
+      "form": "10-K",
+      "filed": "2026-02-20",
+      "frame": "CY2025"
+    },
+    "nineMonths": {
+      "start": "2025-01-01",
+      "end": "2025-10-03",
+      "val": 4107000000,
+      "accn": "0001967680-25-000136",
+      "fy": 2025,
+      "fp": "Q3",
+      "form": "10-Q",
+      "filed": "2025-10-29"
+    },
+    "annualUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000011/vlto-20251231.htm",
+    "nineMonthsUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768025000136/vlto-20251003.htm",
+    "interimQuarterFacts": [
+      {
+        "start": "2025-01-01",
+        "end": "2025-04-04",
+        "val": 1332000000,
+        "accn": "0001967680-25-000067",
+        "fy": 2025,
+        "fp": "Q1",
+        "form": "10-Q",
+        "filed": "2025-04-30"
+      },
+      {
+        "start": "2025-04-05",
+        "end": "2025-07-04",
+        "val": 1371000000,
+        "accn": "0001967680-25-000125",
+        "fy": 2025,
+        "fp": "Q2",
+        "form": "10-Q",
+        "filed": "2025-07-28"
+      },
+      {
+        "start": "2025-07-05",
+        "end": "2025-10-03",
+        "val": 1404000000,
+        "accn": "0001967680-25-000136",
+        "fy": 2025,
+        "fp": "Q3",
+        "form": "10-Q",
+        "filed": "2025-10-29"
+      }
+    ],
+    "corroboratingQuarterFacts": []
+  }
+}
