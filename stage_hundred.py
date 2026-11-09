@@ -127,7 +127,8 @@ audit={'baselineCommit':'e5ace5ce36c80da7ed1abf6b77511d2242f3d148','companies':l
 rejected=[]
 official=copy.deepcopy(before['official_history.json']);bykey={(r['ticker'],r['periodEnd']):r for r in official};changed_records={}
 for item in accepted:
- r=bykey[(item['ticker'],item['periodEnd'])];field=item['field'];r[field]=item['evidence']['value']
+ ticker=item['ticker']
+ r=bykey[(ticker,item['periodEnd'])];field=item['field'];r[field]=item['evidence']['value']
  r['revenueSourceUrl' if field=='revenue' else 'epsSourceUrl']=item['sourceUrl'];r['verifiedAt']=today.isoformat()
  if item['sourceKind']=='narrative_release_revenue':
   note={'en':'Revenue is shown at the precision stated in the official earnings release.','zh-TW':'營收採用官方財報公告所列精度。'}
