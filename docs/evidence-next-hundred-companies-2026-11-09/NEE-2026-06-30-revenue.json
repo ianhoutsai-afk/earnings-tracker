@@ -1,0 +1,36 @@
+{
+  "ticker": "NEE",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 7534000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000060/nee-20260630.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000058/neeq22026exhibit99.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 7534000000,
+    "rawValue": "7534",
+    "scale": 6,
+    "sign": null,
+    "entity": 753308,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RegulatedAndUnregulatedOperatingRevenue",
+    "start": "2026-04-01",
+    "end": "2026-06-30",
+    "context": {
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "entity": 753308
+    },
+    "contextHtml": "<xbrli:context id=\"c-9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000753308</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-04-01</xbrli:startdate><xbrli:enddate>2026-06-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "OPERATING REVENUES",
+    "rowText": "OPERATING REVENUES $ 7,534 $ 6,700 $ 14,235 $ 12,947",
+    "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+    "structuralScope": false,
+    "statementText": "Three Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 OPERATING REVENUES $ 7,534 $ 6,700 $ 14,235 $ 12,947 OPERATING EXPENSES Fuel, purchased power and interchange 1,374 1,184 2,703 2,348 Other operations and maintenance 1,459 1,220 2,881 2,393 Merger-related expenses 32 — 32 — Depreciation and amortization 1,757 1,773 3,128 2,868 Taxes other than income taxes and other – net 667 630 1,295 1,225 Total operating expenses – net 5,289 4,807 10,039 8,834 GAINS (LOSSES) ON DISPOSAL OF BUSINESSES/ASSETS – NET ( 7 ) 18 250 54 OPERATING INCOME 2,238 1,911 4,446 4,167 OTHER INCOME (DEDUCTIONS) Interest expense ( 487 ) ( 1,060 ) ( 1,774 ) ( 2,834 ) Equity in earnings (losses) of equity method investees 333 177 504 ( 469 ) Allowance for equity funds used during construction 59 44 112 82 Gains on disposal of investments and other property – net 103 103 103 101 Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds – net 190 70 130 2 Other net periodic benefit income 23 67 94 134 Other – net 79 71 121 144 Total other income (deductions) – net 300 ( 528 ) ( 710 ) ( 2,840 ) INCOME BEFORE INCOME TAXES 2,538 1,383 3,736 1,327 INCOME TAX BENEFIT ( 84 ) ( 256 ) ( 573 ) ( 777 ) NET INCOME 2,622 1,639 4,309 2,104 NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS 522 389 1,017 758 NET INCOME ATTRIBUTABLE TO NEE $ 3,144 $ 2,028 $ 5,326 $ 2,862 Earnings per share attributable to NEE: Basic $ 1.51 $ 0.99 $ 2.56 $ 1.39 Assuming dilution $ 1.50 $ 0.98 $ 2.54 $ 1.39",
+    "filingForm": "10-Q",
+    "sourceSha256": "a2fdb6d69621170a34c8d33669924f9424edc71ba66efa3c96cda69dc6d0117a"
+  }
+}

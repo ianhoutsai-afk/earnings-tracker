@@ -1,0 +1,32 @@
+{
+  "ticker": "REGN",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 3900000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000004/exhibit991q42025.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000004/exhibit991q42025.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 3900000000,
+    "rawValue": "$3.9",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 872589,
+    "rowLabel": "revenues",
+    "releaseIdentity": {
+      "date": "2026-01-30",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter 2025 revenues increased 3% to $3.9 billion versus fourth quarter 2024; full year 2025 revenues increased 1% to $14.3 billion versus 2024",
+    "matchedText": "revenues increased 3% to $3.9 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter 2025 revenues increased 3% to $3.9 billion ",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "dad007311ff41c63b318620b48832c2cea12fb541df4f1ee55eab154098d4996"
+  }
+}

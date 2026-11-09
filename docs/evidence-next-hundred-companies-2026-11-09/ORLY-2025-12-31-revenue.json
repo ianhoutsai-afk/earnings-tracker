@@ -1,0 +1,48 @@
+{
+  "ticker": "ORLY",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 4414314000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000006/orly-20260204xex99d1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000006/orly-20260204xex99d1.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 4414314000,
+    "rawValue": "4,414,314",
+    "scale": 3,
+    "unitMeasure": "USD",
+    "entity": 898173,
+    "rowLabel": "Sales",
+    "rowCells": [
+      "Sales",
+      "",
+      "$",
+      "4,414,314",
+      "",
+      "$",
+      "4,095,601",
+      "",
+      "$",
+      "17,781,992",
+      "",
+      "$",
+      "16,708,479"
+    ],
+    "columnIndex": 3,
+    "header": "For the Three Months Ended December 31, 2025 (Unaudited)",
+    "headerBasis": "explicit-date",
+    "statementHeading": "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+    "structuralScope": false,
+    "unitCaption": "CONDENSED CONSOLIDATED STATEMENTS OF INCOME                For the Three Months Ended For the Three Months Ended For the Three Months Ended For the Three Months Ended For the Three Months Ended  For the Year Ended For the Year Ended For the Year Ended For the Year Ended For the Year Ended   December 31, December 31, December 31, December 31, December 31,  December 31, December 31, December 31, December 31, December 31,   2025 2025  2024 2024  2025 2025  2024 2024    (Unaudited)   (Unaudited)   (Unaudited)   (Note) (In thousands, except per share data) CONDENSED CONSOLIDATED STATEMENTS OF INCOME O’REILLY AUTOMOTIVE, INC. AND SUBSIDIARIES",
+    "releaseIdentity": {
+      "date": "2026-02-04",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "tableExcerpt": "For the Three Months Ended For the Year Ended December 31, December 31, 2025 2024 2025 2024 (Unaudited) (Unaudited) (Unaudited) (Note) Sales $ 4,414,314 $ 4,095,601 $ 17,781,992 $ 16,708,479 Cost of goods sold, including warehouse and distribution expenses 2,128,142 1,994,569 8,607,851 8,153,990 Gross profit 2,286,172 2,101,032 9,174,141 8,554,489 Selling, general and administrative expenses 1,457,563 1,362,382 5,713,529 5,303,332 Operating income 828,609 738,650 3,460,612 3,251,157 Other income (expense): Interest expense (60,597) (55,403) (235,064) (222,548) Interest income 1,994 2,056 7,323 7,295 Other, net 709 (106) 7,300 9,160 Total other expense (57,894) (53,453) (220,441) (206,093) Income before income taxes 770,715 685,197 3,240,171 3,045,064 Provision for income taxes 165,482 134,067 701,962 658,384 Net income $ 605,233 $ 551,130 $ 2,538,209 $ 2,386,680 Earnings per share-basic: Earnings per share $ 0.72 $ 0.64 $ 2.98 $ 2.73 Weighted-average common shares outstanding – basic 844,239 865,101 851,472 875,082 Earnings per share-assuming dilution: Earnings per share $ 0.71 $ 0.63 $ 2.97 $ 2.71 Weighted-average common shares outstanding – assuming dilution 848,420 869,956 855,919 880,572",
+    "sourceSha256": "11ab6366223d376920d2f2f41b7a1505f1a8f6d76b88445c6b956706b7c6013e"
+  }
+}

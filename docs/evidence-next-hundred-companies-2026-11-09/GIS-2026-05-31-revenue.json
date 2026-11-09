@@ -1,0 +1,32 @@
+{
+  "ticker": "GIS",
+  "periodEnd": "2026-05-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 4600000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/40704/000162828026046337/a20260701ex99.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40704/000162828026046337/a20260701ex99.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 4600000000,
+    "rawValue": "$4.6",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 40704,
+    "rowLabel": "Net sales",
+    "releaseIdentity": {
+      "date": "2026-07-01",
+      "periodEnd": "2026-05-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net sales of $4.6 billion were up 1 percent; organic net sales¹ were in line with last year",
+    "matchedText": "Net sales of $4.6 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter Highlights",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "516ac656898191cc974c2f26f32923d76f521570ea7c608f3a19d10001c5185d"
+  }
+}

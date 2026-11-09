@@ -1,0 +1,52 @@
+{
+  "ticker": "ICE",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 3007000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1571949/000110465925104017/tm2529550d1_ex99-1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1571949/000110465925104017/tm2529550d1_ex99-1.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 3007000000,
+    "rawValue": "3,007",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "entity": 1571949,
+    "rowLabel": "Total revenues",
+    "rowCells": [
+      "Total revenues",
+      "",
+      "",
+      "9,498",
+      "",
+      "",
+      "",
+      "8,731",
+      "",
+      "",
+      "",
+      "3,007",
+      "",
+      "",
+      "",
+      "3,033",
+      ""
+    ],
+    "columnIndex": 11,
+    "header": "Three Months Ended September 30, 2025",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Consolidated Statements of Income",
+    "structuralScope": true,
+    "unitCaption": "Consolidated Statements of Income   Nine Months Ended September 30, Nine Months Ended September 30, Nine Months Ended September 30, Nine Months Ended September 30, Nine Months Ended September 30, Nine Months Ended September 30,   Three Months Ended September 30, Three Months Ended September 30, Three Months Ended September 30, Three Months Ended September 30, Three Months Ended September 30, Three Months Ended September 30,    2025 2025   2024 2024   2025 2025   2024 2024  (Unaudited) (In millions, except per share amounts) Consolidated Statements of Income 6",
+    "releaseIdentity": {
+      "date": "2025-10-30",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3
+    },
+    "tableExcerpt": "Nine Months Ended September 30, Three Months Ended September 30, 2025 2024 2025 2024 Revenues : Exchanges $ 6,118 $ 5,498 $ 1,861 $ 1,938 Fixed income and data services 1,811 1,719 618 586 Mortgage technology 1,569 1,514 528 509 Total revenues 9,498 8,731 3,007 3,033 Transaction-based expenses: Section 31 fees 412 437 — 232 Cash liquidity payments, routing and clearing 1,659 1,338 596 452 Total revenues, less transaction-based expenses 7,427 6,956 2,411 2,349 Operating expenses: Compensation and benefits 1,463 1,422 483 487 Professional services 120 114 39 40 Acquisition-related transaction and integration costs 51 88 9 37 Technology and communication 647 631 219 212 Rent and occupancy 64 89 23 30 Selling, general and administrative 219 232 77 54 Depreciation and amortization 1,171 1,148 387 386 Total operating expenses 3,735 3,724 1,237 1,246 Operating income 3,692 3,232 1,174 1,103 Other income/(expense): Interest income 92 105 28 39 Interest expense (599 ) (697 ) (192 ) (223 ) Other income/(expense), net 95 83 71 (21 ) Total other income/(expense), net (412 ) (509 ) (93 ) (205 ) Income before income tax expense 3,280 2,723 1,081 898 Income tax expense 772 630 250 227 Net income $ 2,508 $ 2,093 $ 831 $ 671 Net income attributable to non-controlling interests (44 ) (37 ) (15 ) (14 ) Net income attributable to Intercontinental Exchange, Inc. $ 2,464 $ 2,056 $ 816 $ 657 Earnings per share attributable to Intercontinental Exchange, Inc. common stockholders: Basic $ 4.30 $ 3.59 $ 1.43 $ 1.15 Diluted $ 4.28 $ 3.57 $ 1.42 $ 1.14 Weighted average common shares outstanding: Basic 573 573 572 574 Diluted 576 576 574 577",
+    "sourceSha256": "df8df6820cc03b13f9d59ff21de38710bba121b750e44931ccfd28ecd9b345f7"
+  }
+}

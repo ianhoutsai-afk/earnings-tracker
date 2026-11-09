@@ -1,0 +1,36 @@
+{
+  "ticker": "UNP",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 6244000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000320/a2025-10x238xkex991earning.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 6244000000,
+    "rawValue": "6244",
+    "scale": 6,
+    "sign": null,
+    "entity": 100885,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-07-01",
+    "end": "2025-09-30",
+    "context": {
+      "start": "2025-07-01",
+      "end": "2025-09-30",
+      "entity": 100885
+    },
+    "contextHtml": "<xbrli:context id=\"c-7\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000100885</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-07-01</xbrli:startdate><xbrli:enddate>2025-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Total operating revenues",
+    "rowText": "Total operating revenues 6,244 6,091",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Millions, except per share amounts, for the three months ended September 30, 2025 2024 Operating revenues: Freight revenues $ 5,927 $ 5,768 Other revenues 317 323 Total operating revenues 6,244 6,091 Operating expenses: Compensation and benefits 1,214 1,228 Purchased services and materials 683 644 Depreciation 618 602 Fuel 616 610 Equipment and other rents 212 237 Other 352 354 Total operating expenses 3,695 3,675 Operating income 2,549 2,416 Other income, net (Note 6) 96 87 Interest expense ( 327 ) ( 314 ) Income before income taxes 2,318 2,189 Income tax expense (Note 7) ( 530 ) ( 518 ) Net income $ 1,788 $ 1,671 Share and per share (Note 8): Earnings per share - basic $ 3.02 $ 2.75 Earnings per share - diluted $ 3.01 $ 2.75 Weighted average number of shares - basic 592.4 607.6 Weighted average number of shares - diluted 593.2 608.6",
+    "filingForm": "10-Q",
+    "sourceSha256": "60a0f8a6d9b8ca6198c3ab4757727bd9d4bcb603603cc399b262ab59b499eefe"
+  }
+}
