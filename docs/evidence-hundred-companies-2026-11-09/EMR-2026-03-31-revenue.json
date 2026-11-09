@@ -1,0 +1,35 @@
+{
+  "ticker": "EMR",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 4562000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000035/emr-20260331.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 4562000000,
+    "rawValue": "4562",
+    "scale": 6,
+    "sign": null,
+    "entity": 32604,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "context": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "entity": 32604
+    },
+    "contextHtml": "<xbrli:context id=\"c-9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000032604</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 4,432 4,562 $ 8,608 8,908",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended March 31, Six Months Ended March 31, 2025 2026 2025 2026 Net sales $ 4,432 4,562 $ 8,608 8,908 Cost of sales 2,061 2,140 4,002 4,174 Selling, general and administrative expenses 1,283 1,316 2,506 2,559 Other deductions, net 418 229 646 434 Interest expense (net of interest income of $ 45 , $ 26 , $ 89 and $ 52 , respectively) 41 84 50 173 Earnings before income taxes 629 793 1,404 1,568 Income taxes 199 175 382 344 Net earnings 430 618 1,022 1,224 Less: Noncontrolling interests in subsidiaries ( 55 ) — ( 48 ) 1 Net earnings common stockholders $ 485 618 $ 1,070 1,223 Earnings per share: Basic $ 0.86 1.10 $ 1.89 2.18 Diluted $ 0.86 1.10 $ 1.88 2.17 Weighted average outstanding shares: Basic 563.0 560.8 565.7 561.2 Diluted 565.4 563.0 568.2 563.5",
+    "filingForm": "10-Q",
+    "sourceSha256": "d89f6e2a67a2ab12e9e17dd51d388285cc5b6734d407c16130f3b2de8dd6b0cb"
+  }
+}

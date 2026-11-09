@@ -1,0 +1,32 @@
+{
+  "ticker": "DELL",
+  "periodEnd": "2026-01-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 3.37,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 3.37,
+    "rawValue": "$3.37",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1571996,
+    "rowLabel": "Reported fourth-quarter diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-02-26",
+      "periodEnd": "2026-01-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Record fourth-quarter diluted EPS of $3.37, up 57% year over year, and record non-GAAP diluted EPS of $3.89, up 45%",
+    "matchedText": "fourth-quarter diluted EPS of $3.37",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Record fourth-quarter diluted EPS of $3.37, up 57% year over year, and record non-GAAP diluted EPS of $3.89, up 45%",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "ee3fb26d51f0924761a4d1af0c1479ed323788609f00d5dba07b047a7742b37e"
+  }
+}

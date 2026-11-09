@@ -1,0 +1,32 @@
+{
+  "ticker": "CAH",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 1.69,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000017/a26q3_x033126xex991xnewsre.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000017/a26q3_x033126xex991xnewsre.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.69,
+    "rawValue": "$1.69",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 721371,
+    "rowLabel": "GAAP diluted earnings per share (EPS)",
+    "releaseIdentity": {
+      "date": "2026-04-30",
+      "periodEnd": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "Third quarter GAAP operating earnings decreased 30% to $509 million and GAAP diluted earnings per share (EPS) decreased 20% to $1.69, reflecting a $184 million pre-tax goodwill impairment in the company's Navista & ION reporting unit primarily due to changes in the risk profile of the business plans resulting in an increase in the discount rate. These changes reflect business model updates and base operational performance.",
+    "matchedText": "GAAP diluted earnings per share (EPS) decreased 20% to $1.69",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Third quarter GAAP operating earnings decreased 30% to $509 million and GAAP diluted earnings per share (EPS) decreased 20% to $1.69, reflecting a $184 million pre-tax goodwill impairment in the company's Navista & ION reporting unit primarily due to changes in the risk profile of the business plans resulting in an increase in the discount rate.",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "364d8f9b65ef47e3ab144181b61a48d0860171e560f81d711a675e9f5e33bb3a"
+  }
+}

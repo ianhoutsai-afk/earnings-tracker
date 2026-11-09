@@ -1,0 +1,35 @@
+{
+  "ticker": "JBHT",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 3056491000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926013300/jbht20260331_10q.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 3056491000,
+    "rawValue": "3056491",
+    "scale": 3,
+    "sign": null,
+    "entity": 728535,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "context": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "entity": 728535
+    },
+    "contextHtml": "<xbrli:context id=\"d_2026-01-01_2026-03-31\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000728535</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>\n",
+    "unitHtml": "<xbrli:unit id=\"USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>\n",
+    "rowLabel": "Total operating revenues",
+    "rowText": "Total operating revenues 3,056,491 2,921,392",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended March 31, 2026 2025 Operating revenues, excluding fuel surcharge revenues $ 2,648,493 $ 2,559,729 Fuel surcharge revenues 407,998 361,663 Total operating revenues 3,056,491 2,921,392 Operating expenses: Rents and purchased transportation 1,404,900 1,293,328 Salaries, wages and employee benefits 785,596 799,648 Depreciation and amortization 179,410 179,476 Fuel and fuel taxes 175,059 159,933 Operating supplies and expenses 125,261 123,452 Insurance and claims 87,750 85,017 General and administrative expenses, including asset dispositions 61,853 72,971 Operating taxes and licenses 18,533 17,480 Communication and utilities 11,081 11,407 Total operating expenses 2,849,443 2,742,712 Operating income 207,048 178,680 Net interest expense 17,900 18,597 Earnings before income taxes 189,148 160,083 Income taxes 47,595 42,343 Net earnings $ 141,553 $ 117,740 Weighted average basic shares outstanding 94,540 99,905 Basic earnings per share $ 1.50 $ 1.18 Weighted average diluted shares outstanding 95,204 100,489 Diluted earnings per share $ 1.49 $ 1.17",
+    "filingForm": "10-Q",
+    "sourceSha256": "45582a0f904a1cbb49953ca9b88a36ccd5ce79132a298b291cee6bd3944b1258"
+  }
+}

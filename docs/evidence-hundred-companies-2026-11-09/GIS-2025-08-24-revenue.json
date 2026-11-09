@@ -1,0 +1,48 @@
+{
+  "ticker": "GIS",
+  "periodEnd": "2025-08-24",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 4517500000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/40704/000119312525205477/d945465dex99.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40704/000119312525205477/d945465dex99.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 4517500000,
+    "rawValue": "4,517.5",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "entity": 40704,
+    "rowLabel": "Net sales",
+    "rowCells": [
+      "Net sales",
+      "",
+      "$",
+      "4,517.5",
+      "",
+      "",
+      "$",
+      "4,848.1",
+      "",
+      "",
+      "",
+      "(7",
+      ")%"
+    ],
+    "columnIndex": 3,
+    "header": "Quarter Ended Aug. 24, 2025",
+    "headerBasis": "explicit-date",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "unitCaption": "Income statement structure with revenue, costs, net result, and diluted EPS                Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended Quarter Ended    Aug. 24, 2025 Aug. 24, 2025   Aug. 25, 2024 Aug. 25, 2024   % Change % Change  (Unaudited) (In Millions, Except per Share Data) GENERAL MILLS, INC. AND SUBSIDIARIES Consolidated Statements of Earnings and Supplementary Information",
+    "releaseIdentity": {
+      "date": "2025-09-17",
+      "periodEnd": "2025-08-24",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 1
+    },
+    "tableExcerpt": "Quarter Ended Aug. 24, 2025 Aug. 25, 2024 % Change Net sales $ 4,517.5 $ 4,848.1 (7 )% Cost of sales 2,984.7 3,159.3 (6 )% Selling, general, and administrative expenses 845.1 855.1 (1 )% Divestitures gain (1,054.4 ) — NM Restructuring, transformation, impairment, and other exit costs 16.3 2.2 NM Operating profit 1,725.8 831.5 108 % Benefit plan non-service income (15.1 ) (13.9 ) 9 % Interest, net 132.8 123.6 7 % Earnings before income taxes and after-tax earnings from joint ventures 1,608.1 721.8 123 % Income taxes 410.9 157.4 161 % After-tax earnings from joint ventures 6.8 19.2 (65 )% Net earnings, including (loss) earnings attributable to noncontrolling interests 1,204.0 583.6 106 % Net (loss) earnings attributable to noncontrolling interests (0.2 ) 3.7 (105 )% Net earnings attributable to General Mills $ 1,204.2 $ 579.9 108 % Earnings per share – basic $ 2.22 $ 1.03 116 % Earnings per share – diluted $ 2.22 $ 1.03 116 %",
+    "sourceSha256": "e1b884b1828e30596fbd8816905c61ac23591fb0c53c17505278c7b0faef5c29"
+  }
+}

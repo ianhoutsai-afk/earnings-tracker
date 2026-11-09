@@ -1,0 +1,35 @@
+{
+  "ticker": "SYY",
+  "periodEnd": "2025-09-27",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 21148000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602125000157/syy-20250927.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 21148000000,
+    "rawValue": "21148",
+    "scale": 6,
+    "sign": null,
+    "entity": 96021,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-06-29",
+    "end": "2025-09-27",
+    "context": {
+      "start": "2025-06-29",
+      "end": "2025-09-27",
+      "entity": 96021
+    },
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000096021</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-06-29</xbrli:startdate><xbrli:enddate>2025-09-27</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Sales",
+    "rowText": "Sales $ 21,148 $ 20,484",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "13-Week Period Ended Sep. 27, 2025 Sep. 28, 2024 Sales $ 21,148 $ 20,484 Cost of sales 17,247 16,731 Gross profit 3,901 3,753 Operating expenses 3,101 2,945 Operating income 800 808 Interest expense 172 160 Other expense (income), net 28 6 Earnings before income taxes 600 642 Income taxes 124 152 Net earnings $ 476 $ 490 Net earnings: Basic earnings per share $ 0.99 $ 1.00 Diluted earnings per share 0.99 0.99 Average shares outstanding 478,761,180 492,023,827 Diluted shares outstanding 480,365,666 493,785,973",
+    "filingForm": "10-Q",
+    "sourceSha256": "2c64148a19faaed5a509096875d926ae8c78d9a2eca2eb3e4aaabf5a0bbb1758"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "ticker": "SYY",
+  "periodEnd": "2026-09-26",
+  "fiscalYear": 2027,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 21744000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000050/syy-20260926.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 21744000000,
+    "rawValue": "21744",
+    "scale": 6,
+    "sign": null,
+    "entity": 96021,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-06-28",
+    "end": "2026-09-26",
+    "context": {
+      "start": "2026-06-28",
+      "end": "2026-09-26",
+      "entity": 96021
+    },
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000096021</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-06-28</xbrli:startdate><xbrli:enddate>2026-09-26</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Sales",
+    "rowText": "Sales $ 21,744 $ 21,148",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "13-Week Period Ended Sep. 26, 2026 Sep. 27, 2025 Sales $ 21,744 $ 21,148 Cost of sales 17,693 17,247 Gross profit 4,051 3,901 Operating expenses 3,334 3,101 Operating income 717 800 Interest expense 261 172 Other expense (income), net (1) ( 231 ) 28 Earnings before income taxes 687 600 Income taxes 161 124 Net earnings $ 526 $ 476 Net earnings: Basic earnings per share $ 1.09 $ 0.99 Diluted earnings per share 1.09 0.99 Average shares outstanding 481,341,826 478,761,180 Diluted shares outstanding 482,945,241 480,365,666 (1) Sysco’s first quarter of fiscal 2027 included a gain of $ 234 million in other income related to deal contingent rate lock transactions entered into to mitigate interest rate risk on permanent debt issued to finance the purchase of JRD Unico, Inc. and Warehouse Realty, LLC (collectively, Jetro Restaurant Depot or JRD). See Note 7, “Derivative Financial Instruments.”",
+    "filingForm": "10-Q",
+    "sourceSha256": "66b8d43def28ecfcefb1dc7caff91beeaf11eb0b09ee577c9c5a9f91abeaf3af"
+  }
+}

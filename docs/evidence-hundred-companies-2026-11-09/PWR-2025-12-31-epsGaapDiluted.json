@@ -1,0 +1,32 @@
+{
+  "ticker": "PWR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 2.08,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1050915/000119312526058069/d101511dex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1050915/000119312526058069/d101511dex991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 2.08,
+    "rawValue": "$2.08",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1050915,
+    "rowLabel": "GAAP Diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-02-19",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "GAAP Diluted EPS of $2.08* and Adjusted Diluted EPS of $3.16*",
+    "matchedText": "GAAP Diluted EPS of $2.08",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter 2025 Results Include:",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "2a61871634f08ff62c0e367557503670709c46c59a5a97e75169129e87e7a92b"
+  }
+}

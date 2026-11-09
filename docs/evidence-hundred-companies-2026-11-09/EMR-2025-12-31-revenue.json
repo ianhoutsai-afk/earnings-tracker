@@ -1,0 +1,35 @@
+{
+  "ticker": "EMR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 4346000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000007/emr-20251231.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 4346000000,
+    "rawValue": "4346",
+    "scale": 6,
+    "sign": null,
+    "entity": 32604,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-10-01",
+    "end": "2025-12-31",
+    "context": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "entity": 32604
+    },
+    "contextHtml": "<xbrli:context id=\"c-1\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000032604</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-10-01</xbrli:startdate><xbrli:enddate>2025-12-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 4,175 4,346",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended December 31, 2024 2025 Net sales $ 4,175 4,346 Cost of sales 1,940 2,035 Selling, general and administrative expenses 1,224 1,242 Other deductions, net 228 204 Interest expense (net of interest income of $ 44 and $ 26 , respectively) 8 90 Earnings before income taxes 775 775 Income taxes 182 169 Net earnings 593 606 Less: Noncontrolling interests in subsidiaries 8 1 Net earnings common stockholders $ 585 605 Earnings per share: Basic $ 1.03 1.08 Diluted $ 1.02 1.07 Weighted average outstanding shares: Basic 568.5 561.8 Diluted 571.1 564.1",
+    "filingForm": "10-Q",
+    "sourceSha256": "38cc7efe7c2906cdfc96fc6a39a30274e8d189e086872a9c1910a1054ad622c5"
+  }
+}

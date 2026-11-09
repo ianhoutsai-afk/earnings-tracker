@@ -1,0 +1,32 @@
+{
+  "ticker": "WYNN",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.82,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1174922/000117492226000007/ex991wrlye2025pressrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1174922/000117492226000007/ex991wrlye2025pressrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.82,
+    "rawValue": "$0.82",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1174922,
+    "rowLabel": "Diluted net income per share",
+    "releaseIdentity": {
+      "date": "2026-02-12",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Operating revenues were $1.87 billion for the fourth quarter of 2025, an increase of $27.2 million from $1.84 billion for the fourth quarter of 2024. Net income attributable to Wynn Resorts, Limited was $100.0 million for the fourth quarter of 2025, compared to net income attributable to Wynn Resorts, Limited of $277.0 million for the fourth quarter of 2024. Diluted net income per share was $0.82 for the fourth quarter of 2025, compared to diluted net income per share of $2.29 for the fourth quarter of 2024. Adjusted Property EBITDAR (1) was $568.8 million for the fourth quarter of 2025, compared to Adjusted Property EBITDAR of $619.1 million for the fourth quarter of 2024.",
+    "matchedText": "Diluted net income per share was $0.82",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Diluted net income per share was $0.82 for the fourth quarter of 2025, ",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "115303d6e83edd045fde3f4cf467641c27148e6fd817f2af9d9cdd6a7ee61374"
+  }
+}

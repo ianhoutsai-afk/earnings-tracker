@@ -1,0 +1,35 @@
+{
+  "ticker": "PKG",
+  "periodEnd": "2026-03-31",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 1,
+  "field": "revenue",
+  "value": 2367800000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75677/000119312526213675/pkg-20260331.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 2367800000,
+    "rawValue": "2367.8",
+    "scale": 6,
+    "sign": null,
+    "entity": 75677,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "context": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "entity": 75677
+    },
+    "contextHtml": "<xbrli:context id=\"C_f8ca6a40-a41a-4f4e-9c38-da2ef5d7f408\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000075677</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-01-01</xbrli:startdate><xbrli:enddate>2026-03-31</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"U_USD\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net sales",
+    "rowText": "Net sales $ 2,367.8 $ 2,141.0",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Three Months Ended March 31, 2026 2025 Statements of Income: Net sales $ 2,367.8 $ 2,141.0 Cost of sales ( 1,914.9 ) ( 1,686.3 ) Gross profit 452.9 454.7 Selling, general and administrative expenses ( 180.3 ) ( 161.4 ) Other expense, net ( 21.3 ) ( 13.0 ) Income from operations 251.3 280.3 Non-operating pension income 1.1 — Interest expense, net ( 32.6 ) ( 12.9 ) Income before taxes 219.8 267.4 Provision for income taxes ( 48.9 ) ( 63.6 ) Net income $ 170.9 $ 203.8 Net income per common share: Basic $ 1.92 $ 2.27 Diluted $ 1.91 $ 2.26 Dividends declared per common share $ 1.25 $ 1.25 Statements of Comprehensive Income: Net income $ 170.9 $ 203.8 Other comprehensive income, net of tax: Changes in unrealized (losses) gains on marketable debt securities, net of tax of $ 0.1 million and $ 0.0 million for 2026 and 2025, respectively ( 0.4 ) 0.1 Amortization of pension and postretirement plans actuarial loss and prior service cost, net of tax of ($ 0.3 ) million for both 2026 and 2025 1.0 1.0 Other comprehensive income 0.6 1.1 Comprehensive income $ 171.5 $ 204.9",
+    "filingForm": "10-Q",
+    "sourceSha256": "dbe18ac3ae6cf7c309475b28025bc678d68b20bd9dac97271dc3e91112238921"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "ticker": "STE",
+  "periodEnd": "2026-06-30",
+  "fiscalYear": 2027,
+  "fiscalQuarter": 1,
+  "field": "epsGaapDiluted",
+  "value": 2.04,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026053412/ste6302026ex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026053412/ste6302026ex991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 2.04,
+    "rawValue": "$2.04",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1757898,
+    "rowLabel": "reported diluted EPS",
+    "releaseIdentity": {
+      "date": "2026-08-05",
+      "periodEnd": "2026-06-30",
+      "fiscalYear": 2027,
+      "fiscalQuarter": 1
+    },
+    "paragraph": "Fiscal 2027 first quarter as reported diluted EPS increased to $2.04; adjusted EPS per diluted share increased to $2.59",
+    "matchedText": "reported diluted EPS increased to $2.04",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fiscal 2027 first quarter as reported diluted EPS increased to $2.04; adjusted EPS per diluted share increased to $2.59",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "4bc91b6720baecdbef4b65fcac614b40d51a6e61c30bc14816fff3ba2b5dffdb"
+  }
+}

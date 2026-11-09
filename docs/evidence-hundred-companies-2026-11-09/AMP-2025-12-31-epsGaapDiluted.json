@@ -1,0 +1,32 @@
+{
+  "ticker": "AMP",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 10.47,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820027/000082002726000004/q42025er.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820027/000082002726000004/q42025er.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 10.47,
+    "rawValue": "$10.47",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 820027,
+    "rowLabel": "net income per diluted share",
+    "releaseIdentity": {
+      "date": "2026-01-29",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Fourth quarter GAAP net income per diluted share was $10.47 compared to $10.58 a year ago. Full year 2025 GAAP net income per diluted share was $36.28 compared to $33.05 in 2024.",
+    "matchedText": "net income per diluted share was $10.47",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth quarter GAAP net income per diluted share was $10.47 ",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "611ff388fd5a196d02003f33c3504da82cc7385e6f118a2f6e833b9a0df40c4f"
+  }
+}

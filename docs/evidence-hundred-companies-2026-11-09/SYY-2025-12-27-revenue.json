@@ -1,0 +1,35 @@
+{
+  "ticker": "SYY",
+  "periodEnd": "2025-12-27",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 2,
+  "field": "revenue",
+  "value": 20762000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000009/syy-20251227.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 20762000000,
+    "rawValue": "20762",
+    "scale": 6,
+    "sign": null,
+    "entity": 96021,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-09-28",
+    "end": "2025-12-27",
+    "context": {
+      "start": "2025-09-28",
+      "end": "2025-12-27",
+      "entity": 96021
+    },
+    "contextHtml": "<xbrli:context id=\"c-5\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000096021</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-09-28</xbrli:startdate><xbrli:enddate>2025-12-27</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Sales",
+    "rowText": "Sales $ 20,762 $ 20,151 $ 41,910 $ 40,634",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "13-Week Period Ended 26-Week Period Ended Dec. 27, 2025 Dec. 28, 2024 Dec. 27, 2025 Dec. 28, 2024 Sales $ 20,762 $ 20,151 $ 41,910 $ 40,634 Cost of sales 16,970 16,501 34,217 33,231 Gross profit 3,792 3,650 7,693 7,403 Operating expenses 3,100 2,938 6,200 5,884 Operating income 692 712 1,493 1,519 Interest expense 173 160 344 319 Other expense (income), net 9 19 38 25 Earnings before income taxes 510 533 1,111 1,175 Income taxes 121 127 245 279 Net earnings $ 389 $ 406 $ 866 $ 896 Net earnings: Basic earnings per share $ 0.81 $ 0.83 $ 1.81 $ 1.82 Diluted earnings per share 0.81 0.82 1.80 1.82 Average shares outstanding 479,346,303 490,698,567 479,053,693 491,361,199 Diluted shares outstanding 480,662,627 492,803,849 480,514,099 493,294,914",
+    "filingForm": "10-Q",
+    "sourceSha256": "ac8a7d4945defac10eea4df7fd6fc123ad85e1a202b92e98654743bd7613af04"
+  }
+}

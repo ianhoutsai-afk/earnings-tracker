@@ -1,0 +1,35 @@
+{
+  "ticker": "LHX",
+  "periodEnd": "2025-10-03",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 5659000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000173/hrs-20251003.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 5659000000,
+    "rawValue": "5659",
+    "scale": 6,
+    "sign": null,
+    "entity": 202058,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2025-06-28",
+    "end": "2025-10-03",
+    "context": {
+      "start": "2025-06-28",
+      "end": "2025-10-03",
+      "entity": 202058
+    },
+    "contextHtml": "<xbrli:context id=\"c-3\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000202058</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2025-06-28</xbrli:startdate><xbrli:enddate>2025-10-03</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Revenue",
+    "rowText": "Revenue $ 5,659 $ 5,292 $ 16,217 $ 15,802",
+    "statementHeading": "Income statement structure with revenue, costs, net result, and diluted EPS",
+    "structuralScope": true,
+    "statementText": "Third Quarter Year to Date (In millions, except per share amounts) 2025 2024 2025 2024 Revenue $ 5,659 $ 5,292 $ 16,217 $ 15,802 Cost of revenue ( 4,165 ) ( 3,873 ) ( 12,038 ) ( 11,675 ) General and administrative expenses ( 873 ) ( 924 ) ( 2,462 ) ( 2,778 ) Operating income 621 495 1,717 1,349 Non-service FAS pension income and other, net (1) 98 101 287 275 Interest expense, net ( 152 ) ( 166 ) ( 454 ) ( 514 ) Income before income taxes 567 430 1,550 1,110 Income taxes ( 105 ) ( 26 ) ( 244 ) ( 54 ) Net income 462 404 1,306 1,056 Noncontrolling interests, net of income taxes — ( 4 ) — ( 7 ) Net income attributable to L3Harris $ 462 $ 400 $ 1,306 $ 1,049 Earnings per share attributable to common shareholders Basic $ 2.47 $ 2.11 $ 6.96 $ 5.53 Diluted $ 2.46 $ 2.10 $ 6.92 $ 5.50",
+    "filingForm": "10-Q",
+    "sourceSha256": "5e949d093aa73052b7739ffec049d9e2f692c9b1b5a2d50b3fdc12029a432109"
+  }
+}

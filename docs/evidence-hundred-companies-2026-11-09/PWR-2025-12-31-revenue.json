@@ -1,0 +1,32 @@
+{
+  "ticker": "PWR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 7840000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1050915/000119312526058069/d101511dex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1050915/000119312526058069/d101511dex991.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 7840000000,
+    "rawValue": "$7.84",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 1050915,
+    "rowLabel": "Consolidated Revenues",
+    "releaseIdentity": {
+      "date": "2026-02-19",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Consolidated Revenues of $7.84 Billion*",
+    "matchedText": "Consolidated Revenues of $7.84 Billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter 2025 Results Include:",
+    "sourcePrecisionUnit": "Billion",
+    "sourceSha256": "2a61871634f08ff62c0e367557503670709c46c59a5a97e75169129e87e7a92b"
+  }
+}
