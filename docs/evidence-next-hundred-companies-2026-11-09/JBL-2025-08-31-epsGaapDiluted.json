@@ -1,0 +1,32 @@
+{
+  "ticker": "JBL",
+  "periodEnd": "2025-08-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.99,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925ex991.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025042693/jbl-20250925ex991.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.99,
+    "rawValue": "$1.99",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 898293,
+    "rowLabel": "GAAP diluted earnings per share",
+    "releaseIdentity": {
+      "date": "2025-09-25",
+      "periodEnd": "2025-08-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "U.S. GAAP diluted earnings per share: $1.99",
+    "matchedText": "GAAP diluted earnings per share: $1.99",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Fourth Quarter of Fiscal Year 2025 Highlights:",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "9fe86d7512f72ff2f4edab439e64964b1ebc0f7a58e6a0b5b2562519b55b1610"
+  }
+}

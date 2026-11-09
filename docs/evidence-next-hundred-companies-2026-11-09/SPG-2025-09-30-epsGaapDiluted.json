@@ -1,0 +1,32 @@
+{
+  "ticker": "SPG",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 1.86,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1063761/000110465925105545/tm2528944d2_ex99-1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1063761/000110465925105545/tm2528944d2_ex99-1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.86,
+    "rawValue": "$1.86",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1063761,
+    "rowLabel": "Net income attributable to common stockholders",
+    "releaseIdentity": {
+      "date": "2025-11-03",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "Net income attributable to common stockholders was $606.2 million, or $1.86 per diluted share, as compared to $475.2 million, or $1.46 per diluted share in 2024.",
+    "matchedText": "Net income attributable to common stockholders was $606.2 million, or $1.86 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Simon ® Reports Third Quarter 2025 Results",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "372298b30dfabf6c03ed0eaf9d1f8007a5cb3e4dcd4749081a197466fc859e09"
+  }
+}

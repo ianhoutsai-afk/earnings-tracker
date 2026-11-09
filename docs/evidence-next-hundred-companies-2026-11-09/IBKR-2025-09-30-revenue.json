@@ -1,0 +1,50 @@
+{
+  "ticker": "IBKR",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 1655000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119725000143/ibkr-8k_20250930er.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119725000143/ibkr-8k_20250930er.htm",
+  "sourceKind": "explicit_release_revenue",
+  "evidence": {
+    "value": 1655000000,
+    "rawValue": "1,655",
+    "scale": 6,
+    "unitMeasure": "USD",
+    "entity": 1381197,
+    "rowLabel": "Total net revenues",
+    "rowCells": [
+      "",
+      "",
+      "Total net revenues",
+      "",
+      "",
+      "1,655",
+      "",
+      "",
+      "1,365",
+      "",
+      "",
+      "4,562",
+      "",
+      "",
+      "3,798"
+    ],
+    "columnIndex": 5,
+    "header": "Three Months Ended September 30, 2025 (in millions, except share and per share data)",
+    "headerBasis": "explicit-date",
+    "statementHeading": "CONSOLIDATED STATEMENTS OF INCOME",
+    "structuralScope": true,
+    "unitCaption": "CONSOLIDATED STATEMENTS OF INCOME     Three Months Three Months Three Months Three Months Three Months  Nine Months Nine Months Nine Months Nine Months Nine Months     Ended September 30, Ended September 30, Ended September 30, Ended September 30, Ended September 30,  Ended September 30, Ended September 30, Ended September 30, Ended September 30, Ended September 30,     2025 2025  2024 2024  2025 2025  2024 2024     (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data) (in millions, except share and per share data)                (UNAUDITED) CONSOLIDATED STATEMENTS OF INCOME INTERACTIVE BROKERS GROUP, INC. AND SUBSIDIARIES 3 For Interactive Brokers Group, Inc. Investors: Nancy Stuebe, investor-relations@ibkr.com or Media: Rob Garfield, media@ibkr.com.",
+    "releaseIdentity": {
+      "date": "2025-10-16",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3
+    },
+    "tableExcerpt": "Three Months Nine Months Ended September 30, Ended September 30, 2025 2024 2025 2024 (in millions, except share and per share data) Revenues: Commissions $ 537 $ 435 $ 1,567 $ 1,220 Other fees and services 66 72 206 199 Other income 85 56 192 38 Total non-interest income 688 563 1,965 1,457 Interest income 2,101 1,888 5,710 5,476 Interest expense (1,134) (1,086) (3,113) (3,135) Total net interest income 967 802 2,597 2,341 Total net revenues 1,655 1,365 4,562 3,798 Non-interest expenses: Execution, clearing and distribution fees 92 116 329 332 Employee compensation and benefits 156 145 473 436 Occupancy, depreciation and amortization 24 26 72 77 Communications 11 9 32 29 General and administrative 62 153 185 255 Customer bad debt (2) 7 - 14 Total non-interest expenses 343 456 1,091 1,143 Income before income taxes 1,312 909 3,471 2,655 Income tax expense 126 75 315 217 Net income 1,186 834 3,156 2,438 Net income attributable to noncontrolling interests 923 650 2,456 1,900 Net income available for common stockholders $ 263 $ 184 $ 700 $ 538 Earnings per share 1 : Basic $ 0.59 $ 0.42 $ 1.59 $ 1.25 Diluted $ 0.59 $ 0.42 $ 1.58 $ 1.24 Weighted average common shares outstanding 1 : Basic 444,060,813 435,031,964 439,434,716 431,410,388 Diluted 446,528,983 438,145,440 442,507,940 435,096,780",
+    "sourceSha256": "ae8c686198249b3b227728338112ef0770f854c230e4a5b0910bc1cfd832c208"
+  }
+}

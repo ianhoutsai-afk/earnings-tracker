@@ -1,0 +1,32 @@
+{
+  "ticker": "BXP",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.56,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000003/q42025pressrelease.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000003/q42025pressrelease.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 1.56,
+    "rawValue": "$1.56",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 1037540,
+    "rowLabel": "Net income (loss) attributable to BXP, Inc. per diluted share",
+    "releaseIdentity": {
+      "date": "2026-01-27",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Net income (loss) attributable to BXP, Inc. of $248.5 million, or $1.56 per diluted share (EPS), for the quarter ended December 31, 2025",
+    "matchedText": "Net income (loss) attributable to BXP, Inc. of $248.5 million, or $1.56 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Net income (loss) attributable to BXP, Inc. of $248.5 million, or $1.56 per diluted share (EPS), for the quarter ended December 31, 2025",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "c5cc095f6a5b80ca763056b0cc799b8c8eab455550a1d81120cd5563b718cf9c"
+  }
+}

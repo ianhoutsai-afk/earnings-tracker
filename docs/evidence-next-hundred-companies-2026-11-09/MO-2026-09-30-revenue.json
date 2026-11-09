@@ -1,0 +1,36 @@
+{
+  "ticker": "MO",
+  "periodEnd": "2026-09-30",
+  "fiscalYear": 2026,
+  "fiscalQuarter": 3,
+  "field": "revenue",
+  "value": 6132000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/764180/000076418026000114/mo-20260930.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/764180/000076418026000112/mo-20261028.htm",
+  "sourceKind": "inline_statement_revenue",
+  "evidence": {
+    "value": 6132000000,
+    "rawValue": "6132",
+    "scale": 6,
+    "sign": null,
+    "entity": 764180,
+    "unitMeasure": "USD",
+    "factTag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "start": "2026-07-01",
+    "end": "2026-09-30",
+    "context": {
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "entity": 764180
+    },
+    "contextHtml": "<xbrli:context id=\"c-9\"><xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000764180</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startdate>2026-07-01</xbrli:startdate><xbrli:enddate>2026-09-30</xbrli:enddate></xbrli:period></xbrli:context>",
+    "unitHtml": "<xbrli:unit id=\"usd\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>",
+    "rowLabel": "Net revenues",
+    "rowText": "Net revenues $ 17,671 $ 17,433 $ 6,132 $ 6,072",
+    "statementHeading": "Condensed Consolidated Statements of Earnings",
+    "structuralScope": false,
+    "statementText": "For the Nine Months Ended September 30, For the Three Months Ended September 30, 2026 2025 2026 2025 Net revenues $ 17,671 $ 17,433 $ 6,132 $ 6,072 Cost of sales 4,288 4,149 1,500 1,439 Excise taxes on products 2,116 2,373 691 821 Gross profit 11,267 10,911 3,941 3,812 Marketing, administration and research costs 1,838 1,787 625 580 Exit costs 24 3 3 2 Impairment of goodwill — 873 — — Operating income 9,405 8,248 3,313 3,230 Interest and other debt expense, net 823 815 270 278 Net periodic benefit income, excluding service cost ( 9 ) ( 45 ) ( 5 ) ( 16 ) (Income) losses from investments in equity securities ( 487 ) ( 398 ) ( 242 ) ( 107 ) Earnings before income taxes 9,078 7,876 3,290 3,075 Provision for income taxes 2,083 2,046 776 700 Net earnings 6,995 5,830 2,514 2,375 Net losses attributable to noncontrolling interest 4 — 4 — Net earnings attributable to Altria $ 6,999 $ 5,830 $ 2,518 $ 2,375 Per share data: Basic and diluted earnings per share $ 4.18 $ 3.45 $ 1.51 $ 1.41",
+    "filingForm": "10-Q",
+    "sourceSha256": "bd4ffa2bf1b96e105562cf34aeba8df908772796522c2b489510013f818163db"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "ticker": "TER",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "revenue",
+  "value": 1083000000,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000119312526034348/ter-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/97210/000119312526034348/ter-ex99_1.htm",
+  "sourceKind": "narrative_release_revenue",
+  "evidence": {
+    "value": 1083000000,
+    "rawValue": "$1.083",
+    "scale": 9,
+    "signFromLossWording": false,
+    "unitMeasure": "USD",
+    "entity": 97210,
+    "rowLabel": "Revenue",
+    "releaseIdentity": {
+      "date": "2026-02-02",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4
+    },
+    "paragraph": "Revenue of $1.083 billion in Q4’25, up 44% from Q4’24 and up 41% from Q3'25",
+    "matchedText": "Revenue of $1.083 billion",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "Revenue of $1.083 billion in Q4’25, up 44% from Q4’24 and up 41% from Q3'25",
+    "sourcePrecisionUnit": "billion",
+    "sourceSha256": "f50a66178a3d6536380841299d141756089b9ba457328fb052211a79f06ab696"
+  }
+}

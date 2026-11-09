@@ -1,0 +1,32 @@
+{
+  "ticker": "REG",
+  "periodEnd": "2025-09-30",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 3,
+  "field": "epsGaapDiluted",
+  "value": 0.58,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312525253799/reg-ex99_1.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312525253799/reg-ex99_1.htm",
+  "sourceKind": "explicit_release_eps",
+  "evidence": {
+    "value": 0.58,
+    "rawValue": "$0.58",
+    "scale": 0,
+    "signFromLossWording": false,
+    "unitMeasure": "USD/shares",
+    "entity": 910606,
+    "rowLabel": "Net Income Attributable to Common Shareholders",
+    "releaseIdentity": {
+      "date": "2025-10-27",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3
+    },
+    "paragraph": "For the three months ended September 30, 2025, Net Income Attributable to Common Shareholders was $106.0 million, or $0.58 per diluted share, compared to Net Income Attributable to Common Shareholders of $98.1 million, or $0.54 per diluted share, for the same period in 2024.",
+    "matchedText": "Net Income Attributable to Common Shareholders was $106.0 million, or $0.58 per diluted share",
+    "headerBasis": "explicit-quarter-paragraph",
+    "quarterAnchor": "For the three months ended September 30, 2025, Net Income Attributable to Common Shareholders was $106.0 million, or $0.58 per diluted share, ",
+    "sourcePrecisionUnit": null,
+    "sourceSha256": "f8e43fe7b5bf22a3ca3480c037098c317e6188ea7424659994f31ba96f7dc57b"
+  }
+}
