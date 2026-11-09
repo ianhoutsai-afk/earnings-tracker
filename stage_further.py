@@ -74,6 +74,7 @@ seen=set()
 for item in items:
  key=(item['ticker'],item['periodEnd'])
  row=original[key]
+ print(f"Validating {item['ticker']} {item['periodEnd']} {item['field']}",flush=True)
  assert item['parentReleaseUrl']==row['releaseSourceUrl']
  field=item['field']
  e=item['evidence']
