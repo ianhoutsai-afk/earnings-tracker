@@ -8,15 +8,20 @@
   "pendingCompanies": 486,
   "officialQuarters": 2440,
   "fiveOfficialQuarterCompanies": 473,
-  "fiveCompleteMetricCompanies": 278,
+  "fiveCompleteMetricCompanies": 303,
   "sourceFailedCompanies": 0,
   "checkedAt": "2026-11-14T07:42:37.458914Z",
   "storedQuarters": 2515,
-  "completeMetricQuarters": 2096,
+  "completeMetricQuarters": 2121,
   "sourceHealthy": true,
   "historyComplete": false,
   "metricsComplete": false,
   "dataComplete": false,
   "healthy": false,
-  "dataStatus": "incomplete"
+  "dataStatus": "incomplete",
+  "metricBackfill": {
+    "date": "2026-11-14",
+    "filledFields": 25,
+    "evidence": "docs/complete-25-issuer-financials-2026-11-14.json"
+  }
 }

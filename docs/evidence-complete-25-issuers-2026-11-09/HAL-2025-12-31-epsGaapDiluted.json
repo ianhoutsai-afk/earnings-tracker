@@ -1,0 +1,148 @@
+{
+  "ticker": "HAL",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.7,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
+  "sourceKind": "reviewed_release_eps",
+  "evidence": {
+    "value": 0.7,
+    "rawValue": "$ 0.70",
+    "signedRawValue": "$ 0.70",
+    "signFromSplitParentheses": false,
+    "scale": 0,
+    "rowLabel": "Basic and diluted net income per share",
+    "rowCells": [
+      "Basic and diluted net income per share",
+      "$ 0.70",
+      "$ 0.70",
+      "$ 0.02"
+    ],
+    "columnIndex": 1,
+    "header": "Three Months Ended December 31, 2025 $ 3,268 2,389 $ 5,657 $ 570 367 (66)",
+    "headerBasis": "explicit-date",
+    "headerRows": [
+      [
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Three Months Ended",
+        "Three Months Ended",
+        "Three Months Ended"
+      ],
+      [
+        "",
+        "December 31,",
+        "December 31,",
+        "September 30,"
+      ],
+      [
+        "",
+        "2025",
+        "2024",
+        "2025"
+      ],
+      [
+        "Revenue:",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Completion and Production",
+        "$ 3,268",
+        "$ 3,178",
+        "$ 3,223"
+      ],
+      [
+        "Drilling and Evaluation",
+        "2,389",
+        "2,432",
+        "2,377"
+      ],
+      [
+        "Total revenue",
+        "$ 5,657",
+        "$ 5,610",
+        "$ 5,600"
+      ],
+      [
+        "Operating income:",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Completion and Production",
+        "$ 570",
+        "$ 629",
+        "$ 514"
+      ],
+      [
+        "Drilling and Evaluation",
+        "367",
+        "401",
+        "348"
+      ],
+      [
+        "Corporate and other",
+        "(66)",
+        "(65)",
+        "(64)"
+      ]
+    ],
+    "priorHeadings": [],
+    "sectionRows": [
+      [
+        "Income tax provision (c)",
+        "(46)",
+        "(179)",
+        "(199)"
+      ],
+      [
+        "Net income",
+        "$ 589",
+        "$ 614",
+        "$ 20"
+      ],
+      [
+        "Net (income) loss attributable to noncontrolling interest",
+        "—",
+        "1",
+        "(2)"
+      ],
+      [
+        "Net income attributable to Company",
+        "$ 589",
+        "$ 615",
+        "$ 18"
+      ],
+      [
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Basic and diluted net income per share",
+        "$ 0.70",
+        "$ 0.70",
+        "$ 0.02"
+      ]
+    ],
+    "consolidatedHeading": false,
+    "entity": 45012,
+    "unitMeasure": "USD/shares",
+    "sourceSha256": "a8fb25293b3ef65c9aa3837ee7635d64d24b13ed610adcf8f7e437de916145ab",
+    "reviewedQuarter": "2025-12-31",
+    "independentCheckUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
+    "reviewedBasis": "GAAP total diluted earnings per share; same-quarter column in original issuer release"
+  }
+}
