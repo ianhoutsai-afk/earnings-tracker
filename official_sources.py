@@ -87,6 +87,22 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
+    # The dated results sentence can state a standalone quarter and its
+    # cumulative period together before naming their shared period end.
+    reported_half = re.search(
+        r'(?i)\b(?:reported|announced)\s+(?:financial\s+)?results\s+for\s+(?:its|the)\s+'
+        r'second\s+quarter\s+and\s+'
+        r'first\s+half\s+of\s+fiscal\s+(?P<year>20\d{2}),?\s+ended\s+(?P<end>' + DATE + ')',
+        intro,
+    )
+    prior_dates = list(re.finditer(DATE, intro[:reported_half.start()], re.I)) if reported_half else []
+    if prior_dates and _date(prior_dates[-1][0]) == event:
+        confirmed_end = _date(reported_half['end'])
+        if not 0 < (event - confirmed_end).days <= 180:
+            raise ValueError('Release period is not current for this event')
+        return {'date':event.isoformat(),'periodEnd':confirmed_end.isoformat(),
+                'fiscalYear':int(reported_half['year']),
+                'fiscalQuarter':2}
     completed_opening = re.search(
         r'(?i)\btoday\s+(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
         r'(?:financial\s+)?results\s+for\s+the\s+'
@@ -257,12 +273,17 @@ def parse_inline_quarter(document, period_end, cik=None):
     nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
     def dei(tag):
         return _unique_text(n for n in nodes if n.get('name', '').lower() == 'dei:' + tag.lower())
-    raw_end = dei('DocumentPeriodEndDate')
-    try:
-        document_end = date.fromisoformat(raw_end).isoformat()
-    except (ValueError, TypeError):
-        document_end = _date(raw_end).isoformat() if raw_end and re.fullmatch(DATE, raw_end, re.I) else None
-    if document_end != period_end:
+    document_ends = set()
+    for node in nodes:
+        if node.get('name', '').lower() != 'dei:documentperiodenddate':
+            continue
+        raw_end = ' '.join(_text(node).split())
+        try:
+            value = _date(raw_end) if re.fullmatch(DATE, raw_end, re.I) else date.fromisoformat(raw_end)
+        except ValueError:
+            raise ValueError('Official document period does not match release period') from None
+        document_ends.add(value.isoformat())
+    if document_ends != {period_end}:
         raise ValueError('Official document period does not match release period')
     year, focus = dei('DocumentFiscalYearFocus'), dei('DocumentFiscalPeriodFocus')
     if not year or not year.isdigit() or focus not in ('Q1','Q2','Q3','FY'):
