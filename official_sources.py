@@ -87,6 +87,18 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
+    completed_opening = re.search(
+        r'(?i)\btoday\s+(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
+        r'(?:financial\s+)?results\s+for\s+the\s+'
+        r'(?:first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter\s+ending\s+(' + DATE + ')',
+        intro,
+    )
+    if completed_opening:
+        publication_dates = list(re.finditer(DATE, intro[:completed_opening.start()], re.I))
+        if publication_dates and _date(publication_dates[-1][0]) == event:
+            end = _date(completed_opening[1])
+            if end >= event:
+                raise ValueError('Earnings period has not ended')
     # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
     if end is not None and (event - end).days > 180:
