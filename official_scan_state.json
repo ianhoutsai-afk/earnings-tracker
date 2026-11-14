@@ -10,7 +10,7 @@
   "fiveOfficialQuarterCompanies": 473,
   "fiveCompleteMetricCompanies": 403,
   "sourceFailedCompanies": 0,
-  "checkedAt": "2026-11-14T11:30:07.744648Z",
+  "checkedAt": "2026-11-14T18:05:50.781013Z",
   "storedQuarters": 2515,
   "completeMetricQuarters": 2221,
   "sourceHealthy": true,
@@ -18,10 +18,5 @@
   "metricsComplete": false,
   "dataComplete": false,
   "healthy": false,
-  "dataStatus": "incomplete",
-  "metricBackfill": {
-    "date": "2026-11-14",
-    "filledFields": 65,
-    "evidence": "docs/complete-next-50-issuer-financials-2026-11-14.json"
-  }
+  "dataStatus": "incomplete"
 }
