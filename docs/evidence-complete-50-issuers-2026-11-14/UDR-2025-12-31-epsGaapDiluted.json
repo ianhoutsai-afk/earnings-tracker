@@ -1,0 +1,100 @@
+{
+  "ticker": "UDR",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 0.67,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000009/udr-20260209xex99d1.htm",
+  "sourceKind": "reviewed_release_eps",
+  "evidence": {
+    "value": 0.67,
+    "rawValue": "$0.67",
+    "signedRawValue": "$0.67",
+    "signFromSplitParentheses": false,
+    "scale": 0,
+    "rowLabel": "Net Income per diluted share",
+    "rowCells": [
+      "Net Income per diluted share",
+      "$0.67",
+      "$0.13 to $0.15",
+      "$(0.02)",
+      "$0.69",
+      "N/A"
+    ],
+    "columnIndex": 1,
+    "header": "Quarter Ended December 31 4Q 2025 Actual",
+    "headerBasis": "explicit-date",
+    "headerRows": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31"
+      ],
+      [
+        "Metric",
+        "4Q 2025 Actual",
+        "4Q 2025 Guidance",
+        "4Q 2024 Actual",
+        "$ Change vs. Prior Year Period",
+        "% Change vs. Prior Year Period"
+      ]
+    ],
+    "priorHeadings": [
+      "UDR, Inc. (the “Company”) (NYSE: UDR ), announced today its fourth quarter and full-year 2025 results, and has posted a related Investor Presentation to its website at ir.udr.com . Net Income, Funds from Operations (“FFO”), and FFO as Adjusted (“FFOA”) per diluted share for the quarter and full-year ended December 31, 2025, are detailed below.",
+      "ESTABLISHES 2026 GUIDANCE RANGES AND INCREASES DIVIDEND",
+      "UDR, INC. ANNOUNCES FOURTH QUARTER AND FULL-YEAR 2025 RESULTS,"
+    ],
+    "sectionRows": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31",
+        "Quarter Ended December 31"
+      ],
+      [
+        "Metric",
+        "4Q 2025 Actual",
+        "4Q 2025 Guidance",
+        "4Q 2024 Actual",
+        "$ Change vs. Prior Year Period",
+        "% Change vs. Prior Year Period"
+      ],
+      [
+        "Net Income per diluted share",
+        "$0.67",
+        "$0.13 to $0.15",
+        "$(0.02)",
+        "$0.69",
+        "N/A"
+      ]
+    ],
+    "consolidatedHeading": false,
+    "entity": 74208,
+    "unitMeasure": "USD/shares",
+    "sourceSha256": "026c4f25039759e8081b148789a80aad77a1f72c01cc79dfba68c752fa2e1d15"
+  },
+  "rowLabel": "Net Income per diluted share",
+  "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000009/udr-20260209xex99d1.htm"
+}

@@ -1,0 +1,245 @@
+{
+  "ticker": "ES",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 1.12,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm",
+  "sourceKind": "reviewed_release_eps",
+  "evidence": {
+    "value": 1.12,
+    "rawValue": "1.12",
+    "signedRawValue": "1.12",
+    "signFromSplitParentheses": false,
+    "scale": 0,
+    "rowLabel": "Basic and Diluted Earnings Per Common Share",
+    "rowCells": [
+      "Basic and Diluted Earnings Per Common Share",
+      "",
+      "$",
+      "1.12",
+      "",
+      "",
+      "$",
+      "0.20",
+      ""
+    ],
+    "columnIndex": 3,
+    "header": "For the Three Months Ended December 31, 2025 3,370,196 1,000,834 600,430 408,016 163,111 212,403 274,938 —",
+    "headerBasis": "explicit-date",
+    "headerRows": [
+      [
+        "",
+        "",
+        "For the Three Months Ended December 31,",
+        "For the Three Months Ended December 31,",
+        "For the Three Months Ended December 31,",
+        "For the Three Months Ended December 31,",
+        "For the Three Months Ended December 31,",
+        "For the Three Months Ended December 31,",
+        ""
+      ],
+      [
+        "(Thousands of Dollars, Except Share Information)",
+        "",
+        "2025",
+        "2025",
+        "",
+        "",
+        "2024",
+        "2024",
+        ""
+      ],
+      [
+        "Operating Revenues",
+        "",
+        "$",
+        "3,370,196",
+        "",
+        "",
+        "$",
+        "2,971,488",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Operating Expenses:",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Purchased Power, Purchased Natural Gas and Transmission",
+        "",
+        "",
+        "1,000,834",
+        "",
+        "",
+        "",
+        "740,832",
+        ""
+      ],
+      [
+        "Operations and Maintenance",
+        "",
+        "",
+        "600,430",
+        "",
+        "",
+        "",
+        "575,100",
+        ""
+      ],
+      [
+        "Depreciation",
+        "",
+        "",
+        "408,016",
+        "",
+        "",
+        "",
+        "372,853",
+        ""
+      ],
+      [
+        "Amortization",
+        "",
+        "",
+        "163,111",
+        "",
+        "",
+        "",
+        "215,369",
+        ""
+      ],
+      [
+        "Energy Efficiency Programs",
+        "",
+        "",
+        "212,403",
+        "",
+        "",
+        "",
+        "165,007",
+        ""
+      ],
+      [
+        "Taxes Other Than Income Taxes",
+        "",
+        "",
+        "274,938",
+        "",
+        "",
+        "",
+        "257,488",
+        ""
+      ],
+      [
+        "Loss on Pending Sale of Aquarion",
+        "",
+        "",
+        "—",
+        "",
+        "",
+        "",
+        "297,000",
+        ""
+      ]
+    ],
+    "priorHeadings": [
+      "(Unaudited)",
+      "CONSOLIDATED STATEMENTS OF INCOME",
+      "EVERSOURCE ENERGY AND SUBSIDIARIES"
+    ],
+    "sectionRows": [
+      [
+        "Income Tax Expense",
+        "",
+        "",
+        "61,436",
+        "",
+        "",
+        "",
+        "76,355",
+        ""
+      ],
+      [
+        "Net Income",
+        "",
+        "",
+        "423,186",
+        "",
+        "",
+        "",
+        "74,400",
+        ""
+      ],
+      [
+        "Net Income Attributable to Noncontrolling Interests",
+        "",
+        "",
+        "1,880",
+        "",
+        "",
+        "",
+        "1,880",
+        ""
+      ],
+      [
+        "Net Income Attributable to Common Shareholders",
+        "",
+        "$",
+        "421,306",
+        "",
+        "",
+        "$",
+        "72,520",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Basic and Diluted Earnings Per Common Share",
+        "",
+        "$",
+        "1.12",
+        "",
+        "",
+        "$",
+        "0.20",
+        ""
+      ]
+    ],
+    "consolidatedHeading": true,
+    "entity": 72741,
+    "unitMeasure": "USD/shares",
+    "sourceSha256": "4511f924460b8c06d5bb62124eb45e2b9af463f4b737715f1015e3e68505d1a5"
+  },
+  "rowLabel": "Basic and Diluted Earnings Per Common Share",
+  "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_8k.htm"
+}

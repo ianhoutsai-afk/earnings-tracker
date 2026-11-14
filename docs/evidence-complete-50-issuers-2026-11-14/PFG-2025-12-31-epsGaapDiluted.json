@@ -1,0 +1,72 @@
+{
+  "ticker": "PFG",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 2.32,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926012083/tm265638d1_ex99.htm",
+  "sourceKind": "reviewed_release_eps",
+  "evidence": {
+    "value": 2.32,
+    "rawValue": "$2.32",
+    "signedRawValue": "$2.32",
+    "signFromSplitParentheses": false,
+    "scale": 0,
+    "rowLabel": "Net income attributable to PFG",
+    "rowCells": [
+      "Net income attributable to PFG",
+      "$5.25",
+      "$2.32",
+      "",
+      "Net income attributable to PFG",
+      "$1,185",
+      "$517"
+    ],
+    "columnIndex": 2,
+    "header": "Q4 2025",
+    "headerBasis": "fiscal-quarter-column",
+    "headerRows": [
+      [
+        "Diluted earnings per common share",
+        "2025",
+        "4Q25",
+        "",
+        "Net income attributable to PFG (in millions)",
+        "2025",
+        "4Q25"
+      ]
+    ],
+    "priorHeadings": [
+      "(Des Moines, Iowa) – Principal Financial Group ® (Nasdaq: PFG) announced results for full year and fourth quarter 2025.",
+      "Raises first quarter 2026 common stock dividend",
+      "Fourth Quarter 2025 Results as well as 2026 Outlook"
+    ],
+    "sectionRows": [
+      [
+        "Diluted earnings per common share",
+        "2025",
+        "4Q25",
+        "",
+        "Net income attributable to PFG (in millions)",
+        "2025",
+        "4Q25"
+      ],
+      [
+        "Net income attributable to PFG",
+        "$5.25",
+        "$2.32",
+        "",
+        "Net income attributable to PFG",
+        "$1,185",
+        "$517"
+      ]
+    ],
+    "consolidatedHeading": true,
+    "entity": 1126328,
+    "unitMeasure": "USD/shares",
+    "sourceSha256": "82b7ef4dfe0d70a7f7ed5e5e020f27b7b46ffa6f56dac61f02290f3070e06ee1"
+  },
+  "rowLabel": "Net income attributable to PFG",
+  "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926012083/tm265638d1_8k.htm"
+}
