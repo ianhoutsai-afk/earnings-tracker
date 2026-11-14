@@ -1,0 +1,224 @@
+{
+  "ticker": "GEV",
+  "periodEnd": "2025-12-31",
+  "fiscalYear": 2025,
+  "fiscalQuarter": 4,
+  "field": "epsGaapDiluted",
+  "value": 13.39,
+  "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000012/gevpressrelease4q25.htm",
+  "parentReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000012/gevpressrelease4q25.htm",
+  "sourceKind": "reviewed_release_eps",
+  "evidence": {
+    "value": 13.39,
+    "rawValue": "$ 13.39",
+    "signedRawValue": "$ 13.39",
+    "signFromSplitParentheses": false,
+    "scale": 0,
+    "rowLabel": "Diluted",
+    "rowCells": [
+      "Diluted",
+      "$ 13.39",
+      "$ 1.73",
+      "F",
+      "",
+      "$ 17.69",
+      "$ 5.58",
+      "F"
+    ],
+    "columnIndex": 1,
+    "header": "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED) Three months ended December 31 2025 $ 5,963 4,993 10,956 5,413 3,221 2,323",
+    "headerBasis": "explicit-date",
+    "headerRows": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "CONSOLIDATED AND COMBINED STATEMENT OF INCOME (LOSS) (UNAUDITED)",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Three months ended December 31",
+        "Three months ended December 31",
+        "Three months ended December 31",
+        "",
+        "Twelve months ended December 31",
+        "Twelve months ended December 31",
+        "Twelve months ended December 31"
+      ],
+      [
+        "(In millions, except per share amounts)",
+        "2025",
+        "2024",
+        "V%",
+        "",
+        "2025",
+        "2024",
+        "V%"
+      ],
+      [
+        "Sales of equipment",
+        "$ 5,963",
+        "$ 5,852",
+        "",
+        "",
+        "$ 20,934",
+        "$ 18,952",
+        ""
+      ],
+      [
+        "Sales of services",
+        "4,993",
+        "4,707",
+        "",
+        "",
+        "17,134",
+        "15,983",
+        ""
+      ],
+      [
+        "Total revenues",
+        "10,956",
+        "10,559",
+        "4 %",
+        "",
+        "38,068",
+        "34,935",
+        "9 %"
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Cost of equipment",
+        "5,413",
+        "5,368",
+        "",
+        "",
+        "18,759",
+        "17,989",
+        ""
+      ],
+      [
+        "Cost of services",
+        "3,221",
+        "3,067",
+        "",
+        "",
+        "11,774",
+        "10,861",
+        ""
+      ],
+      [
+        "Gross profit",
+        "2,323",
+        "2,123",
+        "9 %",
+        "",
+        "7,535",
+        "6,085",
+        "24 %"
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "priorHeadings": [],
+    "sectionRows": [
+      [
+        "Net income (loss) attributable to GE Vernova",
+        "$ 3,664",
+        "$ 484",
+        "F",
+        "",
+        "$ 4,884",
+        "$ 1,552",
+        "F"
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Earnings (loss) per share attributable to GE Vernova:",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Basic",
+        "$ 13.56",
+        "$ 1.75",
+        "F",
+        "",
+        "$ 17.92",
+        "$ 5.65",
+        "F"
+      ],
+      [
+        "Diluted",
+        "$ 13.39",
+        "$ 1.73",
+        "F",
+        "",
+        "$ 17.69",
+        "$ 5.58",
+        "F"
+      ]
+    ],
+    "consolidatedHeading": true,
+    "entity": 1996810,
+    "unitMeasure": "USD/shares",
+    "sourceSha256": "49c4a4ff7dee683f919067936bccad7d24af6e575cee9db0d5e00765ace705c9",
+    "reviewedQuarter": "2025-12-31",
+    "independentCheckUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000012/gevpressrelease4q25.htm",
+    "reviewedBasis": "GAAP total diluted earnings per share; same-quarter column in original issuer release"
+  }
+}
