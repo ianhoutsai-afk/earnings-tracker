@@ -1,16 +1,16 @@
 {
   "companies": 503,
-  "issuersChecked": 499,
-  "issuerTargets": 499,
+  "issuersChecked": 176,
+  "issuerTargets": 176,
   "deferredCompanies": 0,
-  "newRecords": 1,
+  "newRecords": 0,
   "sourceFailures": 0,
   "pendingCompanies": 486,
   "officialQuarters": 2440,
   "fiveOfficialQuarterCompanies": 473,
   "fiveCompleteMetricCompanies": 353,
   "sourceFailedCompanies": 0,
-  "checkedAt": "2026-11-14T07:42:37.458914Z",
+  "checkedAt": "2026-11-14T11:30:07.744648Z",
   "storedQuarters": 2515,
   "completeMetricQuarters": 2171,
   "sourceHealthy": true,
@@ -18,10 +18,5 @@
   "metricsComplete": false,
   "dataComplete": false,
   "healthy": false,
-  "dataStatus": "incomplete",
-  "metricBackfill": {
-    "date": "2026-11-14",
-    "filledFields": 53,
-    "evidence": "docs/complete-50-issuer-financials-2026-11-14.json"
-  }
+  "dataStatus": "incomplete"
 }
