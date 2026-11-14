@@ -306,3 +306,67 @@ class SupplementalHistoryTests(unittest.TestCase):
    return fetch(url)
   rows,_=check_issuer('0000000001',submissions,source,TODAY)
   self.assertEqual([r['periodEnd'] for r in rows],['2026-09-30','2026-06-30'])
+
+class ReviewedReleaseExclusionTests(unittest.TestCase):
+ def test_known_trade_desk_guidance_filing_cannot_replace_results(self):
+  from official_sync import check_issuer
+  published = '2026-02-25'
+  notice = '2026-01-26'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K', '8-K'], 'items': ['2.02,9.01', '2.02,9.01'],
+   'accessionNumber': ['0001671933-26-000009', '0001193125-26-021804'],
+   'primaryDocument': ['results.htm', 'guidance.htm'],
+   'filingDate': [published, notice], 'reportDate': [published, notice],
+  }}}
+  def documents(url):
+   if url.endswith('results.htm'):
+    return '<a href="ex991.htm">99.1 Earnings release</a>'
+   if url.endswith('guidance.htm'):
+    return '<a href="ex991.htm">99.1 Earnings announcement</a>'
+   day = 'February 25' if '/000167193326000009/' in url else 'January 26'
+   return f'<html><h1>Fourth quarter 2025 results</h1><p>{day}, 2026 — Results for the quarter ended December 31, 2025.</p></html>'
+  rows, _ = check_issuer('0001671933', submissions, documents, date(2026, 11, 14))
+  self.assertEqual([r['date'] for r in rows], [published])
+
+ def test_bio_techne_dividend_exhibit_is_skipped_within_results_filing(self):
+  from official_sync import check_issuer
+  published = '2026-08-12'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K'], 'items': ['2.02,9.01'],
+   'accessionNumber': ['0001104659-26-094391'],
+   'primaryDocument': ['tech-20260812x8k.htm'],
+   'filingDate': [published], 'reportDate': [published],
+  }}}
+  def documents(url):
+   if url.endswith('tech-20260812x8k.htm'):
+    return ('<a href="tech-20260812xex99d2.htm">Dividend news release</a>'
+            '<a href="tech-20260812xex99d1.htm">Earnings press release</a>')
+   return '<html><h1>Fourth quarter 2026 earnings</h1><p>August 12, 2026 — quarter ended June 30, 2026.</p></html>'
+  rows, _ = check_issuer('0000842023', submissions, documents, date(2026, 11, 14))
+  self.assertEqual(len(rows), 1)
+  self.assertTrue(rows[0]['releaseSourceUrl'].endswith('tech-20260812xex99d1.htm'))
+
+ def test_kdp_second_quarter_uses_current_filing_instead_of_prior_quarter_reference(self):
+  from official_sync import check_issuer
+  accession = '0001418135-26-000048'
+  day = '2026-08-06'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K', '10-Q', '10-Q'], 'items': ['2.02,9.01', '', ''],
+   'accessionNumber': [accession, '0001418135-26-000051', '0001418135-26-000026'],
+   'primaryDocument': ['results.htm', 'quarter.htm', 'previous.htm'],
+   'filingDate': [day, day, '2026-04-23'],
+   'reportDate': [day, '2026-06-30', '2026-03-31'],
+  }}}
+  def documents(url):
+   if url.endswith('results.htm'):
+    return ('<h2>Item 2.02 Results of Operations</h2>'
+            '<p>On August 6, 2026, Example issued a press release announcing its financial results for the second quarter of 2026.</p>'
+            '<a href="ex991-keurigdrpepperreport.htm">99.1 Earnings release</a>')
+   if url.endswith('ex991-keurigdrpepperreport.htm'):
+    return ('<h1>Second quarter 2026 results</h1><p>August 6, 2026 — Example reported results for its second quarter.</p>'
+            '<p>Acquisition information for the quarter ended March 31, 2026.</p>')
+   if url.endswith('quarter.htm'):
+    return filing(quarter='Q2').replace('2026-09-30','2026-06-30').replace('2026-07-01','2026-04-01')
+   raise AssertionError(url)
+  rows, _ = check_issuer('0001418135', submissions, documents, TODAY)
+  self.assertEqual([(r['date'],r['periodEnd'],r['fiscalQuarter']) for r in rows], [(day,'2026-06-30',2)])

@@ -58,6 +58,13 @@ class OfficialParserTests(unittest.TestCase):
   extra='<ix:nonFraction name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare">2.00</ix:nonFraction>'
   self.assertIsNone(parse_inline_quarter(filing(extra),'2026-09-30')['epsGaapDiluted'])
 
+ def test_document_period_end_normalizes_equivalent_date_spellings(self):
+  doc=filing().replace('>2026-09-30</ix:nonNumeric>',
+      '>SEPTEMBER 30, 2026</ix:nonNumeric><ix:nonNumeric name="dei:DocumentPeriodEndDate">September 30, 2026</ix:nonNumeric>')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  with self.assertRaises(ValueError):
+   parse_inline_quarter(doc.replace('>September 30, 2026</','>September 29, 2026</'),'2026-09-30')
+
  def test_document_identity_must_match_period_end(self):
   with self.assertRaises(ValueError):parse_inline_quarter(filing(),'2026-06-30')
 
@@ -175,3 +182,25 @@ class EntityContextTests(unittest.TestCase):
  def test_another_registrants_context_cannot_supply_the_issuers_values(self):
   doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>2</xbrli:identifier>')
   self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='0000000001')['epsGaapDiluted'])
+
+class CompletedQuarterWordingTests(unittest.TestCase):
+ def test_completed_results_can_use_quarter_ending_in_publication_sentence(self):
+  doc = '''<html><h1>Example Releases Fourth Quarter Fiscal 2026 Results</h1>
+  <p>August 12, 2026 — Example today reported its financial results for the fourth quarter ending June 30, 2026.</p>
+  <p>Net earnings are presented for the year and compared with the quarter ended June 30, 2025.</p></html>'''
+  result = parse_earnings_release(doc,'2026-08-12','2026-08-12',date(2026,11,14))
+  self.assertEqual(result, {'date':'2026-08-12','periodEnd':'2026-06-30','fiscalYear':2026,'fiscalQuarter':4})
+
+ def test_second_quarter_and_first_half_are_anchored_to_the_completed_period(self):
+  doc = """<html><h1>Example reports first half fiscal 2026 results</h1>
+  <p>December 4, 2025 — Example Corporation reported financial results for its second quarter
+  and first half of fiscal 2026, ended October 31, 2025.</p>
+  <p>Earlier results for the quarter ended April 30, 2025 were previously reported.</p></html>"""
+  row=parse_earnings_release(doc,'2025-12-04','2025-12-04',TODAY)
+  self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2025-10-31',2026,2))
+
+ def test_release_schedule_using_quarter_ending_is_rejected(self):
+  doc = '''<html><h1>Example Schedules Fourth Quarter Fiscal 2026 Results</h1>
+  <p>August 12, 2026 — Example will report its financial results for the fourth quarter ending June 30, 2026.</p></html>'''
+  with self.assertRaises(ValueError):
+   parse_earnings_release(doc,'2026-08-12','2026-08-12',date(2026,11,14))

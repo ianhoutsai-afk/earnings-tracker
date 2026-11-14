@@ -100,6 +100,34 @@ def _exhibit_links(document, base):
     return list(dict.fromkeys(result))[:4]
 
 
+# Original EDGAR documents reviewed in the November 14 quarterly evidence reports.
+# These accessions held guidance, preliminary data, schedules, or an appointment.
+NON_RESULTS_ACCESSIONS = {
+    '0001193125-26-021804',  # The Trade Desk
+    '0001171843-26-000788',  # Norwegian Cruise Line
+    '0000031791-26-000003',  # Revvity
+    '0000016918-25-000132',  # Constellation Brands
+    # APA supplemental guidance and conference schedules for the reviewed periods.
+    '0001841666-25-000023',
+    '0001841666-26-000003',
+    '0001841666-26-000021',
+    '0001841666-26-000045',
+    '0001841666-26-000058',
+}
+
+# Bio-Techne submitted dividend and quarterly results exhibits together.
+NON_RESULTS_EXHIBITS = {
+    ('0001558370-25-010393', 'tech-20250806xex99d2.htm'),
+    ('0001104659-26-094391', 'tech-20260812xex99d2.htm'),
+}
+
+# This release mentions a prior-quarter date in its acquisition notes.
+# The 8-K names Q2 and the matching 10-Q confirms June 30.
+PERIOD_FROM_FILING_EXHIBITS = {
+    ('0001418135-26-000048', 'ex991-keurigdrpepperreport.htm'),
+}
+
+
 def check_issuer(cik, submissions, fetch, today):
     filings = _filings(submissions, today)
     records, pending, failures, metric_pending = {}, 0, 0, 0
@@ -124,13 +152,15 @@ def check_issuer(cik, submissions, fetch, today):
                 pending+=1
         filings=list({r['accessionNumber']:r for r in filings}.values())
     releases = [r for r in filings if r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+', r['items'])
+                and r['accessionNumber'] not in NON_RESULTS_ACCESSIONS
                 and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
     for event in releases[:12]:
         base = _base(cik, event)
         try:
             primary_doc=fetch(base + event['primaryDocument'])
-            links = _exhibit_links(primary_doc, base)
+            links = [url for url in _exhibit_links(primary_doc, base)
+                     if (event['accessionNumber'], url.rsplit('/', 1)[-1]) not in NON_RESULTS_EXHIBITS]
         except (OSError, TimeoutError) as exc:
             failures += 1
             source_errors.append({'stage':'announcement_filing','sourceUrl':base+event['primaryDocument'],'errorType':type(exc).__name__})
@@ -154,6 +184,8 @@ def check_issuer(cik, submissions, fetch, today):
                     scheduled = parse_expected_release(release_doc, today)
                     if scheduled and next_event is None:
                         next_event = {**scheduled, 'sourceUrl':url, 'announcementFilingDate':event['filingDate']}
+                    if (event['accessionNumber'], url.rsplit('/', 1)[-1]) in PERIOD_FROM_FILING_EXHIBITS:
+                        continue
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
             except (OSError, TimeoutError) as exc:
                 failures += 1
