@@ -71,6 +71,15 @@ def retain_manifest(records):
     return result
 
 
+def official_source_url(row):
+    return row.get('secUrl') if row.get('dateSource') == 'sec_filing' else row.get('releaseSourceUrl')
+
+
+def filing_dated_quarters(history):
+    return sum(row.get('verificationStatus') == 'official_verified' and row.get('dateSource') == 'sec_filing'
+               for rows in history.values() for row in rows)
+
+
 def company_fields(company, history, today):
     result = dict(company)
     # Existing forward estimates have no auditable next-quarter period/source.
@@ -81,7 +90,8 @@ def company_fields(company, history, today):
         result['reportDateSource']=None
         result['reportDateSourceUrl']=None
     rows = history.get(result['ticker'], [])
-    verified = [r for r in rows if r.get('verificationStatus') == 'official_verified' and fiscal_identity(r)]
+    verified = [r for r in rows if r.get('verificationStatus') == 'official_verified'
+                and r.get('dateSource') != 'sec_filing' and fiscal_identity(r)]
     result.pop('latestPublishedQuarter', None)
     result.pop('latestPublishedDate', None)
     if verified:
@@ -108,7 +118,11 @@ def company_fields(company, history, today):
 
 def preserve_release_provenance(updated, previous):
     """Keep the earliest confirmed release date and its source identifiers together."""
-    if not previous.get('date') or previous['date'] > updated.get('date',''):
+    if not previous.get('date') or previous.get('dateSource') == 'sec_filing':
+        return updated
+    if updated.get('dateSource') == 'sec_filing':
+        updated.pop('dateSource')
+    elif previous['date'] > updated.get('date', ''):
         return updated
     same_day=previous['date']==updated.get('date')
     for field in ('date','releaseSourceUrl','releaseFilingDate','releaseAccession'):
@@ -121,16 +135,16 @@ def preserve_release_provenance(updated, previous):
 
 def merge_manifest_record(previous, incoming):
     if previous.get('verifiedAt','') > incoming.get('verifiedAt',''):
-        return copy.deepcopy(previous)
+        return preserve_release_provenance(copy.deepcopy(previous), incoming)
     result=copy.deepcopy(incoming)
     for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
         if result.get(field) is None and previous.get(field) is not None:
             result[field]=previous[field]
-            result[source_field]=previous.get(source_field) or previous.get('metricSourceUrl') or previous['releaseSourceUrl']
+            result[source_field]=previous.get(source_field) or previous.get('metricSourceUrl') or official_source_url(previous)
         elif result.get(field) is not None:
-            result[source_field]=incoming.get(source_field) or incoming.get('metricSourceUrl') or incoming['releaseSourceUrl']
+            result[source_field]=incoming.get(source_field) or incoming.get('metricSourceUrl') or official_source_url(incoming)
     if result.get('epsGaapDiluted') is not None:
         result['epsBasis']='GAAP diluted'
     if incoming.get('epsGaapDiluted') is None and incoming.get('revenue') is None and previous:
-        result['metricSourceUrl']=previous.get('metricSourceUrl') or previous['releaseSourceUrl']
+        result['metricSourceUrl']=previous.get('metricSourceUrl') or official_source_url(previous)
     return preserve_release_provenance(result,previous)

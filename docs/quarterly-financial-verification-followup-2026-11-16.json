@@ -1,0 +1,378 @@
+{
+  "scope": "Verified quarterly financial results disclosed in periodic SEC filings. Filing-date provenance is distinct from earnings-release provenance.",
+  "baselineCommit": "25e790a2aa03286dc476e32fd844a80462233f7b",
+  "checkedDateNewYork": "2026-11-15",
+  "before": {
+    "officialQuarters": 2513,
+    "completeMetricQuarters": 2501,
+    "fiveOfficialQuarterCompanies": 502,
+    "fiveCompleteMetricCompanies": 494,
+    "filingDatedQuarters": 0,
+    "releaseDatedQuarters": 2513,
+    "missingMetricFieldsInVerifiedQuarters": {
+      "revenue": 2,
+      "epsGaapDiluted": 11
+    },
+    "unverifiedQuarterSlots": 2
+  },
+  "after": {
+    "officialQuarters": 2515,
+    "completeMetricQuarters": 2502,
+    "fiveOfficialQuarterCompanies": 503,
+    "fiveCompleteMetricCompanies": 494,
+    "filingDatedQuarters": 6,
+    "releaseDatedQuarters": 2509,
+    "missingMetricFieldsInVerifiedQuarters": {
+      "revenue": 2,
+      "epsGaapDiluted": 12
+    },
+    "unverifiedQuarterSlots": 0
+  },
+  "filingReview": [
+    {
+      "ticker": "AES",
+      "periodEnd": "2025-12-31",
+      "form": "10-K",
+      "filingDate": "2026-03-02",
+      "accessionNumber": "0000874761-26-000063",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+      "sourceSha256": "d78bdd6e3396afc101a2356dff025fab6912b3810f9b6a9cd7635a7b81dd803b",
+      "epsGaapDiluted": null,
+      "revenue": 3101000000,
+      "metricEvidence": {
+        "basis": "2025 consolidated GAAP revenue less first-nine-month revenue, independently matched to next year’s nine-month comparative.",
+        "calculation": "(12,233 - 9,132) × 1,000,000 USD",
+        "inputs": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+            "sourceSha256": "d78bdd6e3396afc101a2356dff025fab6912b3810f9b6a9cd7635a7b81dd803b",
+            "heading": "Year ended December 31, 2025 (annual consolidated statement, Inline XBRL period)",
+            "tableIndex": 162,
+            "rowIndex": 6,
+            "columnIndex": 3,
+            "valueMillions": 12233
+          },
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm",
+            "sourceSha256": "c49f47d312fdf9be83f15ce44faa5e0e1ad5e571a46bf2a70488fc754e3f3574",
+            "heading": "Nine Months Ended September 30, 2025",
+            "tableIndex": 13,
+            "rowIndex": 8,
+            "columnIndex": 15,
+            "valueMillions": 9132
+          },
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+            "sourceSha256": "95c44be2309bfc1923e3f4eaf7ccfdc1475330b31f8c59a3b1169545d082334c",
+            "heading": "Nine Months Ended September 30, 2025",
+            "tableIndex": 13,
+            "rowIndex": 8,
+            "columnIndex": 21,
+            "valueMillions": 9132
+          }
+        ]
+      },
+      "releaseDateStatus": "unverified"
+    },
+    {
+      "ticker": "AES",
+      "periodEnd": "2026-03-31",
+      "form": "10-Q",
+      "filingDate": "2026-05-05",
+      "accessionNumber": "0000874761-26-000120",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
+      "sourceSha256": "636004770aae9128ddb1fa820ea5de12df928708b64a9007f67cd0de72a9dfd5",
+      "epsGaapDiluted": 0.68,
+      "revenue": 3180000000,
+      "metricEvidence": {
+        "tableIndex": 13,
+        "revenueRow": 8,
+        "revenueColumn": 3,
+        "epsRow": 50,
+        "epsColumn": 4
+      },
+      "releaseDateStatus": "unverified"
+    },
+    {
+      "ticker": "AES",
+      "periodEnd": "2026-06-30",
+      "form": "10-Q",
+      "filingDate": "2026-08-04",
+      "accessionNumber": "0000874761-26-000144",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+      "sourceSha256": "18ba68eb78ff06241dd395301d5f5f092eb862e84fc726c07bab299b7939a97e",
+      "epsGaapDiluted": 0.6,
+      "revenue": 3422000000,
+      "metricEvidence": {
+        "tableIndex": 13,
+        "revenueRow": 8,
+        "revenueColumn": 3,
+        "epsRow": 50,
+        "epsColumn": 4
+      },
+      "releaseDateStatus": "unverified"
+    },
+    {
+      "ticker": "AES",
+      "periodEnd": "2026-09-30",
+      "form": "10-Q",
+      "filingDate": "2026-11-03",
+      "accessionNumber": "0000874761-26-000156",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+      "sourceSha256": "95c44be2309bfc1923e3f4eaf7ccfdc1475330b31f8c59a3b1169545d082334c",
+      "epsGaapDiluted": 0.76,
+      "revenue": 3872000000,
+      "metricEvidence": {
+        "tableIndex": 13,
+        "revenueRow": 8,
+        "revenueColumn": 3,
+        "epsRow": 50,
+        "epsColumn": 4
+      },
+      "releaseDateStatus": "unverified"
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2026-06-30",
+      "form": "10-Q",
+      "filingDate": "2026-08-03",
+      "accessionNumber": "0001628280-26-051829",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000712515.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+      "sourceSha256": "016b24324d759e0a83a3844dd831828a5fb2da9668cec61551b43ae0f6d38ec7",
+      "epsGaapDiluted": 1.56,
+      "revenue": 1986000000,
+      "metricEvidence": {
+        "tableIndex": 7,
+        "revenueRow": 3,
+        "revenueColumn": 4,
+        "epsRow": 21,
+        "epsColumn": 4
+      },
+      "releaseDateStatus": "unverified"
+    },
+    {
+      "ticker": "SATS",
+      "periodEnd": "2026-09-30",
+      "form": "10-Q",
+      "filingDate": "2026-11-03",
+      "accessionNumber": "0001104659-26-121675",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "sourceSha256": "07e7ba6259c6cb82000abfe6bbc6c079306323ceb0456b357195c61590bed3fd",
+      "epsGaapDiluted": 7.97,
+      "revenue": 1127611000,
+      "metricEvidence": {
+        "tableIndex": 36,
+        "revenueRow": 7,
+        "revenueColumn": 3,
+        "epsRow": 39,
+        "epsColumn": 3
+      },
+      "releaseDateStatus": "unverified"
+    }
+  ],
+  "olderVerifiedPeriodsOutsideRetainedWindow": [
+    {
+      "date": "2025-07-31",
+      "periodEnd": "2025-06-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 2,
+      "periodScope": "quarter",
+      "periodStart": "2025-04-01",
+      "epsGaapDiluted": -0.15,
+      "revenue": 2855000000.0,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000071/q22025earningsreleaseexs.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000075/aes-20250630.htm",
+      "verifiedAt": "2026-11-15",
+      "releaseFilingDate": "2025-08-01",
+      "releaseAccession": "0000874761-25-000071",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000075/aes-20250630.htm",
+      "form": "10-Q",
+      "filingDate": "2025-08-01",
+      "accessionNumber": "0000874761-25-000075",
+      "ticker": "AES",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000075/aes-20250630.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000075/aes-20250630.htm"
+    },
+    {
+      "date": "2025-05-01",
+      "periodEnd": "2025-03-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 1,
+      "periodScope": "quarter",
+      "periodStart": "2025-01-01",
+      "epsGaapDiluted": 0.07,
+      "revenue": 2926000000.0,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000037/q12025earningsreleaseexs.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000035/aes-20250331.htm",
+      "verifiedAt": "2026-11-02",
+      "releaseFilingDate": "2025-05-01",
+      "releaseAccession": "0000874761-25-000037",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000035/aes-20250331.htm",
+      "form": "10-Q",
+      "filingDate": "2025-05-01",
+      "accessionNumber": "0000874761-25-000035",
+      "ticker": "AES",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000035/aes-20250331.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000035/aes-20250331.htm"
+    },
+    {
+      "date": "2025-05-06",
+      "periodEnd": "2025-03-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "periodScope": "quarter",
+      "periodStart": null,
+      "epsGaapDiluted": 0.98,
+      "revenue": 1895000000,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000022/ea-20250331.htm",
+      "verifiedAt": "2026-11-15",
+      "releaseFilingDate": "2025-05-06",
+      "releaseAccession": "0000712515-25-000017",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000022/ea-20250331.htm",
+      "form": "10-K",
+      "filingDate": "2025-05-13",
+      "accessionNumber": "0000712515-25-000022",
+      "ticker": "EA",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm"
+    },
+    {
+      "ticker": "SATS",
+      "periodEnd": "2025-06-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 2,
+      "date": "2025-08-01",
+      "releaseSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-7",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
+      "filingDate": "2025-08-01",
+      "accessionNumber": "0001558370-25-009923",
+      "form": "10-Q",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
+      "revenue": 3724959000,
+      "epsGaapDiluted": -1.06,
+      "currency": "USD",
+      "periodScope": "quarter",
+      "verifiedAt": "2026-11-15",
+      "metricNote": {
+        "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026.",
+        "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。"
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
+      "epsBasis": "GAAP diluted"
+    }
+  ],
+  "remaining": {
+    "AES": {
+      "missingMetrics": {
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {
+        "2026-09-30": "2026-11-03",
+        "2026-06-30": "2026-08-04",
+        "2026-03-31": "2026-05-05",
+        "2025-12-31": "2026-03-02"
+      }
+    },
+    "ATO": {
+      "missingMetrics": {
+        "2026-09-30": [
+          "revenue"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "BRK-B": {
+      "missingMetrics": {
+        "2026-09-30": [
+          "epsGaapDiluted"
+        ],
+        "2026-06-30": [
+          "epsGaapDiluted"
+        ],
+        "2026-03-31": [
+          "epsGaapDiluted"
+        ],
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ],
+        "2025-09-30": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "SATS": {
+      "missingMetrics": {
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {
+        "2026-09-30": "2026-11-03"
+      }
+    },
+    "EA": {
+      "missingMetrics": {},
+      "secFilingDatesWithUnverifiedReleaseDates": {
+        "2026-06-30": "2026-08-03"
+      }
+    },
+    "LYV": {
+      "missingMetrics": {
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "PSKY": {
+      "missingMetrics": {
+        "2025-09-30": [
+          "revenue",
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "TRGP": {
+      "missingMetrics": {
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "TXT": {
+      "missingMetrics": {
+        "2026-01-03": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    },
+    "VST": {
+      "missingMetrics": {
+        "2025-12-31": [
+          "epsGaapDiluted"
+        ]
+      },
+      "secFilingDatesWithUnverifiedReleaseDates": {}
+    }
+  }
+}

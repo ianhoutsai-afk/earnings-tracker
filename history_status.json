@@ -149,9 +149,9 @@
   "AES": {
     "status": "official_source_checked",
     "reason": "sec_earnings_exhibits_checked",
-    "latestStoredDate": "2026-05-05",
-    "latestStoredOfficial": false,
-    "officialSourceUrl": null,
+    "latestStoredDate": "2026-11-03",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T07:55:35.310198Z",
     "releaseCandidates": 2,
@@ -164,8 +164,8 @@
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000874761",
     "recordCount": 5,
-    "officialQuarterCount": 3,
-    "metricsVerifiedQuarterCount": 3
+    "officialQuarterCount": 5,
+    "metricsVerifiedQuarterCount": 4
   },
   "AFL": {
     "status": "official_parse_pending",
@@ -3467,9 +3467,9 @@
   "SATS": {
     "status": "official_source_checked",
     "reason": "sec_earnings_exhibits_checked",
-    "latestStoredDate": "2026-08-03",
+    "latestStoredDate": "2026-11-03",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T07:55:35.310198Z",
     "releaseCandidates": 0,
@@ -3551,9 +3551,9 @@
   "EA": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-05-05",
+    "latestStoredDate": "2026-08-03",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251526000053/earningspressrelease2026_0.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T07:55:35.310198Z",
     "releaseCandidates": 4,

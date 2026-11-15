@@ -22,7 +22,7 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
+from quarterly_policy import filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -418,7 +418,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
         latest = rows[0] if rows else {}
         status[ticker] = {**status.get(ticker,{}), 'recordCount':len(rows), 'officialQuarterCount':sum(r.get('verificationStatus')=='official_verified' for r in rows),
                          'latestStoredDate':latest.get('date'), 'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
-                         'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None,
+                         'officialSourceUrl':official_source_url(latest) if latest.get('verificationStatus')=='official_verified' else None,
                          'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
     summary = {'companies':len(companies), 'issuersChecked':issuers_checked,'issuerTargets':len(groups),'deferredCompanies':deferred, 'newRecords':parsed_count,
                'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
@@ -432,7 +432,9 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     summary['sourceHealthy'] = source_failures == 0 and deferred == 0
     summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
     summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
-    summary['dataComplete'] = summary['historyComplete'] and summary['metricsComplete']
+    summary['filingDatedQuarters'] = filing_dated_quarters(history)
+    summary['releaseDatesComplete'] = summary['historyComplete'] and not summary['filingDatedQuarters']
+    summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
     summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
     summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,

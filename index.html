@@ -406,7 +406,7 @@
                         </span>
                         ${badgeHtml}
                         ${company.tickerIdentityStatus==='historical_alias' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.renamedTicker',{tickers:(company.officialCurrentTickers || []).join(', ')})}</div>` : company.tickerIdentityStatus==='unconfirmed' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.tickerUnconfirmed')}</div>` : ''}
-                        ${history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${fiscalQuarterLabel(history[0]) && history[0].verificationStatus === 'official_verified' ? t('history.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date }) : t('history.latestUnverified', {date: history[0].date})}</div>` : ''}
+                        ${history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${fiscalQuarterLabel(history[0]) && history[0].verificationStatus === 'official_verified' ? t(history[0].dateSource === 'sec_filing' ? 'history.latestFiling' : 'history.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date }) : t('history.latestUnverified', {date: history[0].date})}</div>` : ''}
                     </td>
                     <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
                         ${companyEventHtml(company)}
@@ -435,7 +435,9 @@
                         const secForm = h.form || null;
                         const metrics = quarterlyMetrics(h);
                         const fiscalLabel = fiscalQuarterLabel(h);
-                        const verifiedRelease = h.verificationStatus === 'official_verified';
+                        const verifiedQuarter = h.verificationStatus === 'official_verified';
+                        const filingDated = h.dateSource === 'sec_filing';
+                        const dateLabel = filingDated ? 'history.filed' : verifiedQuarter ? 'history.released' : 'history.legacyDate';
                         const isAnnualFiling =
                             secForm === '10-K'
                             || (!secForm && (h.quarter || '').includes('FY'));
@@ -459,9 +461,9 @@
                                 </div>
 
                                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                                    📅 ${t(verifiedRelease ? 'history.released' : 'history.legacyDate', {date:h.date})}
+                                    📅 ${t(dateLabel, {date:h.date})}
                                 </div>
-                                ${h.filingDate ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('history.filed', {date:h.filingDate})}</div>` : ''}
+                                ${h.filingDate && !filingDated ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('history.filed', {date:h.filingDate})}</div>` : ''}
                                 ${h.periodEnd ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('earnings.periodEnd', { date: h.periodEnd })}</div>` : ''}
 
                                 <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
@@ -477,7 +479,7 @@
                                 <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
                                     ${t('history.quarterRevenue')}
                                 </div>
-                                ${!verifiedRelease || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
+                                ${!verifiedQuarter || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
                                 ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
 
                                 ${h.releaseSourceUrl ? `
@@ -489,7 +491,7 @@
                                 ${h.epsSourceUrl && h.revenueSourceUrl && h.epsSourceUrl !== h.revenueSourceUrl ? `
                                     <a href="${h.epsSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.epsSource')}</a>
                                     <a href="${h.revenueSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.revenueSource')}</a>
-                                ` : h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl ? `
+                                ` : h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl && (!filingDated || h.metricSourceUrl !== secUrl) ? `
                                     <a href="${h.metricSourceUrl}" target="_blank" rel="noopener noreferrer"
                                        class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
                                         ${t('earnings.metricSource')}

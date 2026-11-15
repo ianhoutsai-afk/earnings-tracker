@@ -3,7 +3,7 @@ import json, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record
+from quarterly_policy import filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record
 from verified_history import apply_official_records, write_json_bundle
 from validate_quarterly_data import validate
 
@@ -38,7 +38,7 @@ for company in companies:
     if (main_status[ticker].get('latestStoredDate') or '')>(status[ticker].get('latestStoredDate') or ''):
         status[ticker]=main_status[ticker]
     latest=rows[0] if rows else {}
-    status[ticker].update(recordCount=len(rows),officialQuarterCount=sum(r.get('verificationStatus')=='official_verified' for r in rows),metricsVerifiedQuarterCount=sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows),latestStoredDate=latest.get('date'),latestStoredOfficial=latest.get('verificationStatus')=='official_verified',officialSourceUrl=latest.get('releaseSourceUrl'))
+    status[ticker].update(recordCount=len(rows),officialQuarterCount=sum(r.get('verificationStatus')=='official_verified' for r in rows),metricsVerifiedQuarterCount=sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows),latestStoredDate=latest.get('date'),latestStoredOfficial=latest.get('verificationStatus')=='official_verified',officialSourceUrl=official_source_url(latest))
     for old in (mh[ticker],bh[ticker]):
         old_end=max((r.get('periodEnd','') for r in old if r.get('verificationStatus')=='official_verified'),default='')
         assert max((r.get('periodEnd','') for r in rows),default='')>=old_end, ticker+' latest official quarter regressed'
@@ -47,7 +47,9 @@ summary=read(branch,'official_scan_state.json')
 summary.update(companies=len(companies),officialQuarters=sum(s['officialQuarterCount'] for s in status.values()),storedQuarters=sum(s['recordCount'] for s in status.values()),completeMetricQuarters=sum(s['metricsVerifiedQuarterCount'] for s in status.values()),fiveOfficialQuarterCompanies=sum(s['officialQuarterCount']==5 for s in status.values()),fiveCompleteMetricCompanies=sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),pendingCompanies=sum(s.get('status')!='official_source_checked' or s['officialQuarterCount']<5 or s['metricsVerifiedQuarterCount']<5 for s in status.values()),reconciledMainCommit=subprocess.check_output(['git','rev-parse',main],text=True).strip(),dataMergedAt=datetime.now(timezone.utc).isoformat())
 summary['historyComplete']=summary['fiveOfficialQuarterCompanies']==len(companies)
 summary['metricsComplete']=summary['fiveCompleteMetricCompanies']==len(companies)
-summary['dataComplete']=summary['historyComplete'] and summary['metricsComplete']
+summary['filingDatedQuarters'] = filing_dated_quarters(history)
+summary['releaseDatesComplete'] = summary['historyComplete'] and not summary['filingDatedQuarters']
+summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
 summary['healthy']=summary['sourceHealthy'] and summary['dataComplete']
 summary['dataStatus']='complete' if summary['dataComplete'] else 'incomplete'
 write_json_bundle({Path('data.json'):companies,Path('historical_data.json'):history,Path('official_history.json'):manifest,Path('history_status.json'):status,Path('official_scan_state.json'):summary})

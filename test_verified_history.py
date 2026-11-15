@@ -42,6 +42,42 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.companies = [{'ticker': 'MSFT', 'reportDate': '2026-07-29', 'bmo_amc': '🌙'}]
         self.history = {'MSFT': [{'date': '2026-04-29', 'quarter': '2026 Q3', 'eps_reported': '$3.50'}]}
 
+    def test_filing_metrics_and_later_discovered_release_use_distinct_date_sources(self):
+        from quarterly_policy import company_fields, merge_manifest_record
+
+        today = date(2026, 10, 1)
+        filing = {key: value for key, value in OFFICIAL.items() if key != 'releaseSourceUrl'}
+        filing.update(date='2026-07-30', dateSource='sec_filing', filingDate='2026-07-30', form='10-Q',
+                      accessionNumber='0000789019-26-000055',
+                      secUrl='https://www.sec.gov/Archives/edgar/data/789019/000078901926000055/msft.htm')
+        history, _ = apply_official_records(self.companies, self.history, [filing], today)
+        row = history['MSFT'][0]
+        self.assertEqual(row['dateSource'], 'sec_filing')
+        self.assertEqual(row['epsSourceUrl'], filing['secUrl'])
+        self.assertNotIn('releaseSourceUrl', row)
+        self.assertNotIn('latestPublishedDate', company_fields(self.companies[0], history, today))
+
+        release = {**OFFICIAL, 'date': '2026-07-31', 'revenue': None, 'epsGaapDiluted': None}
+        record = merge_manifest_record(filing, release)
+        self.assertEqual(record['date'], release['date'])
+        self.assertNotIn('dateSource', record)
+        self.assertEqual(record['revenueSourceUrl'], filing['secUrl'])
+        promoted, _ = apply_official_records(self.companies, history, [record], today)
+        self.assertNotIn('dateSource', promoted['MSFT'][0])
+        self.assertEqual(promoted['MSFT'][0]['date'], release['date'])
+        self.assertEqual(company_fields(self.companies[0], promoted, today)['latestPublishedDate'], release['date'])
+
+        later_filing = {**filing, 'date': '2026-09-30', 'filingDate': '2026-09-30', 'verifiedAt': '2026-09-30'}
+        revised = merge_manifest_record(record, later_filing)
+        self.assertEqual(revised['date'], release['date'])
+        self.assertEqual(revised['releaseSourceUrl'], release['releaseSourceUrl'])
+        self.assertNotIn('dateSource', revised)
+        self.assertEqual(revised['filingDate'], later_filing['filingDate'])
+        for invalid in ({'filingDate': '2026-07-31'}, {'secUrl': 'https://example.com/report'},
+                        {'releaseSourceUrl': OFFICIAL['releaseSourceUrl']}, {'form': '8-K'}):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [{**filing, **invalid}], today)
+
     def test_official_gaap_values_append_once_and_preserve_existing_history(self):
         original = copy.deepcopy(self.history)
         result, added = apply_official_records(self.companies, self.history, [OFFICIAL], date(2026, 9, 29))
