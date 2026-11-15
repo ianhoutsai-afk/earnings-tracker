@@ -14,13 +14,13 @@
     "unverifiedQuarterSlots": 7
   },
   "after": {
-    "completeMetricQuarters": 2498,
+    "completeMetricQuarters": 2501,
     "officialQuarters": 2513,
-    "fiveCompleteMetricCompanies": 491,
+    "fiveCompleteMetricCompanies": 494,
     "fiveOfficialQuarterCompanies": 502,
     "missingMetricFieldsInVerifiedQuarters": {
       "revenue": 2,
-      "epsGaapDiluted": 14
+      "epsGaapDiluted": 11
     },
     "unverifiedQuarterSlots": 2
   },
@@ -38,8 +38,10 @@
     "FOX",
     "FOXA",
     "KKR",
+    "L",
     "LYV",
     "NI",
+    "NRG",
     "OXY",
     "PSKY",
     "SATS",
@@ -50,7 +52,7 @@
   ],
   "metricReviews": {
     "revenue": 29,
-    "epsGaapDiluted": 20
+    "epsGaapDiluted": 23
   },
   "newVerifiedPeriods": 6,
   "completedFiveQuarterTickers": [
@@ -65,10 +67,13 @@
     "FOX",
     "FOXA",
     "KKR",
+    "L",
     "NI",
+    "NRG",
     "OXY",
     "SO",
-    "SYF"
+    "SYF",
+    "WMB"
   ],
   "releaseReview": [
     {
@@ -1166,6 +1171,36 @@
       }
     },
     {
+      "ticker": "L",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "currency": "USD",
+      "value": 1.94,
+      "previousValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000005/exhibit991-q42025.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000005/exhibit991-q42025.htm",
+      "evidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000005/exhibit991-q42025.htm",
+        "sourceSha256": "2c46a0c88717154e899b5a0bebdae219f83cd71befed1a3336314c4871265398",
+        "tableIndex": 4,
+        "rowIndex": 22,
+        "columnIndex": 4,
+        "rawValue": "1.94",
+        "basis": "The annual columns in the same release row match both diluted EPS and diluted weighted average shares for 2025 and 2024 in Form 10-K, with distinct basic values. The quarter is the first column of that same row.",
+        "annualBasis": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000008/l-20251231.htm",
+          "sourceSha256": "105bed3e3bf54274d5fb8b09ac96da506268786f3a21da148c420b7d58035cf8",
+          "tableIndex": 145,
+          "dilutedEPSRow": 28,
+          "dilutedSharesRow": 32,
+          "basicEPSRow": 26,
+          "basicSharesRow": 30
+        }
+      }
+    },
+    {
       "ticker": "LYV",
       "periodEnd": "2025-12-31",
       "fiscalYear": 2025,
@@ -1216,6 +1251,27 @@
         "rowLabel": "Operating Revenues (GAAP)",
         "rawValue": "1,902.9",
         "decimalScale": 6
+      }
+    },
+    {
+      "ticker": "NRG",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "currency": "USD",
+      "value": 0.26,
+      "previousValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000002/ex991-q42025.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000002/ex991-q42025.htm",
+      "evidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000002/ex991-q42025.htm",
+        "sourceSha256": "47abd1b474281b807c498a3d2ab5a819c5ac6633c2445318e874640ea51a9dff",
+        "tableIndex": 11,
+        "rowIndex": 2,
+        "columnIndex": 28,
+        "rawValue": "0.26",
+        "basis": "Appendix A-1 presents the fourth quarter. The $0.26 is diluted GAAP EPS on the starting net income available for common stockholders row before adjustments. Diluted adjusted EPS on the final row is $1.03."
       }
     },
     {
@@ -1913,6 +1969,35 @@
       "periodEnd": "2025-12-31",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "currency": "USD",
+      "value": 0.6,
+      "previousValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000003/wmb_20251231xer.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000003/wmb-20260210.htm",
+      "evidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000003/wmb_20251231xer.htm",
+        "sourceSha256": "1729aa003b35382d2946f54e71550dd287e52846ebfcddd8a6d990a2020f2c45",
+        "tableIndex": 13,
+        "rowIndex": 8,
+        "columnIndex": 31,
+        "rawValue": ".60",
+        "basis": "The exact quarter EPS is explicitly diluted and reported from continuing operations. The annual income statement gives zero income or loss from discontinued operations, and Note 1 attributes the discontinued activity to a resolved 2023 refinery litigation item with payment in 2024.",
+        "scopeSource": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000006/wmb-20251231.htm",
+          "sourceSha256": "eb9b43a4adf251f4b436157d0c05f977b9a30ecee94e0a639300ec191e6361cb",
+          "tableIndex": 61,
+          "discontinuedIncomeRow": 44,
+          "column": 19,
+          "section": "Note 1, Discontinued Operations"
+        }
+      }
+    },
+    {
+      "ticker": "WMB",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
       "field": "revenue",
       "currency": "USD",
       "value": 3198000000,
@@ -2041,24 +2126,6 @@
         ]
       }
     },
-    "L": {
-      "tickerIdentityStatus": null,
-      "unverifiedReleaseDates": [],
-      "missingMetrics": {
-        "2025-12-31": [
-          "epsGaapDiluted"
-        ]
-      }
-    },
-    "NRG": {
-      "tickerIdentityStatus": null,
-      "unverifiedReleaseDates": [],
-      "missingMetrics": {
-        "2025-12-31": [
-          "epsGaapDiluted"
-        ]
-      }
-    },
     "PSKY": {
       "tickerIdentityStatus": null,
       "unverifiedReleaseDates": [],
@@ -2088,15 +2155,6 @@
       }
     },
     "VST": {
-      "tickerIdentityStatus": null,
-      "unverifiedReleaseDates": [],
-      "missingMetrics": {
-        "2025-12-31": [
-          "epsGaapDiluted"
-        ]
-      }
-    },
-    "WMB": {
       "tickerIdentityStatus": null,
       "unverifiedReleaseDates": [],
       "missingMetrics": {
@@ -2207,13 +2265,93 @@
       "ticker": "BRK-B",
       "periodEnd": "2026-09-30",
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
-      "disposition": "Equivalent Class B EPS is filed as us-gaap:EarningsPerShareBasic, including $10.33 for the current quarter and $14.28 for the comparative quarter. The diluted field remains open."
+      "disposition": "Equivalent Class B EPS is filed as us-gaap:EarningsPerShareBasic, including $10.33 for the current quarter and $14.28 for the comparative quarter. The diluted field remains open.",
+      "officialClassBPerShare": [
+        {
+          "periodEnd": "2025-09-30",
+          "earningsPerAverageEquivalentClassBShare": 14.28,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+          "sourceSha256": "ab9916a91b9a91e8fd1ab67d42c26c64dc88cc9411620dfd9734bb8e71f55429",
+          "tableIndex": 9,
+          "rowIndex": 44,
+          "columnIndex": 2,
+          "reportedLabel": "Net earnings per average equivalent Class B share*",
+          "ixbrlConcept": "us-gaap:EarningsPerShareBasic"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "earningsPerAverageEquivalentClassBShare": 8.9,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283dex991.htm",
+          "sourceSha256": "e1364209f695284be5c190729451df34008a796064ac967c7be2b831799a1f37",
+          "tableIndex": 1,
+          "rowIndex": 13,
+          "columnIndex": 3,
+          "reportedLabel": "Net earnings per average equivalent Class B Share"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "earningsPerAverageEquivalentClassBShare": 4.68,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+          "sourceSha256": "461381428ae5588feb58a7f32909e4a5ad1d85de711847f1d551ee52f0545b1a",
+          "tableIndex": 9,
+          "rowIndex": 44,
+          "columnIndex": 4,
+          "reportedLabel": "Net earnings per average equivalent Class B share*",
+          "ixbrlConcept": "us-gaap:EarningsPerShareBasic"
+        },
+        {
+          "periodEnd": "2026-06-30",
+          "earningsPerAverageEquivalentClassBShare": 11.91,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+          "sourceSha256": "ccefbc1c96852bccdd78923f009ca90e2f8487a4d1821c8dd0fa15265c778bf9",
+          "tableIndex": 9,
+          "rowIndex": 44,
+          "columnIndex": 2,
+          "reportedLabel": "Net earnings per average equivalent Class B share*",
+          "ixbrlConcept": "us-gaap:EarningsPerShareBasic"
+        },
+        {
+          "periodEnd": "2026-09-30",
+          "earningsPerAverageEquivalentClassBShare": 10.33,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+          "sourceSha256": "225a6d093b8a73d2ce7a627eb312c7a0b807f450ea01754a5fd3d435d05dc33c",
+          "tableIndex": 9,
+          "rowIndex": 44,
+          "columnIndex": 2,
+          "reportedLabel": "Net earnings per average equivalent Class B share*",
+          "ixbrlConcept": "us-gaap:EarningsPerShareBasic"
+        }
+      ]
     },
     {
       "ticker": "PSKY",
       "periodEnd": "2025-09-30",
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm",
-      "disposition": "Standalone quarter spans the August 7 merger. The GAAP predecessor and successor portions are separately presented. Full-quarter supplemental combined presentation is non-GAAP."
+      "disposition": "Standalone quarter spans the August 7 merger. The GAAP predecessor and successor portions are separately presented. Full-quarter supplemental combined presentation is non-GAAP.",
+      "sourceSha256": "a72eb6375892ab1c416d7579ffe3ff5e644cf8af53da32a8606f288be1acb2ad",
+      "separatelyReportedGAAP": [
+        {
+          "accountingBasis": "Predecessor",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-08-06",
+          "revenue": 2581000000,
+          "epsGaapDiluted": -0.36,
+          "column": 9,
+          "sourcePeriodHeading": "Period From July 1 - August 6,"
+        },
+        {
+          "accountingBasis": "Successor",
+          "periodStart": "2025-08-07",
+          "periodEnd": "2025-09-30",
+          "revenue": 4121000000,
+          "epsGaapDiluted": -0.01,
+          "column": 5,
+          "sourcePeriodHeading": "Period From August 7 - September 30,"
+        }
+      ],
+      "tableIndex": 9,
+      "revenueRow": 4,
+      "epsRow": 27
     },
     {
       "ticker": "EQR",
