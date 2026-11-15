@@ -147,4 +147,8 @@ def merge_manifest_record(previous, incoming):
         result['epsBasis']='GAAP diluted'
     if incoming.get('epsGaapDiluted') is None and incoming.get('revenue') is None and previous:
         result['metricSourceUrl']=previous.get('metricSourceUrl') or official_source_url(previous)
+    if incoming.get('metricNote') is None and previous.get('metricNote') is not None:
+        result['metricNote'] = copy.deepcopy(previous['metricNote'])
+        if previous.get('metricNoteSourceUrl'):
+            result['metricNoteSourceUrl'] = previous['metricNoteSourceUrl']
     return preserve_release_provenance(result,previous)

@@ -374,5 +374,135 @@
       },
       "secFilingDatesWithUnverifiedReleaseDates": {}
     }
-  }
+  },
+  "supplementalDisclosures": [
+    {
+      "periodEnd": "2026-09-30",
+      "earningsPerAverageEquivalentClassBShare": 10.33,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+      "sourceSha256": "225a6d093b8a73d2ce7a627eb312c7a0b807f450ea01754a5fd3d435d05dc33c",
+      "tableIndex": 9,
+      "rowIndex": 44,
+      "columnIndex": 2,
+      "reportedLabel": "Net earnings per average equivalent Class B share*",
+      "ixbrlConcept": "us-gaap:EarningsPerShareBasic",
+      "ticker": "BRK-B",
+      "publishedMetricNote": {
+        "en": "Net earnings per average equivalent Class B share (basic EPS): $10.33.",
+        "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 10.33 美元。"
+      }
+    },
+    {
+      "periodEnd": "2026-06-30",
+      "earningsPerAverageEquivalentClassBShare": 11.91,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+      "sourceSha256": "ccefbc1c96852bccdd78923f009ca90e2f8487a4d1821c8dd0fa15265c778bf9",
+      "tableIndex": 9,
+      "rowIndex": 44,
+      "columnIndex": 2,
+      "reportedLabel": "Net earnings per average equivalent Class B share*",
+      "ixbrlConcept": "us-gaap:EarningsPerShareBasic",
+      "ticker": "BRK-B",
+      "publishedMetricNote": {
+        "en": "Net earnings per average equivalent Class B share (basic EPS): $11.91.",
+        "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 11.91 美元。"
+      }
+    },
+    {
+      "periodEnd": "2026-03-31",
+      "earningsPerAverageEquivalentClassBShare": 4.68,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+      "sourceSha256": "461381428ae5588feb58a7f32909e4a5ad1d85de711847f1d551ee52f0545b1a",
+      "tableIndex": 9,
+      "rowIndex": 44,
+      "columnIndex": 4,
+      "reportedLabel": "Net earnings per average equivalent Class B share*",
+      "ixbrlConcept": "us-gaap:EarningsPerShareBasic",
+      "ticker": "BRK-B",
+      "publishedMetricNote": {
+        "en": "Net earnings per average equivalent Class B share (basic EPS): $4.68.",
+        "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 4.68 美元。"
+      }
+    },
+    {
+      "periodEnd": "2025-12-31",
+      "earningsPerAverageEquivalentClassBShare": 8.9,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283dex991.htm",
+      "sourceSha256": "e1364209f695284be5c190729451df34008a796064ac967c7be2b831799a1f37",
+      "tableIndex": 1,
+      "rowIndex": 13,
+      "columnIndex": 3,
+      "reportedLabel": "Net earnings per average equivalent Class B Share",
+      "ticker": "BRK-B",
+      "publishedMetricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue. Net earnings per average equivalent Class B share: $8.90.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。每股等值 B 股平均淨利為 8.90 美元。"
+      }
+    },
+    {
+      "periodEnd": "2025-09-30",
+      "earningsPerAverageEquivalentClassBShare": 14.28,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+      "sourceSha256": "ab9916a91b9a91e8fd1ab67d42c26c64dc88cc9411620dfd9734bb8e71f55429",
+      "tableIndex": 9,
+      "rowIndex": 44,
+      "columnIndex": 2,
+      "reportedLabel": "Net earnings per average equivalent Class B share*",
+      "ixbrlConcept": "us-gaap:EarningsPerShareBasic",
+      "ticker": "BRK-B",
+      "publishedMetricNote": {
+        "en": "Net earnings per average equivalent Class B share (basic EPS): $14.28.",
+        "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 14.28 美元。"
+      }
+    },
+    {
+      "ticker": "PSKY",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm",
+      "disposition": "Standalone quarter spans the August 7 merger. The GAAP predecessor and successor portions are separately presented. Full-quarter supplemental combined presentation is non-GAAP.",
+      "sourceSha256": "a72eb6375892ab1c416d7579ffe3ff5e644cf8af53da32a8606f288be1acb2ad",
+      "separatelyReportedGAAP": [
+        {
+          "accountingBasis": "Predecessor",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-08-06",
+          "revenue": 2581000000,
+          "epsGaapDiluted": -0.36,
+          "column": 9,
+          "sourcePeriodHeading": "Period From July 1 - August 6,"
+        },
+        {
+          "accountingBasis": "Successor",
+          "periodStart": "2025-08-07",
+          "periodEnd": "2025-09-30",
+          "revenue": 4121000000,
+          "epsGaapDiluted": -0.01,
+          "column": 5,
+          "sourcePeriodHeading": "Period From August 7 - September 30,"
+        }
+      ],
+      "tableIndex": 9,
+      "revenueRow": 4,
+      "epsRow": 27,
+      "publishedMetricNote": {
+        "en": "GAAP, July 1–August 6 (predecessor): revenue $2.581B, diluted EPS −$0.36. August 7–September 30 (successor): revenue $4.121B, diluted EPS −$0.01.",
+        "zh-TW": "GAAP 分段數字。7 月 1 日至 8 月 6 日（合併前）營收 25.81 億美元，稀釋 EPS 為 −0.36 美元。8 月 7 日至 9 月 30 日（合併後）營收 41.21 億美元，稀釋 EPS 為 −0.01 美元。"
+      }
+    },
+    {
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+      "sourceSha256": "c7d99a2200a2b4602d24efc97ac904facda5572aad0ce5f9da87991706f065f5",
+      "tableIndex": 1,
+      "rowIndex": 53,
+      "columnIndex": 7,
+      "reportedLabel": "Income from continuing operations - GAAP",
+      "epsGaapDilutedFromContinuingOperations": 1.33,
+      "ticker": "TXT",
+      "periodEnd": "2026-01-03",
+      "publishedMetricNote": {
+        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q. GAAP diluted EPS from continuing operations was $1.33.",
+        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。繼續營業部門的 GAAP 稀釋 EPS 為 1.33 美元。"
+      }
+    }
+  ]
 }

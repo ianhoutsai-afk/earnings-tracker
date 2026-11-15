@@ -143,6 +143,36 @@ class VerifiedHistoryTests(unittest.TestCase):
         result, _ = apply_official_records(self.companies, self.history, [record], date(2026, 9, 29))
         self.assertEqual(result['MSFT'][0]['metricNote'], note)
 
+    def test_linked_metric_note_persists_on_refresh_and_loses_old_source_on_replacement(self):
+        from quarterly_policy import merge_manifest_record
+
+        today = date(2026, 9, 29)
+        note = {'en': 'Basic EPS was $4.81.', 'zh-TW': '基本每股盈餘為 4.81 美元。'}
+        source = 'https://www.sec.gov/Archives/edgar/data/789019/example.htm'
+        record = {**OFFICIAL, 'metricNote': note, 'metricNoteSourceUrl': source}
+        merged = merge_manifest_record(record, OFFICIAL)
+        self.assertEqual(merged['metricNote'], note)
+        self.assertEqual(merged['metricNoteSourceUrl'], source)
+        history, _ = apply_official_records(self.companies, self.history, [merged], today)
+        self.assertEqual(history['MSFT'][0]['metricNoteSourceUrl'], source)
+        history, _ = apply_official_records(self.companies, history, [OFFICIAL], today)
+        self.assertEqual(history['MSFT'][0]['metricNoteSourceUrl'], source)
+
+        replacement = {**OFFICIAL, 'metricNote': {'en': 'Updated note.', 'zh-TW': '已更新。'}}
+        self.assertNotIn('metricNoteSourceUrl', merge_manifest_record(record, replacement))
+        history, _ = apply_official_records(self.companies, history, [replacement], today)
+        self.assertNotIn('metricNoteSourceUrl', history['MSFT'][0])
+
+    def test_metric_note_source_requires_note_and_reviewed_https_url(self):
+        today = date(2026, 9, 29)
+        note = {'en': 'Basic EPS was $4.81.', 'zh-TW': '基本每股盈餘為 4.81 美元。'}
+        for text, url in [(None, 'https://www.sec.gov/report'), (note, 'http://www.sec.gov/report'),
+                          (note, 'https://yahoo.com/report'), (note, 'javascript:alert(1)')]:
+            with self.subTest(url=url), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [
+                    {**OFFICIAL, 'metricNote': text, 'metricNoteSourceUrl': url},
+                ], today)
+
     def test_untrusted_or_future_official_record_aborts_without_changing_history(self):
         original = copy.deepcopy(self.history)
         record = {**OFFICIAL, 'releaseSourceUrl': 'https://finance.yahoo.com/quote/MSFT', 'date': '2026-10-01'}

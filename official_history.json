@@ -8140,7 +8140,12 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 3,
     "verifiedAt": "2026-11-14",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+    "metricNote": {
+      "en": "Net earnings per average equivalent Class B share (basic EPS): $10.33.",
+      "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 10.33 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm"
   },
   {
     "ticker": "BRK-B",
@@ -8161,7 +8166,12 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "verifiedAt": "2026-11-14",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+    "metricNote": {
+      "en": "Net earnings per average equivalent Class B share (basic EPS): $11.91.",
+      "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 11.91 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm"
   },
   {
     "date": "2026-05-02",
@@ -8184,7 +8194,12 @@
     "filingDate": "2026-05-04",
     "accessionNumber": "0001193125-26-202243",
     "ticker": "BRK-B",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+    "metricNote": {
+      "en": "Net earnings per average equivalent Class B share (basic EPS): $4.68.",
+      "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 4.68 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm"
   },
   {
     "date": "2026-02-28",
@@ -8209,9 +8224,10 @@
     "ticker": "BRK-B",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
     "metricNote": {
-      "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
-      "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
-    }
+      "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue. Net earnings per average equivalent Class B share: $8.90.",
+      "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。每股等值 B 股平均淨利為 8.90 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283dex991.htm"
   },
   {
     "ticker": "BRK-B",
@@ -8232,7 +8248,12 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 3,
     "verifiedAt": "2026-11-14",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+    "metricNote": {
+      "en": "Net earnings per average equivalent Class B share (basic EPS): $14.28.",
+      "zh-TW": "每股等值 B 股平均淨利（基本每股盈餘）為 14.28 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm"
   },
   {
     "date": "2026-10-26",
@@ -45175,7 +45196,12 @@
     "form": "10-Q",
     "filingDate": "2025-11-10",
     "accessionNumber": "0002041610-25-000044",
-    "ticker": "PSKY"
+    "ticker": "PSKY",
+    "metricNote": {
+      "en": "GAAP, July 1–August 6 (predecessor): revenue $2.581B, diluted EPS −$0.36. August 7–September 30 (successor): revenue $4.121B, diluted EPS −$0.01.",
+      "zh-TW": "GAAP 分段數字。7 月 1 日至 8 月 6 日（合併前）營收 25.81 億美元，稀釋 EPS 為 −0.36 美元。8 月 7 日至 9 月 30 日（合併後）營收 41.21 億美元，稀釋 EPS 為 −0.01 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm"
   },
   {
     "date": "2026-10-28",
@@ -53995,7 +54021,12 @@
     "filingDate": "2026-02-11",
     "accessionNumber": "0000217346-26-000006",
     "ticker": "TXT",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+    "metricNote": {
+      "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q. GAAP diluted EPS from continuing operations was $1.33.",
+      "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。繼續營業部門的 GAAP 稀釋 EPS 為 1.33 美元。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm"
   },
   {
     "date": "2025-10-23",

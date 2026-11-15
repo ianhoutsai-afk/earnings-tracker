@@ -89,6 +89,14 @@ def _validate_record(record, tickers, today):
         or not isinstance(note.get('zh-TW'), str)
     ):
         raise ValueError('Metric note must have English and Traditional Chinese text')
+    note_url = record.get('metricNoteSourceUrl')
+    if note_url is not None:
+        note_source = urlparse(note_url if isinstance(note_url, str) else '')
+        note_host = note_source.hostname or ''
+        if (note is None or note_source.scheme != 'https' or not note_host or
+                note_host == 'yahoo.com' or note_host.endswith('.yahoo.com') or
+                note_source.username or note_source.password):
+            raise ValueError('A metric note and a reviewed official HTTPS note source are required')
 
 
 def apply_official_records(companies, history, records, today):
@@ -136,6 +144,8 @@ def apply_official_records(companies, history, records, today):
                 official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or source_url
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
+            if record.get('metricNoteSourceUrl'):
+                official_row['metricNoteSourceUrl'] = record['metricNoteSourceUrl']
         official_row['fiscalYear'] = record['fiscalYear']
         official_row['fiscalQuarter'] = record['fiscalQuarter']
         if existing:
@@ -162,6 +172,8 @@ def apply_official_records(companies, history, records, today):
                     official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
             if 'dateSource' not in official_row:
                 existing.pop('dateSource', None)
+            if 'metricNote' in official_row and 'metricNoteSourceUrl' not in official_row:
+                existing.pop('metricNoteSourceUrl', None)
             existing.update(official_row)
             continue
         rows.append(official_row)
