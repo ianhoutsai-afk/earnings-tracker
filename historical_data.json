@@ -7777,7 +7777,7 @@
       "date": "2026-02-28",
       "quarter": "2025 Q4",
       "eps_reported": "-",
-      "revenue_reported": "-",
+      "revenue_reported": "$94.23B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -7793,7 +7793,12 @@
       "releaseFilingDate": "2026-03-02",
       "releaseAccession": "0001193125-26-085801",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+      "metricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
+      }
     },
     {
       "date": "2025-11-01",
@@ -12174,7 +12179,7 @@
       "date": "2026-02-19",
       "quarter": "2025 Q4",
       "eps_reported": "$0.40",
-      "revenue_reported": "-",
+      "revenue_reported": "$2.50B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000008/cnp-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -12184,14 +12189,19 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000010/q4earningspressrelease_v.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000008/cnp-20251231.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "filingDate": "2026-02-19",
       "accessionNumber": "0001130310-26-000008",
       "releaseFilingDate": "2026-02-19",
       "releaseAccession": "0001130310-26-000010",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000010/q4earningspressrelease_v.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000010/q4earningspressrelease_v.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000008/cnp-20251231.htm",
+      "metricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
+      }
     },
     {
       "date": "2025-10-23",
@@ -20210,7 +20220,7 @@
       "date": "2026-02-17",
       "quarter": "2025 Q4",
       "eps_reported": "$1.77",
-      "revenue_reported": "-",
+      "revenue_reported": "$4.43B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000054/dte-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -20227,7 +20237,12 @@
       "releaseAccession": "0000936340-26-000051",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000051/exhibit991-123125.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000051/exhibit991-123125.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000054/dte-20251231.htm",
+      "metricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
+      }
     },
     {
       "date": "2025-10-30",
@@ -60220,7 +60235,7 @@
       "periodEnd": "2025-12-31",
       "periodScope": "quarter",
       "eps_reported": "-",
-      "revenue_reported": "-",
+      "revenue_reported": "$4.58B",
       "epsBasis": null,
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000119312526073364/d21122dex991.htm",
@@ -60234,7 +60249,12 @@
       "releaseFilingDate": "2026-02-26",
       "releaseAccession": "0001193125-26-073364",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+      "metricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
+      }
     },
     {
       "date": "2025-11-06",
@@ -62374,7 +62394,7 @@
       "date": "2026-02-10",
       "quarter": "2025 Q4",
       "eps_reported": "-",
-      "revenue_reported": "-",
+      "revenue_reported": "$3.20B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000006/wmb-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -62390,7 +62410,12 @@
       "releaseFilingDate": "2026-02-10",
       "releaseAccession": "0000107263-26-000003",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000006/wmb-20251231.htm",
+      "metricNote": {
+        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
+        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
+      }
     },
     {
       "date": "2025-11-03",
