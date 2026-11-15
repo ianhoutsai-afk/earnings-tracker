@@ -34922,9 +34922,9 @@
     "periodEnd": "2025-12-31",
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
-    "epsGaapDiluted": null,
+    "epsGaapDiluted": -1.06,
     "revenue": 6313500000,
-    "epsBasis": null,
+    "epsBasis": "GAAP diluted",
     "currency": "USD",
     "periodScope": "quarter",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000007/lyv-20260219.htm",
@@ -34933,7 +34933,8 @@
     "releaseFilingDate": "2026-02-19",
     "releaseAccession": "0001335258-26-000007",
     "ticker": "LYV",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000007/lyv-2025q4xex991er.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000007/lyv-2025q4xex991er.htm",
+    "epsSourceUrl": "https://d1io3yog0oux5.cloudfront.net/_71875d3d7a0760d2866775253ecb7c87/livenationentertainment/db/670/6408/trended_results_grid_pdf/3Q26_LNE_Trended_Results_Grid.pdf"
   },
   {
     "date": "2025-11-04",

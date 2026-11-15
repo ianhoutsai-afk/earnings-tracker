@@ -1,5 +1,5 @@
 {
-  "scope": "Verified quarterly financial results disclosed in periodic SEC filings. Filing-date provenance is distinct from earnings-release provenance.",
+  "scope": "Quarterly financial results verified from issuer disclosures and SEC filings. Filing-date provenance is distinct from earnings-release provenance.",
   "baselineCommit": "25e790a2aa03286dc476e32fd844a80462233f7b",
   "checkedDateNewYork": "2026-11-15",
   "before": {
@@ -17,14 +17,14 @@
   },
   "after": {
     "officialQuarters": 2515,
-    "completeMetricQuarters": 2502,
+    "completeMetricQuarters": 2503,
     "fiveOfficialQuarterCompanies": 503,
-    "fiveCompleteMetricCompanies": 494,
+    "fiveCompleteMetricCompanies": 495,
     "filingDatedQuarters": 6,
     "releaseDatedQuarters": 2509,
     "missingMetricFieldsInVerifiedQuarters": {
       "revenue": 2,
-      "epsGaapDiluted": 12
+      "epsGaapDiluted": 11
     },
     "unverifiedQuarterSlots": 0
   },
@@ -333,14 +333,6 @@
         "2026-06-30": "2026-08-03"
       }
     },
-    "LYV": {
-      "missingMetrics": {
-        "2025-12-31": [
-          "epsGaapDiluted"
-        ]
-      },
-      "secFilingDatesWithUnverifiedReleaseDates": {}
-    },
     "PSKY": {
       "missingMetrics": {
         "2025-09-30": [
@@ -504,5 +496,129 @@
         "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。繼續營業部門的 GAAP 稀釋 EPS 為 1.33 美元。"
       }
     }
-  ]
+  ],
+  "issuerMetricReview": [
+    {
+      "ticker": "LYV",
+      "periodEnd": "2025-12-31",
+      "field": "epsGaapDiluted",
+      "currency": "USD",
+      "value": -1.06,
+      "sourceUrl": "https://d1io3yog0oux5.cloudfront.net/_71875d3d7a0760d2866775253ecb7c87/livenationentertainment/db/670/6408/trended_results_grid_pdf/3Q26_LNE_Trended_Results_Grid.pdf",
+      "sourceSha256": "44043e20c36e99951ac91660e605c474bebb03a98276081ac48cd5b6d8605cdd",
+      "issuerResultsIndex": "https://investors.livenationentertainment.com/financial-information/financial-results",
+      "locator": "2026 Q3 Trended Results Grid, PDF page 1, Financial Results, EPS row, 2025 Q4 column",
+      "reportedText": "$ (1.06)",
+      "basis": "On the same EPS row, the 2024 fiscal-year and 2026 second-quarter columns match the respective filings’ consolidated GAAP diluted EPS and differ from basic EPS.",
+      "basisChecks": [
+        {
+          "gridColumn": "2024 FY",
+          "gridValue": 2.74,
+          "filingBasicEps": 2.77,
+          "filingDilutedEps": 2.74,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000009/lyv-20251231.htm",
+          "sourceSha256": "810f3c642edade267d0f29bd2965b9cb5ed15c01b5e9d8bfefcffbe48dfb1e78",
+          "tableIndex": 29,
+          "basicRowIndex": 26,
+          "dilutedRowIndex": 27,
+          "columnIndex": 13
+        },
+        {
+          "gridColumn": "2026 Q2",
+          "gridValue": 1.05,
+          "filingBasicEps": 1.06,
+          "filingDilutedEps": 1.05,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000035/lyv-20260630.htm",
+          "sourceSha256": "3232308988f8f3996a16671375718d02e586e9f8847a820d6da415e0b7ec42af",
+          "tableIndex": 10,
+          "basicRowIndex": 24,
+          "dilutedRowIndex": 25,
+          "columnIndex": 4
+        }
+      ]
+    }
+  ],
+  "remainingOfficialSourceRecheck": {
+    "checkedAtUtc": "2026-11-15T16:50:18Z",
+    "secIndexResults": {
+      "ATO": {
+        "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000731802.json",
+        "sourceSha256": "bb16cf6ed45f01f7c2936f966b78cfeb3edc1b42a170af8ac927c72dee4f60e9",
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "reportDate": "2026-06-30",
+          "filingDate": "2026-08-05",
+          "accessionNumber": "0000731802-26-000102"
+        },
+        "latestItem2_02Filing": {
+          "form": "8-K",
+          "reportDate": "2026-11-04",
+          "filingDate": "2026-11-04",
+          "accessionNumber": "0000731802-26-000129"
+        }
+      },
+      "AES": {
+        "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+        "sourceSha256": "8bbb9f8e40d200cab09b1f0b2f56ca0f151a0e7bf2ed597dea84b932a9c96551",
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "reportDate": "2026-09-30",
+          "filingDate": "2026-11-03",
+          "accessionNumber": "0000874761-26-000156"
+        },
+        "latestItem2_02Filing": {
+          "form": "8-K",
+          "reportDate": "2025-11-04",
+          "filingDate": "2025-11-04",
+          "accessionNumber": "0000874761-25-000086"
+        }
+      },
+      "EA": {
+        "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000712515.json",
+        "sourceSha256": "9b64ef60544fe477fb09d1d90d03ff66829b14460fb40bac58095d1c8693d567",
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "reportDate": "2026-06-30",
+          "filingDate": "2026-08-03",
+          "accessionNumber": "0001628280-26-051829"
+        },
+        "latestItem2_02Filing": {
+          "form": "8-K",
+          "reportDate": "2026-05-01",
+          "filingDate": "2026-05-05",
+          "accessionNumber": "0000712515-26-000053"
+        }
+      },
+      "SATS": {
+        "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+        "sourceSha256": "81ff684bf8642169c23ca3716885e1bc227d6af394edcdf2e61d3557e0ff58b3",
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "reportDate": "2026-09-30",
+          "filingDate": "2026-11-03",
+          "accessionNumber": "0001104659-26-121675"
+        },
+        "latestItem2_02Filing": {
+          "form": "8-K",
+          "reportDate": "2017-02-24",
+          "filingDate": "2017-02-24",
+          "accessionNumber": "0001415404-17-000012"
+        }
+      }
+    },
+    "eaCorporateEvent": {
+      "eventDate": "2026-08-04",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000114036126031157/ef20079099_8k.htm",
+      "issuerReleaseUrl": "https://www.ea.com/ea-studios/ea-sports/news/ea-announces-completion-of-acquisition",
+      "description": "EA announced completion of its acquisition one day after the quarterly filing and said its shares had ceased trading. The acquisition announcement is distinct from a quarterly results announcement.",
+      "indexRemovalEffectiveDate": "2026-08-05",
+      "indexRemovalSourceUrl": "https://press.spglobal.com/2026-07-31-Ferguson-Enterprises-Set-to-Join-S-P-500-and-ADI-Global-Distribution-to-Join-S-P-SmallCap-600"
+    },
+    "atoRevenuePending": {
+      "periodEnd": "2026-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
+      "description": "The earnings release includes annual highlights, and the separate issuer presentation discloses quarterly EPS. The SEC submission index still has no 10-K for fiscal 2026 as of this review.",
+      "presentationUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf"
+    }
+  }
 }
