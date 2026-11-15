@@ -14,12 +14,12 @@
     "unverifiedQuarterSlots": 7
   },
   "after": {
-    "completeMetricQuarters": 2495,
+    "completeMetricQuarters": 2496,
     "officialQuarters": 2513,
-    "fiveCompleteMetricCompanies": 488,
+    "fiveCompleteMetricCompanies": 489,
     "fiveOfficialQuarterCompanies": 502,
     "missingMetricFieldsInVerifiedQuarters": {
-      "revenue": 8,
+      "revenue": 7,
       "epsGaapDiluted": 14
     },
     "unverifiedQuarterSlots": 2
@@ -37,6 +37,7 @@
     "FOXA",
     "KKR",
     "LYV",
+    "NI",
     "OXY",
     "PSKY",
     "SATS",
@@ -44,10 +45,10 @@
     "SYF"
   ],
   "metricReviews": {
-    "revenue": 22,
-    "epsGaapDiluted": 19
+    "revenue": 24,
+    "epsGaapDiluted": 20
   },
-  "newVerifiedPeriods": 5,
+  "newVerifiedPeriods": 6,
   "completedFiveQuarterTickers": [
     "AVB",
     "COIN",
@@ -58,11 +59,27 @@
     "FOX",
     "FOXA",
     "KKR",
+    "NI",
     "OXY",
     "SO",
     "SYF"
   ],
   "releaseReview": [
+    {
+      "ticker": "ATO",
+      "periodEnd": "2026-09-30",
+      "reason": "Quarter and date are stated in the November 4 release. The quarterly EPS is in the contemporaneous investor presentation. Quarterly revenue remains pending.",
+      "officialRelease": {
+        "date": "2026-11-04",
+        "releaseFilingDate": "2026-11-04",
+        "releaseAccession": "0000731802-26-000129",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 4
+      },
+      "releaseSha256": "d42827396c3247263f1e57e977098ad9901b9ea5bdf0e51ef2250b4c35ef7d55",
+      "releaseExcerpt": "November 4, 2026) - Atmos Energy Corporation (NYSE: ATO) today reported consolidated results for its fourth fiscal quarter ended September 30, 2026."
+    },
     {
       "ticker": "EA",
       "periodEnd": "2025-03-31",
@@ -239,6 +256,64 @@
         "basis": "Company earnings presentation, Results table under Fiscal 2025 Review, three months ended September 30, 2025.",
         "rowLabel": "Diluted EPS",
         "rawValue": "1.07",
+        "decimalScale": 0
+      }
+    },
+    {
+      "ticker": "ATO",
+      "periodEnd": "2025-09-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "revenue",
+      "currency": "USD",
+      "value": 737480000,
+      "previousValue": null,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000056/ato-20250930.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000053/ato20251105exhibit991.htm",
+      "evidence": {
+        "basis": "Quarterly consolidated GAAP operating revenue calculated from FY2025 less nine months ending June 30, 2025.",
+        "calculation": "4702755 - 3965275, in thousands of USD",
+        "inputs": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000056/ato-20250930.htm",
+            "sourceSha256": "bb5585993c78a4d3e66d7aa6b051c4277d64c4beb7e17b53559c773a889f1705",
+            "heading": "Year Ended September 30",
+            "tableIndex": 49,
+            "rowIndex": 8,
+            "columnIndex": 3,
+            "valueThousands": 4702755,
+            "rawValue": "4,702,755"
+          },
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
+            "sourceSha256": "e475fe5a8d0bef87c8e4ac2eb1d40636cf8c8ab284429a5e68c29217aeac498b",
+            "heading": "Nine Months Ended June 30",
+            "tableIndex": 10,
+            "rowIndex": 9,
+            "columnIndex": 3,
+            "valueThousands": 3965275,
+            "rawValue": "3,965,275"
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "ATO",
+      "periodEnd": "2026-09-30",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4,
+      "field": "epsGaapDiluted",
+      "currency": "USD",
+      "value": 1.17,
+      "previousValue": null,
+      "sourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
+      "evidence": {
+        "sourceSha256": "c923b097f835b2160f73e8a2deaf142b1b5a2dd560ddd6762ead49ba06b48194",
+        "pdfPage": 4,
+        "basis": "Current three-month column under Consolidated Financial Highlights. Issuer footnote describes its two-class EPS method.",
+        "rowLabel": "Diluted EPS",
+        "rawValue": "1.17",
         "decimalScale": 0
       }
     },
@@ -930,6 +1005,25 @@
       }
     },
     {
+      "ticker": "NI",
+      "periodEnd": "2025-12-31",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 4,
+      "field": "revenue",
+      "currency": "USD",
+      "value": 1902900000,
+      "previousValue": null,
+      "sourceUrl": "https://s1.q4cdn.com/829981032/files/doc_earnings/2025/q4/supplemental-info/NiSource-4Q2025-Supplemental-Financial-Information-FINAL.pdf",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000026/ni-ex991_20251231.htm",
+      "evidence": {
+        "sourceSha256": "ad7045a3709baf353eda57794a517a68e1a5b398c8d595165e8d79c60f01d276",
+        "basis": "NiSource fourth-quarter supplemental financial information, Schedule 2. Three Months Ended December 31, 2025, consolidated Total column.",
+        "rowLabel": "Operating Revenues (GAAP)",
+        "rawValue": "1,902.9",
+        "decimalScale": 6
+      }
+    },
+    {
       "ticker": "OXY",
       "periodEnd": "2025-12-31",
       "fiscalYear": 2025,
@@ -1571,7 +1665,32 @@
       }
     }
   ],
-  "olderPeriodsOutsideTheFiveQuarterWindow": [],
+  "olderPeriodsOutsideTheFiveQuarterWindow": [
+    {
+      "date": "2025-08-06",
+      "periodEnd": "2025-06-30",
+      "fiscalYear": 2025,
+      "fiscalQuarter": 3,
+      "periodScope": "quarter",
+      "periodStart": "2025-04-01",
+      "epsGaapDiluted": 1.16,
+      "revenue": 838774000.0,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000024/ato20250806exhibit991.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
+      "verifiedAt": "2026-11-14",
+      "releaseFilingDate": "2025-08-06",
+      "releaseAccession": "0000731802-25-000024",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
+      "form": "10-Q",
+      "filingDate": "2025-08-06",
+      "accessionNumber": "0000731802-25-000026",
+      "ticker": "ATO",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm"
+    }
+  ],
   "remaining": {
     "AES": {
       "tickerIdentityStatus": null,
@@ -1585,7 +1704,7 @@
       "tickerIdentityStatus": null,
       "unverifiedReleaseDates": [],
       "missingMetrics": {
-        "2025-09-30": [
+        "2026-09-30": [
           "revenue"
         ]
       }
@@ -1654,15 +1773,6 @@
       "missingMetrics": {
         "2025-12-31": [
           "epsGaapDiluted"
-        ]
-      }
-    },
-    "NI": {
-      "tickerIdentityStatus": null,
-      "unverifiedReleaseDates": [],
-      "missingMetrics": {
-        "2025-12-31": [
-          "revenue"
         ]
       }
     },
@@ -1755,6 +1865,57 @@
       "disposition": "The March 2 acquisition disclosure cancels the scheduled March 3 earnings call. The annual filing gives an annual reporting date and no independently verified Q4 earnings release date."
     },
     {
+      "ticker": "AES",
+      "periodEnd": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+      "sourceSha256": "18ba68eb78ff06241dd395301d5f5f092eb862e84fc726c07bab299b7939a97e",
+      "revenue": 3422000000,
+      "epsGaapDiluted": 0.6,
+      "location": {
+        "table": 13,
+        "revenueRow": 8,
+        "revenueColumn": 3,
+        "epsRow": 50,
+        "epsColumn": 4
+      },
+      "disposition": "The exact-period GAAP metrics are supported by Form 10-Q. A separate earnings release date remains unverified."
+    },
+    {
+      "ticker": "AES",
+      "periodEnd": "2026-09-30",
+      "filingDate": "2026-11-03",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+      "sourceSha256": "95c44be2309bfc1923e3f4eaf7ccfdc1475330b31f8c59a3b1169545d082334c",
+      "revenue": 3872000000,
+      "epsGaapDiluted": 0.76,
+      "location": {
+        "table": 13,
+        "revenueRow": 8,
+        "revenueColumn": 3,
+        "epsRow": 50,
+        "epsColumn": 4
+      },
+      "disposition": "The exact-period GAAP metrics are supported by Form 10-Q. A separate earnings release date remains unverified."
+    },
+    {
+      "ticker": "EA",
+      "periodEnd": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+      "sourceSha256": "016b24324d759e0a83a3844dd831828a5fb2da9668cec61551b43ae0f6d38ec7",
+      "revenue": 1986000000,
+      "epsGaapDiluted": 1.56,
+      "location": {
+        "table": 7,
+        "revenueRow": 3,
+        "revenueColumn": 4,
+        "epsRow": 21,
+        "epsColumn": 4
+      },
+      "disposition": "The exact-period GAAP metrics are supported by Form 10-Q. A separate earnings release date remains unverified."
+    },
+    {
       "ticker": "SATS",
       "periodEnd": "2026-09-30",
       "filingDate": "2026-11-03",
@@ -1788,5 +1949,18 @@
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526460717/vmrk-20261113.htm",
       "disposition": "Vivmark is the legal continuation of Equity Residential, but AvalonBay is the accounting acquirer. The EQR and AVB historical rows use their original pre-merger issuers."
     }
-  ]
+  ],
+  "deployedComparison": {
+    "mainCommit": "6caf57629867dc60c4e004dbb8a141f2611ab922",
+    "siteUrl": "https://ianhoutsai-afk.github.io/earnings-tracker/",
+    "matchedFileSha256": {
+      "official_history.json": "27cf2e273ac594d1cb79ee77d821db660c788302588f084959425c337c54d196",
+      "historical_data.json": "58e19e777706b131210e65d52fc61d3ef8ac3a81b98436251fbb3d340ed8f22c",
+      "official_scan_state.json": "abfa2b187176b6d950367c01db442ace8740eb7789376126e2b0a1f10db3b62f"
+    },
+    "officialQuarters": 2440,
+    "completeMetricQuarters": 2221,
+    "fiveCompleteMetricCompanies": 403,
+    "automationRun": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/43706490626"
+  }
 }

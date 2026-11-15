@@ -6202,6 +6202,25 @@
   ],
   "ATO": [
     {
+      "date": "2026-11-04",
+      "quarter": "2026 Q4",
+      "periodEnd": "2026-09-30",
+      "periodScope": "quarter",
+      "eps_reported": "$1.17",
+      "revenue_reported": "-",
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
+      "metricSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+      "verifiedAt": "2026-11-15",
+      "verificationStatus": "official_verified",
+      "releaseFilingDate": "2026-11-04",
+      "releaseAccession": "0000731802-26-000129",
+      "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4
+    },
+    {
       "date": "2026-08-05",
       "quarter": "2026 Q3",
       "periodEnd": "2026-06-30",
@@ -6282,7 +6301,7 @@
       "periodEnd": "2025-09-30",
       "periodScope": "quarter",
       "eps_reported": "$1.07",
-      "revenue_reported": "-",
+      "revenue_reported": "$737.48M",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000053/ato20251105exhibit991.htm",
@@ -6297,32 +6316,12 @@
       "releaseAccession": "0000731802-25-000053",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/doc_financials/2025/q4/Q4-2025-Earnings-Presentation.pdf"
-    },
-    {
-      "date": "2025-08-06",
-      "quarter": "2025 Q3",
-      "eps_reported": "$1.16",
-      "revenue_reported": "$838.77M",
-      "secUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
-      "form": "10-Q",
-      "verificationStatus": "official_verified",
-      "periodEnd": "2025-06-30",
-      "periodScope": "quarter",
-      "epsBasis": "GAAP diluted",
-      "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000024/ato20250806exhibit991.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
-      "verifiedAt": "2026-11-14",
-      "periodStart": "2025-04-01",
-      "filingDate": "2025-08-06",
-      "accessionNumber": "0000731802-25-000026",
-      "releaseFilingDate": "2025-08-06",
-      "releaseAccession": "0000731802-25-000024",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
-      "fiscalYear": 2025,
-      "fiscalQuarter": 3
+      "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/doc_financials/2025/q4/Q4-2025-Earnings-Presentation.pdf",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000056/ato-20250930.htm",
+      "metricNote": {
+        "en": "Quarterly operating revenue is calculated from official fiscal-year and nine-month GAAP filings.",
+        "zh-TW": "單季營收以官方全年 GAAP 營收減去首九個月 GAAP 營收計算。"
+      }
     }
   ],
   "ADSK": [
@@ -42401,12 +42400,12 @@
       "periodEnd": "2025-12-31",
       "periodScope": "quarter",
       "eps_reported": "$0.53",
-      "revenue_reported": "-",
+      "revenue_reported": "$1.90B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000026/ni-ex991_20251231.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000027/nix-20251231.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "verificationStatus": "official_verified",
       "filingDate": "2026-02-11",
       "accessionNumber": "0001111711-26-000027",
@@ -42416,7 +42415,8 @@
       "releaseAccession": "0001111711-26-000026",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000026/ni-ex991_20251231.htm",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "revenueSourceUrl": "https://s1.q4cdn.com/829981032/files/doc_earnings/2025/q4/supplemental-info/NiSource-4Q2025-Supplemental-Financial-Information-FINAL.pdf"
     },
     {
       "date": "2025-10-29",
