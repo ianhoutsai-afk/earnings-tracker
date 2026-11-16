@@ -52,6 +52,29 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         doc='<h2>INCOME STATEMENTS</h2><p>($ in millions, except per share amounts)</p><table><tr><td rowspan="2"></td><td colspan="4">Three Months Ended September 30,</td></tr><tr><td colspan="2">2026</td><td colspan="2">2025</td></tr><tr><td>Total revenue</td><td>$</td><td>1,200</td><td>$</td><td>1,080</td></tr><tr><td>Diluted earnings per share</td><td>$</td><td>1.25</td><td>$</td><td>1.15</td></tr></table>'
         self.assertEqual(self.parse(doc),{'revenue':1200000000,'epsGaapDiluted':1.25})
 
+    def test_reviewed_thousands_layout_reads_quarter_from_embedded_title_and_eps(self):
+        for cik in ('0001013237', '0000857005'):
+            with self.subTest(cik=cik):
+                doc = statement().replace('<h2>INCOME STATEMENTS</h2><p>(In millions, except per share amounts) (Unaudited)</p>', '')
+                doc = doc.replace('<table>', '<table><tr><td> </td><td colspan="4">Unaudited Consolidated Statements of Income</td></tr><tr><td colspan="5">(In thousands, except per share data)</td></tr>')
+                self.assertEqual(self.parse(doc,cik=cik), {'revenue':1200000, 'epsGaapDiluted':1.25})
+
+    def test_ptc_alternates_eps_and_weighted_share_rows(self):
+        doc = statement().replace('<tr><td>Diluted</td><td>$1.25',
+                                  '<tr><td>Weighted average shares outstanding</td><td>899</td><td>798</td></tr><tr><td>Diluted</td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000857005'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+        self.assertEqual(self.parse(doc,cik='0000789019'), {'revenue':1200000000})
+
+    def test_reviewed_qualcomm_layout_ignores_display_none_cells_and_annual_column(self):
+        doc = statement().replace('Nine Months', 'Twelve Months').replace('<td>2026</td><td>2025</td><td>2026</td><td>2025</td>', '<td style="display: none" colspan="2"></td><td>2026</td><td>2025</td><td>2026</td><td>2025</td>')
+        doc = doc.replace('<td>Total revenue</td>', '<td>Total revenue</td><td style="display:none" colspan="2"></td>').replace('<td>Diluted</td><td>$1.25', '<td>Diluted earnings (loss) per share</td><td style="display:none" colspan="2"></td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000804328'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
+    def test_reviewed_air_products_layout_reads_day_first_and_parent_eps(self):
+        doc = statement('Three Months Ended 30 September').replace('In millions,','Millions of U.S. Dollars,')
+        doc = doc.replace('<td>Diluted</td><td>$1.25', '<td>Diluted Earnings (Loss) Per Share Attributable to Air Products</td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000002969'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
     def test_integration_missing_inline_total_uses_release_and_records_metric_source(self):
         import copy
         from official_sync import check_issuer

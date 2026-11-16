@@ -1,8 +1,7 @@
 """Explicit quarterly GAAP statement columns for reviewed USD issuer layouts.
 
-Supported issuer review: Microsoft, Meta, Stryker and Tesla shareholder
-statements. Do not generalize currency or taxonomy
-assumptions to unreviewed issuers. Q4 is read directly, never subtracted.
+Read only reviewed issuer layouts and explicitly labelled quarterly amounts.
+Q4 is read directly from the statement's three-month column.
 """
 import re
 from datetime import date
@@ -10,7 +9,14 @@ from decimal import Decimal, InvalidOperation
 from lxml import html
 
 SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764',
-                     '0000320193', '0000002488', '0001018724', '0001596532', '0000001800'}
+                     '0000320193', '0000002488', '0001018724', '0001596532', '0000001800',
+                     '0000002969', '0000882184', '0001013237', '0000857005', '0000804328'}
+
+REVENUE_MILLION_UNITS = {
+    '0000310764': r'\bmillions of dollars\b',
+    '0000002488': r'\bmillions\b',
+    '0000002969': r'\bmillions of u\.s\. dollars\b',
+}
 
 def _text(node):
     if not isinstance(node.tag, str):
@@ -25,13 +31,14 @@ def _grid(table):
     for y, row in enumerate(rows[:1000]):
         x = 0
         for cell in row.xpath('./td|./th'):
+            if 'display:none' in cell.get('style', '').replace(' ', '').lower():
+                continue
             while (y, x) in occupied:
                 x += 1
             width, height = int(cell.get('colspan', '1')), int(cell.get('rowspan', '1'))
             if not (1 <= width <= 128 and 1 <= height <= 1000 and x + width <= 128):
                 raise ValueError('Unsupported statement span')
-            hidden = 'display:none' in cell.get('style', '').replace(' ', '').lower()
-            value = '' if hidden else _text(cell)
+            value = _text(cell)
             for dy in range(height):
                 for dx in range(width):
                     occupied[y+dy, x+dx] = value
@@ -46,11 +53,11 @@ def _scope(table):
     # Some original exhibits put the statement title in a full-width table row.
     # Use an exact title before the data, never a loose mention in a note.
     first_rows = table.xpath('./tr|./thead/tr|./tbody/tr')[:8]
-    title_pattern = r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?'
+    title_pattern = r'(?i)(?:unaudited\s+)?(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?'
     header_text = ' '.join(_text(row) for row in first_rows)
     for row in first_rows:
-        cells = row.xpath('./td|./th')
-        if len(cells)==1 and re.fullmatch(title_pattern, _text(cells[0])):
+        labels = [label for cell in row.xpath('./td|./th') if (label := _text(cell))]
+        if len(labels)==1 and re.fullmatch(title_pattern, labels[0]):
             if re.search(r'(?i)non.gaap|adjusted|comprehensive|segment|notes?\s+(?:\d+|to\b)', header_text):
                 return None
             return header_text
@@ -193,12 +200,14 @@ def parse_release_quarter_metrics(document, period_end, cik):
             continue
         headers = grid[:boundary]
         units = scope+' '+' '.join(' '.join(row) for row in headers)
-        if cik == '0000310764':
-            if not re.search(r'(?i)\bmillions of dollars\b', units) or re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
-                continue
-        elif not re.search(r'(?i)\b(?:in\s+)?millions\b' if cik == '0000002488' else r'(?i)\bin millions\b', units):
-            continue
         if re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
+            continue
+        scale = 1000000
+        if cik in ('0001013237', '0000857005') and re.search(r'\bin thousands\b', units, re.I):
+            if re.search(r'\bin millions\b', units, re.I):
+                continue
+            scale = 1000
+        elif not re.search(REVENUE_MILLION_UNITS.get(cik, r'\bin millions\b'), units, re.I):
             continue
         width = max(map(len,grid), default=0)
         columns = []
@@ -207,7 +216,9 @@ def parse_release_quarter_metrics(document, period_end, cik):
             if not re.search(r'(?i)\bthree months ended\b',header) or re.search(r'(?i)\b(?:six|nine|twelve) months|\byear ended\b',header):
                 continue
             month = end.strftime('%B')
-            if re.search(r'(?i)\b'+month+r'\s+'+str(end.day)+r'\s*,?\s+'+str(end.year)+r'\b',header):
+            day = str(end.day)
+            month_day = rf'(?:{month}\s+{day}|{day}\s+{month})'
+            if re.search(rf'\b{month_day}(?:\s+|\s*,\s*){end.year}\b', header, re.I):
                 columns.append(x)
         if cik == '0000310764':
             columns = _stryker_columns(headers, end)
@@ -228,20 +239,25 @@ def parse_release_quarter_metrics(document, period_end, cik):
         group = ''
         for row,label in zip(grid[boundary:], labels[boundary:]):
             if re.search(r'(?i)weighted|shares (?:outstanding|used)',label):
-                group = 'shares'
+                # PTC pairs each per-share amount with a separately labelled share count.
+                if not (cik == '0000857005' and group == 'eps'
+                        and label.casefold() == 'weighted average shares outstanding'):
+                    group = 'shares'
             elif re.search(r'(?i)(?:earnings|income) per (?:common )?share',label):
                 group = 'eps'
             metric = None
             if re.fullmatch(r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?',label):
                 metric = 'revenue'
-            elif (re.fullmatch(r'(?i)diluted(?:\s+(?:earnings|income)\s+per\s+(?:common\s+)?share(?:\s*\(EPS\))?)?',label)
+            elif (re.fullmatch(r'(?i)diluted(?:\s+(?:earnings|income)(?:\s+\(loss\))?\s+per\s+(?:common\s+)?share(?:\s*\(EPS\))?)?',label)
                   and (group == 'eps' or re.search(r'(?i)per (?:common )?share',label))):
+                metric = 'epsGaapDiluted'
+            elif cik == '0000002969' and label.casefold() == 'diluted earnings (loss) per share attributable to air products':
                 metric = 'epsGaapDiluted'
             if metric is None:
                 continue
             for x in columns:
                 value = _number(row[x]) if x < len(row) else None
                 if value is not None and (metric != 'revenue' or value >= 0):
-                    values[metric].add(float(value * 1000000 if metric=='revenue' else value))
+                    values[metric].add(float(value * scale if metric=='revenue' else value))
     return {key: next(iter(found)) for key,found in values.items() if len(found)==1}
 

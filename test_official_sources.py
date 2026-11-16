@@ -26,6 +26,26 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual((r['date'],r['periodEnd'],r['fiscalYear'],r['fiscalQuarter']),('2026-10-14','2026-09-30',2026,3))
   self.assertNotIn('epsGaapDiluted',r)
 
+ def test_fiscal_year_and_fourth_quarter_headlines_take_precedence_over_comparatives(self):
+  for title in ('Reports Fiscal 2026 Full-Year and Fourth Quarter Results',
+                'Reports Fourth Quarter and Fiscal 2026 Results',
+                'Reports Fourth Fiscal Quarter and Full Fiscal Year 2026 Results'):
+   with self.subTest(title=title):
+    doc = (f'<h1>Example {title}</h1><p>October 14, 2026. Example reported results '
+           'for the fourth quarter ended September 30, 2026.</p>'
+           '<p>Fourth quarter 2025 results included a lower prior-year total.</p>')
+    row = parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+    self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2026-09-30',2026,4))
+
+ def test_item_202_can_identify_three_and_twelve_months_after_earliest_event(self):
+  from official_sources import parse_earnings_filing
+  primary = ('<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, the Company '
+             'issued a press release announcing its results for the three and twelve months ended September 30, 2026.</p>')
+  row = parse_earnings_filing(primary,'2026-10-10','2026-10-15',TODAY,
+                              exhibit='<h1>Example Reports Fourth Quarter and Fiscal 2026 Results</h1>')
+  self.assertEqual((row['date'],row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),
+                   ('2026-10-14','2026-09-30',2026,4))
+
  def test_unconfirmed_event_date_does_not_become_release_date(self):
   with self.assertRaises(ValueError):parse_earnings_release(RELEASE,'2026-10-13','2026-10-15',TODAY)
 

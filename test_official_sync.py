@@ -379,6 +379,25 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
   self.assertEqual(len(rows), 1)
   self.assertTrue(rows[0]['releaseSourceUrl'].endswith('tech-20260812xex99d1.htm'))
 
+ def test_cigna_uses_current_period_from_item_202_over_comparative_in_exhibit(self):
+  import copy
+  from official_sync import check_issuer
+  submissions = copy.deepcopy(SUBMISSIONS)
+  submissions['filings']['recent']['accessionNumber'][0] = '0001140361-26-042030'
+  def documents(url):
+   if url.endswith('results.htm'):
+    return ('<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, the issuer issued a press release '
+            'announcing results for the three months ended September 30, 2026.</p>'
+            '<a href="ef20084818_ex99-1.htm">99.1 Earnings release</a>')
+   if url.endswith('ef20084818_ex99-1.htm'):
+    return RELEASE.replace('September 30, 2026','June 30, 2026')
+   if url.endswith('quarter.htm'):
+    return filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1739940</xbrli:identifier>')
+   return fetch(url)
+  rows,_ = check_issuer('0001739940',submissions,documents,TODAY)
+  self.assertEqual([(r['periodEnd'],r['revenue'],r['epsGaapDiluted']) for r in rows],
+                   [('2026-09-30',1200000000,1.25)])
+
  def test_kdp_second_quarter_uses_current_filing_instead_of_prior_quarter_reference(self):
   from official_sync import check_issuer
   accession = '0001418135-26-000048'

@@ -123,10 +123,11 @@ NON_RESULTS_EXHIBITS = {
     ('0001104659-26-094391', 'tech-20260812xex99d2.htm'),
 }
 
-# This release mentions a prior-quarter date in its acquisition notes.
-# The 8-K names Q2 and the matching 10-Q confirms June 30.
+# These exhibits include comparative dates that do not identify the release's period.
+# The Item 2.02 statement and matching 10-Q establish the current quarter.
 PERIOD_FROM_FILING_EXHIBITS = {
     ('0001418135-26-000048', 'ex991-keurigdrpepperreport.htm'),
+    ('0001140361-26-042030', 'ef20084818_ex99-1.htm'),
 }
 
 

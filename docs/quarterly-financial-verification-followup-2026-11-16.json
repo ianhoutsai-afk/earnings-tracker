@@ -5029,6 +5029,366 @@
           }
         }
       }
+    },
+    "automaticIngestionReplay": {
+      "verifiedAtNewYork": "2026-11-16T07:39:48.442962-05:00",
+      "scope": "Replayed the SEC accessions underlying ten manually reviewed recent quarters. Independently compared release-table fallback for 65 retained quarters in the covered issuer layouts against the prior parser and audited manifest.",
+      "completeLatestQuarterReplays": [
+        "APD",
+        "CI",
+        "DHI",
+        "FDS",
+        "PTC",
+        "QCOM"
+      ],
+      "replayExpectations": {
+        "APD": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-05",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 3555600000,
+            "epsGaapDiluted": 2.62
+          },
+          "actual": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-05",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 3555600000.0,
+            "epsGaapDiluted": 2.62
+          },
+          "accessions": [
+            "0000002969-26-000043"
+          ],
+          "secSubmissionsSha256": "bbac1b7e119d86a4506bcbd5719e78970c3e13b3a52585862fc9b9a8c96e1a07",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "CI": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-05",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 3,
+            "revenue": 73683000000,
+            "epsGaapDiluted": 5.47
+          },
+          "actual": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-05",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 3,
+            "revenue": 73683000000.0,
+            "epsGaapDiluted": 5.47
+          },
+          "accessions": [
+            "0001739940-26-000071",
+            "0001140361-26-042030"
+          ],
+          "secSubmissionsSha256": "aa21f8d424802451dba177a93d4d0fa65a377c4a99b14316459a93628fa025ea",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "DHI": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-10-29",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 9371300000,
+            "epsGaapDiluted": 2.67
+          },
+          "actual": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-10-29",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 9371300000.0,
+            "epsGaapDiluted": 2.67
+          },
+          "accessions": [
+            "0000882184-26-000119"
+          ],
+          "secSubmissionsSha256": "490400e11b3e53ec72997877db0016ddd81f2f071a1780c38f9a85f843d498e3",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "FDS": {
+          "expected": {
+            "periodEnd": "2026-08-31",
+            "date": "2026-09-30",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 634698000,
+            "epsGaapDiluted": 3.41
+          },
+          "actual": {
+            "periodEnd": "2026-08-31",
+            "date": "2026-09-30",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 634698000.0,
+            "epsGaapDiluted": 3.41
+          },
+          "accessions": [
+            "0001628280-26-066391",
+            "0001628280-26-063888"
+          ],
+          "secSubmissionsSha256": "b3959273ae54f7cc511a7c96bfca57b9a7c3f57f81074f58c0b7c647fbf3a1d7",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "LHX": {
+          "expected": {
+            "periodEnd": "2026-10-02",
+            "date": "2026-10-29",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 3,
+            "revenue": 6060000000,
+            "epsGaapDiluted": 3.28
+          },
+          "actual": {
+            "periodEnd": null,
+            "date": null,
+            "fiscalYear": null,
+            "fiscalQuarter": null,
+            "revenue": null,
+            "epsGaapDiluted": null
+          },
+          "accessions": [
+            "0000202058-26-000087",
+            "0000202058-26-000084"
+          ],
+          "secSubmissionsSha256": "f7c8e4ac79f0a5aee3b7a8b42d66ae6921cda331a8ba1da134a1e1fe8c83aedb",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 0,
+            "parsePending": 1,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "ORCL": {
+          "expected": {
+            "periodEnd": "2026-08-31",
+            "date": "2026-09-10",
+            "fiscalYear": 2027,
+            "fiscalQuarter": 1,
+            "revenue": 19345000000,
+            "epsGaapDiluted": 1.56
+          },
+          "actual": {
+            "periodEnd": null,
+            "date": null,
+            "fiscalYear": null,
+            "fiscalQuarter": null,
+            "revenue": null,
+            "epsGaapDiluted": null
+          },
+          "accessions": [
+            "0001193125-26-389274",
+            "0001193125-26-387905"
+          ],
+          "secSubmissionsSha256": "5364c4ec08e6aca1823b81257780b0b69290fe38e98ab9f48ca7268d0b4d14dc",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 0,
+            "parsePending": 2,
+            "metricPending": 1,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "PTC": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-04",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 673254000,
+            "epsGaapDiluted": 1.44
+          },
+          "actual": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-04",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 673254000.0,
+            "epsGaapDiluted": 1.44
+          },
+          "accessions": [
+            "0001193125-26-447186"
+          ],
+          "secSubmissionsSha256": "136664b7b2ba7d5a93f73b45ca75b50d5dda464d5148ce73513ed96d660e3dfd",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "QCOM": {
+          "expected": {
+            "periodEnd": "2026-09-27",
+            "date": "2026-11-04",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 10322000000,
+            "epsGaapDiluted": 1.17
+          },
+          "actual": {
+            "periodEnd": "2026-09-27",
+            "date": "2026-11-04",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 10322000000.0,
+            "epsGaapDiluted": 1.17
+          },
+          "accessions": [
+            "0000804328-26-000128",
+            "0000804328-26-000127"
+          ],
+          "secSubmissionsSha256": "c3e80065d3ea06f92b853d380a94fa8e8c276bb724338ccb953e6231b7633a38",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "RJF": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-10-28",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": 4739000000,
+            "epsGaapDiluted": 3.4
+          },
+          "actual": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-10-28",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 4,
+            "revenue": null,
+            "epsGaapDiluted": null
+          },
+          "accessions": [
+            "0000720005-26-000080"
+          ],
+          "secSubmissionsSha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+          "diagnostic": {
+            "releaseCandidates": 1,
+            "parsedQuarters": 1,
+            "parsePending": 0,
+            "metricPending": 1,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        },
+        "TECH": {
+          "expected": {
+            "periodEnd": "2026-09-30",
+            "date": "2026-11-06",
+            "fiscalYear": 2027,
+            "fiscalQuarter": 1,
+            "revenue": 299712000,
+            "epsGaapDiluted": 0.18
+          },
+          "actual": {
+            "periodEnd": null,
+            "date": null,
+            "fiscalYear": null,
+            "fiscalQuarter": null,
+            "revenue": null,
+            "epsGaapDiluted": null
+          },
+          "accessions": [
+            "0001104659-26-123907"
+          ],
+          "secSubmissionsSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3",
+          "diagnostic": {
+            "releaseCandidates": 0,
+            "parsedQuarters": 0,
+            "parsePending": 0,
+            "metricPending": 0,
+            "requestFailures": 0,
+            "sourceErrors": [],
+            "nextEarningsEvent": null
+          }
+        }
+      },
+      "remainingAutomaticIngestionLimitations": {
+        "LHX": "The reviewed release does not state a usable fiscal year or full period end in the earnings statement. The matching 10-Q supports the manually verified quarter.",
+        "ORCL": "The fiscal year focus in the 10-Q inline tag conflicts with the explicit fiscal year in the release. The automatic scan defers this input. The previously reviewed record uses the issuer-stated fiscal 2027 first quarter.",
+        "RJF": "The release establishes the current period; the consolidated gross-revenue and EPS figures are in separate tables and remain manually verified.",
+        "TECH": "The original 10-Q confirms both metrics. The filing-only period has no admissible dated results release for this scan."
+      },
+      "retainedSecReleaseControls": {
+        "quartersRead": 65,
+        "quartersWithParsedMetric": 57,
+        "priorIssuerQuartersCompared": 40,
+        "newMatchesWithPriorSupportedIssuers": [
+          {
+            "quarter": [
+              "AMZN",
+              "2026-03-31"
+            ],
+            "unchangedIssuer": true,
+            "baseline": {},
+            "current": {
+              "revenue": 181519000000.0,
+              "epsGaapDiluted": 2.78
+            },
+            "expected": {
+              "revenue": 181519000000.0,
+              "epsGaapDiluted": 2.78
+            }
+          }
+        ],
+        "priorParsedValuesPreserved": 62,
+        "metricDisagreementsWithAuditedManifestInNewlyParsedValues": 0
+      }
     }
   },
   "lateNovemberEarningsEventReview": {

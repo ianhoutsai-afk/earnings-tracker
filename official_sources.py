@@ -64,11 +64,16 @@ def _fiscal_identity(intro):
     matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text)]
     matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(patterns[2],identity_text)]
     matches += [(m.start(),int('20'+m[2]) if len(m[2])==2 else int(m[2]),int(m[1])) for m in re.finditer(r'(?i)\b([1-4])Q\s*(20\d{2}|\d{2})\b',identity_text)]
+    combined_year_patterns = (
+        r'(?i)\bfourth[\s-]+(?:fiscal[\s-]+)?quarter\s+and\s+(?:full[\s-]+)?fiscal\s+(?:year\s+)?(20\d{2})\b',
+        r'(?i)\bfiscal\s+(20\d{2})\s+full[\s-]+year\s+and\s+fourth[\s-]+quarter\b',
+    )
+    matches += [(m.start(), int(m[1]), 4) for p in combined_year_patterns for m in re.finditer(p, identity_text)]
     return min(matches)[1:] if matches else (None,None)
 
 
 def _completed_period_end(text, event):
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:for\s+(?:the\s+)?)?(?:full[\s-]+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:for\s+(?:the\s+)?)?(?:full[\s-]+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine|twelve))?\s+months)\s+ended\s+(' + DATE + ')', text)]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
 
