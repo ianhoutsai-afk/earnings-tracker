@@ -488,13 +488,13 @@
     "after": {
       "trackedTickerCount": 503,
       "matchedToHoldings": 503,
-      "verifiedQuarterCount": 2506,
-      "completeMetricQuarterCount": 2492,
-      "quartersWithoutStandaloneRecords": 9,
+      "verifiedQuarterCount": 2508,
+      "completeMetricQuarterCount": 2494,
+      "quartersWithoutStandaloneRecords": 7,
       "missingRevenueCount": 2,
       "missingDilutedEpsCount": 13,
       "onlyFilingDateCount": 5,
-      "historicalRecastDates": 6
+      "historicalRecastDates": 8
     },
     "archivedFormerConstituents": [
       "AVB",
@@ -511,8 +511,8 @@
       "TTD",
       "WBD"
     ],
-    "completeMetricQuartersAdded": 9,
-    "quarterlyRecordsAdded": 11,
+    "completeMetricQuartersAdded": 11,
+    "quarterlyRecordsAdded": 13,
     "financialCoverageByIncomingTicker": {
       "FDXF": {
         "quarterCount": 4,
@@ -525,11 +525,13 @@
         ]
       },
       "HONA": {
-        "quarterCount": 3,
-        "withBothMetrics": 3,
+        "quarterCount": 5,
+        "withBothMetrics": 5,
         "periodEnds": [
           "2026-09-26",
           "2026-06-27",
+          "2026-03-28",
+          "2025-12-31",
           "2025-09-27"
         ]
       },
@@ -552,7 +554,7 @@
     },
     "reportingBasisNotes": {
       "FDXF": "Calendarized March and June 2026 stand-alone quarter tables and September comparative results. The May report used former parent segment results.",
-      "HONA": "The issuer calculates pre-spin diluted EPS using spin-off-day shares. Only disclosed standalone periods and the September 2025 comparative are included.",
+      "HONA": "Quarterly scope from company filings and carve-out exhibits, with pre-spin EPS calculated using the fixed distribution share count where needed.",
       "VMRK": "Reverse acquisition, AvalonBay accounting predecessor. Direct July–September 2026 and recalculated 2025 comparative. SEC CIK continuity with EQR does not establish comparability of its historical results.",
       "VYLR": "Historical seed business sales appear in the supplemental combined statements of the 10-Q. The main consolidated statements present Corteva. The earnings attachment provides pro forma per-share data only."
     }

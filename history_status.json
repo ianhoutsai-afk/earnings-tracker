@@ -2547,12 +2547,12 @@
     "metricsVerifiedQuarterCount": 5
   },
   "HONA": {
-    "status": "official_parse_pending",
-    "reason": "historical_quarters_or_metrics_require_official_verification",
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_issuer_sources",
     "cik": "0002089271",
-    "recordCount": 3,
-    "officialQuarterCount": 3,
-    "metricsVerifiedQuarterCount": 3,
+    "recordCount": 5,
+    "officialQuarterCount": 5,
+    "metricsVerifiedQuarterCount": 5,
     "latestStoredDate": "2026-10-28",
     "latestStoredOfficial": true,
     "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
