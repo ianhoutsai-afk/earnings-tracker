@@ -488,13 +488,13 @@
     "after": {
       "trackedTickerCount": 503,
       "matchedToHoldings": 503,
-      "verifiedQuarterCount": 2514,
-      "completeMetricQuarterCount": 2497,
-      "quartersWithoutStandaloneRecords": 1,
+      "verifiedQuarterCount": 2515,
+      "completeMetricQuarterCount": 2498,
+      "quartersWithoutStandaloneRecords": 0,
       "missingRevenueCount": 2,
       "missingDilutedEpsCount": 16,
       "onlyFilingDateCount": 5,
-      "historicalRecastDates": 8
+      "historicalRecastDates": 9
     },
     "archivedFormerConstituents": [
       "AVB",
@@ -511,16 +511,17 @@
       "TTD",
       "WBD"
     ],
-    "completeMetricQuartersAdded": 14,
-    "quarterlyRecordsAdded": 19,
+    "completeMetricQuartersAdded": 15,
+    "quarterlyRecordsAdded": 20,
     "financialCoverageByIncomingTicker": {
       "FDXF": {
-        "quarterCount": 4,
-        "withBothMetrics": 4,
+        "quarterCount": 5,
+        "withBothMetrics": 5,
         "periodEnds": [
           "2026-09-30",
           "2026-06-30",
           "2026-03-31",
+          "2025-12-31",
           "2025-09-30"
         ]
       },
@@ -559,7 +560,7 @@
       }
     },
     "reportingBasisNotes": {
-      "FDXF": "Calendarized March and June 2026 stand-alone quarter tables and September comparative results. The May report used former parent segment results.",
+      "FDXF": "All five quarters follow FedEx Freight’s standalone calendar basis. The August 6 8-K directly discloses September and December 2025 quarterly GAAP results. The October 29 8-K and 10-Q cover the retained 2026 quarters and corroborate the September 2025 comparative.",
       "HONA": "Quarterly scope from company filings and carve-out exhibits, with pre-spin EPS calculated using the fixed distribution share count where needed.",
       "VMRK": "Reverse acquisition with AvalonBay as accounting predecessor. For the three intervening quarters, AvalonBay original revenue and release dates are used, and diluted EPS is calculated with the merger conversion ratio. The issuer separately disclosed the September 2025 recast and the first quarter that incorporates Equity Residential after closing.",
       "VYLR": "All five seed-business sales figures reconcile to official Corteva/Vylor disclosures. The three newly verified dates are the original releases from former parent Corteva. Stand-alone GAAP diluted EPS remains unverified."
