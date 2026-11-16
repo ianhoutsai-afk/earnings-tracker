@@ -17967,15 +17967,18 @@
     "form": "10-K",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
     "revenue": 3796014000,
-    "epsGaapDiluted": null,
+    "epsGaapDiluted": -4.19,
     "currency": "USD",
     "periodScope": "quarter",
     "verifiedAt": "2026-11-15",
     "metricNote": {
-      "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026.",
-      "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。"
+      "en": "EchoStar adopted the ticker ECHO on June 24, 2026. Quarterly diluted EPS is calculated from annual and nine-month SEC disclosures. The quarterly loss makes the convertible notes and stock awards antidilutive.",
+      "zh-TW": "EchoStar 自 2026 年 6 月 24 日改用代號 ECHO。單季稀釋 EPS 依 SEC 年報及前九個月財報推算。該季為淨虧損，可轉債與股票獎勵具反稀釋效果。"
     },
-    "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-twelve-months-6"
+    "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-twelve-months-6",
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+    "epsBasis": "GAAP diluted"
   },
   {
     "ticker": "ECHO",
@@ -48316,7 +48319,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000042/psky-20251110.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2025-11-10",
     "releaseAccession": "0002041610-25-000042",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
@@ -48325,10 +48328,10 @@
     "accessionNumber": "0002041610-25-000044",
     "ticker": "SKYD",
     "metricNote": {
-      "en": "GAAP, July 1–August 6 (predecessor): revenue $2.581B, diluted EPS −$0.36. August 7–September 30 (successor): revenue $4.121B, diluted EPS −$0.01.",
-      "zh-TW": "GAAP 分段數字。7 月 1 日至 8 月 6 日（合併前）營收 25.81 億美元，稀釋 EPS 為 −0.36 美元。8 月 7 日至 9 月 30 日（合併後）營收 41.21 億美元，稀釋 EPS 為 −0.01 美元。"
+      "en": "GAAP, July 1–August 6 (predecessor): revenue $2.581B, diluted EPS −$0.36. August 7–September 30 (successor): revenue $4.121B, diluted EPS −$0.01. The company’s supplemental pro forma full-quarter revenue was $6.714B, including a $12M adjustment for pre-close Skydance revenue net of intercompany amounts.",
+      "zh-TW": "GAAP 分段數字。7 月 1 日至 8 月 6 日（合併前）營收 25.81 億美元，稀釋 EPS 為 −0.36 美元。8 月 7 日至 9 月 30 日（合併後）營收 41.21 億美元，稀釋 EPS 為 −0.01 美元。 公司另披露整季備考營收 67.14 億美元，包含交割前 Skydance 營收扣除公司間交易後的 1,200 萬美元調整。"
     },
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm"
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm"
   },
   {
     "date": "2026-10-23",
@@ -57083,20 +57086,19 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "currency": "USD",
-    "date": "2026-11-12",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-    "releaseAccession": "0002128626-26-000012",
-    "releaseFilingDate": "2026-11-12",
-    "verifiedAt": "2026-11-15",
+    "date": "2025-11-04",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a3q_2025xearningsxnewsxr.htm",
+    "releaseAccession": "0001755672-25-000020",
+    "releaseFilingDate": "2025-11-04",
+    "verifiedAt": "2026-11-16",
     "revenue": 917000000,
     "epsGaapDiluted": null,
     "epsBasis": null,
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-    "dateSource": "recast",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
     "metricNote": {
-      "en": "Revenue follows the seed business’s historical combined financial statements. The separately published pro forma diluted loss per share was $0.58.",
-      "zh-TW": "營收採種子業務的歷史合併報表。另行揭露的備考每股稀釋虧損為 0.58 美元。"
+      "en": "The release date and seed sales come from former parent Corteva. Vylor’s later combined financial statements confirm the seed sales. Vylor separately disclosed a pro forma diluted loss per share of $0.58.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告。Vylor 後續獨立編製的合併報表確認了這筆營收。Vylor 另行披露備考稀釋每股虧損 0.58 美元。"
     },
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a9302026enrschedules.htm"
   },

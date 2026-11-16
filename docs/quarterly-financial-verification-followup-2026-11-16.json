@@ -620,5 +620,470 @@
       "description": "The earnings release includes annual highlights, and the separate issuer presentation discloses quarterly EPS. The SEC submission index still has no 10-K for fiscal 2026 as of this review.",
       "presentationUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf"
     }
+  },
+  "subsequentResidualVerification": {
+    "verifiedOnNewYorkDate": "2026-11-15",
+    "coverage": {
+      "trackedTickerCount": 503,
+      "matchedToHoldings": 503,
+      "verifiedQuarterCount": 2515,
+      "completeMetricQuarterCount": 2499,
+      "quartersWithoutStandaloneRecords": 0,
+      "missingRevenueCount": 2,
+      "missingDilutedEpsCount": 15,
+      "onlyFilingDateCount": 5,
+      "historicalRecastDates": 8
+    },
+    "addedCalculatedDilutedEps": {
+      "record": {
+        "ticker": "ECHO",
+        "periodEnd": "2025-12-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "date": "2026-03-02",
+        "releaseSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-twelve-months-6",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+        "filingDate": "2026-03-02",
+        "accessionNumber": "0001104659-26-021817",
+        "form": "10-K",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+        "revenue": 3796014000,
+        "epsGaapDiluted": -4.19,
+        "currency": "USD",
+        "periodScope": "quarter",
+        "verifiedAt": "2026-11-15",
+        "metricNote": {
+          "en": "EchoStar adopted the ticker ECHO on June 24, 2026. Quarterly diluted EPS is calculated from annual and nine-month SEC disclosures. The quarterly loss makes the convertible notes and stock awards antidilutive.",
+          "zh-TW": "EchoStar 自 2026 年 6 月 24 日改用代號 ECHO。單季稀釋 EPS 依 SEC 年報及前九個月財報推算。該季為淨虧損，可轉債與股票獎勵具反稀釋效果。"
+        },
+        "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-twelve-months-6",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+        "epsBasis": "GAAP diluted"
+      },
+      "incomeEvidence": {
+        "annual": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+          "sourceSha256": "bc1801e80993c9175496347ed708ef51bff7a04ca788a1680a7d81fd1bf04984",
+          "table": 192,
+          "row": 7,
+          "column": 3,
+          "label": "Net income (loss) attributable to EchoStar - Basic",
+          "rawValue": "( 14,497,180 )",
+          "unitMultiplier": 1000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+          "sourceSha256": "4fa3e19440568fab85441cda8accc20323b6435d1787cec835b39bced316637a",
+          "table": 48,
+          "row": 8,
+          "column": 9,
+          "label": "Net income (loss) attributable to EchoStar - Basic",
+          "rawValue": "( 13,289,997 )",
+          "unitMultiplier": 1000
+        }
+      },
+      "shareEvidence": {
+        "annualBasic": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+          "sourceSha256": "bc1801e80993c9175496347ed708ef51bff7a04ca788a1680a7d81fd1bf04984",
+          "table": 192,
+          "row": 12,
+          "column": 3,
+          "label": "Basic (2)",
+          "rawValue": "287,589",
+          "unitMultiplier": 1000
+        },
+        "firstNineMonthsBasic": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+          "sourceSha256": "4fa3e19440568fab85441cda8accc20323b6435d1787cec835b39bced316637a",
+          "table": 48,
+          "row": 13,
+          "column": 9,
+          "label": "Basic (2)",
+          "rawValue": "287,362",
+          "unitMultiplier": 1000
+        }
+      },
+      "days": {
+        "fullYear": 365,
+        "firstNineMonths": 273,
+        "quarter": 92
+      },
+      "quarterlyNetLossUsd": -1207183000,
+      "impliedQuarterlyWeightedAverageShares": 288262597.82608694,
+      "dilutionBasis": "Given the net loss, adding back positive interest expense on convertibles or increasing the outstanding share denominator reduces the loss per share. Both types of potential common shares are antidilutive. The issuer applies this same treatment to its loss periods.",
+      "method": "Subtract the first nine months from the full-year attributable basic loss. Subtract nine-month share-days from full-year share-days and divide the difference by the days in the fourth quarter. Use basic shares because all potential shares are antidilutive in the loss period.",
+      "roundingRange": [
+        -4.187843063909888,
+        -4.1877353794301895
+      ],
+      "publishedThirdQuarterCrossCheck": {
+        "firstHalfLoss": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926089370/sats-20260630x10q.htm",
+          "sourceSha256": "8e961ec880eb76a141f7965e428e2ad54dc5134e207e0fc2dbffef1cd4788836",
+          "table": 51,
+          "row": 8,
+          "column": 12,
+          "label": "Net income (loss) attributable to EchoStar - Basic",
+          "rawValue": "( 508,801 )",
+          "unitMultiplier": 1000
+        },
+        "firstHalfBasicShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926089370/sats-20260630x10q.htm",
+          "sourceSha256": "8e961ec880eb76a141f7965e428e2ad54dc5134e207e0fc2dbffef1cd4788836",
+          "table": 51,
+          "row": 13,
+          "column": 12,
+          "label": "Basic",
+          "rawValue": "287,012",
+          "unitMultiplier": 1000
+        },
+        "reportedDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+          "sourceSha256": "4fa3e19440568fab85441cda8accc20323b6435d1787cec835b39bced316637a",
+          "table": 48,
+          "row": 20,
+          "column": 3,
+          "label": "Diluted net income (loss) per share attributable to EchoStar",
+          "rawValue": "( 44.37 )",
+          "unitMultiplier": 1
+        },
+        "reportedDilutedShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+          "sourceSha256": "4fa3e19440568fab85441cda8accc20323b6435d1787cec835b39bced316637a",
+          "table": 48,
+          "row": 16,
+          "column": 3,
+          "label": "Diluted",
+          "rawValue": "288,051",
+          "unitMultiplier": 1000
+        },
+        "calculatedEps": -44.37,
+        "inferredDilutedShareDifference": -413.04347826086956
+      }
+    },
+    "unresolvedSourceCheck": {
+      "TXT": {
+        "quarter": "2026-01-03",
+        "netIncome": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+          "sourceSha256": "c7d99a2200a2b4602d24efc97ac904facda5572aad0ce5f9da87991706f065f5",
+          "table": 1,
+          "row": 36,
+          "column": 7,
+          "label": "Net income",
+          "rawValue": "235",
+          "unitMultiplier": 1000000
+        },
+        "quarterlyDilutedShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+          "sourceSha256": "c7d99a2200a2b4602d24efc97ac904facda5572aad0ce5f9da87991706f065f5",
+          "table": 1,
+          "row": 40,
+          "column": 6,
+          "label": "Diluted average shares outstanding",
+          "rawValue": "177,125,000",
+          "unitMultiplier": 1
+        },
+        "roundedCandidates": [
+          1.32,
+          1.33
+        ],
+        "range": [
+          1.3239200453915445,
+          1.3295732662618667
+        ],
+        "decision": "Keep consolidated diluted EPS pending until a more precise quarterly net income or reported consolidated EPS is available."
+      }
+    },
+    "remaining": [
+      {
+        "ticker": "AES",
+        "periodEnd": "2026-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": false,
+        "onlySecFilingDate": true
+      },
+      {
+        "ticker": "AES",
+        "periodEnd": "2026-06-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": false,
+        "onlySecFilingDate": true
+      },
+      {
+        "ticker": "AES",
+        "periodEnd": "2026-03-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": false,
+        "onlySecFilingDate": true
+      },
+      {
+        "ticker": "AES",
+        "periodEnd": "2025-12-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": true
+      },
+      {
+        "ticker": "ATO",
+        "periodEnd": "2026-09-30",
+        "revenueMissing": true,
+        "dilutedEpsMissing": false,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "BRK-B",
+        "periodEnd": "2026-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "BRK-B",
+        "periodEnd": "2026-06-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "BRK-B",
+        "periodEnd": "2026-03-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "BRK-B",
+        "periodEnd": "2025-12-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "BRK-B",
+        "periodEnd": "2025-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "ECHO",
+        "periodEnd": "2026-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": false,
+        "onlySecFilingDate": true
+      },
+      {
+        "ticker": "SKYD",
+        "periodEnd": "2025-09-30",
+        "revenueMissing": true,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "TRGP",
+        "periodEnd": "2025-12-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "TXT",
+        "periodEnd": "2026-01-03",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VST",
+        "periodEnd": "2025-12-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VYLR",
+        "periodEnd": "2026-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VYLR",
+        "periodEnd": "2026-06-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VYLR",
+        "periodEnd": "2026-03-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VYLR",
+        "periodEnd": "2025-12-31",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      },
+      {
+        "ticker": "VYLR",
+        "periodEnd": "2025-09-30",
+        "revenueMissing": false,
+        "dilutedEpsMissing": true,
+        "onlySecFilingDate": false
+      }
+    ],
+    "subsequentEvidenceChecks": {
+      "reviewedNewYorkDate": "2026-11-16",
+      "VYLR": {
+        "record": {
+          "ticker": "VYLR",
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "periodScope": "quarter",
+          "currency": "USD",
+          "date": "2025-11-04",
+          "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a3q_2025xearningsxnewsxr.htm",
+          "releaseAccession": "0001755672-25-000020",
+          "releaseFilingDate": "2025-11-04",
+          "verifiedAt": "2026-11-16",
+          "revenue": 917000000,
+          "epsGaapDiluted": null,
+          "epsBasis": null,
+          "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+          "metricNote": {
+            "en": "The release date and seed sales come from former parent Corteva. Vylor’s later combined financial statements confirm the seed sales. Vylor separately disclosed a pro forma diluted loss per share of $0.58.",
+            "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告。Vylor 後續獨立編製的合併報表確認了這筆營收。Vylor 另行披露備考稀釋每股虧損 0.58 美元。"
+          },
+          "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a9302026enrschedules.htm"
+        },
+        "releaseEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a3q_2025xearningsxnewsxr.htm",
+          "sourceSha256": "7090ccabe0bf2ae153c9e2988b39cb4f668aa8e79efeeb435d108deca49411ca",
+          "secIndex": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/0001755672-25-000020-index.htm",
+            "sourceSha256": "6acd95011efcf8ca2a7856ee19c87c493f3d1d26b4ab410232b5347b5810c915"
+          }
+        },
+        "revenueEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+          "sourceSha256": "64992329d06c094a3ffaebba307b1dabfa502931416fbc8f6ef500f40548f59e",
+          "table": 3,
+          "row": 8,
+          "column": 7,
+          "label": "Seed",
+          "rawValue": "917",
+          "unitMultiplier": 1000000
+        },
+        "epsEvidence": null,
+        "subsequentDisclosureCheck": {
+          "revenueEvidence": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+            "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+            "table": 65,
+            "row": 3,
+            "column": 7,
+            "label": "Net sales",
+            "rawValue": "917",
+            "unitMultiplier": 1000000
+          },
+          "originalNineMonthSeedRevenue": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+            "sourceSha256": "64992329d06c094a3ffaebba307b1dabfa502931416fbc8f6ef500f40548f59e",
+            "table": 3,
+            "row": 8,
+            "column": 19,
+            "label": "Seed",
+            "rawValue": "8,161",
+            "unitMultiplier": 1000000
+          },
+          "date": "2026-11-12",
+          "source": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+            "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e"
+          }
+        }
+      },
+      "SKYD": {
+        "record": {
+          "date": "2025-11-10",
+          "periodEnd": "2025-09-30",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 3,
+          "periodScope": "quarter",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD",
+          "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000042/psky-20251110.htm",
+          "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+          "verifiedAt": "2026-11-16",
+          "releaseFilingDate": "2025-11-10",
+          "releaseAccession": "0002041610-25-000042",
+          "secUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+          "form": "10-Q",
+          "filingDate": "2025-11-10",
+          "accessionNumber": "0002041610-25-000044",
+          "ticker": "SKYD",
+          "metricNote": {
+            "en": "GAAP, July 1–August 6 (predecessor): revenue $2.581B, diluted EPS −$0.36. August 7–September 30 (successor): revenue $4.121B, diluted EPS −$0.01. The company’s supplemental pro forma full-quarter revenue was $6.714B, including a $12M adjustment for pre-close Skydance revenue net of intercompany amounts.",
+            "zh-TW": "GAAP 分段數字。7 月 1 日至 8 月 6 日（合併前）營收 25.81 億美元，稀釋 EPS 為 −0.36 美元。8 月 7 日至 9 月 30 日（合併後）營收 41.21 億美元，稀釋 EPS 為 −0.01 美元。 公司另披露整季備考營收 67.14 億美元，包含交割前 Skydance 營收扣除公司間交易後的 1,200 萬美元調整。"
+          },
+          "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm"
+        },
+        "revenueEvidence": {
+          "successor": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+            "sourceSha256": "6271145b6dcefa53389ddd8234454c42b50912d7cb4715dddfdc9fada1dd2648",
+            "table": 92,
+            "row": 9,
+            "column": 7,
+            "label": "Total Revenues",
+            "rawValue": "4,121",
+            "unitMultiplier": 1000000
+          },
+          "predecessor": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+            "sourceSha256": "6271145b6dcefa53389ddd8234454c42b50912d7cb4715dddfdc9fada1dd2648",
+            "table": 92,
+            "row": 9,
+            "column": 19,
+            "label": "Total Revenues",
+            "rawValue": "2,581",
+            "unitMultiplier": 1000000
+          },
+          "adjustmentForSkydanceNetOfIntercompanyRevenue": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+            "sourceSha256": "6271145b6dcefa53389ddd8234454c42b50912d7cb4715dddfdc9fada1dd2648",
+            "table": 92,
+            "row": 9,
+            "column": 28,
+            "label": "Total Revenues",
+            "rawValue": "12",
+            "unitMultiplier": 1000000
+          },
+          "supplementalProFormaRevenue": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+            "sourceSha256": "6271145b6dcefa53389ddd8234454c42b50912d7cb4715dddfdc9fada1dd2648",
+            "table": 92,
+            "row": 9,
+            "column": 40,
+            "label": "Total Revenues",
+            "rawValue": "6,714",
+            "unitMultiplier": 1000000
+          }
+        },
+        "basis": "The issuer explicitly labels $6.714 billion as supplemental pro forma revenue. The consolidated income statement presents two separate GAAP reporting periods, which retain their original values."
+      }
+    }
   }
 }

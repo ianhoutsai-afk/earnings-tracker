@@ -2754,37 +2754,68 @@
         "fiscalQuarter": 3,
         "periodScope": "quarter",
         "currency": "USD",
-        "date": "2026-11-12",
-        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-        "releaseAccession": "0002128626-26-000012",
-        "releaseFilingDate": "2026-11-12",
-        "verifiedAt": "2026-11-15",
+        "date": "2025-11-04",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a3q_2025xearningsxnewsxr.htm",
+        "releaseAccession": "0001755672-25-000020",
+        "releaseFilingDate": "2025-11-04",
+        "verifiedAt": "2026-11-16",
         "revenue": 917000000,
         "epsGaapDiluted": null,
         "epsBasis": null,
-        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-        "dateSource": "recast",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
         "metricNote": {
-          "en": "Revenue follows the seed business’s historical combined financial statements. The separately published pro forma diluted loss per share was $0.58.",
-          "zh-TW": "營收採種子業務的歷史合併報表。另行揭露的備考每股稀釋虧損為 0.58 美元。"
+          "en": "The release date and seed sales come from former parent Corteva. Vylor’s later combined financial statements confirm the seed sales. Vylor separately disclosed a pro forma diluted loss per share of $0.58.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告。Vylor 後續獨立編製的合併報表確認了這筆營收。Vylor 另行披露備考稀釋每股虧損 0.58 美元。"
         },
         "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a9302026enrschedules.htm"
       },
       "releaseEvidence": {
-        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-        "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e"
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a3q_2025xearningsxnewsxr.htm",
+        "sourceSha256": "7090ccabe0bf2ae153c9e2988b39cb4f668aa8e79efeeb435d108deca49411ca",
+        "secIndex": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/0001755672-25-000020-index.htm",
+          "sourceSha256": "6acd95011efcf8ca2a7856ee19c87c493f3d1d26b4ab410232b5347b5810c915"
+        }
       },
       "revenueEvidence": {
-        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
-        "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
-        "table": 65,
-        "row": 3,
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+        "sourceSha256": "64992329d06c094a3ffaebba307b1dabfa502931416fbc8f6ef500f40548f59e",
+        "table": 3,
+        "row": 8,
         "column": 7,
+        "label": "Seed",
         "rawValue": "917",
         "unitMultiplier": 1000000
       },
-      "epsEvidence": null
+      "epsEvidence": null,
+      "subsequentDisclosureCheck": {
+        "revenueEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+          "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+          "table": 65,
+          "row": 3,
+          "column": 7,
+          "label": "Net sales",
+          "rawValue": "917",
+          "unitMultiplier": 1000000
+        },
+        "originalNineMonthSeedRevenue": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+          "sourceSha256": "64992329d06c094a3ffaebba307b1dabfa502931416fbc8f6ef500f40548f59e",
+          "table": 3,
+          "row": 8,
+          "column": 19,
+          "label": "Seed",
+          "rawValue": "8,161",
+          "unitMultiplier": 1000000
+        },
+        "date": "2026-11-12",
+        "source": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+          "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e"
+        }
+      }
     },
     {
       "record": {
