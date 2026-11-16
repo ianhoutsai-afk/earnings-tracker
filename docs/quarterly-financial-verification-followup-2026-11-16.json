@@ -2007,6 +2007,156 @@
         "consolidatedQuarterlyGaapDilutedEps": 14,
         "consolidatedQuarterlyRevenue": 2
       }
+    },
+    "verifiedSupplementalIncome": {
+      "checkedAtNewYork": "2026-11-16T09:06:08.720277-05:00",
+      "VYLR": {
+        "basis": "Historical combined seed-business financial statements before separation. Net income attributable to the Seed Business excludes noncontrolling interests.",
+        "quarterly": {
+          "2025-09-30": {
+            "netIncomeAttributableUsd": -368000000,
+            "method": "Reported",
+            "source": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 65,
+              "row": 16,
+              "column": 7,
+              "label": "Net income (loss) attributable to the Seed Business",
+              "rawValue": "( 368 )",
+              "unitMultiplier": 1000000
+            }
+          },
+          "2025-12-31": {
+            "netIncomeAttributableUsd": -610000000,
+            "method": "Full-year amount less first nine months as reported in rounded millions",
+            "annual": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+              "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+              "table": 321,
+              "row": 16,
+              "column": 3,
+              "label": "Net income (loss) attributable to the Seed Business",
+              "rawValue": "574",
+              "unitMultiplier": 1000000
+            },
+            "nineMonth": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 65,
+              "row": 16,
+              "column": 13,
+              "label": "Net income (loss) attributable to the Seed Business",
+              "rawValue": "1,184",
+              "unitMultiplier": 1000000
+            }
+          },
+          "2026-03-31": {
+            "netIncomeAttributableUsd": 502000000,
+            "method": "Reported in changes in equity",
+            "source": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 69,
+              "row": 4,
+              "column": 10,
+              "label": "Net income (loss)",
+              "rawValue": "502",
+              "unitMultiplier": 1000000
+            }
+          },
+          "2026-06-30": {
+            "netIncomeAttributableUsd": 1022000000,
+            "method": "Reported in changes in equity",
+            "source": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 69,
+              "row": 9,
+              "column": 10,
+              "label": "Net income (loss)",
+              "rawValue": "1,022",
+              "unitMultiplier": 1000000
+            }
+          },
+          "2026-09-30": {
+            "netIncomeAttributableUsd": -475000000,
+            "method": "Reported",
+            "source": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 65,
+              "row": 16,
+              "column": 4,
+              "label": "Net income (loss) attributable to the Seed Business",
+              "rawValue": "( 475 )",
+              "unitMultiplier": 1000000
+            }
+          }
+        },
+        "crossChecks": {
+          "sixMonth2026": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 287,
+            "row": 16,
+            "column": 3,
+            "label": "Net income (loss) attributable to the Seed Business",
+            "rawValue": "1,524",
+            "unitMultiplier": 1000000
+          },
+          "nineMonth2026": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+            "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+            "table": 65,
+            "row": 16,
+            "column": 10,
+            "label": "Net income (loss) attributable to the Seed Business",
+            "rawValue": "1,049",
+            "unitMultiplier": 1000000
+          }
+        },
+        "dilutedEpsAvailability": "Pre-spin disclosures do not give GAAP diluted EPS on this historical basis."
+      },
+      "TRGP": {
+        "netIncomeAttributableUsd": 545000000,
+        "periodEnd": "2025-12-31",
+        "source": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+          "sourceSha256": "afefb6229828257fa9e8ab2707916e8b350b949653edaa104090250725e50749",
+          "table": 1,
+          "row": 20,
+          "column": 2,
+          "label": "Net income (loss) attributable to Targa Resources Corp.",
+          "rawValue": "545.0",
+          "unitMultiplier": 1000000
+        }
+      },
+      "AES": {
+        "netIncomeAvailableToCommonUsdApproximate": 325000000,
+        "periodEnd": "2025-12-31",
+        "method": "Annual less first nine months, both reported to the nearest million.",
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+          "sourceSha256": "d78bdd6e3396afc101a2356dff025fab6912b3810f9b6a9cd7635a7b81dd803b",
+          "table": 162,
+          "row": 36,
+          "column": 4,
+          "label": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS",
+          "rawValue": "900",
+          "unitMultiplier": 1000000
+        },
+        "nineMonth": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm",
+          "sourceSha256": "c49f47d312fdf9be83f15ce44faa5e0e1ad5e571a46bf2a70488fc754e3f3574",
+          "table": 13,
+          "row": 38,
+          "column": 16,
+          "label": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS",
+          "rawValue": "575",
+          "unitMultiplier": 1000000
+        }
+      }
     }
   },
   "upcomingEarningsEventReview": {

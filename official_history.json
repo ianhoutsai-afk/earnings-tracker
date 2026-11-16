@@ -1752,7 +1752,7 @@
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
     "accessionNumber": "0000874761-26-000063",
     "form": "10-K",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "currency": "USD",
@@ -1760,9 +1760,10 @@
     "revenue": 3101000000,
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
     "metricNote": {
-      "en": "Quarterly revenue is calculated from annual less first-nine-month consolidated GAAP revenue.",
-      "zh-TW": "單季營收以全年合併 GAAP 營收減首九個月合併 GAAP 營收計算。"
-    }
+      "en": "Quarterly revenue is calculated from annual less first-nine-month consolidated GAAP revenue. Net income available to common stockholders was approximately $325M, calculated from the reported rounded annual and nine-month amounts.",
+      "zh-TW": "單季營收以全年合併 GAAP 營收減首九個月合併 GAAP 營收計算。普通股股東可享淨利約為 3.25 億美元，以已披露的全年及前九個月四捨五入金額相減。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm"
   },
   {
     "date": "2025-11-04",
@@ -52579,7 +52580,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2026-02-19",
     "releaseAccession": "0001193125-26-058040",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
@@ -52587,7 +52588,12 @@
     "filingDate": "2026-02-19",
     "accessionNumber": "0001193125-26-059296",
     "ticker": "TRGP",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+    "metricNote": {
+      "en": "The company reported $545M of net income attributable to Targa Resources Corp. The quarter’s diluted EPS is unverified.",
+      "zh-TW": "公司披露歸屬 Targa Resources Corp. 的淨利為 5.45 億美元。本季稀釋 EPS 尚待核實。"
+    }
   },
   {
     "date": "2025-11-05",
@@ -57005,16 +57011,16 @@
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a2q_2026xearningsxnewsxr.htm",
     "releaseAccession": "0001755672-26-000022",
     "releaseFilingDate": "2026-07-30",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "revenue": 4532000000,
     "epsGaapDiluted": null,
     "epsBasis": null,
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
     "metricNote": {
-      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
-      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。"
     }
   },
   {
@@ -57028,16 +57034,16 @@
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a1q_2026xearningsxnewsxr.htm",
     "releaseAccession": "0001755672-26-000008",
     "releaseFilingDate": "2026-05-05",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "revenue": 3023000000,
     "epsGaapDiluted": null,
     "epsBasis": null,
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
     "metricNote": {
-      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
-      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。"
     }
   },
   {
@@ -57051,7 +57057,7 @@
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a4q_2025xearningsxnewsxr.htm",
     "releaseAccession": "0001755672-26-000002",
     "releaseFilingDate": "2026-02-03",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "revenue": 1737000000,
     "epsGaapDiluted": null,
     "epsBasis": null,
@@ -57059,8 +57065,8 @@
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
     "metricNote": {
-      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
-      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business’s attributable net loss was approximately $610M, calculated from the reported full-year and first-nine-month amounts.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務歸屬淨虧損約 6.10 億美元，以已披露的全年及前九個月金額相減。"
     }
   },
   {
