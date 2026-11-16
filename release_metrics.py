@@ -4,13 +4,14 @@ Read only reviewed issuer layouts and explicitly labelled quarterly amounts.
 Q4 is read directly from the statement's three-month column.
 """
 import re
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from lxml import html
 
 SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764',
                      '0000320193', '0000002488', '0001018724', '0001596532', '0000001800',
-                     '0000002969', '0000882184', '0001013237', '0000857005', '0000804328'}
+                     '0000002969', '0000882184', '0001013237', '0000857005', '0000804328',
+                     '0001341439', '0000720005'}
 
 REVENUE_MILLION_UNITS = {
     '0000310764': r'\bmillions of dollars\b',
@@ -171,6 +172,43 @@ def _tesla_update_metrics(tree, end):
     return {key: next(iter(found)) for key,found in values.items() if len(found)==1}
 
 
+def _raymond_james_supplement_metrics(tree, end):
+    # In this SEC image exhibit the issuer supplies searchable statement text.
+    title = 'RAYMOND JAMES FINANCIAL, INC. Consolidated Statements of Income (Unaudited)'
+    prefix = 'Three months ended % change from Twelve months ended in millions, except per share amounts '
+    values = {'revenue': set(), 'epsGaapDiluted': set()}
+    for node in tree.xpath('//font[not(*)]'):
+        text = _text(node)
+        if not text.startswith(prefix) or title not in text:
+            continue
+        header, separator, statement = text[len(prefix):].partition(' Revenues:')
+        dates = re.findall(r'[A-Z][a-z]+ \d{1,2}, 20\d{2}', header)
+        if not separator or len(dates) != 9:
+            continue
+        try:
+            quarters = [datetime.strptime(day, '%B %d, %Y').date() for day in dates[:5]]
+        except ValueError:
+            continue
+        if sorted(set(quarters)) != quarters or end not in quarters:
+            continue
+        rows = {
+            'revenue': re.search(r'\bTotal revenues (.*?) Interest expense\b', statement),
+            'epsGaapDiluted': re.search(r'\bEarnings per common share [–-] diluted \(2\) (.*?) Weighted-average common shares', statement),
+        }
+        for field, match in rows.items():
+            if match is None:
+                continue
+            cells = match[1].replace('$', '').replace('%', '').split()
+            amounts = [_number(cell) for cell in cells]
+            if len(amounts) != 10 or any(amount is None for amount in amounts):
+                continue
+            value = amounts[quarters.index(end)]
+            if field == 'revenue' and value < 0:
+                continue
+            values[field].add(float(value * 1000000 if field == 'revenue' else value))
+    return {key: next(iter(found)) for key, found in values.items() if len(found)==1}
+
+
 def parse_release_quarter_metrics(document, period_end, cik):
     """Return only unambiguous directly reported quarterly totals and diluted EPS."""
     cik = str(cik).zfill(10)
@@ -183,6 +221,8 @@ def parse_release_quarter_metrics(document, period_end, cik):
         tree = html.fromstring(document)
     if cik == '0001318605':
         return _tesla_update_metrics(tree, end)
+    if cik == '0000720005':
+        return _raymond_james_supplement_metrics(tree, end)
     values = {'revenue': set(), 'epsGaapDiluted': set()}
     for table in tree.xpath('//table'):
         if table.xpath('.//table'):

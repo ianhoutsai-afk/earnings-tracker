@@ -9545,9 +9545,9 @@
   "TSN": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-03",
+    "latestStoredDate": "2026-11-16",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049326000057/tsn2026q3exh-991.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049326000077/tsn2026q4exh-991.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 5,
@@ -9556,12 +9556,7 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-16",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://ir.tyson.com/news/news-details/2026/Tyson-Foods-Announces-Fourth-Quarter-Earnings-Conference-Call-and-Webcast/default.aspx",
-      "bmo_amc": "BMO"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000100493",
     "recordCount": 5,

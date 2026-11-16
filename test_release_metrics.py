@@ -91,6 +91,35 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         self.assertTrue(rows[0]['revenueSourceUrl'].endswith('/ex991.htm'))
         self.assertTrue(rows[0]['secUrl'].endswith('/quarter.htm'))
 
+    def test_raymond_james_supplement_keeps_total_revenue_and_exact_quarter_columns(self):
+        from official_sync import check_issuer
+        doc = ('<font>Three months ended % change from Twelve months ended in millions, except per share amounts '
+               'September 30, 2025 December 31, 2025 March 31, 2026 June 30, 2026 September 30, 2026 '
+               'September 30, 2025 June 30, 2026 September 30, 2025 September 30, 2026 % change Revenues: '
+               'Total revenues 4,190 4,176 4,262 4,362 4,739 13 % 9 % 15,912 17,539 10 % '
+               'Interest expense (463) (441) (403) (434) (470) '
+               'Net revenues 3,727 3,735 3,859 3,928 4,269 Other costs '
+               'Earnings per common share – diluted (2) $ 2.95 $ 2.79 $ 2.72 $ 3.01 $ 3.40 15 % 13 % $ 10.30 $ 11.91 16 % '
+               'Weighted-average common shares outstanding – basic '
+               'RAYMOND JAMES FINANCIAL, INC. Consolidated Statements of Income (Unaudited)</font>')
+        root='https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/'
+        exhibit='rjf0930q426supplement.htm'
+        day='2026-10-14'
+        sub={'filings':{'recent':{'form':['8-K'],'items':['2.02,9.01'],'accessionNumber':['0000720005-26-000080'],
+                                 'primaryDocument':['results.htm'],'filingDate':[day],'reportDate':[day]}}}
+        def source(url):
+            return {
+                root+'results.htm':f'<a href="ex991.htm">99.1 Earnings release</a><a href="{exhibit}">99.2 Financial Supplement</a>',
+                root+'ex991.htm':'<h1>Fourth quarter 2026 results</h1><p>October 14, 2026. Results for the quarter ended September 30, 2026.</p>',
+                root+exhibit:doc,
+            }[url]
+        rows,_=check_issuer('0000720005',sub,source,date(2026,10,22))
+        self.assertEqual((rows[0]['revenue'],rows[0]['epsGaapDiluted']),(4739000000,3.40))
+        self.assertEqual(rows[0]['revenueSourceUrl'],root+exhibit)
+        self.assertEqual(rows[0]['releaseSourceUrl'],root+'ex991.htm')
+        self.assertEqual(self.parse(doc,end='2026-06-30',cik='0000720005'),{'revenue':4362000000,'epsGaapDiluted':3.01})
+        self.assertEqual(self.parse(doc,end='2026-08-31',cik='0000720005'),{})
+
 class EmbeddedStatementHeadingTests(unittest.TestCase):
     def test_income_statement_title_inside_full_width_header_is_supported(self):
         from release_metrics import parse_release_quarter_metrics

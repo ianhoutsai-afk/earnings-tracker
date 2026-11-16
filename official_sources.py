@@ -58,7 +58,7 @@ def _fiscal_identity(intro):
     identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b',intro)[0]
     patterns = [
         r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
-        r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
+        r'(?i)\bQ([1-4])\s+(?:(?:FY|fiscal(?:\s+year)?)\s+)?(20\d{2})\b',
         r'(?i)\b(20\d{2})[\s-]+(first|second|third|fourth)[\s-]+quarter\b',
     ]
     matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text)]
@@ -128,7 +128,18 @@ def parse_earnings_release(document, event_date, filing_date, today):
         # Some actual-results releases put the period only in the later financial
         # tables. The dated, completed-results sentence and explicit fiscal focus
         # can join a matching 10-Q/10-K. No filing means no new quarter is admitted.
-        actual = re.search(r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?(?:financial\s+)?results\s+for\b',intro)
+        actual = re.search(
+            r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
+            r'(?:(?:financial\s+)?results\s+for\b|'
+            r'(?P<quarter>first|second|third|fourth)[\s-]+quarter\s+'
+            r'(?P<year>20\d{2})\s+(?:financial\s+)?results\s*[.!;])',
+            intro,
+        )
+        if actual is not None and actual['year'] is not None:
+            stated_identity = (int(actual['year']), QUARTERS[actual['quarter'].lower()])
+            if year is not None and (year, fiscal_quarter) != stated_identity:
+                raise ValueError('Conflicting fiscal identities in earnings exhibit')
+            year, fiscal_quarter = stated_identity
         malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
         if not actual or year is None or fiscal_quarter is None or malformed_period:
             raise ValueError('No explicit completed quarterly period')

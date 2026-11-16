@@ -379,6 +379,29 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
   self.assertEqual(len(rows), 1)
   self.assertTrue(rows[0]['releaseSourceUrl'].endswith('tech-20260812xex99d1.htm'))
 
+ def test_oracle_known_fiscal_year_tag_error_is_scoped_to_matching_filing(self):
+  from official_sync import check_issuer
+  day = '2026-09-10'
+  correction = '0001193125-26-389274'
+  release = '<h1>Oracle Reports Q1 Fiscal 2027 Results</h1><p>September 10, 2026. Oracle reported results for the quarter ended August 31, 2026.</p>'
+  for accession, expected in ((correction,[(2027,1,1.25)]),('0001193125-26-389275',[])):
+   with self.subTest(accession=accession):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K','10-Q'], 'items': ['2.02,9.01',''],
+     'accessionNumber': ['0001193125-26-387905',accession],
+     'primaryDocument': ['results.htm','quarter.htm'],
+     'filingDate':[day,'2026-09-11'], 'reportDate':[day,'2026-08-31'],
+    }}}
+    def documents(url):
+     if url.endswith('results.htm'):
+      return '<a href="ex991.htm">99.1 Earnings release</a>'
+     if url.endswith('ex991.htm'):
+      return release
+     return (filing(quarter='Q1').replace('2026-09-30','2026-08-31').replace('2026-07-01','2026-06-01')
+             .replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1341439</xbrli:identifier>'))
+    rows,_ = check_issuer('0001341439',submissions,documents,TODAY)
+    self.assertEqual([(r['fiscalYear'],r['fiscalQuarter'],r['epsGaapDiluted']) for r in rows],expected)
+
  def test_cigna_uses_current_period_from_item_202_over_comparative_in_exhibit(self):
   import copy
   from official_sync import check_issuer

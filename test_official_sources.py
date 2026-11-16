@@ -46,6 +46,15 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual((row['date'],row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),
                    ('2026-10-14','2026-09-30',2026,4))
 
+ def test_dated_results_with_quarter_before_results_can_join_matching_filing(self):
+  text = ('<h1>Example reports third-quarter results</h1>'
+          '<p>MELBOURNE, Fla., October 14, 2026 — Example reported its third quarter 2026 results.</p>')
+  result = parse_earnings_release(text, '2026-10-14', '2026-10-15', TODAY)
+  self.assertEqual((result['periodEnd'],result['fiscalYear'],result['fiscalQuarter']), (None,2026,3))
+  for other in (text.replace('reported','will report'), text.replace('2026 results','2026 results date')):
+   with self.assertRaises(ValueError):
+    parse_earnings_release(other, '2026-10-14', '2026-10-15', TODAY)
+
  def test_unconfirmed_event_date_does_not_become_release_date(self):
   with self.assertRaises(ValueError):parse_earnings_release(RELEASE,'2026-10-13','2026-10-15',TODAY)
 

@@ -86,14 +86,14 @@ def _base(cik, filing):
     return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{filing['accessionNumber'].replace('-', '')}/"
 
 
-def _exhibit_links(document, base):
+def _exhibit_links(document, base, reviewed_supplement=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     result = []
     for link in tree.xpath('//a[@href]'):
         label = ' '.join(link.itertext()) + ' ' + link.get('href')
-        if not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
-            continue
         target = urljoin(base, link.get('href')).split('#')[0]
+        if target != reviewed_supplement and not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
+            continue
         parsed = urlparse(target)
         if parsed.scheme == 'https' and parsed.hostname == 'www.sec.gov' and target.startswith(base) and not parsed.query:
             result.append(target)
@@ -131,6 +131,14 @@ PERIOD_FROM_FILING_EXHIBITS = {
 }
 
 
+# Oracle's 10-Q narrative and separately signed earnings release identify fiscal
+# 2027 Q1, although the original 10-Q's fiscal-year tag says 2026.
+ORACLE_2027_Q1_TAG_CORRECTION = ('0001193125-26-389274', '2026-08-31')
+
+# Filed with Raymond James's fourth-quarter earnings release under Item 2.02.
+RJF_QUARTER_METRIC_EXHIBIT = ('0000720005-26-000080', 'rjf0930q426supplement.htm')
+
+
 def check_issuer(cik, submissions, fetch, today):
     filings = _filings(submissions, today)
     records, pending, failures, metric_pending = {}, 0, 0, 0
@@ -160,9 +168,11 @@ def check_issuer(cik, submissions, fetch, today):
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
     for event in releases[:12]:
         base = _base(cik, event)
+        supplement_url = (base + RJF_QUARTER_METRIC_EXHIBIT[1]
+                          if event['accessionNumber'] == RJF_QUARTER_METRIC_EXHIBIT[0] else None)
         try:
             primary_doc=fetch(base + event['primaryDocument'])
-            links = [url for url in _exhibit_links(primary_doc, base)
+            links = [url for url in _exhibit_links(primary_doc, base, supplement_url)
                      if (event['accessionNumber'], url.rsplit('/', 1)[-1]) not in NON_RESULTS_EXHIBITS]
         except (OSError, TimeoutError) as exc:
             failures += 1
@@ -175,7 +185,8 @@ def check_issuer(cik, submissions, fetch, today):
         event_conflict=False
         first_exhibit=None
         first_exhibit_url=None
-        for url in links+[base+event['primaryDocument']]:
+        release_urls = [url for url in links if url != supplement_url]
+        for url in release_urls + [base + event['primaryDocument']]:
             try:
                 if url==base+event['primaryDocument']:
                     if event_conflict:continue
@@ -217,6 +228,11 @@ def check_issuer(cik, submissions, fetch, today):
                 except (ValueError, html.etree.ParserError):
                     metric_pending += 1
                     continue
+                if ((candidate['accessionNumber'], parsed['periodEnd']) == ORACLE_2027_Q1_TAG_CORRECTION
+                        and str(cik).zfill(10) == '0001341439'
+                        and (parsed['fiscalYear'], parsed['fiscalQuarter']) == (2026, 1)
+                        and (release.get('fiscalYear'), release.get('fiscalQuarter')) == (2027, 1)):
+                    parsed['fiscalYear'] = 2027
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
                     identity_conflict = True
@@ -235,6 +251,13 @@ def check_issuer(cik, submissions, fetch, today):
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
             metric_release = first_exhibit if url == base+event['primaryDocument'] else release_doc
             metric_release_url = first_exhibit_url if url == base+event['primaryDocument'] else url
+            if supplement_url in links:
+                try:
+                    metric_release = fetch(supplement_url)
+                    metric_release_url = supplement_url
+                except (OSError, TimeoutError) as exc:
+                    failures += 1
+                    source_errors.append({'stage':'earnings_metrics_supplement','sourceUrl':supplement_url,'errorType':type(exc).__name__})
             if metric_release is not None:
                 extra = parse_release_quarter_metrics(metric_release, metrics.get('periodEnd') or release['periodEnd'], cik)
                 for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
