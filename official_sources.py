@@ -340,6 +340,10 @@ def parse_inline_quarter(document, period_end, cik=None):
             scale = int(node.get('scale', '0'))
             if not -12 <= scale <= 15:
                 continue
+            # Some filings apply the statement's monetary scale to an EPS cell
+            # already shown in dollars per share. Leave it for release verification.
+            if is_eps and scale != 0:
+                continue
             value = Decimal(raw) * Decimal(10) ** scale
             if node.get('sign') == '-':
                 value = -value

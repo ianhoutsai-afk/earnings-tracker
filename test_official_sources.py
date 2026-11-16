@@ -40,6 +40,13 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual(r['periodStart'],'2026-07-01')
   self.assertEqual((r['fiscalYear'],r['fiscalQuarter']),(2026,3))
 
+ def test_nonzero_eps_scale_requires_independent_reconciliation(self):
+  exact_eps = 'name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare"'
+  doc = filing().replace(exact_eps + '>1.25', exact_eps + ' scale="3" sign="-">0.10')
+  parsed = parse_inline_quarter(doc,'2026-09-30')
+  self.assertIsNone(parsed['epsGaapDiluted'])
+  self.assertEqual(parsed['revenue'],1200000000)
+
  def test_ytd_or_annual_eps_cannot_be_used_as_q4(self):
   doc=filing(quarter='FY').replace('contextRef="q"','contextRef="ytd"')
   r=parse_inline_quarter(doc,'2026-09-30')
