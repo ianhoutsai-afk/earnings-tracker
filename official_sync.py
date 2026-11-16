@@ -107,6 +107,8 @@ NON_RESULTS_ACCESSIONS = {
     '0001171843-26-000788',  # Norwegian Cruise Line
     '0000031791-26-000003',  # Revvity
     '0000016918-25-000132',  # Constellation Brands
+    '0001104659-26-115960',  # Kimberly-Clark preliminary third-quarter figures
+    '0000074208-26-000081',  # UDR preliminary third-quarter figures
     # APA supplemental guidance and conference schedules for the reviewed periods.
     '0001841666-25-000023',
     '0001841666-26-000003',

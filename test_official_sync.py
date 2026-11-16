@@ -337,6 +337,30 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
   rows, _ = check_issuer('0001671933', submissions, documents, date(2026, 11, 14))
   self.assertEqual([r['date'] for r in rows], [published])
 
+ def test_preliminary_filings_do_not_supplant_final_quarterly_releases(self):
+  from official_sync import check_issuer
+  for cik, notice_accession, final_accession, notice, final in (
+   ('0000055785', '0001104659-26-115960', '0001628280-26-070514', '2026-10-15', '2026-11-05'),
+   ('0000074208', '0000074208-26-000081', '0000074208-26-000084', '2026-10-21', '2026-11-02'),
+  ):
+   with self.subTest(cik=cik):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K', '8-K'], 'items': ['2.02,9.01', '2.02,9.01'],
+     'accessionNumber': [final_accession, notice_accession],
+     'primaryDocument': ['final.htm', 'preliminary.htm'],
+     'filingDate': [final, notice], 'reportDate': [final, notice],
+    }}}
+    def documents(url):
+     if url.endswith(('final.htm', 'preliminary.htm')):
+      return '<a href="ex991.htm">Earnings release</a>'
+     is_final = final_accession.replace('-', '') in url
+     published = date.fromisoformat(final if is_final else notice)
+     subject = 'Results' if is_final else 'Preliminary results'
+     return (f'<h1>Third quarter 2026 {subject}</h1>'
+             f'<p>{published:%B} {published.day}, 2026 — {subject} for the quarter ended September 30, 2026.</p>')
+    rows, _ = check_issuer(cik, submissions, documents, date(2026, 11, 16))
+    self.assertEqual([(row['date'], row['releaseAccession']) for row in rows], [(final, final_accession)])
+
  def test_bio_techne_dividend_exhibit_is_skipped_within_results_filing(self):
   from official_sync import check_issuer
   published = '2026-08-12'

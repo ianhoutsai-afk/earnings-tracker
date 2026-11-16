@@ -3411,6 +3411,1173 @@
       "onlyFilingDateCount": 6,
       "historicalRecastDates": 8,
       "issuersWithDataGaps": 9
+    },
+    "followupItem202Review": {
+      "checkedAtUtc": "2026-11-16T12:08:41.757780+00:00",
+      "scope": "Screened SEC master-index 8-K and 8-K/A entries with a filing date after each issuer’s latest retained release or filing date, through November 14, 2026. Confirmed Item 2.02 status by accession in SEC submissions. The index has a daily cutoff. An issuer publication may precede its SEC filing.",
+      "indexedIssuerTickers": 202,
+      "indexedAccessions": 315,
+      "distinctCiksChecked": 199,
+      "accessionsWithItem202": 15,
+      "sourceCiks": {
+        "0001090872": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001090872.json",
+          "sourceSha256": "19f61284911fe4d66329ece8c1f66ce50379af6c8f1002b94aa40bc40d75616b"
+        },
+        "0000320193": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000320193.json",
+          "sourceSha256": "d7c4a3c888fe60da97ceef8f9b80da4c205e82440c1bc3ba9dcc7316a482a6b1"
+        },
+        "0001551152": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001551152.json",
+          "sourceSha256": "449038229fc091e04054f14f46c7c5789e9818b6b015f91037eae8a0303e83b5"
+        },
+        "0000947484": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000947484.json",
+          "sourceSha256": "d56c61e8b9510152b5c37eb71d50aa4ae6692b85dd82a1fa0d283afb8e036079"
+        },
+        "0001467373": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001467373.json",
+          "sourceSha256": "d66a5fe63fab304fd04a1ef35fd7805e2a8259a164154f2f86216cba67021d78"
+        },
+        "0000006281": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000006281.json",
+          "sourceSha256": "2412d1aa158a495d788c59d4126d4c32f4cdff8d03e1a5385b41197f7f52d8ea"
+        },
+        "0000769397": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000769397.json",
+          "sourceSha256": "6be434af989da69a6c129231b9f768f4c18ef0c9e93c27b71c98237b253fc596"
+        },
+        "0001086222": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001086222.json",
+          "sourceSha256": "75300396dfc3315550e090b53876b60d32b43c89bd896c4d4d6860f054564dd7"
+        },
+        "0001097149": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001097149.json",
+          "sourceSha256": "475173a9cdcb132732bdba0f6de2c93302c6e8460693db5be3c238b5da3557f1"
+        },
+        "0001748790": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001748790.json",
+          "sourceSha256": "be3c61165c8ae3e8f4cf1da78ff2b01b83cf01d66a07fa0dd55622743d2e46ba"
+        },
+        "0001037868": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001037868.json",
+          "sourceSha256": "231b35d5883901b74611f48c912eab200a6c126c305f6799b941e3f2a15e43fc"
+        },
+        "0001053507": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001053507.json",
+          "sourceSha256": "53ab3808bb04115d4fac5c1559b801e6801bf01cd37a01df2a329e46bcd16608"
+        },
+        "0001858681": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001858681.json",
+          "sourceSha256": "c71a13a556b8da92b25d7b82927d23c89e2bf21c39fe65aaf73d52d8afce409c"
+        },
+        "0001730168": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001730168.json",
+          "sourceSha256": "41ec85346d2b5ffbd8358ab2d3ef9400598660be94281edacf784da984097866"
+        },
+        "0001410636": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001410636.json",
+          "sourceSha256": "dc3bc8d67dee98cd85dcc96078c65374f923cb42eec197c72eabf99c038d1b4d"
+        },
+        "0000004962": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000004962.json",
+          "sourceSha256": "acffa48f209dde90c0393a84169f845f2633be5c8f525bd308e21e149edcba7f"
+        },
+        "0000866787": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000866787.json",
+          "sourceSha256": "7fb8b35c47897741d9743ba4cd191b3da5c2a4e03ee8b4cfff71a92edc427dc1"
+        },
+        "0000070858": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000070858.json",
+          "sourceSha256": "9d679fd73e4675acc8bf7af2f2fd0a4ee3c2c63ef6fee9a4e1c43dea2ea2cba6"
+        },
+        "0000014693": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000014693.json",
+          "sourceSha256": "f51e793cde05c371b1c710ac8153f10e630b2a299355919015fa426ed5aa1c52"
+        },
+        "0001996862": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001996862.json",
+          "sourceSha256": "bd88df356db3ec6caeae6683e1b36f22ad5c1b26adb3a3421acf7c9ddc062ca5"
+        },
+        "0001075531": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001075531.json",
+          "sourceSha256": "0d8532a78d368602a16f39f0f8f997c454530f7fcf20bc0b792a9ed19aaabd5b"
+        },
+        "0001390777": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001390777.json",
+          "sourceSha256": "c5c65f09ebc158bb68c9b2f5646dfbc881965599af01cb43102c606d9bef02de"
+        },
+        "0001383312": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001383312.json",
+          "sourceSha256": "d298c0a677213fc2191555b4fc3f735dd78746324b50e9fc7183b0d691dd7ada"
+        },
+        "0001067983": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001067983.json",
+          "sourceSha256": "0f8f945613004ac1544b9cc3e9e1baad118932b3ae72e85f2e2f8f9b28affc41"
+        },
+        "0001393818": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001393818.json",
+          "sourceSha256": "37bac640b636ff0c3b19bad99a2690ff4985daccbbe98a48cbd523060e4e72f3"
+        },
+        "0000831001": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000831001.json",
+          "sourceSha256": "cedc9444e2cb00c9cbb2511192fa94ffc83b10de11cec73170976b5408bf88bb"
+        },
+        "0001783180": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001783180.json",
+          "sourceSha256": "80fb50b36d6d0c743b3d8e99853b809f99d8705c1ad0f850f6a4f2541b96530c"
+        },
+        "0001138118": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001138118.json",
+          "sourceSha256": "2b1dbaae82b17c1dfb7216f8cc46d4b64a59ae843ed7bf1f096dcd791ecaea88"
+        },
+        "0001051470": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001051470.json",
+          "sourceSha256": "dc328f6f708724c016e5cc656193dd1b1cef3e992be3d8e9e62b1784956d864d"
+        },
+        "0000815097": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000815097.json",
+          "sourceSha256": "1314e87335674b352ddf8b4e7d2ce5c51037702928a63719db36f112ed2f2eac"
+        },
+        "0000759944": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000759944.json",
+          "sourceSha256": "593a1d95ba65d035eca6f41e62d137bd5759b699a7ed5072538f6a6cb1231e8b"
+        },
+        "0001043277": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001043277.json",
+          "sourceSha256": "7b3839b750f3b0578713ca1e3ac98c9636a07e50f140eb055f46f4229d76c5a1"
+        },
+        "0000020286": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000020286.json",
+          "sourceSha256": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2"
+        },
+        "0000811156": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000811156.json",
+          "sourceSha256": "360d5cb8748a1cb72a5ecd9080d03fc0d4782cc4165795dde85c02ecda9bf4ef"
+        },
+        "0000927628": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000927628.json",
+          "sourceSha256": "f800aea180102a3028810829dfacd27be3ba08dae36117593947d17f321aa0e2"
+        },
+        "0000711404": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000711404.json",
+          "sourceSha256": "cd3c34166ec93d7c0da7ce94dac1f4b9504d449d05ec89b47acea58c5c761f64"
+        },
+        "0000909832": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000909832.json",
+          "sourceSha256": "6f1c07666d610a73fa4f2622bf2d6ca01f83b2f41b1fd374d3139bee82c5c513"
+        },
+        "0000900075": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000900075.json",
+          "sourceSha256": "0c991264c7a37160a1f6f5012e282155b4b9c5a96f362cfd8338394d4dbaf8c6"
+        },
+        "0000849395": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000849395.json",
+          "sourceSha256": "7a34481c66dcf8a03f2a5cc8a3a5832591c93314b6284d1e812dbaaaffd8c218"
+        },
+        "0001100682": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001100682.json",
+          "sourceSha256": "9521c8b3b7feed853fcf86cddb464aa4721660cd3d0676cccd0e6210475340d2"
+        },
+        "0001108524": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001108524.json",
+          "sourceSha256": "92897c3ece78bcd7c42b1b94dcff01c701e8017118f491f83267b3baa4aac31b"
+        },
+        "0000723254": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000723254.json",
+          "sourceSha256": "7fd7e35e5e1d7e09ea9e4f71c22ca8849a9751e7bc5363dbeb5e2315d7498a8c"
+        },
+        "0000027904": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027904.json",
+          "sourceSha256": "d494140de95db92bf75a385316ab54f5a39b2146635a3a0c21232c96c76e80c4"
+        },
+        "0000315189": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000315189.json",
+          "sourceSha256": "959d70ab8e039425fe4ec29dfd56ac1bc664d39221264ff1e70e5efeff9e7284"
+        },
+        "0001571996": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001571996.json",
+          "sourceSha256": "41dc5b75b68db2abf0294a043016b624abf132a6bd068caf953f3474b9218925"
+        },
+        "0000029534": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000029534.json",
+          "sourceSha256": "a81f6dc1e378a6a976caad8332e8122cec8066a130b5b9b3e15029006c3992fb"
+        },
+        "0001297996": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001297996.json",
+          "sourceSha256": "6e6b59fb95554da58e47e15956fc5c7c0cc465b9941ff4fe22c3c4e5acc7e1f9"
+        },
+        "0000935703": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000935703.json",
+          "sourceSha256": "f584f78ba02c12f176a8bf18bc80d9fea74fc358e2aa331c8984db8ed7febdf6"
+        },
+        "0000029905": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000029905.json",
+          "sourceSha256": "029ed07ff598924df0de13084a4c1e9b55cdf404b63ff5284621be94a8021b71"
+        },
+        "0000940944": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000940944.json",
+          "sourceSha256": "8ce71f6fc1c6d4df20a8bf5e4aa7f12ad052406355229806022df9f882715c75"
+        },
+        "0000936340": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000936340.json",
+          "sourceSha256": "53c390380fc3ee9181c11c27ed15ff5f6dd29df7aba1e2d21da237c10ccebbc8"
+        },
+        "0001326160": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001326160.json",
+          "sourceSha256": "8aeb7052ebc42706e20c23cc2b9fd89f181976dd768570c964563df100a13b0e"
+        },
+        "0000827052": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000827052.json",
+          "sourceSha256": "4193a08b3a74b636453c626b0b39d4e5fc7fdc9762ebf76bf0d96758aabc291a"
+        },
+        "0001001250": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001001250.json",
+          "sourceSha256": "457281a54f8c9c2074f02f82bbebf39e14a45dddd6595dc717899b7060310c5b"
+        },
+        "0001156039": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001156039.json",
+          "sourceSha256": "b091491e32e9a11be5f54e146720e6a42fec7e4b7bf278eae6da2d0e7027e18f"
+        },
+        "0000032604": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000032604.json",
+          "sourceSha256": "93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e"
+        },
+        "0001101239": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001101239.json",
+          "sourceSha256": "55282974969ca99abe97f799fd65204918eb79a718eddbb4362432afd3bc7c8a"
+        },
+        "0000922621": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000922621.json",
+          "sourceSha256": "026a4b5105f4c81f71eca3845177b3e73044f877824c740f6cbd079a0d0a9b09"
+        },
+        "0000746515": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000746515.json",
+          "sourceSha256": "dcc16eb85050d6f5e7f41afcde30a4d3b513a83022d71477485e04dd1a8f935f"
+        },
+        "0000831259": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000831259.json",
+          "sourceSha256": "4027d2c6c0151e74015da919b3631ae5d561dcfc78f19817d94af560d90f5a94"
+        },
+        "0001013237": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001013237.json",
+          "sourceSha256": "b3959273ae54f7cc511a7c96bfca57b9a7c3f57f81074f58c0b7c647fbf3a1d7"
+        },
+        "0001048911": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001048911.json",
+          "sourceSha256": "32905eb5246d447e0693f5a5f351c538088f51be45831cc0b116071114833e40"
+        },
+        "0001035983": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001035983.json",
+          "sourceSha256": "8396cc5a300b895c5938c42f09ad5f6a2fbe727ea6bc62bb87b57446c277d44c"
+        },
+        "0000866374": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000866374.json",
+          "sourceSha256": "3a1f6da0123aee83fa813e38b40f51563bcf46246675c1d700069523cff5730d"
+        },
+        "0001754301": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001754301.json",
+          "sourceSha256": "25981c920d30e16b3a18d235bab32b3731199f1f908b0fe62af27262900e1ba3"
+        },
+        "0000034903": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000034903.json",
+          "sourceSha256": "2aa4c14811482c2ea6ec12956ec5a88b67bcbbd1791544507568ab614fb11894"
+        },
+        "0001932393": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001932393.json",
+          "sourceSha256": "faccbcd1900dc12f63c85d635516f38ffd45650689f2301307e202e244647292"
+        },
+        "0000040704": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000040704.json",
+          "sourceSha256": "1272c3141d52acda7a049a143a917e26cd2c45a215c580f812504e8c74825d1c"
+        },
+        "0000320335": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000320335.json",
+          "sourceSha256": "20054d78d52e0c730fcf663bc16795041dbf96fc2926e965a58012aa27b2d528"
+        },
+        "0001467858": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001467858.json",
+          "sourceSha256": "0997dcdf00e38b174b33078e25753018874f2728c1b3ed48305f8efddfc11976"
+        },
+        "0001652044": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001652044.json",
+          "sourceSha256": "1f4d73b4ffdc3cd7fd33dc4c31a26c1e67d39ea5d9c03772a15c326d08c3a644"
+        },
+        "0000040987": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000040987.json",
+          "sourceSha256": "7e66ee77c68b0e084d648469561bc51d4ef0ec2e85e2ab98e8ab7f916398d7ea"
+        },
+        "0000886982": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000886982.json",
+          "sourceSha256": "4f61d7c9464e5cf47d2d1a728fcfbfc4a8f48d23d30d588d1b9dea933c01999b"
+        },
+        "0000046080": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000046080.json",
+          "sourceSha256": "472126e93ecca900ed82d275ada53435d8a3e1ab25f4f975c3c7a749db3975eb"
+        },
+        "0000860730": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000860730.json",
+          "sourceSha256": "b4b53d03936a0100770618e41af5de9135840ed4fe2775f47ad77c751a255ca3"
+        },
+        "0000354950": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000354950.json",
+          "sourceSha256": "672ac7e954322732f26d909249186bfb4fef4157085d1f61634d447b2ccf0fba"
+        },
+        "0002089271": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "sourceSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36"
+        },
+        "0001783879": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001783879.json",
+          "sourceSha256": "8ad5622d210502aa9b12e7949f6a5c1cd8a7895364880eb6b203677e43fd1d0f"
+        },
+        "0001645590": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001645590.json",
+          "sourceSha256": "9b4315b08b84c506ad8cae20422228b71af64de375eb969a95669f3f1d6d96bb"
+        },
+        "0000047217": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000047217.json",
+          "sourceSha256": "0d8781c74d68b3fe46b38c08717ebe4b23ecd22294142b296deec142cebcd251"
+        },
+        "0000048465": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000048465.json",
+          "sourceSha256": "1eb9342e4071b0c6aeda1fd45096e52e7f33339fa098829f0e1c9cc66c85863b"
+        },
+        "0001070750": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001070750.json",
+          "sourceSha256": "de5e5c179e2db40d1753e9ffd00a1401a27c771920ac0f7befac42cf2fdf3132"
+        },
+        "0000049071": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000049071.json",
+          "sourceSha256": "f7c6d63bb9ec96d2c1e77aff6c20a5c597c047cce797212af6dfc1293f7a62ea"
+        },
+        "0000879169": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000879169.json",
+          "sourceSha256": "8bf98d62967e11ba00035338ae686ab8ecdb872182b37d698bd7be18fd55e573"
+        },
+        "0001687229": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001687229.json",
+          "sourceSha256": "f4a78e7f8e8422169e48562801b7d4a9b54a916129d2f109ae41fa6648b89007"
+        },
+        "0001699150": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001699150.json",
+          "sourceSha256": "74f3d176251024963600338d3b9ae40bd1422cac7f7a1b302106a0bbb5a46886"
+        },
+        "0001035267": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001035267.json",
+          "sourceSha256": "82d3f8734234784bb70dd025d4799d36692b20f438fb8fbd4e8ed36c3ce01de7"
+        },
+        "0000914208": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000914208.json",
+          "sourceSha256": "bbbcd2ee087eeb20ccd0c40d7af3fa069703bff2d3afd65306737c99d335efc8"
+        },
+        "0000052988": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000052988.json",
+          "sourceSha256": "2bcd8ab77002922864056cc7f219ec9d8d3e4606fa9f5357e5ec23a0c56e0710"
+        },
+        "0000019617": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000019617.json",
+          "sourceSha256": "5b1dd19463519e2cd6bead2bffed4d34498c5d60cdd1729750a4f42cd8bec713"
+        },
+        "0000091576": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000091576.json",
+          "sourceSha256": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897"
+        },
+        "0001601046": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "sourceSha256": "eff3c51efdaee3987d56e28ab668c6ed5cd3a457e4a3130d4a32676ff49655df"
+        },
+        "0001637459": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001637459.json",
+          "sourceSha256": "897cb4a3c4b20596e81eecd798bd23680db8cabaa760a81a0f4c78e0e82b7ce0"
+        },
+        "0000319201": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000319201.json",
+          "sourceSha256": "6658ad0f63831399c5d4a5c1fe42cd11628449fafcd16f4c4377c73888d2df5f"
+        },
+        "0000055785": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000055785.json",
+          "sourceSha256": "1b4084c6626353eb61564476e38fc2d67c5cbc5d190bad1030fac9e866e26721"
+        },
+        "0001506307": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001506307.json",
+          "sourceSha256": "52ef2b8737ab47e6b08e6698f56144ae268a3a45950f7e9587cc4c96927dbf22"
+        },
+        "0000056873": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000056873.json",
+          "sourceSha256": "7d375cc73738ff98cd33c193da37784aff5e84da6fba641544f1292b32c9d31f"
+        },
+        "0000920760": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000920760.json",
+          "sourceSha256": "b0a4fbebb3cfe65c98599bfbb0d4430c244fb4adceaa888ccaccf4317d1dca26"
+        },
+        "0000920148": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000920148.json",
+          "sourceSha256": "2c736763f2e86f81d1810e71bca0f5c99b5470e4f86ddda8b10917617caa0d99"
+        },
+        "0000202058": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000202058.json",
+          "sourceSha256": "f7c8e4ac79f0a5aee3b7a8b42d66ae6921cda331a8ba1da134a1e1fe8c83aedb"
+        },
+        "0001069202": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001069202.json",
+          "sourceSha256": "8d9481da7ebec07f4b48cc8b4168f3d9872b72982025e4b4ef8989d6005b38fc"
+        },
+        "0001707925": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001707925.json",
+          "sourceSha256": "64e58bab1a870ab6ae2cac9a5d1f3b801b4ad69292feeacdccdeaf0d324197b5"
+        },
+        "0000352541": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000352541.json",
+          "sourceSha256": "cff70c175565af88e6b7e352eb01fd0364cbe4d19134787795afe578ae0d95ed"
+        },
+        "0000060667": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "sourceSha256": "6d8f7507dbfd555a926d1b59c02c3639001f3f7ca70e445f63333a75157da5ba"
+        },
+        "0000707549": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000707549.json",
+          "sourceSha256": "860fe1ae9a61efd226e94c46ef664ff10beaf32843e5a06dadc5e3270a6b861e"
+        },
+        "0001397187": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001397187.json",
+          "sourceSha256": "e39007cf5ee92076d0d9ff3335e88674831f1d0edc3dae9381e3e42a76c9f854"
+        },
+        "0000092380": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000092380.json",
+          "sourceSha256": "bffebc6e791ed3586ac4e7cb7f7e3e49d3b926ddcc33572b7a68a4fa4592ae7a"
+        },
+        "0001300514": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001300514.json",
+          "sourceSha256": "d6aa756199fd68293deb22f6f7b1bc7d4ba6159ee4b5fcc48bf2d355c4677e1c"
+        },
+        "0000912595": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000912595.json",
+          "sourceSha256": "a280acc9451c3ef511f953fbcf31fff1b99bc611e63b4484d6969bddec674742"
+        },
+        "0001059556": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001059556.json",
+          "sourceSha256": "2666b12c948b6c04133108ca9757f2f19a1c4c0d4c0dcb919e1a709b4065273f"
+        },
+        "0001613103": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001613103.json",
+          "sourceSha256": "0b098bf78fcaa4607c2cf0447ec2ee05d1011120f88fc80891613becf9b9086c"
+        },
+        "0001099219": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001099219.json",
+          "sourceSha256": "841a2280ec95d8893d67441837b1f577555cd39acc9257d3ebffff0cb4cb0691"
+        },
+        "0001326801": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001326801.json",
+          "sourceSha256": "c6f435b91227397aea548f475753739fa829761573328bc3df1f250931f10c75"
+        },
+        "0000066740": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000066740.json",
+          "sourceSha256": "df7dbb9d7315e98543f50b6d61501aac89b87ef01ef51e7fdf13093be03af1af"
+        },
+        "0001682852": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001682852.json",
+          "sourceSha256": "124d96649ce89e177bc9280c415f6c8ca7c0bd647dff36d2975fc7b1a895659f"
+        },
+        "0000062709": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000062709.json",
+          "sourceSha256": "cc872738cc58729ef13597d2d35f549c20cd4d90ac1db66fc7f6c02eb5e0b7c1"
+        },
+        "0001835632": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001835632.json",
+          "sourceSha256": "ef9077d3cb0ff110667a825aacc969c56b44323af330c00dc7bde329c86723a6"
+        },
+        "0000789019": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000789019.json",
+          "sourceSha256": "4d4ff98b1deea7b90123e2b99c059cdac4343de0dccbdfdc9855e788419f893e"
+        },
+        "0000723125": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000723125.json",
+          "sourceSha256": "515dd342068a593add3ee48f35aea70d5bf178c3ab600e06dd986a47346842cd"
+        },
+        "0001513761": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001513761.json",
+          "sourceSha256": "ee44dc34bc0ee4ddfbde98f4f92c142cfa9aef737ced68655e2853cd8581896d"
+        },
+        "0001120193": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001120193.json",
+          "sourceSha256": "f7abcd2d6867940e5fb128d419a8ad4e938342f86c54fa5cd7c5301297cfae22"
+        },
+        "0000072331": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000072331.json",
+          "sourceSha256": "58475f5eda226f49ca2dcd50124a30c92761567e41aa21770d0ea662dbe08dca"
+        },
+        "0000753308": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000753308.json",
+          "sourceSha256": "5cca5baaaf19c84425741f26c5196e09afe7c7f1d6f8567a9624f72b5d708387"
+        },
+        "0001111711": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001111711.json",
+          "sourceSha256": "4c77ee6a717626f4aa1a485ab3165a349dec4add423164c8ce57bed3a1103ab1"
+        },
+        "0000320187": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000320187.json",
+          "sourceSha256": "0f7775f7089caaa18fffa66efad88d698f82d6cdf286f84ee06685b7a11a0552"
+        },
+        "0001013871": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001013871.json",
+          "sourceSha256": "362cdd8312daded2dca9de9807a2704247d58912974a54f1f70aab875f887ca2"
+        },
+        "0001002047": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001002047.json",
+          "sourceSha256": "1b6b763dac0feb238ea0f0bc529ea8647a7fa6e4144e63b9260897729bc70656"
+        },
+        "0000073124": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000073124.json",
+          "sourceSha256": "8364796fe4558587335d3933f889e69734a4c2daa5e4d71bc1fd668ef23ae35b"
+        },
+        "0001045810": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "sourceSha256": "7cbfb234acae4a666ed049cd86157c2a7daf5a89dd4083af31a1da6831793096"
+        },
+        "0001564708": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001564708.json",
+          "sourceSha256": "ec07bf33abc5a7922821597c09da20ba830fab1b1df40200254734da947c9d37"
+        },
+        "0000726728": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000726728.json",
+          "sourceSha256": "bce04509362d7b4c148ce572898f6aad85e959c7e0d2aba1869f24e2f01fb371"
+        },
+        "0001660134": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001660134.json",
+          "sourceSha256": "401ad0120efe04c1586c56d6e914bba94ab08a70ae3b34ae34fc361ddd3f1ac4"
+        },
+        "0001097864": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001097864.json",
+          "sourceSha256": "faffd0b68f0a546ea0311d92386a0654862948c6316c024d680969678f603cbf"
+        },
+        "0001341439": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001341439.json",
+          "sourceSha256": "5364c4ec08e6aca1823b81257780b0b69290fe38e98ab9f48ca7268d0b4d14dc"
+        },
+        "0001781335": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001781335.json",
+          "sourceSha256": "b106ed3357a9670d399ecc49a5a38a61e3ab42f78b8048562ad692a9de7acea0"
+        },
+        "0000723531": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000723531.json",
+          "sourceSha256": "e15f600cce6a6d6c4cda9f9355132661a220f87d6a1315789cc35dd5a83ea349"
+        },
+        "0000788784": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000788784.json",
+          "sourceSha256": "85b636a9a15426a1d8ae5dbf5fe485c403d9dfec118c06832ffd21a42739c911"
+        },
+        "0000077476": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000077476.json",
+          "sourceSha256": "32af619dc381b45279e358f8efbe688b2e7ac2a8c8865cd407e8e103f459e28c"
+        },
+        "0000080424": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000080424.json",
+          "sourceSha256": "720db65000afb98a7fc61e2b22082e05185cb9b0ae49139f7ba41581e7f717b5"
+        },
+        "0000075677": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000075677.json",
+          "sourceSha256": "1d65c8b537f86e65368d89b0215cbc12cdc8521c44556770093617b9f913123a"
+        },
+        "0001045609": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001045609.json",
+          "sourceSha256": "1369c6acb0f256140d2a420c0c791706bece87a8057c3395592f5cf560b61b80"
+        },
+        "0000713676": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000713676.json",
+          "sourceSha256": "192909febd3830f1cdaf291d86c2594009a8820ef8307111e14f35eda762530c"
+        },
+        "0000764622": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000764622.json",
+          "sourceSha256": "90e3d387cde954fb314f0d9fa533b88e919e6e8088f64ced97d3922e2dbe540c"
+        },
+        "0001393311": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001393311.json",
+          "sourceSha256": "1dfcf232f990f52c203216438fd5fae4a91ba8ee7ba2e999fabd040442251976"
+        },
+        "0000804328": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000804328.json",
+          "sourceSha256": "c3e80065d3ea06f92b853d380a94fa8e8c276bb724338ccb953e6231b7633a38"
+        },
+        "0000910606": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000910606.json",
+          "sourceSha256": "50ea8231ff71cee87653e31877ae4a97687980ca7d3bf6223fb7c4b5824f33e8"
+        },
+        "0001281761": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001281761.json",
+          "sourceSha256": "e6df484b98345a0fadd032cdb769a8a641f7df62926f891d6de1f767f916034b"
+        },
+        "0000745732": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "sourceSha256": "e53cfd9aa8a5c368b28ed0a096527c5dd2d968475d0fe43b7bfde83b1c0f4e1f"
+        },
+        "0000031791": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000031791.json",
+          "sourceSha256": "27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649"
+        },
+        "0001034054": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001034054.json",
+          "sourceSha256": "5725178abe332a4946c2f27980cefc42999f8714fdc17b9e07a274b0151386eb"
+        },
+        "0000316709": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000316709.json",
+          "sourceSha256": "e2dfa8a9e63ab24355c2325f458b65d7a1f97da4c7a628285f75aaad38251cd7"
+        },
+        "0000089800": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000089800.json",
+          "sourceSha256": "ba5e127689ac35e345f285de4d6c67bb36039467dc83e8241a8d83b4d47c1b2a"
+        },
+        "0000883241": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000883241.json",
+          "sourceSha256": "6cfcc582e47f88240b56145e94028eff4221afcdf0aed6ade1027cbec8fb7ab5"
+        },
+        "0001032208": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001032208.json",
+          "sourceSha256": "4e43a532f3d32789d86f67cbe1a94acf0b0cd3b1a7705bbce370986eed467cff"
+        },
+        "0001757898": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001757898.json",
+          "sourceSha256": "cab0fc2aefc19882ebfc5166b02a9c92b325e5d544ba900f84da69ca2db98c5b"
+        },
+        "0001022671": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001022671.json",
+          "sourceSha256": "2aa343c0334a93b4c7c1a6cc23b72e78b1e93829becc10b8577126702fa1ae79"
+        },
+        "0000093751": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000093751.json",
+          "sourceSha256": "9439ef14227a68202365ea5eed60760489558d0ac2f76c3cf8650058df4284f1"
+        },
+        "0001137789": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001137789.json",
+          "sourceSha256": "d1f19dd6cded357dcd6b7f7fa1b4ec364c08c2f6a0835f4eeb75e465c6a487db"
+        },
+        "0000004127": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000004127.json",
+          "sourceSha256": "0dd84495f828c41e684b787706a1813afae036a9fd584a7326b5f30a382ec3c2"
+        },
+        "0001601712": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001601712.json",
+          "sourceSha256": "b11b1043743e33b8c9d195efe79c1ee75005e2da56dbe9a40e0ea877aeb88ddc"
+        },
+        "0000310764": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000310764.json",
+          "sourceSha256": "2326aa0f073c1d21de45504d8034a11dd78cf48411d2a2ae04831d5d0f25f8c6"
+        },
+        "0001385157": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001385157.json",
+          "sourceSha256": "e1141b93287c5e012f12174c03c69f16327e99347f47985ac83ba847ca391007"
+        },
+        "0000097210": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000097210.json",
+          "sourceSha256": "b88e3b741d0663173c9ab8f69a160252c48c5c232ae34cd0a706d28d2ea2b0f9"
+        },
+        "0000027419": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "sourceSha256": "419bee5d229df6fb80863739e5a44a8bcd906aab4a6b65b8a7c6a6fef9f94e0f"
+        },
+        "0000109198": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "sourceSha256": "aa444feaa11124f3723ae7144380847e06bd6b2c669bfc9714c3c1985b9cadf4"
+        },
+        "0001973266": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001973266.json",
+          "sourceSha256": "ded1642d2ee0fb760850b6cbd2a3c30153c40aa727f347d182af6468f117a108"
+        },
+        "0000097745": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000097745.json",
+          "sourceSha256": "56d307dc9382243be21bf4f25e4b6d87a6ca5143a2f77b4a321ef18d328d0546"
+        },
+        "0001116132": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001116132.json",
+          "sourceSha256": "b32e1e442cc337694a813e071ce3d4143706fba8dd7b07980245a45da2939ba6"
+        },
+        "0001113169": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001113169.json",
+          "sourceSha256": "ec480c1caaf1df7f8858b21e4dd7ed68a01a7185604374527a7340d6ed2a6906"
+        },
+        "0000086312": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000086312.json",
+          "sourceSha256": "ce0d1baf034ccd9785e4127062bb4dae32fa34a66e3abd8ecc4da108945ac56e"
+        },
+        "0000916365": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000916365.json",
+          "sourceSha256": "000d3e120332b550cda5fe2fcb4f7a1c3fb3d4ace69c3b1e153fffec3dfa8553"
+        },
+        "0000100493": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000100493.json",
+          "sourceSha256": "757dc33205dfd349244034648cd2be03a7150b78139886a90025d6cdd2c01913"
+        },
+        "0000097476": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000097476.json",
+          "sourceSha256": "7400115d6a6d7208ea93ed4ca45c785ca937a317fd9ed6a4d0276dca05f2d329"
+        },
+        "0000217346": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000217346.json",
+          "sourceSha256": "ccd7c7938e202d563cb5be37679eb606a5b971fad951fc82db51d9915d76e146"
+        },
+        "0000074208": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000074208.json",
+          "sourceSha256": "fac5d7c96b8a99d01c9fb2a4131ee5234b6f270055662b35b06e4e93d1cc8ab8"
+        },
+        "0000731766": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000731766.json",
+          "sourceSha256": "3dd7e156e7addd71435e220e06371ef16edebcdbb9ddb23a4e1c161a1c34483c"
+        },
+        "0001090727": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001090727.json",
+          "sourceSha256": "94abc9b57849624c84b220e35e42c6968a1a143447c51fa36a56f97c19811945"
+        },
+        "0001067701": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001067701.json",
+          "sourceSha256": "98e49737ac4e87455cf4de25a2f542d05efd263f213a1150063f5955dcef690c"
+        },
+        "0000036104": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000036104.json",
+          "sourceSha256": "45225424f90546db1abfab10068d2731d76c283ff4fa33573a74854d40414c81"
+        },
+        "0001393052": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001393052.json",
+          "sourceSha256": "e2f0f8003c621cc411656cf6a671bc53291e0e83c6809b772c519fc15df3e255"
+        },
+        "0001705696": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001705696.json",
+          "sourceSha256": "f201ee062e7ee3f311d8e95fa829021ddbb5309558947d7f8485ddc582da82db"
+        },
+        "0001035002": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001035002.json",
+          "sourceSha256": "9232981ae8672a1f011f5173c6ad9bfa001554ac24f2af9587ae27f02b19e86f"
+        },
+        "0001396009": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001396009.json",
+          "sourceSha256": "e1b047865dd57acd64a205e2c346d2350a090f4730e73e4c58f6160a826a12be"
+        },
+        "0000906107": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000906107.json",
+          "sourceSha256": "b46169f3adf5bade2208768a37505b21be94526840b19ea915580f06b6a1b12b"
+        },
+        "0001674101": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001674101.json",
+          "sourceSha256": "a19384ff249e7f827cc5d51547772de897265f4bf08bf881f756aa9c9ad9311e"
+        },
+        "0001692819": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001692819.json",
+          "sourceSha256": "aa1c3cb440543c9e3ce53f3f73f2cc252147b7b9b517d171f64c38aaefe1bb13"
+        },
+        "0000740260": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000740260.json",
+          "sourceSha256": "c1b726d8d9636aa095a39589c8950d9b672ab9fb30b220b65ae5f6e7645e6281"
+        },
+        "0002128626": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "sourceSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd"
+        },
+        "0000943452": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000943452.json",
+          "sourceSha256": "2cf08c601a0b5fa0d71b7198d9884ce04b4d99502962e6988c7f1ee1b6b2fd51"
+        },
+        "0001327811": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001327811.json",
+          "sourceSha256": "e346cbec499f663887623d6c0524d237f33a4649b1939a297aa8ab14afa56fed"
+        },
+        "0000783325": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000783325.json",
+          "sourceSha256": "d8f2de48568d02e33bf4560bfa64670e15a6c0d2092a9795828e52285e9e939d"
+        },
+        "0000766704": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000766704.json",
+          "sourceSha256": "622f88e02948cdb461c08d32cb51f45c9c9f70b12dda0c580df6b86538781c61"
+        },
+        "0000104169": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "sourceSha256": "974a8f4fe73fc5e16ea8bf18ba149f747fe778ce05a749e46e3006e7bc73216b"
+        },
+        "0000719955": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "sourceSha256": "a38c23ba6b37e3a54f91e2a11874c6d3178fe2ddf37d41026fc2bea87d777043"
+        },
+        "0001140536": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001140536.json",
+          "sourceSha256": "939d72efc949f0b9d65cb430caccb24b52d15f88ffcf2514f5a2c4e061e46699"
+        },
+        "0000106535": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000106535.json",
+          "sourceSha256": "6c9b7b485da2ecf8f89a46f29a79dc0a0964647579b7bc034b31a06da27cc403"
+        },
+        "0000072903": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000072903.json",
+          "sourceSha256": "a88bfdd63d94394879d98f928af1a562fb7692ead20b4673b1d482fc5d9a474f"
+        },
+        "0001524472": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001524472.json",
+          "sourceSha256": "e20b66923c6aa9b3d100e5f1e8fc306fcc5cab6ea9a17102e4aba3c26b7d2ac0"
+        },
+        "0001136869": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001136869.json",
+          "sourceSha256": "b86cb8fadfd13e7a70bc143f8ab177f8ac662eb696a78bb9949ad497196c933e"
+        }
+      },
+      "findings": {
+        "BRK-B": {
+          "form": "8-K",
+          "filingDate": "2026-11-09",
+          "reportDate": "2026-11-07",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001193125-26-452530",
+          "primaryDocument": "brka-20261107.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452530/brka-20261107.htm",
+          "sourceSha256": "7524f2e96ab92b33d35d3c0c56dcd143ad9278063833456d9bbc871a93f47b10",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452530/brka-ex99_1.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-11-07",
+          "finding": "Same quarter and release date. The issuer released results Saturday, and filed its 8-K the following Monday."
+        },
+        "CCI": {
+          "form": "8-K/A",
+          "filingDate": "2026-11-04",
+          "reportDate": "2026-10-21",
+          "items": "2.02,7.01,9.01",
+          "accessionNumber": "0001051470-26-000091",
+          "primaryDocument": "cci-20261021.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1051470/000105147026000091/cci-20261021.htm",
+          "sourceSha256": "df7527b96f357cd9211f284798efd0df50e7968769a0216b4c768e9c9f61cef5",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1051470/000105147026000091/q32026earningsrelease8-ka.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-21",
+          "finding": "Same quarter and release date. The amendment reclassifies balance-sheet and cash-flow items. The data uses the same-period 10-Q for both metrics."
+        },
+        "DTE": {
+          "form": "8-K",
+          "filingDate": "2026-11-06",
+          "reportDate": "2026-11-06",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000936340-26-000172",
+          "primaryDocument": "dte-20261106.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000172/dte-20261106.htm",
+          "sourceSha256": "f3a67076192d5c75e6ce85ae5ffba7be421ecf667993f8b4e7f4342adb4b7225",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/936340/000093634026000172/dtegas-exhibit991x093026.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-11-05",
+          "finding": "Discloses financial statements for the DTE Gas subsidiary."
+        },
+        "EXPD": {
+          "form": "8-K",
+          "filingDate": "2026-11-12",
+          "reportDate": "2026-11-11",
+          "items": "2.02,7.01,9.01",
+          "accessionNumber": "0001193125-26-457594",
+          "primaryDocument": "expd-20261111.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/746515/000119312526457594/expd-20261111.htm",
+          "sourceSha256": "4f4de47d4123cbb7f4bfa830e71d18795952b1b1779447fcb09810afa81af891",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/746515/000119312526457594/expd-ex99_1.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-11-03",
+          "finding": "Announces an upcoming Investor Day webcast."
+        },
+        "HOOD": {
+          "form": "8-K/A",
+          "filingDate": "2026-10-28",
+          "reportDate": "2026-10-27",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001783879-26-000170",
+          "primaryDocument": "hood-20261027.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/hood-20261027.htm",
+          "sourceSha256": "e5652b15214f3509ce3ba0ab11dc1a8b3c4809999b9ada1bff38d5bb59ff8232",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/q32026robinhoodamendedex991.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-27",
+          "finding": "Same quarter. The amendment revises non-GAAP presentation and leaves GAAP results intact."
+        },
+        "KMB": {
+          "form": "8-K",
+          "filingDate": "2026-11-05",
+          "reportDate": "2026-11-05",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001628280-26-070514",
+          "primaryDocument": "kmb-20261105.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmb-20261105.htm",
+          "sourceSha256": "e1a00d0b6ca8d819a592a6ce213dd34d69ebe9a6096731cf9c7a6c2ae60c24af",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmbq32026ex-991.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-15",
+          "finding": "Corrects the formal earnings date. The prior 8-K was an explicitly preliminary release."
+        },
+        "LNT": {
+          "form": "8-K",
+          "filingDate": "2026-10-30",
+          "reportDate": "2026-10-29",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000352541-26-000045",
+          "primaryDocument": "lnt-20261029.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/352541/000035254126000045/lnt-20261029.htm",
+          "sourceSha256": "19a83ce5d08cdf44b4a74138059680954e599895987c15d3293e05442aeeefee",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/352541/000035254126000045/lnt102920268-kex991.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-29",
+          "finding": "Same quarter and release date. The 8-K was filed the next day."
+        },
+        "MRVL": {
+          "form": "8-K",
+          "filingDate": "2026-11-02",
+          "reportDate": "2026-11-01",
+          "items": "2.02,7.01,9.01",
+          "accessionNumber": "0001193125-26-442714",
+          "primaryDocument": "d81187d8k.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000119312526442714/d81187d8k.htm",
+          "sourceSha256": "02869d7f91ad145ad327997511418cd3ec9f79dd7c1895401e5ed021c5b02de5",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1835632/000119312526442714/d81187dex991.htm"
+          ],
+          "latestPeriodEnd": "2026-08-01",
+          "latestDate": "2026-08-27",
+          "finding": "Merger announcement with preliminary fiscal 2027 third-quarter revenue. Complete financial results are still pending."
+        },
+        "PKG": {
+          "form": "8-K",
+          "filingDate": "2026-10-22",
+          "reportDate": "2026-10-21",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001193125-26-428056",
+          "primaryDocument": "pkg-20261021.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75677/000119312526428056/pkg-20261021.htm",
+          "sourceSha256": "b77f1c76b06d9e8f50f2ba994b06037515fde51c2a18432ac74866ee1bc51a82",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/75677/000119312526428056/pkg-ex99_1.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-21",
+          "finding": "Same third-quarter results and release date. The 8-K was filed the next day."
+        },
+        "STLD": {
+          "form": "8-K",
+          "filingDate": "2026-10-20",
+          "reportDate": "2026-10-19",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001104659-26-117217",
+          "primaryDocument": "tm2627861d2_8k.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926117217/tm2627861d2_8k.htm",
+          "sourceSha256": "117810ad36243ed2fe52a8d2387890f5e45ddb3707a420884fe1b499123eea33",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1022671/000110465926117217/tm2627861d2_ex99-1.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-19",
+          "finding": "Same third-quarter results and release date. The 8-K was filed the next day."
+        },
+        "TER": {
+          "form": "8-K",
+          "filingDate": "2026-10-28",
+          "reportDate": "2026-10-27",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001193125-26-434981",
+          "primaryDocument": "ter-20261027.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/97210/000119312526434981/ter-20261027.htm",
+          "sourceSha256": "9a9bb5cac1b63a8cafdfb5d30a301d14f603418f24bab877b508e5914e31b18b",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/97210/000119312526434981/ter-ex99_1.htm"
+          ],
+          "latestPeriodEnd": "2026-09-27",
+          "latestDate": "2026-10-27",
+          "finding": "Same quarter and release date. The 8-K was filed the next day."
+        },
+        "UDR": {
+          "form": "8-K",
+          "filingDate": "2026-11-02",
+          "reportDate": "2026-11-02",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000074208-26-000084",
+          "primaryDocument": "udr-20261102x8k.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-20261102x8k.htm",
+          "sourceSha256": "842f4c74fe2f4dc0bc6fea3cfb32369b32ccb7faaa8b74c2dc893af06a3a90c7",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d1.htm",
+            "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d2.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-10-21",
+          "finding": "Corrects the formal earnings date. The prior 8-K was an explicitly preliminary release."
+        },
+        "VEEV": {
+          "form": "8-K",
+          "filingDate": "2026-11-06",
+          "reportDate": "2026-11-05",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001393052-26-000039",
+          "primaryDocument": "veev-20261105.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000039/veev-20261105.htm",
+          "sourceSha256": "11c3b97b7488e1c65aa8754b2a82a947e12c3eb655444d59e7719bef4a4ee8a7",
+          "exhibitUrls": [],
+          "latestPeriodEnd": "2026-07-31",
+          "latestDate": "2026-08-26",
+          "finding": "Investor Day presentation referencing earlier guidance."
+        },
+        "VYLR": {
+          "form": "8-K",
+          "filingDate": "2026-11-12",
+          "reportDate": "2026-11-11",
+          "items": "2.02,9.01",
+          "accessionNumber": "0002128626-26-000009",
+          "primaryDocument": "vylr-20261111.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/vylr-20261111.htm",
+          "sourceSha256": "38a50efdb9f70e35655f611a5150814dc8edd8b23c2d8e8041ef8e1d5ac19341",
+          "exhibitUrls": [
+            "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a3q_2026xearningsxnewsxr.htm"
+          ],
+          "latestPeriodEnd": "2026-09-30",
+          "latestDate": "2026-11-11",
+          "finding": "Same quarter and release date. The 8-K was filed the next day."
+        },
+        "WDAY": {
+          "form": "8-K",
+          "filingDate": "2026-09-29",
+          "reportDate": "2026-09-29",
+          "items": "2.02,2.05",
+          "accessionNumber": "0001327811-26-000048",
+          "primaryDocument": "wday-20260929.htm",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000048/wday-20260929.htm",
+          "sourceSha256": "137bee571ca14a481fee5446d4eeb7cded095db57e31d22b3bca4061e5af73cc",
+          "exhibitUrls": [],
+          "latestPeriodEnd": "2026-07-31",
+          "latestDate": "2026-08-27",
+          "finding": "Reiterates guidance and reports restructuring."
+        }
+      },
+      "releaseDateCorrections": {
+        "KMB": {
+          "preliminary": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000110465926115960/tm2627599d1_ex99-1.htm",
+            "sourceSha256": "af4e4759696cb955b6aefc545e5dda8208695dd6f450218cdb882fcbfaa2309c",
+            "date": "2026-10-15",
+            "accessionNumber": "0001104659-26-115960"
+          },
+          "formalResults": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmbq32026ex-991.htm",
+            "sourceSha256": "c2c12cf51aa77c2bed7cf3499189577015a1786ca2f0e6708e0fc5675d5e66de",
+            "date": "2026-11-05",
+            "source8K": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmb-20261105.htm"
+          },
+          "record": {
+            "date": "2026-11-05",
+            "periodEnd": "2026-09-30",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 3,
+            "periodScope": "quarter",
+            "periodStart": "2026-07-01",
+            "epsGaapDiluted": 5.37,
+            "revenue": 4134000000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmbq32026ex-991.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm",
+            "verifiedAt": "2026-11-16",
+            "releaseFilingDate": "2026-11-05",
+            "releaseAccession": "0001628280-26-070514",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm",
+            "form": "10-Q",
+            "filingDate": "2026-11-05",
+            "accessionNumber": "0001628280-26-070754",
+            "ticker": "KMB",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm"
+          },
+          "formalResultsMetricCrossCheck": {
+            "revenue": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmbq32026ex-991.htm",
+              "sourceSha256": "c2c12cf51aa77c2bed7cf3499189577015a1786ca2f0e6708e0fc5675d5e66de",
+              "table": 2,
+              "row": 3,
+              "column": 7,
+              "label": "Net Sales",
+              "unitMultiplier": 1000000,
+              "rawValue": "4,134"
+            },
+            "dilutedEps": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070514/kmbq32026ex-991.htm",
+              "sourceSha256": "c2c12cf51aa77c2bed7cf3499189577015a1786ca2f0e6708e0fc5675d5e66de",
+              "table": 2,
+              "row": 33,
+              "column": 7,
+              "label": "Diluted Earnings per Share",
+              "unitMultiplier": 1,
+              "rawValue": "5.37"
+            }
+          }
+        },
+        "UDR": {
+          "preliminary": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000081/udr-ex99d1.htm",
+            "sourceSha256": "096996580feb0be9144aa316897ca253695471d4f61bf83b78624b26e48c1395",
+            "date": "2026-10-21",
+            "accessionNumber": "0000074208-26-000081"
+          },
+          "formalResults": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d1.htm",
+            "sourceSha256": "39ff9f31992fb1420d1b2c1f26fca15a0412e57ac83ddfa56348a595083a483d",
+            "date": "2026-11-02",
+            "source8K": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-20261102x8k.htm"
+          },
+          "record": {
+            "date": "2026-11-02",
+            "periodEnd": "2026-09-30",
+            "fiscalYear": 2026,
+            "fiscalQuarter": 3,
+            "periodScope": "quarter",
+            "periodStart": "2026-07-01",
+            "epsGaapDiluted": 0.67,
+            "revenue": 428081000.0,
+            "epsBasis": "GAAP diluted",
+            "currency": "USD",
+            "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d1.htm",
+            "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000087/udr-20260930x10q.htm",
+            "verifiedAt": "2026-11-16",
+            "releaseFilingDate": "2026-11-02",
+            "releaseAccession": "0000074208-26-000084",
+            "secUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000087/udr-20260930x10q.htm",
+            "form": "10-Q",
+            "filingDate": "2026-11-03",
+            "accessionNumber": "0000074208-26-000087",
+            "ticker": "UDR",
+            "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000087/udr-20260930x10q.htm",
+            "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000087/udr-20260930x10q.htm"
+          },
+          "formalResultsMetricCrossCheck": {
+            "revenue": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d2.htm",
+              "sourceSha256": "4cc52fedcf9767795c10d136d3aa31629c34e934e5cdba68ed87f6ec3c892222",
+              "table": 6,
+              "row": 8,
+              "column": 3,
+              "label": "Total revenues",
+              "unitMultiplier": 1000,
+              "rawValue": "428,081"
+            },
+            "dilutedEps": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000084/udr-ex99d2.htm",
+              "sourceSha256": "4cc52fedcf9767795c10d136d3aa31629c34e934e5cdba68ed87f6ec3c892222",
+              "table": 6,
+              "row": 42,
+              "column": 3,
+              "label": "Income/(loss) per weighted average common share - diluted:",
+              "unitMultiplier": 1,
+              "rawValue": "$0.67"
+            }
+          }
+        }
+      }
     }
   }
 }
