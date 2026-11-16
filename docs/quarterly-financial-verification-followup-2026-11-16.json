@@ -1658,6 +1658,355 @@
           2.5171449625001263
         ]
       }
+    },
+    "latestPrimarySourceRecheck": {
+      "checkedAtNewYork": "2026-11-16T07:26:10.121665-05:00",
+      "secSubmissionChecks": {
+        "ATO": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000731802.json",
+          "sourceSha256": "bb16cf6ed45f01f7c2936f966b78cfeb3edc1b42a170af8ac927c72dee4f60e9",
+          "recentFilings": [
+            {
+              "form": "8-K",
+              "filingDate": "2026-11-04",
+              "reportDate": "2026-11-03",
+              "items": "5.02,7.01,9.01",
+              "accessionNumber": "0000731802-26-000131",
+              "primaryDocument": "ato-20261103.htm"
+            },
+            {
+              "form": "8-K",
+              "filingDate": "2026-11-04",
+              "reportDate": "2026-11-04",
+              "items": "2.02,9.01",
+              "accessionNumber": "0000731802-26-000129",
+              "primaryDocument": "ato-20261104.htm"
+            }
+          ]
+        },
+        "AES": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "sourceSha256": "8bbb9f8e40d200cab09b1f0b2f56ca0f151a0e7bf2ed597dea84b932a9c96551",
+          "recentFilings": [
+            {
+              "form": "10-Q",
+              "filingDate": "2026-11-03",
+              "reportDate": "2026-09-30",
+              "items": "",
+              "accessionNumber": "0000874761-26-000156",
+              "primaryDocument": "aes-20260930.htm"
+            }
+          ]
+        },
+        "ECHO": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+          "sourceSha256": "81ff684bf8642169c23ca3716885e1bc227d6af394edcdf2e61d3557e0ff58b3",
+          "recentFilings": [
+            {
+              "form": "8-K",
+              "filingDate": "2026-11-03",
+              "reportDate": "2026-10-30",
+              "items": "5.07,9.01",
+              "accessionNumber": "0001415404-26-000057",
+              "primaryDocument": "sats-20261030x8k.htm"
+            },
+            {
+              "form": "10-Q",
+              "filingDate": "2026-11-03",
+              "reportDate": "2026-09-30",
+              "items": "",
+              "accessionNumber": "0001104659-26-121675",
+              "primaryDocument": "sats-20260930x10q.htm"
+            }
+          ]
+        },
+        "TSN": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000100493.json",
+          "sourceSha256": "757dc33205dfd349244034648cd2be03a7150b78139886a90025d6cdd2c01913",
+          "recentFilings": []
+        }
+      },
+      "reviewedUnfilledFields": {
+        "ATO": {
+          "investorQuarterlyResults": "https://www.investors.atmosenergy.com/financials/quarterly-results/default.aspx",
+          "earningsSlides": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+          "nineMonth10Q": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "nineMonthConsolidatedRevenueUsd": 4184046000,
+          "finding": "The issuer marks the FY2026 fourth-quarter financial statement unavailable. Its earnings slides confirm the quarter’s EPS and do not supply consolidated operating revenue. Await the FY2026 10-K or a consolidated fourth-quarter statement."
+        },
+        "BRK-B": {
+          "rule": "ASC 260-10-45-2",
+          "secTaggingGuidance": "https://www.sec.gov/newsroom/whats-new/2405-dqreminder-incorrect-tagging-earnings-share-data",
+          "commonStockNote": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/R27.htm",
+          "proxy": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526106253/d882687ddef14a.htm",
+          "finding": "Class A converts at 1,500 Class B shares per A share, the same ratio used for Class B-equivalent earnings and distributions. The proxy describes a policy against paying employees in Berkshire stock. These support why the published basic amount could be economically equivalent to a diluted amount. Berkshire tags only basic EPS in the five reviewed periods. SEC guidance calls for both tags when an issuer presents one amount as both basic and diluted. Retain the confirmed basic disclosures and the unverified diluted fields."
+        },
+        "TXT": {
+          "comparison10Q": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000044/txt-20261003.htm",
+          "annual10K": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+          "release": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+          "nineMonthDilutedShareSource": "https://www.sec.gov/Archives/edgar/data/217346/000021734625000077/txt-20250927.htm",
+          "comparisonNetIncomeUsd": 686000000,
+          "comparisonDilutedEps": 3.79,
+          "comparisonDilutedShares": 181303000,
+          "quarterEpsSensitivityAssumingReportedShareCounts": [
+            1.3239200453915445,
+            1.3282749563160376
+          ],
+          "roundedCandidates": [
+            1.32,
+            1.33
+          ],
+          "finding": "Even if the comparative nine-month consolidated EPS is used to tighten the back-calculation, two rounding outcomes remain possible. The exact quarterly continuing-operations figure is separately disclosed."
+        },
+        "TRGP": {
+          "supplement": "https://www.targaresources.com/static-files/79973bff-8235-42c5-a841-45348d54fa64",
+          "finding": "The issuer’s Q4 earnings supplement gives no diluted EPS. The Q4 press release supplies net income but does not disclose the quarter’s two-class earnings allocation or diluted share count."
+        },
+        "AES": {
+          "investorResults": "https://www.aes.com/investors",
+          "originalCallCancellation": "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-to-acquire-aes",
+          "finding": "The investor page’s Q4 2025 release link opens the general newsroom. The acquisition notice explicitly canceled the scheduled earnings call and pointed investors to the annual filing. No standalone results date was established in that IR review."
+        },
+        "ECHO": {
+          "investorResults": "https://ir.echostar.com/financial-information/quarterly-results",
+          "finding": "The issuer results page lists 2026 Q2 and Q1 releases. SEC has the Q3 10-Q and a separate governance 8-K. No Q3 results release was established."
+        }
+      },
+      "openFields": {
+        "AES": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "formalReleaseDate"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+              "dateBasis": "sec_filing"
+            },
+            {
+              "periodEnd": "2026-06-30",
+              "fields": [
+                "formalReleaseDate"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+              "dateBasis": "sec_filing"
+            },
+            {
+              "periodEnd": "2026-03-31",
+              "fields": [
+                "formalReleaseDate"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
+              "dateBasis": "sec_filing"
+            },
+            {
+              "periodEnd": "2025-12-31",
+              "fields": [
+                "formalReleaseDate",
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+              "dateBasis": "sec_filing"
+            }
+          ],
+          "verificationNeeded": {
+            "formalReleaseDate": "Find a dated issuer results announcement for each affected quarter. Retain the original SEC filing date in the meantime.",
+            "consolidatedQuarterlyGaapDilutedEps": "Locate reported fourth-quarter EPS or obtain precise attributable income and a verified quarter-specific diluted share count."
+          }
+        },
+        "ATO": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "consolidatedQuarterlyRevenue"
+              ],
+              "lastMetricSource": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyRevenue": "Verify the fiscal 2026 consolidated revenue when the annual report is available and subtract the June 30 nine-month consolidated number."
+          }
+        },
+        "BRK-B": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2026-06-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2026-03-31",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2025-12-31",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2025-09-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyGaapDilutedEps": "Seek issuer evidence that explicitly identifies the Class B-equivalent amount as diluted or provides the complete dilution calculation."
+          }
+        },
+        "ECHO": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "formalReleaseDate"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+              "dateBasis": "sec_filing"
+            }
+          ],
+          "verificationNeeded": {
+            "formalReleaseDate": "Locate a separate Q3 2026 earnings publication with issuer-authenticated date."
+          }
+        },
+        "SKYD": {
+          "quarters": [
+            {
+              "periodEnd": "2025-09-30",
+              "fields": [
+                "consolidatedQuarterlyRevenue",
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyRevenue": "Seek a single fiscal-quarter GAAP revenue disclosure spanning the transaction. Current issuer schedules show two accounting periods and supplemental pro forma data.",
+            "consolidatedQuarterlyGaapDilutedEps": "Seek a full-quarter diluted EPS reported on a single GAAP basis, including for shares issued in the transaction."
+          }
+        },
+        "TECH": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "formalReleaseDate"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
+              "dateBasis": "sec_filing"
+            }
+          ],
+          "verificationNeeded": {
+            "formalReleaseDate": "Locate a standalone Q1 fiscal 2027 results release, distinct from the November 6 10-Q and the signature-only amendment."
+          }
+        },
+        "TRGP": {
+          "quarters": [
+            {
+              "periodEnd": "2025-12-31",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyGaapDilutedEps": "Locate reported fourth-quarter GAAP diluted EPS or enough precision to reproduce the quarterly two-class earnings allocation and dilution."
+          }
+        },
+        "TXT": {
+          "quarters": [
+            {
+              "periodEnd": "2026-01-03",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyGaapDilutedEps": "Find reported consolidated fourth-quarter EPS or a more precise diluted EPS numerator that resolves the rounding boundary."
+          }
+        },
+        "VYLR": {
+          "quarters": [
+            {
+              "periodEnd": "2026-09-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2026-06-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2026-03-31",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2025-12-31",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
+              "dateBasis": "release"
+            },
+            {
+              "periodEnd": "2025-09-30",
+              "fields": [
+                "consolidatedQuarterlyGaapDilutedEps"
+              ],
+              "lastMetricSource": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+              "dateBasis": "release"
+            }
+          ],
+          "verificationNeeded": {
+            "consolidatedQuarterlyGaapDilutedEps": "Check for standalone GAAP EPS comparatives when Vylor reports after separation. The current figures for predecessor and Article 11 pro forma have separate bases."
+          }
+        }
+      },
+      "openFieldCounts": {
+        "formalReleaseDate": 6,
+        "consolidatedQuarterlyGaapDilutedEps": 14,
+        "consolidatedQuarterlyRevenue": 2
+      }
     }
   },
   "upcomingEarningsEventReview": {
@@ -2140,7 +2489,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
           "latestStoredPeriodEnd": "2026-05-31",
           "latestStoredReleaseOrFilingDate": "2026-06-10",
-          "latestStoredFilingDate": "2026-06-22"
+          "latestStoredFilingDate": "2026-06-22",
+          "verifiedPeriodOfReport": "2026-08-31",
+          "latestDraftPeriodAfterReview": "2026-08-31",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001341439.json",
+            "sourceSha256": "5364c4ec08e6aca1823b81257780b0b69290fe38e98ab9f48ca7268d0b4d14dc"
+          }
         }
       ],
       "TECH": [
@@ -2151,7 +2506,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926100322/0001104659-26-100322-index.htm",
           "latestStoredPeriodEnd": "2026-06-30",
           "latestStoredReleaseOrFilingDate": "2026-08-12",
-          "latestStoredFilingDate": "2026-10-28"
+          "latestStoredFilingDate": "2026-10-28",
+          "verifiedPeriodOfReport": "2026-06-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+            "sourceSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3"
+          }
         },
         {
           "form": "10-Q/A",
@@ -2160,7 +2521,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926126284/0001104659-26-126284-index.htm",
           "latestStoredPeriodEnd": "2026-06-30",
           "latestStoredReleaseOrFilingDate": "2026-08-12",
-          "latestStoredFilingDate": "2026-10-28"
+          "latestStoredFilingDate": "2026-10-28",
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+            "sourceSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3"
+          }
         },
         {
           "form": "10-Q",
@@ -2169,7 +2536,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/0001104659-26-123907-index.htm",
           "latestStoredPeriodEnd": "2026-06-30",
           "latestStoredReleaseOrFilingDate": "2026-08-12",
-          "latestStoredFilingDate": "2026-10-28"
+          "latestStoredFilingDate": "2026-10-28",
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+            "sourceSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3"
+          }
         }
       ],
       "CPRT": [
@@ -2180,7 +2553,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/0001193125-26-405731-index.htm",
           "latestStoredPeriodEnd": "2026-07-31",
           "latestStoredReleaseOrFilingDate": "2026-09-10",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-07-31",
+          "latestDraftPeriodAfterReview": "2026-07-31",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000900075.json",
+            "sourceSha256": "0c991264c7a37160a1f6f5012e282155b4b9c5a96f362cfd8338394d4dbaf8c6"
+          }
         }
       ],
       "FDS": [
@@ -2191,7 +2570,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/0001628280-26-066391-index.htm",
           "latestStoredPeriodEnd": "2026-05-31",
           "latestStoredReleaseOrFilingDate": "2026-07-01",
-          "latestStoredFilingDate": "2026-07-01"
+          "latestStoredFilingDate": "2026-07-01",
+          "verifiedPeriodOfReport": "2026-08-31",
+          "latestDraftPeriodAfterReview": "2026-08-31",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001013237.json",
+            "sourceSha256": "b3959273ae54f7cc511a7c96bfca57b9a7c3f57f81074f58c0b7c647fbf3a1d7"
+          }
         }
       ],
       "BXP": [
@@ -2202,7 +2587,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000043/0001037540-26-000043-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-10-27",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001037540.json",
+            "sourceSha256": "7143fcb7229228f49191a0520bd0ea557c7686e0165000277e1033e0d3fe1cc4"
+          }
         }
       ],
       "MTD": [
@@ -2213,7 +2604,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000074/0001037646-26-000074-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-11-05",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001037646.json",
+            "sourceSha256": "52b8e6e39a3b91bbf758a6a567c37c98b48b2f3f9dd29b63abf8fb83751670c6"
+          }
         }
       ],
       "SPG": [
@@ -2224,7 +2621,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926123591/0001104659-26-123591-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-11-05",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001063761.json",
+            "sourceSha256": "5ce9b7c9dad055ee9768ba75090893e6c7db98bc08034311899c8b8dcd41dc93"
+          }
         }
       ],
       "DLR": [
@@ -2235,7 +2638,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/0001104659-26-120710-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-10-29",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001297996.json",
+            "sourceSha256": "6e6b59fb95554da58e47e15956fc5c7c0cc465b9941ff4fe22c3c4e5acc7e1f9"
+          }
         }
       ],
       "CI": [
@@ -2246,7 +2655,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000071/0001739940-26-000071-index.htm",
           "latestStoredPeriodEnd": "2026-06-30",
           "latestStoredReleaseOrFilingDate": "2026-07-30",
-          "latestStoredFilingDate": "2026-07-30"
+          "latestStoredFilingDate": "2026-07-30",
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001739940.json",
+            "sourceSha256": "aa21f8d424802451dba177a93d4d0fa65a377c4a99b14316459a93628fa025ea"
+          }
         }
       ],
       "STE": [
@@ -2257,7 +2672,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026070997/0001628280-26-070997-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-11-04",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0001757898.json",
+            "sourceSha256": "cab0fc2aefc19882ebfc5166b02a9c92b325e5d544ba900f84da69ca2db98c5b"
+          }
         }
       ],
       "LHX": [
@@ -2268,7 +2689,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/0000202058-26-000087-index.htm",
           "latestStoredPeriodEnd": "2026-07-03",
           "latestStoredReleaseOrFilingDate": "2026-07-29",
-          "latestStoredFilingDate": "2026-07-30"
+          "latestStoredFilingDate": "2026-07-30",
+          "verifiedPeriodOfReport": "2026-10-02",
+          "latestDraftPeriodAfterReview": "2026-10-02",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000202058.json",
+            "sourceSha256": "f7c8e4ac79f0a5aee3b7a8b42d66ae6921cda331a8ba1da134a1e1fe8c83aedb"
+          }
         }
       ],
       "SCHW": [
@@ -2279,7 +2706,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000038/0000316709-26-000038-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-10-15",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000316709.json",
+            "sourceSha256": "e2dfa8a9e63ab24355c2325f458b65d7a1f97da4c7a628285f75aaad38251cd7"
+          }
         }
       ],
       "QCOM": [
@@ -2290,7 +2723,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/0000804328-26-000128-index.htm",
           "latestStoredPeriodEnd": "2026-06-28",
           "latestStoredReleaseOrFilingDate": "2026-07-29",
-          "latestStoredFilingDate": "2026-07-29"
+          "latestStoredFilingDate": "2026-07-29",
+          "verifiedPeriodOfReport": "2026-09-27",
+          "latestDraftPeriodAfterReview": "2026-09-27",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000804328.json",
+            "sourceSha256": "c3e80065d3ea06f92b853d380a94fa8e8c276bb724338ccb953e6231b7633a38"
+          }
         }
       ],
       "AZO": [
@@ -2301,7 +2740,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/0001104659-26-118791-index.htm",
           "latestStoredPeriodEnd": "2026-08-29",
           "latestStoredReleaseOrFilingDate": "2026-09-22",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-08-29",
+          "latestDraftPeriodAfterReview": "2026-08-29",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000866787.json",
+            "sourceSha256": "7fb8b35c47897741d9743ba4cd191b3da5c2a4e03ee8b4cfff71a92edc427dc1"
+          }
         }
       ],
       "CPT": [
@@ -2312,7 +2757,13 @@
           "filingIndexUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828026071470/0001628280-26-071470-index.htm",
           "latestStoredPeriodEnd": "2026-09-30",
           "latestStoredReleaseOrFilingDate": "2026-11-05",
-          "latestStoredFilingDate": null
+          "latestStoredFilingDate": null,
+          "verifiedPeriodOfReport": "2026-09-30",
+          "latestDraftPeriodAfterReview": "2026-09-30",
+          "submissionsEvidence": {
+            "sourceUrl": "https://data.sec.gov/submissions/CIK0000906345.json",
+            "sourceSha256": "262bbb7824e6a991b393832bcd60e56656ce0f8a51b25dc71a3a1516665cb04d"
+          }
         }
       ]
     },
@@ -4578,6 +5029,598 @@
           }
         }
       }
+    }
+  },
+  "lateNovemberEarningsEventReview": {
+    "checkedAtNewYork": "2026-11-16T07:26:10.121665-05:00",
+    "calendarFrom": "2026-11-20",
+    "calendarThrough": "2026-12-04",
+    "timeZone": "America/New_York",
+    "scope": "All active tracked issuers with an estimated publication or call in the date window at the start of this review.",
+    "releaseDatesConfirmed": 16,
+    "callDatesConfirmed": 23,
+    "events": {
+      "A": {
+        "date": "2026-11-23",
+        "releaseSourceUrl": "https://www.agilent.com/about/newsroom/presrel/2026/29oct-gp26021.html",
+        "callSourceUrl": "https://www.agilent.com/about/newsroom/presrel/2026/29oct-gp26021.html",
+        "callTimeEastern": "16:30",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://www.agilent.com/about/newsroom/presrel/2026/29oct-gp26021.html",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-11-23",
+          "nextEarningsCallSourceUrl": "https://www.agilent.com/about/newsroom/presrel/2026/29oct-gp26021.html"
+        }
+      },
+      "HPE": {
+        "date": "2026-11-23",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://www.hpe.com/us/en/newsroom/press-release/2026/11/hpe-to-present-live-audio-webcast-of-fiscal-2026-fourth-quarter-earnings-conference-call.html",
+        "callTimeEastern": "17:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-23",
+          "nextEarningsCallSourceUrl": "https://www.hpe.com/us/en/newsroom/press-release/2026/11/hpe-to-present-live-audio-webcast-of-fiscal-2026-fourth-quarter-earnings-conference-call.html"
+        }
+      },
+      "J": {
+        "date": "2026-11-23",
+        "releaseSourceUrl": "https://www.jacobs.com/newsroom/press-release/jacobs-hold-its-fiscal-fourth-quarter-and-full-year-2026-earnings-conference",
+        "callSourceUrl": "https://www.jacobs.com/newsroom/press-release/jacobs-hold-its-fiscal-fourth-quarter-and-full-year-2026-earnings-conference",
+        "callTimeEastern": "16:30",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-23",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://www.jacobs.com/newsroom/press-release/jacobs-hold-its-fiscal-fourth-quarter-and-full-year-2026-earnings-conference",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-11-23",
+          "nextEarningsCallSourceUrl": "https://www.jacobs.com/newsroom/press-release/jacobs-hold-its-fiscal-fourth-quarter-and-full-year-2026-earnings-conference"
+        }
+      },
+      "ADI": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/",
+        "callSourceUrl": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/",
+        "callTimeEastern": "10:00",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": "07:00",
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/"
+        }
+      },
+      "ADSK": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://investors.autodesk.com/node/36286/pdf",
+        "callTimeEastern": "17:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investors.autodesk.com/node/36286/pdf"
+        }
+      },
+      "BBY": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://www.investors.bestbuy.com/News--Events/events-and-presentations/events/event-details/2026/Q3-FY27-Best-Buy-Co-Inc-Earnings-Call/default.aspx",
+        "callTimeEastern": "08:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://www.investors.bestbuy.com/News--Events/events-and-presentations/events/event-details/2026/Q3-FY27-Best-Buy-Co-Inc-Earnings-Call/default.aspx"
+        }
+      },
+      "DELL": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+        "callTimeEastern": "16:30",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+        }
+      },
+      "DLTR": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://corporate.dollartree.com/news-media/press-releases/detail/312/dollar-tree-inc-to-host-third-quarter-earnings-conference",
+        "callSourceUrl": "https://corporate.dollartree.com/news-media/press-releases/detail/312/dollar-tree-inc-to-host-third-quarter-earnings-conference",
+        "callTimeEastern": "08:00",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://corporate.dollartree.com/news-media/press-releases/detail/312/dollar-tree-inc-to-host-third-quarter-earnings-conference",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://corporate.dollartree.com/news-media/press-releases/detail/312/dollar-tree-inc-to-host-third-quarter-earnings-conference"
+        }
+      },
+      "HPQ": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx",
+        "callSourceUrl": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx",
+        "callTimeEastern": "17:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx",
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx"
+        }
+      },
+      "MDT": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027",
+        "callSourceUrl": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027",
+        "callTimeEastern": "07:30",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": "06:45",
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
+        }
+      },
+      "SJM": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://investors.jmsmucker.com/news/news-details/2026/The-J-M--Smucker-Co--to-Report-Second-Quarter-Earnings/default.aspx",
+        "callSourceUrl": "https://investors.jmsmucker.com/news/news-details/2026/The-J-M--Smucker-Co--to-Report-Second-Quarter-Earnings/default.aspx",
+        "callTimeEastern": "09:00",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": "07:00",
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investors.jmsmucker.com/news/news-details/2026/The-J-M--Smucker-Co--to-Report-Second-Quarter-Earnings/default.aspx",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investors.jmsmucker.com/news/news-details/2026/The-J-M--Smucker-Co--to-Report-Second-Quarter-Earnings/default.aspx"
+        }
+      },
+      "WDAY": {
+        "date": "2026-11-24",
+        "releaseSourceUrl": "https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-to-Announce-Fiscal-2027-Third-Quarter-Financial-Results-on-November-24-2026/default.aspx",
+        "callSourceUrl": "https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-to-Announce-Fiscal-2027-Third-Quarter-Financial-Results-on-November-24-2026/default.aspx",
+        "callTimeEastern": "16:30",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-24",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-to-Announce-Fiscal-2027-Third-Quarter-Financial-Results-on-November-24-2026/default.aspx",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-11-24",
+          "nextEarningsCallSourceUrl": "https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-to-Announce-Fiscal-2027-Third-Quarter-Financial-Results-on-November-24-2026/default.aspx"
+        }
+      },
+      "DE": {
+        "date": "2026-11-25",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://www.prnewswire.com/news-releases/deere-to-announce-fourth-quarter-2026-financial-results-302935106.html",
+        "callTimeEastern": "10:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-11-25",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-25",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-25",
+          "nextEarningsCallSourceUrl": "https://www.prnewswire.com/news-releases/deere-to-announce-fourth-quarter-2026-financial-results-302935106.html"
+        }
+      },
+      "CRWD": {
+        "date": "2026-12-01",
+        "releaseSourceUrl": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial",
+        "callSourceUrl": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial",
+        "callTimeEastern": "17:00",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-01",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-01",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-12-01",
+          "nextEarningsCallSourceUrl": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial"
+        }
+      },
+      "NTAP": {
+        "date": "2026-12-01",
+        "releaseSourceUrl": "https://www.netapp.com/newsroom/press-releases/news-rel-20261110-705988/",
+        "callSourceUrl": "https://www.netapp.com/newsroom/press-releases/news-rel-20261110-705988/",
+        "callTimeEastern": "17:30",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-01",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-01",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://www.netapp.com/newsroom/press-releases/news-rel-20261110-705988/",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-12-01",
+          "nextEarningsCallSourceUrl": "https://www.netapp.com/newsroom/press-releases/news-rel-20261110-705988/"
+        }
+      },
+      "CRM": {
+        "date": "2026-12-02",
+        "releaseSourceUrl": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx",
+        "callSourceUrl": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx",
+        "callTimeEastern": "17:00",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-02",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-02",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-12-02",
+          "nextEarningsCallSourceUrl": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx"
+        }
+      },
+      "BF-B": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": "https://investors.brown-forman.com/investors/news-releases/press-release/2026/Brown-Forman-Second-Quarter-Earnings-Release-and-Conference-Call-Scheduled-for-December-3-2026/default.aspx",
+        "callSourceUrl": "https://investors.brown-forman.com/investors/news-releases/press-release/2026/Brown-Forman-Second-Quarter-Earnings-Release-and-Conference-Call-Scheduled-for-December-3-2026/default.aspx",
+        "callTimeEastern": "10:00",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": "08:00",
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investors.brown-forman.com/investors/news-releases/press-release/2026/Brown-Forman-Second-Quarter-Earnings-Release-and-Conference-Call-Scheduled-for-December-3-2026/default.aspx",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://investors.brown-forman.com/investors/news-releases/press-release/2026/Brown-Forman-Second-Quarter-Earnings-Release-and-Conference-Call-Scheduled-for-December-3-2026/default.aspx"
+        }
+      },
+      "COO": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": "https://investor.coopercos.com/node/28956/pdf",
+        "callSourceUrl": "https://investor.coopercos.com/node/28956/pdf",
+        "callTimeEastern": "17:00",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": "16:15",
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.coopercos.com/node/28956/pdf",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://investor.coopercos.com/node/28956/pdf"
+        }
+      },
+      "DG": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": "https://investor.dollargeneral.com/news-detail/dollar-general-corporation-announces-webcast-of-its-third-quarter-2026-earnings-conference-call/61f86ee0-0552-4ed3-9adb-b21a0d3d1d14",
+        "callSourceUrl": "https://investor.dollargeneral.com/news-detail/dollar-general-corporation-announces-webcast-of-its-third-quarter-2026-earnings-conference-call/61f86ee0-0552-4ed3-9adb-b21a0d3d1d14",
+        "callTimeEastern": "09:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.dollargeneral.com/news-detail/dollar-general-corporation-announces-webcast-of-its-third-quarter-2026-earnings-conference-call/61f86ee0-0552-4ed3-9adb-b21a0d3d1d14",
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://investor.dollargeneral.com/news-detail/dollar-general-corporation-announces-webcast-of-its-third-quarter-2026-earnings-conference-call/61f86ee0-0552-4ed3-9adb-b21a0d3d1d14"
+        }
+      },
+      "HRL": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": "https://investor.hormelfoods.com/news-and-events/news/news-details/2026/Hormel-Foods-Corporation-Announces-Fourth-Quarter-Earnings-Call/default.aspx",
+        "callSourceUrl": "https://investor.hormelfoods.com/news-and-events/news/news-details/2026/Hormel-Foods-Corporation-Announces-Fourth-Quarter-Earnings-Call/default.aspx",
+        "callTimeEastern": "09:00",
+        "releaseSession": "BMO",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.hormelfoods.com/news-and-events/news/news-details/2026/Hormel-Foods-Corporation-Announces-Fourth-Quarter-Earnings-Call/default.aspx",
+          "bmo_amc": "BMO",
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://investor.hormelfoods.com/news-and-events/news/news-details/2026/Hormel-Foods-Corporation-Announces-Fourth-Quarter-Earnings-Call/default.aspx"
+        }
+      },
+      "KR": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://ir.kroger.com/news/news-details/2026/Kroger-Announces-Third-Quarter-Conference-Call-with-Investors/default.aspx",
+        "callTimeEastern": "08:00",
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://ir.kroger.com/news/news-details/2026/Kroger-Announces-Third-Quarter-Conference-Call-with-Investors/default.aspx"
+        }
+      },
+      "ULTA": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://www.ulta.com/investor/news-events/ir-calendar",
+        "callTimeEastern": null,
+        "releaseSession": null,
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://www.ulta.com/investor/news-events/ir-calendar"
+        }
+      },
+      "VEEV": {
+        "date": "2026-12-03",
+        "releaseSourceUrl": "https://www.prnewswire.com/news-releases/veeva-to-release-fiscal-2027-third-quarter-results-on-december-3-2026-302938353.html",
+        "callSourceUrl": "https://www.prnewswire.com/news-releases/veeva-to-release-fiscal-2027-third-quarter-results-on-december-3-2026-302938353.html",
+        "callTimeEastern": "17:00",
+        "releaseSession": "AMC",
+        "releaseTimeEastern": null,
+        "releaseNoLaterThanEastern": null,
+        "previousFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-12-03",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://www.prnewswire.com/news-releases/veeva-to-release-fiscal-2027-third-quarter-results-on-december-3-2026-302938353.html",
+          "bmo_amc": "AMC",
+          "nextEarningsCallDate": "2026-12-03",
+          "nextEarningsCallSourceUrl": "https://www.prnewswire.com/news-releases/veeva-to-release-fiscal-2027-third-quarter-results-on-december-3-2026-302938353.html"
+        }
+      }
+    },
+    "dateEvidenceNotes": {
+      "DELL": "The release says results will be issued before the webcast, without specifying the standalone publication date or market session.",
+      "HPQ": "The issuer announces a results date in its headline. The specific time in the body is the webcast time.",
+      "NTAP": "The dated results notice and dedicated event listing agree on December 1.",
+      "ULTA": "The issuer calendar identifies the call date without a time or a separate publication date."
     }
   }
 }
