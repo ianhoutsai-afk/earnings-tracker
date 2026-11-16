@@ -60331,13 +60331,13 @@
       "quarter": "2025 Q4",
       "periodEnd": "2025-12-31",
       "periodScope": "quarter",
-      "eps_reported": "-",
+      "eps_reported": "$0.54",
       "revenue_reported": "$4.58B",
-      "epsBasis": null,
+      "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000119312526073364/d21122dex991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-16",
       "verificationStatus": "official_verified",
       "filingDate": "2026-02-27",
       "accessionNumber": "0001692819-26-000006",
@@ -60349,9 +60349,11 @@
       "fiscalQuarter": 4,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
       "metricNote": {
-        "en": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue.",
-        "zh-TW": "單季營收以全年合併 GAAP 營收減去首九個月合併 GAAP 營收計算。"
-      }
+        "en": "Fourth-quarter revenue and net income available to common shareholders are derived from the full year and first nine months. Quarterly diluted EPS uses the reconstructed day-weighted basic shares and the quarterly weighted-average stock awards.",
+        "zh-TW": "第四季營收及歸屬普通股股東淨利以全年減前三季計算。單季稀釋 EPS 採按天數回推的基本股數，以及按季平均的股票獎酬稀釋增量。"
+      },
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"
     },
     {
       "date": "2025-11-06",

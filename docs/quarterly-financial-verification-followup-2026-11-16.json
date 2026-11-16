@@ -627,10 +627,10 @@
       "trackedTickerCount": 503,
       "matchedToHoldings": 503,
       "verifiedQuarterCount": 2515,
-      "completeMetricQuarterCount": 2499,
+      "completeMetricQuarterCount": 2500,
       "quartersWithoutStandaloneRecords": 0,
       "missingRevenueCount": 2,
-      "missingDilutedEpsCount": 15,
+      "missingDilutedEpsCount": 14,
       "onlyFilingDateCount": 5,
       "historicalRecastDates": 8
     },
@@ -897,13 +897,6 @@
         "onlySecFilingDate": false
       },
       {
-        "ticker": "VST",
-        "periodEnd": "2025-12-31",
-        "revenueMissing": false,
-        "dilutedEpsMissing": true,
-        "onlySecFilingDate": false
-      },
-      {
         "ticker": "VYLR",
         "periodEnd": "2026-09-30",
         "revenueMissing": false,
@@ -1083,6 +1076,238 @@
           }
         },
         "basis": "The issuer explicitly labels $6.714 billion as supplemental pro forma revenue. The consolidated income statement presents two separate GAAP reporting periods, which retain their original values."
+      },
+      "VST": {
+        "record": {
+          "date": "2026-02-26",
+          "periodEnd": "2025-12-31",
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodStart": null,
+          "epsGaapDiluted": 0.54,
+          "revenue": 4584000000,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD",
+          "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000119312526073364/d21122dex991.htm",
+          "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+          "verifiedAt": "2026-11-16",
+          "releaseFilingDate": "2026-02-26",
+          "releaseAccession": "0001193125-26-073364",
+          "secUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+          "form": "10-K",
+          "filingDate": "2026-02-27",
+          "accessionNumber": "0001692819-26-000006",
+          "ticker": "VST",
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+          "metricNote": {
+            "en": "Fourth-quarter revenue and net income available to common shareholders are derived from the full year and first nine months. Quarterly diluted EPS uses the reconstructed day-weighted basic shares and the quarterly weighted-average stock awards.",
+            "zh-TW": "第四季營收及歸屬普通股股東淨利以全年減前三季計算。單季稀釋 EPS 採按天數回推的基本股數，以及按季平均的股票獎酬稀釋增量。"
+          },
+          "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+          "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"
+        },
+        "sourceIncome": {
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+            "sourceSha256": "25d15d5360e7428d7395f1a3f510c16eee4388656ca5041a0e095426b69c54aa",
+            "table": 57,
+            "row": 23,
+            "column": 4,
+            "label": "Net income attributable to Vistra common stock",
+            "rawValue": "752",
+            "unitMultiplier": 1000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/vistra-20250930.htm",
+            "sourceSha256": "4ce5b63b92e119c95d553fd0c02464c23f1f6c7138a3f864d3b1305e89951e8c",
+            "table": 12,
+            "row": 22,
+            "column": 16,
+            "label": "Net income attributable to Vistra common stock",
+            "rawValue": "567",
+            "unitMultiplier": 1000000
+          }
+        },
+        "sourceBasicShares": {
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+            "sourceSha256": "25d15d5360e7428d7395f1a3f510c16eee4388656ca5041a0e095426b69c54aa",
+            "table": 136,
+            "row": 10,
+            "column": 4,
+            "label": "Basic",
+            "rawValue": "339,124,917",
+            "unitMultiplier": 1
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/vistra-20250930.htm",
+            "sourceSha256": "4ce5b63b92e119c95d553fd0c02464c23f1f6c7138a3f864d3b1305e89951e8c",
+            "table": 63,
+            "row": 10,
+            "column": 16,
+            "label": "Basic",
+            "rawValue": "339,313,294",
+            "unitMultiplier": 1
+          }
+        },
+        "sourceIncrementalShares": {
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+            "sourceSha256": "25d15d5360e7428d7395f1a3f510c16eee4388656ca5041a0e095426b69c54aa",
+            "table": 136,
+            "row": 11,
+            "column": 4,
+            "label": "Dilutive securities: Stock-based incentive compensation plan",
+            "rawValue": "6,531,150",
+            "unitMultiplier": 1
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/vistra-20250930.htm",
+            "sourceSha256": "4ce5b63b92e119c95d553fd0c02464c23f1f6c7138a3f864d3b1305e89951e8c",
+            "table": 63,
+            "row": 11,
+            "column": 16,
+            "label": "Dilutive securities: Stock-based incentive compensation plan",
+            "rawValue": "6,990,323",
+            "unitMultiplier": 1
+          }
+        },
+        "exposureDays": {
+          "fullYear": 365,
+          "firstNineMonths": 273,
+          "fourthQuarter": 92
+        },
+        "quartersInEachPeriod": {
+          "fullYear": 4,
+          "firstNineMonths": 3
+        },
+        "issuerCalculationControls": {
+          "2026 Q1": {
+            "basic": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000014/vistra-20260331.htm",
+              "sourceSha256": "5c11e57fd27565cb1160512accefafe22bd239ed976495f8c25453f691c87406",
+              "table": 57,
+              "row": 10,
+              "column": 16,
+              "label": "Basic",
+              "rawValue": "337,823,560",
+              "unitMultiplier": 1
+            },
+            "incentiveShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000014/vistra-20260331.htm",
+              "sourceSha256": "5c11e57fd27565cb1160512accefafe22bd239ed976495f8c25453f691c87406",
+              "table": 57,
+              "row": 11,
+              "column": 16,
+              "label": "Dilutive securities: Stock-based incentive compensation plan",
+              "rawValue": "4,033,214",
+              "unitMultiplier": 1
+            }
+          },
+          "2026 Q2": {
+            "basic": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm",
+              "sourceSha256": "a1b48121504288ef01a126eb9df04b3dfcebf842d8bdb710a53d2d2e37505966",
+              "table": 59,
+              "row": 10,
+              "column": 4,
+              "label": "Basic",
+              "rawValue": "336,846,562",
+              "unitMultiplier": 1
+            },
+            "incentiveShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm",
+              "sourceSha256": "a1b48121504288ef01a126eb9df04b3dfcebf842d8bdb710a53d2d2e37505966",
+              "table": 59,
+              "row": 11,
+              "column": 4,
+              "label": "Dilutive securities: Stock-based incentive compensation plan",
+              "rawValue": "2,384,414",
+              "unitMultiplier": 1
+            }
+          },
+          "2026 first half": {
+            "basic": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm",
+              "sourceSha256": "a1b48121504288ef01a126eb9df04b3dfcebf842d8bdb710a53d2d2e37505966",
+              "table": 59,
+              "row": 10,
+              "column": 16,
+              "label": "Basic",
+              "rawValue": "337,332,362",
+              "unitMultiplier": 1
+            },
+            "incentiveShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm",
+              "sourceSha256": "a1b48121504288ef01a126eb9df04b3dfcebf842d8bdb710a53d2d2e37505966",
+              "table": 59,
+              "row": 11,
+              "column": 16,
+              "label": "Dilutive securities: Stock-based incentive compensation plan",
+              "rawValue": "3,208,814",
+              "unitMultiplier": 1
+            }
+          },
+          "2026 Q3": {
+            "basic": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+              "sourceSha256": "bf7cf5a52957fc44555b44f3bf0ca9fd2b2a6252a6e2886e5b523ad875c664e7",
+              "table": 60,
+              "row": 10,
+              "column": 4,
+              "label": "Basic",
+              "rawValue": "335,413,414",
+              "unitMultiplier": 1
+            },
+            "incentiveShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+              "sourceSha256": "bf7cf5a52957fc44555b44f3bf0ca9fd2b2a6252a6e2886e5b523ad875c664e7",
+              "table": 60,
+              "row": 11,
+              "column": 4,
+              "label": "Dilutive securities: Stock-based incentive compensation plan",
+              "rawValue": "2,439,243",
+              "unitMultiplier": 1
+            }
+          },
+          "2026 first nine months": {
+            "basic": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+              "sourceSha256": "bf7cf5a52957fc44555b44f3bf0ca9fd2b2a6252a6e2886e5b523ad875c664e7",
+              "table": 60,
+              "row": 10,
+              "column": 16,
+              "label": "Basic",
+              "rawValue": "336,685,683",
+              "unitMultiplier": 1
+            },
+            "incentiveShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+              "sourceSha256": "bf7cf5a52957fc44555b44f3bf0ca9fd2b2a6252a6e2886e5b523ad875c664e7",
+              "table": 60,
+              "row": 11,
+              "column": 16,
+              "label": "Dilutive securities: Stock-based incentive compensation plan",
+              "rawValue": "2,952,290",
+              "unitMultiplier": 1
+            }
+          }
+        },
+        "accountingStandardUrl": "https://storage.fasb.org/ASU%202020-06.pdf",
+        "accountingStandardParagraphs": [
+          "ASC 260-10-55-3",
+          "ASC 260-10-55-3A"
+        ],
+        "method": "Subtract nine-month share-days from full-year share-days to isolate quarterly basic shares. Vistra applies an equal-quarter average to incremental stock compensation shares. Its 2026 first-half and nine-month note values reproduce that method. The positive full-year and nine-month measures apply the same treasury-stock methodology to prior-quarter awards. Subtract the first three quarters using that weighting.",
+        "netIncomeToCommonUsd": 185000000,
+        "impliedQuarterlyBasicShares": 338565928.7282609,
+        "impliedQuarterlyIncrementalShares": 5153631,
+        "allowedDilutedShareRounding": 6.967391304347826,
+        "roundingRange": [
+          0.5353201209022922,
+          0.5411388398070062
+        ]
       }
     }
   }
