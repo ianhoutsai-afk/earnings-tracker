@@ -5146,11 +5146,16 @@
     "metricSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
     "periodScope": "quarter",
     "currency": "USD",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "revenue": null,
     "epsGaapDiluted": 1.17,
     "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "metricNote": {
+      "en": "The issuer’s earnings presentation reported quarterly net income of $199M and operating income of $259.3M. Consolidated operating revenue remains unverified.",
+      "zh-TW": "公司財報簡報披露本季淨利為 1.99 億美元，營業利益為 2.593 億美元。合併營收仍待核實。"
+    },
+    "metricNoteSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf"
   },
   {
     "date": "2026-08-05",
@@ -57040,10 +57045,10 @@
     "epsBasis": null,
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000119312526338406/d140402dex991.htm",
     "metricNote": {
-      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business.",
-      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。"
+      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business. Corteva’s August 6 bond exchange exhibit reported illustrative pro forma diluted EPS from continuing operations of $0.70 and pro forma sales of $3.043B, using pre-close financing assumptions.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。Corteva 於 8 月 6 日公布的債券交換文件按分拆完成前的融資假設，列出繼續營業備考稀釋 EPS 0.70 美元與備考營收 30.43 億美元。"
     }
   },
   {

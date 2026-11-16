@@ -3528,10 +3528,10 @@
         "epsBasis": null,
         "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
         "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
-        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000119312526338406/d140402dex991.htm",
         "metricNote": {
-          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business.",
-          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。"
+          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business. Corteva’s August 6 bond exchange exhibit reported illustrative pro forma diluted EPS from continuing operations of $0.70 and pro forma sales of $3.043B, using pre-close financing assumptions.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。Corteva 於 8 月 6 日公布的債券交換文件按分拆完成前的融資假設，列出繼續營業備考稀釋 EPS 0.70 美元與備考營收 30.43 億美元。"
         }
       },
       "releaseEvidence": {
@@ -3589,6 +3589,39 @@
           "rawValue": "502",
           "unitMultiplier": 1000000
         }
+      },
+      "preSeparationProFormaEvidence": {
+        "periodEnd": "2026-03-31",
+        "supplementPublished": "2026-08-06",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000119312526338406/d140402dex991.htm",
+        "sourceSha256": "5d87da365d750f9d754f3aef8c3bd37650ea558d97735646705f9f032ea9a5a1",
+        "basis": "Pre-close pro forma transaction accounting with illustrative financing and equity-plan assumptions. Keep historical combined Seed Business sales and attributable net income on their own basis.",
+        "proFormaNetSales": {
+          "table": 10,
+          "row": 3,
+          "column": 17,
+          "label": "Net sales",
+          "rawValue": "3,043",
+          "unit": "USD millions"
+        },
+        "proFormaDilutedEpsFromContinuingOperations": {
+          "table": 10,
+          "row": 25,
+          "column": 17,
+          "label": "Diluted earnings (loss) per share of common stock from continuing operations",
+          "rawValue": "0.70",
+          "unit": "USD per share"
+        },
+        "proFormaDilutedWeightedAverageShares": {
+          "table": 10,
+          "row": 28,
+          "column": 17,
+          "label": "Diluted",
+          "rawValue": "673.6",
+          "unit": "millions of shares"
+        },
+        "historicalSeedBusinessSalesUsd": 3023000000,
+        "historicalSeedBusinessIncomeSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm"
       }
     },
     {

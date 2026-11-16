@@ -2157,6 +2157,52 @@
           "unitMultiplier": 1000000
         }
       }
+    },
+    "supplementalPerShareAndOperatingIncome": {
+      "checkedAtNewYork": "2026-11-16T09:14:48.043562-05:00",
+      "VYLR": {
+        "periodEnd": "2026-03-31",
+        "supplementPublished": "2026-08-06",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000119312526338406/d140402dex991.htm",
+        "sourceSha256": "5d87da365d750f9d754f3aef8c3bd37650ea558d97735646705f9f032ea9a5a1",
+        "basis": "Pre-close pro forma transaction accounting with illustrative financing and equity-plan assumptions. Keep historical combined Seed Business sales and attributable net income on their own basis.",
+        "proFormaNetSales": {
+          "table": 10,
+          "row": 3,
+          "column": 17,
+          "label": "Net sales",
+          "rawValue": "3,043",
+          "unit": "USD millions"
+        },
+        "proFormaDilutedEpsFromContinuingOperations": {
+          "table": 10,
+          "row": 25,
+          "column": 17,
+          "label": "Diluted earnings (loss) per share of common stock from continuing operations",
+          "rawValue": "0.70",
+          "unit": "USD per share"
+        },
+        "proFormaDilutedWeightedAverageShares": {
+          "table": 10,
+          "row": 28,
+          "column": 17,
+          "label": "Diluted",
+          "rawValue": "673.6",
+          "unit": "millions of shares"
+        },
+        "historicalSeedBusinessSalesUsd": 3023000000,
+        "historicalSeedBusinessIncomeSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm"
+      },
+      "ATO": {
+        "periodEnd": "2026-09-30",
+        "sourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+        "presentationDate": "2026-11-04",
+        "quarterlyNetIncomeUsd": 199000000,
+        "quarterlyNetIncomeSlide": 4,
+        "quarterlyOperatingIncomeUsd": 259300000,
+        "quarterlyOperatingIncomeSlide": 5,
+        "basis": "Issuer presentation for the three months ended September 30, 2026. Amounts use the displayed precision. Consolidated operating revenue was not presented."
+      }
     }
   },
   "upcomingEarningsEventReview": {
