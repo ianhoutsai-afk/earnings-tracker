@@ -3,7 +3,7 @@ import json, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, pending_history_companies
 from verified_history import apply_official_records, write_json_bundle
 from validate_quarterly_data import validate
 
@@ -44,7 +44,7 @@ for company in companies:
         assert max((r.get('periodEnd','') for r in rows),default='')>=old_end, ticker+' latest official quarter regressed'
 companies=[company_fields(c,history,today) for c in companies]
 summary=read(branch,'official_scan_state.json')
-summary.update(companies=len(companies),officialQuarters=sum(s['officialQuarterCount'] for s in status.values()),storedQuarters=sum(s['recordCount'] for s in status.values()),completeMetricQuarters=sum(s['metricsVerifiedQuarterCount'] for s in status.values()),fiveOfficialQuarterCompanies=sum(s['officialQuarterCount']==5 for s in status.values()),fiveCompleteMetricCompanies=sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),pendingCompanies=sum(s.get('status')!='official_source_checked' or s['officialQuarterCount']<5 or s['metricsVerifiedQuarterCount']<5 for s in status.values()),reconciledMainCommit=subprocess.check_output(['git','rev-parse',main],text=True).strip(),dataMergedAt=datetime.now(timezone.utc).isoformat())
+summary.update(companies=len(companies),officialQuarters=sum(s['officialQuarterCount'] for s in status.values()),storedQuarters=sum(s['recordCount'] for s in status.values()),completeMetricQuarters=sum(s['metricsVerifiedQuarterCount'] for s in status.values()),fiveOfficialQuarterCompanies=sum(s['officialQuarterCount']==5 for s in status.values()),fiveCompleteMetricCompanies=sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),pendingCompanies=pending_history_companies(history),scanPendingCompanies=sum(s.get('status')!='official_source_checked' for s in status.values()),reconciledMainCommit=subprocess.check_output(['git','rev-parse',main],text=True).strip(),dataMergedAt=datetime.now(timezone.utc).isoformat())
 summary['historyComplete']=summary['fiveOfficialQuarterCompanies']==len(companies)
 summary['metricsComplete']=summary['fiveCompleteMetricCompanies']==len(companies)
 summary['filingDatedQuarters'] = filing_dated_quarters(history)

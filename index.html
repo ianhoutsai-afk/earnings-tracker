@@ -121,7 +121,7 @@
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            quarterEstimates, nextCompanyEvent, quarterlyMetrics,
+            quarterEstimates, nextCompanyEvent, quarterlyMetrics, historyCoverage,
         } from './quarterly-history.mjs';
 
         // 深淺色模式
@@ -340,10 +340,8 @@
         }
 
         function renderTable(data) {
-            const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
-            const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            const pending=appData.filter(company=>{const row=historyStatus[company.ticker];return !row||row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5;}).length;
-            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed,pending});
+            const coverage = historyCoverage(appData, historicalData, historyStatus);
+            document.getElementById('data-health').textContent = t('history.health', coverage);
             const container = document.getElementById('data-container');
             container.innerHTML = '';
 

@@ -22,7 +22,7 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance, pending_history_companies
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -422,7 +422,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                          'officialSourceUrl':official_source_url(latest) if latest.get('verificationStatus')=='official_verified' else None,
                          'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
     summary = {'companies':len(companies), 'issuersChecked':issuers_checked,'issuerTargets':len(groups),'deferredCompanies':deferred, 'newRecords':parsed_count,
-               'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
+               'sourceFailures':source_failures, 'pendingCompanies':pending_history_companies(history),
+               'scanPendingCompanies':sum(s.get('status')!='official_source_checked' for s in status.values()),
                'officialQuarters':sum(s.get('officialQuarterCount',0) for s in status.values()),
                'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
                'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),

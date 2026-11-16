@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent } from './quarterly-history.mjs';
+import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent, historyCoverage } from './quarterly-history.mjs';
 
 test('NVDA shows five distinct periods newest first while other companies keep their history', () => {
   const rows = [
@@ -67,4 +67,36 @@ test('five verified periods cannot be displaced by an uncertain later legacy dat
  const rows=Array.from({length:5},(_,i)=>({date:`2026-0${i+1}-15`,periodEnd:`2026-0${i+1}-01`,periodScope:'quarter',verificationStatus:'official_verified'}));
  rows.push({date:'2026-06-15',quarter:'legacy pending'});
  assert.ok(selectHistory('ABC',rows).every(r=>r.verificationStatus==='official_verified'));
+});
+
+
+test('coverage reports retained gaps independently from automatic scan diagnostics', () => {
+  const complete = Array.from({ length: 5 }, (_, index) => ({
+    periodEnd: `2026-0${index + 1}-01`,
+    periodScope: 'quarter',
+    currency: 'USD',
+    verificationStatus: 'official_verified',
+    epsBasis: 'GAAP diluted',
+    eps_reported: '$0.00',
+    revenue_reported: '$0.00M',
+  }));
+  const companies = ['COMPLETE', 'RECAST', 'FILING', 'MISSING', 'LEGACY', 'SHORT', 'ABSENT'].map(ticker => ({ ticker }));
+  const history = {
+    COMPLETE: complete,
+    RECAST: [{ ...complete[0], dateSource: 'recast' }, ...complete.slice(1)],
+    FILING: [{ ...complete[0], dateSource: 'sec_filing' }, ...complete.slice(1)],
+    MISSING: [{ ...complete[0], eps_reported: '-' }, ...complete.slice(1)],
+    LEGACY: [{ ...complete[0], verificationStatus: 'legacy_unverified' }, ...complete.slice(1)],
+    SHORT: complete.slice(1),
+    ARCHIVED: complete,
+  };
+  const sourceStatus = {
+    COMPLETE: { status: 'official_parse_pending' },
+    RECAST: { status: 'official_source_failed' },
+    MISSING: { status: 'official_source_checked' },
+    ARCHIVED: { status: 'official_source_failed' },
+  };
+  assert.deepEqual(historyCoverage(companies, history, sourceStatus), {
+    count: 7, verified: 28, failed: 1, pending: 5, filingDated: 1, recastDated: 1,
+  });
 });

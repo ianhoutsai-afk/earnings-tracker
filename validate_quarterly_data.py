@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, pending_history_companies
 from verified_history import _validate_record
 
 
@@ -52,6 +52,11 @@ def validate(root='.', today=None):
     state_path = root/'official_scan_state.json'
     if state_path.exists():
         state = json.loads(state_path.read_text())
+        if 'scanPendingCompanies' in state:
+            if state.get('pendingCompanies') != pending_history_companies(history):
+                raise ValueError('Pending-data count differs from the published quarters')
+            if state['scanPendingCompanies'] != sum(row.get('status') != 'official_source_checked' for row in status.values()):
+                raise ValueError('Pending-scan count differs from the last source review')
         if 'filingDatedQuarters' in state:
             filing_count = filing_dated_quarters(history)
             all_releases = all_release_dates_verified(history)

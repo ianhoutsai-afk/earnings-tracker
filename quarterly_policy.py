@@ -80,6 +80,23 @@ def filing_dated_quarters(history):
                for rows in history.values() for row in rows)
 
 
+def pending_history_companies(history):
+    return sum(
+        len(rows) < HISTORY_LIMIT or any(
+            row.get('verificationStatus') != 'official_verified'
+            or row.get('periodScope') != 'quarter'
+            or not row.get('periodEnd')
+            or row.get('currency') != 'USD'
+            or row.get('epsBasis') != 'GAAP diluted'
+            or not row.get('eps_reported') or row['eps_reported'] == '-'
+            or not row.get('revenue_reported') or row['revenue_reported'] == '-'
+            or row.get('dateSource') not in (None, 'recast')
+            for row in rows
+        )
+        for rows in history.values()
+    )
+
+
 def all_release_dates_verified(history):
     return all(len(rows) == HISTORY_LIMIT and all(
         row.get('verificationStatus') == 'official_verified' and row.get('dateSource') is None
