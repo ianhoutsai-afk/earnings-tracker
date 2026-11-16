@@ -4900,7 +4900,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://ir.homedepot.com/events-and-presentations",
+      "bmo_amc": null
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000354950",
     "recordCount": 5,
@@ -5362,7 +5367,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.intuit.com/news-events/press-releases/detail/1330/intuit-to-announce-first-quarter-fiscal-year-2027-results-on-nov-19",
+      "bmo_amc": "AMC"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000896878",
     "recordCount": 5,
@@ -5693,7 +5703,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx",
+      "bmo_amc": "AMC"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001601046",
     "recordCount": 5,
@@ -7155,7 +7170,13 @@
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "nextEarningsEvent": {
+      "date": "2026-11-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/default.aspx",
+      "bmo_amc": "AMC"
+    }
   },
   "NVR": {
     "status": "official_parse_pending",
@@ -7444,7 +7465,12 @@
     "metricPending": 6,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-18",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-announce-fiscal-first-quarter-2027-financial",
+      "bmo_amc": "AMC"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001327567",
     "recordCount": 5,
@@ -8342,7 +8368,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.rossstores.com/news-releases/news-release-details/ross-stores-inc-announces-third-quarter-2026-earnings-release",
+      "bmo_amc": null
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000745732",
     "recordCount": 5,
@@ -9245,7 +9276,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-18",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.tjx.com/news-releases/news-release-details/tjx-companies-inc-report-q3-fy27-results-november-18-2026",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000109198",
     "recordCount": 5,
@@ -9450,7 +9486,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-16",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://ir.tyson.com/news/news-details/2026/Tyson-Foods-Announces-Fourth-Quarter-Earnings-Conference-Call-and-Webcast/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000100493",
     "recordCount": 5,
@@ -10038,7 +10079,12 @@
     "metricPending": 5,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://corporate.walmart.com/news/2026/11/Walmart-To-Host-Q3-Earnings-Call-Nov-19-2026",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000104169",
     "recordCount": 5,
@@ -10059,7 +10105,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001744489",
     "recordCount": 5,
@@ -10264,7 +10315,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://www.businesswire.com/news/home/20261112522328/en/Williams-Sonoma-Inc.-announces-release-date-for-third-quarter-results-Thursday-November-19th-2026",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000719955",
     "recordCount": 5,
