@@ -1309,6 +1309,355 @@
           0.5411388398070062
         ]
       }
+    },
+    "remainingReadinessChecks": {
+      "checkedAtUtc": "2026-11-16T10:00:58.923331+00:00",
+      "selectedCurrentSecSubmissionChecks": {
+        "ATO": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000731802.json",
+          "sourceSha256": "bb16cf6ed45f01f7c2936f966b78cfeb3edc1b42a170af8ac927c72dee4f60e9",
+          "recentPotentiallyRelevantFilings": [
+            {
+              "form": "8-K",
+              "filingDate": "2026-11-04",
+              "reportDate": "2026-11-04",
+              "items": "2.02,9.01",
+              "accessionNumber": "0000731802-26-000129",
+              "primaryDocument": "ato-20261104.htm"
+            }
+          ]
+        },
+        "AES": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "sourceSha256": "8bbb9f8e40d200cab09b1f0b2f56ca0f151a0e7bf2ed597dea84b932a9c96551",
+          "recentPotentiallyRelevantFilings": [
+            {
+              "form": "10-Q",
+              "filingDate": "2026-11-03",
+              "reportDate": "2026-09-30",
+              "items": "",
+              "accessionNumber": "0000874761-26-000156",
+              "primaryDocument": "aes-20260930.htm"
+            }
+          ]
+        },
+        "ECHO": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+          "sourceSha256": "81ff684bf8642169c23ca3716885e1bc227d6af394edcdf2e61d3557e0ff58b3",
+          "recentPotentiallyRelevantFilings": [
+            {
+              "form": "10-Q",
+              "filingDate": "2026-11-03",
+              "reportDate": "2026-09-30",
+              "items": "",
+              "accessionNumber": "0001104659-26-121675",
+              "primaryDocument": "sats-20260930x10q.htm"
+            }
+          ]
+        },
+        "VYLR": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "sourceSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "recentPotentiallyRelevantFilings": [
+            {
+              "form": "10-Q",
+              "filingDate": "2026-11-12",
+              "reportDate": "2026-09-30",
+              "items": "",
+              "accessionNumber": "0002128626-26-000012",
+              "primaryDocument": "vylr-20260930.htm"
+            },
+            {
+              "form": "8-K",
+              "filingDate": "2026-11-12",
+              "reportDate": "2026-11-11",
+              "items": "2.02,9.01",
+              "accessionNumber": "0002128626-26-000009",
+              "primaryDocument": "vylr-20261111.htm"
+            }
+          ]
+        }
+      },
+      "BRK-B": {
+        "basis": "The filing tags use basic EPS and the disclosures give Class B-equivalent EPS. They do not establish either a diluted figure or an explicitly combined basic-and-diluted amount.",
+        "quarters": [
+          {
+            "periodEnd": "2026-09-30",
+            "financialStatement": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+              "sourceSha256": "225a6d093b8a73d2ce7a627eb312c7a0b807f450ea01754a5fd3d435d05dc33c"
+            },
+            "earningsReleaseReference": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452530/brka-ex99_1.htm",
+              "sourceSha256": "31e0b544cead26317fdb6564cc340411ce5f1ddf95accf91e7fa97fc3317fecf"
+            },
+            "epsTagsInFinancialStatement": [
+              "us-gaap:EarningsPerShareBasic"
+            ],
+            "classBDisclosure": "Net earnings per average equivalent Class B share (basic EPS): $10.33."
+          },
+          {
+            "periodEnd": "2026-06-30",
+            "financialStatement": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+              "sourceSha256": "ccefbc1c96852bccdd78923f009ca90e2f8487a4d1821c8dd0fa15265c778bf9"
+            },
+            "earningsReleaseReference": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526344495/d159922dex991.htm",
+              "sourceSha256": "7edea170bac8ad9874f469cc6aeac29b4f174e7fb971f8aec9fae766a20b5320"
+            },
+            "epsTagsInFinancialStatement": [
+              "us-gaap:EarningsPerShareBasic"
+            ],
+            "classBDisclosure": "Net earnings per average equivalent Class B share (basic EPS): $11.91."
+          },
+          {
+            "periodEnd": "2026-03-31",
+            "financialStatement": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+              "sourceSha256": "461381428ae5588feb58a7f32909e4a5ad1d85de711847f1d551ee52f0545b1a"
+            },
+            "earningsReleaseReference": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526212148/d74313d8k.htm",
+              "sourceSha256": "de1d16c8dfd385acf2e6ad6996d83e86c12e98fee78443837cb7764aa709038b"
+            },
+            "epsTagsInFinancialStatement": [
+              "us-gaap:EarningsPerShareBasic"
+            ],
+            "classBDisclosure": "Net earnings per average equivalent Class B share (basic EPS): $4.68."
+          },
+          {
+            "periodEnd": "2025-12-31",
+            "financialStatement": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+              "sourceSha256": "b160fe9d80615981e11bcaec1e55c54b1c3bdbb5d7beca878491300be78b16b7"
+            },
+            "earningsReleaseReference": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283d8k.htm",
+              "sourceSha256": "c46714a48c8d64057bab8eb6e7cf97408f4d019498c82295e04318e157fe2e43"
+            },
+            "epsTagsInFinancialStatement": [
+              "us-gaap:EarningsPerShareBasic"
+            ],
+            "classBDisclosure": "Quarterly revenue is calculated from fiscal-year less first-nine-month consolidated GAAP revenue. Net earnings per average equivalent Class B share: $8.90."
+          },
+          {
+            "periodEnd": "2025-09-30",
+            "financialStatement": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+              "sourceSha256": "ab9916a91b9a91e8fd1ab67d42c26c64dc88cc9411620dfd9734bb8e71f55429"
+            },
+            "earningsReleaseReference": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525262260/d22917dex991.htm",
+              "sourceSha256": "99f9903d12862afd6f17a0a2301c4b68be7eb9a7c1dcf49bbb007b2706527608"
+            },
+            "epsTagsInFinancialStatement": [
+              "us-gaap:EarningsPerShareBasic"
+            ],
+            "classBDisclosure": "Net earnings per average equivalent Class B share (basic EPS): $14.28."
+          }
+        ]
+      },
+      "VYLR": {
+        "basis": "The accounting predecessor’s as-reported financial statements include crop protection, and the Article 11 EPS reflects additional transaction adjustments. Seed Business historical sales are verified; a same-basis whole-company GAAP diluted EPS remains unverified.",
+        "filing": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylr-20261112.htm",
+          "sourceSha256": "b859046c99c260c3baaf30f82cde123852895cc488f62e132cb2cbb19759c561"
+        },
+        "attachment": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+          "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d"
+        },
+        "comparisons": [
+          {
+            "periodEnd": "2026-09-30",
+            "unitExplanation": "Net sales and share counts in millions. EPS in USD per share.",
+            "proFormaSales": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 6,
+              "column": 4,
+              "label": "Net sales",
+              "rawValue": "938"
+            },
+            "proFormaDilutedEps": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 25,
+              "column": 4,
+              "label": "Earnings per share of common stock - diluted",
+              "rawValue": "(0.72)"
+            },
+            "proFormaWeightedAverageShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 28,
+              "column": 4,
+              "label": "Weighted average common shares outstanding - diluted",
+              "rawValue": "667.8"
+            },
+            "seedBusinessHistoricalSales": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 65,
+              "row": 3,
+              "column": 4,
+              "label": "Net sales",
+              "rawValue": "905"
+            }
+          },
+          {
+            "periodEnd": "2025-09-30",
+            "unitExplanation": "Net sales and share counts in millions. EPS in USD per share.",
+            "proFormaSales": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 6,
+              "column": 7,
+              "label": "Net sales",
+              "rawValue": "944"
+            },
+            "proFormaDilutedEps": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 25,
+              "column": 7,
+              "label": "Earnings per share of common stock - diluted",
+              "rawValue": "(0.58)"
+            },
+            "proFormaWeightedAverageShares": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+              "sourceSha256": "f26936e19ea8ab5c0c7176f34482bdc5f453efc2e9d317bf91c958a2a32a967d",
+              "table": 1,
+              "row": 28,
+              "column": 7,
+              "label": "Weighted average common shares outstanding - diluted",
+              "rawValue": "678.7"
+            },
+            "seedBusinessHistoricalSales": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+              "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+              "table": 65,
+              "row": 3,
+              "column": 7,
+              "label": "Net sales",
+              "rawValue": "917"
+            }
+          }
+        ]
+      },
+      "AES": {
+        "basis": "Even at an assumed exact 714 million quarterly diluted shares, the reported precision of the net income numerator alone allows both $0.45 and $0.46.",
+        "annualNetIncomeUsdMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+          "sourceSha256": "d78bdd6e3396afc101a2356dff025fab6912b3810f9b6a9cd7635a7b81dd803b",
+          "table": 162,
+          "row": 36,
+          "column": 4,
+          "label": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS",
+          "rawValue": "900"
+        },
+        "nineMonthNetIncomeUsdMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm",
+          "sourceSha256": "c49f47d312fdf9be83f15ce44faa5e0e1ad5e571a46bf2a70488fc754e3f3574",
+          "table": 13,
+          "row": 38,
+          "column": 16,
+          "label": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS",
+          "rawValue": "575"
+        },
+        "indicativeDilutedSharesMillions": 714,
+        "pointEstimateWithAssumedShares": 0.45518207282913165,
+        "epsSensitivityRangeWithAssumedShares": [
+          0.453781512605042,
+          0.4565826330532213
+        ],
+        "originalQ4CallCanceledByIssuerUrl": "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-to-acquire-aes"
+      },
+      "TRGP": {
+        "basis": "Reported rounding alone crosses the $2.515 boundary under ordinary weighting, before considering the actual quarter’s two-class allocation. A quarterly diluted EPS or more precise inputs are required.",
+        "annualBasicAllocatedIncomeUsdMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+          "sourceSha256": "9e94e52712ed764df3df1509563e8351a6189a95f4ee2211a2b996912083975a",
+          "table": 64,
+          "row": 8,
+          "column": 3,
+          "label": "Net income (loss) allocated to common shareholders for basic earnings per share",
+          "rawValue": "1,841.4"
+        },
+        "nineMonthBasicAllocatedIncomeUsdMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm",
+          "sourceSha256": "a79cefa61aa605dc0a9f0664bd38c963bb49b16f2971a86d39825f61a03b8827",
+          "table": 21,
+          "row": 8,
+          "column": 11,
+          "label": "Net income (loss) allocated to common shareholders for basic earnings per share",
+          "rawValue": "1,299.4"
+        },
+        "annualSharesMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+          "sourceSha256": "9e94e52712ed764df3df1509563e8351a6189a95f4ee2211a2b996912083975a",
+          "table": 64,
+          "row": 10,
+          "column": 3,
+          "label": "Weighted average shares outstanding - basic",
+          "rawValue": "216.1"
+        },
+        "nineMonthSharesMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm",
+          "sourceSha256": "a79cefa61aa605dc0a9f0664bd38c963bb49b16f2971a86d39825f61a03b8827",
+          "table": 21,
+          "row": 10,
+          "column": 11,
+          "label": "Weighted average shares outstanding - basic",
+          "rawValue": "216.5"
+        },
+        "annualDilutedSharesMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+          "sourceSha256": "9e94e52712ed764df3df1509563e8351a6189a95f4ee2211a2b996912083975a",
+          "table": 64,
+          "row": 12,
+          "column": 3,
+          "label": "Weighted average shares outstanding - diluted",
+          "rawValue": "216.9"
+        },
+        "nineMonthDilutedSharesMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm",
+          "sourceSha256": "a79cefa61aa605dc0a9f0664bd38c963bb49b16f2971a86d39825f61a03b8827",
+          "table": 21,
+          "row": 12,
+          "column": 11,
+          "label": "Weighted average shares outstanding - diluted",
+          "rawValue": "217.3"
+        },
+        "annualIncrementMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+          "sourceSha256": "9e94e52712ed764df3df1509563e8351a6189a95f4ee2211a2b996912083975a",
+          "table": 64,
+          "row": 11,
+          "column": 3,
+          "label": "Dilutive effect of unvested restricted stock awards",
+          "rawValue": "0.8"
+        },
+        "nineMonthIncrementMillions": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm",
+          "sourceSha256": "a79cefa61aa605dc0a9f0664bd38c963bb49b16f2971a86d39825f61a03b8827",
+          "table": 21,
+          "row": 11,
+          "column": 11,
+          "label": "Dilutive effect of unvested restricted stock awards",
+          "rawValue": "0.8"
+        },
+        "sensitivityRangeUsingBasicIncomeAndIndicativeWeighting": [
+          2.508064272706235,
+          2.5171449625001263
+        ]
+      }
     }
   }
 }
