@@ -1112,26 +1112,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "AVB": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-07-22",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000018/q22026ex-991.htm",
+  "RDDT": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001713445",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 5,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 1,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0000915912",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-10-29",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm"
   },
   "AVY": {
     "status": "official_parse_pending",
@@ -1616,26 +1611,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "BLDR": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-10-29",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1316835/000119312526436795/bldr-ex99_1.htm",
+  "ILMN": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001110803",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 6,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 6,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0001316835",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-10-29",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000202/ilmn-20261029.htm"
   },
   "BG": {
     "status": "official_source_checked",
@@ -1742,26 +1732,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "CPB": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-09-03",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://investor.thecampbellscompany.com/news-releases/news-release-details/campbells-reports-fourth-quarter-fiscal-2026-results",
+  "FLEX": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0000866374",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 6,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 6,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0000016732",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-10-28",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000039/flexex991-9252026.htm"
   },
   "COF": {
     "status": "official_parse_pending",
@@ -3464,7 +3449,7 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "SATS": {
+  "ECHO": {
     "status": "official_source_checked",
     "reason": "sec_earnings_exhibits_checked",
     "latestStoredDate": "2026-11-03",
@@ -3548,26 +3533,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "EA": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-03",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+  "FERG": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0002011641",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 4,
-    "parsedQuarters": 4,
-    "parsePending": 0,
-    "metricPending": 1,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0000712515",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-11-09",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/2011641/000201164126000042/exhibit991pressreleasesept.htm"
   },
   "ELV": {
     "status": "official_parse_pending",
@@ -5669,26 +5649,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "KVUE": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-10-30",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1944048/000194404826000167/q326earningspressrelease.htm",
+  "OKTA": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001660134",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 7,
-    "parsedQuarters": 5,
-    "parsePending": 1,
-    "metricPending": 1,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0001944048",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-08-26",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm"
   },
   "KDP": {
     "status": "official_parse_pending",
@@ -6677,26 +6652,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "TAP": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-11-05",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/24545/000002454526000078/tapex99120260930-earningsr.htm",
+  "BE": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001664703",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T10:57:04.176885Z",
-    "releaseCandidates": 6,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 6,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
-    "cik": "0000024545",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-10-22",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828026066890/ex991_q326financialresults.htm"
   },
   "MDLZ": {
     "status": "official_parse_pending",
@@ -7509,7 +7479,7 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "PSKY": {
+  "SKYD": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
     "latestStoredDate": "2026-11-09",
@@ -7761,26 +7731,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "POOL": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-10-22",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/945841/000119312526428428/pool-ex99_1.htm",
+  "MRVL": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001835632",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 6,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 1,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0000945841",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-08-27",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/q227_8kx812026ex-991.htm"
   },
   "PPG": {
     "status": "official_parse_pending",
@@ -9336,26 +9301,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "TTD": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-11-09",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000115/ttd-20261109x8kexx991.htm",
+  "P": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001474432",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T10:57:04.176885Z",
-    "releaseCandidates": 7,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 2,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
-    "cik": "0001671933",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-08-26",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000084/everpure-ex991q2fy2027xpre.htm"
   },
   "TSCO": {
     "status": "official_parse_pending",
@@ -10134,26 +10094,21 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5
   },
-  "WBD": {
-    "status": "official_parse_pending",
-    "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-06",
-    "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000072/wbd2q26earningsrelease08.htm",
+  "TWLO": {
+    "status": "official_source_checked",
+    "reason": "five_quarters_reviewed_against_sec_filings_and_earnings_releases",
+    "cik": "0001447669",
     "discoverySource": "SEC submissions and earnings exhibits",
-    "checkedAt": "2026-11-15T07:55:35.310198Z",
-    "releaseCandidates": 5,
-    "parsedQuarters": 5,
-    "parsePending": 0,
-    "metricPending": 1,
+    "checkedAt": "2026-11-16T01:39:39Z",
+    "officialCheckedAt": "2026-11-16T01:39:39Z",
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
-    "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
-    "cik": "0001437107",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestStoredDate": "2026-10-29",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1447669/000144766926000106/twloq326ex991.htm"
   },
   "WM": {
     "status": "official_parse_pending",

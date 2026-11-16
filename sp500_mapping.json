@@ -469,11 +469,17 @@
     "filings": {}
   },
   "BE": {
-    "name": "Bloom Energy",
+    "name": "Bloom Energy Corporation",
     "cik": "0001664703",
     "sector": "Industrials",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001664703.json",
+    "officialName": "Bloom Energy Corp",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "BE"
+    ]
   },
   "BNY": {
     "name": "BNY Mellon",
@@ -1134,11 +1140,17 @@
     "filings": {}
   },
   "ECHO": {
-    "name": "EchoStar",
+    "name": "EchoStar Corporation",
     "cik": "0001415404",
     "sector": "Communication Services",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+    "officialName": "EchoStar CORP",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "ECHO"
+    ]
   },
   "ECL": {
     "name": "Ecolab",
@@ -1253,11 +1265,17 @@
     "filings": {}
   },
   "P": {
-    "name": "Everpure",
+    "name": "Everpure, Inc.",
     "cik": "0001474432",
     "sector": "Information Technology",
-    "fy_end": 12,
-    "filings": {}
+    "fy_end": 1,
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+    "officialName": "Everpure, Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "P"
+    ]
   },
   "ES": {
     "name": "Eversource Energy",
@@ -1358,11 +1376,17 @@
     "filings": {}
   },
   "FERG": {
-    "name": "Ferguson Enterprises",
+    "name": "Ferguson Enterprises Inc.",
     "cik": "0002011641",
     "sector": "Industrials",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0002011641.json",
+    "officialName": "Ferguson Enterprises Inc. /DE/",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "FERG"
+    ]
   },
   "FIS": {
     "name": "Fidelity National Information Services",
@@ -1403,8 +1427,14 @@
     "name": "Flex Ltd.",
     "cik": "0000866374",
     "sector": "Information Technology",
-    "fy_end": 12,
-    "filings": {}
+    "fy_end": 3,
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0000866374.json",
+    "officialName": "FLEX LTD.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "FLEX"
+    ]
   },
   "F": {
     "name": "Ford Motor Company",
@@ -1739,8 +1769,14 @@
     "name": "Illumina, Inc.",
     "cik": "0001110803",
     "sector": "Health Care",
-    "fy_end": 12,
-    "filings": {}
+    "fy_end": 1,
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001110803.json",
+    "officialName": "ILLUMINA, INC.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "ILMN"
+    ]
   },
   "INCY": {
     "name": "Incyte",
@@ -2114,11 +2150,17 @@
     "filings": {}
   },
   "MRVL": {
-    "name": "Marvell Technology",
+    "name": "Marvell Technology, Inc.",
     "cik": "0001835632",
     "sector": "Information Technology",
-    "fy_end": 12,
-    "filings": {}
+    "fy_end": 1,
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001835632.json",
+    "officialName": "Marvell Technology, Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "MRVL"
+    ]
   },
   "MAS": {
     "name": "Masco",
@@ -2709,11 +2751,17 @@
     "filings": {}
   },
   "RDDT": {
-    "name": "Reddit",
+    "name": "Reddit, Inc.",
     "cik": "0001713445",
     "sector": "Communication Services",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001713445.json",
+    "officialName": "Reddit, Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "RDDT"
+    ]
   },
   "RTX": {
     "name": "RTX Corporation",
@@ -3604,6 +3652,42 @@
     "name": "The Trade Desk, Inc.",
     "cik": "0001671933",
     "cikSourceUrl": "https://www.sec.gov/files/company_tickers.json",
+    "filings": {}
+  },
+  "OKTA": {
+    "name": "Okta, Inc.",
+    "cik": "0001660134",
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001660134.json",
+    "officialName": "Okta, Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "OKTA"
+    ],
+    "fy_end": 1,
+    "filings": {}
+  },
+  "TWLO": {
+    "name": "Twilio Inc.",
+    "cik": "0001447669",
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0001447669.json",
+    "officialName": "TWILIO INC",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "TWLO"
+    ],
+    "fy_end": 12,
+    "filings": {}
+  },
+  "SKYD": {
+    "name": "Skydance Corporation",
+    "cik": "0002041610",
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0002041610.json",
+    "officialName": "Skydance Corp",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "SKYD"
+    ],
+    "fy_end": 12,
     "filings": {}
   }
 }

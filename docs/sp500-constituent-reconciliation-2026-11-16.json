@@ -343,5 +343,138 @@
         "nonzeroScaleTagsFound": 0
       }
     }
+  },
+  "draftApplication": {
+    "baselineCommit": "c4605aafe38d9ecce93c096f6608b579933ac4ce",
+    "activeReplacements": {
+      "TAP": "BE",
+      "EA": "FERG",
+      "CPB": "FLEX",
+      "BLDR": "ILMN",
+      "POOL": "MRVL",
+      "KVUE": "OKTA",
+      "TTD": "P",
+      "AVB": "RDDT",
+      "WBD": "TWLO"
+    },
+    "sameIssuerTickerChanges": {
+      "SATS": "ECHO",
+      "PSKY": "SKYD"
+    },
+    "newQuarterRecords": 45,
+    "archivedFormerConstituents": [
+      "AVB",
+      "BLDR",
+      "CPB",
+      "EA",
+      "KVUE",
+      "POOL",
+      "TAP",
+      "TTD",
+      "WBD"
+    ],
+    "archivePath": "docs/sp500-former-constituent-history-2026-11-16.json",
+    "newQuarterEvidencePath": "docs/sp500-new-constituent-quarterly-evidence-2026-11-16.json",
+    "remainingReplacements": {
+      "EPAM": "FDXF",
+      "CAG": "HONA",
+      "EQR": "VMRK",
+      "CTVA": "VYLR"
+    },
+    "remainingCurrentTrackerFinancialGaps": {
+      "AES": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {
+          "2026-09-30": "2026-11-03",
+          "2026-06-30": "2026-08-04",
+          "2026-03-31": "2026-05-05",
+          "2025-12-31": "2026-03-02"
+        }
+      },
+      "ATO": {
+        "missingMetrics": {
+          "2026-09-30": [
+            "revenue"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "BRK-B": {
+        "missingMetrics": {
+          "2026-09-30": [
+            "epsGaapDiluted"
+          ],
+          "2026-06-30": [
+            "epsGaapDiluted"
+          ],
+          "2026-03-31": [
+            "epsGaapDiluted"
+          ],
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ],
+          "2025-09-30": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "TRGP": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "TXT": {
+        "missingMetrics": {
+          "2026-01-03": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "VST": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "ECHO": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {
+          "2026-09-30": "2026-11-03"
+        }
+      },
+      "SKYD": {
+        "missingMetrics": {
+          "2025-09-30": [
+            "revenue",
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      }
+    },
+    "after": {
+      "trackedTickerCount": 503,
+      "matchedToHoldings": 499,
+      "storedQuarterCount": 2515,
+      "completeMetricQuarterCount": 2503,
+      "missingRevenueCount": 2,
+      "missingDilutedEpsCount": 11,
+      "onlyFilingDateCount": 5
+    }
   }
 }
