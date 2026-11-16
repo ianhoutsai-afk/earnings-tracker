@@ -2229,5 +2229,544 @@
     "HONA",
     "VMRK",
     "VYLR"
+  ],
+  "corporateTransitionQuarterlyRecords": [
+    {
+      "record": {
+        "ticker": "FDXF",
+        "periodEnd": "2025-09-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-29",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty26earningsrelease.htm",
+        "releaseAccession": "0001628280-26-068228",
+        "releaseFilingDate": "2026-10-29",
+        "verifiedAt": "2026-11-15",
+        "revenue": 2259000000,
+        "epsGaapDiluted": 1.95,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "periodStart": "2025-07-01",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "The issuer presents comparable calendar quarters around its fiscal year-end change and June 1, 2026 spin-off. Historical per-share figures reflect the recapitalization.",
+          "zh-TW": "公司在財年結算日變更及 2026 年 6 月 1 日分拆前後，另列可比較的曆季。歷史每股數字已按資本重組調整。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty26earningsrelease.htm",
+        "sourceSha256": "20e0d0ce4e18ec3ee9898de928f4b1de92b5a3895b3a0c7143a90381a3435b1c"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "sourceSha256": "8f635639d38dc77dd53da53311611e3c57e54649ccacedec668370d59526ab95",
+        "table": 14,
+        "row": 3,
+        "column": 10,
+        "rawValue": "2,259",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "sourceSha256": "8f635639d38dc77dd53da53311611e3c57e54649ccacedec668370d59526ab95",
+        "table": 14,
+        "row": 26,
+        "column": 10,
+        "rawValue": "1.95",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "FDXF",
+        "periodEnd": "2026-03-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-29",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "releaseAccession": "0001628280-26-068228",
+        "releaseFilingDate": "2026-10-29",
+        "verifiedAt": "2026-11-15",
+        "revenue": 2107000000,
+        "epsGaapDiluted": 0.69,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "periodStart": "2026-01-01",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "The issuer presents comparable calendar quarters around its fiscal year-end change and June 1, 2026 spin-off. Historical per-share figures reflect the recapitalization.",
+          "zh-TW": "公司在財年結算日變更及 2026 年 6 月 1 日分拆前後，另列可比較的曆季。歷史每股數字已按資本重組調整。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab",
+        "table": 0,
+        "row": 3,
+        "column": 1,
+        "rawValue": "$ 2,107",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab",
+        "table": 0,
+        "row": 26,
+        "column": 1,
+        "rawValue": "$ 0.69",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "FDXF",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-29",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "releaseAccession": "0001628280-26-068228",
+        "releaseFilingDate": "2026-10-29",
+        "verifiedAt": "2026-11-15",
+        "revenue": 2455000000,
+        "epsGaapDiluted": 1.19,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "periodStart": "2026-04-01",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "The issuer presents comparable calendar quarters around its fiscal year-end change and June 1, 2026 spin-off. Historical per-share figures reflect the recapitalization.",
+          "zh-TW": "公司在財年結算日變更及 2026 年 6 月 1 日分拆前後，另列可比較的曆季。歷史每股數字已按資本重組調整。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab",
+        "table": 0,
+        "row": 3,
+        "column": 3,
+        "rawValue": "$ 2,455",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "sourceSha256": "b9a3a5e20b928c49e9db45ef7f61cbc18fe942b7ddfbbd085f8384a9006909ab",
+        "table": 0,
+        "row": 26,
+        "column": 3,
+        "rawValue": "$ 1.19",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "FDXF",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-29",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty26earningsrelease.htm",
+        "releaseAccession": "0001628280-26-068228",
+        "releaseFilingDate": "2026-10-29",
+        "verifiedAt": "2026-11-15",
+        "revenue": 2442000000,
+        "epsGaapDiluted": 0.98,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "periodStart": "2026-07-01",
+        "form": "10-Q",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "filingDate": "2026-10-29",
+        "accessionNumber": "0001628280-26-068246",
+        "metricNote": {
+          "en": "The issuer presents comparable calendar quarters around its fiscal year-end change and June 1, 2026 spin-off. Historical per-share figures reflect the recapitalization.",
+          "zh-TW": "公司在財年結算日變更及 2026 年 6 月 1 日分拆前後，另列可比較的曆季。歷史每股數字已按資本重組調整。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty268xkrecastexhibit.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty26earningsrelease.htm",
+        "sourceSha256": "20e0d0ce4e18ec3ee9898de928f4b1de92b5a3895b3a0c7143a90381a3435b1c"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "sourceSha256": "8f635639d38dc77dd53da53311611e3c57e54649ccacedec668370d59526ab95",
+        "table": 14,
+        "row": 3,
+        "column": 4,
+        "rawValue": "2,442",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+        "sourceSha256": "8f635639d38dc77dd53da53311611e3c57e54649ccacedec668370d59526ab95",
+        "table": 14,
+        "row": 26,
+        "column": 4,
+        "rawValue": "0.98",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "HONA",
+        "periodEnd": "2026-09-26",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-28",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
+        "releaseAccession": "0002089271-26-000031",
+        "releaseFilingDate": "2026-10-28",
+        "verifiedAt": "2026-11-15",
+        "revenue": 4644000000,
+        "epsGaapDiluted": 2.29,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "form": "10-Q",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "filingDate": "2026-10-28",
+        "accessionNumber": "0002089271-26-000032",
+        "periodStart": "2026-06-28",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
+        "sourceSha256": "0d58c4e443295b1ebbaf59e4ff647fa4a8dfdb5e5d2532c7c1c1f5ab3f34841e"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "sourceSha256": "9e54ed38264fdcee42f5c2bbdcdd17537384f9782baabbdbecba8764db6ced75",
+        "table": 10,
+        "row": 5,
+        "column": 4,
+        "rawValue": "4,644",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "sourceSha256": "9e54ed38264fdcee42f5c2bbdcdd17537384f9782baabbdbecba8764db6ced75",
+        "table": 10,
+        "row": 21,
+        "column": 4,
+        "rawValue": "2.29",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "HONA",
+        "periodEnd": "2026-06-27",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-08-05",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000020/exhibit991q22026earningsre.htm",
+        "releaseAccession": "0002089271-26-000020",
+        "releaseFilingDate": "2026-08-05",
+        "verifiedAt": "2026-11-15",
+        "revenue": 4522000000,
+        "epsGaapDiluted": 0.78,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000021/hona-20260627.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000021/hona-20260627.htm",
+        "form": "10-Q",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000021/hona-20260627.htm",
+        "filingDate": "2026-08-05",
+        "accessionNumber": "0002089271-26-000021",
+        "periodStart": "2026-03-29",
+        "metricNote": {
+          "en": "For periods ending before the June 29, 2026 spin-off, reported diluted EPS uses approximately 317 million shares outstanding at the spin-off date.",
+          "zh-TW": "對 2026 年 6 月 29 日分拆前截止的季度，公司按分拆日約 3.17 億股計算所公布的稀釋 EPS。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000020/exhibit991q22026earningsre.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000020/exhibit991q22026earningsre.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000020/exhibit991q22026earningsre.htm",
+        "sourceSha256": "d517cd595bc10e1b6e6c6f22136d71ab8258f9a8f00c4794e80a9241aab29c02"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000021/hona-20260627.htm",
+        "sourceSha256": "0b856313f7e52f4be02299597e23822428b60f8faab56c5a35169d4b5c11d501",
+        "table": 10,
+        "row": 5,
+        "column": 4,
+        "rawValue": "4,522",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000020/exhibit991q22026earningsre.htm",
+        "sourceSha256": "d517cd595bc10e1b6e6c6f22136d71ab8258f9a8f00c4794e80a9241aab29c02",
+        "table": 15,
+        "row": 3,
+        "column": 4,
+        "rawValue": "0.78",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "HONA",
+        "periodEnd": "2025-09-27",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-10-28",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
+        "releaseAccession": "0002089271-26-000031",
+        "releaseFilingDate": "2026-10-28",
+        "verifiedAt": "2026-11-15",
+        "revenue": 4533000000,
+        "epsGaapDiluted": 2.03,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "For periods ending before the June 29, 2026 spin-off, reported diluted EPS uses approximately 317 million shares outstanding at the spin-off date.",
+          "zh-TW": "對 2026 年 6 月 29 日分拆前截止的季度，公司按分拆日約 3.17 億股計算所公布的稀釋 EPS。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
+        "sourceSha256": "0d58c4e443295b1ebbaf59e4ff647fa4a8dfdb5e5d2532c7c1c1f5ab3f34841e"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "sourceSha256": "9e54ed38264fdcee42f5c2bbdcdd17537384f9782baabbdbecba8764db6ced75",
+        "table": 10,
+        "row": 5,
+        "column": 10,
+        "rawValue": "4,533",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "sourceSha256": "9e54ed38264fdcee42f5c2bbdcdd17537384f9782baabbdbecba8764db6ced75",
+        "table": 10,
+        "row": 21,
+        "column": 10,
+        "rawValue": "2.03",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "VMRK",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-11-04",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526448699/vmrk-ex99_1.htm",
+        "releaseAccession": "0001193125-26-448699",
+        "releaseFilingDate": "2026-11-05",
+        "verifiedAt": "2026-11-15",
+        "revenue": 1195484000,
+        "epsGaapDiluted": -1.27,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "form": "10-Q",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "filingDate": "2026-11-09",
+        "accessionNumber": "0001193125-26-453735",
+        "metricNote": {
+          "en": "AvalonBay is the accounting acquirer. The historical comparative reflects AvalonBay results and the exchange ratio. The 2026 third quarter includes Equity Residential only after the August 17 merger.",
+          "zh-TW": "AvalonBay 是會計收購方。比較季採 AvalonBay 的歷史業績，並按換股比率調整。2026 年第三季自 8 月 17 日合併起納入 Equity Residential。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526448699/vmrk-ex99_1.htm",
+        "sourceSha256": "5648575879e0032d152e9679b5a77a09bb4a2d91cfdac96a64ce9c6ee99f2050"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+        "table": 12,
+        "row": 6,
+        "column": 3,
+        "rawValue": "1,195,484",
+        "unitMultiplier": 1000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+        "table": 12,
+        "row": 39,
+        "column": 3,
+        "rawValue": "( 1.27)",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "VMRK",
+        "periodEnd": "2025-09-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-11-04",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526448699/vmrk-ex99_1.htm",
+        "releaseAccession": "0001193125-26-448699",
+        "releaseFilingDate": "2026-11-05",
+        "verifiedAt": "2026-11-15",
+        "revenue": 766796000,
+        "epsGaapDiluted": 0.96,
+        "epsBasis": "GAAP diluted",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "AvalonBay is the accounting acquirer. The historical comparative reflects AvalonBay results and the exchange ratio. The 2026 third quarter includes Equity Residential only after the August 17 merger.",
+          "zh-TW": "AvalonBay 是會計收購方。比較季採 AvalonBay 的歷史業績，並按換股比率調整。2026 年第三季自 8 月 17 日合併起納入 Equity Residential。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526448699/vmrk-ex99_1.htm",
+        "sourceSha256": "5648575879e0032d152e9679b5a77a09bb4a2d91cfdac96a64ce9c6ee99f2050"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+        "table": 12,
+        "row": 6,
+        "column": 7,
+        "rawValue": "766,796",
+        "unitMultiplier": 1000
+      },
+      "epsEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+        "table": 12,
+        "row": 39,
+        "column": 7,
+        "rawValue": "0.96",
+        "unitMultiplier": 1
+      }
+    },
+    {
+      "record": {
+        "ticker": "VYLR",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-11-11",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a3q_2026xearningsxnewsxr.htm",
+        "releaseAccession": "0002128626-26-000009",
+        "releaseFilingDate": "2026-11-12",
+        "verifiedAt": "2026-11-15",
+        "revenue": 905000000,
+        "epsGaapDiluted": null,
+        "epsBasis": null,
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "form": "10-Q",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "filingDate": "2026-11-12",
+        "accessionNumber": "0002128626-26-000012",
+        "metricNote": {
+          "en": "Revenue follows the seed business’s historical combined financial statements. The separately published pro forma diluted loss per share was $0.72.",
+          "zh-TW": "營收採種子業務的歷史合併報表。另行揭露的備考每股稀釋虧損為 0.72 美元。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a9302026enrschedules.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a3q_2026xearningsxnewsxr.htm",
+        "sourceSha256": "e2be45ddcbc0881ea6e889e0f6fe1ba9d0decd2061b24435b7e1eb6acb6978e7"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+        "table": 65,
+        "row": 3,
+        "column": 4,
+        "rawValue": "905",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": null
+    },
+    {
+      "record": {
+        "ticker": "VYLR",
+        "periodEnd": "2025-09-30",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-11-12",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "releaseAccession": "0002128626-26-000012",
+        "releaseFilingDate": "2026-11-12",
+        "verifiedAt": "2026-11-15",
+        "revenue": 917000000,
+        "epsGaapDiluted": null,
+        "epsBasis": null,
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "dateSource": "recast",
+        "metricNote": {
+          "en": "Revenue follows the seed business’s historical combined financial statements. The separately published pro forma diluted loss per share was $0.58.",
+          "zh-TW": "營收採種子業務的歷史合併報表。另行揭露的備考每股稀釋虧損為 0.58 美元。"
+        },
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a9302026enrschedules.htm"
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+        "table": 65,
+        "row": 3,
+        "column": 7,
+        "rawValue": "917",
+        "unitMultiplier": 1000000
+      },
+      "epsEvidence": null
+    }
   ]
 }

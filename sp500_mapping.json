@@ -1369,11 +1369,18 @@
     "filings": {}
   },
   "FDXF": {
-    "name": "FedEx Freight",
+    "name": "FedEx Freight Holding Company, Inc.",
     "cik": "0002082247",
     "sector": "Industrials",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+    "officialName": "FedEx Freight Holding Company, Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "FDXF"
+    ],
+    "automaticQuarterStart": "2026-09-30"
   },
   "FERG": {
     "name": "Ferguson Enterprises Inc.",
@@ -1668,11 +1675,17 @@
     "filings": {}
   },
   "HONA": {
-    "name": "Honeywell Aerospace",
+    "name": "Honeywell Aerospace Inc.",
     "cik": "0002089271",
     "sector": "Industrials",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+    "officialName": "Honeywell Aerospace Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "HONA"
+    ]
   },
   "HON": {
     "name": "Honeywell Technologies",
@@ -3384,7 +3397,14 @@
     "cik": "0000906107",
     "sector": "Real Estate",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0000906107.json",
+    "officialName": "VIVMARK RESIDENTIAL",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "VMRK"
+    ],
+    "automaticQuarterStart": "2026-09-30"
   },
   "VMC": {
     "name": "Vulcan Materials Company",
@@ -3689,5 +3709,18 @@
     ],
     "fy_end": 12,
     "filings": {}
+  },
+  "VYLR": {
+    "name": "Vylor Inc.",
+    "cik": "0002128626",
+    "cikSourceUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+    "officialName": "Vylor Inc.",
+    "tickerStatus": "current",
+    "officialTickers": [
+      "VYLR"
+    ],
+    "fy_end": 12,
+    "filings": {},
+    "automaticQuarterStart": "2026-12-31"
   }
 }

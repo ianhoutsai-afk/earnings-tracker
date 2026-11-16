@@ -53,7 +53,7 @@ def _validate_record(record, tickers, today):
         raise ValueError('Invalid fiscal year')
     if record['currency'] != 'USD':
         raise ValueError('Only verified USD values can use the current $ display')
-    if record.get('dateSource') not in (None, 'sec_filing'):
+    if record.get('dateSource') not in (None, 'sec_filing', 'recast'):
         raise ValueError('Unknown official date source')
     source_url = official_source_url(record)
     source = urlparse(source_url or '')
@@ -68,6 +68,13 @@ def _validate_record(record, tickers, today):
                 or record.get('filingDate') != record['date'] or
                 any(record.get(field) for field in ('releaseSourceUrl', 'releaseAccession', 'releaseFilingDate'))):
             raise ValueError('A filing-dated quarter requires a matching SEC form, accession and filing date')
+    if record.get('dateSource') == 'recast':
+        accession = record.get('releaseAccession') or ''
+        archive = re.fullmatch(r'/Archives/edgar/data/[0-9]+/([0-9]{18})/[^/]+', source.path)
+        filed = _iso_date(record.get('releaseFilingDate'), 'recast filing date')
+        if (host != 'www.sec.gov' or not archive or not re.fullmatch(r'[0-9]{10}-[0-9]{2}-[0-9]{6}', accession)
+                or archive[1] != accession.replace('-', '') or not event_date <= filed <= today):
+            raise ValueError('A recast quarter requires a matching SEC disclosure accession and filing date')
     for field in ('metricSourceUrl','epsSourceUrl','revenueSourceUrl'):
         metric_source = urlparse(record.get(field) or source_url)
         if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com') or metric_source.username or metric_source.password:
@@ -234,7 +241,7 @@ def status_from_discovery(companies, history, candidates, errors, checked_at):
         latest_candidate = max(candidates.get(ticker, []), default='')
         latest_row = next((row for row in rows if row.get('date') == latest_stored), {})
         verified = latest_row.get('verificationStatus') == 'official_verified'
-        release_verified = verified and latest_row.get('dateSource') != 'sec_filing'
+        release_verified = verified and latest_row.get('dateSource') is None
         if ticker in errors:
             status, reason = 'discovery_failed', errors[ticker]
         elif latest_candidate and latest_candidate > latest_stored:
@@ -371,7 +378,8 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
             latest = max((row.get('date', '') for row in rows), default='')
             latest_row = next((row for row in rows if row.get('date') == latest), {})
             verified = latest_row.get('verificationStatus') == 'official_verified'
-            added_reason = ('official_filing_added' if latest_row.get('dateSource') == 'sec_filing' else 'official_release_added')
+            added_reason = {'sec_filing': 'official_filing_added', 'recast': 'official_recast_added'}.get(
+                latest_row.get('dateSource'), 'official_release_added')
             prior = existing_status.get(ticker)
             if prior and prior.get('latestStoredDate') == (latest or None):
                 status[ticker] = {

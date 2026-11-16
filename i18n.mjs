@@ -69,6 +69,10 @@ export const translations = {
     'history.released': 'Released {date}',
     'history.legacyDate': 'Legacy date {date} · release date unverified',
     'history.filed': 'SEC filed {date}',
+    'history.recast': 'Recast results published {date}',
+    'history.recastBadge': 'Recast results',
+    'history.recastSource': 'Recast disclosure source',
+    'history.latestRecast': 'Latest verified quarter {quarter} · recast published {date}',
     'history.latest': 'Latest verified release: {quarter} · {date}',
     'history.latestFiling': 'Latest verified quarter: {quarter} · SEC filed {date}',
     'history.latestUnverified': 'Latest stored record: {date} · official check pending',
@@ -175,6 +179,10 @@ export const translations = {
     'history.released': '財報公布日：{date}',
     'history.legacyDate': '舊紀錄日期：{date} · 公布日待核實',
     'history.filed': 'SEC 申報日：{date}',
+    'history.recast': '重編數據公布日：{date}',
+    'history.recastBadge': '重編數據',
+    'history.recastSource': '重編數據來源',
+    'history.latestRecast': '最近核實季度 {quarter} · 重編公布 {date}',
     'history.latest': '最近官方已核實：{quarter} · {date}',
     'history.latestFiling': '最近已核實季度：{quarter} · SEC 申報 {date}',
     'history.latestUnverified': '最近儲存紀錄：{date} · 等待官方核對',
@@ -217,6 +225,7 @@ export const translations = {
 };
 
 export function historyFilingKey(item) {
+  if (item.dateSource === 'recast') return 'history.recastBadge';
   if (item.form === '10-K') return 'sec.annual';
   if (item.form === '10-Q') return 'sec.quarterly';
   if (item.verificationStatus === 'official_verified') return 'earnings.officialRelease';

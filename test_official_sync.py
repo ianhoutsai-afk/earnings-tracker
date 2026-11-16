@@ -49,6 +49,15 @@ class OfficialSyncTests(unittest.TestCase):
    sync_all(root,TODAY,fetch=tracked,full=True)
    self.assertEqual((root/'historical_data.json').read_text(),before)
 
+ def test_start_of_reporting_basis_excludes_prior_periods_for_one_ticker(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)
+   self.setup_root(root,mapping={'ABC':{'cik':'0000000001','automaticQuarterStart':'2026-10-01'},
+                                  'ABCA':{'cik':'0000000001'}})
+   sync_all(root,TODAY,fetch=fetch,full=True)
+   records=json.loads((root/'official_history.json').read_text())
+   self.assertEqual([(r['ticker'],r['periodEnd']) for r in records],[('ABCA','2026-09-30')])
+
  def test_source_failure_preserves_values_and_publishes_failure_for_each_company(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp);self.setup_root(root)

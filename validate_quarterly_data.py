@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from quarterly_policy import filing_dated_quarters, official_source_url, retain_history, retain_manifest
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest
 from verified_history import _validate_record
 
 
@@ -42,6 +42,11 @@ def validate(root='.', today=None):
                     if not record or any(row.get(field)!=record.get(field) for field in
                                          ('date','dateSource','filingDate','form','secUrl','accessionNumber','releaseSourceUrl')):
                         raise ValueError('Displayed filing provenance differs from the official record')
+                if row.get('dateSource') == 'recast':
+                    record = by_period.get((ticker, row['periodEnd']))
+                    if not record or any(row.get(field)!=record.get(field) for field in
+                                         ('date','dateSource','releaseFilingDate','releaseSourceUrl','releaseAccession')):
+                        raise ValueError('Displayed recast provenance differs from the official record')
         if status[ticker].get('recordCount')!=len(history[ticker]):
             raise ValueError('Per-company record count differs from active history')
     state_path = root/'official_scan_state.json'
@@ -49,9 +54,7 @@ def validate(root='.', today=None):
         state = json.loads(state_path.read_text())
         if 'filingDatedQuarters' in state:
             filing_count = filing_dated_quarters(history)
-            all_releases = all(len(rows) == 5 and all(row.get('verificationStatus') == 'official_verified'
-                                                       and row.get('dateSource') != 'sec_filing' for row in rows)
-                               for rows in history.values())
+            all_releases = all_release_dates_verified(history)
             if state['filingDatedQuarters'] != filing_count or state.get('releaseDatesComplete') != all_releases:
                 raise ValueError('Release-date coverage differs from the published quarters')
             if not all_releases and state.get('dataComplete'):

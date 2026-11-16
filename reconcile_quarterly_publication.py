@@ -3,7 +3,7 @@ import json, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from quarterly_policy import filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record
 from verified_history import apply_official_records, write_json_bundle
 from validate_quarterly_data import validate
 
@@ -48,7 +48,7 @@ summary.update(companies=len(companies),officialQuarters=sum(s['officialQuarterC
 summary['historyComplete']=summary['fiveOfficialQuarterCompanies']==len(companies)
 summary['metricsComplete']=summary['fiveCompleteMetricCompanies']==len(companies)
 summary['filingDatedQuarters'] = filing_dated_quarters(history)
-summary['releaseDatesComplete'] = summary['historyComplete'] and not summary['filingDatedQuarters']
+summary['releaseDatesComplete'] = all_release_dates_verified(history)
 summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
 summary['healthy']=summary['sourceHealthy'] and summary['dataComplete']
 summary['dataStatus']='complete' if summary['dataComplete'] else 'incomplete'

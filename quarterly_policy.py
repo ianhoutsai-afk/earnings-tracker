@@ -80,6 +80,13 @@ def filing_dated_quarters(history):
                for rows in history.values() for row in rows)
 
 
+def all_release_dates_verified(history):
+    return all(len(rows) == HISTORY_LIMIT and all(
+        row.get('verificationStatus') == 'official_verified' and row.get('dateSource') is None
+        for row in rows
+    ) for rows in history.values())
+
+
 def company_fields(company, history, today):
     result = dict(company)
     # Existing forward estimates have no auditable next-quarter period/source.
@@ -91,7 +98,7 @@ def company_fields(company, history, today):
         result['reportDateSourceUrl']=None
     rows = history.get(result['ticker'], [])
     verified = [r for r in rows if r.get('verificationStatus') == 'official_verified'
-                and r.get('dateSource') != 'sec_filing' and fiscal_identity(r)]
+                and r.get('dateSource') is None and fiscal_identity(r)]
     result.pop('latestPublishedQuarter', None)
     result.pop('latestPublishedDate', None)
     if verified:
@@ -118,12 +125,18 @@ def company_fields(company, history, today):
 
 def preserve_release_provenance(updated, previous):
     """Keep the earliest confirmed release date and its source identifiers together."""
-    if not previous.get('date') or previous.get('dateSource') == 'sec_filing':
+    previous_source = previous.get('dateSource')
+    updated_source = updated.get('dateSource')
+    if not previous.get('date') or previous_source == 'sec_filing':
         return updated
-    if updated.get('dateSource') == 'sec_filing':
-        updated.pop('dateSource')
-    elif previous['date'] > updated.get('date', ''):
+    if previous_source == 'recast' and updated_source is None:
         return updated
+    if previous_source == updated_source and previous['date'] > updated.get('date', ''):
+        return updated
+    if previous_source == 'recast':
+        updated['dateSource'] = 'recast'
+    else:
+        updated.pop('dateSource', None)
     same_day=previous['date']==updated.get('date')
     for field in ('date','releaseSourceUrl','releaseFilingDate','releaseAccession'):
         if previous.get(field) is not None:

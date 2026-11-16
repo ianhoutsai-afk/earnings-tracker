@@ -78,6 +78,26 @@ class VerifiedHistoryTests(unittest.TestCase):
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):
                 apply_official_records(self.companies, self.history, [{**filing, **invalid}], today)
 
+    def test_recast_disclosure_preserves_metrics_without_becoming_original_release(self):
+        from quarterly_policy import company_fields, merge_manifest_record
+
+        today = date(2026, 10, 1)
+        restated = {**OFFICIAL, 'date': '2026-09-30', 'dateSource': 'recast',
+                    'releaseSourceUrl': 'https://www.sec.gov/Archives/edgar/data/789019/000078901926000055/recast.htm',
+                    'releaseAccession': '0000789019-26-000055', 'releaseFilingDate': '2026-09-30',
+                    'verifiedAt': '2026-09-30'}
+        history, _ = apply_official_records(self.companies, self.history, [restated], today)
+        self.assertEqual(history['MSFT'][0]['dateSource'], 'recast')
+        self.assertNotIn('latestPublishedDate', company_fields(self.companies[0], history, today))
+        for older, newer in ((restated, OFFICIAL), (OFFICIAL, restated)):
+            promoted = merge_manifest_record(older, newer)
+            self.assertEqual(promoted['date'], OFFICIAL['date'])
+            self.assertIsNone(promoted.get('dateSource'))
+            self.assertEqual(promoted['releaseSourceUrl'], OFFICIAL['releaseSourceUrl'])
+        for invalid in ({'releaseFilingDate': '2026-09-27'}, {'releaseAccession': '0000789019-26-000001'}):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [{**restated, **invalid}], today)
+
     def test_official_gaap_values_append_once_and_preserve_existing_history(self):
         original = copy.deepcopy(self.history)
         result, added = apply_official_records(self.companies, self.history, [OFFICIAL], date(2026, 9, 29))

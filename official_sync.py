@@ -22,7 +22,7 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -356,7 +356,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                 source_failures += bool(details['requestFailures'])
                 state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked'
                 for ticker in aliases:
-                    incoming = [{**r,'ticker':ticker} for r in records]
+                    quarter_start = mapping[ticker].get('automaticQuarterStart', '')
+                    incoming = [{**r,'ticker':ticker} for r in records if r['periodEnd'] >= quarter_start]
                     # Keep original verified figures when this run only confirms the release.
                     by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
                     incoming=[merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),r) for r in incoming]
@@ -433,7 +434,7 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
     summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
     summary['filingDatedQuarters'] = filing_dated_quarters(history)
-    summary['releaseDatesComplete'] = summary['historyComplete'] and not summary['filingDatedQuarters']
+    summary['releaseDatesComplete'] = all_release_dates_verified(history)
     summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
     summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
     summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
