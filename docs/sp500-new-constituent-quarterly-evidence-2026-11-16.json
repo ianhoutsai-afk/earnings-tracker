@@ -2909,6 +2909,559 @@
         "method": "Quarterly attributable net income divided by the constant pre-spin share basis disclosed in Note 13, with no dilutive equity awards. Both extremes of source rounding produce the same cent.",
         "reportedCheck": "The same formula reproduces the June 2026 and September 2025 disclosed EPS."
       }
+    },
+    {
+      "record": {
+        "date": "2026-02-04",
+        "periodEnd": "2025-12-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "periodScope": "quarter",
+        "periodStart": null,
+        "epsGaapDiluted": 0.42,
+        "revenue": 767856000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-991.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
+        "verifiedAt": "2026-11-15",
+        "releaseFilingDate": "2026-02-05",
+        "releaseAccession": "0000915912-26-000002",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000004/avb-20251231.htm",
+        "form": "10-K",
+        "filingDate": "2026-02-27",
+        "accessionNumber": "0000915912-26-000004",
+        "ticker": "VMRK",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "metricNote": {
+          "en": "The displayed release date is AvalonBay’s original earnings release date. The revenue is AvalonBay’s consolidated quarterly revenue. Diluted EPS is calculated using Vivmark’s 2.793 conversion ratio for its accounting predecessor.",
+          "zh-TW": "公布日為 AvalonBay 原財報公布日，營收採 AvalonBay 單季合併報表。稀釋 EPS 依 Vivmark 對會計前身適用的 2.793 換股比率換算。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-991.htm",
+        "sourceSha256": "ddb94ca04e8ff2511412e58e1e17bdb6d5c73d4feab0c1092046d23a8515fbd2"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
+        "sourceSha256": "9bc03077f649b8b32297de3ab6ff02f8dfb42bffce76f7a2868446c4ce4dd9ab",
+        "table": 11,
+        "row": 6,
+        "column": 7,
+        "label": "Total",
+        "rawValue": "767,856",
+        "unitMultiplier": 1000
+      },
+      "epsEvidence": {
+        "calculated": true,
+        "income": {
+          "method": "Full-year diluted net income minus first nine months",
+          "fullYear": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000004/avb-20251231.htm",
+            "sourceSha256": "afb60718bbe309d281d9121b70933d49fb882a59bdcd84ed99edb05e2d2d9946",
+            "table": 42,
+            "row": 21,
+            "column": 4,
+            "label": "Net income—diluted",
+            "rawValue": "1,056,599",
+            "unitMultiplier": 1000
+          },
+          "firstNineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 20,
+            "column": 16,
+            "label": "Net income - diluted",
+            "rawValue": "890,614",
+            "unitMultiplier": 1000
+          }
+        },
+        "dilutedShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
+          "sourceSha256": "9bc03077f649b8b32297de3ab6ff02f8dfb42bffce76f7a2868446c4ce4dd9ab",
+          "table": 11,
+          "row": 43,
+          "column": 7,
+          "label": "Weighted average common shares outstanding - diluted",
+          "rawValue": "141,991,262",
+          "unitMultiplier": 1
+        },
+        "numeratorUsd": 165985000,
+        "conversionRatio": 2.793,
+        "conversionRatioEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+          "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e"
+        },
+        "roundingRange": [
+          0.4185368211501031,
+          0.4185418642484879
+        ],
+        "displayValue": 0.42,
+        "publishedComparativeCheck": {
+          "quarter": "2025-09-30",
+          "income": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 20,
+            "column": 4,
+            "label": "Net income - diluted",
+            "rawValue": "384,162",
+            "unitMultiplier": 1000
+          },
+          "shares": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 22,
+            "column": 4,
+            "label": "Weighted average common shares - diluted",
+            "rawValue": "143,535,401",
+            "unitMultiplier": 1
+          },
+          "recastSharesThousands": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+            "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+            "table": 65,
+            "row": 35,
+            "column": 7,
+            "label": "Weighted average Common Shares and Units outstanding – diluted",
+            "rawValue": "400,894",
+            "unitMultiplier": 1000
+          },
+          "eps": 0.96
+        }
+      }
+    },
+    {
+      "record": {
+        "date": "2026-04-27",
+        "periodEnd": "2026-03-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2026-01-01",
+        "epsGaapDiluted": 0.83,
+        "revenue": 770279000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000010/q12026ex-991.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+        "verifiedAt": "2026-11-15",
+        "releaseFilingDate": "2026-04-28",
+        "releaseAccession": "0000915912-26-000010",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+        "form": "10-Q",
+        "filingDate": "2026-05-07",
+        "accessionNumber": "0000915912-26-000012",
+        "ticker": "VMRK",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "metricNote": {
+          "en": "The displayed release date is AvalonBay’s original earnings release date. The revenue is AvalonBay’s consolidated quarterly revenue. Diluted EPS is calculated using Vivmark’s 2.793 conversion ratio for its accounting predecessor.",
+          "zh-TW": "公布日為 AvalonBay 原財報公布日，營收採 AvalonBay 單季合併報表。稀釋 EPS 依 Vivmark 對會計前身適用的 2.793 換股比率換算。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000010/q12026ex-991.htm",
+        "sourceSha256": "3505e0b5d3c3b151c7fe6f510ed5e24f57aba3682a449c1c1c020b51df32616e"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+        "sourceSha256": "388bebfe7327ac6d02382869010f1eecc6398efe9067ffc7f6357c705ec3f1bd",
+        "table": 7,
+        "row": 6,
+        "column": 4,
+        "label": "Total revenue",
+        "rawValue": "770,279",
+        "unitMultiplier": 1000
+      },
+      "epsEvidence": {
+        "calculated": true,
+        "income": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+          "sourceSha256": "388bebfe7327ac6d02382869010f1eecc6398efe9067ffc7f6357c705ec3f1bd",
+          "table": 13,
+          "row": 20,
+          "column": 4,
+          "label": "Net income - diluted",
+          "rawValue": "328,290",
+          "unitMultiplier": 1000
+        },
+        "dilutedShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000012/avb-20260331.htm",
+          "sourceSha256": "388bebfe7327ac6d02382869010f1eecc6398efe9067ffc7f6357c705ec3f1bd",
+          "table": 13,
+          "row": 22,
+          "column": 4,
+          "label": "Weighted average common shares - diluted",
+          "rawValue": "140,812,786",
+          "unitMultiplier": 1
+        },
+        "numeratorUsd": 328290000,
+        "conversionRatio": 2.793,
+        "conversionRatioEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+          "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e"
+        },
+        "roundingRange": [
+          0.8347260471831484,
+          0.8347285898354329
+        ],
+        "displayValue": 0.83,
+        "publishedComparativeCheck": {
+          "quarter": "2025-09-30",
+          "income": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 20,
+            "column": 4,
+            "label": "Net income - diluted",
+            "rawValue": "384,162",
+            "unitMultiplier": 1000
+          },
+          "shares": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 22,
+            "column": 4,
+            "label": "Weighted average common shares - diluted",
+            "rawValue": "143,535,401",
+            "unitMultiplier": 1
+          },
+          "recastSharesThousands": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+            "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+            "table": 65,
+            "row": 35,
+            "column": 7,
+            "label": "Weighted average Common Shares and Units outstanding – diluted",
+            "rawValue": "400,894",
+            "unitMultiplier": 1000
+          },
+          "eps": 0.96
+        }
+      }
+    },
+    {
+      "record": {
+        "date": "2026-07-22",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "periodStart": "2026-04-01",
+        "epsGaapDiluted": 0.4,
+        "revenue": 777768000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000018/q22026ex-991.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+        "verifiedAt": "2026-11-15",
+        "releaseFilingDate": "2026-07-23",
+        "releaseAccession": "0000915912-26-000018",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+        "form": "10-Q",
+        "filingDate": "2026-07-30",
+        "accessionNumber": "0000915912-26-000020",
+        "ticker": "VMRK",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+        "metricNote": {
+          "en": "The displayed release date is AvalonBay’s original earnings release date. The revenue is AvalonBay’s consolidated quarterly revenue. Diluted EPS is calculated using Vivmark’s 2.793 conversion ratio for its accounting predecessor.",
+          "zh-TW": "公布日為 AvalonBay 原財報公布日，營收採 AvalonBay 單季合併報表。稀釋 EPS 依 Vivmark 對會計前身適用的 2.793 換股比率換算。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000018/q22026ex-991.htm",
+        "sourceSha256": "dbad4e5a387fe965b0533e1ab588b13497b385517fb75a833182ed292aff655e"
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+        "sourceSha256": "85d42ecf80699db843c9fb7498f7a63f53ede5f9a077157ddf575e4d84af31a9",
+        "table": 7,
+        "row": 6,
+        "column": 4,
+        "label": "Total revenue",
+        "rawValue": "777,768",
+        "unitMultiplier": 1000
+      },
+      "epsEvidence": {
+        "calculated": true,
+        "income": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+          "sourceSha256": "85d42ecf80699db843c9fb7498f7a63f53ede5f9a077157ddf575e4d84af31a9",
+          "table": 13,
+          "row": 20,
+          "column": 4,
+          "label": "Net income - diluted",
+          "rawValue": "156,893",
+          "unitMultiplier": 1000
+        },
+        "dilutedShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
+          "sourceSha256": "85d42ecf80699db843c9fb7498f7a63f53ede5f9a077157ddf575e4d84af31a9",
+          "table": 13,
+          "row": 22,
+          "column": 4,
+          "label": "Weighted average common shares - diluted",
+          "rawValue": "141,834,769",
+          "unitMultiplier": 1
+        },
+        "numeratorUsd": 156893000,
+        "conversionRatio": 2.793,
+        "conversionRatioEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+          "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e"
+        },
+        "roundingRange": [
+          0.3960486542460904,
+          0.3960511785774271
+        ],
+        "displayValue": 0.4,
+        "publishedComparativeCheck": {
+          "quarter": "2025-09-30",
+          "income": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 20,
+            "column": 4,
+            "label": "Net income - diluted",
+            "rawValue": "384,162",
+            "unitMultiplier": 1000
+          },
+          "shares": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+            "sourceSha256": "33a8fe6349fd7bf3818e93ddf42a2da2eff58488e02ef9d5ba29db88a0697c91",
+            "table": 12,
+            "row": 22,
+            "column": 4,
+            "label": "Weighted average common shares - diluted",
+            "rawValue": "143,535,401",
+            "unitMultiplier": 1
+          },
+          "recastSharesThousands": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+            "sourceSha256": "137a0750fcbccba282a9e20e7874ee7866dbeda5eefcdbf19e6ce1925dd9231e",
+            "table": 65,
+            "row": 35,
+            "column": 7,
+            "label": "Weighted average Common Shares and Units outstanding – diluted",
+            "rawValue": "400,894",
+            "unitMultiplier": 1000
+          },
+          "eps": 0.96
+        }
+      }
+    },
+    {
+      "record": {
+        "ticker": "VYLR",
+        "periodEnd": "2025-12-31",
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-02-03",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a4q_2025xearningsxnewsxr.htm",
+        "releaseAccession": "0001755672-26-000002",
+        "releaseFilingDate": "2026-02-03",
+        "verifiedAt": "2026-11-15",
+        "revenue": 1737000000,
+        "epsGaapDiluted": null,
+        "epsBasis": null,
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+        "metricNote": {
+          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a4q_2025xearningsxnewsxr.htm",
+        "sourceSha256": "253a23953b7f3594b19a03b49e303fcc7e67bf6bbdfb4d43e8415c97a319d9fb",
+        "secIndex": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/0001755672-26-000002-index.htm",
+          "sourceSha256": "3c21be03dc4b13aff410223d0dc4e302ce861164616b6510e924db8693827403"
+        }
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
+        "sourceSha256": "c5f7cb49f49e00de512f146ab2828c25686071cfdde6acc6b1a2ef0a0555a519",
+        "table": 3,
+        "row": 7,
+        "column": 7,
+        "label": "Seed",
+        "rawValue": "1,737",
+        "unitMultiplier": 1000000,
+        "separationDisclosureCheck": {
+          "method": "Seed Business full-year combined net sales minus its first nine months",
+          "fullYear": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 321,
+            "row": 3,
+            "column": 3,
+            "label": "Net sales",
+            "rawValue": "9,898",
+            "unitMultiplier": 1000000
+          },
+          "firstNineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+            "sourceSha256": "7694fac3dd7f28b2fedfd93e46b673c03e6174b3c75832b7325b9d8330f14e7e",
+            "table": 65,
+            "row": 3,
+            "column": 13,
+            "label": "Net sales",
+            "rawValue": "8,161",
+            "unitMultiplier": 1000000
+          }
+        }
+      },
+      "epsEvidence": null
+    },
+    {
+      "record": {
+        "ticker": "VYLR",
+        "periodEnd": "2026-03-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-05-05",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a1q_2026xearningsxnewsxr.htm",
+        "releaseAccession": "0001755672-26-000008",
+        "releaseFilingDate": "2026-05-05",
+        "verifiedAt": "2026-11-15",
+        "revenue": 3023000000,
+        "epsGaapDiluted": null,
+        "epsBasis": null,
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+        "metricNote": {
+          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a1q_2026xearningsxnewsxr.htm",
+        "sourceSha256": "d8549073d80999395759d47a8bf739fb5dc216524962e1c43f4b0bf50a5910c9",
+        "secIndex": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/0001755672-26-000008-index.htm",
+          "sourceSha256": "f73d3c95be5bb6f80ce6fff3fb49705c438ef4866d75845234d8c8760a4faeef"
+        }
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
+        "sourceSha256": "ee98d2c63f75cdf669fe9adf97a4519d1c549dab375ca1ec81d327c4ea5e4d1b",
+        "table": 3,
+        "row": 8,
+        "column": 19,
+        "label": "Seed",
+        "rawValue": "3,023",
+        "unitMultiplier": 1000000,
+        "separationDisclosureCheck": {
+          "method": "Seed Business first-half combined net sales minus directly disclosed second-quarter seed sales",
+          "firstHalf": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 287,
+            "row": 3,
+            "column": 3,
+            "label": "Net sales",
+            "rawValue": "7,555",
+            "unitMultiplier": 1000000
+          },
+          "secondQuarter": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 36,
+            "row": 3,
+            "column": 3,
+            "label": "Net sales",
+            "rawValue": "4,532",
+            "unitMultiplier": 1000000
+          }
+        }
+      },
+      "epsEvidence": null
+    },
+    {
+      "record": {
+        "ticker": "VYLR",
+        "periodEnd": "2026-06-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "periodScope": "quarter",
+        "currency": "USD",
+        "date": "2026-07-30",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a2q_2026xearningsxnewsxr.htm",
+        "releaseAccession": "0001755672-26-000022",
+        "releaseFilingDate": "2026-07-30",
+        "verifiedAt": "2026-11-15",
+        "revenue": 4532000000,
+        "epsGaapDiluted": null,
+        "epsBasis": null,
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+        "metricNote": {
+          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。"
+        }
+      },
+      "releaseEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a2q_2026xearningsxnewsxr.htm",
+        "sourceSha256": "3703c00e3babb238fb4ded78242c2b71559b4ef2405252043eb5dea578af0c1c",
+        "secIndex": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/0001755672-26-000022-index.htm",
+          "sourceSha256": "52998f20bc0f28d59f7d37339b7eb31f4fb13f2921ca295e9ceff81543683df0"
+        }
+      },
+      "revenueEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
+        "sourceSha256": "86d5da9a168f328375edb5d8506f54ee293f7da7edf418dce5cbe4ff02eb4f1f",
+        "table": 3,
+        "row": 8,
+        "column": 7,
+        "label": "Seed",
+        "rawValue": "4,532",
+        "unitMultiplier": 1000000,
+        "separationDisclosureCheck": {
+          "method": "Direct second-quarter seed sales repeated in Vylor information statement",
+          "secondQuarter": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 36,
+            "row": 3,
+            "column": 3,
+            "label": "Net sales",
+            "rawValue": "4,532",
+            "unitMultiplier": 1000000
+          },
+          "firstHalfCombined": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+            "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+            "table": 287,
+            "row": 3,
+            "column": 3,
+            "label": "Net sales",
+            "rawValue": "7,555",
+            "unitMultiplier": 1000000
+          }
+        }
+      },
+      "epsEvidence": null
     }
   ]
 }

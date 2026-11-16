@@ -488,11 +488,11 @@
     "after": {
       "trackedTickerCount": 503,
       "matchedToHoldings": 503,
-      "verifiedQuarterCount": 2508,
-      "completeMetricQuarterCount": 2494,
-      "quartersWithoutStandaloneRecords": 7,
+      "verifiedQuarterCount": 2514,
+      "completeMetricQuarterCount": 2497,
+      "quartersWithoutStandaloneRecords": 1,
       "missingRevenueCount": 2,
-      "missingDilutedEpsCount": 13,
+      "missingDilutedEpsCount": 16,
       "onlyFilingDateCount": 5,
       "historicalRecastDates": 8
     },
@@ -511,8 +511,8 @@
       "TTD",
       "WBD"
     ],
-    "completeMetricQuartersAdded": 11,
-    "quarterlyRecordsAdded": 13,
+    "completeMetricQuartersAdded": 14,
+    "quarterlyRecordsAdded": 19,
     "financialCoverageByIncomingTicker": {
       "FDXF": {
         "quarterCount": 4,
@@ -536,18 +536,24 @@
         ]
       },
       "VMRK": {
-        "quarterCount": 2,
-        "withBothMetrics": 2,
+        "quarterCount": 5,
+        "withBothMetrics": 5,
         "periodEnds": [
           "2026-09-30",
+          "2026-06-30",
+          "2026-03-31",
+          "2025-12-31",
           "2025-09-30"
         ]
       },
       "VYLR": {
-        "quarterCount": 2,
+        "quarterCount": 5,
         "withBothMetrics": 0,
         "periodEnds": [
           "2026-09-30",
+          "2026-06-30",
+          "2026-03-31",
+          "2025-12-31",
           "2025-09-30"
         ]
       }
@@ -555,8 +561,8 @@
     "reportingBasisNotes": {
       "FDXF": "Calendarized March and June 2026 stand-alone quarter tables and September comparative results. The May report used former parent segment results.",
       "HONA": "Quarterly scope from company filings and carve-out exhibits, with pre-spin EPS calculated using the fixed distribution share count where needed.",
-      "VMRK": "Reverse acquisition, AvalonBay accounting predecessor. Direct July–September 2026 and recalculated 2025 comparative. SEC CIK continuity with EQR does not establish comparability of its historical results.",
-      "VYLR": "Historical seed business sales appear in the supplemental combined statements of the 10-Q. The main consolidated statements present Corteva. The earnings attachment provides pro forma per-share data only."
+      "VMRK": "Reverse acquisition with AvalonBay as accounting predecessor. For the three intervening quarters, AvalonBay original revenue and release dates are used, and diluted EPS is calculated with the merger conversion ratio. The issuer separately disclosed the September 2025 recast and the first quarter that incorporates Equity Residential after closing.",
+      "VYLR": "All five seed-business sales figures reconcile to official Corteva/Vylor disclosures. The three newly verified dates are the original releases from former parent Corteva. Stand-alone GAAP diluted EPS remains unverified."
     }
   }
 }
