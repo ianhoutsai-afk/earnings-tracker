@@ -3642,10 +3642,10 @@
         "epsBasis": null,
         "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
         "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
-        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
         "metricNote": {
-          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business.",
-          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。"
+          "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business. In separate pre-spin pro forma disclosures, Vylor reported diluted EPS from continuing operations of $2.21 for the first six months of 2026. A second-quarter figure on that basis was not disclosed in that statement.",
+          "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。另一份分拆前備考財報披露，2026 年上半年繼續營業稀釋 EPS 為 2.21 美元。該份報表未列同口徑的第二季單季數字。"
         }
       },
       "releaseEvidence": {
@@ -3701,6 +3701,48 @@
           "column": 10,
           "label": "Net income (loss)",
           "rawValue": "1,022",
+          "unitMultiplier": 1000000
+        }
+      },
+      "sixMonthPreSeparationProFormaEvidence": {
+        "sales": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 3,
+          "column": 16,
+          "label": "Net sales",
+          "rawValue": "7,593",
+          "unitMultiplier": 1000000
+        },
+        "attributableIncomeFromContinuingOperations": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 16,
+          "column": 16,
+          "label": "Net income (loss) from continuing operations attributable to Corteva",
+          "rawValue": "1,485",
+          "unitMultiplier": 1000000
+        },
+        "dilutedEpsFromContinuingOperations": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 19,
+          "column": 16,
+          "label": "Diluted earnings (loss) per share of common stock from continuing operations",
+          "rawValue": "2.21",
+          "unitMultiplier": 1
+        },
+        "dilutedWeightedAverageShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 22,
+          "column": 16,
+          "label": "Diluted",
+          "rawValue": "671.6",
           "unitMultiplier": 1000000
         }
       }

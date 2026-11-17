@@ -21481,7 +21481,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000128/fdx-earningsreleasety2026q3.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
-    "verifiedAt": "2026-11-14",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2026-10-28",
     "releaseAccession": "0001048911-26-000128",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
@@ -21492,9 +21492,10 @@
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
     "metricNote": {
-      "en": "September 2026 is calendar Q3 in the fiscal-year transition. February 2026 is fiscal Q3 under the previous May year-end.",
-      "zh-TW": "2026 年 9 月為財年轉換期的曆年第三季。2026 年 2 月為原本以 5 月結算的財年第三季。"
-    }
+      "en": "Calendar Q3 during FedEx’s transition to a December year-end. Comparable calendar Q3 2025 revenue was $20.432B and continuing-operations GAAP diluted EPS was $2.73. Total diluted EPS for that comparative quarter was $3.89, including discontinued operations. The February 2026 FY2026 Q3 is a separate period under the previous May year-end.",
+      "zh-TW": "本列為 FedEx 改採 12 月結算的過渡期曆年第三季。可比的 2025 曆年第三季營收為 204.32 億美元，繼續營業 GAAP 稀釋 EPS 為 2.73 美元，含停業部門的總稀釋 EPS 為 3.89 美元。2026 年 2 月的財年第三季屬原 5 月結算制度，涵蓋不同期間。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm"
   },
   {
     "date": "2026-06-23",
@@ -21509,7 +21510,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-20260623.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000105/fdx-20260531.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2026-06-23",
     "releaseAccession": "0001048911-26-000050",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000105/fdx-20260531.htm",
@@ -21518,7 +21519,12 @@
     "accessionNumber": "0001048911-26-000105",
     "ticker": "FDX",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-earningsreleasefy2026q4.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-earningsreleasefy2026q4.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-earningsreleasefy2026q4.htm",
+    "metricNote": {
+      "en": "This quarter uses FedEx’s previous May fiscal year-end and includes the then-consolidated FedEx Freight business.",
+      "zh-TW": "本季使用 FedEx 原本以 5 月結算的財年，並包含當時仍納入合併報表的 FedEx Freight 業務。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-20260623.htm"
   },
   {
     "date": "2026-03-19",
@@ -21533,7 +21539,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000010/fdx-20260319.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2026-03-19",
     "releaseAccession": "0001048911-26-000010",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm",
@@ -21542,7 +21548,12 @@
     "accessionNumber": "0001048911-26-000011",
     "ticker": "FDX",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm",
+    "metricNote": {
+      "en": "This quarter uses FedEx’s previous May fiscal year-end and includes the then-consolidated FedEx Freight business.",
+      "zh-TW": "本季使用 FedEx 原本以 5 月結算的財年，並包含當時仍納入合併報表的 FedEx Freight 業務。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000010/fdx-20260319.htm"
   },
   {
     "date": "2025-12-18",
@@ -21557,7 +21568,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000076/fdx-20251218.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000078/fdx-20251130.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2025-12-18",
     "releaseAccession": "0001048911-25-000076",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000078/fdx-20251130.htm",
@@ -21566,7 +21577,12 @@
     "accessionNumber": "0001048911-25-000078",
     "ticker": "FDX",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000078/fdx-20251130.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000078/fdx-20251130.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000078/fdx-20251130.htm",
+    "metricNote": {
+      "en": "This quarter uses FedEx’s previous May fiscal year-end and includes the then-consolidated FedEx Freight business.",
+      "zh-TW": "本季使用 FedEx 原本以 5 月結算的財年，並包含當時仍納入合併報表的 FedEx Freight 業務。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000076/fdx-20251218.htm"
   },
   {
     "date": "2025-09-18",
@@ -21581,7 +21597,7 @@
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000042/fdx-earningsreleasefy2026q1.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000044/fdx-20250831.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-16",
     "releaseFilingDate": "2025-09-18",
     "releaseAccession": "0001048911-25-000042",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000044/fdx-20250831.htm",
@@ -21590,7 +21606,12 @@
     "accessionNumber": "0001048911-25-000044",
     "ticker": "FDX",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000044/fdx-20250831.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000044/fdx-20250831.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000044/fdx-20250831.htm",
+    "metricNote": {
+      "en": "This quarter uses FedEx’s previous May fiscal year-end and includes the then-consolidated FedEx Freight business.",
+      "zh-TW": "本季使用 FedEx 原本以 5 月結算的財年，並包含當時仍納入合併報表的 FedEx Freight 業務。"
+    },
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000042/fdx-earningsreleasefy2026q1.htm"
   },
   {
     "ticker": "FDXF",
@@ -57028,10 +57049,10 @@
     "epsBasis": null,
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
     "metricNote": {
-      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business.",
-      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。"
+      "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business. In separate pre-spin pro forma disclosures, Vylor reported diluted EPS from continuing operations of $2.21 for the first six months of 2026. A second-quarter figure on that basis was not disclosed in that statement.",
+      "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。另一份分拆前備考財報披露，2026 年上半年繼續營業稀釋 EPS 為 2.21 美元。該份報表未列同口徑的第二季單季數字。"
     }
   },
   {

@@ -1551,7 +1551,12 @@
     "metricPending": 6,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-09",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+      "bmo_amc": "AMC"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0001730168",
     "recordCount": 5,
@@ -2797,7 +2802,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-10",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.costco.com/events-and-presentations/",
+      "bmo_amc": null
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000909832",
     "recordCount": 5,

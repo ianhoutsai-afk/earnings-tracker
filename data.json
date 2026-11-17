@@ -887,13 +887,15 @@
     "ticker": "AVGO",
     "name": "Broadcom Inc.",
     "reportDate": "2026-12-09",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+    "bmo_amc": "AMC",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-09-02"
+    "latestPublishedDate": "2026-09-02",
+    "nextEarningsCallDate": "2026-12-09",
+    "nextEarningsCallSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026"
   },
   {
     "ticker": "BR",
@@ -1611,13 +1613,15 @@
     "ticker": "COST",
     "name": "Costco Wholesale Corporation",
     "reportDate": "2026-12-10",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investor.costco.com/events-and-presentations/",
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q4",
-    "latestPublishedDate": "2026-09-24"
+    "latestPublishedDate": "2026-09-24",
+    "nextEarningsCallDate": "2026-12-10",
+    "nextEarningsCallSourceUrl": "https://investor.costco.com/events-and-presentations/"
   },
   {
     "ticker": "CRH",
@@ -2397,7 +2401,9 @@
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-28"
+    "latestPublishedDate": "2026-10-28",
+    "nextEarningsCallDate": "2027-02-02",
+    "nextEarningsCallSourceUrl": "https://investors.fedex.com/news-and-events/upcoming-events/"
   },
   {
     "ticker": "FIS",

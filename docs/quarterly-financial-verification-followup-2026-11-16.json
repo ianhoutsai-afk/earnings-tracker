@@ -2203,6 +2203,59 @@
         "quarterlyOperatingIncomeSlide": 5,
         "basis": "Issuer presentation for the three months ended September 30, 2026. Amounts use the displayed precision. Consolidated operating revenue was not presented."
       }
+    },
+    "vylorFirstHalfProFormaFollowup": {
+      "checkedAtNewYork": "2026-11-16T21:51:54.859199-05:00",
+      "periodEnd": "2026-06-30",
+      "periodScope": "six_months",
+      "reportedProForma": {
+        "sales": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 3,
+          "column": 16,
+          "label": "Net sales",
+          "rawValue": "7,593",
+          "unitMultiplier": 1000000
+        },
+        "attributableIncomeFromContinuingOperations": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 16,
+          "column": 16,
+          "label": "Net income (loss) from continuing operations attributable to Corteva",
+          "rawValue": "1,485",
+          "unitMultiplier": 1000000
+        },
+        "dilutedEpsFromContinuingOperations": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 19,
+          "column": 16,
+          "label": "Diluted earnings (loss) per share of common stock from continuing operations",
+          "rawValue": "2.21",
+          "unitMultiplier": 1
+        },
+        "dilutedWeightedAverageShares": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "sourceSha256": "801df29f97d86edd7728d37fb86021c79127bc06f79de212eafab306df45d181",
+          "table": 23,
+          "row": 22,
+          "column": 16,
+          "label": "Diluted",
+          "rawValue": "671.6",
+          "unitMultiplier": 1000000
+        }
+      },
+      "nineMonthCheckSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+      "nineMonthsLessQ3": {
+        "salesUsd": 7593000000,
+        "incomeAttributableFromContinuingOperationsUsd": 1485000000
+      },
+      "basis": "The September information statement provides six-month pro forma diluted EPS and the November Article 11 disclosure independently reconciles sales and income. For the quarterly field, no second-quarter diluted EPS can be inferred from the half-year EPS."
     }
   },
   "upcomingEarningsEventReview": {
@@ -6797,6 +6850,277 @@
       "matchedAnnualAccessionNumber": "0000731802-26-000150",
       "retainedRevenueUsd": 796206000,
       "retainedDilutedEps": 1.17
+    }
+  },
+  "fedexCalendarTransitionReview": {
+    "checkedAtNewYork": "2026-11-16T21:51:54.859199-05:00",
+    "original8K": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fdx-20260721.htm",
+    "firstCalendar10Q": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+    "scope": "The July supplement recasts calendar 2025 with FedEx Freight presented as discontinued operations. The supplemental disclosure does not reissue the original May-year-end statements. The active calendar Q3 2026 and all four original May-year-end records retain their values and dates.",
+    "supplementPublished": "2026-07-21",
+    "supplementalCalendarYear2025Quarters": {
+      "2025-03-31": {
+        "revenue": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 7,
+          "column": 4,
+          "label": "TOTAL REVENUE",
+          "rawValue": "19,003",
+          "unitMultiplier": 1000000
+        },
+        "continuedOperationsDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 40,
+          "column": 4,
+          "label": "Continuing operations",
+          "rawValue": "2.19",
+          "unitMultiplier": 1
+        },
+        "totalDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 42,
+          "column": 4,
+          "label": "DILUTED EARNINGS PER COMMON SHARE",
+          "rawValue": "3.44",
+          "unitMultiplier": 1
+        }
+      },
+      "2025-06-30": {
+        "revenue": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 7,
+          "column": 10,
+          "label": "TOTAL REVENUE",
+          "rawValue": "19,769",
+          "unitMultiplier": 1000000
+        },
+        "continuedOperationsDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 40,
+          "column": 10,
+          "label": "Continuing operations",
+          "rawValue": "3.85",
+          "unitMultiplier": 1
+        },
+        "totalDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 42,
+          "column": 10,
+          "label": "DILUTED EARNINGS PER COMMON SHARE",
+          "rawValue": "5.77",
+          "unitMultiplier": 1
+        }
+      },
+      "2025-09-30": {
+        "revenue": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 7,
+          "column": 16,
+          "label": "TOTAL REVENUE",
+          "rawValue": "20,432",
+          "unitMultiplier": 1000000
+        },
+        "continuedOperationsDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 40,
+          "column": 16,
+          "label": "Continuing operations",
+          "rawValue": "2.73",
+          "unitMultiplier": 1
+        },
+        "totalDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 42,
+          "column": 16,
+          "label": "DILUTED EARNINGS PER COMMON SHARE",
+          "rawValue": "3.89",
+          "unitMultiplier": 1
+        }
+      },
+      "2025-12-31": {
+        "revenue": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 7,
+          "column": 22,
+          "label": "TOTAL REVENUE",
+          "rawValue": "23,259",
+          "unitMultiplier": 1000000
+        },
+        "continuedOperationsDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 40,
+          "column": 22,
+          "label": "Continuing operations",
+          "rawValue": "5.85",
+          "unitMultiplier": 1
+        },
+        "totalDilutedEps": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fedexrecastexhibit991.htm",
+          "sourceSha256": "a6403f1c77b216272e0d2a8a03000e7a50ec9f771745e2c0295bae7d701c7512",
+          "table": 3,
+          "row": 42,
+          "column": 22,
+          "label": "DILUTED EARNINGS PER COMMON SHARE",
+          "rawValue": "5.99",
+          "unitMultiplier": 1
+        }
+      }
+    },
+    "crossCheckIn2026Q3Comparative": {
+      "revenue": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 4,
+        "column": 10,
+        "label": "REVENUE",
+        "rawValue": "20,432",
+        "unitMultiplier": 1000000
+      },
+      "continuedOperationsDilutedEps": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 34,
+        "column": 10,
+        "label": "Continuing operations",
+        "rawValue": "2.73",
+        "unitMultiplier": 1
+      },
+      "totalDilutedEps": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 36,
+        "column": 10,
+        "label": "DILUTED EARNINGS PER COMMON SHARE",
+        "rawValue": "3.89",
+        "unitMultiplier": 1
+      }
+    },
+    "currentCalendarQ3": {
+      "revenue": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 4,
+        "column": 4,
+        "label": "REVENUE",
+        "rawValue": "22,855",
+        "unitMultiplier": 1000000
+      },
+      "continuedOperationsDilutedEps": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 34,
+        "column": 4,
+        "label": "Continuing operations",
+        "rawValue": "1.21",
+        "unitMultiplier": 1
+      },
+      "totalDilutedEps": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm",
+        "sourceSha256": "465530b3b18447166fa6bfec4526dd6ebd563c05607619e58b37e307dc1696a9",
+        "table": 11,
+        "row": 36,
+        "column": 4,
+        "label": "DILUTED EARNINGS PER COMMON SHARE",
+        "rawValue": "1.21",
+        "unitMultiplier": 1
+      }
+    }
+  },
+  "subsequentIssuerCalendarReview": {
+    "checkedAtNewYork": "2026-11-16T21:51:54.859199-05:00",
+    "timeZone": "America/New_York",
+    "events": {
+      "AVGO": {
+        "date": "2026-12-09",
+        "releaseSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+        "callSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+        "releaseSession": "AMC",
+        "callTimeEastern": "17:00",
+        "issuerPeriodLabel": "Q4 and fiscal year 2026",
+        "previousFields": {
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null,
+          "reportDate": "2026-12-09",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null
+        },
+        "storedFields": {
+          "nextEarningsCallDate": "2026-12-09",
+          "nextEarningsCallSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+          "reportDate": "2026-12-09",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+          "bmo_amc": "AMC"
+        }
+      },
+      "COST": {
+        "date": "2026-12-10",
+        "releaseSourceUrl": "https://investor.costco.com/events-and-presentations/",
+        "callSourceUrl": "https://investor.costco.com/events-and-presentations/",
+        "releaseSession": null,
+        "callTimeEastern": null,
+        "issuerPeriodLabel": "Q1 2027",
+        "previousFields": {
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null,
+          "reportDate": "2026-12-10",
+          "reportDateSource": "third_party_estimate",
+          "reportDateSourceUrl": null,
+          "bmo_amc": null
+        },
+        "storedFields": {
+          "nextEarningsCallDate": "2026-12-10",
+          "nextEarningsCallSourceUrl": "https://investor.costco.com/events-and-presentations/",
+          "reportDate": "2026-12-10",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.costco.com/events-and-presentations/",
+          "bmo_amc": null
+        }
+      },
+      "FDX": {
+        "date": "2027-02-02",
+        "releaseSourceUrl": null,
+        "callSourceUrl": "https://investors.fedex.com/news-and-events/upcoming-events/",
+        "releaseSession": null,
+        "callTimeEastern": "17:00",
+        "issuerPeriodLabel": "Q4 2026 earnings call",
+        "previousFields": {
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "nextEarningsCallDate": "2027-02-02",
+          "nextEarningsCallSourceUrl": "https://investors.fedex.com/news-and-events/upcoming-events/"
+        }
+      }
     }
   }
 }
