@@ -5143,19 +5143,25 @@
     "releaseFilingDate": "2026-11-04",
     "releaseAccession": "0000731802-26-000129",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
-    "metricSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
     "periodScope": "quarter",
     "currency": "USD",
     "verifiedAt": "2026-11-16",
-    "revenue": null,
+    "revenue": 796206000,
     "epsGaapDiluted": 1.17,
     "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
     "epsBasis": "GAAP diluted",
     "metricNote": {
-      "en": "The issuer’s earnings presentation reported quarterly net income of $199M and operating income of $259.3M. Consolidated operating revenue remains unverified.",
-      "zh-TW": "公司財報簡報披露本季淨利為 1.99 億美元，營業利益為 2.593 億美元。合併營收仍待核實。"
+      "en": "Quarterly consolidated operating revenue, net income ($198.978M), and operating income ($259.277M) are calculated as the audited full year less the first nine months. The issuer’s November 4 presentation supplies the quarterly diluted EPS.",
+      "zh-TW": "第四季合併營收、淨利（1.98978 億美元）與營業利益（2.59277 億美元）採經審計的全年金額減去前九個月。單季稀釋 EPS 取自公司 11 月 4 日的財報簡報。"
     },
-    "metricNoteSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf"
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+    "form": "10-K",
+    "filingDate": "2026-11-16",
+    "accessionNumber": "0000731802-26-000150",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-08-05",

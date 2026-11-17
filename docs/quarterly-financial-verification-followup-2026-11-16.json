@@ -2522,6 +2522,35 @@
           "nextEarningsCallDate": "2026-11-19",
           "nextEarningsCallSourceUrl": "https://www.businesswire.com/news/home/20261112522328/en/Williams-Sonoma-Inc.-announces-release-date-for-third-quarter-results-Thursday-November-19th-2026"
         }
+      },
+      "P": {
+        "date": "2026-11-18",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "periodEnd": "2026-11-01",
+        "checkedAtNewYork": "2026-11-16T21:41:43.215679-05:00",
+        "releaseSourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx",
+        "callSourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx",
+        "releaseTimeEastern": null,
+        "releaseSession": null,
+        "callTimeEastern": "17:00",
+        "issuerPressReleaseCopy": "https://www.prnewswire.com/news-releases/everpure-announces-date-and-conference-call-information-for-third-quarter-fiscal-2027-financial-results-302922604.html",
+        "previousFields": {
+          "reportDate": null,
+          "reportDateSource": null,
+          "reportDateSourceUrl": null,
+          "bmo_amc": null,
+          "nextEarningsCallDate": null,
+          "nextEarningsCallSourceUrl": null
+        },
+        "storedFields": {
+          "reportDate": "2026-11-18",
+          "reportDateSource": "official",
+          "reportDateSourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx",
+          "bmo_amc": null,
+          "nextEarningsCallDate": "2026-11-18",
+          "nextEarningsCallSourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx"
+        }
       }
     },
     "candidatesWithoutIssuerConfirmation": {
@@ -2534,7 +2563,8 @@
       "HD": "The corporate investor calendar supplies the release date. The formal notice time is the conference call.",
       "LOW": "The issuer page supplies a call date and its time. The quarter-results publication time is unconfirmed.",
       "TGT": "The issuer page supplies a call date and its time. The quarter-results publication time is unconfirmed.",
-      "ROST": "The press release gives an approximate results time of 16:00 ET, near the regular-session close."
+      "ROST": "The press release gives an approximate results time of 16:00 ET, near the regular-session close.",
+      "P": "Issuer notice announces November 18 and places the results before its 17:00 ET call. The issuer gives no precise release time or explicit session classification."
     },
     "secSubmissionReview": {
       "checkedAtUtc": "2026-11-16T10:17:35.419301+00:00",
@@ -6546,5 +6576,227 @@
     "priorOldestRetainedEnd": "2025-06-28",
     "releaseEventCleared": true,
     "earningsCallDate": "2026-11-16"
+  },
+  "atmosAnnualFilingFollowup": {
+    "checkedAtNewYork": "2026-11-16T21:41:43.215679-05:00",
+    "record": {
+      "ticker": "ATO",
+      "periodEnd": "2026-09-30",
+      "date": "2026-11-04",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 4,
+      "releaseFilingDate": "2026-11-04",
+      "releaseAccession": "0000731802-26-000129",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000129/ato20261104exhibit991.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+      "periodScope": "quarter",
+      "currency": "USD",
+      "verifiedAt": "2026-11-16",
+      "revenue": 796206000,
+      "epsGaapDiluted": 1.17,
+      "epsSourceUrl": "https://s201.q4cdn.com/158157484/files/content_files/Q4-2026-Earnings-Presentation.pdf",
+      "epsBasis": "GAAP diluted",
+      "metricNote": {
+        "en": "Quarterly consolidated operating revenue, net income ($198.978M), and operating income ($259.277M) are calculated as the audited full year less the first nine months. The issuer’s November 4 presentation supplies the quarterly diluted EPS.",
+        "zh-TW": "第四季合併營收、淨利（1.98978 億美元）與營業利益（2.59277 億美元）採經審計的全年金額減去前九個月。單季稀釋 EPS 取自公司 11 月 4 日的財報簡報。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+      "form": "10-K",
+      "filingDate": "2026-11-16",
+      "accessionNumber": "0000731802-26-000150",
+      "periodStart": "2026-07-01"
+    },
+    "filing": {
+      "accessionNumber": "0000731802-26-000150",
+      "form": "10-K",
+      "filingDate": "2026-11-16",
+      "reportDate": "2026-09-30",
+      "primaryDocument": "ato-20260930.htm",
+      "acceptanceDateTime": "2026-11-16T22:20:47.000Z"
+    },
+    "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000731802.json",
+    "secSubmissionsSha256": "911587acbe91caf09f1358793443cf411bc9e6285c0bf3056bd9db211a8d21a5",
+    "derivation": "Full-year less nine-month year-to-date values, taking the same line from both consolidated statements. All dollar figures are reported to the nearest thousand.",
+    "sourcesAndCalculation": {
+      "consolidatedOperatingRevenue": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 8,
+          "column": 4,
+          "label": "Total operating revenues",
+          "rawValue": "4,980,252",
+          "unitMultiplier": 1000,
+          "amountUsd": 4980252000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 9,
+          "column": 4,
+          "label": "Total operating revenues",
+          "rawValue": "4,184,046",
+          "unitMultiplier": 1000,
+          "amountUsd": 4184046000
+        },
+        "quarterAmountUsd": 796206000
+      },
+      "distributionOperatingRevenue": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 5,
+          "column": 4,
+          "label": "Distribution segment",
+          "rawValue": "4,627,973",
+          "unitMultiplier": 1000,
+          "amountUsd": 4627973000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 6,
+          "column": 4,
+          "label": "Distribution segment",
+          "rawValue": "3,911,164",
+          "unitMultiplier": 1000,
+          "amountUsd": 3911164000
+        },
+        "quarterAmountUsd": 716809000
+      },
+      "pipelineAndStorageOperatingRevenue": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 6,
+          "column": 4,
+          "label": "Pipeline and storage segment",
+          "rawValue": "1,217,556",
+          "unitMultiplier": 1000,
+          "amountUsd": 1217556000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 7,
+          "column": 4,
+          "label": "Pipeline and storage segment",
+          "rawValue": "908,975",
+          "unitMultiplier": 1000,
+          "amountUsd": 908975000
+        },
+        "quarterAmountUsd": 308581000
+      },
+      "intersegmentEliminations": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 7,
+          "column": 4,
+          "label": "Intersegment eliminations",
+          "rawValue": "( 865,277 )",
+          "unitMultiplier": 1000,
+          "amountUsd": -865277000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 8,
+          "column": 4,
+          "label": "Intersegment eliminations",
+          "rawValue": "( 636,093 )",
+          "unitMultiplier": 1000,
+          "amountUsd": -636093000
+        },
+        "quarterAmountUsd": -229184000
+      },
+      "netIncome": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 23,
+          "column": 4,
+          "label": "Net income",
+          "rawValue": "1,426,530",
+          "unitMultiplier": 1000,
+          "amountUsd": 1426530000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 28,
+          "column": 4,
+          "label": "Net income",
+          "rawValue": "1,227,552",
+          "unitMultiplier": 1000,
+          "amountUsd": 1227552000
+        },
+        "quarterAmountUsd": 198978000
+      },
+      "operatingIncome": {
+        "fullYear": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+          "sourceSha256": "417e9973f1485a1f598f233fdf73b60ac804e00b68660695e8ae49bb3b97ed9b",
+          "table": 49,
+          "row": 18,
+          "column": 4,
+          "label": "Operating income",
+          "rawValue": "1,859,259",
+          "unitMultiplier": 1000,
+          "amountUsd": 1859259000
+        },
+        "firstNineMonths": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+          "sourceSha256": "ef659b3c5102fa63971c3b28f35ff8f21b272ff3bea264e241735289658c6bcf",
+          "table": 10,
+          "row": 20,
+          "column": 4,
+          "label": "Operating income",
+          "rawValue": "1,599,982",
+          "unitMultiplier": 1000,
+          "amountUsd": 1599982000
+        },
+        "quarterAmountUsd": 259277000
+      }
+    },
+    "segmentRevenueReconcilesToConsolidated": true,
+    "currentCoverage": {
+      "companies": 503,
+      "officialQuarters": 2515,
+      "completeMetricQuarters": 2501,
+      "affectedIssuers": [
+        "AES",
+        "BRK-B",
+        "ECHO",
+        "SKYD",
+        "TECH",
+        "TRGP",
+        "TXT",
+        "VYLR"
+      ],
+      "unresolvedFields": {
+        "revenue": 1,
+        "epsGaapDiluted": 14,
+        "releaseDate": 6
+      }
+    },
+    "automaticIngestionReplay": {
+      "scope": "Replayed the quarter against the SEC earnings release and newly matched 10-K. Verified that merging the parser result retained the calculated revenue, release and filing dates, EPS, and their individual source URLs.",
+      "matchedAnnualAccessionNumber": "0000731802-26-000150",
+      "retainedRevenueUsd": 796206000,
+      "retainedDilutedEps": 1.17
+    }
   }
 }

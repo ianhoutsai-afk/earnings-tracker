@@ -1057,7 +1057,7 @@
     "cik": "0000731802",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 4
+    "metricsVerifiedQuarterCount": 5
   },
   "ADSK": {
     "status": "official_parse_pending",
@@ -9393,7 +9393,13 @@
     "metricsVerifiedQuarterCount": 5,
     "latestStoredDate": "2026-08-26",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000084/everpure-ex991q2fy2027xpre.htm"
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000084/everpure-ex991q2fy2027xpre.htm",
+    "nextEarningsEvent": {
+      "date": "2026-11-18",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx",
+      "bmo_amc": null
+    }
   },
   "TSCO": {
     "status": "official_parse_pending",
