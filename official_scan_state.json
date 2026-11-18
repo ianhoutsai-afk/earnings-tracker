@@ -5,14 +5,14 @@
   "deferredCompanies": 0,
   "newRecords": 0,
   "sourceFailures": 0,
-  "pendingCompanies": 8,
+  "pendingCompanies": 9,
   "officialQuarters": 2515,
   "fiveOfficialQuarterCompanies": 503,
-  "fiveCompleteMetricCompanies": 497,
+  "fiveCompleteMetricCompanies": 496,
   "sourceFailedCompanies": 0,
   "checkedAt": "2026-11-15T10:57:04.176885Z",
   "storedQuarters": 2515,
-  "completeMetricQuarters": 2501,
+  "completeMetricQuarters": 2500,
   "sourceHealthy": true,
   "historyComplete": true,
   "metricsComplete": false,
@@ -26,7 +26,34 @@
     "evidence": "docs/quarterly-financial-verification-followup-2026-11-16.json",
     "previousEvidence": "docs/quarterly-financial-verification-followup-2026-11-15.json"
   },
-  "filingDatedQuarters": 6,
+  "filingDatedQuarters": 7,
   "releaseDatesComplete": false,
-  "scanPendingCompanies": 472
+  "scanPendingCompanies": 472,
+  "latestQuarterReview": {
+    "checkedAt": "2026-11-18T12:47:20.588360Z",
+    "issuers": [
+      "DIS",
+      "HD",
+      "LOW",
+      "NVDA",
+      "TGT"
+    ],
+    "newQuarters": 5,
+    "evidence": "docs/quarterly-financial-verification-followup-2026-11-18.json"
+  },
+  "fiveConsecutiveQuarterCompanies": 503,
+  "historyContinuityPendingCompanies": 0,
+  "continuityReview": {
+    "checkedAtUtc": "2026-11-18T13:34:38.116273+00:00",
+    "addedMissingQuarters": 39,
+    "pendingCompanies": 0,
+    "evidence": "docs/quarterly-financial-verification-followup-2026-11-18.json"
+  },
+  "financialFilingSourceReview": {
+    "checkedAtUtc": "2026-11-18T13:41:07.583760+00:00",
+    "uniqueDocuments": 2415,
+    "sourceFailures": 0,
+    "unresolvedNumericConflicts": 0,
+    "evidence": "docs/financial-filing-source-audit-2026-11-18.json"
+  }
 }

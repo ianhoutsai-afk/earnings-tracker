@@ -69,6 +69,8 @@ def _fiscal_identity(intro):
         r'(?i)\bfiscal\s+(20\d{2})\s+full[\s-]+year\s+and\s+fourth[\s-]+quarter\b',
     )
     matches += [(m.start(), int(m[1]), 4) for p in combined_year_patterns for m in re.finditer(p, identity_text)]
+    matches += [(m.start(), int(m[1]), QUARTERS[m[2].lower()]) for m in re.finditer(
+        r'(?i)\bwe closed fiscal\s+(20\d{2})\s+with\s+(?:a\s+)?(?:strong\s+)?(first|second|third|fourth)\s+quarter\b', identity_text)]
     return min(matches)[1:] if matches else (None,None)
 
 
@@ -122,6 +124,19 @@ def parse_earnings_release(document, event_date, filing_date, today):
                 raise ValueError('Earnings period has not ended')
     # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
+    # A long summary can precede the dateline. Only a dated, explicitly current
+    # results sentence may establish identity beyond the comparison boundary.
+    opening = re.search(
+        r'(?i)\btoday\s+(?:reported|announced|released)\s+(?:its|the)\s+'
+        r'(?:full[\s-]+(?:fiscal[\s-]+)?year\s+and\s+)?'
+        r'(?P<quarter>first|second|third|fourth)[\s-]+quarter\s+'
+        r'(?P<year>20\d{2})\s+(?:financial\s+)?results\s*[.!;]', text[:6000])
+    dated = list(re.finditer(DATE, text[:opening.start()], re.I)) if opening else []
+    if dated and _date(dated[-1][0]) == event:
+        current_identity = (int(opening['year']), QUARTERS[opening['quarter'].lower()])
+        if year is not None and (year, fiscal_quarter) != current_identity:
+            raise ValueError('Conflicting fiscal identities in earnings exhibit')
+        year,fiscal_quarter = current_identity
     if end is not None and (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
     if end is None:
@@ -131,6 +146,7 @@ def parse_earnings_release(document, event_date, filing_date, today):
         actual = re.search(
             r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
             r'(?:(?:financial\s+)?results\s+for\b|'
+            r'(?:full[\s-]+(?:fiscal[\s-]+)?year\s+and\s+)?'
             r'(?P<quarter>first|second|third|fourth)[\s-]+quarter\s+'
             r'(?P<year>20\d{2})\s+(?:financial\s+)?results\s*[.!;])',
             intro,
@@ -140,7 +156,10 @@ def parse_earnings_release(document, event_date, filing_date, today):
             if year is not None and (year, fiscal_quarter) != stated_identity:
                 raise ValueError('Conflicting fiscal identities in earnings exhibit')
             year, fiscal_quarter = stated_identity
-        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
+        # Table headers can split month/day and year across different columns.
+        # They do not make the dated, completed-results narrative malformed.
+        narrative = ' '.join(tree.xpath('//text()[not(ancestor::table)]'))
+        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', narrative)
         if not actual or year is None or fiscal_quarter is None or malformed_period:
             raise ValueError('No explicit completed quarterly period')
         publication_dates = [m for m in re.finditer(DATE, intro[:actual.start()], re.I)]
@@ -293,9 +312,22 @@ def parse_inline_quarter(document, period_end, cik=None):
     for node in nodes:
         if node.get('name', '').lower() != 'dei:documentperiodenddate':
             continue
-        raw_end = ' '.join(_text(node).split())
+        parts = [_text(node)]
+        continuation = node.get('continuedat')
+        seen = set()
+        while continuation:
+            targets = [candidate for candidate in nodes if candidate.get('id') == continuation]
+            if continuation in seen or len(targets) != 1 or _local(targets[0]) != 'continuation':
+                raise ValueError('Official document period has an invalid continuation')
+            seen.add(continuation)
+            parts.append(_text(targets[0]))
+            continuation = targets[0].get('continuedat')
+        raw_end = ' '.join(' '.join(parts).split())
         try:
-            value = _date(raw_end) if re.fullmatch(DATE, raw_end, re.I) else date.fromisoformat(raw_end)
+            if node.get('format', '').split(':')[-1] == 'date-month-day-year':
+                value = datetime.strptime(raw_end, '%m/%d/%Y').date()
+            else:
+                value = _date(raw_end) if re.fullmatch(DATE, raw_end, re.I) else date.fromisoformat(raw_end)
         except ValueError:
             raise ValueError('Official document period does not match release period') from None
         document_ends.add(value.isoformat())
@@ -343,6 +375,12 @@ def parse_inline_quarter(document, period_end, cik=None):
             is_revenue = _contract_revenue_total(node)
         if not is_eps and not is_revenue:
             continue
+        if is_revenue:
+            row = next((ancestor for ancestor in node.iterancestors() if _local(ancestor) == 'tr'), None)
+            if row is not None and re.search(r'(?i)\bsegment\b', _text(row)):
+                # A standard tag and dimensionless context can still be applied
+                # to an explicitly labelled segment amount in the source.
+                continue
         if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
             continue
         if units.get(node.get('unitref')) != ('USD/shares' if is_eps else 'USD'):

@@ -1,0 +1,68 @@
+"""Regressions for original November 2026 financial release layouts."""
+from datetime import date
+from pathlib import Path
+import unittest
+
+from nvda_history import parse_release
+from official_sources import parse_earnings_release
+from release_metrics import parse_release_quarter_metrics
+
+ROOT = Path(__file__).parent / 'tests' / 'fixtures'
+
+
+class NovemberQuarterlySourceTests(unittest.TestCase):
+    def test_nvidia_billion_summary_uses_precise_million_statement(self):
+        document = (ROOT / 'nvda' / 'fy2027-q3.html').read_bytes()
+        url = 'https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027'
+        record = parse_release(document, url, date(2026, 11, 18))
+        self.assertEqual((record['revenue'], record['epsGaapDiluted']), (115844000000, 2.70))
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2027, 3, '2026-10-25'))
+
+    def test_disney_current_fiscal_year_precedes_comparative_quarters(self):
+        document = (ROOT / 'reviewed' / 'dis-q4-2026.html').read_bytes()
+        record = parse_earnings_release(document, '2026-11-17', '2026-11-17', date(2026, 11, 18))
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2026, 4, '2026-10-03'))
+
+    def test_target_current_results_after_prior_year_comparison(self):
+        document = (ROOT / 'reviewed' / 'tgt-q3-2026.html').read_bytes()
+        record = parse_earnings_release(document, '2026-11-18', '2026-11-18', date(2026, 11, 18))
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2026, 3, '2026-10-31'))
+
+    def test_comparative_results_included_cannot_establish_current_fiscal_year(self):
+        document = ('<p>November 18, 2026 — Company today reported results for the quarter ended '
+                    'October 31, 2026. Compared with last year, third quarter 2025 results '
+                    'included a nonrecurring gain.</p>')
+        record = parse_earnings_release(document, '2026-11-18', '2026-11-18', date(2026, 11, 18))
+        self.assertIsNone(record['fiscalYear'])
+        self.assertIsNone(record['fiscalQuarter'])
+
+    def test_dated_full_year_and_fourth_quarter_results_can_join_financial_filing(self):
+        document = ('<p>January 29, 2026 — Company today announced its full year and '
+                    'fourth quarter 2025 results.</p>'
+                    '<table><tr><td>Three Months Ended December 31,</td>'
+                    '<td>Twelve Months Ended December 31, (unaudited)</td></tr>'
+                    '<tr><td>2025</td><td>2024</td></tr></table>')
+        record = parse_earnings_release(document, '2026-01-29', '2026-01-29', date(2026, 11, 18))
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2025, 4, None))
+
+    def test_statement_totals_use_quarter_dates_and_gaap_eps(self):
+        cases = (
+            ('dis-q4-2026.html', '0001744489', '2026-10-03', 25947000000, 1.51),
+            ('hd-q3-2026.html', '0000354950', '2026-11-01', 43398000000, 3.72),
+            ('tgt-q3-2026.html', '0000027419', '2026-10-31', 27067000000, 2.65),
+            ('low-q3-2026.html', '0000060667', '2026-10-30', 22756000000, 2.98),
+        )
+        for filename, cik, end, revenue, eps in cases:
+            with self.subTest(issuer=cik):
+                document = (ROOT / 'reviewed' / filename).read_bytes()
+                self.assertEqual(parse_release_quarter_metrics(document, end, cik),
+                                 {'revenue': revenue, 'epsGaapDiluted': eps})
+                self.assertEqual(parse_release_quarter_metrics(document, '2026-12-31', cik), {})
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -3,7 +3,7 @@ import json, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, pending_history_companies
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, pending_history_companies, history_continuity_issues
 from verified_history import apply_official_records, write_json_bundle
 from validate_quarterly_data import validate
 
@@ -45,11 +45,14 @@ for company in companies:
 companies=[company_fields(c,history,today) for c in companies]
 summary=read(branch,'official_scan_state.json')
 summary.update(companies=len(companies),officialQuarters=sum(s['officialQuarterCount'] for s in status.values()),storedQuarters=sum(s['recordCount'] for s in status.values()),completeMetricQuarters=sum(s['metricsVerifiedQuarterCount'] for s in status.values()),fiveOfficialQuarterCompanies=sum(s['officialQuarterCount']==5 for s in status.values()),fiveCompleteMetricCompanies=sum(s['metricsVerifiedQuarterCount']==5 for s in status.values()),pendingCompanies=pending_history_companies(history),scanPendingCompanies=sum(s.get('status')!='official_source_checked' for s in status.values()),reconciledMainCommit=subprocess.check_output(['git','rev-parse',main],text=True).strip(),dataMergedAt=datetime.now(timezone.utc).isoformat())
-summary['historyComplete']=summary['fiveOfficialQuarterCompanies']==len(companies)
+continuity=history_continuity_issues(history)
+summary['historyContinuityPendingCompanies']=len(continuity)
+summary['fiveConsecutiveQuarterCompanies']=sum(len(rows)==5 and ticker not in continuity and all(row.get('verificationStatus')=='official_verified' for row in rows) for ticker,rows in history.items())
+summary['historyComplete']=summary['fiveConsecutiveQuarterCompanies']==len(companies)
 summary['metricsComplete']=summary['fiveCompleteMetricCompanies']==len(companies)
 summary['filingDatedQuarters'] = filing_dated_quarters(history)
 summary['releaseDatesComplete'] = all_release_dates_verified(history)
-summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
+summary['dataComplete'] = summary['historyComplete'] and summary['releaseDatesComplete'] and summary['metricsComplete']
 summary['healthy']=summary['sourceHealthy'] and summary['dataComplete']
 summary['dataStatus']='complete' if summary['dataComplete'] else 'incomplete'
 write_json_bundle({Path('data.json'):companies,Path('historical_data.json'):history,Path('official_history.json'):manifest,Path('history_status.json'):status,Path('official_scan_state.json'):summary})

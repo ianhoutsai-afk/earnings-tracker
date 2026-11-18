@@ -12,6 +12,8 @@ from zoneinfo import ZoneInfo
 
 from lxml import html
 
+from release_metrics import parse_release_quarter_metrics
+
 FEED_URL = 'https://nvidianews.nvidia.com/rss.xml'
 RELEASE_PREFIX = 'https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-'
 QUARTERS = ('first', 'second', 'third', 'fourth')
@@ -69,7 +71,7 @@ def nvda_company_fields(company, history, today):
 
 
 def parse_release(document, url, today):
-    """Parse identity/dates and the current-quarter GAAP summary only."""
+    """Parse identity/dates and current-quarter GAAP amounts from the release."""
     _official_url(url)
     tree = html.fromstring(document)
     title = tree.xpath('normalize-space(//h1[contains(@class,"article-title")])')
@@ -134,6 +136,11 @@ def parse_release(document, url, today):
             else:
                 eps = float(number)
         break
+    # The income statement retains precise million-dollar amounts when the
+    # summary switches to rounded billions.
+    statement = parse_release_quarter_metrics(document, period_end.isoformat(), '0001045810')
+    revenue = statement.get('revenue', revenue)
+    eps = statement.get('epsGaapDiluted', eps)
     return {
         'ticker': 'NVDA', 'date': published.isoformat(), 'periodEnd': period_end.isoformat(),
         'fiscalYear': fiscal_year, 'fiscalQuarter': quarter, 'periodScope': 'quarter',

@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, pending_history_companies
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, pending_history_companies, history_continuity_issues
 from verified_history import _validate_record
 
 
@@ -52,6 +52,18 @@ def validate(root='.', today=None):
     state_path = root/'official_scan_state.json'
     if state_path.exists():
         state = json.loads(state_path.read_text())
+        continuity = history_continuity_issues(history)
+        consecutive = sum(len(rows) == 5 and ticker not in continuity
+                          and all(row.get('verificationStatus') == 'official_verified' for row in rows)
+                          for ticker, rows in history.items())
+        if state.get('historyComplete') and consecutive != len(companies):
+            raise ValueError('History marked complete without five consecutive verified quarters')
+        if state.get('dataComplete') and (consecutive != len(companies) or state.get('historyComplete') is False):
+            raise ValueError('Data marked complete without five consecutive verified quarters')
+        if 'historyContinuityPendingCompanies' in state and state['historyContinuityPendingCompanies'] != len(continuity):
+            raise ValueError('Quarter-continuity count differs from the published quarters')
+        if 'fiveConsecutiveQuarterCompanies' in state and state['fiveConsecutiveQuarterCompanies'] != consecutive:
+            raise ValueError('Consecutive-quarter count differs from the published quarters')
         if 'scanPendingCompanies' in state:
             if state.get('pendingCompanies') != pending_history_companies(history):
                 raise ValueError('Pending-data count differs from the published quarters')

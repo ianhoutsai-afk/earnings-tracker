@@ -17,9 +17,11 @@ def official(end, quarter, released, eps=1.0):
 
 class QuarterlyPolicyTests(unittest.TestCase):
     def test_pending_history_uses_retained_metrics_and_date_provenance(self):
-        complete = [dict(periodEnd=f'2026-0{i}-01', periodScope='quarter', currency='USD',
+        periods = [('2026-09-30',2026,3), ('2026-06-30',2026,2), ('2026-03-31',2026,1),
+                   ('2025-12-31',2025,4), ('2025-09-30',2025,3)]
+        complete = [dict(periodEnd=end, fiscalYear=year, fiscalQuarter=quarter, periodScope='quarter', currency='USD',
                          verificationStatus='official_verified', epsBasis='GAAP diluted',
-                         eps_reported='$0.00', revenue_reported='$0.00M') for i in range(1, 6)]
+                         eps_reported='$0.00', revenue_reported='$0.00M') for end,year,quarter in periods]
         history = {
             'COMPLETE': complete,
             'RECAST': [dict(complete[0], dateSource='recast'), *complete[1:]],

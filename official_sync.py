@@ -22,7 +22,7 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance, pending_history_companies
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance, pending_history_companies, history_continuity_issues
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -131,9 +131,22 @@ PERIOD_FROM_FILING_EXHIBITS = {
 }
 
 
-# Oracle's 10-Q narrative and separately signed earnings release identify fiscal
-# 2027 Q1, although the original 10-Q's fiscal-year tag says 2026.
-ORACLE_2027_Q1_TAG_CORRECTION = ('0001193125-26-389274', '2026-08-31')
+# Original releases were independently reviewed against
+# these conflicting DEI tags. Corrections require the exact filing and release
+# identity, rather than an inferred calendar year. See the November audit logs.
+REVIEWED_FISCAL_TAG_CORRECTIONS = {
+    ('0001341439', '0001193125-26-389274', '2026-08-31'): ((2026, 1), (2027, 1)),
+    ('0001521332', '0001521332-26-000048', '2026-03-31'): ((2025, 1), (2026, 1)),
+    ('0001108524', '0001108524-26-000060', '2026-01-31'): ((2025, 4), (2026, 4)),
+    ('0000034903', '0000034903-26-000017', '2025-12-31'): ((2024, 4), (2025, 4)),
+    ('0001327811', '0001327811-25-000198', '2025-10-31'): ((2025, 3), (2026, 3)),
+    ('0001327811', '0001327811-25-000184', '2025-07-31'): ((2025, 2), (2026, 2)),
+    ('0000820318', '0000820318-26-000023', '2026-09-30'): ((2026, 1), (2027, 1)),
+    ('0001037646', '0001037646-26-000051', '2026-06-30'): ((2024, 2), (2026, 2)),
+    ('0001002047', '0001193125-26-380207', '2026-07-31'): ((2026, 1), (2027, 1)),
+    ('0001002047', '0001193125-25-297237', '2025-10-24'): ((2025, 2), (2026, 2)),
+    ('0001002047', '0001193125-25-189700', '2025-07-25'): ((2025, 1), (2026, 1)),
+}
 
 # Filed with Raymond James's fourth-quarter earnings release under Item 2.02.
 RJF_QUARTER_METRIC_EXHIBIT = ('0000720005-26-000080', 'rjf0930q426supplement.htm')
@@ -228,11 +241,14 @@ def check_issuer(cik, submissions, fetch, today):
                 except (ValueError, html.etree.ParserError):
                     metric_pending += 1
                     continue
-                if ((candidate['accessionNumber'], parsed['periodEnd']) == ORACLE_2027_Q1_TAG_CORRECTION
-                        and str(cik).zfill(10) == '0001341439'
-                        and (parsed['fiscalYear'], parsed['fiscalQuarter']) == (2026, 1)
-                        and (release.get('fiscalYear'), release.get('fiscalQuarter')) == (2027, 1)):
-                    parsed['fiscalYear'] = 2027
+                correction = REVIEWED_FISCAL_TAG_CORRECTIONS.get(
+                    (str(cik).zfill(10), candidate['accessionNumber'], parsed['periodEnd']))
+                if correction and (parsed['fiscalYear'], parsed['fiscalQuarter']) == correction[0]:
+                    if (release.get('fiscalYear'), release.get('fiscalQuarter')) != correction[1]:
+                        identity_conflict = event_conflict = True
+                        metric_pending += 1
+                        continue
+                    parsed['fiscalYear'], parsed['fiscalQuarter'] = correction[1]
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
                     identity_conflict = True
@@ -458,11 +474,17 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     summary['storedQuarters'] = sum(s.get('recordCount', 0) for s in status.values())
     summary['completeMetricQuarters'] = sum(s.get('metricsVerifiedQuarterCount', 0) for s in status.values())
     summary['sourceHealthy'] = source_failures == 0 and deferred == 0
-    summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
+    continuity = history_continuity_issues(history)
+    summary['historyContinuityPendingCompanies'] = len(continuity)
+    summary['fiveConsecutiveQuarterCompanies'] = sum(
+        len(rows) == 5 and ticker not in continuity
+        and all(row.get('verificationStatus') == 'official_verified' for row in rows)
+        for ticker, rows in history.items())
+    summary['historyComplete'] = summary['fiveConsecutiveQuarterCompanies'] == len(companies)
     summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
     summary['filingDatedQuarters'] = filing_dated_quarters(history)
     summary['releaseDatesComplete'] = all_release_dates_verified(history)
-    summary['dataComplete'] = summary['releaseDatesComplete'] and summary['metricsComplete']
+    summary['dataComplete'] = summary['historyComplete'] and summary['releaseDatesComplete'] and summary['metricsComplete']
     summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
     summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,

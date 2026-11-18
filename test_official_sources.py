@@ -69,6 +69,11 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual(r['periodStart'],'2026-07-01')
   self.assertEqual((r['fiscalYear'],r['fiscalQuarter']),(2026,3))
 
+ def test_standard_revenue_tag_on_explicit_segment_row_is_not_consolidated_total(self):
+  fact='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  segment='<table><tr><td>Hybrid Cloud segment net revenues</td><td>'+fact+'</td></tr></table>'
+  self.assertIsNone(parse_inline_quarter(filing().replace(fact,segment),'2026-09-30')['revenue'])
+
  def test_nonzero_eps_scale_requires_independent_reconciliation(self):
   exact_eps = 'name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare"'
   doc = filing().replace(exact_eps + '>1.25', exact_eps + ' scale="3" sign="-">0.10')
@@ -103,6 +108,24 @@ class OfficialParserTests(unittest.TestCase):
 
  def test_document_identity_must_match_period_end(self):
   with self.assertRaises(ValueError):parse_inline_quarter(filing(),'2026-06-30')
+
+ def test_document_period_end_honors_explicit_numeric_date_transform(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+      'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  for changed in (doc.replace('9/30/2026','9/29/2026'),
+                  doc.replace('date-month-day-year','date-day-month-year'),
+                  doc.replace(' format="ixt:date-month-day-year"','')):
+   with self.assertRaises(ValueError):parse_inline_quarter(changed,'2026-09-30')
+
+ def test_document_period_end_follows_explicit_continuation(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+      'name="dei:DocumentPeriodEndDate" continuedAt="date-year">September 30,')
+  doc=doc.replace('</body>', '<ix:continuation id="date-year">2026</ix:continuation></body>')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  for changed in (doc.replace('id="date-year"','id="other"'),
+                  doc.replace('id="date-year"','id="date-year" continuedAt="date-year"')):
+   with self.assertRaises(ValueError):parse_inline_quarter(changed,'2026-09-30')
 
  def test_proxy_scheme_is_normalized_without_leaking_bad_input(self):
   self.assertEqual(normalize_proxy_base(' sec-proxy.example.workers.dev/ '),'https://sec-proxy.example.workers.dev')

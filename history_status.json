@@ -4236,7 +4236,7 @@
     "cik": "0001031296",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 4
   },
   "FISV": {
     "status": "official_parse_pending",
@@ -4934,9 +4934,9 @@
   "HD": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-18",
+    "latestStoredDate": "2026-11-17",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000145/hd_exhibit991x08022026.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000184/hd_exhibit991x11012026.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -4945,17 +4945,20 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-17",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://ir.homedepot.com/events-and-presentations",
-      "bmo_amc": null
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000354950",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-18T12:47:20.588360Z",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000184/hd_exhibit991x11012026.htm",
+      "periodEnd": "2026-11-01",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Latest quarter only; prior full-scan diagnostics retained."
+    }
   },
   "HON": {
     "status": "official_parse_pending",
@@ -6177,9 +6180,9 @@
   "LOW": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-19",
+    "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000113/exhibit991-07312026.htm",
+    "officialSourceUrl": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-third-quarter-2026-sales-and-earnings-results",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 7,
@@ -6193,7 +6196,15 @@
     "cik": "0000060667",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-18T12:47:20.588360Z",
+      "sourceUrl": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-third-quarter-2026-sales-and-earnings-results",
+      "periodEnd": "2026-10-30",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Latest quarter only; prior full-scan diagnostics retained."
+    }
   },
   "LULU": {
     "status": "official_parse_pending",
@@ -7232,20 +7243,23 @@
   "NVDA": {
     "status": "official_source_checked",
     "reason": "nvda_newsroom_feed_and_next_quarter_checked",
-    "latestStoredDate": "2026-08-26",
+    "latestStoredDate": "2026-11-17",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    "officialSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
     "discoverySource": "NVIDIA Newsroom RSS and quarterly release",
-    "checkedAt": "2026-11-15T10:59:23.814487Z",
+    "checkedAt": "2026-11-18T12:45:49.675965Z",
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "recordCount": 5,
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5,
-    "nextEarningsEvent": {
-      "date": "2026-11-17",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/default.aspx",
-      "bmo_amc": "AMC"
+    "nextEarningsEvent": null,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-18T12:47:20.588360Z",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+      "periodEnd": "2026-10-25",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Latest quarter only; prior full-scan diagnostics retained."
     }
   },
   "NVR": {
@@ -9156,9 +9170,9 @@
   "TGT": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-19",
+    "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000034/a2026q2ex-99.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000051/a2026q3ex-99.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 7,
@@ -9172,7 +9186,15 @@
     "cik": "0000027419",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-18T12:47:20.588360Z",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000051/a2026q3ex-99.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Latest quarter only; prior full-scan diagnostics retained."
+    }
   },
   "TEL": {
     "status": "official_parse_pending",
@@ -9356,17 +9378,23 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-18",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investor.tjx.com/news-releases/news-release-details/tjx-companies-inc-report-q3-fy27-results-november-18-2026",
-      "bmo_amc": "BMO"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000109198",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestUnparsedRelease": {
+      "checkedAt": "2026-11-18T13:45:53.883091+00:00",
+      "date": "2026-11-18",
+      "fiscalYear": 2027,
+      "fiscalQuarter": 3,
+      "title": "The TJX Companies, Inc. Reports Q3 FY27 Results; Comp Sales Growth of 4%, Pretax Profit Margin, and Diluted Earnings Per Share All Above Plan",
+      "sourceUrl": "https://investor.tjx.com/news-releases/news-release-details/tjx-companies-inc-reports-q3-fy27-results-comp-sales-growth-4",
+      "listingSourceUrl": "https://investor.tjx.com/investors/press-releases",
+      "status": "statement_retrieval_pending",
+      "reason": "Official listing confirms title and publication date; original statement and official RSS endpoints returned HTTP 403. No matching November 18 SEC results filing was available at the checked cutoff. Period end and metrics were not inferred."
+    }
   },
   "TKO": {
     "status": "official_source_checked",
@@ -10180,9 +10208,9 @@
   "DIS": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-05",
+    "latestStoredDate": "2026-11-17",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000065/fy2026_q4xerxex991.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 5,
@@ -10191,17 +10219,20 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-17",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx",
-      "bmo_amc": "BMO"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001744489",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-18T12:47:20.588360Z",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000065/fy2026_q4xerxex991.htm",
+      "periodEnd": "2026-10-03",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Latest quarter only; prior full-scan diagnostics retained."
+    }
   },
   "TWLO": {
     "status": "official_source_checked",

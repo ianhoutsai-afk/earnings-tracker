@@ -5,6 +5,14 @@ from datetime import date
 
 HISTORY_LIMIT = 5
 
+# Reviewed fiscal-year changes: intervening transition reports are not quarters.
+# FDX: https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm
+# FERG: https://www.sec.gov/Archives/edgar/data/2011641/000201164126000044/ferg-20260930.htm
+_FISCAL_TRANSITIONS = {
+    ('FDX', '2026-09-30', '2026-05-31'): ((2026, 3), (2026, 4)),
+    ('FERG', '2026-03-31', '2025-10-31'): ((2026, 1), (2026, 1)),
+}
+
 
 def _day(value):
     return date.fromisoformat(value) if isinstance(value, str) else None
@@ -19,6 +27,29 @@ def fiscal_identity(row):
         if match:
             return int(match[1]), int(match[2])
     return None
+
+
+def history_continuity_issues(history):
+    """Flag skipped or inconsistent quarters without guessing calendar identities."""
+    result = {}
+    for ticker, rows in history.items():
+        ordered = sorted(rows, key=lambda row: row.get('periodEnd') or '', reverse=True)
+        for newer, older in zip(ordered, ordered[1:]):
+            first, second = fiscal_identity(newer), fiscal_identity(older)
+            ends = (newer.get('periodEnd'), older.get('periodEnd'))
+            if first and second:
+                if _FISCAL_TRANSITIONS.get((ticker, *ends)) == (first, second):
+                    continue
+                serial = lambda identity: identity[0] * 4 + identity[1]
+                if serial(first) - serial(second) == 1 and all(ends):
+                    if 0 < (_day(ends[0]) - _day(ends[1])).days <= 140:
+                        continue
+            result.setdefault(ticker, []).append({
+                'newerPeriodEnd': ends[0], 'olderPeriodEnd': ends[1],
+                'newerFiscalQuarter': f'{first[0]} Q{first[1]}' if first else None,
+                'olderFiscalQuarter': f'{second[0]} Q{second[1]}' if second else None,
+            })
+    return result
 
 
 def period_key(row):
@@ -81,8 +112,9 @@ def filing_dated_quarters(history):
 
 
 def pending_history_companies(history):
+    continuity_pending = history_continuity_issues(history)
     return sum(
-        len(rows) < HISTORY_LIMIT or any(
+        ticker in continuity_pending or len(rows) < HISTORY_LIMIT or any(
             row.get('verificationStatus') != 'official_verified'
             or row.get('periodScope') != 'quarter'
             or not row.get('periodEnd')
@@ -93,7 +125,7 @@ def pending_history_companies(history):
             or row.get('dateSource') not in (None, 'recast')
             for row in rows
         )
-        for rows in history.values()
+        for ticker, rows in history.items()
     )
 
 

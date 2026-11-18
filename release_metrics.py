@@ -11,12 +11,14 @@ from lxml import html
 SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764',
                      '0000320193', '0000002488', '0001018724', '0001596532', '0000001800',
                      '0000002969', '0000882184', '0001013237', '0000857005', '0000804328',
-                     '0001341439', '0000720005'}
+                     '0001341439', '0000720005', '0001045810', '0000354950',
+                     '0001744489', '0000027419', '0000060667'}
 
 REVENUE_MILLION_UNITS = {
     '0000310764': r'\bmillions of dollars\b',
     '0000002488': r'\bmillions\b',
     '0000002969': r'\bmillions of u\.s\. dollars\b',
+    '0000027419': r'\bmillions\b',
 }
 
 def _text(node):
@@ -228,6 +230,12 @@ def parse_release_quarter_metrics(document, period_end, cik):
         if table.xpath('.//table'):
             continue
         scope = _scope(table)
+        if scope is None and cik == '0000060667':
+            # Lowe's puts its issuer name, exact GAAP title and units in one row.
+            first = table.xpath('./tr|./thead/tr|./tbody/tr')[:1]
+            title = _text(first[0]) if first else ''
+            if re.fullmatch(r"Lowe's Companies, Inc\. Consolidated Statements of Current Earnings and Accumulated Deficit \(Unaudited\) In Millions, Except Per Share and Percentage Data", title):
+                scope = title
         if scope is None:
             continue
         try:
@@ -252,8 +260,11 @@ def parse_release_quarter_metrics(document, period_end, cik):
         width = max(map(len,grid), default=0)
         columns = []
         for x in range(1,width):
+            if cik == '0000060667' and not any(x < len(row) and row[x] == 'Amount' for row in headers):
+                continue
             header = ' '.join(dict.fromkeys(row[x] for row in headers if x < len(row) and row[x]))
-            if not re.search(r'(?i)\bthree months ended\b',header) or re.search(r'(?i)\b(?:six|nine|twelve) months|\byear ended\b',header):
+            duration = r'(?i)\b(?:three months|quarter) ended\b' if cik == '0001744489' else r'(?i)\bthree months ended\b'
+            if not re.search(duration,header) or re.search(r'(?i)\b(?:six|nine|twelve) months|\byear ended\b',header):
                 continue
             month = end.strftime('%B')
             day = str(end.day)
