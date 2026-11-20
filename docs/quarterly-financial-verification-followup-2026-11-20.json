@@ -1878,7 +1878,48 @@
         "https://www.textron.com/assets/FB/2025/Textron_Fact_Book_2025.pdf",
         "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm"
       ],
-      "finding": "Page 14 of the Fact Book repeats the Q4 $1.33 on the basis of continuing operations. The annual EPS of $5.12 in the same row matches continuing operations in the 10-K, which provides $5.11 for total annual diluted EPS. The original release also explicitly scopes the $1.33 to continuing operations."
+      "finding": "Page 14 of the Fact Book repeats the Q4 $1.33 on the basis of continuing operations. The annual EPS of $5.12 in the same row matches continuing operations in the 10-K, which provides $5.11 for total annual diluted EPS. The original release also explicitly scopes the $1.33 to continuing operations.",
+      "directQuarterRevenue": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+        "sha256": "21db2e78db6cf4acd27720c6b4b42cfcf3e52fd461a99f29661698d59ca160b4",
+        "tableIndex": 1,
+        "rowIndex": 12,
+        "headers": [
+          [],
+          [
+            "Three Months Ended",
+            "Twelve Months Ended"
+          ],
+          [
+            "January 3, 2026",
+            "December 28, 2024",
+            "January 3, 2026",
+            "December 28, 2024"
+          ],
+          [
+            "REVENUES"
+          ],
+          [
+            "MANUFACTURING:"
+          ]
+        ],
+        "line": [
+          "Total revenues",
+          "$",
+          "4,175",
+          "$",
+          "3,613",
+          "$",
+          "14,799",
+          "$",
+          "13,702"
+        ],
+        "priorRevenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+        "periodEnd": "2026-01-03",
+        "revenueUsd": 4175000000,
+        "sourceUnits": "USD millions",
+        "indexing": "Zero-based HTML table and row indices before expanding colspan."
+      }
     },
     "SKYD": {
       "source": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm",
@@ -4027,5 +4068,211 @@
       }
     },
     "scope": "Intraday snapshot. Latest acceptance is reported separately for each form. Results do not establish coverage after the acceptance cutoff."
+  },
+  "upcomingCalendarFollowup": {
+    "checkedAtUtc": "2026-11-20T15:54:56+00:00",
+    "scope": "Issuer investor-relations announcements for the next 30 days of tracked estimates. Record explicit planned results publication separately from the conference call.",
+    "officialReleaseUpdates": 7,
+    "callOnlyUpdates": 2,
+    "officialReleaseCountAfter": 26,
+    "companies": {
+      "ACN": {
+        "fiscalPeriod": "FY2027 Q1",
+        "changes": {
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-17"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://investor.accenture.com/investor-resources/investor-faqs"
+          }
+        }
+      },
+      "ADBE": {
+        "fiscalPeriod": "FY2026 Q4",
+        "changes": {
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-09"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://www.adobe.com/investor-relations.html"
+          }
+        }
+      },
+      "AZO": {
+        "fiscalPeriod": "FY2027 Q1",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://about.autozone.com/news-releases/news-release-details/autozone-release-first-quarter-fiscal-2027-earnings-december-8"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "BMO"
+          },
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-08"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://about.autozone.com/news-releases/news-release-details/autozone-release-first-quarter-fiscal-2027-earnings-december-8"
+          }
+        }
+      },
+      "CASY": {
+        "fiscalPeriod": "FY2027 Q2",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://investor.caseys.com/news-releases/news-release-details/caseys-announces-timing-second-quarter-earnings-release-and-5"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "AMC"
+          },
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-09"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://investor.caseys.com/news-releases/news-release-details/caseys-announces-timing-second-quarter-earnings-release-and-5"
+          }
+        }
+      },
+      "CIEN": {
+        "fiscalPeriod": "FY2026 Q4",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://investor.ciena.com/news/news-details/2026/Ciena-Announces-Reporting-Date-and-Web-Broadcast-for-Fiscal-Fourth-Quarter-and-Year-End-2026-Results/default.aspx"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "BMO"
+          },
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-10"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://investor.ciena.com/news/news-details/2026/Ciena-Announces-Reporting-Date-and-Web-Broadcast-for-Fiscal-Fourth-Quarter-and-Year-End-2026-Results/default.aspx"
+          }
+        }
+      },
+      "NDSN": {
+        "fiscalPeriod": "FY2026 Q4",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://investors.nordson.com/news/news-details/2026/Nordson-Corporation-Announces-Earnings-Release-and-Webcast-for-Fourth-Quarter-and-Fiscal-Year-2026/default.aspx"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "AMC"
+          },
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-16"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://investors.nordson.com/news/news-details/2026/Nordson-Corporation-Announces-Earnings-Release-and-Webcast-for-Fourth-Quarter-and-Fiscal-Year-2026/default.aspx"
+          }
+        }
+      },
+      "ORCL": {
+        "fiscalPeriod": "FY2027 Q2",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://investor.oracle.com/faq/default.aspx?print=1"
+          }
+        }
+      },
+      "SNPS": {
+        "fiscalPeriod": "FY2026 Q4",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://investor.synopsys.com/news/news-details/2026/Synopsys-Announces-Earnings-Release-Date-For-Fourth-Quarter-and-Fiscal-Year-2026/default.aspx"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "AMC"
+          },
+          "nextEarningsCallDate": {
+            "before": null,
+            "after": "2026-12-08"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": null,
+            "after": "https://investor.synopsys.com/news/news-details/2026/Synopsys-Announces-Earnings-Release-Date-For-Fourth-Quarter-and-Fiscal-Year-2026/default.aspx"
+          }
+        }
+      },
+      "ULTA": {
+        "fiscalPeriod": "FY2026 Q3",
+        "changes": {
+          "reportDateSource": {
+            "before": "third_party_estimate",
+            "after": "official"
+          },
+          "reportDateSourceUrl": {
+            "before": null,
+            "after": "https://www.ulta.com/investor/news-events/press-releases/detail/238/ulta-beauty-to-report-third-quarter-fiscal-2026-results-and"
+          },
+          "bmo_amc": {
+            "before": null,
+            "after": "AMC"
+          },
+          "nextEarningsCallSourceUrl": {
+            "before": "https://www.ulta.com/investor/news-events/ir-calendar",
+            "after": "https://www.ulta.com/investor/news-events/press-releases/detail/238/ulta-beauty-to-report-third-quarter-fiscal-2026-results-and"
+          }
+        }
+      }
+    },
+    "callDatesAlreadySourceBacked": [
+      "ADSK",
+      "BBY",
+      "DE",
+      "DELL",
+      "HPE",
+      "KR"
+    ],
+    "sourceReviewNotes": {
+      "DELL": "Dated call and statement that results will be issued before the call. The company notice does not name a calendar date for the release itself.",
+      "ORCL": "The issuer FAQ expressly gives the date of its next release. It does not state timing or a separate call date."
+    }
   }
 }
