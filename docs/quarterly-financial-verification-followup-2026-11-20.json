@@ -5276,5 +5276,1994 @@
     "filingProvenanceRowsUpdated": 38,
     "issuersUpdated": 21,
     "dateTransformSource": "https://www.xbrl.org/Specification/inlineXBRL-transformationRegistry/REC-2020-02-12/inlineXBRL-transformationRegistry-REC-2020-02-12.html"
+  },
+  "directFourthQuarterRevenueReview": {
+    "checkedAtUtc": "2026-11-20T16:28:15.068139+00:00",
+    "scope": "Retained fiscal Q4 revenue records previously annotated as annual less first nine months. Company-quarter matches use unambiguous original quarter dates or fiscal-quarter headers and published units. A targeted KeyCorp review also covers its other four retained quarters.",
+    "q4CandidatesScreened": 92,
+    "q4DirectReportsConfirmed": 68,
+    "keycorpQuartersCorrected": 5,
+    "numericCorrections": [
+      "KEY|2025-09-30",
+      "KEY|2025-12-31",
+      "KEY|2026-03-31",
+      "KEY|2026-06-30",
+      "KEY|2026-09-30",
+      "YUM|2025-12-31"
+    ],
+    "directReportedRevenue": {
+      "ABNB|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192dex991.htm",
+        "sourceSha256": "724a65c545d0aacacb4561cc8ecfed4dcfc69b3fe24ce2fddc8ed459bceef8a8",
+        "reported": "2,778",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 2778000000,
+        "revenue": 2778000000,
+        "basis": "Quarterly Summary, final column is fiscal 2025 Q4",
+        "sectionHeading": "Quarterly Summary 2023 2024 2025 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Nights and 121.1M 115.1M 113.2M 98.8M 132.6M 1",
+        "amountContext": "2,142M $2,748M $3,732M $2,480M $2,272M $3,096M $4,095M $2,778M Y/Y 20% 18% 18% 17% 18% 11% 10% 12% 6% 13% 10% 12",
+        "image": "g58192ex99_1p19g1.jpg",
+        "nearby": []
+      },
+      "AFL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
+        "sourceSha256": "8e1b54a85b951983a98684652f2b28579ef14c492ba2a3a5d62015085c49b036",
+        "tableIndex": 0,
+        "rowIndex": 5,
+        "columnIndex": 7,
+        "label": "Total revenues",
+        "reported": "4,866",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 4866000000,
+        "revenue": 4866000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "AFLAC INCORPORATED AND SUBSIDIARIES CONDENSED INCOME STATEMENT",
+            "columnText": "AFLAC INCORPORATED AND SUBSIDIARIES CONDENSED INCOME STATEMENT"
+          },
+          {
+            "row": 2,
+            "text": "(UNAUDITED – IN MILLIONS, EXCEPT FOR SHARE AND PER-SHARE AMOUNTS)",
+            "columnText": "(UNAUDITED – IN MILLIONS, EXCEPT FOR SHARE AND PER-SHARE AMOUNTS)"
+          }
+        ],
+        "nearby": []
+      },
+      "AON|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm",
+        "sourceSha256": "fc83ba1d4ae1af582af4532b0107c6db05f75b9fddbf861f6b975d4aa326d442",
+        "tableIndex": 6,
+        "rowIndex": 4,
+        "columnIndex": 7,
+        "label": "Total revenue",
+        "reported": "4,300",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 4300000000,
+        "revenue": 4300000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Twelve Months Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "Consolidated Statements of Income (Unaudited)",
+          "Aon plc"
+        ]
+      },
+      "ARES|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex992earningspre.htm",
+        "sourceSha256": "e0db85afbf139e2170fc00ae42cadc1e46ce17e478a35204d3c8c70b11a58fd9",
+        "reported": "1,504,921",
+        "usdPerUnit": 1000,
+        "priorRevenue": 1504921000,
+        "revenue": 1504921000,
+        "basis": "GAAP income statement, quarter ended December 31, 2025, USD thousands",
+        "sectionHeading": "4 Quarter ended December 31, Year ended December 31, $ in thousands, except share data 2025 2024 2025 2024 Revenues",
+        "amountContext": "nsaction and other fees 104,554 43,672 356,437 162,894 Total revenues 1,504,921 1,258,997 5,601,482 3,884,781 Expenses Compensati",
+        "image": "a2025q4-ex992earningspre004.jpg",
+        "nearby": []
+      },
+      "ARE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm",
+        "sourceSha256": "29a0cd60b0379c15599b927eac4eb2efd3d9cc90adbedba881272b55a162d263",
+        "tableIndex": 57,
+        "rowIndex": 6,
+        "columnIndex": 2,
+        "label": "Total revenues",
+        "reported": "754,414",
+        "usdPerUnit": 1000,
+        "priorRevenue": 754414000,
+        "revenue": 754414000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended / Year Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "12/31/25 / 9/30/25 / 6/30/25 / 3/31/25 / 12/31/24",
+            "columnText": "12/31/25"
+          }
+        ],
+        "nearby": [],
+        "basis": "Consolidated Statements of Operations, dollars in thousands"
+      },
+      "AXON|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224xex991.htm",
+        "sourceSha256": "15c8ca26d763a5763c0f56a109cf3b7777d9d7b72279a7ab22e8af8e8c7065a1",
+        "tableIndex": 3,
+        "rowIndex": 5,
+        "columnIndex": 3,
+        "label": "Net sales",
+        "reported": "796,724",
+        "usdPerUnit": 1000,
+        "priorRevenue": 796724000,
+        "revenue": 796724000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "THREE MONTHS ENDED / TWELVE MONTHS ENDED",
+            "columnText": "THREE MONTHS ENDED"
+          },
+          {
+            "row": 2,
+            "text": "31 DEC 2025 / 30 SEP 2025 / 31 DEC 2024",
+            "columnText": "31 DEC 2025"
+          },
+          {
+            "row": 3,
+            "text": "Net sales from products / $ / 454,209 / 405,399 / 330,205 / 1,576,864 / 1,221,292",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(in thousands, except per share data)",
+          "CONSOLIDATED STATEMENTS OF OPERATIONS",
+          "AXON ENTERPRISE, INC."
+        ]
+      },
+      "AXP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/q425exhibit992.htm",
+        "sourceSha256": "1f4113fa5a3aff4a30cf318f4534e51ada70cbd7b0b188ab734e025ab8496f55",
+        "tableIndex": 0,
+        "rowIndex": 22,
+        "columnIndex": 3,
+        "label": "Total revenues net of interest expense",
+        "reported": "18,980",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 18980000000,
+        "revenue": 18980000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "EXHIBIT 99.2",
+            "columnText": "EXHIBIT 99.2"
+          },
+          {
+            "row": 2,
+            "text": "American Express Company / (Preliminary)",
+            "columnText": "(Preliminary)"
+          },
+          {
+            "row": 3,
+            "text": "Consolidated Statements of Income",
+            "columnText": "Consolidated Statements of Income"
+          },
+          {
+            "row": 4,
+            "text": "(Millions, except percentages and per share amounts)",
+            "columnText": "(Millions, except percentages and per share amounts)"
+          },
+          {
+            "row": 6,
+            "text": "Q4'25 / Q3'25 / Q2'25 / Q1'25 / Q4'24 / YOY % change / FY'25 / FY'24",
+            "columnText": "Q4'25"
+          }
+        ],
+        "nearby": []
+      },
+      "BKNG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
+        "sourceSha256": "b47dd47b7c39b88d6709f8d33036b2ca4a56039264e56ee63ec947c3d1009f1e",
+        "reported": "6,349",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 6349000000,
+        "revenue": 6349000000,
+        "basis": "Consolidated total in three months ended December 31, 2025, USD millions",
+        "sectionHeading": "Three Months Ended December 31, Year Ended December 31, 2025 2024 2025 2024 (unaudited) Merchant revenues $ 4,249 $",
+        "amountContext": " and other revenues 309 271 1,194 1,073 Total revenues 6,349 5,471 26,917 23,739 Operating expenses: Marketing",
+        "image": "q4-25bkngearningsrelease005.jpg",
+        "nearby": []
+      },
+      "BX|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm",
+        "sourceSha256": "59d8b9d4c64cc69ae90bed14d4eb028c578d490214c348f33727fd59947b3973",
+        "tableIndex": 127,
+        "rowIndex": 30,
+        "columnIndex": 7,
+        "label": "Total Revenues",
+        "reported": "4,360,272",
+        "usdPerUnit": 1000,
+        "priorRevenue": 4360272000,
+        "revenue": 4360272000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "($ in thousands, except per share data) (unaudited) / 4Q'24 / 4Q'25 / FY'24 / FY'25",
+            "columnText": "4Q'25"
+          }
+        ],
+        "nearby": [
+          "BLACKSTONE’S FOURTH QUARTER AND FULL YEAR 2025 GAAP CONSOLIDATED STATEMENTS OF OPERATIONS"
+        ]
+      },
+      "CI|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_ex99-1.htm",
+        "sourceSha256": "037e034935586b14ca0f7ebef1e8ee61f91b7a1a98b5982087c393e106460cf2",
+        "tableIndex": 52,
+        "rowIndex": 12,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "72,472",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 72472000000,
+        "revenue": 72472000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "COMPARATIVE SUMMARY OF FINANCIAL RESULTS (unaudited)",
+            "columnText": "COMPARATIVE SUMMARY OF FINANCIAL RESULTS (unaudited)"
+          },
+          {
+            "row": 3,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "13",
+          "Exhibit 99.1"
+        ]
+      },
+      "CVNA|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9928-k123125.htm",
+        "sourceSha256": "d6a06aca8227e76bc27c284271cefbc7d4a6549de02507ed470c7b853e11217f",
+        "tableIndex": 2,
+        "rowIndex": 17,
+        "columnIndex": 10,
+        "label": "Total revenues",
+        "reported": "5,603",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 5603000000,
+        "revenue": 5603000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Years Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          },
+          {
+            "row": 7,
+            "text": "Loss on debt extinguishment / 6 / — / 12 / 16",
+            "columnText": "—"
+          }
+        ],
+        "nearby": [],
+        "basis": "Consolidated total in the results exhibit; independently stated in the issuer newsroom announcement"
+      },
+      "CVX|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm",
+        "sourceSha256": "60634bd6eea44a041c7e5c228c1f45246e72fa6f4b14ca7ee0b0c5059277d627",
+        "tableIndex": 10,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total Revenues and Other Income",
+        "reported": "46,873",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 46873000000,
+        "revenue": 46873000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "CONSOLIDATED STATEMENT OF INCOME",
+            "columnText": "CONSOLIDATED STATEMENT OF INCOME"
+          },
+          {
+            "row": 2,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          },
+          {
+            "row": 4,
+            "text": "Sales and other operating revenues / $ / 45,787 / 48,334 / 184,432 / 193,414",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [],
+        "basis": "GAAP consolidated total revenues and other income, USD millions"
+      },
+      "DELL|2026-01-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
+        "sourceSha256": "7cbd7fedc3dfe4227941b3326b82c628d0ad40a116860f94f98ddfd5dde29209",
+        "tableIndex": 2,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total net revenue",
+        "reported": "33,379",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 33379000000,
+        "revenue": 33379000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended / Fiscal Year Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "January 30, 2026 / January 31, 2025 / Change",
+            "columnText": "January 30, 2026"
+          },
+          {
+            "row": 5,
+            "text": "Products / $ / 27,616 / 18,049 / 53% / 90,405 / 71,420 / 27%",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(in millions, except percentages; unaudited)",
+          "Consolidated Statements of Income and Related Financial Highlights",
+          "DELL TECHNOLOGIES INC."
+        ]
+      },
+      "DHR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128xex991.htm",
+        "sourceSha256": "d5e66f3b4dc773ddd11567d2e062925314df28df882545336e966586d158a7ed",
+        "tableIndex": 13,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Sales",
+        "reported": "6,838",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 6838000000,
+        "revenue": 6838000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three-Month Period Ended / Year Ended",
+            "columnText": "Three-Month Period Ended"
+          },
+          {
+            "row": 2,
+            "text": "December 31, 2025 / December 31, 2024",
+            "columnText": "December 31, 2025"
+          }
+        ],
+        "nearby": [
+          "($ and shares in millions, except per share amounts)",
+          "CONSOLIDATED STATEMENTS OF EARNINGS (unaudited)",
+          "DANAHER CORPORATION AND SUBSIDIARIES"
+        ]
+      },
+      "DUK|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm",
+        "sourceSha256": "d1edcfc3d884b7ec02f665808cfd107bde4cba733479bb7f8db5bdde5aa4e7eb",
+        "tableIndex": 14,
+        "rowIndex": 7,
+        "columnIndex": 15,
+        "label": "Total operating revenues",
+        "reported": "7,938",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 7938000000,
+        "revenue": 7938000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, 2025",
+            "columnText": "Three Months Ended December 31, 2025"
+          },
+          {
+            "row": 2,
+            "text": "(In millions) / Electric Utilities and Infrastructure / Gas Utilities and Infrastructure / Other / Eliminations/Adjustments / Duke Energy",
+            "columnText": "Duke Energy"
+          },
+          {
+            "row": 4,
+            "text": "Regulated electric / $ / 6,936 / — / (14) / 6,922",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(Unaudited)",
+          "CONSOLIDATING STATEMENTS OF OPERATIONS",
+          "DUKE ENERGY CORPORATION"
+        ]
+      },
+      "ECL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d1.htm",
+        "sourceSha256": "11fda1e49b1be4ae19e3c188a90bd8bbe3109fb368894829a9bd6d52889cbeb4",
+        "tableIndex": 36,
+        "rowIndex": 7,
+        "columnIndex": 2,
+        "label": "Net sales",
+        "reported": "4,196.0",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 4196000000,
+        "revenue": 4196000000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "​",
+            "columnText": "​"
+          },
+          {
+            "row": 1,
+            "text": "​ / Fourth Quarter Ended / Twelve Months Ended",
+            "columnText": "Fourth Quarter Ended"
+          },
+          {
+            "row": 2,
+            "text": "​ / December 31 / %",
+            "columnText": "December 31"
+          },
+          {
+            "row": 4,
+            "text": "​",
+            "columnText": "​"
+          }
+        ],
+        "nearby": [
+          "​",
+          "(unaudited)",
+          "CONSOLIDATED STATEMENTS OF INCOME"
+        ]
+      },
+      "ELV|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000006/a4q2025elvearningsrelease.htm",
+        "sourceSha256": "48ea6dbe1c53a96c3d0d08f14b0f075cabbb48e93ec8108927b530cc73e098ef",
+        "tableIndex": 7,
+        "rowIndex": 15,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "49,747",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 49747000000,
+        "revenue": 49747000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Elevance Health",
+            "columnText": "Elevance Health"
+          },
+          {
+            "row": 2,
+            "text": "Consolidated Statements of Income",
+            "columnText": "Consolidated Statements of Income"
+          },
+          {
+            "row": 3,
+            "text": "(Unaudited)",
+            "columnText": "(Unaudited)"
+          },
+          {
+            "row": 4,
+            "text": "(In millions, except per share data) / Three Months Ended December 31 / Twelve Months Ended December 31",
+            "columnText": "Three Months Ended December 31"
+          }
+        ],
+        "nearby": []
+      },
+      "EL|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm",
+        "sourceSha256": "f86df41ea15a0752bf584d4da3c7f265917489d324dc1ca735f2a7d8aba2005c",
+        "tableIndex": 26,
+        "rowIndex": 5,
+        "columnIndex": 4,
+        "label": "Net sales (A)",
+        "reported": "3,627",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3627000000,
+        "revenue": 3627000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "CONSOLIDATED STATEMENT OF (LOSS) EARNINGS (Unaudited)",
+            "columnText": "CONSOLIDATED STATEMENT OF (LOSS) EARNINGS (Unaudited)"
+          },
+          {
+            "row": 3,
+            "text": "Three Months Ended June 30 / Percentage Change / Year Ended June 30",
+            "columnText": "Three Months Ended June 30"
+          }
+        ],
+        "nearby": []
+      },
+      "EOG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/exh99-1022426.htm",
+        "sourceSha256": "84a3457c312bdf3207c138d8a4a8e24336fe552ad9741cab6995bab8331ff99a",
+        "tableIndex": 1,
+        "rowIndex": 13,
+        "columnIndex": 30,
+        "label": "Total",
+        "reported": "5,638",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 5638000000,
+        "revenue": 5638000000,
+        "headings": [
+          {
+            "row": 4,
+            "text": "1st Qtr / 2nd Qtr / 3rd Qtr / 4th Qtr / Year",
+            "columnText": "4th Qtr"
+          }
+        ],
+        "nearby": [],
+        "basis": "Consolidated income statement total under Operating Revenues and Other, 4th Qtr 2025"
+      },
+      "ESS|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm",
+        "sourceSha256": "d110e33b23ff57a99d8e0156542e33ae017884704a618b7c4dd516c1e6804fc7",
+        "tableIndex": 42,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Revenue subtotal",
+        "reported": "479,626",
+        "usdPerUnit": 1000,
+        "priorRevenue": 479626000,
+        "revenue": 479626000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "Three Months Ended / Twelve Months Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 1,
+            "text": "December 31,",
+            "columnText": "December 31,"
+          }
+        ],
+        "nearby": [
+          "Consolidated Operating Results (Dollars in thousands, except share and per share amounts)"
+        ],
+        "basis": "Unlabelled revenue subtotal in consolidated operating statement"
+      },
+      "ES|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm",
+        "sourceSha256": "c075d0f7e3207504afbdb7a5c6fdfac864e30c586288aa3f4621f343c6418d75",
+        "tableIndex": 0,
+        "rowIndex": 2,
+        "columnIndex": 3,
+        "label": "Operating Revenues",
+        "reported": "3,370,196",
+        "usdPerUnit": 1000,
+        "priorRevenue": 3370196000,
+        "revenue": 3370196000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "For the Three Months Ended December 31,",
+            "columnText": "For the Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "(Unaudited)",
+          "CONSOLIDATED STATEMENTS OF INCOME"
+        ]
+      },
+      "EXC|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm",
+        "sourceSha256": "079adeddf04cbbd7f1bfbac0aee5927e20269f7bb9a0e329bc9d449b3698834e",
+        "tableIndex": 6,
+        "rowIndex": 4,
+        "columnIndex": 34,
+        "label": "Operating revenues",
+        "reported": "5,412",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 5412000000,
+        "revenue": 5412000000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "ComEd / PECO / BGE / PHI / Other (a) / Exelon",
+            "columnText": "Exelon"
+          }
+        ],
+        "nearby": [
+          "(in millions)",
+          "(unaudited)",
+          "Consolidating Statements of Operations"
+        ]
+      },
+      "EXE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000008/exe-ex_991x20251231x8kxpr.htm",
+        "sourceSha256": "b2de9968d4fcef3908dd5d68627df087bc613e18f997ef20988234d2ad7cc354",
+        "tableIndex": 5,
+        "rowIndex": 9,
+        "columnIndex": 6,
+        "label": "Total revenues and other",
+        "reported": "3,272",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3272000000,
+        "revenue": 3272000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          },
+          {
+            "row": 5,
+            "text": "Natural gas, oil and NGL / $ / 2,305 / 1,595 / 8,476 / 2,969",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [],
+        "basis": "Consolidated statements of operations, total revenues and other"
+      },
+      "EXR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000007/q42025ex991earningsrelease.htm",
+        "sourceSha256": "788730f2473bc63be87c4afc5feaf921a2061d1296237be87bb9116b57972588",
+        "tableIndex": 6,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "857,467",
+        "usdPerUnit": 1000,
+        "priorRevenue": 857467000,
+        "revenue": 857467000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "For the Three Months Ended December 31, / For the Year Ended December 31,",
+            "columnText": "For the Three Months Ended December 31,"
+          },
+          {
+            "row": 4,
+            "text": "Property rental / $ / 734,225 / 707,234 / 2,895,190 / 2,803,252",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "( In thousands, except share and per share data) - Unaudited",
+          "Consolidated Statement of Operations for the Three Months and Year Ended December 31, 2025 and 2024"
+        ]
+      },
+      "FCX|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm",
+        "sourceSha256": "e9ec2e60ded2629aa592e86c32e195a641cede50a2339ade4142814276ef8ef0",
+        "tableIndex": 26,
+        "rowIndex": 8,
+        "columnIndex": 4,
+        "label": "Revenues a",
+        "reported": "5,633",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 5633000000,
+        "revenue": 5633000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "FREEPORT",
+            "columnText": "FREEPORT"
+          },
+          {
+            "row": 2,
+            "text": "CONSOLIDATED STATEMENTS OF INCOME (Unaudited)",
+            "columnText": "CONSOLIDATED STATEMENTS OF INCOME (Unaudited)"
+          },
+          {
+            "row": 4,
+            "text": "Three Months Ended / Years Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 5,
+            "text": "December 31,",
+            "columnText": "December 31,"
+          },
+          {
+            "row": 7,
+            "text": "(In Millions, Except Per Share Amounts)",
+            "columnText": "(In Millions, Except Per Share Amounts)"
+          }
+        ],
+        "nearby": []
+      },
+      "GL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000029/q4fy2025earningsrelease.htm",
+        "sourceSha256": "0d2b5910b1fbadec41dbecbeb6ce84f2300955fcc3235b48544296197ec951d5",
+        "tableIndex": 20,
+        "rowIndex": 12,
+        "columnIndex": 3,
+        "label": "Total revenue",
+        "reported": "1,519,621",
+        "usdPerUnit": 1000,
+        "priorRevenue": 1519621000,
+        "revenue": 1519621000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          },
+          {
+            "row": 4,
+            "text": "Life premium / $ / 849,580 / 822,962 / 3,363,470 / 3,261,347",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "GAAP CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
+          "GLOBE LIFE INC."
+        ],
+        "basis": "GAAP Condensed Consolidated Statements of Operations, Q4 release appendix, dollars in thousands"
+      },
+      "GS|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresultspr.htm",
+        "sourceSha256": "aab8f388bbbac57ba73d23fae0af06af95b817c59ae204fa38fd5b0944f0619c",
+        "image": "a4q25gsearningsresultspr029.jpg",
+        "basis": "Unaudited consolidated net revenues, as reported, three months ended December 31, 2025",
+        "reported": "13,454",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 13454000000,
+        "revenue": 13454000000,
+        "nearby": []
+      },
+      "HAL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
+        "sourceSha256": "64fdf9e712016dcd28818eb52ddc839a79b418f1918023c6ce7a0ce1069d2731",
+        "tableIndex": 1,
+        "rowIndex": 7,
+        "columnIndex": 1,
+        "label": "Total revenue",
+        "reported": "$ 5,657",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 5657000000,
+        "revenue": 5657000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "December 31, / September 30,",
+            "columnText": "December 31,"
+          }
+        ],
+        "nearby": [],
+        "basis": "Consolidated total across the two reported divisions, millions of dollars"
+      },
+      "HCA|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526023323/hca-ex99_1.htm",
+        "sourceSha256": "d05979d03ef0822e8c9f548d2bfc6ef63f605ddb366251f7dfe022a996f80f37",
+        "tableIndex": 2,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Revenues",
+        "reported": "19,513",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 19513000000,
+        "revenue": 19513000000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "Amount / Ratio",
+            "columnText": "Amount"
+          }
+        ],
+        "nearby": [
+          "(Dollars in millions, except per share amounts)",
+          "Unaudited"
+        ]
+      },
+      "HIG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
+        "sourceSha256": "adde51efcaf881ba9a6d857e71986ac3a216f574715280dcc87e5c0ea988333f",
+        "tableIndex": 7,
+        "rowIndex": 11,
+        "columnIndex": 24,
+        "label": "Total revenues",
+        "reported": "7,339",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 7339000000,
+        "revenue": 7339000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "THE HARTFORD INSURANCE GROUP, INC.",
+            "columnText": "THE HARTFORD INSURANCE GROUP, INC."
+          },
+          {
+            "row": 2,
+            "text": "CONSOLIDATING INCOME STATEMENTS",
+            "columnText": "CONSOLIDATING INCOME STATEMENTS"
+          },
+          {
+            "row": 3,
+            "text": "Three Months Ended December 31, 2025",
+            "columnText": "Three Months Ended December 31, 2025"
+          },
+          {
+            "row": 4,
+            "text": "($ in millions)",
+            "columnText": "($ in millions)"
+          },
+          {
+            "row": 5,
+            "text": "Business Insurance / Personal Insurance / P&C Other Ops / Employee Benefits / Hartford Funds / Corporate / Consolidated",
+            "columnText": "Consolidated"
+          },
+          {
+            "row": 6,
+            "text": "Earned premiums / $ / 3,595 / 945 / — / 1,601 / 6,141",
+            "columnText": "$"
+          }
+        ],
+        "nearby": []
+      },
+      "HUM|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x1briefxfeb.htm",
+        "sourceSha256": "ff2f53bd343c34ea2a8e85969f69a2f643b80fa0da3181f604a2403d9181991d",
+        "tableIndex": 6,
+        "rowIndex": 2,
+        "columnIndex": 3,
+        "label": "GAAP",
+        "reported": "$32,515",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 32515000000,
+        "revenue": 32515000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "CONSOLIDATED Revenues (in millions) / 4Q25 / 4Q24 / FY 2025 / FY 2024",
+            "columnText": "4Q25"
+          }
+        ],
+        "nearby": [
+          "Revenues",
+          "In addition to the reconciliations shown on page 2 of this release, the following are reconciliations of GAAP to Adjusted (non-GAAP) measures described above and disclosed within this earnings release:"
+        ],
+        "basis": "GAAP consolidated revenues, 4Q25"
+      },
+      "IR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/ir2025q4ex991.htm",
+        "sourceSha256": "64477543bdf501ae81ea0a87517f6994b75b1da93b4694861685766a6ff847d0",
+        "tableIndex": 8,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Revenues",
+        "reported": "2,091.2",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 2091200000,
+        "revenue": 2091200000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "For the Three Month Period Ended December 31, / For the Twelve Month Period Ended December 31,",
+            "columnText": "For the Three Month Period Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "(Unaudited; in millions, except per share amounts)",
+          "CONSOLIDATED STATEMENTS OF OPERATIONS",
+          "INGERSOLL RAND INC. AND SUBSIDIARIES"
+        ]
+      },
+      "IVZ|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
+        "sourceSha256": "f597dfcc098c46f5960a32a5bd487ac9353dc85819ea106e4113f42a6266c522",
+        "tableIndex": 10,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total operating revenues",
+        "reported": "1,692.0",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 1692000000,
+        "revenue": 1692000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Q4-25 / Q3-25 / % Change / Q4-24",
+            "columnText": "Q4-25"
+          },
+          {
+            "row": 3,
+            "text": "Investment management fees / $ / 1,229.4 / 1,184.7 / 3.8 / % / 1,127.3 / 9.1",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(Unaudited, in millions, other than per share amounts)",
+          "U.S. GAAP Condensed Consolidated Income Statements"
+        ]
+      },
+      "JBHT|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926001357/ex_907715.htm",
+        "sourceSha256": "decde2beba90bbbf3e201764f78997ee63acf1876915926a98278865d1f1e194",
+        "tableIndex": 8,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total operating revenues",
+        "reported": "3,096,626",
+        "usdPerUnit": 1000,
+        "priorRevenue": 3096626000,
+        "revenue": 3096626000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "Three Months Ended December 31",
+            "columnText": "Three Months Ended December 31"
+          },
+          {
+            "row": 3,
+            "text": "Amount / Revenue",
+            "columnText": "Amount"
+          }
+        ],
+        "nearby": [],
+        "basis": "Condensed Consolidated Statements of Earnings, in thousands"
+      },
+      "KHC|2025-12-27": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
+        "sourceSha256": "8e735377bba0ccd894a5acbde477bdfadaaf8c4f4a7d619f4068e0fc2360b00f",
+        "tableIndex": 3,
+        "rowIndex": 6,
+        "columnIndex": 4,
+        "label": "Net sales",
+        "reported": "6,354",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 6354000000,
+        "revenue": 6354000000,
+        "headings": [
+          {
+            "row": 3,
+            "text": "The Kraft Heinz Company Consolidated Statements of Income (in millions, except per share data) (Unaudited)",
+            "columnText": "The Kraft Heinz Company Consolidated Statements of Income (in millions, except per share data) (Unaudited)"
+          },
+          {
+            "row": 4,
+            "text": "For the Three Months Ended / For the Year Ended",
+            "columnText": "For the Three Months Ended"
+          },
+          {
+            "row": 5,
+            "text": "December 27, 2025 / December 28, 2024",
+            "columnText": "December 27, 2025"
+          }
+        ],
+        "nearby": []
+      },
+      "KKR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm",
+        "sourceSha256": "eb7e9d531fa27c2de68e452dad78142ecdbb093d5c07ee5685d5ad6131453eec",
+        "reported": "5,739,306",
+        "usdPerUnit": 1000,
+        "priorRevenue": 5739306000,
+        "revenue": 5739306000,
+        "basis": "GAAP condensed consolidated income statement, 4Q25, USD thousands",
+        "sectionHeading": "31 GAAP Condensed Consolidated Income Statement (Unaudited) ($ in thousands) 4Q'24 4Q'25 FY'24 FY'25 Revenues Asset",
+        "amountContext": "881 14,666,452 11,628,799 Total Revenues $ 3,258,354 $ 5,739,306 $ 21,878,698 $ 19,464,307 Expenses Asset Manageme",
+        "image": "q425earningsrelease_vf035.jpg",
+        "nearby": []
+      },
+      "KR|2026-01-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm",
+        "sourceSha256": "24b9a6d498bf93e41061923f7738606e07193b92d385d5b886357172de65ce1d",
+        "tableIndex": 26,
+        "rowIndex": 3,
+        "columnIndex": 3,
+        "label": "SALES",
+        "reported": "34,725",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 34725000000,
+        "revenue": 34725000000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "FOURTH QUARTER / YEAR-TO-DATE",
+            "columnText": "FOURTH QUARTER"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "(in millions, except per share amounts)"
+        ]
+      },
+      "LIN|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm",
+        "sourceSha256": "a5bc55dd95b2b98cd38caffef2c9c79d7e628374fbfb611c021b844bc0e1acd6",
+        "reported": "8,764",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 8764000000,
+        "revenue": 8764000000,
+        "basis": "Original February 5, 2026 release explicitly states consolidated Q4 2025 sales",
+        "sectionHeading": "Linde’s sales for the fourth quarter were $8,764 million, up 6% versus prior year. Compared to prior year, underlyi",
+        "amountContext": "Linde’s sales for the fourth quarter were $8,764 million, up 6% versus prior year. Compared to prior year,",
+        "nearby": []
+      },
+      "LLY|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm",
+        "sourceSha256": "64740f2703013c959fcc6d61c78213a7b6e1bfeaf0480316b332a70dac5db810",
+        "tableIndex": 1,
+        "rowIndex": 4,
+        "columnIndex": 4,
+        "label": "Revenue",
+        "reported": "19,292",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 19292000000,
+        "revenue": 19292000000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "$ in millions, except per share data / Fourth-Quarter",
+            "columnText": "Fourth-Quarter"
+          }
+        ],
+        "nearby": [
+          "Financial Results"
+        ]
+      },
+      "MAA|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm",
+        "sourceSha256": "d73b345bdf7a434b0e60565523ff88b3a47278f1fe6c4aeef6851c17ab594ed8",
+        "tableIndex": 16,
+        "rowIndex": 4,
+        "columnIndex": 3,
+        "label": "Rental and other property revenues",
+        "reported": "555,556",
+        "usdPerUnit": 1000,
+        "priorRevenue": 555556000,
+        "revenue": 555556000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Dollars in thousands, except per share data (Unaudited) / Three months ended December 31, / Year ended December 31,",
+            "columnText": "Three months ended December 31,"
+          }
+        ],
+        "nearby": [
+          "7"
+        ],
+        "basis": "Only revenue line in the consolidated statements of operations"
+      },
+      "MAR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
+        "sourceSha256": "dbb93c601caaf640ead1600fe40c193eef7cb7083f2e01824caa5fb974a9978a",
+        "tableIndex": 6,
+        "rowIndex": 18,
+        "columnIndex": 6,
+        "label": "Revenue subtotal",
+        "reported": "6,690",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 6690000000,
+        "revenue": 6690000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "MARRIOTT INTERNATIONAL, INC.",
+            "columnText": "MARRIOTT INTERNATIONAL, INC."
+          },
+          {
+            "row": 2,
+            "text": "CONSOLIDATED STATEMENTS OF INCOME",
+            "columnText": "CONSOLIDATED STATEMENTS OF INCOME"
+          },
+          {
+            "row": 3,
+            "text": "FOURTH QUARTER 2025 AND 2024",
+            "columnText": "FOURTH QUARTER 2025 AND 2024"
+          },
+          {
+            "row": 4,
+            "text": "($ in millions except per share amounts, unaudited)",
+            "columnText": "($ in millions except per share amounts, unaudited)"
+          },
+          {
+            "row": 7,
+            "text": "Three Months Ended / Better/(Worse)",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 8,
+            "text": "December 31, 2025 / December 31, 2024 / 2025 vs. 2024",
+            "columnText": "December 31, 2025"
+          }
+        ],
+        "nearby": [],
+        "basis": "Unlabelled revenues subtotal, condensed consolidated income statement"
+      },
+      "MAS|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm",
+        "sourceSha256": "bdfd7628168e722c99d3f2745062803768b51b6f2ac4a0bc7bbf981ebd1adde1",
+        "tableIndex": 0,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Net sales",
+        "reported": "1,793",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 1793000000,
+        "revenue": 1793000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "(in millions, except per common share data)",
+          "MASCO CORPORATION Condensed Consolidated Statements of Operations - Unaudited For the Three Months and Years Ended December 31, 2025 and 2024"
+        ]
+      },
+      "MCO|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm",
+        "sourceSha256": "66272aaa9e3dbfdcd6da0bb0f92e5e252ddd1ca9151a3cbd1a783b7d594e0997",
+        "tableIndex": 29,
+        "rowIndex": 4,
+        "columnIndex": 4,
+        "label": "Revenue",
+        "reported": "1,889",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 1889000000,
+        "revenue": 1889000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "Table 1 - Consolidated Statements of Operations (Unaudited)"
+        ]
+      },
+      "MET|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/ex991earningsreleasetables.htm",
+        "sourceSha256": "e1eccbab8f4ae4745acc092a328a7362ff3dc1cfdf904412e73e2a10841320ac",
+        "tableIndex": 16,
+        "rowIndex": 15,
+        "columnIndex": 2,
+        "label": "Total revenues",
+        "reported": "23,814",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 23814000000,
+        "revenue": 23814000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "MetLife, Inc.",
+            "columnText": "MetLife, Inc."
+          },
+          {
+            "row": 2,
+            "text": "GAAP Consolidated Statements of Operations",
+            "columnText": "GAAP Consolidated Statements of Operations"
+          },
+          {
+            "row": 3,
+            "text": "(In millions)",
+            "columnText": "(In millions)"
+          },
+          {
+            "row": 5,
+            "text": "For the Three Months Ended / For the Year Ended",
+            "columnText": "For the Three Months Ended"
+          },
+          {
+            "row": 6,
+            "text": "December 31,",
+            "columnText": "December 31,"
+          }
+        ],
+        "nearby": []
+      },
+      "MRK|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm",
+        "sourceSha256": "a3551b6b75586671524243d2c69da875f1f1c41ae4e41e05791776c1df55d670",
+        "tableIndex": 51,
+        "rowIndex": 2,
+        "columnIndex": 3,
+        "label": "Sales",
+        "reported": "16,400",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 16400000000,
+        "revenue": 16400000000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "GAAP",
+            "columnText": "GAAP"
+          },
+          {
+            "row": 1,
+            "text": "4Q25 / 4Q24 / % Change / Full Year 2025 / Full Year 2024",
+            "columnText": "4Q25"
+          }
+        ],
+        "nearby": [
+          "Table 1",
+          "(UNAUDITED)"
+        ],
+        "basis": "Consolidated Statement of Income – GAAP, amounts in millions"
+      },
+      "MSCI|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
+        "sourceSha256": "547ca3b99a7d26d16045b2a45678ac98cafcde18c48b1f102f943c9625dacc1e",
+        "tableIndex": 6,
+        "rowIndex": 4,
+        "columnIndex": 7,
+        "label": "Operating revenues",
+        "reported": "822,528",
+        "usdPerUnit": 1000,
+        "priorRevenue": 822528000,
+        "revenue": 822528000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended / Year Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "Dec. 31,",
+            "columnText": "Dec. 31,"
+          }
+        ],
+        "nearby": [
+          "Table 2: Condensed Consolidated Statements of Income (unaudited)"
+        ]
+      },
+      "MU|2026-09-03": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+        "sourceSha256": "d9572ad4625e4a23d7ce4f82f28a1f5aa2cbff55c5e7420a646e7c22ef508623",
+        "tableIndex": 5,
+        "rowIndex": 4,
+        "columnIndex": 4,
+        "label": "Revenue",
+        "reported": "54,229",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 54229000000,
+        "revenue": 54229000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "4th Qtr. / 3rd Qtr. / Year Ended",
+            "columnText": "4th Qtr."
+          },
+          {
+            "row": 2,
+            "text": "September 3, 2026 / May 28, 2026 / August 28, 2025",
+            "columnText": "September 3, 2026"
+          }
+        ],
+        "nearby": [
+          "(Unaudited)",
+          "(In millions, except per share amounts)"
+        ]
+      },
+      "NUE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm",
+        "sourceSha256": "066b4ae0d3e4b75c30a37f608f221f8ab753c8266841e349632752a3f5f89a18",
+        "tableIndex": 6,
+        "rowIndex": 3,
+        "columnIndex": 3,
+        "label": "Net sales",
+        "reported": "7,687",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 7687000000,
+        "revenue": 7687000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months (13 Weeks) Ended / Twelve Months (52 Weeks) Ended",
+            "columnText": "Three Months (13 Weeks) Ended"
+          },
+          {
+            "row": 2,
+            "text": "Dec. 31, 2025 / Oct. 4, 2025 / Dec. 31, 2024",
+            "columnText": "Dec. 31, 2025"
+          }
+        ],
+        "nearby": [
+          "(In millions, except per share data)",
+          "Condensed Consolidated Statements of Earnings (Unaudited)"
+        ]
+      },
+      "OKE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm",
+        "sourceSha256": "24471e60285c02d44cd163fc2aa62ff48061c6601184bfda29636b609dc232a5",
+        "reported": "9,065",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 9065000000,
+        "revenue": 9065000000,
+        "basis": "Consolidated statements of income, December 31, 2025 three-month column, USD millions",
+        "sectionHeading": "ONEOK Announces Higher Full-Year 2025 Earnings: Net Income up 11%, Adjusted EBITDA up 18% Feb. 23, 2026 Page 12 -mo",
+        "amountContext": "vices and other 1,241 1,225 4,751 3,918 Total revenues 9,065 7,000 33,629 21,698 Cost of sales and fuel (exclu",
+        "image": "okeq42025earningsrelease012.jpg",
+        "nearby": []
+      },
+      "SBUX|2025-09-28": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
+        "sourceSha256": "b43e2064d242fa2d10672bec791551ab66d6f7c5e473b0efd2cadccd6b5e556c",
+        "tableIndex": 4,
+        "rowIndex": 9,
+        "columnIndex": 3,
+        "label": "Total net revenues",
+        "reported": "9,569.0",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 9569000000,
+        "revenue": 9569000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Quarter Ended",
+            "columnText": "Quarter Ended"
+          },
+          {
+            "row": 2,
+            "text": "Sep 28, 2025 / Sep 29, 2024 / % Change",
+            "columnText": "Sep 28, 2025"
+          },
+          {
+            "row": 3,
+            "text": "Sep 28, 2025 / Sep 29, 2024 / % Change",
+            "columnText": "Sep 28, 2025"
+          },
+          {
+            "row": 6,
+            "text": "Company-operated stores / $ / 7,862.0 / 7,442.1 / 5.6 / % / 82.2 / 82.0",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(unaudited, in millions, except per share data)",
+          "CONSOLIDATED STATEMENTS OF EARNINGS",
+          "`STARBUCKS CORPORATION"
+        ]
+      },
+      "SNA|2026-01-03": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm",
+        "sourceSha256": "314f37b40565097913fe678bf0d029b7da7f6f4546a29779bd605047cc3f1edf",
+        "tableIndex": 1,
+        "rowIndex": 11,
+        "columnIndex": 4,
+        "label": "Total revenues",
+        "reported": "1,339.9",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 1339900000,
+        "revenue": 1339900000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Fourth Quarter / Full Year",
+            "columnText": "Fourth Quarter"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "(Amounts in millions)"
+        ]
+      },
+      "SPGI|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
+        "sourceSha256": "b7b7c028ee0df32044b435a0653f208edfa0fd03519287245853b91e06d49e3f",
+        "tableIndex": 14,
+        "rowIndex": 4,
+        "columnIndex": 7,
+        "label": "Revenue",
+        "reported": "3,916",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3916000000,
+        "revenue": 3916000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "(unaudited) / Three Months / Twelve Months",
+            "columnText": "Three Months"
+          }
+        ],
+        "nearby": [
+          "(dollars in millions, except per share data)",
+          "Periods ended December 31, 2025 and 2024",
+          "Condensed Consolidated Statements of Income"
+        ]
+      },
+      "STT|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/a4q25earningspressrelease.htm",
+        "sourceSha256": "58def8329056c6905f6828a86389fdd8bf91ae88a8350e24a9713fced32b4459",
+        "tableIndex": 3,
+        "rowIndex": 6,
+        "columnIndex": 3,
+        "label": "Total revenue",
+        "reported": "3,667",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3667000000,
+        "revenue": 3667000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "(Table presents summary results, dollars in millions, except per share amounts, or where otherwise noted) / 4Q25 / 3Q25 / 4Q24 / % QoQ / % YoY",
+            "columnText": "4Q25"
+          },
+          {
+            "row": 3,
+            "text": "Total fee revenue / $ / 2,862 / 2,829 / 2,662 / 1 % / % / 8 %",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "FINANCIAL HIGHLIGHTS"
+        ]
+      },
+      "SWK|2026-01-03": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/exhibit992financialsq42025.htm",
+        "sourceSha256": "b360ccfb861752a26a339cb2d6e12eec59a00484e94762743343fb536a96fd0a",
+        "tableIndex": 0,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "NET SALES",
+        "reported": "3,684.6",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3684600000,
+        "revenue": 3684600000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "FOURTH QUARTER / YEAR-TO-DATE",
+            "columnText": "FOURTH QUARTER"
+          }
+        ],
+        "nearby": [
+          "(Unaudited, Millions of Dollars Except Per Share Amounts)",
+          "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS"
+        ]
+      },
+      "SYY|2026-06-27": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy2026q4pressrelease.htm",
+        "sourceSha256": "5a1e3aeb253d8288a0f2521063d5c9b4642574a43811a080ece3f947aa4be49d",
+        "tableIndex": 1,
+        "rowIndex": 6,
+        "columnIndex": 4,
+        "label": "Sales",
+        "reported": "22,124",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 22124000000,
+        "revenue": 22124000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Sysco Corporation and its Consolidated Subsidiaries CONSOLIDATED RESULTS OF OPERATIONS (In Millions, Except for Share and Per Share Data)",
+            "columnText": "Sysco Corporation and its Consolidated Subsidiaries CONSOLIDATED RESULTS OF OPERATIONS (In Millions, Except for Share and Per Share Data)"
+          },
+          {
+            "row": 2,
+            "text": "13-Week Period Ended / 52-Week Period Ended",
+            "columnText": "13-Week Period Ended"
+          },
+          {
+            "row": 4,
+            "text": "Jun. 27, 2026 / Jun. 28, 2025",
+            "columnText": "Jun. 27, 2026"
+          },
+          {
+            "row": 5,
+            "text": "(Unaudited)",
+            "columnText": "(Unaudited)"
+          }
+        ],
+        "nearby": []
+      },
+      "T|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000046/t-4q20258xk801exhibit991.htm",
+        "sourceSha256": "3baf50e0370f84e2cbdbf08513f96045347a06dd849db629674afc67ae24025b",
+        "tableIndex": 0,
+        "rowIndex": 11,
+        "columnIndex": 3,
+        "label": "Total Operating Revenues",
+        "reported": "33,466",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 33466000000,
+        "revenue": 33466000000,
+        "headings": [
+          {
+            "row": 4,
+            "text": "Consolidated Statements of Income",
+            "columnText": "Consolidated Statements of Income"
+          },
+          {
+            "row": 6,
+            "text": "Unaudited / Fourth Quarter / Percent / Year Ended",
+            "columnText": "Fourth Quarter"
+          }
+        ],
+        "nearby": [
+          "Document"
+        ]
+      },
+      "UNH|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
+        "sourceSha256": "da21c6b7842930863e5227ea0a55db8f57e60d8f28dadcbc370e2f2fc8717e37",
+        "reported": "113,215",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 113215000000,
+        "revenue": 113215000000,
+        "basis": "Consolidated revenue total, three months ended December 31, 2025, USD millions",
+        "sectionHeading": "UNITEDHEALTH GROUP CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (in millions, except per share data; unaudited) ",
+        "amountContext": "...................................................... 113,215 100,807 447,567 400,278 Operating costs Medical c",
+        "image": "a991unherq42025012.jpg",
+        "nearby": []
+      },
+      "UNP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000032/a2026-01x278xkex991earning.htm",
+        "sourceSha256": "132af60ea3db3c9bbd6886d54d6d3d8c21653a31672682569e0679f6a6c61ed4",
+        "tableIndex": 0,
+        "rowIndex": 6,
+        "columnIndex": 3,
+        "label": "Total operating revenues",
+        "reported": "6,085",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 6085000000,
+        "revenue": 6085000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Millions, except per share amounts and percentages, for the periods ended December 31, / 4th Quarter / Full Year",
+            "columnText": "4th Quarter"
+          },
+          {
+            "row": 4,
+            "text": "Freight revenues / $ / 5,759 / 5,789 / (1) / % / 23,220 / 22,811 / 2",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "Condensed Consolidated Statements of Income (unaudited)",
+          "UNION PACIFIC CORPORATION AND SUBSIDIARY COMPANIES"
+        ]
+      },
+      "VLO|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm",
+        "sourceSha256": "fe0605d47a096629c0ecb82f84e008b828c5b5c2aedeca39f10fcb73e2195638",
+        "tableIndex": 0,
+        "rowIndex": 4,
+        "columnIndex": 4,
+        "label": "Revenues",
+        "reported": "30,372",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 30372000000,
+        "revenue": 30372000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "VALERO ENERGY CORPORATION EARNINGS RELEASE TABLES FINANCIAL HIGHLIGHTS (millions of dollars, except per share amounts) (unaudited)"
+        ]
+      },
+      "VLTO|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
+        "sourceSha256": "64e17791ce6205888c0bd5af11f99a4bef7f4650617b47dd46e793ce0462f6cf",
+        "tableIndex": 1,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Sales",
+        "reported": "1,396",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 1396000000,
+        "revenue": 1396000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three-Month Period Ended December 31 / Year Ended December 31",
+            "columnText": "Three-Month Period Ended December 31"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "($ and shares in millions, except per share amounts)",
+          "CONSOLIDATED CONDENSED STATEMENTS OF EARNINGS"
+        ]
+      },
+      "VTR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm",
+        "sourceSha256": "836cc4c25ccc42b8bae4fd1cab0977cc6cdff9db99d53df44f7fa706fa88126d",
+        "tableIndex": 5,
+        "rowIndex": 15,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "1,566,017",
+        "usdPerUnit": 1000,
+        "priorRevenue": 1566017000,
+        "revenue": 1566017000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "CONSOLIDATED STATEMENTS OF INCOME",
+            "columnText": "CONSOLIDATED STATEMENTS OF INCOME"
+          },
+          {
+            "row": 2,
+            "text": "(In thousands, except per share amounts; dollars in USD; unaudited)",
+            "columnText": "(In thousands, except per share amounts; dollars in USD; unaudited)"
+          },
+          {
+            "row": 4,
+            "text": "For the Three Months Ended December 31, / For the Twelve Months Ended December 31,",
+            "columnText": "For the Three Months Ended December 31,"
+          }
+        ],
+        "nearby": [
+          "Ventas Reports 2025 Fourth Quarter and Full Year Results February 5, 2026 Page 8"
+        ]
+      },
+      "V|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
+        "sourceSha256": "c8b09eab21f2c91dcd9ac544a8a892d168162c97f42847c06a1f01922d6a111f",
+        "tableIndex": 20,
+        "rowIndex": 10,
+        "columnIndex": 4,
+        "label": "Net revenue",
+        "reported": "12,139",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 12139000000,
+        "revenue": 12139000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended September 30, / Twelve Months Ended September 30,",
+            "columnText": "Three Months Ended September 30,"
+          },
+          {
+            "row": 3,
+            "text": "(in millions, except per share data)",
+            "columnText": "(in millions, except per share data)"
+          }
+        ],
+        "nearby": []
+      },
+      "WAB|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/a4q2025pressrelease.htm",
+        "sourceSha256": "cc8450fa7aecad68c1574589c8f1ce00d76bb0266f453d814c67ea9fbfd1cfd2",
+        "tableIndex": 4,
+        "rowIndex": 4,
+        "columnIndex": 3,
+        "label": "Net Sales",
+        "reported": "$2,965",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 2965000000,
+        "revenue": 2965000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Wabtec Corporation Consolidated Financial Results",
+            "columnText": "Wabtec Corporation Consolidated Financial Results"
+          },
+          {
+            "row": 2,
+            "text": "$ in millions except earnings per share and percentages; margin change in percentage points (pts) / Fourth Quarter",
+            "columnText": "Fourth Quarter"
+          }
+        ],
+        "nearby": [
+          "2025 Fourth Quarter Consolidated Results"
+        ]
+      },
+      "WDC|2026-07-03": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm",
+        "sourceSha256": "56993b4e740123a8072460f305c5a4da486352d3e38444ae4faaa4f6573dc226",
+        "tableIndex": 5,
+        "rowIndex": 3,
+        "columnIndex": 4,
+        "label": "Revenue, net",
+        "reported": "3,747",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3747000000,
+        "revenue": 3747000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended / Years Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "July 3, 2026 / June 27, 2025",
+            "columnText": "July 3, 2026"
+          }
+        ],
+        "nearby": [
+          "WESTERN DIGITAL CORPORATION CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (in millions; unaudited)"
+        ]
+      },
+      "WSM|2026-02-01": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm",
+        "sourceSha256": "28f862d18a3755ea72c56b7228c3d925163a755f7556a99b001619c78c6e175e",
+        "tableIndex": 0,
+        "rowIndex": 5,
+        "columnIndex": 4,
+        "label": "Net revenues",
+        "reported": "2,357,129",
+        "usdPerUnit": 1000,
+        "priorRevenue": 2357129000,
+        "revenue": 2357129000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "For the Thirteen Weeks Ended / For the Fourteen Weeks Ended",
+            "columnText": "For the Thirteen Weeks Ended"
+          },
+          {
+            "row": 2,
+            "text": "February 1, 2026 / February 2, 2025",
+            "columnText": "February 1, 2026"
+          },
+          {
+            "row": 3,
+            "text": "(In thousands, except per share amounts) / $ / % of Net Revenues",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "Condensed Consolidated Statements of Earnings (unaudited)"
+        ]
+      },
+      "XYL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm",
+        "sourceSha256": "b2cd0767485950352a1e1ee0cb8774b5894f4bc12a3fab10ab0db1c8793a0b12",
+        "tableIndex": 6,
+        "rowIndex": 3,
+        "columnIndex": 3,
+        "label": "Total Revenue",
+        "reported": "2,397",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 2397000000,
+        "revenue": 2397000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Q4 2025 / Q4 2024",
+            "columnText": "Q4 2025"
+          },
+          {
+            "row": 2,
+            "text": "As Reported / Adjustments / Adjusted",
+            "columnText": "As Reported"
+          }
+        ],
+        "nearby": [
+          "($ Millions, except per share amounts)",
+          "Adjusted Diluted EPS",
+          "Xylem Inc. Non-GAAP Reconciliation"
+        ],
+        "basis": "As Reported column of the Q4 2025 reconciliation"
+      },
+      "XYZ|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590dex991.htm",
+        "sourceSha256": "8c5a5e4ad168a09dc07ca68bf53b39d8c38d931fe85a3f866b2eaf07fefd5cc7",
+        "tableIndex": 40,
+        "rowIndex": 19,
+        "columnIndex": 17,
+        "label": "Segment revenue",
+        "reported": "6,252,478",
+        "usdPerUnit": 1000,
+        "priorRevenue": 6252478000,
+        "revenue": 6252478000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "THREE MONTHS ENDED / TWELVE MONTHS ENDED",
+            "columnText": "THREE MONTHS ENDED"
+          },
+          {
+            "row": 6,
+            "text": "(UNAUDITED) / (AUDITED)",
+            "columnText": "(UNAUDITED)"
+          }
+        ],
+        "nearby": [
+          "Information on the reportable segments revenue and segment gross profit, as well as amounts for the “Corporate and Other” category, which includes products and services not assigned to reportable segments and intersegment eliminations:",
+          "Reportable Segment Disclosures"
+        ],
+        "basis": "Total company column includes both reportable segments and corporate/other and eliminations"
+      },
+      "YUM|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm",
+        "sourceSha256": "b2d64f41b6dc975ad7c53d37c73c8902a7c81c6d769436c4bf1f9d3593d6b269",
+        "tableIndex": 13,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "2,514",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 2515000000,
+        "revenue": 2514000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Quarter ended / % Change B/(W) / Year ended",
+            "columnText": "Quarter ended"
+          },
+          {
+            "row": 2,
+            "text": "12/31/25 / 12/31/24 / % Change B/(W)",
+            "columnText": "12/31/25"
+          },
+          {
+            "row": 4,
+            "text": "Company sales / $ / 971 / 885 / 10 / 2,945 / 2,552 / 15",
+            "columnText": "$"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "(amounts in millions, except per share amounts)",
+          "Consolidated Summary of Results"
+        ]
+      }
+    },
+    "keycorpGaapRevenue": {
+      "KEY|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
+        "sourceSha256": "34441c052ccf44a1fe3492ecbb5a57c90e5fe5c178d75bb15628e8da6051fadf",
+        "statement": "Consolidated Statements of Income",
+        "xbrlTags": [
+          "us-gaap:interestincomeexpensenet",
+          "us-gaap:noninterestincome"
+        ],
+        "periodStart": "2025-07-01",
+        "netInterestIncomeUsd": 1184000000,
+        "noninterestIncomeUsd": 702000000,
+        "taxableEquivalentAdjustmentUsd": 9000000,
+        "priorRevenue": 1895000000.0,
+        "revenue": 1886000000
+      },
+      "KEY|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm",
+        "sourceSha256": "bd45938ee9e5be29c08f5b788160042f6da294b24007849ca6e5147db8476a1b",
+        "tableIndex": 20,
+        "rowIndices": [
+          57,
+          60,
+          58,
+          61
+        ],
+        "netInterestIncomeUsd": 1215000000,
+        "noninterestIncomeUsd": 782000000,
+        "taxableEquivalentAdjustmentUsd": 8000000,
+        "priorRevenue": 2005000000,
+        "revenue": 1997000000
+      },
+      "KEY|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
+        "sourceSha256": "c4b8d3bf80dfa92d165803e84bfe3b4aaa6fb726485885564bd60a1fafdcf373",
+        "statement": "Consolidated Statements of Income",
+        "xbrlTags": [
+          "us-gaap:interestincomeexpensenet",
+          "us-gaap:noninterestincome"
+        ],
+        "periodStart": "2026-01-01",
+        "netInterestIncomeUsd": 1222000000,
+        "noninterestIncomeUsd": 723000000,
+        "taxableEquivalentAdjustmentUsd": 8000000,
+        "priorRevenue": 1953000000.0,
+        "revenue": 1945000000
+      },
+      "KEY|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm",
+        "sourceSha256": "793682f9ac2606201cca67125584814f6e6176654a3518fd71866694bf876c23",
+        "statement": "Consolidated Statements of Income",
+        "xbrlTags": [
+          "us-gaap:interestincomeexpensenet",
+          "us-gaap:noninterestincome"
+        ],
+        "periodStart": "2026-04-01",
+        "netInterestIncomeUsd": 1250000000,
+        "noninterestIncomeUsd": 706000000,
+        "taxableEquivalentAdjustmentUsd": 8000000,
+        "priorRevenue": 1964000000.0,
+        "revenue": 1956000000
+      },
+      "KEY|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
+        "sourceSha256": "be95b03aff2ee4558f75889520e389725a1b90372a3b8ed781c61d9476d52f10",
+        "statement": "Consolidated Statements of Income",
+        "xbrlTags": [
+          "us-gaap:interestincomeexpensenet",
+          "us-gaap:noninterestincome"
+        ],
+        "periodStart": "2026-07-01",
+        "netInterestIncomeUsd": 1300000000,
+        "noninterestIncomeUsd": 744000000,
+        "taxableEquivalentAdjustmentUsd": 8000000,
+        "priorRevenue": 2052000000.0,
+        "revenue": 2044000000
+      }
+    },
+    "correctedRevenueImportReplay": {
+      "KEY": {
+        "2026-09-30": {
+          "importedRevenueUsd": 2044000000.0,
+          "reconciledRevenueUsd": 2044000000.0,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm"
+        },
+        "2026-06-30": {
+          "importedRevenueUsd": 1956000000.0,
+          "reconciledRevenueUsd": 1956000000.0,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm"
+        },
+        "2026-03-31": {
+          "importedRevenueUsd": 1945000000.0,
+          "reconciledRevenueUsd": 1945000000.0,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm"
+        },
+        "2025-12-31": {
+          "importedRevenueUsd": null,
+          "reconciledRevenueUsd": 1997000000,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm"
+        },
+        "2025-09-30": {
+          "importedRevenueUsd": 1886000000.0,
+          "reconciledRevenueUsd": 1886000000.0,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm"
+        }
+      },
+      "YUM": {
+        "2025-12-31": {
+          "importedRevenueUsd": null,
+          "reconciledRevenueUsd": 2514000000,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm"
+        }
+      }
+    },
+    "q4CandidatesWithoutDirectConfirmationInThisPass": [
+      "ACGL|2025-12-31",
+      "AIG|2025-12-31",
+      "AJG|2025-12-31",
+      "APO|2025-12-31",
+      "ATO|2026-09-30",
+      "BRK-B|2025-12-31",
+      "CB|2025-12-31",
+      "CNP|2025-12-31",
+      "COF|2025-12-31",
+      "COIN|2025-12-31",
+      "COP|2025-12-31",
+      "CSGP|2025-12-31",
+      "DTE|2025-12-31",
+      "EIX|2025-12-31",
+      "ERIE|2025-12-31",
+      "EVRG|2025-12-31",
+      "PCG|2025-12-31",
+      "PFG|2025-12-31",
+      "PGR|2025-12-31",
+      "REG|2025-12-31",
+      "UDR|2025-12-31",
+      "UPS|2025-12-31",
+      "WMB|2025-12-31"
+    ],
+    "candidateSourceErrors": {
+      "MAA|2025-12-31": [
+        [
+          "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_2.htm",
+          "OSError",
+          "Official SEC connection unavailable"
+        ]
+      ],
+      "MRK|2025-12-31": [
+        [
+          "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-2.htm",
+          "OSError",
+          "Official SEC connection unavailable"
+        ]
+      ]
+    },
+    "remainingFields": "These are corrections and provenance upgrades to populated records. The previously documented 16 metric and seven release-date gaps still require independent evidence."
   }
 }

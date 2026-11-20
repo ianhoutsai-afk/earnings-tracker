@@ -17,6 +17,10 @@ QUARTERS = {'first':1, 'second':2, 'third':3, 'fourth':4, '1st':1, '2nd':2, '3rd
 REVENUE_TAGS = {'us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax',
                 'us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax', 'us-gaap:SalesRevenueNet',
                 'us-gaap:RevenuesNetOfInterestExpense'}
+KEYCORP_GAAP_REVENUE_COMPONENTS = {
+    'us-gaap:interestincomeexpensenet': 'net interest income',
+    'us-gaap:noninterestincome': 'total noninterest income',
+}
 
 
 def normalize_proxy_base(value):
@@ -398,6 +402,8 @@ def parse_inline_quarter(document, period_end, cik=None):
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
     eps, revenue, starts = set(), set(), set()
+    keycorp = cik is not None and str(cik).lstrip('0') == '91576'
+    keycorp_components = {}
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
@@ -410,13 +416,20 @@ def parse_inline_quarter(document, period_end, cik=None):
                 and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])
                 and not re.search(r'(?i)adjusted|nongaap|proforma|segment',tag)):
             is_revenue = _contract_revenue_total(node)
-        if not is_eps and not is_revenue:
+        component_label = KEYCORP_GAAP_REVENUE_COMPONENTS.get(tag.lower()) if keycorp else None
+        if not is_eps and not is_revenue and component_label is None:
             continue
-        if is_revenue:
+        if is_revenue or component_label:
             row = next((ancestor for ancestor in node.iterancestors() if _local(ancestor) == 'tr'), None)
             if row is not None and re.search(r'(?i)\bsegment\b', _text(row)):
                 # A standard tag and dimensionless context can still be applied
                 # to an explicitly labelled segment amount in the source.
+                continue
+            cells = row.xpath('./td|./th') if row is not None and keycorp else []
+            label = ' '.join(_text(cells[0]).split()).casefold() if cells else ''
+            if keycorp and is_revenue and re.search(r'\(te\)|taxable[\s-]equivalent', label):
+                continue
+            if component_label and label != component_label:
                 continue
         if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
             continue
@@ -442,8 +455,23 @@ def parse_inline_quarter(document, period_end, cik=None):
                 continue
         except (ValueError, InvalidOperation):
             continue
+        context_id = node.get('contextref')
+        if component_label:
+            tables = row.xpath('ancestor::table[1]')
+            if tables:
+                components = keycorp_components.setdefault((tables[0], context_id), {})
+                components.setdefault(component_label, set()).add(value)
+            continue
         (eps if is_eps else revenue).add(float(value))
-        starts.add(contexts[node.get('contextref')])
+        starts.add(contexts[context_id])
+    # KeyCorp's management tables tag a taxable-equivalent figure as revenue.
+    # Rebuild GAAP revenue only when both exact-quarter GAAP lines share a table and context.
+    for (_, context_id), components in keycorp_components.items():
+        if len(components) == 2 and all(len(values) == 1 for values in components.values()):
+            total = sum(next(iter(values)) for values in components.values())
+            if total >= 0:
+                revenue.add(float(total))
+                starts.add(contexts[context_id])
     return {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,

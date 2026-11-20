@@ -1096,7 +1096,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026011402/afl-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001628280-26-011402",
       "releaseFilingDate": "2026-02-04",
@@ -1104,11 +1104,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026011402/afl-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm"
     },
     {
       "date": "2025-11-04",
@@ -1474,19 +1475,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192d8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000004/abnb-20251231.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-12",
       "accessionNumber": "0001559720-26-000004",
       "releaseFilingDate": "2026-02-12",
       "releaseAccession": "0001193125-26-048670",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000004/abnb-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192dex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192dex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192dex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526048670/d58192dex991.htm"
     },
     {
       "date": "2025-11-06",
@@ -1855,19 +1857,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/are-20260126.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000013/are-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-01-26",
       "accessionNumber": "0001035443-26-000013",
       "releaseFilingDate": "2026-01-26",
       "releaseAccession": "0001035443-26-000014",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000013/are-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm"
     },
     {
       "date": "2025-10-27",
@@ -3384,19 +3387,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/axp-20260130.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0000004962-26-000080",
       "releaseFilingDate": "2026-01-30",
       "releaseAccession": "0000004962-26-000037",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/q425exhibit992.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/q425exhibit991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/q425exhibit991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000037/q425exhibit992.htm"
     },
     {
       "date": "2025-10-17",
@@ -4526,7 +4530,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026008116/aon-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-13",
       "accessionNumber": "0001628280-26-008116",
       "releaseFilingDate": "2026-01-30",
@@ -4534,11 +4538,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026008116/aon-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm"
     },
     {
       "date": "2025-10-31",
@@ -5672,19 +5677,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/ares-20260205.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026011413/ares-20251231.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001628280-26-011413",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0001628280-26-005596",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026011413/ares-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex992earningspre.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex992earningspre.htm"
     },
     {
       "date": "2025-11-03",
@@ -6184,19 +6190,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000047/t-20260128.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-09",
       "accessionNumber": "0000732717-26-000120",
       "releaseFilingDate": "2026-01-28",
       "releaseAccession": "0000732717-26-000047",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000046/t-4q20258xk801exhibit991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000047/t-4q2025exhibit992.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000047/t-4q2025exhibit992.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000046/t-4q20258xk801exhibit991.htm"
     },
     {
       "date": "2025-10-22",
@@ -7075,19 +7082,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011360/axon-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001628280-26-011360",
       "releaseFilingDate": "2026-02-24",
       "releaseAccession": "0001628280-26-011106",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011360/axon-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224xex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224xex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224xex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011106/axon-20260224xex991.htm"
     },
     {
       "date": "2025-11-04",
@@ -8471,19 +8479,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526082531/d48618d10k.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-27",
       "accessionNumber": "0001193125-26-082531",
       "releaseFilingDate": "2026-01-29",
       "releaseAccession": "0001193125-26-028145",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526082531/d48618d10k.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526028145/d92648dex991.htm"
     },
     {
       "date": "2025-10-23",
@@ -8601,19 +8610,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590d8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/xyz-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-26",
       "accessionNumber": "0001628280-26-012254",
       "releaseFilingDate": "2026-02-26",
       "releaseAccession": "0001193125-26-076557",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/xyz-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590dex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590d8k.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590d8k.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1512673/000119312526076557/d108590dex991.htm"
     },
     {
       "date": "2025-11-06",
@@ -8983,19 +8993,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-18",
       "accessionNumber": "0001075531-26-000009",
       "releaseFilingDate": "2026-02-18",
       "releaseAccession": "0001075531-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm"
     },
     {
       "date": "2025-10-28",
@@ -11244,19 +11255,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9928-k123125.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000009/cvna-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-18",
       "accessionNumber": "0001690820-26-000009",
       "releaseFilingDate": "2026-02-18",
       "releaseAccession": "0001690820-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000009/cvna-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9928-k123125.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9918-k123125.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9918-k123125.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9928-k123125.htm"
     },
     {
       "date": "2025-10-29",
@@ -12888,19 +12900,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/cvx-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000093410-26-000078",
       "releaseFilingDate": "2026-01-30",
       "releaseAccession": "0000093410-26-000019",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/cvx-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm"
     },
     {
       "date": "2025-10-31",
@@ -13526,19 +13539,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000006/ci-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-26",
       "accessionNumber": "0001739940-26-000006",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0001140361-26-003768",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000006/ci-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_ex99-1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_ex99-1.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_ex99-1.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126003768/ef20064751_ex99-1.htm"
     },
     {
       "date": "2025-10-30",
@@ -17812,19 +17826,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/dhr-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000313616-26-000062",
       "releaseFilingDate": "2026-01-28",
       "releaseAccession": "0000313616-26-000004",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/dhr-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128xex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128xex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128xex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000004/dhr-20260128xex991.htm"
     },
     {
       "date": "2025-10-21",
@@ -18547,7 +18562,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-03-16",
       "accessionNumber": "0001571996-26-000008",
       "releaseFilingDate": "2026-02-26",
@@ -18555,11 +18570,12 @@
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000003/exhibit991earnings8kq4fy26.htm"
     },
     {
       "date": "2025-11-25",
@@ -20454,19 +20470,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000014/duk-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-26",
       "accessionNumber": "0001326160-26-000014",
       "releaseFilingDate": "2026-02-10",
       "releaseAccession": "0001326160-26-000007",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000014/duk-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000007/er-20251231xearningsreleas.htm"
     },
     {
       "date": "2025-11-07",
@@ -21096,19 +21113,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d2.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926018357/ecl-20251231x10k.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-23",
       "accessionNumber": "0001104659-26-018357",
       "releaseFilingDate": "2026-02-10",
       "releaseAccession": "0001104659-26-012358",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926018357/ecl-20251231x10k.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d1.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d1.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/31462/000110465926012358/ecl-20260210xex99d1.htm"
     },
     {
       "date": "2025-10-28",
@@ -21615,7 +21633,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000006/elv-20260128.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000013/elv-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-02-06",
       "accessionNumber": "0001156039-26-000013",
@@ -21626,11 +21644,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000006/a4q2025elvearningsrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000013/elv-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000006/a4q2025elvearningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000006/a4q2025elvearningsrelease.htm"
     },
     {
       "date": "2025-10-21",
@@ -22119,19 +22138,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/eog-20260224.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000054/eog-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000821189-26-000054",
       "releaseFilingDate": "2026-02-24",
       "releaseAccession": "0000821189-26-000052",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000054/eog-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/exh99-1022426.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/exh99-1022426.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/exh99-1022426.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/exh99-1022426.htm"
     },
     {
       "date": "2025-11-06",
@@ -23039,19 +23059,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000092052226000003/ess-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-20",
       "accessionNumber": "0000920522-26-000003",
       "releaseFilingDate": "2026-02-04",
       "releaseAccession": "0001140361-26-003709",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000092052226000003/ess-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm"
     },
     {
       "date": "2025-10-29",
@@ -23116,7 +23137,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000041/el-20260630.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-08-19",
       "accessionNumber": "0001001250-26-000041",
@@ -23126,12 +23147,13 @@
       "releaseAccession": "0001001250-26-000038",
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000041/el-20260630.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000038/elq4fy2026exhibit991.htm"
     },
     {
       "date": "2026-05-01",
@@ -23555,19 +23577,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828026008461/es-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-17",
       "accessionNumber": "0001628280-26-008461",
       "releaseFilingDate": "2026-02-12",
       "releaseAccession": "0001104659-26-014302",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000162828026008461/es-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-2.htm"
     },
     {
       "date": "2025-11-04",
@@ -23685,19 +23708,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000018/exc-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-12",
       "accessionNumber": "0001109357-26-000018",
       "releaseFilingDate": "2026-02-12",
       "releaseAccession": "0001109357-26-000014",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000018/exc-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm"
     },
     {
       "date": "2025-11-04",
@@ -23815,7 +23839,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000008/exe-ex_991x20251231x8kxpr.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000011/exe-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-18",
       "accessionNumber": "0000895126-26-000011",
       "releaseFilingDate": "2026-02-17",
@@ -23823,11 +23847,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000008/exe-ex_991x20251231x8kxpr.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000011/exe-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000008/exe-ex_991x20251231x8kxpr.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/895126/000089512626000008/exe-ex_991x20251231x8kxpr.htm"
     },
     {
       "date": "2025-10-28",
@@ -24197,7 +24222,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000007/q42025ex991earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000011/exr-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-20",
       "accessionNumber": "0001289490-26-000011",
       "releaseFilingDate": "2026-02-19",
@@ -24205,11 +24230,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000007/q42025ex991earningsrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000011/exr-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000007/q42025ex991earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000007/q42025ex991earningsrelease.htm"
     },
     {
       "date": "2025-10-29",
@@ -26608,19 +26634,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/fcx-20260122.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000012/fcx-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-13",
       "accessionNumber": "0000831259-26-000012",
       "releaseFilingDate": "2026-01-22",
       "releaseAccession": "0000831259-26-000006",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000012/fcx-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm"
     },
     {
       "date": "2025-10-23",
@@ -28377,7 +28404,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000029/q4fy2025earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000090/gl-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0000320335-26-000090",
       "releaseFilingDate": "2026-02-04",
@@ -28385,11 +28412,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000029/q4fy2025earningsrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000090/gl-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000029/q4fy2025earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/320335/000032033526000029/q4fy2025earningsrelease.htm"
     },
     {
       "date": "2025-10-22",
@@ -28633,19 +28661,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresultspr.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0000886982-26-000091",
       "releaseFilingDate": "2026-01-15",
       "releaseAccession": "0000886982-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresultspr.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresults.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresults.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000008/a4q25gsearningsresultspr.htm"
     },
     {
       "date": "2025-10-14",
@@ -28763,19 +28792,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000015/hal-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0000045012-26-000015",
       "releaseFilingDate": "2026-01-21",
       "releaseAccession": "0000045012-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000015/hal-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue equals fiscal-year revenue less the reported first nine months. The official quarterly release confirms the amount at its published precision.",
-        "zh-TW": "第四季營收以全年營收減去前九個月營收計算，並按官方季度公告的精度交叉核對。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000008/livemastererdocument.htm"
     },
     {
       "date": "2025-10-21",
@@ -28893,19 +28923,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000012/hig-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-20",
       "accessionNumber": "0000874766-26-000012",
       "releaseFilingDate": "2026-01-29",
       "releaseAccession": "0000874766-26-000006",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000012/hig-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm"
     },
     {
       "date": "2025-10-27",
@@ -29149,7 +29180,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526023323/hca-ex99_1.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-10",
       "accessionNumber": "0001193125-26-044769",
       "releaseFilingDate": "2026-01-27",
@@ -29157,11 +29188,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526023323/hca-ex99_1.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526023323/hca-ex99_1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/860730/000119312526023323/hca-ex99_1.htm"
     },
     {
       "date": "2025-10-24",
@@ -30795,19 +30827,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x1briefxfeb.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-19",
       "accessionNumber": "0000049071-26-000009",
       "releaseFilingDate": "2026-02-11",
       "releaseAccession": "0000049071-26-000005",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x1briefxfeb.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x2detailedx.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x2detailedx.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/49071/000004907126000005/hum-2025q4xex99x1briefxfeb.htm"
     },
     {
       "date": "2025-11-05",
@@ -31799,19 +31832,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/iri-20260212.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026008617/iri-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-17",
       "accessionNumber": "0001628280-26-008617",
       "releaseFilingDate": "2026-02-12",
       "releaseAccession": "0001628280-26-007710",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026008617/iri-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/ir2025q4ex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/ir2025q4ex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/ir2025q4ex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026007710/ir2025q4ex991.htm"
     },
     {
       "date": "2025-10-30",
@@ -32936,7 +32970,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000079/ivz-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000914208-26-000079",
       "releaseFilingDate": "2026-01-27",
@@ -32944,11 +32978,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000079/ivz-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/914208/000091420826000017/ivzpressrelease4q2025.htm"
     },
     {
       "date": "2025-10-28",
@@ -33444,7 +33479,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926001357/ex_907715.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926005294/jbht20251231_10k.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0001437749-26-005294",
       "releaseFilingDate": "2026-01-15",
@@ -33452,11 +33487,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926001357/ex_907715.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926005294/jbht20251231_10k.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926001357/ex_907715.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/728535/000143774926001357/ex_907715.htm"
     },
     {
       "date": "2025-10-15",
@@ -34516,12 +34552,12 @@
       "periodEnd": "2026-09-30",
       "periodScope": "quarter",
       "eps_reported": "$0.51",
-      "revenue_reported": "$2.05B",
+      "revenue_reported": "$2.04B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000020/a3q26earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "releaseFilingDate": "2026-10-20",
       "releaseAccession": "0000091576-26-000020",
@@ -34533,7 +34569,12 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
       "form": "10-Q",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
+      "metricNote": {
+        "en": "GAAP revenue is the sum of net interest income and noninterest income.",
+        "zh-TW": "GAAP 營收為淨利息收入與非利息收入的合計。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm"
     },
     {
       "date": "2026-07-21",
@@ -34546,7 +34587,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000017/a2q26earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "periodStart": "2026-04-01",
       "filingDate": "2026-08-04",
@@ -34558,7 +34599,12 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm",
+      "metricNote": {
+        "en": "GAAP revenue is the sum of net interest income and noninterest income.",
+        "zh-TW": "GAAP 營收為淨利息收入與非利息收入的合計。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm"
     },
     {
       "date": "2026-04-16",
@@ -34574,7 +34620,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000013/a1q26earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "periodStart": "2026-01-01",
       "filingDate": "2026-05-05",
       "accessionNumber": "0001628280-26-030507",
@@ -34583,7 +34629,12 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 1,
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
+      "metricNote": {
+        "en": "GAAP revenue is the sum of net interest income and noninterest income.",
+        "zh-TW": "GAAP 營收為淨利息收入與非利息收入的合計。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm"
     },
     {
       "date": "2026-01-20",
@@ -34596,7 +34647,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/key-20260115.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026010546/key-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-02-23",
       "accessionNumber": "0001628280-26-010546",
@@ -34606,18 +34657,19 @@
       "releaseAccession": "0000091576-26-000006",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026010546/key-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "GAAP revenue is the sum of net interest income and noninterest income.",
+        "zh-TW": "GAAP 營收為淨利息收入與非利息收入的合計。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000006/a4q25earningsrelease.htm"
     },
     {
       "date": "2025-10-16",
       "quarter": "2025 Q3",
       "eps_reported": "$0.41",
-      "revenue_reported": "$1.90B",
+      "revenue_reported": "$1.89B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",
@@ -34627,7 +34679,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157625000118/a3q25earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "periodStart": "2025-07-01",
       "filingDate": "2025-11-04",
       "accessionNumber": "0001628280-25-048757",
@@ -34636,7 +34688,12 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 3,
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
+      "metricNote": {
+        "en": "GAAP revenue is the sum of net interest income and noninterest income.",
+        "zh-TW": "GAAP 營收為淨利息收入與非利息收入的合計。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm"
     }
   ],
   "KEYS": [
@@ -35229,19 +35286,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000007/kkr-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-27",
       "accessionNumber": "0001404912-26-000007",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0001404912-26-000002",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000007/kkr-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000002/q425earningsrelease_vf.htm"
     },
     {
       "date": "2025-11-07",
@@ -35489,7 +35547,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000009/khc-20251227.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-12",
       "accessionNumber": "0001637459-26-000009",
       "releaseFilingDate": "2026-02-11",
@@ -35497,11 +35555,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000009/khc-20251227.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000006/ex991-erq42025.htm"
     },
     {
       "date": "2025-10-29",
@@ -35593,7 +35652,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926037723/kr-20260131x10k.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-03-31",
       "accessionNumber": "0001104659-26-037723",
       "releaseFilingDate": "2026-03-05",
@@ -35601,11 +35660,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926037723/kr-20260131x10k.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm"
     },
     {
       "date": "2025-12-04",
@@ -36633,7 +36693,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-12",
       "accessionNumber": "0000059478-26-000013",
       "releaseFilingDate": "2026-02-04",
@@ -36641,11 +36701,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm"
     },
     {
       "date": "2025-10-30",
@@ -36763,19 +36824,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026011430/lin-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001628280-26-011430",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0001654954-26-000913",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026011430/lin-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm"
     },
     {
       "date": "2025-10-31",
@@ -38018,7 +38080,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000007/mar-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-10",
       "accessionNumber": "0001048286-26-000007",
       "releaseFilingDate": "2026-02-10",
@@ -38026,11 +38088,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000007/mar-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000005/mar-2025q4xex99earningsrel.htm"
     },
     {
       "date": "2025-11-04",
@@ -38400,19 +38463,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000005/mas-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-10",
       "accessionNumber": "0000062996-26-000005",
       "releaseFilingDate": "2026-02-10",
       "releaseAccession": "0000062996-26-000004",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000005/mas-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000004/a1231258-kex99.htm"
     },
     {
       "date": "2025-10-29",
@@ -39158,19 +39222,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/mrk-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000310158-26-000063",
       "releaseFilingDate": "2026-02-03",
       "releaseAccession": "0001104659-26-009495",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/mrk-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm"
     },
     {
       "date": "2025-10-30",
@@ -39410,19 +39475,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/met-20260204.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000013/met-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-19",
       "accessionNumber": "0001099219-26-000013",
       "releaseFilingDate": "2026-02-04",
       "releaseAccession": "0001099219-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000013/met-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/ex991earningsreleasetables.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/ex992qfsq425.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/ex992qfsq425.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000008/ex991earningsreleasetables.htm"
     },
     {
       "date": "2025-11-05",
@@ -39835,7 +39901,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/mu-20260930.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-10-09",
       "accessionNumber": "0000723125-26-000023",
@@ -39845,12 +39911,13 @@
       "releaseAccession": "0000723125-26-000018",
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm"
     },
     {
       "date": "2026-06-24",
@@ -40168,19 +40235,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526041208/maa-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0001193125-26-041208",
       "releaseFilingDate": "2026-02-04",
       "releaseAccession": "0001193125-26-037610",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526041208/maa-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/912595/000119312526037610/maa-ex99_1.htm"
     },
     {
       "date": "2025-10-29",
@@ -40924,19 +40992,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026009136/mco-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-18",
       "accessionNumber": "0001628280-26-009136",
       "releaseFilingDate": "2026-02-18",
       "releaseAccession": "0001628280-26-008788",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026009136/mco-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026008788/a4q25earningsrelease.htm"
     },
     {
       "date": "2025-10-22",
@@ -41432,7 +41501,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000011/msci-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0001408198-26-000011",
       "releaseFilingDate": "2026-01-28",
@@ -41440,11 +41509,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000011/msci-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000005/exhibit991earningsrelease-.htm"
     },
     {
       "date": "2025-10-25",
@@ -43449,19 +43519,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933d8k.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526071575/nue-20251231.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001193125-26-071575",
       "releaseFilingDate": "2026-01-26",
       "releaseAccession": "0001193125-26-022733",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526071575/nue-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm"
     },
     {
       "date": "2025-10-27",
@@ -44563,19 +44634,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/oke-20260223.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000006/oke-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0001039684-26-000006",
       "releaseFilingDate": "2026-02-23",
       "releaseAccession": "0001039684-26-000004",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000006/oke-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm"
     },
     {
       "date": "2025-10-28",
@@ -50992,7 +51064,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000013/spgi-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-11",
       "accessionNumber": "0000064040-26-000013",
       "releaseFilingDate": "2026-02-10",
@@ -51000,11 +51072,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000013/spgi-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm"
     },
     {
       "date": "2025-10-30",
@@ -52625,19 +52698,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/sna-20260205.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000045/sna-20260103.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-12",
       "accessionNumber": "0000091440-26-000045",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0000091440-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000045/sna-20260103.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000008/q42025pressreleaseforpress.htm"
     },
     {
       "date": "2025-10-16",
@@ -53133,19 +53207,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/swk-20260204.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000009/swk-20260103.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-24",
       "accessionNumber": "0000093556-26-000009",
       "releaseFilingDate": "2026-02-04",
       "releaseAccession": "0000093556-26-000004",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000009/swk-20260103.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/exhibit992financialsq42025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/exhibit992financialsq42025.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/exhibit992financialsq42025.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000004/exhibit992financialsq42025.htm"
     },
     {
       "date": "2025-11-04",
@@ -53287,7 +53362,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2025-11-14",
       "accessionNumber": "0000829224-25-000114",
       "releaseFilingDate": "2025-10-29",
@@ -53295,11 +53370,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm"
     }
   ],
   "STT": [
@@ -53392,7 +53468,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/stt-20260116.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000124/stt-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-19",
       "accessionNumber": "0000093751-26-000124",
       "releaseFilingDate": "2026-01-16",
@@ -53400,11 +53476,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/a4q25earningspressrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000124/stt-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/a4q25earningspressrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/a4q25earningspressrelease.htm"
     },
     {
       "date": "2025-10-17",
@@ -54240,7 +54317,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy-20260804.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000033/syy-20260627.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-08-21",
       "accessionNumber": "0000096021-26-000033",
@@ -54250,12 +54327,13 @@
       "releaseAccession": "0000096021-26-000026",
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000033/syy-20260627.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy2026q4pressrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy2026q4pressrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy2026q4pressrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000026/syy2026q4pressrelease.htm"
     },
     {
       "date": "2026-04-28",
@@ -58086,7 +58164,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000032/a2026-01x278xkex991earning.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000037/unp-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0000100885-26-000037",
       "releaseFilingDate": "2026-01-27",
@@ -58094,11 +58172,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000032/a2026-01x278xkex991earning.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000037/unp-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000032/a2026-01x278xkex991earning.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000032/a2026-01x278xkex991earning.htm"
     },
     {
       "date": "2025-10-23",
@@ -58599,19 +58678,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000062/unh-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-03-02",
       "accessionNumber": "0000731766-26-000062",
       "releaseFilingDate": "2026-01-27",
       "releaseAccession": "0000731766-26-000025",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000062/unh-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm"
     },
     {
       "date": "2025-10-28",
@@ -58855,19 +58935,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026011499/vlo-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001628280-26-011499",
       "releaseFilingDate": "2026-01-29",
       "releaseAccession": "0001628280-26-003974",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026011499/vlo-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026003974/a12312025exh9901earningsre.htm"
     },
     {
       "date": "2025-10-23",
@@ -59111,19 +59192,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000006/vtr-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-06",
       "accessionNumber": "0000740260-26-000006",
       "releaseFilingDate": "2026-02-05",
       "releaseAccession": "0000740260-26-000003",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000006/vtr-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000003/fullyear2025earningsrelease.htm"
     },
     {
       "date": "2025-10-29",
@@ -59241,7 +59323,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000011/vlto-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-20",
       "accessionNumber": "0001967680-26-000011",
       "releaseFilingDate": "2026-02-03",
@@ -59249,11 +59331,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000011/vlto-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000003/vlto-202625xex991.htm"
     },
     {
       "date": "2025-10-28",
@@ -60175,7 +60258,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "releaseFilingDate": "2026-10-27",
       "releaseAccession": "0001403161-26-000126",
@@ -60185,12 +60268,13 @@
       "accessionNumber": "0001403161-26-000134",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
       "form": "10-K",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm"
     },
     {
       "date": "2026-07-28",
@@ -60903,7 +60987,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/wab-20260211.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026008067/wab-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-13",
       "accessionNumber": "0001628280-26-008067",
       "releaseFilingDate": "2026-02-11",
@@ -60911,11 +60995,12 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/a4q2025pressrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026008067/wab-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/a4q2025pressrelease.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
-      }
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000162828026007113/a4q2025pressrelease.htm"
     },
     {
       "date": "2025-10-22",
@@ -62114,7 +62199,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/wdc-20260805.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026057139/wdc-20260703.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "verificationStatus": "official_verified",
       "filingDate": "2026-08-14",
       "accessionNumber": "0001628280-26-057139",
@@ -62124,12 +62209,13 @@
       "releaseAccession": "0001628280-26-053305",
       "fiscalYear": 2026,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026057139/wdc-20260703.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm"
     },
     {
       "date": "2026-04-30",
@@ -62418,19 +62504,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000059/wsm-20260201.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-03-26",
       "accessionNumber": "0000719955-26-000059",
       "releaseFilingDate": "2026-03-18",
       "releaseAccession": "0000719955-26-000030",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000059/wsm-20260201.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000030/exhibit991fy2025q4earnings.htm"
     },
     {
       "date": "2025-11-19",
@@ -63175,19 +63262,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl-20260210.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000012/xyl-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-25",
       "accessionNumber": "0001524472-26-000012",
       "releaseFilingDate": "2026-02-10",
       "releaseAccession": "0001524472-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000012/xyl-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results.",
+        "zh-TW": "第四季合併營收採公司公布的整季金額。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm"
     },
     {
       "date": "2025-10-28",
@@ -63295,7 +63383,7 @@
       "date": "2026-02-04",
       "quarter": "2025 Q4",
       "eps_reported": "$1.91",
-      "revenue_reported": "$2.52B",
+      "revenue_reported": "$2.51B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000084/yum-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -63305,19 +63393,20 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000084/yum-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-20",
       "filingDate": "2026-02-20",
       "accessionNumber": "0001041061-26-000084",
       "releaseFilingDate": "2026-02-04",
       "releaseAccession": "0001041061-26-000003",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000084/yum-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "The company reported fourth-quarter consolidated revenue of $2,514 million. Subtracting the rounded year-to-date totals gives $2,515 million.",
+        "zh-TW": "公司公布的第四季合併營收為 25.14 億美元。以各自四捨五入的累計營收相減，會得出 25.15 億美元。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm"
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm",
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000003/a8kex991242026.htm"
     },
     {
       "date": "2025-11-04",

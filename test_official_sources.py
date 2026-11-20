@@ -74,6 +74,24 @@ class OfficialParserTests(unittest.TestCase):
   segment='<table><tr><td>Hybrid Cloud segment net revenues</td><td>'+fact+'</td></tr></table>'
   self.assertIsNone(parse_inline_quarter(filing().replace(fact,segment),'2026-09-30')['revenue'])
 
+ def test_keycorp_uses_gaap_components_in_place_of_taxable_equivalent_revenue(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  def row(label, tag, number, context='q'):
+   return (f'<tr><td>{label}</td><td><ix:nonFraction name="us-gaap:{tag}" '
+           f'contextRef="{context}" unitRef="usd" scale="6">{number}</ix:nonFraction></td></tr>')
+  taxable_equivalent = f'<table><tr><td>Total revenue (TE) (a)</td><td>{total}</td></tr></table>'
+  net_interest = row('NET INTEREST INCOME', 'InterestIncomeExpenseNet', '730')
+  noninterest = row('Total noninterest income', 'NoninterestIncome', '462')
+  annual = row('Total noninterest income', 'NoninterestIncome', '1,386', 'ytd')
+  doc = filing().replace('>1</xbrli:identifier>', '>91576</xbrli:identifier>')
+  for components, expected in ((net_interest + noninterest + annual, 1_192_000_000),
+                               (net_interest + annual, None)):
+   with self.subTest(expected=expected):
+    statement = f'<table>{components}</table>'
+    parsed = parse_inline_quarter(doc.replace(total, statement + taxable_equivalent), '2026-09-30', cik='91576')
+    self.assertEqual(parsed['revenue'], expected)
+    self.assertEqual(parsed['epsGaapDiluted'], 1.25)
+
  def test_nonzero_eps_scale_requires_independent_reconciliation(self):
   exact_eps = 'name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare"'
   doc = filing().replace(exact_eps + '>1.25', exact_eps + ' scale="3" sign="-">0.10')
