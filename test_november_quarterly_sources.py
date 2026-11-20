@@ -64,5 +64,21 @@ class NovemberQuarterlySourceTests(unittest.TestCase):
                 self.assertEqual(parse_release_quarter_metrics(document, '2026-12-31', cik), {})
 
 
+class NovemberOutlookTests(unittest.TestCase):
+    def test_outlook_subtitle_does_not_set_results_quarter(self):
+        source = """
+        <h1>Ross Stores Reports Strong Third Quarter Sales and Earnings Results</h1>
+        <h2>Updates Fourth Quarter and Fiscal 2026 Outlook</h2>
+        <p>Dublin, California, November 19, 2026 — Ross Stores, Inc. today
+        reported financial results for the 13-week quarter ended October 31, 2026.</p>
+        <p>Total sales for the third quarter of fiscal 2026 increased
+        versus last year.</p>
+        """
+        record = parse_earnings_release(source, '2026-11-19', '2026-11-19',
+                                        date(2026, 11, 20))
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2026, 3, '2026-10-31'))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,1894 @@
+{
+  "checkedAtUtc": "2026-11-20T15:21:54.788569+00:00",
+  "mainCompared": "af61ff87add471eaf3b6cda52fe354ad0d8edf4f",
+  "latestResults": {
+    "TJX": {
+      "record": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": 1.39,
+        "revenue": 15952000000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-18",
+        "releaseAccession": "0000109198-26-000058",
+        "ticker": "TJX",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm"
+      },
+      "sourceSha256": "9c764821cebae44da24460676897420d838672f417a03ca4351fff52f90ac63a",
+      "statement": {
+        "tableIndex": 6,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Thirteen Weeks Ended",
+            "Thirty-Nine Weeks Ended"
+          ],
+          [
+            "October 31, 2026",
+            "November 1, 2025"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 3,
+          "columnIndex": 4,
+          "label": "Net sales",
+          "raw": "15,952",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 13,
+          "columnIndex": 4,
+          "label": "Diluted earnings per share",
+          "raw": "1.39"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "PANW": {
+      "record": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2026-08-01",
+        "epsGaapDiluted": 0.57,
+        "revenue": 3445000000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-18",
+        "releaseAccession": "0001327567-26-000030",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000033/panw-20261031.htm",
+        "form": "10-Q",
+        "filingDate": "2026-11-19",
+        "accessionNumber": "0001327567-26-000033",
+        "ticker": "PANW",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm"
+      },
+      "sourceSha256": "48e8efc57489a209d814494a6bf5f49418deee313e01871cfa90d24ebf116fc0",
+      "statement": {
+        "tableIndex": 0,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Palo Alto Networks, Inc."
+          ],
+          [
+            "Preliminary Condensed Consolidated Statements of Operations"
+          ],
+          [
+            "(In millions, except per share data)"
+          ],
+          [
+            "(Unaudited)"
+          ],
+          [],
+          [
+            "Three Months Ended"
+          ],
+          [
+            "October 31,"
+          ],
+          [
+            "2026",
+            "2025"
+          ],
+          [
+            "Revenue:"
+          ],
+          [
+            "Product",
+            "$",
+            "595",
+            "434"
+          ],
+          [
+            "Subscription and support",
+            "2,850",
+            "2,040"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 12,
+          "columnIndex": 6,
+          "label": "Total revenue",
+          "raw": "3,445",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 30,
+          "columnIndex": 7,
+          "label": "Net income per share, diluted",
+          "raw": "0.57"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "INTU": {
+      "record": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 1,
+        "periodScope": "quarter",
+        "periodStart": "2026-08-01",
+        "epsGaapDiluted": 2.59,
+        "revenue": 4354000000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-19",
+        "releaseAccession": "0000896878-26-000043",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000045/intu-20261031.htm",
+        "form": "10-Q",
+        "filingDate": "2026-11-19",
+        "accessionNumber": "0000896878-26-000045",
+        "ticker": "INTU",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm"
+      },
+      "sourceSha256": "a1ecfccc6d43acbc1bcc55124c0691db2cb5ba323764d518252ec35860cfc20a",
+      "statement": {
+        "tableIndex": 3,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Three Months Ended"
+          ],
+          [
+            "October 31, 2026",
+            "October 31, 2025"
+          ],
+          [
+            "Net revenue:"
+          ],
+          [
+            "Service",
+            "$",
+            "3,933",
+            "3,497"
+          ],
+          [
+            "Product and other",
+            "421",
+            "388"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 6,
+          "columnIndex": 4,
+          "label": "Total net revenue",
+          "raw": "4,354",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 29,
+          "columnIndex": 4,
+          "label": "Diluted net income per share",
+          "raw": "2.59"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "P": {
+      "record": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-11-01",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": 0.29,
+        "revenue": 1459791000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-18",
+        "releaseAccession": "0001474432-26-000110",
+        "ticker": "P",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm"
+      },
+      "sourceSha256": "d2f3534f046599924ab482463131ec826531dbe17e5c2b0cc052bbced6202253",
+      "statement": {
+        "tableIndex": 3,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Third Quarter of Fiscal",
+            "First Three Quarters of Fiscal"
+          ],
+          [
+            "2027",
+            "2026"
+          ],
+          [],
+          [
+            "Revenue:"
+          ],
+          [
+            "Product",
+            "$",
+            "947,826",
+            "534,760",
+            "2,211,143",
+            "1,353,207"
+          ],
+          [
+            "Subscription services",
+            "511,965",
+            "429,693",
+            "1,487,442",
+            "1,250,733"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 7,
+          "columnIndex": 3,
+          "label": "Total revenue",
+          "raw": "1,459,791",
+          "usdMultiplier": 1000
+        },
+        "epsCell": {
+          "rowIndex": 26,
+          "columnIndex": 4,
+          "label": "Net income per share attributable to common stockholders, diluted",
+          "raw": "0.29"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "KEYS": {
+      "record": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 4,
+        "epsGaapDiluted": 2.82,
+        "revenue": 1994000000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-19",
+        "releaseAccession": "0001601046-26-000040",
+        "ticker": "KEYS",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm"
+      },
+      "sourceSha256": "da55675ebde44bcb9706f7a81ec4aa6f05091ccfe54b3e3f013393315acfcfdd",
+      "statement": {
+        "tableIndex": 0,
+        "quarterHeaderRows": [
+          [],
+          [
+            "KEYSIGHT TECHNOLOGIES, INC."
+          ],
+          [
+            "CONDENSED CONSOLIDATED STATEMENT OF OPERATIONS"
+          ],
+          [
+            "(In millions, except per share data)"
+          ],
+          [
+            "(Unaudited)"
+          ],
+          [
+            "PRELIMINARY"
+          ],
+          [],
+          [],
+          [
+            "Three months ended",
+            "Year ended"
+          ],
+          [
+            "October 31,"
+          ],
+          [
+            "2026",
+            "2025"
+          ],
+          []
+        ],
+        "revenueCell": {
+          "rowIndex": 14,
+          "columnIndex": 4,
+          "label": "Revenue",
+          "raw": "1,994",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 46,
+          "columnIndex": 4,
+          "label": "Net income per share",
+          "raw": "2.82"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "ROST": {
+      "record": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": 1.91,
+        "revenue": 6255954000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-19",
+        "releaseAccession": "0000745732-26-000047",
+        "ticker": "ROST",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm"
+      },
+      "sourceSha256": "11e3ffd37fa250f637f990fc497f321cf692bd395a013553dd17de59e7bab111",
+      "statement": {
+        "tableIndex": 2,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Ross Stores, Inc."
+          ],
+          [
+            "Condensed Consolidated Statements of Earnings"
+          ],
+          [],
+          [],
+          [
+            "Three Months Ended",
+            "Nine Months Ended"
+          ],
+          [
+            "($000, except stores and per share data, unaudited)",
+            "October 31, 2026",
+            "November 1, 2025"
+          ],
+          []
+        ],
+        "revenueCell": {
+          "rowIndex": 8,
+          "columnIndex": 13,
+          "label": "Sales",
+          "raw": "6,255,954",
+          "usdMultiplier": 1000
+        },
+        "epsCell": {
+          "rowIndex": 23,
+          "columnIndex": 13,
+          "label": "Diluted",
+          "raw": "1.91"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "WMT": {
+      "record": {
+        "ticker": "WMT",
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "revenue": 188835000000,
+        "epsGaapDiluted": 0.62,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "verifiedAt": "2026-11-20",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+        "releaseAccession": "0000104169-26-000168",
+        "releaseFilingDate": "2026-11-19",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm"
+      },
+      "sourceSha256": "b570dd1c85ab0682751661dc0e92540f1a09fb56f1eebfc9e29b059a448ab075",
+      "statement": {
+        "tableIndex": 13,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Three Months Ended",
+            "Nine Months Ended"
+          ],
+          [
+            "October 31,"
+          ],
+          [
+            "(Amounts in millions, except per share data)",
+            "2026",
+            "2025",
+            "Percent Change"
+          ],
+          [
+            "Revenues:"
+          ],
+          [
+            "Net sales",
+            "$",
+            "186,757",
+            "177,769",
+            "5.1",
+            "%",
+            "548,541",
+            "517,500",
+            "6.0"
+          ],
+          [
+            "Membership and other income",
+            "2,078",
+            "1,727",
+            "20.3",
+            "%",
+            "5,982",
+            "5,007",
+            "19.5"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 7,
+          "columnIndex": 7,
+          "label": "Total revenues",
+          "raw": "188,835",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 28,
+          "columnIndex": 7,
+          "label": "Diluted net income per common share attributable to Walmart",
+          "raw": "0.62"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "WSM": {
+      "record": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-11-01",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": 2.38,
+        "revenue": 1991175000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-19",
+        "releaseAccession": "0000719955-26-000244",
+        "ticker": "WSM",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm"
+      },
+      "sourceSha256": "9c55e2641a3c58bb353c86cc523f052f15935aacbeee1bf4d60a0e19c3e4416f",
+      "statement": {
+        "tableIndex": 0,
+        "quarterHeaderRows": [
+          [],
+          [
+            "For the Thirteen Weeks Ended",
+            "For the Thirty-nine Weeks Ended"
+          ],
+          [
+            "November 1, 2026",
+            "November 2, 2025"
+          ],
+          [
+            "(In thousands, except per share amounts)",
+            "$",
+            "% of Net revenues"
+          ],
+          []
+        ],
+        "revenueCell": {
+          "rowIndex": 5,
+          "columnIndex": 4,
+          "label": "Net revenues",
+          "raw": "1,991,175",
+          "usdMultiplier": 1000
+        },
+        "epsCell": {
+          "rowIndex": 16,
+          "columnIndex": 4,
+          "label": "Diluted",
+          "raw": "2.38"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    },
+    "LOW": {
+      "record": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "epsGaapDiluted": 2.98,
+        "revenue": 22756000000,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "periodScope": "quarter",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-18",
+        "releaseAccession": "0000060667-26-000126",
+        "ticker": "LOW",
+        "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+        "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm"
+      },
+      "sourceSha256": "947a5b474ef85ecd8f68e5b24b03fdb5cf01fd764f1b6c17f342b6895f574b1c",
+      "statement": {
+        "tableIndex": 6,
+        "quarterHeaderRows": [
+          [],
+          [
+            "Three Months Ended",
+            "Nine Months Ended"
+          ],
+          [
+            "October 30, 2026",
+            "October 31, 2025"
+          ],
+          [
+            "Current Earnings",
+            "Amount",
+            "% Sales"
+          ]
+        ],
+        "revenueCell": {
+          "rowIndex": 4,
+          "columnIndex": 4,
+          "label": "Net sales",
+          "raw": "22,756",
+          "usdMultiplier": 1000000
+        },
+        "epsCell": {
+          "rowIndex": 21,
+          "columnIndex": 4,
+          "label": "Diluted earnings per common share (1)",
+          "raw": "2.98"
+        },
+        "indexing": "Zero-based expanded HTML grid"
+      }
+    }
+  },
+  "scope": "SEC completed filing index and submission review, November 18–19, and original quarterly statements.",
+  "filingIndex": {
+    "checkedAtUtc": "2026-11-20T15:18:15.478937+00:00",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/full-index/2026/QTR4/master.gz",
+    "sourceSha256": "7e52afc4bcc986b033d8f856a4a4f05b17fcbda7e5cbb4bf566e7525fea55132",
+    "indexMaxFilingDate": "2026-11-19",
+    "candidates": [
+      {
+        "ticker": "AME",
+        "cik": "1037868",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1037868/0001104659-26-129292.txt"
+      },
+      {
+        "ticker": "WMT",
+        "cik": "104169",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/104169/0000104169-26-000168.txt"
+      },
+      {
+        "ticker": "BAX",
+        "cik": "10456",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/10456/0001628280-26-074973.txt"
+      },
+      {
+        "ticker": "ED",
+        "cik": "1047862",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1047862/0001193125-26-467177.txt"
+      },
+      {
+        "ticker": "BRK-B",
+        "cik": "1067983",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1067983/0001193125-26-468549.txt"
+      },
+      {
+        "ticker": "AXON",
+        "cik": "1069183",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1069183/0001628280-26-074663.txt"
+      },
+      {
+        "ticker": "TJX",
+        "cik": "109198",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/109198/0000109198-26-000058.txt"
+      },
+      {
+        "ticker": "ALGN",
+        "cik": "1097149",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1097149/0001097149-26-000088.txt"
+      },
+      {
+        "ticker": "EW",
+        "cik": "1099800",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1099800/0001099800-26-000057.txt"
+      },
+      {
+        "ticker": "NDAQ",
+        "cik": "1120193",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1120193/0001193125-26-467087.txt"
+      },
+      {
+        "ticker": "DUK",
+        "cik": "1326160",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1326160/0001104659-26-130154.txt"
+      },
+      {
+        "ticker": "PANW",
+        "cik": "1327567",
+        "form": "10-Q",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1327567/0001327567-26-000033.txt"
+      },
+      {
+        "ticker": "PANW",
+        "cik": "1327567",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1327567/0001327567-26-000030.txt"
+      },
+      {
+        "ticker": "NXPI",
+        "cik": "1413447",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1413447/0001193125-26-467184.txt"
+      },
+      {
+        "ticker": "NXPI",
+        "cik": "1413447",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1413447/0001413447-26-000062.txt"
+      },
+      {
+        "ticker": "P",
+        "cik": "1474432",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1474432/0001474432-26-000110.txt"
+      },
+      {
+        "ticker": "NWS",
+        "cik": "1564708",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1564708/0001564708-26-000264.txt"
+      },
+      {
+        "ticker": "NWS",
+        "cik": "1564708",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1564708/0001564708-26-000265.txt"
+      },
+      {
+        "ticker": "KEYS",
+        "cik": "1601046",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1601046/0001601046-26-000040.txt"
+      },
+      {
+        "ticker": "HPE",
+        "cik": "1645590",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1645590/0001645590-26-000092.txt"
+      },
+      {
+        "ticker": "CPB",
+        "cik": "16732",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/16732/0000016732-26-000034.txt"
+      },
+      {
+        "ticker": "BG",
+        "cik": "1996862",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/1996862/0001628280-26-074820.txt"
+      },
+      {
+        "ticker": "SNDK",
+        "cik": "2023554",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/2023554/0001628280-26-074848.txt"
+      },
+      {
+        "ticker": "SNDK",
+        "cik": "2023554",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/2023554/0001628280-26-075127.txt"
+      },
+      {
+        "ticker": "CLX",
+        "cik": "21076",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/21076/0001206774-26-000606.txt"
+      },
+      {
+        "ticker": "TXT",
+        "cik": "217346",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/217346/0001104659-26-129345.txt"
+      },
+      {
+        "ticker": "TGT",
+        "cik": "27419",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/27419/0000027419-26-000051.txt"
+      },
+      {
+        "ticker": "GWW",
+        "cik": "277135",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/277135/0001104659-26-130126.txt"
+      },
+      {
+        "ticker": "APD",
+        "cik": "2969",
+        "form": "10-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/2969/0000002969-26-000050.txt"
+      },
+      {
+        "ticker": "APD",
+        "cik": "2969",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/2969/0001193125-26-467126.txt"
+      },
+      {
+        "ticker": "MRK",
+        "cik": "310158",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/310158/0000310158-26-000255.txt"
+      },
+      {
+        "ticker": "NKE",
+        "cik": "320187",
+        "form": "8-K/A",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/320187/0000320187-26-000212.txt"
+      },
+      {
+        "ticker": "NKE",
+        "cik": "320187",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/320187/0000320187-26-000211.txt"
+      },
+      {
+        "ticker": "IBM",
+        "cik": "51143",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/51143/0001104659-26-130189.txt"
+      },
+      {
+        "ticker": "LOW",
+        "cik": "60667",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/60667/0000060667-26-000126.txt"
+      },
+      {
+        "ticker": "SPGI",
+        "cik": "64040",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/64040/0001104659-26-129710.txt"
+      },
+      {
+        "ticker": "WSM",
+        "cik": "719955",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/719955/0000719955-26-000244.txt"
+      },
+      {
+        "ticker": "ROST",
+        "cik": "745732",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/745732/0000745732-26-000047.txt"
+      },
+      {
+        "ticker": "EXPD",
+        "cik": "746515",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/746515/0001193125-26-466274.txt"
+      },
+      {
+        "ticker": "IT",
+        "cik": "749251",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/749251/0001193125-26-467771.txt"
+      },
+      {
+        "ticker": "OXY",
+        "cik": "797468",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/797468/0000950157-26-001273.txt"
+      },
+      {
+        "ticker": "PGR",
+        "cik": "80661",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/80661/0000080661-26-000384.txt"
+      },
+      {
+        "ticker": "COHR",
+        "cik": "820318",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/820318/0001193125-26-467737.txt"
+      },
+      {
+        "ticker": "FCX",
+        "cik": "831259",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/831259/0000831259-26-000053.txt"
+      },
+      {
+        "ticker": "CRH",
+        "cik": "849395",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/849395/0001193125-26-468114.txt"
+      },
+      {
+        "ticker": "ADP",
+        "cik": "8670",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/8670/0000950142-26-003130.txt"
+      },
+      {
+        "ticker": "AES",
+        "cik": "874761",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/874761/0001140361-26-044617.txt"
+      },
+      {
+        "ticker": "DHI",
+        "cik": "882184",
+        "form": "10-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/882184/0000882184-26-000157.txt"
+      },
+      {
+        "ticker": "INTU",
+        "cik": "896878",
+        "form": "10-Q",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/896878/0000896878-26-000045.txt"
+      },
+      {
+        "ticker": "INTU",
+        "cik": "896878",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/896878/0000896878-26-000043.txt"
+      },
+      {
+        "ticker": "INTU",
+        "cik": "896878",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/896878/0000896878-26-000047.txt"
+      },
+      {
+        "ticker": "INTU",
+        "cik": "896878",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/896878/0001193125-26-468834.txt"
+      },
+      {
+        "ticker": "ALL",
+        "cik": "899051",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/899051/0000899051-26-000162.txt"
+      },
+      {
+        "ticker": "RMD",
+        "cik": "943819",
+        "form": "8-K",
+        "filingDate": "2026-11-19",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/943819/0001193125-26-468603.txt"
+      },
+      {
+        "ticker": "SYY",
+        "cik": "96021",
+        "form": "8-K",
+        "filingDate": "2026-11-18",
+        "filingTextUrl": "https://www.sec.gov/Archives/edgar/data/96021/0000950142-26-003119.txt"
+      }
+    ]
+  },
+  "submissionsReview": {
+    "AME": {
+      "cik": "0001037868",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001037868.json",
+      "sha256": "f9065f076bfe4968218cde411c8011989a022f303bcecd6df113a324d8ec1984",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-16",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001104659-26-129292",
+          "primaryDocument": "tm2629569d10_8k.htm"
+        }
+      ]
+    },
+    "WMT": {
+      "cik": "0000104169",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+      "sha256": "638de98d2c4d2d56dc99d2483ff129ec073c7a811cefa51f8c1436d16c90bd71",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000104169-26-000168",
+          "primaryDocument": "wmt-20261119.htm"
+        }
+      ]
+    },
+    "BAX": {
+      "cik": "0000010456",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000010456.json",
+      "sha256": "c7a423e2182c31a2d7d240a38132628c6f9d65d3963907f6a71196a380061740",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "7.01,9.01",
+          "accessionNumber": "0001628280-26-074973",
+          "primaryDocument": "bax-20261119.htm"
+        }
+      ]
+    },
+    "ED": {
+      "cik": "0001047862",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001047862.json",
+      "sha256": "1344477632e58bb764643ca8b118a78b9a8f6e1f914b88d93b57a947507d4780",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-16",
+          "items": "1.01,8.01,9.01",
+          "accessionNumber": "0001193125-26-467177",
+          "primaryDocument": "d182418d8k.htm"
+        }
+      ]
+    },
+    "BRK-B": {
+      "cik": "0001067983",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001067983.json",
+      "sha256": "0cc926217df75fa0f9445f53602d5732dba1076fd170f0724a64466666d6ef53",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001193125-26-468549",
+          "primaryDocument": "d197844d8k.htm"
+        }
+      ]
+    },
+    "AXON": {
+      "cik": "0001069183",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001069183.json",
+      "sha256": "e764de2dff23babfb50fb481dd63d8c3278475192771c3e98f3f555796a14bd8",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-13",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001628280-26-074663",
+          "primaryDocument": "axon-20261113.htm"
+        }
+      ]
+    },
+    "TJX": {
+      "cik": "0000109198",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+      "sha256": "889db0e2405345a606b115130afe99308db9d16039df632d49b74c1d0b512567",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000109198-26-000058",
+          "primaryDocument": "tjx-20261118.htm"
+        }
+      ]
+    },
+    "ALGN": {
+      "cik": "0001097149",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001097149.json",
+      "sha256": "ae03c43b501fdf0aafef2dcbc63b83629282199e37a38f7593b3fb8174f3eeae",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "5.02,9.01",
+          "accessionNumber": "0001097149-26-000088",
+          "primaryDocument": "algn-20261117.htm"
+        }
+      ]
+    },
+    "EW": {
+      "cik": "0001099800",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001099800.json",
+      "sha256": "4dbbe3935e52be4508b559d634e11fc6d93c6e8c6c7254cf245d3d278a4979ad",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "1.01,2.03,9.01",
+          "accessionNumber": "0001099800-26-000057",
+          "primaryDocument": "ew-20261119.htm"
+        }
+      ]
+    },
+    "NDAQ": {
+      "cik": "0001120193",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001120193.json",
+      "sha256": "959d07bbe01030db1227bbad10f16be2b49d16c291e97ad995155884b97600b5",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "5.02",
+          "accessionNumber": "0001193125-26-467087",
+          "primaryDocument": "d61921d8k.htm"
+        }
+      ]
+    },
+    "DUK": {
+      "cik": "0001326160",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001326160.json",
+      "sha256": "f38779ffb31e6fb3aaff9a1e11fb5a8d05d846c7230e7b1cac0c00f3df0659cf",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001104659-26-130154",
+          "primaryDocument": "tm2630241d1_8k.htm"
+        }
+      ]
+    },
+    "PANW": {
+      "cik": "0001327567",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001327567.json",
+      "sha256": "97aa17798ad5f572ef8989a65fab18ca5d02323bf58bfb960f714c0b30510d32",
+      "filings": [
+        {
+          "form": "10-Q",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-10-31",
+          "items": "",
+          "accessionNumber": "0001327567-26-000033",
+          "primaryDocument": "panw-20261031.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "2.02,3.02,7.01,8.01,9.01",
+          "accessionNumber": "0001327567-26-000030",
+          "primaryDocument": "panw-20261117.htm"
+        }
+      ]
+    },
+    "NXPI": {
+      "cik": "0001413447",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001413447.json",
+      "sha256": "e25e8a3031d55e2d22a271f41c332ef56c6717fde640f3617e985602d82fd34f",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-18",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001413447-26-000062",
+          "primaryDocument": "nxpi-20261118.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001193125-26-467184",
+          "primaryDocument": "d151014d8k.htm"
+        }
+      ]
+    },
+    "P": {
+      "cik": "0001474432",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+      "sha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001474432-26-000110",
+          "primaryDocument": "pstg-20261118.htm"
+        }
+      ]
+    },
+    "NWS": {
+      "cik": "0001564708",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001564708.json",
+      "sha256": "0e60c03943dc2bb0a4c936c052f5ba06f4c3b0a44e5830a38e6f1c1d2249a029",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-20",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001564708-26-000266",
+          "primaryDocument": "nws-20261119.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-18",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001564708-26-000265",
+          "primaryDocument": "nws-20261118.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001564708-26-000264",
+          "primaryDocument": "nws-20261117.htm"
+        }
+      ]
+    },
+    "KEYS": {
+      "cik": "0001601046",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+      "sha256": "59c9cdd34a24680c11605a2902a131d13922bd995a1df7419b6414e10001d008",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "2.02,9.01",
+          "accessionNumber": "0001601046-26-000040",
+          "primaryDocument": "keys-20261119.htm"
+        }
+      ]
+    },
+    "HPE": {
+      "cik": "0001645590",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001645590.json",
+      "sha256": "79e4641760637c5cff789bf1de00a44ef0606a872fe8be94ca6a33356c401aad",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "1.01,5.02,7.01,9.01",
+          "accessionNumber": "0001645590-26-000092",
+          "primaryDocument": "hpe-20261118.htm"
+        }
+      ]
+    },
+    "CPB": {
+      "cik": "0000016732",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000016732.json",
+      "sha256": "14c525318ca0956efbf5a6e796d86abffd01e370ae0bff99c642a583346a9857",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "5.02,5.07,9.01",
+          "accessionNumber": "0000016732-26-000034",
+          "primaryDocument": "cpb-20261117.htm"
+        }
+      ]
+    },
+    "BG": {
+      "cik": "0001996862",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001996862.json",
+      "sha256": "7fff048f26ed871781988e965b2cc629016e73660a91afff300057ead70ef5d0",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-16",
+          "items": "1.01,2.03,9.01",
+          "accessionNumber": "0001628280-26-074820",
+          "primaryDocument": "bg-20261116.htm"
+        }
+      ]
+    },
+    "SNDK": {
+      "cik": "0002023554",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0002023554.json",
+      "sha256": "617c49bda55918971674cc8c4c9a94d64fac94f744949f7f106000bcfd567c80",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "5.03,9.01",
+          "accessionNumber": "0001628280-26-075127",
+          "primaryDocument": "sndk-20261119.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "5.07",
+          "accessionNumber": "0001628280-26-074848",
+          "primaryDocument": "sndk-20261117.htm"
+        }
+      ]
+    },
+    "CLX": {
+      "cik": "0000021076",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000021076.json",
+      "sha256": "960a295b77ef4ebbdfaa18b5a232c750ddd4019542914753a97fdc634ca76e41",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-18",
+          "items": "5.07",
+          "accessionNumber": "0001206774-26-000606",
+          "primaryDocument": "clx4717351-8k.htm"
+        }
+      ]
+    },
+    "TXT": {
+      "cik": "0000217346",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000217346.json",
+      "sha256": "5e9cb0aab9169d33ff918ddf89b4d54373ad9eada32c319d21e0bc9bea92411a",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "1.01,2.06,7.01,8.01,9.01",
+          "accessionNumber": "0001104659-26-129345",
+          "primaryDocument": "tm2629751d1_8k.htm"
+        }
+      ]
+    },
+    "TGT": {
+      "cik": "0000027419",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+      "sha256": "c896e06bf297213a462233b10ca0b6a1289eb4d437a2b94f4fe7bb916569d7bb",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000027419-26-000051",
+          "primaryDocument": "tgt-20261118.htm"
+        }
+      ]
+    },
+    "GWW": {
+      "cik": "0000277135",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000277135.json",
+      "sha256": "4f88e97fbb9b15f71545ec088714b959e9f85a7643481bec545edbd8f28c26e6",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001104659-26-130126",
+          "primaryDocument": "tm2630131d1_8k.htm"
+        }
+      ]
+    },
+    "APD": {
+      "cik": "0000002969",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000002969.json",
+      "sha256": "23a463459e5608a52d5902e79cd390b73d173ffb3b628d7d28d359460f235fff",
+      "filings": [
+        {
+          "form": "10-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-09-30",
+          "items": "",
+          "accessionNumber": "0000002969-26-000050",
+          "primaryDocument": "apd-20260930.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001193125-26-467126",
+          "primaryDocument": "d136262d8k.htm"
+        }
+      ]
+    },
+    "MRK": {
+      "cik": "0000310158",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000310158.json",
+      "sha256": "655ace75a4378bbfded8fb1e28e118e0eb42cb6c1555daf2b7c65f72dc0fd02c",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-16",
+          "items": "5.02,9.01",
+          "accessionNumber": "0000310158-26-000255",
+          "primaryDocument": "mrk-20261116.htm"
+        }
+      ]
+    },
+    "NKE": {
+      "cik": "0000320187",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000320187.json",
+      "sha256": "3313610a407b14bec128908c01f1da101164c64d073953939e98ca833927636d",
+      "filings": [
+        {
+          "form": "8-K/A",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-09-15",
+          "items": "5.02",
+          "accessionNumber": "0000320187-26-000212",
+          "primaryDocument": "nke-20260915.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-13",
+          "items": "5.02",
+          "accessionNumber": "0000320187-26-000211",
+          "primaryDocument": "nke-20261113.htm"
+        }
+      ]
+    },
+    "IBM": {
+      "cik": "0000051143",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000051143.json",
+      "sha256": "907ec3ea2e8ddf2e7e29dc6057a9169eae8391b165b4914e71b434711246f1c2",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-13",
+          "items": "9.01",
+          "accessionNumber": "0001104659-26-130189",
+          "primaryDocument": "tm2630132d1_8k.htm"
+        }
+      ]
+    },
+    "LOW": {
+      "cik": "0000060667",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+      "sha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000060667-26-000126",
+          "primaryDocument": "low-20261118.htm"
+        }
+      ]
+    },
+    "SPGI": {
+      "cik": "0000064040",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000064040.json",
+      "sha256": "cda5b5b8859a2cd82267c554b0f72bf841e6e99c41baa29fea8ae551c9d88642",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "1.01,9.01",
+          "accessionNumber": "0001104659-26-129710",
+          "primaryDocument": "tm2629623d6_8k.htm"
+        }
+      ]
+    },
+    "WSM": {
+      "cik": "0000719955",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+      "sha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000719955-26-000244",
+          "primaryDocument": "wsm-20261119.htm"
+        }
+      ]
+    },
+    "ROST": {
+      "cik": "0000745732",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+      "sha256": "c076a5e36f48b24b0e332c65e5d9aa6dc121fa8a198a1490d21d8d9db039c305",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "2.02,9.01",
+          "accessionNumber": "0000745732-26-000047",
+          "primaryDocument": "rost-20261119.htm"
+        }
+      ]
+    },
+    "EXPD": {
+      "cik": "0000746515",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000746515.json",
+      "sha256": "c8a3f989db8b78c219c363beed8e417af5eb73711840b93c21bdc33fcb5385c2",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "2.02,7.01,9.01",
+          "accessionNumber": "0001193125-26-466274",
+          "primaryDocument": "expd-20261118.htm"
+        }
+      ]
+    },
+    "IT": {
+      "cik": "0000749251",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000749251.json",
+      "sha256": "c7f528819fe0082ee9853a0f9ed134d0ee7e1970c40d09c191f2fe099eae06f5",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-16",
+          "items": "5.02,9.01",
+          "accessionNumber": "0001193125-26-467771",
+          "primaryDocument": "d188671d8k.htm"
+        }
+      ]
+    },
+    "OXY": {
+      "cik": "0000797468",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000797468.json",
+      "sha256": "b9d5a9db2aed464d419d77f1b14f0b8c71f6841818929d9d7673ee32f632d6e7",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "7.01,9.01",
+          "accessionNumber": "0000950157-26-001273",
+          "primaryDocument": "form8-k.htm"
+        }
+      ]
+    },
+    "PGR": {
+      "cik": "0000080661",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000080661.json",
+      "sha256": "313fafc32395d21cc19e3360472c9d616312b09abe20932639d05756e057e6ec",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-18",
+          "items": "7.01,9.01",
+          "accessionNumber": "0000080661-26-000384",
+          "primaryDocument": "pgr-20261118.htm"
+        }
+      ]
+    },
+    "COHR": {
+      "cik": "0000820318",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000820318.json",
+      "sha256": "c0f3a419d2d23b0966097f86fc70ae90bdceeb911620a4674c07e60937591d52",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-18",
+          "items": "7.01",
+          "accessionNumber": "0001193125-26-467737",
+          "primaryDocument": "d867801d8k.htm"
+        }
+      ]
+    },
+    "FCX": {
+      "cik": "0000831259",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000831259.json",
+      "sha256": "0c631524f0135507079600adda62012dbeb3867fdf3744d3848ae399cc56c900",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "8.01",
+          "accessionNumber": "0000831259-26-000053",
+          "primaryDocument": "fcx-20261117.htm"
+        }
+      ]
+    },
+    "CRH": {
+      "cik": "0000849395",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000849395.json",
+      "sha256": "e23e0670bc20e1677696608ecbd1024cdeb29c7a7d8400c4053e9b4f04a8db64",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0001193125-26-468114",
+          "primaryDocument": "d32801d8k.htm"
+        }
+      ]
+    },
+    "ADP": {
+      "cik": "0000008670",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000008670.json",
+      "sha256": "22755a013b1a44bd17c0b84b46a90a81564cfeef85299b145fc9b26e776e3863",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01,9.01",
+          "accessionNumber": "0000950142-26-003130",
+          "primaryDocument": "eh260857214_8k.htm"
+        }
+      ]
+    },
+    "AES": {
+      "cik": "0000874761",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "sha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-17",
+          "items": "7.01,8.01,9.01",
+          "accessionNumber": "0001140361-26-044617",
+          "primaryDocument": "ny20085743x2_8k.htm"
+        }
+      ]
+    },
+    "DHI": {
+      "cik": "0000882184",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000882184.json",
+      "sha256": "47bf8ce858d0e44ef0130733369352da9ed57008d784889c62883c2d8a19ff8a",
+      "filings": [
+        {
+          "form": "10-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-09-30",
+          "items": "",
+          "accessionNumber": "0000882184-26-000157",
+          "primaryDocument": "dhi-20260930.htm"
+        }
+      ]
+    },
+    "INTU": {
+      "cik": "0000896878",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000896878.json",
+      "sha256": "1c0b3535dfec202d43f9b225c6a9b07e465e56820d858842de028e1a9ea0f14b",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "1.01,8.01,9.01",
+          "accessionNumber": "0001193125-26-468834",
+          "primaryDocument": "d182669d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "8.01",
+          "accessionNumber": "0000896878-26-000047",
+          "primaryDocument": "intu-20261119.htm"
+        },
+        {
+          "form": "10-Q",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-10-31",
+          "items": "",
+          "accessionNumber": "0000896878-26-000045",
+          "primaryDocument": "intu-20261031.htm"
+        },
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "2.02,8.01,9.01",
+          "accessionNumber": "0000896878-26-000043",
+          "primaryDocument": "intu-20261119.htm"
+        }
+      ]
+    },
+    "ALL": {
+      "cik": "0000899051",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000899051.json",
+      "sha256": "bea6e7aae744e37b997e555ab88ac8bfeff6e2113a89aaa29dc360ad6e80750c",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-19",
+          "items": "7.01,9.01",
+          "accessionNumber": "0000899051-26-000162",
+          "primaryDocument": "all-20261119.htm"
+        }
+      ]
+    },
+    "RMD": {
+      "cik": "0000943819",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000943819.json",
+      "sha256": "6eb80047efa0ad892baf224dd98c4e4dbf5fcf9f6ba85e046b86474706415ef6",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-19",
+          "reportDate": "2026-11-18",
+          "items": "5.02,5.07,9.01",
+          "accessionNumber": "0001193125-26-468603",
+          "primaryDocument": "d44582d8k.htm"
+        }
+      ]
+    },
+    "SYY": {
+      "cik": "0000096021",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000096021.json",
+      "sha256": "52cbad1e572605e57fe158cb4477a6428368257a7d07afff1413c5761b3834ff",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-18",
+          "reportDate": "2026-11-13",
+          "items": "5.07",
+          "accessionNumber": "0000950142-26-003119",
+          "primaryDocument": "eh260857146_8k.htm"
+        }
+      ]
+    },
+    "ECHO": {
+      "cik": "0001415404",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+      "sha256": "7d085d28cce56bc88bbebb5b298d2489bb07ac4fa637b175099086fe5200f301",
+      "filings": []
+    },
+    "FE": {
+      "cik": "0001031296",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001031296.json",
+      "sha256": "82f8c27408023d524a726c35742f9df00dc42f9136d845cc8169b1bf8653c4e9",
+      "filings": [
+        {
+          "form": "8-K",
+          "filingDate": "2026-11-20",
+          "reportDate": "2026-11-20",
+          "items": "7.01,8.01,9.01",
+          "accessionNumber": "0001031296-26-000148",
+          "primaryDocument": "fe-20261120.htm"
+        }
+      ]
+    },
+    "SKYD": {
+      "cik": "0002041610",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0002041610.json",
+      "sha256": "7580f8638a8cc7a2836065eef915425f4a872658ae58eaa382b0e2154becafa4",
+      "filings": []
+    },
+    "TECH": {
+      "cik": "0000842023",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+      "sha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3",
+      "filings": []
+    },
+    "TRGP": {
+      "cik": "0001389170",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001389170.json",
+      "sha256": "18cf537904b2be1eeccdaaaec4bbcee9734164d78309ca70f3a08874427100b2",
+      "filings": []
+    },
+    "VYLR": {
+      "cik": "0002128626",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+      "sha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+      "filings": []
+    },
+    "CPRT": {
+      "cik": "0000900075",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000900075.json",
+      "sha256": "0c991264c7a37160a1f6f5012e282155b4b9c5a96f362cfd8338394d4dbaf8c6",
+      "filings": []
+    },
+    "NVDA": {
+      "cik": "0001045810",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+      "sha256": "bd9dbcb9c9fb2ed73869cb524b442ebbc838eb9da2ec8166b1deae6d872a14db",
+      "filings": []
+    },
+    "DE": {
+      "cik": "0000315189",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000315189.json",
+      "sha256": "959d70ab8e039425fe4ec29dfd56ac1bc664d39221264ff1e70e5efeff9e7284",
+      "filings": []
+    }
+  },
+  "calendarReview": {
+    "CPRT": {
+      "originalEstimate": "2026-11-19",
+      "officialReleaseDate": "2026-12-01",
+      "officialCallDate": "2026-12-01",
+      "sourceUrl": "https://www.copart.com/content/us/en/press-releases/copart-to-release-first-quarter-2027-results"
+    }
+  },
+  "disposition": {
+    "EXPD": "November 18 exhibit is an investor presentation. Existing November 3 release remains the latest quarterly results.",
+    "ROST": "Explicit fiscal 2026 third-quarter results and October 31 statement period. Headline discusses fourth-quarter outlook separately.",
+    "FE": "February 17 annual release and same-day Q4 strategic highlights checked. Published results table is full-year and no directly reported Q4 GAAP diluted EPS was identified."
+  },
+  "newQuarters": 8,
+  "coverage": {
+    "storedQuarters": 2515,
+    "completeMetricQuarters": 2500,
+    "fiveCompleteMetricCompanies": 496,
+    "pendingCompanies": 9,
+    "filingDatedQuarters": 7
+  },
+  "historicalGapsRechecked": {
+    "AES": {
+      "source": "https://www.aes.com/investors",
+      "finding": "Company investor page and recent SEC filings do not establish the missing separate results publication dates or GAAP Q4 diluted EPS."
+    },
+    "TECH": {
+      "source": "https://investors.bio-techne.com/financial-results",
+      "finding": "FY2027 Q1 issuer result entry lists the original and amended 10-Q without a separate release. Amendment explicitly corrects signatures only."
+    },
+    "ECHO": {
+      "source": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "finding": "Q3 10-Q verifies financial metrics and filing date. No separate Q3 results publication verified."
+    },
+    "TRGP": {
+      "source": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/R42.htm",
+      "finding": "Share-count reconciliation is annual. Q4 diluted EPS still unsupported."
+    },
+    "TXT": {
+      "source": "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
+      "finding": "Original quarterly GAAP continuing-operations diluted EPS is supplemental only. No total diluted EPS identified."
+    },
+    "SKYD": {
+      "source": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm",
+      "finding": "Current comparative preserves the distinction between predecessor, successor and combined pro forma basis."
+    },
+    "FE": {
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9924q25strategicfinanc.htm"
+      ],
+      "finding": "Annual results announcement dated February 17, 2026. Supplement labels FY2025 EPS as basic and does not confirm a standalone Q4 diluted EPS."
+    }
+  },
+  "mainReconciliation": {
+    "changedPaths": [
+      "data.json",
+      "historical_data.json",
+      "history_status.json",
+      "official_history.json",
+      "official_scan_state.json"
+    ],
+    "newerMainQuarterStillMissingFromDraft": 0,
+    "nonNullMainMetricWithNullDraftValueForMatchingPeriod": 0,
+    "differentUpcomingOfficialMainDates": 0,
+    "basis": "Retain the source-audited draft roster and quarterly values. The five more recent main quarters were all checked against original statements and incorporated in this batch."
+  }
+}

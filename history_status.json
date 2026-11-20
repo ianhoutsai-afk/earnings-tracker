@@ -2704,7 +2704,12 @@
     "metricPending": 7,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-01",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://www.copart.com/content/us/en/press-releases/copart-to-release-first-quarter-2027-results",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000900075",
     "recordCount": 5,
@@ -5414,9 +5419,9 @@
   "INTU": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-25",
+    "latestStoredDate": "2026-11-19",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000029/intu-20260825.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -5425,17 +5430,20 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-19",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investors.intuit.com/news-events/press-releases/detail/1330/intuit-to-announce-first-quarter-fiscal-year-2027-results-on-nov-19",
-      "bmo_amc": "AMC"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000896878",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "ISRG": {
     "status": "official_parse_pending",
@@ -5755,9 +5763,9 @@
   "KEYS": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-18",
+    "latestStoredDate": "2026-11-19",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000029/exhibit991-q326pressrelease.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -5766,17 +5774,20 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-19",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx",
-      "bmo_amc": "AMC"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001601046",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "KMB": {
     "status": "official_source_checked",
@@ -6182,7 +6193,7 @@
     "reason": "sec_release_or_metric_check_pending",
     "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-third-quarter-2026-sales-and-earnings-results",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 7,
@@ -6198,12 +6209,12 @@
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5,
     "latestQuarterReview": {
-      "checkedAt": "2026-11-18T12:47:20.588360Z",
-      "sourceUrl": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-third-quarter-2026-sales-and-earnings-results",
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
       "periodEnd": "2026-10-30",
       "quarterlyRevenueVerified": true,
       "quarterlyGaapDilutedEpsVerified": true,
-      "scope": "Latest quarter only; prior full-scan diagnostics retained."
+      "scope": "Reviewed original release for latest quarter."
     }
   },
   "LULU": {
@@ -7538,9 +7549,9 @@
   "PANW": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-09-01",
+    "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/panw-20260901.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -7549,17 +7560,20 @@
     "metricPending": 6,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-18",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-announce-fiscal-first-quarter-2027-financial",
-      "bmo_amc": "AMC"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0001327567",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "SKYD": {
     "status": "official_parse_pending",
@@ -8441,9 +8455,9 @@
   "ROST": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-20",
+    "latestStoredDate": "2026-11-19",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000038/q226exhibit991.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -8452,17 +8466,20 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-19",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investors.rossstores.com/news-releases/news-release-details/ross-stores-inc-announces-third-quarter-2026-earnings-release",
-      "bmo_amc": null
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000745732",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "RCL": {
     "status": "official_parse_pending",
@@ -9367,9 +9384,9 @@
   "TJX": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-19",
+    "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000045/tjxq2fy27earningspressrele.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -9384,16 +9401,13 @@
     "recordCount": 5,
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5,
-    "latestUnparsedRelease": {
-      "checkedAt": "2026-11-18T13:45:53.883091+00:00",
-      "date": "2026-11-18",
-      "fiscalYear": 2027,
-      "fiscalQuarter": 3,
-      "title": "The TJX Companies, Inc. Reports Q3 FY27 Results; Comp Sales Growth of 4%, Pretax Profit Margin, and Diluted Earnings Per Share All Above Plan",
-      "sourceUrl": "https://investor.tjx.com/news-releases/news-release-details/tjx-companies-inc-reports-q3-fy27-results-comp-sales-growth-4",
-      "listingSourceUrl": "https://investor.tjx.com/investors/press-releases",
-      "status": "statement_retrieval_pending",
-      "reason": "Official listing confirms title and publication date; original statement and official RSS endpoints returned HTTP 403. No matching November 18 SEC results filing was available at the checked cutoff. Period end and metrics were not inferred."
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
     }
   },
   "TKO": {
@@ -9429,14 +9443,17 @@
     "recordCount": 5,
     "officialQuarterCount": 5,
     "metricsVerifiedQuarterCount": 5,
-    "latestStoredDate": "2026-08-26",
+    "latestStoredDate": "2026-11-18",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000084/everpure-ex991q2fy2027xpre.htm",
-    "nextEarningsEvent": {
-      "date": "2026-11-18",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://investor.everpuredata.com/news-and-events/press-releases/press-release-details/2026/Everpure-Announces-Date-and-Conference-Call-Information-for-Third-Quarter-Fiscal-2027-Financial-Results/default.aspx",
-      "bmo_amc": null
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+    "nextEarningsEvent": null,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+      "periodEnd": "2026-11-01",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
     }
   },
   "TSCO": {
@@ -10182,9 +10199,9 @@
   "WMT": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-20",
+    "latestStoredDate": "2026-11-19",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/earningsreleasefy27q2.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -10193,17 +10210,20 @@
     "metricPending": 5,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-19",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://corporate.walmart.com/news/2026/11/Walmart-To-Host-Q3-Earnings-Call-Nov-19-2026",
-      "bmo_amc": "BMO"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000104169",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+      "periodEnd": "2026-10-31",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "DIS": {
     "status": "official_parse_pending",
@@ -10421,9 +10441,9 @@
   "WSM": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-26",
+    "latestStoredDate": "2026-11-19",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000203/exhibit991fy2026q2earnings.htm",
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-15T10:57:04.176885Z",
     "releaseCandidates": 6,
@@ -10432,17 +10452,20 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": {
-      "date": "2026-11-19",
-      "eventType": "earnings_release",
-      "sourceUrl": "https://www.businesswire.com/news/home/20261112522328/en/Williams-Sonoma-Inc.-announces-release-date-for-third-quarter-results-Thursday-November-19th-2026",
-      "bmo_amc": "BMO"
-    },
+    "nextEarningsEvent": null,
     "officialCheckedAt": "2026-11-15T10:57:04.176885Z",
     "cik": "0000719955",
     "recordCount": 5,
     "officialQuarterCount": 5,
-    "metricsVerifiedQuarterCount": 5
+    "metricsVerifiedQuarterCount": 5,
+    "latestQuarterReview": {
+      "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+      "periodEnd": "2026-11-01",
+      "quarterlyRevenueVerified": true,
+      "quarterlyGaapDilutedEpsVerified": true,
+      "scope": "Reviewed original release for latest quarter."
+    }
   },
   "WMB": {
     "status": "official_parse_pending",

@@ -55,6 +55,11 @@ def _date(text):
 
 
 def _fiscal_identity(intro):
+    # A results release can put a specific future quarter in an outlook
+    # subtitle before identifying the reported quarter in the dateline/body.
+    intro = re.sub(
+        r'(?i)\bupdates?\s+(?:first|second|third|fourth)[\s-]+quarter\s+and\s+'
+        r'fiscal\s+(?:year\s+)?20\d{2}\s+outlook\b', ' ', intro)
     identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b',intro)[0]
     patterns = [
         r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
