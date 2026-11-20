@@ -2009,5 +2009,103 @@
         }
       }
     }
+  },
+  "historicalCompanyFactsReview": {
+    "checkedAtUtc": "2026-11-20T15:38:50+00:00",
+    "scope": "Queries for the pending revenue and diluted EPS fields used reported start/end dates, known GAAP revenue tags and diluted or combined basic/diluted earnings-per-share tags. Only durations of 75–107 days inclusive were considered.",
+    "numericFieldsRechecked": 16,
+    "verifiedNewFields": 0,
+    "rejectedCandidate": {
+      "ticker": "VYLR",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+      "finding": "Both quarter-duration EPS facts come from the EPS calculation for Corteva common stockholders in the Vylor filing. They do not describe Vylor seed-business EPS."
+    },
+    "issuers": {
+      "AES": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000874761.json",
+        "sha256": "007d8a1840ff2a0a646147c52c93f9656713e9b0475789497ed678f3bbbc7cb0",
+        "candidatesByPeriodEnd": {
+          "2025-12-31": {}
+        }
+      },
+      "BRK-B": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001067983.json",
+        "sha256": "ecdd61c2ed055d8c38a9ba64cd3135a27f94580d3a35eba1aad6bd8352f7896c",
+        "candidatesByPeriodEnd": {
+          "2026-09-30": {},
+          "2026-06-30": {},
+          "2026-03-31": {},
+          "2025-12-31": {},
+          "2025-09-30": {}
+        }
+      },
+      "VYLR": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002128626.json",
+        "sha256": "d12103d0314f1bab3c0996d165438a1f358584ddf40a6d7d6d4e6c6c9ab4ac0f",
+        "candidatesByPeriodEnd": {
+          "2026-09-30": {
+            "us-gaap:EarningsPerShareDiluted:USD/shares": [
+              {
+                "start": "2026-07-01",
+                "end": "2026-09-30",
+                "val": -0.85,
+                "accn": "0002128626-26-000012",
+                "fy": 2026,
+                "fp": "Q3",
+                "form": "10-Q",
+                "filed": "2026-11-12",
+                "frame": "CY2026Q3"
+              }
+            ]
+          },
+          "2026-06-30": {},
+          "2026-03-31": {},
+          "2025-12-31": {},
+          "2025-09-30": {
+            "us-gaap:EarningsPerShareDiluted:USD/shares": [
+              {
+                "start": "2025-07-01",
+                "end": "2025-09-30",
+                "val": -0.47,
+                "accn": "0002128626-26-000012",
+                "fy": 2026,
+                "fp": "Q3",
+                "form": "10-Q",
+                "filed": "2026-11-12",
+                "frame": "CY2025Q3"
+              }
+            ]
+          }
+        }
+      },
+      "FE": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001031296.json",
+        "sha256": "3c032f349ac4260e1e9db9975c79010b2ae9b690edd6f1a95322586742c1605e",
+        "candidatesByPeriodEnd": {
+          "2025-12-31": {}
+        }
+      },
+      "SKYD": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002041610.json",
+        "sha256": "94176e3ff79b7c76b7c3bea6a1883ec0bc6e373f667c467f428e0c7d1bc5d6e9",
+        "candidatesByPeriodEnd": {
+          "2025-09-30": {}
+        }
+      },
+      "TRGP": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001389170.json",
+        "sha256": "7e9329408950ebe51686c98904cda86840452a14dd5c0954790748cd18aa1d4e",
+        "candidatesByPeriodEnd": {
+          "2025-12-31": {}
+        }
+      },
+      "TXT": {
+        "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000217346.json",
+        "sha256": "00e3e23a2dcdf24f16701cef75d6bff63b120fc48bc0db447cf9c8d6d3b0a727",
+        "candidatesByPeriodEnd": {
+          "2026-01-03": {}
+        }
+      }
+    }
   }
 }
