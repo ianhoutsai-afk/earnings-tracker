@@ -1866,12 +1866,19 @@
       "finding": "Q3 10-Q verifies financial metrics and filing date. The other November 3 filing reports voting results under Item 5.07. A separate Q3 financial results publication remains pending."
     },
     "TRGP": {
-      "source": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/R42.htm",
-      "finding": "Share-count reconciliation is annual. Q4 diluted EPS still unsupported."
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/R42.htm",
+        "https://www.targaresources.com/static-files/79973bff-8235-42c5-a841-45348d54fa64"
+      ],
+      "finding": "The 10-K share-count reconciliation is annual. The original Q4 supplement gives Q4 net income and reconciles it to adjusted EBITDA, while Q4 GAAP diluted EPS remains unverified."
     },
     "TXT": {
-      "source": "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
-      "finding": "Original quarterly GAAP continuing-operations diluted EPS is supplemental only. No total diluted EPS identified."
+      "sources": [
+        "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
+        "https://www.textron.com/assets/FB/2025/Textron_Fact_Book_2025.pdf",
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm"
+      ],
+      "finding": "Page 14 of the Fact Book repeats the Q4 $1.33 on the basis of continuing operations. The annual EPS of $5.12 in the same row matches continuing operations in the 10-K, which provides $5.11 for total annual diluted EPS. The original release also explicitly scopes the $1.33 to continuing operations."
     },
     "SKYD": {
       "source": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm",
@@ -2107,5 +2114,1918 @@
         }
       }
     }
+  },
+  "fiscalYearEndReview": {
+    "checkedAtUtc": "2026-11-20T15:46:58+00:00",
+    "scope": "Compared all 503 active issuer mappings with the retained verified Q4 periods. Reviewed SEC submissions for the 125 tickers with at least one different closing month. Filing-based transition disclosures take precedence for AMCR, FDX and FERG.",
+    "activeTickersScreened": 503,
+    "issuerMappingsRechecked": 125,
+    "issuerMappingsCorrected": 120,
+    "issuers": {
+      "A": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001090872.json",
+        "sourceSha256": "b3d5e8978e1f697e88a313ca4df1c9671dc5a4b150e507be431235bb38b8c202",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "A"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1090872/000109087225000087/a-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "AAPL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000320193.json",
+        "sourceSha256": "f001022596bb110c821112a8b12f794e0d5c545475b7d5f0ccfb42d9b431e57b",
+        "reportedFiscalYearEnd": "0925",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "AAPL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-26",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 9
+      },
+      "ACN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001467373.json",
+        "sourceSha256": "018132b4f36cd47e7e65f0b9336eb4a7c6badd7e103430b0f165dd1377adbbc3",
+        "reportedFiscalYearEnd": "0831",
+        "cachedMonth": 12,
+        "secMonth": 8,
+        "officialTickers": [
+          "ACN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-08-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 8
+      },
+      "ADBE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000796343.json",
+        "sourceSha256": "37f363f43ff2b605f1bbcebebe1e2cdd20667256bccf6cd6db9f9d1b71c38de3",
+        "reportedFiscalYearEnd": "1127",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "ADBE"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-28",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 11
+      },
+      "ADI": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000006281.json",
+        "sourceSha256": "2412d1aa158a495d788c59d4126d4c32f4cdff8d03e1a5385b41197f7f52d8ea",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "ADI"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/6281/000000628125000153/adi-20251101.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 10
+      },
+      "ADP": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000008670.json",
+        "sourceSha256": "22755a013b1a44bd17c0b84b46a90a81564cfeef85299b145fc9b26e776e3863",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "ADP"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000030/adp-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "ADSK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000769397.json",
+        "sourceSha256": "6be434af989da69a6c129231b9f768f4c18ef0c9e93c27b71c98237b253fc596",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "ADSK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000015/adsk-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "AMAT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+        "sourceSha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+        "reportedFiscalYearEnd": "1026",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "AMAT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-10-25",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 10
+      },
+      "AMCR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001748790.json",
+        "sourceSha256": "be3c61165c8ae3e8f4cf1da78ff2b01b83cf01d66a07fa0dd55622743d2e46ba",
+        "reportedFiscalYearEnd": "1231",
+        "cachedMonth": 12,
+        "secMonth": 12,
+        "officialTickers": [
+          "AMCR",
+          "AMCCF"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000022/amcr-20260630.htm",
+        "transition": {
+          "effectiveDate": "2026-07-01",
+          "newMonth": 12,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm"
+        },
+        "appliedMonth": 12
+      },
+      "APD": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000002969.json",
+        "sourceSha256": "23a463459e5608a52d5902e79cd390b73d173ffb3b628d7d28d359460f235fff",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "APD"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000043/exhibit99130sep26.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "ATO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000731802.json",
+        "sourceSha256": "7d35cf7a6cb1edf3a3db4f66467d36f0af30b355c81e60e09e2c44a8441b1cd9",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "ATO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "AVGO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001730168.json",
+        "sourceSha256": "41ec85346d2b5ffbd8358ab2d3ef9400598660be94281edacf784da984097866",
+        "reportedFiscalYearEnd": "1101",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "AVGO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 11
+      },
+      "AZO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000866787.json",
+        "sourceSha256": "7fb8b35c47897741d9743ba4cd191b3da5c2a4e03ee8b4cfff71a92edc427dc1",
+        "reportedFiscalYearEnd": "0829",
+        "cachedMonth": 12,
+        "secMonth": 8,
+        "officialTickers": [
+          "AZO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-08-29",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 8
+      },
+      "BBY": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000764478.json",
+        "sourceSha256": "774b64dd6ced91e18541d51be43f1d36da987ae03d6c8a1a5f6ae54f6e1d60b2",
+        "reportedFiscalYearEnd": "0130",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "BBY"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/764478/000076447826000009/bby-20260131.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "BDX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+        "sourceSha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "BDX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "BEN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000038777.json",
+        "sourceSha256": "8babcefc9a529c1c1f180c66c96a187d0d633d43c96a494e83d03601253f6514",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "BEN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/38777/000003877726000289/ben-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "BF-B": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000014693.json",
+        "sourceSha256": "f51e793cde05c371b1c710ac8153f10e630b2a299355919015fa426ed5aa1c52",
+        "reportedFiscalYearEnd": "0430",
+        "cachedMonth": 12,
+        "secMonth": 4,
+        "officialTickers": [
+          "BF-B",
+          "BF-A"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469326000024/bfb-20260430.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 4
+      },
+      "BR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001383312.json",
+        "sourceSha256": "d298c0a677213fc2191555b4fc3f735dd78746324b50e9fc7183b0d691dd7ada",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "BR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026052243/br-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "CAH": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000721371.json",
+        "sourceSha256": "3a979f103aa0c12892818237b5a205dddb66a2d6594486120cdd2b5e961ed3de",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "CAH"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000038/cah-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "CASY": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000726958.json",
+        "sourceSha256": "0b57de9f5dcc0c7dd8e08351c9182b3fed5790af4e47505d155fdc6fe7a9e90f",
+        "reportedFiscalYearEnd": "0430",
+        "cachedMonth": 12,
+        "secMonth": 4,
+        "officialTickers": [
+          "CASY"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/726958/000072695826000046/casy-20260430.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 4
+      },
+      "CCL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000815097.json",
+        "sourceSha256": "1314e87335674b352ddf8b4e7d2ce5c51037702928a63719db36f112ed2f2eac",
+        "reportedFiscalYearEnd": "1130",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "CCL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509726000007/ccl-20251130.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 11
+      },
+      "CIEN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000936395.json",
+        "sourceSha256": "b895738ab9da489f6d83b65757d241bb7edde13dd399813b4a975a0325ed6e2b",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "CIEN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/936395/000162828025056698/cien-20251101.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 10
+      },
+      "CLX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000021076.json",
+        "sourceSha256": "960a295b77ef4ebbdfaa18b5a232c750ddd4019542914753a97fdc634ca76e41",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "CLX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000034/clx-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "COHR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000820318.json",
+        "sourceSha256": "c0f3a419d2d23b0966097f86fc70ae90bdceeb911620a4674c07e60937591d52",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "COHR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "COO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000711404.json",
+        "sourceSha256": "cd3c34166ec93d7c0da7ce94dac1f4b9504d449d05ec89b47acea58c5c761f64",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "COO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/711404/000162828025055615/coo-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "COR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+        "sourceSha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "COR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "COST": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000909832.json",
+        "sourceSha256": "6f1c07666d610a73fa4f2622bf2d6ca01f83b2f41b1fd374d3139bee82c5c513",
+        "reportedFiscalYearEnd": "0830",
+        "cachedMonth": 12,
+        "secMonth": 8,
+        "officialTickers": [
+          "COST"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-08-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 8
+      },
+      "CPRT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000900075.json",
+        "sourceSha256": "0c991264c7a37160a1f6f5012e282155b4b9c5a96f362cfd8338394d4dbaf8c6",
+        "reportedFiscalYearEnd": "0731",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "CPRT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526387902/cprt-ex99_1.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 7
+      },
+      "CRM": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001108524.json",
+        "sourceSha256": "92897c3ece78bcd7c42b1b94dcff01c701e8017118f491f83267b3baa4aac31b",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "CRM"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "CRWD": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001535527.json",
+        "sourceSha256": "23a61f33729bc08b671e0fe89fab7f8f7490a6c36fc7707012251418be1877aa",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "CRWD"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "CSCO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000858877.json",
+        "sourceSha256": "fb0b62b75febc3b4b983f422ea7e90e2dd727f9bdbaaebe6877898fd8c7c1abf",
+        "reportedFiscalYearEnd": "0731",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "CSCO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-25",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 7
+      },
+      "CTAS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000723254.json",
+        "sourceSha256": "7fd7e35e5e1d7e09ea9e4f71c22ca8849a9751e7bc5363dbeb5e2315d7498a8c",
+        "reportedFiscalYearEnd": "0531",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "CTAS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/723254/000072325426000028/ctas-20260531.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 5
+      },
+      "DE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000315189.json",
+        "sourceSha256": "959d70ab8e039425fe4ec29dfd56ac1bc664d39221264ff1e70e5efeff9e7284",
+        "reportedFiscalYearEnd": "1101",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "DE"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 11
+      },
+      "DECK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000910521.json",
+        "sourceSha256": "3f20d78c44e48a8bbab056467ecc090fb528078a0584c672275695c41e4453ca",
+        "reportedFiscalYearEnd": "0331",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "DECK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/910521/000162828026037664/deck-20260331.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "DELL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001571996.json",
+        "sourceSha256": "41dc5b75b68db2abf0294a043016b624abf132a6bd068caf953f3474b9218925",
+        "reportedFiscalYearEnd": "0129",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "DELL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "DG": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000029534.json",
+        "sourceSha256": "a81f6dc1e378a6a976caad8332e8122cec8066a130b5b9b3e15029006c3992fb",
+        "reportedFiscalYearEnd": "0129",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "DG"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/29534/000110465926032325/dg-20260130x10k.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "DHI": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000882184.json",
+        "sourceSha256": "47bf8ce858d0e44ef0130733369352da9ed57008d784889c62883c2d8a19ff8a",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "DHI"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218426000119/a9302026exhibit991.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "DIS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001744489.json",
+        "sourceSha256": "5b417879cc2928ec50e0347d670daa3c3edbdcf499985502d08753e286905069",
+        "reportedFiscalYearEnd": "1003",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "DIS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-10-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000066/dis-20261003.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "DLTR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000935703.json",
+        "sourceSha256": "424130271362b7e7b75d29344ea06dd1287bba427dd57f39b1e89ee48b8be79e",
+        "reportedFiscalYearEnd": "0130",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "DLTR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/935703/000093570326000025/dltr-20260131.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "DRI": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000940944.json",
+        "sourceSha256": "8ce71f6fc1c6d4df20a8bf5e4aa7f12ad052406355229806022df9f882715c75",
+        "reportedFiscalYearEnd": "0530",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "DRI"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/940944/000094094426000025/dri-20260531.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 5
+      },
+      "EL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001001250.json",
+        "sourceSha256": "e1bcd59439c526f611118f13c82fdec9ed1b80b77c0b3ad61bb63f99a1c31737",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "EL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000041/el-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "EMR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000032604.json",
+        "sourceSha256": "496a933394040ea4c0862b515dbc215e7275cab9e199c76604bc225468824940",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "EMR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "FDS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001013237.json",
+        "sourceSha256": "b3959273ae54f7cc511a7c96bfca57b9a7c3f57f81074f58c0b7c647fbf3a1d7",
+        "reportedFiscalYearEnd": "0831",
+        "cachedMonth": 12,
+        "secMonth": 8,
+        "officialTickers": [
+          "FDS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-08-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 8
+      },
+      "FDX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001048911.json",
+        "sourceSha256": "c6cf194208ce81378346716ebbfe13ef6fcd641e6cdb6894110936a49fd3b7aa",
+        "reportedFiscalYearEnd": "0531",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "FDX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000105/fdx-20260531.htm",
+        "transition": {
+          "effectiveDate": "2026-06-01",
+          "newMonth": 12,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000131/fdx-20260930.htm"
+        },
+        "appliedMonth": 12
+      },
+      "FERG": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0002011641.json",
+        "sourceSha256": "36a293adaa67f84fb35023459f9cc441a0e678ecb3606d17e9c899038d1d11d8",
+        "reportedFiscalYearEnd": "1231",
+        "cachedMonth": 12,
+        "secMonth": 12,
+        "officialTickers": [
+          "FERG"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-07-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/2011641/000201164125000027/ferg-20250731.htm",
+        "transition": {
+          "effectiveDate": "2026-01-01",
+          "newMonth": 12,
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2011641/000201164126000006/ferg-20251231.htm"
+        },
+        "appliedMonth": 12
+      },
+      "FFIV": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001048695.json",
+        "sourceSha256": "4c98578cc6121bab862df9b1bcde6b3b7d44c9b086e8eaecba21e85da931fc78",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "FFIV"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000074/ffiv-20261023.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "FICO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000814547.json",
+        "sourceSha256": "9ded26d909b10b8c99cbdc1cac114b0d0a160031119e876bb8473769a07d68a0",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "FICO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000042/fico-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "FOX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001754301.json",
+        "sourceSha256": "95d73b0cb822b093c0bd4bb26d174febd5d12c172554102aedbc599fe3421274",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "FOXA",
+          "FOX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026053960/fox-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "FOXA": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001754301.json",
+        "sourceSha256": "95d73b0cb822b093c0bd4bb26d174febd5d12c172554102aedbc599fe3421274",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "FOXA",
+          "FOX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026053960/fox-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "GEN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000849399.json",
+        "sourceSha256": "acdd339210f7c38882496d6d49d85590844e7fb72461b88dc9d60aaa88fae533",
+        "reportedFiscalYearEnd": "0328",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "GEN",
+          "GENVR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/849399/000084939926000017/gen-20260403.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 3
+      },
+      "GIS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000040704.json",
+        "sourceSha256": "68e3001e999f22e4dbdb5c6db9b8c699be9724417e0412f5993ba982f7458049",
+        "reportedFiscalYearEnd": "0530",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "GIS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/40704/000162828026046466/gis-20260531.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 5
+      },
+      "HD": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000354950.json",
+        "sourceSha256": "3086b2a06caa76c54d46a171085409d2e4bbe9b7a0beb056b16bfd6e7cc35147",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "HD"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-02-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "HPE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001645590.json",
+        "sourceSha256": "79e4641760637c5cff789bf1de00a44ef0606a872fe8be94ca6a33356c401aad",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "HPE",
+          "HPE-PC"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "HPQ": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000047217.json",
+        "sourceSha256": "c73a47c3a622ed31cd42fe2511bb0e91fe79e410f2fb1858e738889d433dc3d0",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "HPQ"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/47217/000004721725000071/hpq-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "HRL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000048465.json",
+        "sourceSha256": "87c5a1777abf5332955522ccd58554ff3443fa3ced59355daec7e2e439387ceb",
+        "reportedFiscalYearEnd": "1025",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "HRL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-26",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/48465/000004846525000059/hrl-20251026.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 10
+      },
+      "ILMN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001110803.json",
+        "sourceSha256": "4359b9b770da7efb586b420fc4db7d2b15aee6e449ccb44e36a23ed93d265eda",
+        "reportedFiscalYearEnd": "0103",
+        "cachedMonth": 1,
+        "secMonth": 1,
+        "officialTickers": [
+          "ILMN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-12-28",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000024/ilmn-20251228.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 1
+      },
+      "INTU": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000896878.json",
+        "sourceSha256": "1c0b3535dfec202d43f9b225c6a9b07e465e56820d858842de028e1a9ea0f14b",
+        "reportedFiscalYearEnd": "0731",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "INTU"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 7
+      },
+      "J": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000052988.json",
+        "sourceSha256": "69ddf20d4426c247b5c3859eeca0e99331472ddd385d2e49d41c3344b60e167a",
+        "reportedFiscalYearEnd": "1002",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "J"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-09-26",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/52988/000162828025053316/jec-20250926.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 10
+      },
+      "JBL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000898293.json",
+        "sourceSha256": "22e831b837b6bc28e4a021481781fbda568df85068ed382e8a44e1ec72996036",
+        "reportedFiscalYearEnd": "0831",
+        "cachedMonth": 12,
+        "secMonth": 8,
+        "officialTickers": [
+          "JBL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-08-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026067038/jbl-20260831.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 8
+      },
+      "JCI": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000833444.json",
+        "sourceSha256": "6fdc8f0714c26a5889b447063f381f69c5709d804b0c06b2e00bc8710e2af476",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "JCI"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000108/jci-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "JKHY": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000779152.json",
+        "sourceSha256": "05eb03720623ff2f2017a0a20125f6fb913693da959cdd3e466d9337ba110715",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "JKHY"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/779152/000077915226000067/jkhy-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "KEYS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+        "sourceSha256": "59c9cdd34a24680c11605a2902a131d13922bd995a1df7419b6414e10001d008",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "KEYS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "KLAC": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000319201.json",
+        "sourceSha256": "6658ad0f63831399c5d4a5c1fe42cd11628449fafcd16f4c4377c73888d2df5f",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "KLAC"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "KR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000056873.json",
+        "sourceSha256": "b751e5b00a3a146c6940b09172dc13c1fb8f564c6930c45a410acbe0c5aab99b",
+        "reportedFiscalYearEnd": "0130",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "KR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926037723/kr-20260131x10k.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "LDOS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001336920.json",
+        "sourceSha256": "f4d917fd102ba1e145d1a5b27b5889fab0b459f9bae93451bec8bcbfe5f64440",
+        "reportedFiscalYearEnd": "0101",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "LDOS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1336920/000133692026000030/ldos-20260102.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "LEN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000920760.json",
+        "sourceSha256": "3de9a98fc734911d04035161dc8d89936cf5de7642c269628858c6068bbf7534",
+        "reportedFiscalYearEnd": "1130",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "LEN",
+          "LEN-B"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/920760/000162828026003870/len-20251130.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 11
+      },
+      "LHX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000202058.json",
+        "sourceSha256": "f7c8e4ac79f0a5aee3b7a8b42d66ae6921cda331a8ba1da134a1e1fe8c83aedb",
+        "reportedFiscalYearEnd": "0102",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "LHX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/hrs-20260102.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "LITE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001633978.json",
+        "sourceSha256": "d82aac7538108e8078d58c06a2809a2f9c5f40f0c35ffab0d89cbc76df66121d",
+        "reportedFiscalYearEnd": "0627",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "LITE"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-27",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "LOW": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+        "sourceSha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "LOW"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000029/low-20260130.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "LRCX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000707549.json",
+        "sourceSha256": "860fe1ae9a61efd226e94c46ef664ff10beaf32843e5a06dadc5e3270a6b861e",
+        "reportedFiscalYearEnd": "0627",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "LRCX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-28",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 6
+      },
+      "LULU": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001397187.json",
+        "sourceSha256": "e39007cf5ee92076d0d9ff3335e88674831f1d0edc3dae9381e3e42a76c9f854",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "LULU"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-02-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000020/lulu-20260201.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "MCHP": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000827054.json",
+        "sourceSha256": "979355c47c1020433a37c93a2be3e746eec57a52a04e268aa14bd3e7188bddc0",
+        "reportedFiscalYearEnd": "0331",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "MCHP",
+          "MCHPP"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/827054/000082705426000016/mchp-20260331.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "MCK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000927653.json",
+        "sourceSha256": "b2e9fa4818cb8746019f2986c7e172784067883010e7ae1f9b88ef3674abcb28",
+        "reportedFiscalYearEnd": "0331",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "MCK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000069/mck-20260331.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "MDT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001613103.json",
+        "sourceSha256": "0b098bf78fcaa4607c2cf0447ec2ee05d1011120f88fc80891613becf9b9086c",
+        "reportedFiscalYearEnd": "0424",
+        "cachedMonth": 12,
+        "secMonth": 4,
+        "officialTickers": [
+          "MDT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-24",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026044354/mdt-20260424.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 4
+      },
+      "MKC": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000063754.json",
+        "sourceSha256": "ac9991923f28e16ab32e2723b65da803689a84be21686b0eea7db2940cc9ffa3",
+        "reportedFiscalYearEnd": "1130",
+        "cachedMonth": 12,
+        "secMonth": 11,
+        "officialTickers": [
+          "MKC",
+          "MKC-V"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-11-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000037/mkc-20251130.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 11
+      },
+      "MSFT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000789019.json",
+        "sourceSha256": "0c7415804bdda6f5daea74122223596eecc02ee5fe23de8e83cf4e2630ff03e0",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "MSFT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "MU": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000723125.json",
+        "sourceSha256": "515dd342068a593add3ee48f35aea70d5bf178c3ab600e06dd986a47346842cd",
+        "reportedFiscalYearEnd": "0902",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "MU"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 9
+      },
+      "NDSN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000072331.json",
+        "sourceSha256": "58475f5eda226f49ca2dcd50124a30c92761567e41aa21770d0ea662dbe08dca",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "NDSN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/72331/000007233125000144/ndsn-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "NKE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000320187.json",
+        "sourceSha256": "3313610a407b14bec128908c01f1da101164c64d073953939e98ca833927636d",
+        "reportedFiscalYearEnd": "0531",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "NKE"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/nke-20260531.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 5
+      },
+      "NTAP": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001002047.json",
+        "sourceSha256": "7b88a981e3fc34b8bff5190e163c05e5771d23928f2f7ea0adcb3ac0ce94480d",
+        "reportedFiscalYearEnd": "0424",
+        "cachedMonth": 12,
+        "secMonth": 4,
+        "officialTickers": [
+          "NTAP"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-24",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 4
+      },
+      "NVDA": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+        "sourceSha256": "bd9dbcb9c9fb2ed73869cb524b442ebbc838eb9da2ec8166b1deae6d872a14db",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "NVDA"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-25",
+        "latestVerifiedAnnualSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 1
+      },
+      "NWS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001564708.json",
+        "sourceSha256": "0e60c03943dc2bb0a4c936c052f5ba06f4c3b0a44e5830a38e6f1c1d2249a029",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "NWSA",
+          "NWS",
+          "NWSLL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000175/nws-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "NWSA": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001564708.json",
+        "sourceSha256": "0e60c03943dc2bb0a4c936c052f5ba06f4c3b0a44e5830a38e6f1c1d2249a029",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "NWSA",
+          "NWS",
+          "NWSLL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000175/nws-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "ORCL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001341439.json",
+        "sourceSha256": "5364c4ec08e6aca1823b81257780b0b69290fe38e98ab9f48ca7268d0b4d14dc",
+        "reportedFiscalYearEnd": "0531",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "ORCL",
+          "ORCL-PD"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 5
+      },
+      "P": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+        "sourceSha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 1,
+        "secMonth": 1,
+        "officialTickers": [
+          "P"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-02-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000027/pstg-20260201.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "PANW": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001327567.json",
+        "sourceSha256": "97aa17798ad5f572ef8989a65fab18ca5d02323bf58bfb960f714c0b30510d32",
+        "reportedFiscalYearEnd": "0731",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "PANW"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 7
+      },
+      "PAYX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000723531.json",
+        "sourceSha256": "3bff258ceaf04093eb11a7427767028299f5ad8f7a53d8083c7f99395f175bc1",
+        "reportedFiscalYearEnd": "0531",
+        "cachedMonth": 12,
+        "secMonth": 5,
+        "officialTickers": [
+          "PAYX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-05-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/723531/000119312526307785/payx-20260531.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 5
+      },
+      "PG": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000080424.json",
+        "sourceSha256": "720db65000afb98a7fc61e2b22082e05185cb9b0ae49139f7ba41581e7f717b5",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "PG"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/pg-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "PH": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000076334.json",
+        "sourceSha256": "31e8637f72a978b28dbed2dc9f93c9912188d5322cf1b337d7b05b395f025309",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "PH"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/76334/000007633426000105/ph-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "PTC": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000857005.json",
+        "sourceSha256": "73c57c07b75d0b0f8687d69b49d3f8b1108dafeaf8d448c4b263158ea96d94af",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "PTC"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526447186/ptc-ex99_1.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "QCOM": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000804328.json",
+        "sourceSha256": "42f1d3c9ac9bcffe1fc7b27f24c487f90f7dfd7de4bf3402a566f21e798538c3",
+        "reportedFiscalYearEnd": "0927",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "QCOM"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-27",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "RJF": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+        "sourceSha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "RJF"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/rjf20260930q426earnings.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "RL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001037038.json",
+        "sourceSha256": "2fb79db70529bc996cc9c9b1f5581886749989895c2db949333a2d8266f44e86",
+        "reportedFiscalYearEnd": "0328",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "RL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-28",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1037038/000162828026037074/rl-20260328.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "RMD": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000943819.json",
+        "sourceSha256": "6eb80047efa0ad892baf224dd98c4e4dbf5fcf9f6ba85e046b86474706415ef6",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "RMD",
+          "RSMDF"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000047/rmd-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "ROK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001024478.json",
+        "sourceSha256": "97f4641abcd174c06435e53dfa23511c59bab3b1defd7c3b847a9fabfe2187a5",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "ROK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447826000048/rok-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "ROST": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+        "sourceSha256": "c076a5e36f48b24b0e332c65e5d9aa6dc121fa8a198a1490d21d8d9db039c305",
+        "reportedFiscalYearEnd": "0201",
+        "cachedMonth": 12,
+        "secMonth": 2,
+        "officialTickers": [
+          "ROST"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000006/rost-20260131.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 2
+      },
+      "SBUX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000829224.json",
+        "sourceSha256": "258cf9ec8060737a92e220a12484bf30c6e44bac436a59ba5528d2761f1e142d",
+        "reportedFiscalYearEnd": "0928",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "SBUX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-27",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000162/sbux-20260927.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 9
+      },
+      "SJM": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000091419.json",
+        "sourceSha256": "57cfab6837f6cd19ef60dd50fcb2eebc5125c93a194e7130be293bfa8598a536",
+        "reportedFiscalYearEnd": "0430",
+        "cachedMonth": 12,
+        "secMonth": 4,
+        "officialTickers": [
+          "SJM"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-04-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/91419/000009141926000050/sjm-20260430.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 4
+      },
+      "SMCI": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001375365.json",
+        "sourceSha256": "a470811d17fd012e3116d25aa907174d01f58e017741855f8b5ef649eb0308ae",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "SMCI",
+          "SMCIP"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "SNA": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000091440.json",
+        "sourceSha256": "b9ee20c602ea2b6a4debc016595638b6ba31b9185dc6e47615ee1811780e805a",
+        "reportedFiscalYearEnd": "0102",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "SNA"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/91440/000009144026000045/sna-20260103.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "SNDK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0002023554.json",
+        "sourceSha256": "617c49bda55918971674cc8c4c9a94d64fac94f744949f7f106000bcfd567c80",
+        "reportedFiscalYearEnd": "0702",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "SNDK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026057406/sndk-20260703.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 7
+      },
+      "SNPS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000883241.json",
+        "sourceSha256": "6cfcc582e47f88240b56145e94028eff4221afcdf0aed6ade1027cbec8fb7ab5",
+        "reportedFiscalYearEnd": "1031",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "SNPS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2025-10-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/883241/000088324125000028/snps-20251031.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "STE": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001757898.json",
+        "sourceSha256": "366956f9df2c9e98d6c141819c7dd23589b73b48425d52867e1b4009d549acb3",
+        "reportedFiscalYearEnd": "0331",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "STE"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026039136/ste-20260331.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "STX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001137789.json",
+        "sourceSha256": "d1f19dd6cded357dcd6b7f7fa1b4ec364c08c2f6a0835f4eeb75e465c6a487db",
+        "reportedFiscalYearEnd": "0627",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "STX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1137789/000113778926000159/stx-20260703.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 6
+      },
+      "STZ": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000016918.json",
+        "sourceSha256": "be710d7a343c5aef83204cc629face5e039c833ee0a2974052af30d31ff4df25",
+        "reportedFiscalYearEnd": "0228",
+        "cachedMonth": 12,
+        "secMonth": 2,
+        "officialTickers": [
+          "STZ"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-02-28",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000011/stz-20260228.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 2
+      },
+      "SWK": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000093556.json",
+        "sourceSha256": "964640c5e48133ab6cda2023bfdde39cbe1fb2d22822ec40e3c3f3e8d500f468",
+        "reportedFiscalYearEnd": "0102",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "SWK"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000009/swk-20260103.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "SWKS": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000004127.json",
+        "sourceSha256": "0dd84495f828c41e684b787706a1813afae036a9fd584a7326b5f30a382ec3c2",
+        "reportedFiscalYearEnd": "1002",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "SWKS"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-10-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000055/swks-20261002.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "SYY": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000096021.json",
+        "sourceSha256": "52cbad1e572605e57fe158cb4477a6428368257a7d07afff1413c5761b3834ff",
+        "reportedFiscalYearEnd": "0703",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "SYY"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-27",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/96021/000009602126000033/syy-20260627.htm",
+        "daysFromSecYearEndDate": 6,
+        "appliedMonth": 7
+      },
+      "TDG": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001260221.json",
+        "sourceSha256": "51da4c6169e1c5c33f58e89efe6d9f1f31a68059e48d5495c29bc274eb151144",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "TDG"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000077/tdg-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "TECH": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+        "sourceSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3",
+        "reportedFiscalYearEnd": "0630",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "TECH"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000114036126041062/ef20084361_10ka.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "TEL": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001385157.json",
+        "sourceSha256": "1b3688df68f673d47d64216d9e5c28c4db6cc78ef0bb2078abccd5f47a738728",
+        "reportedFiscalYearEnd": "0925",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "TEL"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-25",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926124497/tel-20260925x10k.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "TGT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+        "sourceSha256": "c896e06bf297213a462233b10ca0b6a1289eb4d437a2b94f4fe7bb916569d7bb",
+        "reportedFiscalYearEnd": "0201",
+        "cachedMonth": 12,
+        "secMonth": 2,
+        "officialTickers": [
+          "TGT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 2
+      },
+      "TJX": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+        "sourceSha256": "889db0e2405345a606b115130afe99308db9d16039df632d49b74c1d0b512567",
+        "reportedFiscalYearEnd": "0201",
+        "cachedMonth": 12,
+        "secMonth": 2,
+        "officialTickers": [
+          "TJX"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000008/tjx-20260131.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 2
+      },
+      "TPR": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001116132.json",
+        "sourceSha256": "a75bb02d0706949c611f3fe8880c29cfe1bbddf904e85cf8ee5a98eb9fb2c730",
+        "reportedFiscalYearEnd": "0627",
+        "cachedMonth": 12,
+        "secMonth": 6,
+        "officialTickers": [
+          "TPR"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-06-27",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1116132/000111613226000018/tpr-20260627.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 6
+      },
+      "TRMB": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000864749.json",
+        "sourceSha256": "d737a3237dc41db2cd95f6f0711ac6308f11144594dedd059b70af9ecc6ceacb",
+        "reportedFiscalYearEnd": "0102",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "TRMB"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-02",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000015/trmb-20260102.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "TSN": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000100493.json",
+        "sourceSha256": "c9ffc136a135479882d225fe388e9ff0cdef01d958915c19f57ce6ecc5c0e503",
+        "reportedFiscalYearEnd": "1003",
+        "cachedMonth": 12,
+        "secMonth": 10,
+        "officialTickers": [
+          "TSN"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-10-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049326000079/tsn-20261003.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 10
+      },
+      "TTWO": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000946581.json",
+        "sourceSha256": "94f232943de22651c7fc54447f979f8069782a53c55f1633ad72a2d642ec7a83",
+        "reportedFiscalYearEnd": "0331",
+        "cachedMonth": 12,
+        "secMonth": 3,
+        "officialTickers": [
+          "TTWO"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-03-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/946581/000162828026037434/ttwo-20260331.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 3
+      },
+      "TXT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000217346.json",
+        "sourceSha256": "5e9cb0aab9169d33ff918ddf89b4d54373ad9eada32c319d21e0bc9bea92411a",
+        "reportedFiscalYearEnd": "0102",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "TXT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "ULTA": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001403568.json",
+        "sourceSha256": "0e64ef06fa3fade707e0bdaf30f0fd3e15e3484c75fffec9e19bee329005db23",
+        "reportedFiscalYearEnd": "0130",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "ULTA"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926035243/ulta-20260131x10k.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      },
+      "V": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001403161.json",
+        "sourceSha256": "fdcbdeb70939bca8cbb50ff7454701fc8a427e8d80ea5857d4e58dde9bd0c888",
+        "reportedFiscalYearEnd": "0930",
+        "cachedMonth": 12,
+        "secMonth": 9,
+        "officialTickers": [
+          "V"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-09-30",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 9
+      },
+      "VEEV": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001393052.json",
+        "sourceSha256": "e2f0f8003c621cc411656cf6a671bc53291e0e83c6809b772c519fc15df3e255",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "VEEV"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000014/veev-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "WDAY": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0001327811.json",
+        "sourceSha256": "112c286a6adfa039dc44ec64fb7eebdc530d95a5788ccf4f79cd4e9849e84d92",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "WDAY"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000014/wday-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "WDC": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000106040.json",
+        "sourceSha256": "fb81f1b0e58b1edb941a76bc7e5daf13e647b396f281154dabd660ad24e3c87f",
+        "reportedFiscalYearEnd": "0703",
+        "cachedMonth": 12,
+        "secMonth": 7,
+        "officialTickers": [
+          "WDC"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-07-03",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026057139/wdc-20260703.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 7
+      },
+      "WMT": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+        "sourceSha256": "638de98d2c4d2d56dc99d2483ff129ec073c7a811cefa51f8c1436d16c90bd71",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "WMT"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-01-31",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "daysFromSecYearEndDate": 0,
+        "appliedMonth": 1
+      },
+      "WSM": {
+        "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+        "sourceSha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+        "reportedFiscalYearEnd": "0131",
+        "cachedMonth": 12,
+        "secMonth": 1,
+        "officialTickers": [
+          "WSM"
+        ],
+        "latestVerifiedFinancialYearEnd": "2026-02-01",
+        "latestVerifiedAnnualSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000059/wsm-20260201.htm",
+        "daysFromSecYearEndDate": 1,
+        "appliedMonth": 1
+      }
+    }
+  },
+  "intradayFilingReview": {
+    "checkedAtUtc": "2026-11-20T15:44:18.831002+00:00",
+    "feeds": {
+      "8-K": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=8-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "3c796360473a068c3b27438d573ea7123f4428141b7db1dd8df27736567af29a",
+        "entries": 100,
+        "minimumAccepted": "2026-11-19T16:42:46-05:00",
+        "maximumAccepted": "2026-11-20T09:33:45-05:00",
+        "trackedFilings": [
+          {
+            "ticker": "CHRW",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327726000051/0001043277-26-000051-index.htm",
+            "items": [
+              "1.01",
+              "2.03",
+              "9.01"
+            ],
+            "accepted": "2026-11-20T08:23:09-05:00",
+            "filingUrl": "https://www.sec.gov/Archives/edgar/data/1043277/000104327726000051/chrw-20261118.htm",
+            "filingSha256": "7f12e3b1344cf17c734d1e196138f8c74c06303ea069dd82820935741160e1e1",
+            "finding": "Credit facility and receivables purchase agreement."
+          },
+          {
+            "ticker": "WAB",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/943452/000114036126045007/0001140361-26-045007-index.htm",
+            "items": [
+              "5.02",
+              "7.01",
+              "9.01"
+            ],
+            "accepted": "2026-11-20T08:10:46-05:00",
+            "filingUrl": "https://www.sec.gov/Archives/edgar/data/943452/000114036126045007/ef20086022_8k.htm",
+            "filingSha256": "e4071409e8f7b5ec5c6e76784d56dbf2f97ee5c7a88e1e134c1e70aa1a843b46",
+            "finding": "Board appointment and related announcement."
+          },
+          {
+            "ticker": "D",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/715957/000119312526469339/0001193125-26-469339-index.htm",
+            "items": [
+              "8.01"
+            ],
+            "accepted": "2026-11-20T08:00:17-05:00",
+            "filingUrl": "https://www.sec.gov/Archives/edgar/data/715957/000119312526469339/d173220d8k.htm",
+            "filingSha256": "a336e8c451a7589b0e73c6258353cb924146c3fd00b9c6bc072607c5e20e763b",
+            "finding": "Merger regulatory waiting period."
+          },
+          {
+            "ticker": "PYPL",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1633917/000119312526469335/0001193125-26-469335-index.htm",
+            "items": [
+              "5.02",
+              "7.01",
+              "9.01"
+            ],
+            "accepted": "2026-11-20T07:56:03-05:00",
+            "filingUrl": "https://www.sec.gov/Archives/edgar/data/1633917/000119312526469335/d196713d8k.htm",
+            "filingSha256": "41515a3d7594ab629bd1068c3720d337d0214085c966c8a1b2a0d3bba80d28a6",
+            "finding": "Chief financial officer transition and related announcement."
+          },
+          {
+            "ticker": "FE",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000148/0001031296-26-000148-index.htm",
+            "items": [
+              "7.01",
+              "8.01",
+              "9.01"
+            ],
+            "accepted": "2026-11-20T07:30:30-05:00",
+            "filingUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000148/fe-20261120.htm",
+            "filingSha256": "9329769c4093e680697f99b91d7e38b342e4be70604a3e435e25e751cc47ae63",
+            "finding": "Long-term guidance update and a regulatory order."
+          }
+        ]
+      },
+      "10-Q": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-Q&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "38a7b3aeb548ca16eaa3998cbe5c99926fbb9744325f3cf79777935e005da9ab",
+        "entries": 100,
+        "minimumAccepted": "2026-11-16T17:21:47-05:00",
+        "maximumAccepted": "2026-11-20T09:22:22-05:00",
+        "trackedFilings": []
+      },
+      "10-K": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "c8e56762fdc826050e42b930fac4e9bf52dd5c6c3a1f219011bc986cb76224eb",
+        "entries": 100,
+        "minimumAccepted": "2026-10-29T17:06:16-04:00",
+        "maximumAccepted": "2026-11-20T09:31:37-05:00",
+        "trackedFilings": []
+      },
+      "8-K/A": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "7f760e17dd664935670da448487d5616474840d40a0545783f1af7cb0fd3de97",
+        "entries": 16,
+        "minimumAccepted": "2026-11-18T06:18:40-05:00",
+        "maximumAccepted": "2026-11-19T16:58:49-05:00",
+        "trackedFilings": []
+      },
+      "10-Q/A": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "2d4c400dc8806cba1aba951588d870dd945dda1582e311317de5e8df1f700be7",
+        "entries": 8,
+        "minimumAccepted": "2026-11-18T10:57:40-05:00",
+        "maximumAccepted": "2026-11-19T17:16:35-05:00",
+        "trackedFilings": []
+      },
+      "10-K/A": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "d1bc4f6e7b62aee9148ed3daa112167d996df052b1f62cb496b79655a517d5a2",
+        "entries": 2,
+        "minimumAccepted": "2026-11-19T16:50:18-05:00",
+        "maximumAccepted": "2026-11-19T17:15:48-05:00",
+        "trackedFilings": []
+      },
+      "6-K": {
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=6-K&owner=include&start=0&count=100&output=atom",
+        "sha256": "2a4be7789bb94d03b4ddcf7e9c87576b7c206e72a7b8e6d60ecb4fcb47645f17",
+        "entries": 100,
+        "minimumAccepted": "2026-11-19T09:00:10-05:00",
+        "maximumAccepted": "2026-11-20T10:25:38-05:00",
+        "trackedFilings": []
+      }
+    },
+    "scope": "Intraday snapshot. Latest acceptance is reported separately for each form. Results do not establish coverage after the acceptance cutoff."
   }
 }
