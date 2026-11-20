@@ -85,6 +85,31 @@ def _completed_period_end(text, event):
     return max(ends) if ends else None
 
 
+def _walmart_fiscal_identity(tree, intro, event, period_end):
+    headline = re.search(r'(?i)\bWalmart reports (first|second|third|fourth) quarter results\b', intro[:250])
+    publication = re.search(
+        r'(?i)(' + DATE + r')\s*[–—-]\s*Walmart Inc\. \(NASDAQ: WMT\) announces '
+        r'(first|second|third|fourth)[\s-]+quarter results\b', intro)
+    if (not headline or not publication or _date(publication[1]) != event
+            or publication[2].lower() != headline[1].lower()):
+        return None, None
+    quarter = QUARTERS[headline[1].lower()]
+    labels = re.compile(rf'Q{quarter} FY(\d{{2}})')
+    years = set()
+    for row in tree.xpath('//table//tr'):
+        cells = [label for cell in row.xpath('./td|./th') if (label := ' '.join(_text(cell).split()))]
+        if len(cells) != 4 or cells[0] != 'Walmart U.S.' or cells[3] != 'Change':
+            continue
+        current, comparative = labels.fullmatch(cells[1]), labels.fullmatch(cells[2])
+        if current and comparative and int(current[1]) == int(comparative[1]) + 1:
+            years.add(2000 + int(current[1]))
+    if len(years) == 1:
+        year = years.pop()
+        if period_end.year <= year <= period_end.year + 1:
+            return year, quarter
+    return None, None
+
+
 def parse_earnings_release(document, event_date, filing_date, today):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     for node in tree.xpath('//script|//style'):
@@ -144,6 +169,8 @@ def parse_earnings_release(document, event_date, filing_date, today):
         year,fiscal_quarter = current_identity
     if end is not None and (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
+    if end is not None and year is None:
+        year, fiscal_quarter = _walmart_fiscal_identity(tree, intro, event, end)
     if end is None:
         # Some actual-results releases put the period only in the later financial
         # tables. The dated, completed-results sentence and explicit fiscal focus

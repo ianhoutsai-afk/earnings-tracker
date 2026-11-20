@@ -79,6 +79,36 @@ class NovemberOutlookTests(unittest.TestCase):
         self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
                          (2026, 3, '2026-10-31'))
 
+    def test_walmart_fiscal_year_requires_current_quarter_header(self):
+        document = (ROOT / 'reviewed' / 'wmt-nov20-statement.html').read_text()
+        args = ('2026-11-19', '2026-11-19', date(2026, 11, 20))
+        record = parse_earnings_release(document, *args)
+        self.assertEqual((record['fiscalYear'], record['fiscalQuarter'], record['periodEnd']),
+                         (2027, 3, '2026-10-31'))
+        record = parse_earnings_release(document.replace('Q3 FY27', 'Q4 FY27'), *args)
+        self.assertIsNone(record['fiscalYear'])
+
+
+class NovemberStatementMetricsTests(unittest.TestCase):
+    def test_reviewed_sec_statements(self):
+        cases = (
+            ('tjx', '0000109198', '2026-10-31', 15952000000, 1.39),
+            ('panw', '0001327567', '2026-10-31', 3445000000, 0.57),
+            ('p', '0001474432', '2026-11-01', 1459791000, 0.29),
+            ('keys', '0001601046', '2026-10-31', 1994000000, 2.82),
+            ('rost', '0000745732', '2026-10-31', 6255954000, 1.91),
+            ('wmt', '0000104169', '2026-10-31', 188835000000, 0.62),
+            ('wsm', '0000719955', '2026-11-01', 1991175000, 2.38),
+            ('low', '0000060667', '2026-10-30', 22756000000, 2.98),
+        )
+        for ticker, cik, end, revenue, eps in cases:
+            with self.subTest(ticker=ticker):
+                path = ROOT / 'reviewed' / f'{ticker}-nov20-statement.html'
+                document = path.read_bytes()
+                self.assertEqual(parse_release_quarter_metrics(document, end, cik),
+                                 {'revenue': revenue, 'epsGaapDiluted': eps})
+                self.assertEqual(parse_release_quarter_metrics(document, '2026-12-31', cik), {})
+
 
 if __name__ == '__main__':
     unittest.main()

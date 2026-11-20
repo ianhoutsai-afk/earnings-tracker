@@ -1847,16 +1847,23 @@
   },
   "historicalGapsRechecked": {
     "AES": {
-      "source": "https://www.aes.com/investors",
-      "finding": "Company investor page and recent SEC filings do not establish the missing separate results publication dates or GAAP Q4 diluted EPS."
+      "sources": [
+        "https://www.aes.com/investors",
+        "https://www.sec.gov/Archives/edgar/data/874761/000119312526084157/d100078dex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm"
+      ],
+      "finding": "The acquisition announcement confirmed cancellation of the Q4 call and prospective publication of the 10-K. The 10-K EPS schedule uses the fiscal year. Separate quarterly publication dates and Q4 GAAP diluted EPS remain pending."
     },
     "TECH": {
       "source": "https://investors.bio-techne.com/financial-results",
       "finding": "FY2027 Q1 issuer result entry lists the original and amended 10-Q without a separate release. Amendment explicitly corrects signatures only."
     },
     "ECHO": {
-      "source": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
-      "finding": "Q3 10-Q verifies financial metrics and filing date. No separate Q3 results publication verified."
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+        "https://www.sec.gov/Archives/edgar/data/1415404/000141540426000057/0001415404-26-000057-index.htm"
+      ],
+      "finding": "Q3 10-Q verifies financial metrics and filing date. The other November 3 filing reports voting results under Item 5.07. A separate Q3 financial results publication remains pending."
     },
     "TRGP": {
       "source": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/R42.htm",
@@ -1873,9 +1880,11 @@
     "FE": {
       "sources": [
         "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
-        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9924q25strategicfinanc.htm"
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9924q25strategicfinanc.htm",
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/fe-20260217.htm",
+        "https://s27.q4cdn.com/655807321/files/doc_financials/2025/q4/4Q25-Investor-Factbook.pdf"
       ],
-      "finding": "Annual results announcement dated February 17, 2026. Supplement labels FY2025 EPS as basic and does not confirm a standalone Q4 diluted EPS."
+      "finding": "February 17 Item 2.02 expressly covers fiscal year 2025. The separately furnished Q4 slides contain operating statistics for Q4 and an annual earnings presentation. The annual FactBook was also reviewed. Standalone consolidated Q4 results publication and diluted EPS remain pending."
     }
   },
   "mainReconciliation": {
@@ -1890,5 +1899,115 @@
     "nonNullMainMetricWithNullDraftValueForMatchingPeriod": 0,
     "differentUpcomingOfficialMainDates": 0,
     "basis": "Retain the source-audited draft roster and quarterly values. The five more recent main quarters were all checked against original statements and incorporated in this batch."
+  },
+  "automaticIngestionReplay": {
+    "checkedAtUtc": "2026-11-20T15:35:01+00:00",
+    "scope": "Replayed original SEC documents for November 18–20 through check_issuer and compared the six quarterly fields against the manually reconciled records above.",
+    "exactMatches": 9,
+    "records": {
+      "TJX": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "revenue": 15952000000,
+        "epsGaapDiluted": 1.39,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm": "9c764821cebae44da24460676897420d838672f417a03ca4351fff52f90ac63a"
+        }
+      },
+      "PANW": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 1,
+        "revenue": 3445000000,
+        "epsGaapDiluted": 0.57,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm": "48e8efc57489a209d814494a6bf5f49418deee313e01871cfa90d24ebf116fc0",
+          "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/panw-20261117.htm": "18b084cfb68b4bc796544c86d3ce95bedc7aa7bfe9c46d1485b87c1a5b1962b6",
+          "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000033/panw-20261031.htm": "2f580c1f194ba076a729bb88700c5459174ade610dd24efbea62eafb95883d22"
+        }
+      },
+      "INTU": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 1,
+        "revenue": 4354000000,
+        "epsGaapDiluted": 2.59,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/896878/000089687826000043/fy27q1earningspressrelease.htm": "a1ecfccc6d43acbc1bcc55124c0691db2cb5ba323764d518252ec35860cfc20a",
+          "https://www.sec.gov/Archives/edgar/data/896878/000089687826000045/intu-20261031.htm": "71c8115aeaa1771b44aa70cb1af4cc9a046f24e6edcb5eb9d9bfbfcbba26a519"
+        }
+      },
+      "P": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-11-01",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "revenue": 1459791000,
+        "epsGaapDiluted": 0.29,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm": "d2f3534f046599924ab482463131ec826531dbe17e5c2b0cc052bbced6202253",
+          "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/pstg-20261118.htm": "ef42a42956186e9434a8161f4668aac7669b2556a0d5db201808ca6e28bb0c37"
+        }
+      },
+      "KEYS": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 4,
+        "revenue": 1994000000,
+        "epsGaapDiluted": 2.82,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm": "da55675ebde44bcb9706f7a81ec4aa6f05091ccfe54b3e3f013393315acfcfdd"
+        }
+      },
+      "ROST": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "revenue": 6255954000,
+        "epsGaapDiluted": 1.91,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm": "11e3ffd37fa250f637f990fc497f321cf692bd395a013553dd17de59e7bab111"
+        }
+      },
+      "WMT": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-10-31",
+        "fiscalYear": 2027,
+        "fiscalQuarter": 3,
+        "revenue": 188835000000,
+        "epsGaapDiluted": 0.62,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm": "b570dd1c85ab0682751661dc0e92540f1a09fb56f1eebfc9e29b059a448ab075"
+        }
+      },
+      "WSM": {
+        "date": "2026-11-19",
+        "periodEnd": "2026-11-01",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "revenue": 1991175000,
+        "epsGaapDiluted": 2.38,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm": "9c55e2641a3c58bb353c86cc523f052f15935aacbeee1bf4d60a0e19c3e4416f"
+        }
+      },
+      "LOW": {
+        "date": "2026-11-18",
+        "periodEnd": "2026-10-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "revenue": 22756000000,
+        "epsGaapDiluted": 2.98,
+        "sources": {
+          "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm": "947a5b474ef85ecd8f68e5b24b03fdb5cf01fd764f1b6c17f342b6895f574b1c"
+        }
+      }
+    }
   }
 }

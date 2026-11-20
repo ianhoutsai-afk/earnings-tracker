@@ -12,7 +12,9 @@ SUPPORTED_ISSUERS = {'0000789019', '0001326801', '0000310764',
                      '0000320193', '0000002488', '0001018724', '0001596532', '0000001800',
                      '0000002969', '0000882184', '0001013237', '0000857005', '0000804328',
                      '0001341439', '0000720005', '0001045810', '0000354950',
-                     '0001744489', '0000027419', '0000060667'}
+                     '0001744489', '0000027419', '0000060667', '0000109198',
+                     '0001327567', '0001474432', '0001601046', '0000745732',
+                     '0000104169', '0000719955'}
 
 REVENUE_MILLION_UNITS = {
     '0000310764': r'\bmillions of dollars\b',
@@ -50,7 +52,7 @@ def _grid(table):
         output.append([occupied.get((y, col), '') for col in range(length)])
     return output
 
-def _scope(table):
+def _scope(table, cik=None):
     """Use a nearby income-statement heading, bounded by notes and other tables."""
     prefix = []
     # Some original exhibits put the statement title in a full-width table row.
@@ -60,6 +62,8 @@ def _scope(table):
     header_text = ' '.join(_text(row) for row in first_rows)
     for row in first_rows:
         labels = [label for cell in row.xpath('./td|./th') if (label := _text(cell))]
+        if cik == '0001327567':
+            labels = [re.sub(r'(?i)^preliminary\s+', '', label) for label in labels]
         if len(labels)==1 and re.fullmatch(title_pattern, labels[0]):
             if re.search(r'(?i)non.gaap|adjusted|comprehensive|segment|notes?\s+(?:\d+|to\b)', header_text):
                 return None
@@ -73,13 +77,23 @@ def _scope(table):
         for _ in range(12):
             if previous is None:
                 break
+            text = _text(previous)
+            if (cik == '0000104169' and current is table and previous is table.getprevious()
+                    and previous.tag == 'table'
+                    and re.fullmatch(r'(?i)Walmart Inc\. Condensed Consolidated Statements of Income\s*\(Unaudited\)', text)):
+                return text
             if previous.tag == 'table' or previous.xpath('.//table'):
                 return None
-            text = _text(previous)
             prefix.append(text)
             if re.search(r'(?i)non.gaap|adjusted|comprehensive|segment|notes?\s+(?:\d+|to\b)|balance sheet|cash flow', text):
                 return None
-            if re.fullmatch(r'(?i)(?:(?:condensed|consolidated|combined)\s+)*(?:statements? of (?:income|operations|earnings)|income statements?)(?:\s*\(Unaudited\))?', text):
+            if re.fullmatch(title_pattern, text):
+                return ' '.join(prefix)
+            if cik == '0000060667' and re.fullmatch(r'(?i)Consolidated Statements of Current Earnings and Accumulated Deficit \(Unaudited\)', text):
+                return ' '.join(prefix)
+            if (cik == '0000109198'
+                    and text.casefold() == 'the tjx companies, inc. and consolidated subsidiaries'
+                    and {label.casefold() for label in prefix} >= {'financial summary', '(unaudited)'}):
                 return ' '.join(prefix)
             previous = previous.getprevious()
         parent = current.getparent()
@@ -225,11 +239,30 @@ def parse_release_quarter_metrics(document, period_end, cik):
         return _tesla_update_metrics(tree, end)
     if cik == '0000720005':
         return _raymond_james_supplement_metrics(tree, end)
+    everpure_period = None
+    if cik == '0001474432':
+        # The statement columns print fiscal quarter and year rather than dates.
+        # Require a dated quarter narrative tying those labels to this period.
+        narrative = _text(tree)[:2500]
+        month = end.strftime('%B')
+        matched = re.search(r'(?i)\b(first|second|third|fourth) quarter (?:of )?fiscal year '
+                            rf'(20\d{{2}}) ended {month} {end.day},\s*{end.year}\b', narrative)
+        if not matched:
+            return {}
+        everpure_period = f'{matched[1]} quarter of fiscal {matched[2]}'.casefold()
+    revenue_heading = r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?'
+    revenue_label = r'(?i)total revenues?' if cik == '0000104169' else revenue_heading
+    diluted_eps_label = {
+        '0000002969': 'diluted earnings (loss) per share attributable to air products',
+        '0001327567': 'net income per share, diluted',
+        '0001474432': 'net income per share attributable to common stockholders, diluted',
+        '0000104169': 'diluted net income per common share attributable to walmart',
+    }.get(cik)
     values = {'revenue': set(), 'epsGaapDiluted': set()}
     for table in tree.xpath('//table'):
         if table.xpath('.//table'):
             continue
-        scope = _scope(table)
+        scope = _scope(table, cik)
         if scope is None and cik == '0000060667':
             # Lowe's puts its issuer name, exact GAAP title and units in one row.
             first = table.xpath('./tr|./thead/tr|./tbody/tr')[:1]
@@ -243,7 +276,7 @@ def parse_release_quarter_metrics(document, period_end, cik):
         except (ValueError, TypeError):
             continue
         labels = [re.sub(r'\s*\(\d+\)$', '', next((value for value in row if value and not re.fullmatch(r'\d+\)|\(\d+\)',value)), '')) for row in grid]
-        boundary = next((i for i,label in enumerate(labels) if re.fullmatch(r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?',label)), None)
+        boundary = next((i for i,label in enumerate(labels) if re.fullmatch(revenue_heading,label)), None)
         if boundary is None:
             continue
         headers = grid[:boundary]
@@ -251,7 +284,9 @@ def parse_release_quarter_metrics(document, period_end, cik):
         if re.search(r'(?i)\beuros?\b|\b(?:EUR|GBP|CAD|AUD|JPY|CNY)\b', units):
             continue
         scale = 1000000
-        if cik in ('0001013237', '0000857005') and re.search(r'\bin thousands\b', units, re.I):
+        thousands = (cik in ('0001013237', '0000857005', '0001474432', '0000719955')
+                     and re.search(r'\bin thousands\b', units, re.I))
+        if thousands or (cik == '0000745732' and '($000, except stores and per share data' in units):
             if re.search(r'\bin millions\b', units, re.I):
                 continue
             scale = 1000
@@ -263,7 +298,15 @@ def parse_release_quarter_metrics(document, period_end, cik):
             if cik == '0000060667' and not any(x < len(row) and row[x] == 'Amount' for row in headers):
                 continue
             header = ' '.join(dict.fromkeys(row[x] for row in headers if x < len(row) and row[x]))
+            if everpure_period:
+                if header.casefold() == everpure_period:
+                    columns.append(x)
+                continue
+            if cik in ('0000104169', '0000719955') and re.search(r'(?i)%|percent change', header):
+                continue
             duration = r'(?i)\b(?:three months|quarter) ended\b' if cik == '0001744489' else r'(?i)\bthree months ended\b'
+            if cik in ('0000109198', '0000719955'):
+                duration = r'(?i)\bthirteen weeks ended\b'
             if not re.search(duration,header) or re.search(r'(?i)\b(?:six|nine|twelve) months|\byear ended\b',header):
                 continue
             month = end.strftime('%B')
@@ -294,16 +337,21 @@ def parse_release_quarter_metrics(document, period_end, cik):
                 if not (cik == '0000857005' and group == 'eps'
                         and label.casefold() == 'weighted average shares outstanding'):
                     group = 'shares'
-            elif re.search(r'(?i)(?:earnings|income) per (?:common )?share',label):
+            elif cik == '0001601046' and re.fullmatch(r'(?i)Diluted income \(loss\) per share:', label):
+                group = 'total_diluted_eps'
+            elif re.search(r'(?i)(?:earnings|income) per (?:common )?share',label) and group != 'total_diluted_eps':
                 group = 'eps'
             metric = None
-            if re.fullmatch(r'(?i)(?:total\s+)?(?:net\s+)?(?:revenues?|sales)\s*:?',label):
+            if re.fullmatch(revenue_label,label):
                 metric = 'revenue'
             elif (re.fullmatch(r'(?i)diluted(?:\s+(?:earnings|income)(?:\s+\(loss\))?\s+per\s+(?:common\s+)?share(?:\s*\(EPS\))?)?',label)
                   and (group == 'eps' or re.search(r'(?i)per (?:common )?share',label))):
                 metric = 'epsGaapDiluted'
-            elif cik == '0000002969' and label.casefold() == 'diluted earnings (loss) per share attributable to air products':
+            elif label.casefold() == diluted_eps_label:
                 metric = 'epsGaapDiluted'
+            elif group == 'total_diluted_eps' and label.casefold() == 'net income per share':
+                metric = 'epsGaapDiluted'
+                group = None
             if metric is None:
                 continue
             for x in columns:
