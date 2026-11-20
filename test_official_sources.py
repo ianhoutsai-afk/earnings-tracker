@@ -118,6 +118,19 @@ class OfficialParserTests(unittest.TestCase):
                   doc.replace(' format="ixt:date-month-day-year"','')):
    with self.assertRaises(ValueError):parse_inline_quarter(changed,'2026-09-30')
 
+ def test_numeric_document_period_end_may_use_short_year_and_spaced_separators(self):
+  original = 'name="dei:DocumentPeriodEndDate">2026-09-30'
+  transformed = 'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">'
+  for raw in ('9/30/26', '09/30 /2026'):
+   with self.subTest(raw=raw):
+    doc = filing().replace(original, transformed + raw)
+    self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+    with self.assertRaises(ValueError):
+     parse_inline_quarter(doc, '1926-09-30')
+  for raw in ('9/31/26', '9/30/026'):
+   with self.assertRaises(ValueError):
+    parse_inline_quarter(filing().replace(original, transformed + raw), '2026-09-30')
+
  def test_document_period_end_follows_explicit_continuation(self):
   doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
       'name="dei:DocumentPeriodEndDate" continuedAt="date-year">September 30,')

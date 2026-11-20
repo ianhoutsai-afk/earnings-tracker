@@ -135,6 +135,7 @@ PERIOD_FROM_FILING_EXHIBITS = {
 # these conflicting DEI tags. Corrections require the exact filing and release
 # identity, rather than an inferred calendar year. See the November audit logs.
 REVIEWED_FISCAL_TAG_CORRECTIONS = {
+    ('0001037540', '0001037540-26-000019', '2026-03-31'): ((2026, 4), (2026, 1)),
     ('0001341439', '0001193125-26-389274', '2026-08-31'): ((2026, 1), (2027, 1)),
     ('0001521332', '0001521332-26-000048', '2026-03-31'): ((2025, 1), (2026, 1)),
     ('0001108524', '0001108524-26-000060', '2026-01-31'): ((2025, 4), (2026, 4)),

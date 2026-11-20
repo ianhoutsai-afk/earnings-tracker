@@ -357,7 +357,12 @@ def parse_inline_quarter(document, period_end, cik=None):
         raw_end = ' '.join(' '.join(parts).split())
         try:
             if node.get('format', '').split(':')[-1] == 'date-month-day-year':
-                value = datetime.strptime(raw_end, '%m/%d/%Y').date()
+                numeric_date = re.fullmatch(r'([0-9]{1,2})[^0-9]+([0-9]{1,2})[^0-9]+([0-9]{1,2}|[0-9]{4})', raw_end)
+                if numeric_date is None:
+                    raise ValueError('Invalid transformed date')
+                month, day, year = map(int, numeric_date.groups())
+                # The XBRL transform expands short years into the 2000s.
+                value = date(year + (2000 if len(numeric_date[3]) < 4 else 0), month, day)
             else:
                 value = _date(raw_end) if re.fullmatch(DATE, raw_end, re.I) else date.fromisoformat(raw_end)
         except ValueError:

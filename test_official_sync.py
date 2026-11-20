@@ -402,6 +402,29 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
     rows,_ = check_issuer('0001341439',submissions,documents,TODAY)
     self.assertEqual([(r['fiscalYear'],r['fiscalQuarter'],r['epsGaapDiluted']) for r in rows],expected)
 
+ def test_bxp_first_quarter_filing_tag_requires_the_reviewed_accession(self):
+  from official_sync import check_issuer
+  day = '2026-04-28'
+  report = ('<h1>BXP announces first quarter 2026 results</h1>'
+            '<p>April 28, 2026 - BXP reported results today for the first quarter ended March 31, 2026.</p>')
+  for accession, expected in (('0001037540-26-000019',[(2026,1,1.25)]),('0001037540-26-000020',[])):
+   with self.subTest(accession=accession):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K','10-Q'], 'items': ['2.02,9.01',''],
+     'accessionNumber': ['0001037540-26-000015',accession],
+     'primaryDocument': ['results.htm','quarter.htm'],
+     'filingDate':[day,'2026-05-01'], 'reportDate':[day,'2026-03-31'],
+    }}}
+    def documents(url):
+     if url.endswith('results.htm'):
+      return '<a href="q12026pressrelease.htm">99.2 Earnings press release</a>'
+     if url.endswith('q12026pressrelease.htm'):
+      return report
+     return (filing(quarter='FY').replace('2026-09-30','2026-03-31').replace('2026-07-01','2026-01-01')
+             .replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1037540</xbrli:identifier>'))
+    rows,_ = check_issuer('0001037540',submissions,documents,TODAY)
+    self.assertEqual([(row['fiscalYear'],row['fiscalQuarter'],row['epsGaapDiluted']) for row in rows],expected)
+
  def test_cigna_uses_current_period_from_item_202_over_comparative_in_exhibit(self):
   import copy
   from official_sync import check_issuer
