@@ -4267,13 +4267,13 @@
       "quarter": "2026 Q2",
       "periodEnd": "2026-06-30",
       "periodScope": "quarter",
-      "eps_reported": "$1.37",
+      "eps_reported": "$0.69",
       "revenue_reported": "$8.76B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926087904/aph-20260729xex99d1.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "verifiedAt": "2026-11-21",
       "verificationStatus": "official_verified",
       "periodStart": "2026-04-01",
       "filingDate": "2026-07-31",
@@ -4285,12 +4285,17 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis.",
+        "zh-TW": "按 2-for-1 拆股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm"
     },
     {
       "date": "2026-04-29",
       "quarter": "2026 Q1",
-      "eps_reported": "$0.72",
+      "eps_reported": "$0.36",
       "revenue_reported": "$7.62B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
       "form": "10-Q",
@@ -4300,8 +4305,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926050984/aph-20260429xex99d1.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2026-01-01",
       "filingDate": "2026-05-01",
       "accessionNumber": "0001104659-26-054128",
@@ -4310,12 +4315,17 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 1,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis.",
+        "zh-TW": "按 2-for-1 拆股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm"
     },
     {
       "date": "2026-01-28",
       "quarter": "2025 Q4",
-      "eps_reported": "$0.93",
+      "eps_reported": "$0.46",
       "revenue_reported": "$6.44B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926013549/aph-20251231x10k.htm",
       "form": "10-K",
@@ -4325,8 +4335,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926013549/aph-20251231x10k.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "verifiedAt": "2026-11-21",
       "filingDate": "2026-02-11",
       "accessionNumber": "0001104659-26-013549",
       "releaseFilingDate": "2026-01-28",
@@ -4335,12 +4345,17 @@
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
-      "periodStart": "2025-10-01"
+      "periodStart": "2025-10-01",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis.",
+        "zh-TW": "按 2-for-1 拆股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm"
     },
     {
       "date": "2025-10-22",
       "quarter": "2025 Q3",
-      "eps_reported": "$0.97",
+      "eps_reported": "$0.49",
       "revenue_reported": "$6.19B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
       "form": "10-Q",
@@ -4350,17 +4365,22 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925101429/aph-20251022xex99d1.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-07-01",
       "filingDate": "2025-10-24",
       "accessionNumber": "0001104659-25-102142",
       "releaseFilingDate": "2025-10-22",
       "releaseAccession": "0001104659-25-101429",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 3,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
+      "metricNote": {
+        "en": "The issuer presents total GAAP diluted EPS on the two-for-one stock split basis. The original figure was $0.97.",
+        "zh-TW": "採公司依 2-for-1 拆股 調整的合計 GAAP 稀釋 EPS。原公布為 0.97 美元。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm"
     }
   ],
   "ADI": [
@@ -9115,7 +9135,7 @@
         "en": "Fourth-quarter consolidated revenue is taken directly from the company’s quarterly results. The tracker applies the 25-for-1 stock split to the original GAAP diluted EPS of $44.22; the published precision yields a unique rounded result.",
         "zh-TW": "第四季合併營收採公司公布的整季金額。 按 25-for-1 拆股 比例換算原公布的 GAAP 稀釋 EPS 44.22 美元；原始精度範圍內均得出相同的分位結果。"
       },
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
       "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
       "periodStart": "2025-10-01"
     },
@@ -17392,7 +17412,7 @@
     {
       "date": "2026-06-03",
       "quarter": "2027 Q1",
-      "eps_reported": "$0.11",
+      "eps_reported": "$0.03",
       "revenue_reported": "$1.39B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
       "form": "10-Q",
@@ -17402,8 +17422,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2026-02-01",
       "filingDate": "2026-06-04",
       "accessionNumber": "0001535527-26-000025",
@@ -17412,12 +17432,17 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
       "fiscalYear": 2027,
       "fiscalQuarter": 1,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+      "metricNote": {
+        "en": "The tracker applies the four-for-one stock split to the original total GAAP diluted EPS. The published precision yields one rounded result.",
+        "zh-TW": "按 4-for-1 拆股比例換算原公布的合計 GAAP 稀釋 EPS；原始精度範圍內只有一個分位結果。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
     },
     {
       "date": "2026-03-03",
       "quarter": "2026 Q4",
-      "eps_reported": "$0.15",
+      "eps_reported": "$0.04",
       "revenue_reported": "$1.31B",
       "form": "10-K",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
@@ -17427,8 +17452,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "verifiedAt": "2026-11-21",
       "filingDate": "2026-03-05",
       "accessionNumber": "0001535527-26-000010",
       "releaseFilingDate": "2026-03-03",
@@ -17437,12 +17462,17 @@
       "fiscalQuarter": 4,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
-      "periodStart": "2025-11-01"
+      "periodStart": "2025-11-01",
+      "metricNote": {
+        "en": "The tracker applies the four-for-one stock split to the original total GAAP diluted EPS. The published precision yields one rounded result.",
+        "zh-TW": "按 4-for-1 拆股比例換算原公布的合計 GAAP 稀釋 EPS；原始精度範圍內只有一個分位結果。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
     },
     {
       "date": "2025-12-02",
       "quarter": "2026 Q3",
-      "eps_reported": "-$0.14",
+      "eps_reported": "-$0.03",
       "revenue_reported": "$1.23B",
       "form": "10-Q",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
@@ -17452,22 +17482,27 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-08-01",
       "filingDate": "2025-12-03",
       "accessionNumber": "0001535527-25-000033",
       "releaseFilingDate": "2025-12-02",
       "releaseAccession": "0001535527-25-000030",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 3,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the four-for-one split basis.",
+        "zh-TW": "按 4-for-1 拆股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
     },
     {
       "date": "2025-08-27",
       "quarter": "2026 Q2",
-      "eps_reported": "-$0.31",
+      "eps_reported": "-$0.07",
       "revenue_reported": "$1.17B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
       "form": "10-Q",
@@ -17477,17 +17512,22 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-05-01",
       "filingDate": "2025-08-28",
       "accessionNumber": "0001535527-25-000025",
       "releaseFilingDate": "2025-08-27",
       "releaseAccession": "0001535527-25-000023",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "metricNote": {
+        "en": "The issuer presents total GAAP diluted EPS on the four-for-one split basis. The original figure was $-0.31. The comparative also incorporates the share-based compensation correction.",
+        "zh-TW": "採公司依 4-for-1 拆股 調整的合計 GAAP 稀釋 EPS。原公布為 -0.31 美元。 比較數字也納入股份薪酬更正。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
     }
   ],
   "CCI": [
@@ -20865,7 +20905,7 @@
     {
       "date": "2026-05-05",
       "quarter": "2026 Q1",
-      "eps_reported": "$0.39",
+      "eps_reported": "$1.17",
       "revenue_reported": "$1.68B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
       "form": "10-Q",
@@ -20875,8 +20915,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000029/exhibit991enrschedules-1q26.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2026-01-01",
       "filingDate": "2026-05-05",
       "accessionNumber": "0001666700-26-000031",
@@ -20885,7 +20925,12 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 1,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the 1-for-3 basis.",
+        "zh-TW": "按 1-for-3 併股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm"
     },
     {
       "date": "2026-02-10",
@@ -20901,7 +20946,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000007/exhibit991enrschedules-4q25.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-10-01",
       "filingDate": "2026-02-17",
       "accessionNumber": "0001666700-26-000013",
@@ -20910,12 +20955,17 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000007/exhibit991enrschedules-4q25.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000007/exhibit991enrschedules-4q25.htm",
+      "metricNote": {
+        "en": "The displayed Q4 diluted EPS is on the original pre-split basis. The rounded filing data cannot distinguish -$0.91 from -$0.92 after the split.",
+        "zh-TW": "第四季稀釋 EPS 採併股前原公布口徑。原始申報的精度不足以區分併股後為每股虧損 0.91 或 0.92 美元。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000007/exhibit991enrschedules-4q25.htm"
     },
     {
       "date": "2025-11-06",
       "quarter": "2025 Q3",
-      "eps_reported": "-$0.29",
+      "eps_reported": "-$0.88",
       "revenue_reported": "$3.07B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
       "form": "10-Q",
@@ -20925,17 +20975,22 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000058/exhibit991enrschedules-3q25.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-07-01",
       "filingDate": "2025-11-06",
       "accessionNumber": "0001666700-25-000061",
       "releaseFilingDate": "2025-11-06",
       "releaseAccession": "0001666700-25-000058",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 3,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+      "metricNote": {
+        "en": "The issuer presents total GAAP diluted EPS on the 1-for-3 basis. The original figure was $-0.29.",
+        "zh-TW": "採公司依 1-for-3 併股 調整的合計 GAAP 稀釋 EPS。原公布為 -0.29 美元。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm"
     }
   ],
   "ETN": [
@@ -30460,7 +30515,7 @@
     {
       "date": "2026-04-23",
       "quarter": "2026 Q1",
-      "eps_reported": "$1.29",
+      "eps_reported": "$2.57",
       "revenue_reported": "$9.14B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
       "form": "10-Q",
@@ -30470,8 +30525,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000055/exhibit99-q12026earningsre.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2026-01-01",
       "filingDate": "2026-04-23",
       "accessionNumber": "0000773840-26-000057",
@@ -30480,12 +30535,17 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 1,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the one-for-two reverse stock split basis.",
+        "zh-TW": "按 1-for-2 併股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm"
     },
     {
       "date": "2026-01-29",
       "quarter": "2025 Q4",
-      "eps_reported": "-$0.18",
+      "eps_reported": "-$0.36",
       "revenue_reported": "$9.76B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
       "form": "10-K",
@@ -30495,8 +30555,8 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
-      "verifiedAt": "2026-11-15",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+      "verifiedAt": "2026-11-21",
       "periodStart": "2025-10-01",
       "filingDate": "2026-02-17",
       "accessionNumber": "0000773840-26-000013",
@@ -30505,19 +30565,24 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
+      "metricNote": {
+        "en": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the one-for-two reverse stock split basis.",
+        "zh-TW": "按 1-for-2 併股 後股數，使用單季歸屬損益及稀釋股數計算合計 GAAP 稀釋 EPS。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm"
     },
     {
       "date": "2025-10-23",
       "quarter": "2025 Q3",
       "periodEnd": "2025-09-30",
       "periodScope": "quarter",
-      "eps_reported": "$2.86",
+      "eps_reported": "$5.71",
       "revenue_reported": "$10.41B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
-      "verifiedAt": "2026-11-18",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+      "verifiedAt": "2026-11-21",
       "verificationStatus": "official_verified",
       "periodStart": "2025-07-01",
       "filingDate": "2025-10-23",
@@ -30527,10 +30592,15 @@
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000104/exhibit99-q32025earningsre.htm",
       "releaseFilingDate": "2025-10-23",
       "releaseAccession": "0000773840-25-000104",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
       "fiscalYear": 2025,
-      "fiscalQuarter": 3
+      "fiscalQuarter": 3,
+      "metricNote": {
+        "en": "The issuer presents total GAAP diluted EPS on the one-for-two reverse stock split basis. The original figure was $2.86.",
+        "zh-TW": "採公司依 1-for-2 併股 調整的合計 GAAP 稀釋 EPS。原公布為 2.86 美元。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm"
     }
   ],
   "HRL": [
@@ -35890,7 +35960,7 @@
       "accessionNumber": "0000319201-26-000016",
       "releaseFilingDate": "2026-04-29",
       "releaseAccession": "0000319201-26-000014",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 3,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
@@ -35920,7 +35990,7 @@
       "accessionNumber": "0000319201-26-000008",
       "releaseFilingDate": "2026-01-29",
       "releaseAccession": "0000319201-26-000006",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",

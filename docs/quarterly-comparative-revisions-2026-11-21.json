@@ -28,7 +28,29 @@
         "revenue": 6011000000.0,
         "epsGaapDiluted": 1.81
       },
-      "disposition": "Source values differ by $0.6 million. The two reported presentations do not establish a documented restatement of the precise amount."
+      "disposition": "Keep the original consolidated total at $6,010.4 million. In the newer comparison the Other Revenues group is $126 million, consistent with displaying the original $119.7 million and $5.5 million components as $120 million and $6 million. The newer whole-million sum is reproducible without assuming a material underlying business-scope change.",
+      "displayedRevenueConsolidationMillions": {
+        "originalStatement": [
+          3511.2,
+          1680.2,
+          693.8,
+          125.2
+        ],
+        "originalOtherComponents": [
+          119.7,
+          5.5
+        ],
+        "laterStatement": [
+          3511,
+          1680,
+          694,
+          126
+        ],
+        "laterOtherPresentation": [
+          120,
+          6
+        ]
+      }
     },
     {
       "ticker": "AMCR",
@@ -66,7 +88,7 @@
         "revenue": null,
         "epsGaapDiluted": 0.49
       },
-      "disposition": "Stock split confirmed. The scope review of other retained pre-split quarters is pending."
+      "disposition": "Applied to the draft with quarter-level receipts."
     },
     {
       "ticker": "APTV",
@@ -142,7 +164,7 @@
         "revenue": null,
         "epsGaapDiluted": -0.07
       },
-      "disposition": "Four-for-one split and share-based compensation correction confirmed. Period-by-period split-basis review remains pending."
+      "disposition": "Applied to the draft with quarter-level receipts."
     },
     {
       "ticker": "DD",
@@ -161,7 +183,7 @@
         "revenue": null,
         "epsGaapDiluted": -0.88
       },
-      "disposition": "Reverse split confirmed. The newer statement also reclassifies businesses to discontinued operations."
+      "disposition": "Applied to the draft with quarter-level receipts."
     },
     {
       "ticker": "EBAY",
@@ -237,7 +259,7 @@
         "revenue": null,
         "epsGaapDiluted": 5.71
       },
-      "disposition": "Reverse split confirmed. The newer statement also reclassifies separated businesses to discontinued operations."
+      "disposition": "Applied to the draft with quarter-level receipts."
     },
     {
       "ticker": "KLAC",
@@ -743,7 +765,7 @@
         "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
       },
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
       "accountingBasis": "The tracker applies the 25-for-1 stock split to the original GAAP diluted EPS of $44.22; the published precision yields a unique rounded result."
     },
     "KLAC|2025-09-30": {
@@ -803,7 +825,7 @@
         "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
       },
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
       "accountingBasis": "The tracker applies the ten-for-one stock split to the original GAAP diluted EPS of $8.68; the published precision yields a unique rounded result."
     },
     "KLAC|2026-03-31": {
@@ -836,7 +858,7 @@
         "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
       },
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
       "accountingBasis": "The tracker applies the ten-for-one stock split to the original GAAP diluted EPS of $9.12; the published precision yields a unique rounded result."
     },
     "NFLX|2025-09-30": {
@@ -919,6 +941,561 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107425000096/tpl-20250930.htm",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107426000077/tpl-20260930.htm",
       "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the three-for-one stock split. Originally reported EPS was $5.27."
+    },
+    "APH|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-22",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925101429/aph-20251022xex99d1.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
+      "originalQuarterFilingDate": "2025-10-24",
+      "previousValues": {
+        "epsGaapDiluted": 0.97
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.49
+      },
+      "comparativeFilingDate": "2026-10-30",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+        "sha256": "3dae681237495ebabdc86fbd8e1617161c7ab0e9160f56941c18e0a0ffe9a6fa",
+        "sourceMarkers": [
+          "two-for-one stock split",
+          "2, 2026"
+        ],
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-09-02",
+        "newSharesPerOldShares": [
+          2,
+          1
+        ],
+        "method": "Exact same-duration total diluted EPS as published by the issuer."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "accountingBasis": "The issuer presents total GAAP diluted EPS on the two-for-one stock split basis. The original figure was $0.97."
+    },
+    "CRWD|2025-07-31": {
+      "originalEarningsReleaseDate": "2025-08-27",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "originalQuarterFilingDate": "2025-08-28",
+      "previousValues": {
+        "epsGaapDiluted": -0.31
+      },
+      "revisedValues": {
+        "epsGaapDiluted": -0.07
+      },
+      "comparativeFilingDate": "2026-08-27",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+        "sha256": "05d182f447e1ef5988d75d9bad650be0744f4f79a5f2e82a91d60ba77eed73ab",
+        "sourceMarkers": [
+          "for-one split",
+          "July 1, 2026"
+        ],
+        "periodEnd": "2025-07-31",
+        "splitEffectiveDate": "2026-07-01",
+        "newSharesPerOldShares": [
+          4,
+          1
+        ],
+        "method": "Exact same-duration total diluted EPS as published by the issuer."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "accountingBasis": "The issuer presents total GAAP diluted EPS on the four-for-one split basis. The original figure was $-0.31. The comparative also incorporates the share-based compensation correction."
+    },
+    "HON|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-23",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000104/exhibit99-q32025earningsre.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-23",
+      "previousValues": {
+        "epsGaapDiluted": 2.86
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 5.71
+      },
+      "comparativeFilingDate": "2026-10-22",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+        "sha256": "ca57e6e4da4bbd81db4ed07dda22d417f7ab0bc8edf44a959ec45acd8fa6b915",
+        "sourceMarkers": [
+          "one-for-two reverse stock split",
+          "29, 2026"
+        ],
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-06-29",
+        "newSharesPerOldShares": [
+          1,
+          2
+        ],
+        "method": "Exact same-duration total diluted EPS as published by the issuer."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+      "accountingBasis": "The issuer presents total GAAP diluted EPS on the one-for-two reverse stock split basis. The original figure was $2.86."
+    },
+    "DD|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-11-06",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000058/exhibit991enrschedules-3q25.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+      "originalQuarterFilingDate": "2025-11-06",
+      "previousValues": {
+        "epsGaapDiluted": -0.29
+      },
+      "revisedValues": {
+        "epsGaapDiluted": -0.88
+      },
+      "comparativeFilingDate": "2026-11-03",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+        "sha256": "6f084141bd71235346b61733589c5a460e18e1f6a899bd2ea07f3ceb2270ec05",
+        "sourceMarkers": [
+          "1-for-3",
+          "24, 2026"
+        ],
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-06-24",
+        "newSharesPerOldShares": [
+          1,
+          3
+        ],
+        "method": "Exact same-duration total diluted EPS as published by the issuer."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+      "accountingBasis": "The issuer presents total GAAP diluted EPS on the 1-for-3 basis. The original figure was $-0.29."
+    },
+    "APH|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-01-28",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926013549/aph-20251231x10k.htm",
+      "originalQuarterFilingDate": "2026-02-11",
+      "previousValues": {
+        "epsGaapDiluted": 0.93
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.46
+      },
+      "comparativeFilingDate": "2026-10-30",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+          "sha256": "3dae681237495ebabdc86fbd8e1617161c7ab0e9160f56941c18e0a0ffe9a6fa",
+          "sourceMarkers": [
+            "two-for-one stock split",
+            "2, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-09-02",
+        "newSharesPerOldShares": [
+          2,
+          1
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
+            "sha256": "0aaf06e1ff60e0bcc00dac8ace319c49b7ff90c50ace993bea713f53de30684e",
+            "statementPeriodHeading": "December 31,",
+            "netIncomeDisplay": "1,195.5",
+            "dilutedSharesDisplay": "1,288.7"
+          }
+        ],
+        "netIncomeInput": "1195.5",
+        "preSplitWeightedDilutedSharesInput": "1288.7",
+        "rawRoundingBounds": [
+          "0.4638021338506304558680892338",
+          "0.4638769254646335312148372328"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926007259/aph-20260128xex99d1.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis."
+    },
+    "APH|2026-03-31": {
+      "originalEarningsReleaseDate": "2026-04-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926050984/aph-20260429xex99d1.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
+      "originalQuarterFilingDate": "2026-05-01",
+      "previousValues": {
+        "epsGaapDiluted": 0.72
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.36
+      },
+      "comparativeFilingDate": "2026-10-30",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+          "sha256": "3dae681237495ebabdc86fbd8e1617161c7ab0e9160f56941c18e0a0ffe9a6fa",
+          "sourceMarkers": [
+            "two-for-one stock split",
+            "2, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-09-02",
+        "newSharesPerOldShares": [
+          2,
+          1
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
+            "sha256": "35d86b43f0b7dc03bbf25cb1080c592da21fadd712e37742d09429a6e65196fa",
+            "statementPeriodHeading": "March 31,",
+            "netIncomeDisplay": "933.0",
+            "dilutedSharesDisplay": "1,289.7"
+          }
+        ],
+        "netIncomeInput": "933.0",
+        "preSplitWeightedDilutedSharesInput": "1289.7",
+        "rawRoundingBounds": [
+          "0.3616786198875751114557084706",
+          "0.3617454348078936145465824061"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926054128/aph-20260331x10q.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis."
+    },
+    "APH|2026-06-30": {
+      "originalEarningsReleaseDate": "2026-07-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926087904/aph-20260729xex99d1.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
+      "originalQuarterFilingDate": "2026-07-31",
+      "previousValues": {
+        "epsGaapDiluted": 1.37
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.69
+      },
+      "comparativeFilingDate": "2026-10-30",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+          "sha256": "3dae681237495ebabdc86fbd8e1617161c7ab0e9160f56941c18e0a0ffe9a6fa",
+          "sourceMarkers": [
+            "two-for-one stock split",
+            "2, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-09-02",
+        "newSharesPerOldShares": [
+          2,
+          1
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
+            "sha256": "e26a13793b513aee901d5e1d25481f362fe5a332ca052de9dc9952f68dce8a39",
+            "statementPeriodHeading": "June 30,",
+            "netIncomeDisplay": "1,769.2",
+            "dilutedSharesDisplay": "1,289.2"
+          }
+        ],
+        "netIncomeInput": "1769.2",
+        "preSplitWeightedDilutedSharesInput": "1289.2",
+        "rawRoundingBounds": [
+          "0.6861159588908280007756447547",
+          "0.6862079664895473761781018501"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the two-for-one stock split basis."
+    },
+    "CRWD|2025-10-31": {
+      "originalEarningsReleaseDate": "2025-12-02",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+      "originalQuarterFilingDate": "2025-12-03",
+      "previousValues": {
+        "epsGaapDiluted": -0.14
+      },
+      "revisedValues": {
+        "epsGaapDiluted": -0.03
+      },
+      "comparativeFilingDate": "2026-08-27",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+          "sha256": "05d182f447e1ef5988d75d9bad650be0744f4f79a5f2e82a91d60ba77eed73ab",
+          "sourceMarkers": [
+            "for-one split",
+            "July 1, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-07-01",
+        "newSharesPerOldShares": [
+          4,
+          1
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+            "sha256": "298283f3ff30e10d8ffb50c795069b23b32e36f10df732201b77b1f0ccf39907",
+            "sourceMarkers": [
+              "three months ended october 31, 2025",
+              "26,776",
+              "immaterial error"
+            ]
+          },
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+            "sha256": "8fae84afbcaa852d8736cf10c4417783c0e3eb65e0009e64d91347d91edc8afc",
+            "sourceMarkers": [
+              "three months ended october 31,",
+              "251,326",
+              "common stockholders, dilutive"
+            ]
+          }
+        ],
+        "netIncomeInput": "-26776",
+        "preSplitWeightedDilutedSharesInput": "251326",
+        "rawRoundingBounds": [
+          "-0.02663527974678255887285611687",
+          "-0.02663417904598201940503687434"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the four-for-one split basis."
+    },
+    "CRWD|2026-01-31": {
+      "originalEarningsReleaseDate": "2026-03-03",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "originalQuarterFilingDate": "2026-03-05",
+      "previousValues": {
+        "epsGaapDiluted": 0.15
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.04
+      },
+      "comparativeFilingDate": "2026-08-27",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+          "sha256": "05d182f447e1ef5988d75d9bad650be0744f4f79a5f2e82a91d60ba77eed73ab",
+          "sourceMarkers": [
+            "for-one split",
+            "July 1, 2026"
+          ]
+        },
+        "originalEps": "0.15",
+        "originalEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "sha256": "cdda73ddb6a382220fa0cd4cdfefd455a9bcc6a45dd9ed9722616970d4d3ed12",
+          "sourceMarkers": [
+            "0.15",
+            "January 31, 2026"
+          ]
+        },
+        "preRoundingBounds": [
+          "0.03625",
+          "0.03875"
+        ]
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+      "accountingBasis": "The tracker applies the four-for-one stock split to the original total GAAP diluted EPS. The published precision yields one rounded result."
+    },
+    "CRWD|2026-04-30": {
+      "originalEarningsReleaseDate": "2026-06-03",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+      "originalQuarterFilingDate": "2026-06-04",
+      "previousValues": {
+        "epsGaapDiluted": 0.11
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.03
+      },
+      "comparativeFilingDate": "2026-08-27",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+          "sha256": "05d182f447e1ef5988d75d9bad650be0744f4f79a5f2e82a91d60ba77eed73ab",
+          "sourceMarkers": [
+            "for-one split",
+            "July 1, 2026"
+          ]
+        },
+        "originalEps": "0.11",
+        "originalEvidence": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+          "sha256": "8e2dd5827a50fc2c2f2e86342f67c5a4c368dc0602c3737a12c60ef931480161",
+          "sourceMarkers": [
+            "0.11",
+            "April 30, 2026"
+          ]
+        },
+        "preRoundingBounds": [
+          "0.02625",
+          "0.02875"
+        ]
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+      "accountingBasis": "The tracker applies the four-for-one stock split to the original total GAAP diluted EPS. The published precision yields one rounded result."
+    },
+    "HON|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-01-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
+      "originalQuarterFilingDate": "2026-02-17",
+      "previousValues": {
+        "epsGaapDiluted": -0.18
+      },
+      "revisedValues": {
+        "epsGaapDiluted": -0.36
+      },
+      "comparativeFilingDate": "2026-10-22",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+          "sha256": "ca57e6e4da4bbd81db4ed07dda22d417f7ab0bc8edf44a959ec45acd8fa6b915",
+          "sourceMarkers": [
+            "one-for-two reverse stock split",
+            "29, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-06-29",
+        "newSharesPerOldShares": [
+          1,
+          2
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
+            "sha256": "f4d10a408c09da2bc7a81ce3f71e332ed34e0ad35d485989ed6c0cedad73b705",
+            "sourceMarkers": [
+              "net income (loss) attributable to honeywell",
+              "1,825",
+              "( 115 )",
+              "( 0.18 )"
+            ]
+          },
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
+            "sha256": "0341695abc6ef5a026581b967af8a3c66396d4c639104d6065f6716af3670728",
+            "sourceMarkers": [
+              "weighted average number of shares outstanding - assuming dilution",
+              "638.6"
+            ]
+          }
+        ],
+        "netIncomeInput": "-115",
+        "preSplitWeightedDilutedSharesInput": "638.6",
+        "rawRoundingBounds": [
+          "-0.3617571059431524547803617571",
+          "-0.3585688561810068112424645737"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the one-for-two reverse stock split basis."
+    },
+    "HON|2026-03-31": {
+      "originalEarningsReleaseDate": "2026-04-23",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000055/exhibit99-q12026earningsre.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
+      "originalQuarterFilingDate": "2026-04-23",
+      "previousValues": {
+        "epsGaapDiluted": 1.29
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 2.57
+      },
+      "comparativeFilingDate": "2026-10-22",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+          "sha256": "ca57e6e4da4bbd81db4ed07dda22d417f7ab0bc8edf44a959ec45acd8fa6b915",
+          "sourceMarkers": [
+            "one-for-two reverse stock split",
+            "29, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-06-29",
+        "newSharesPerOldShares": [
+          1,
+          2
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
+            "sha256": "632622433ccc1769e2b1a6dab8918b8a7f01e3b49cb1ef89a5c728352143673f",
+            "statementPeriodHeading": "March 31,",
+            "netIncomeDisplay": "821",
+            "dilutedSharesDisplay": "638.4"
+          }
+        ],
+        "netIncomeInput": "821",
+        "preSplitWeightedDilutedSharesInput": "638.4",
+        "rawRoundingBounds": [
+          "2.570287414832798183099694573",
+          "2.573823137777081538341035482"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000057/hon-20260331.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the one-for-two reverse stock split basis."
+    },
+    "DD|2026-03-31": {
+      "originalEarningsReleaseDate": "2026-05-05",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000029/exhibit991enrschedules-1q26.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+      "originalQuarterFilingDate": "2026-05-05",
+      "previousValues": {
+        "epsGaapDiluted": 0.39
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.17
+      },
+      "comparativeFilingDate": "2026-11-03",
+      "primaryEvidence": {
+        "splitDisclosure": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+          "sha256": "6f084141bd71235346b61733589c5a460e18e1f6a899bd2ea07f3ceb2270ec05",
+          "sourceMarkers": [
+            "1-for-3",
+            "24, 2026"
+          ]
+        },
+        "splitEffectiveDate": "2026-06-24",
+        "newSharesPerOldShares": [
+          1,
+          3
+        ],
+        "netIncomeAndSharesEvidence": [
+          {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+            "sha256": "e23eacf4bb8becee7341a5762b986189e6b1d6c97a85c8b4f5edd1db370c5cc0",
+            "sourceMarkers": [
+              "Net income (loss) attributable to common stockholders $ 161",
+              "weighted-average common shares",
+              "412.8"
+            ]
+          }
+        ],
+        "netIncomeInput": "161",
+        "preSplitWeightedDilutedSharesInput": "412.8",
+        "rawRoundingBounds": [
+          "1.166283153687780065399055347",
+          "1.173834039975772259236826166"
+        ],
+        "method": "Divide applicable quarter earnings by the quarter diluted share count on the new share scale. The source precision yields the same cent across the interval."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+      "accountingBasis": "The tracker uses quarter-specific earnings and diluted shares to calculate total GAAP diluted EPS on the 1-for-3 basis."
     }
   },
   "amcorReleaseCorrection": {
@@ -932,5 +1509,34 @@
     "financialStatementFiled": "2026-02-04",
     "financialStatementUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000006/amcr-20251231.htm",
     "replay": "Both February and May 8-Ks reproduce their own dates and exact periods through the SEC issuer pipeline."
-  }
+  },
+  "splitBasisExceptions": {
+    "DD|2025-12-31": {
+      "source": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000007/exhibit991enrschedules-4q25.htm",
+        "sha256": "e2edd8969629400697d37d2f528868a00c4360e248036d41b13b99343fbec3b3",
+        "sourceMarkers": [
+          "available for dupont common stockholders",
+          "126",
+          "413.7"
+        ]
+      },
+      "splitSource": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+        "sha256": "6f084141bd71235346b61733589c5a460e18e1f6a899bd2ea07f3ceb2270ec05",
+        "sourceMarkers": [
+          "1-for-3",
+          "24, 2026"
+        ]
+      },
+      "netLossMillions": "126",
+      "weightedDilutedSharesMillions": "413.7",
+      "postSplitRoundingBounds": [
+        "-0.9174422821225673878883113744",
+        "-0.9099697885196374622356495468"
+      ],
+      "disposition": "Keep original -$0.30 with pre-split disclosure. The two possible post-split cents are -$0.91 and -$0.92."
+    }
+  },
+  "splitBasisReviewedAtUtc": "2026-11-21T16:37:27.888572+00:00"
 }
