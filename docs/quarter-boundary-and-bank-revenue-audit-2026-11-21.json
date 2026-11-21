@@ -957,5 +957,96 @@
         "candidates": []
       }
     }
+  },
+  "followupMainReconciliation": {
+    "checkedAtUtc": "2026-11-21T16:12:31.100553+00:00",
+    "previousMainCommit": "8057b89eb2190c78b64b75b3f825497d9f7f3600",
+    "mainCommit": "f6ff0e7922601f34292a61767a5c796ad230b67f",
+    "latestSecFeedCheck": {
+      "checkedAtUtc": "2026-11-21T16:09:57.679714+00:00",
+      "feeds": {
+        "8-K": {
+          "observedNewest": "2026-11-20T17:30:44-05:00",
+          "previousNewest": "2026-11-20T17:30:44-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=8-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "fd05c13711a5ea830270ddbf87248bef35ff489eacaef75c485405ca58c4ea0d",
+          "count": 100,
+          "candidates": []
+        },
+        "10-Q": {
+          "observedNewest": "2026-11-20T17:30:17-05:00",
+          "previousNewest": "2026-11-20T17:30:17-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-Q&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "cbd3b6a4684080d46e17c7f7caf9a5c2ce834240b842377f9aaa0ef1c0657f09",
+          "count": 100,
+          "candidates": []
+        },
+        "10-K": {
+          "observedNewest": "2026-11-20T16:15:44-05:00",
+          "previousNewest": "2026-11-20T16:15:44-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "7e9c8d1187ef155285363213b3f6e114ce80d29fad5f26f3a57eeb9776befb61",
+          "count": 100,
+          "candidates": []
+        },
+        "8-K/A": {
+          "observedNewest": "2026-11-20T17:13:27-05:00",
+          "previousNewest": "2026-11-20T17:13:27-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "3bda19aef46e4e9046a1590064849594b545e3f345c79e62243b2657180520a2",
+          "count": 11,
+          "candidates": []
+        },
+        "10-Q/A": {
+          "observedNewest": "2026-11-20T13:09:48-05:00",
+          "previousNewest": "2026-11-20T13:09:48-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "aa9642a0002e9cc453b68597a1bea4568103f40704b46d48f59bb58414a710ea",
+          "count": 7,
+          "candidates": []
+        },
+        "10-K/A": {
+          "observedNewest": "2026-11-19T17:15:48-05:00",
+          "previousNewest": "2026-11-19T17:15:48-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-K%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "8569f48cb752c6b2d01ab3d248fbf56a83a6a5a20292ea759c0abcdc44711238",
+          "count": 2,
+          "candidates": []
+        },
+        "6-K": {
+          "observedNewest": "2026-11-20T17:25:15-05:00",
+          "previousNewest": "2026-11-20T17:25:15-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=6-K&owner=include&start=0&count=100&output=atom",
+          "sha256": "648512dbc3b940d5e902ead44596a1bd5401b22fd15ab7f79bb77c8aafafbd64",
+          "count": 100,
+          "candidates": []
+        }
+      }
+    },
+    "officialHistoryWorkflowUrl": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/44897428502",
+    "publishedHistory": {
+      "sourceUrl": "https://ianhoutsai-afk.github.io/earnings-tracker/historical_data.json",
+      "sourceSha256": "6249555370b3e8c09feaed50699402721c085f0c3bd7d9e934e6561f13a53c14",
+      "matchesMainFile": true,
+      "deploymentUrl": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/44897537453",
+      "quarterRecords": 2515,
+      "officialQuarterRecords": 2440,
+      "officialQuarterRecordsWithBothMetrics": 2210
+    },
+    "overlappingQuarter": {
+      "ticker": "PTC",
+      "periodStart": "2026-07-01",
+      "periodEnd": "2026-09-30",
+      "releaseDate": "2026-11-04",
+      "filingDate": "2026-11-20",
+      "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526470217/ptc-20260930.htm",
+      "quarterMetricSourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526447186/ptc-ex99_1.htm",
+      "draftRevenue": 673254000,
+      "draftGaapDilutedEps": 1.44,
+      "mainRevenue": null,
+      "mainGaapDilutedEps": null,
+      "disposition": "Keep the original fourth-quarter consolidated earnings exhibit metrics and the separately sourced annual filing date and accession. The annual filing supplies full-year amounts."
+    },
+    "otherMainChanges": "Six third-party earnings calendar estimates are carried forward with their estimate status. Draft coverage and verification timestamps reflect the evidence actually reviewed for the draft."
   }
 }
