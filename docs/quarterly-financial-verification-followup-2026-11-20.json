@@ -5281,9 +5281,11 @@
     "checkedAtUtc": "2026-11-20T16:28:15.068139+00:00",
     "scope": "Retained fiscal Q4 revenue records previously annotated as annual less first nine months. Company-quarter matches use unambiguous original quarter dates or fiscal-quarter headers and published units. A targeted KeyCorp review also covers its other four retained quarters.",
     "q4CandidatesScreened": 92,
-    "q4DirectReportsConfirmed": 76,
+    "q4DirectReportsConfirmed": 82,
     "keycorpQuartersCorrected": 5,
     "numericCorrections": [
+      "AJG|2025-12-31",
+      "CSGP|2025-12-31",
       "KEY|2025-09-30",
       "KEY|2025-12-31",
       "KEY|2026-03-31",
@@ -5361,6 +5363,73 @@
           }
         ],
         "nearby": []
+      },
+      "AIG|2025-12-31": {
+        "sourceUrl": "https://www.aig.com/content/dam/aig/america-canada/us/documents/investor-relations/financial-supplement/aig-quarterly-financial-supplement--4q25.pdf",
+        "pdfPageNumber": 6,
+        "printedPage": 4,
+        "statement": "Consolidated Statements of Operations",
+        "quarterColumn": "4Q25",
+        "label": "Total revenues",
+        "reported": "6,550",
+        "usdPerUnit": 1000000,
+        "sourceSha256": "89fc8f6b1a14e6e40e0e6f9da1d17c40c5162c44d09fd4c0b7a71b361aec9360",
+        "priorRevenue": 6550000000,
+        "revenue": 6550000000
+      },
+      "AJG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354190/000119312526029407/d38405dex991.htm",
+        "sourceSha256": "cff79b9b186dfe3247feb3f6a92087b9200517d9ed2f173fee0833031ce6cf4b",
+        "tableIndex": 43,
+        "rowIndex": 41,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "3,628",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 3628200000,
+        "revenue": 3628000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Corporate Segment / 4th Q Ended Dec 31, 2025 / 4th Q Ended Dec 31, 2024 / Year Ended Dec 31, 2025 / Year Ended Dec 31, 2024",
+            "columnText": "4th Q Ended Dec 31, 2025"
+          },
+          {
+            "row": 2,
+            "text": "Other income / $ / — / 14 / 1 / 16",
+            "columnText": "—"
+          },
+          {
+            "row": 4,
+            "text": "Total revenues / — / 14 / 1 / 16",
+            "columnText": "—"
+          },
+          {
+            "row": 31,
+            "text": "Total Company / 4th Q Ended Dec 31, 2025 / 4th Q Ended Dec 31, 2024 / Year Ended Dec 31, 2025 / Year Ended Dec 31, 2024",
+            "columnText": "4th Q Ended Dec 31, 2025"
+          }
+        ],
+        "nearby": [
+          "(Unaudited - in millions except share and per share data)",
+          "Reported Statement of Earnings and EBITDAC - 4th Quarter December 31,"
+        ],
+        "basis": "Total Company block, 4th Q Ended Dec 31, 2025, USD millions",
+        "legacyCalculationInputs": {
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354190/000162828026008662/ajg-20251231.htm",
+            "sourceSha256": "f7d94c3097eb408a0195316799b8a1baca83836b80b1082b1bb0ebafe5277f04",
+            "reportedRevenueUsd": 13942000000,
+            "xbrlDecimals": -6
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354190/000162828025050734/ajg-20250930.htm",
+            "sourceSha256": "5986948068c3fbf8b316b234e59eb9a68d21669aa25420f8303b8b2c75d3cddd",
+            "reportedRevenueUsd": 10313800000,
+            "xbrlDecimals": -5
+          }
+        },
+        "publishedPrecisionRationale": "Annual filing reports total revenue to the nearest million. The fiscal Q4 release gives total revenue at the same precision, so use the quarterly amount."
       },
       "AON|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/315293/000162828026004273/ex991prq42025.htm",
@@ -5599,6 +5668,32 @@
           "CAPITAL ONE FINANCIAL CORPORATION (COF)"
         ]
       },
+      "COIN|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000011/q425shareholderletter.htm",
+        "sourceSha256": "8800cffb3f640ee0abbed166603c53017db6384b9a010f1dc2476e5276b3df80",
+        "tableIndex": 8,
+        "rowIndex": 6,
+        "columnIndex": 1,
+        "label": "Total revenue",
+        "reported": "1,781,129",
+        "usdPerUnit": 1000,
+        "priorRevenue": 1781129000,
+        "revenue": 1781129000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended December 31, / Year Ended December 31,",
+            "columnText": "Three Months Ended December 31,"
+          },
+          {
+            "row": 2,
+            "text": "2025 / 2024",
+            "columnText": "2025"
+          }
+        ],
+        "nearby": [],
+        "basis": "Coinbase Global, Inc. Consolidated Statements of Operations, USD thousands"
+      },
       "COP|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000005/cop-20260205x8kexx992.htm",
         "sourceSha256": "d48e309e02bbfb9aedc53d03e006cb79deb1842e5d4cab5b33bca0dbeca9ce2b",
@@ -5626,6 +5721,31 @@
           "Exhibit 99.2 Fourth-quarter 2025 Detailed Supplemental Information",
           "Document"
         ]
+      },
+      "CSGP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000012/q42025earningspressrelea.htm",
+        "sourceSha256": "6b1641038b5125158ec0ed0b2a4fc7a6ca7d9402666e5723a1a960e2a7060f8f",
+        "image": "q42025earningspressrelea005.jpg",
+        "basis": "Consolidated Statements of Operations, three months ended December 31, 2025",
+        "reported": "900",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 899900000,
+        "revenue": 900000000,
+        "legacyCalculationInputs": {
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000020/csgp-20251231.htm",
+            "sourceSha256": "d0779a8e128a72d2791ad2b4d2eee2913f33823fa76773f15fe5481644b641b5",
+            "reportedRevenueUsd": 3247000000,
+            "xbrlDecimals": -6
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1057352/000105735225000120/csgp-20250930.htm",
+            "sourceSha256": "8467cca4e04545f3fd86471c29eb523274faab3ca46abc8838bdf0748b6d976f",
+            "reportedRevenueUsd": 2347100000,
+            "xbrlDecimals": -5
+          }
+        },
+        "publishedPrecisionRationale": "Annual filing reports total revenue to the nearest million. The fiscal Q4 release gives total revenue at the same precision, so use the quarterly amount."
       },
       "CVNA|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9928-k123125.htm",
@@ -5985,6 +6105,19 @@
           "(Unaudited)",
           "CONSOLIDATED STATEMENTS OF INCOME"
         ]
+      },
+      "EVRG|2025-12-31": {
+        "sourceUrl": "https://investors.evergy.com/static-files/996e96de-f660-4b0b-bf09-3ceb5643362b",
+        "pdfPageNumber": 2,
+        "printedPage": 1,
+        "statement": "Consolidated Statements of Income",
+        "quarterColumn": "Three Months Ended December 31, 2025",
+        "label": "Total revenues",
+        "reported": "1,340.2",
+        "usdPerUnit": 1000000,
+        "verificationMethod": "Quarter column and consolidated total confirmed in the issuer PDF.",
+        "priorRevenue": 1340200000,
+        "revenue": 1340200000
       },
       "EXC|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000014/exc-20260212ex991.htm",
@@ -6718,6 +6851,19 @@
         "amountContext": "vices and other 1,241 1,225 4,751 3,918 Total revenues 9,065 7,000 33,629 21,698 Cost of sales and fuel (exclu",
         "image": "okeq42025earningsrelease012.jpg",
         "nearby": []
+      },
+      "PFG|2025-12-31": {
+        "sourceUrl": "https://investors.principal.com/static-files/55108712-ce20-48a0-becb-3beb6e11bd91",
+        "pdfPageNumber": 8,
+        "printedPage": 5,
+        "statement": "Consolidated U.S. GAAP Income Statement",
+        "quarterColumn": "Three Months Ended Dec-25",
+        "label": "Total revenues",
+        "reported": "4,576.7",
+        "usdPerUnit": 1000000,
+        "verificationMethod": "Quarter column and consolidated total confirmed in the issuer PDF.",
+        "priorRevenue": 4576700000,
+        "revenue": 4576700000
       },
       "REG|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312526039477/reg-ex99_2.htm",
@@ -7468,19 +7614,13 @@
       }
     },
     "q4CandidatesWithoutDirectConfirmationInThisPass": [
-      "AIG|2025-12-31",
-      "AJG|2025-12-31",
       "ATO|2026-09-30",
       "BRK-B|2025-12-31",
       "CB|2025-12-31",
       "CNP|2025-12-31",
-      "COIN|2025-12-31",
-      "CSGP|2025-12-31",
       "DTE|2025-12-31",
       "EIX|2025-12-31",
-      "EVRG|2025-12-31",
       "PCG|2025-12-31",
-      "PFG|2025-12-31",
       "PGR|2025-12-31",
       "WMB|2025-12-31"
     ],
@@ -7517,6 +7657,275 @@
       ],
       "scope": "Original SEC filing indexes and all listed 99-series HTML exhibits, with two UDR PDF source receipts. Exact-period, as-reported consolidated values are accepted.",
       "accessErrors": {}
+    },
+    "investorSupplementReview": {
+      "checkedAtUtc": "2026-11-21T02:53:20.615332+00:00",
+      "additionalDirectConfirmed": [
+        "AIG|2025-12-31",
+        "AJG|2025-12-31",
+        "COIN|2025-12-31",
+        "CSGP|2025-12-31",
+        "EVRG|2025-12-31",
+        "PFG|2025-12-31"
+      ],
+      "precisionCorrections": [
+        "AJG|2025-12-31",
+        "CSGP|2025-12-31"
+      ],
+      "scope": "Issuer financial supplements and quarterly statements, with exact SEC period and precision checks where annual totals had been subtracted.",
+      "additionalHistoricalBoundaryEvidence": {
+        "TXT|2026-01-03": {
+          "sourceUrl": "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
+          "finding": "Original consolidated table shows $235 million net income, $236 million continuing-operations income, a $1 million discontinued-operations loss and 177,125,000 diluted average shares for the quarter. Reported EPS of $1.33 applies to continuing operations. The reported net income is rounded to a million; the implied interval crosses the $1.325 cut-off for rounding the total EPS."
+        }
+      },
+      "correctedPrecisionImporterReplay": {
+        "AJG": {
+          "importedRevenueUsd": null,
+          "reconciledRevenueUsd": 3628000000,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/354190/000119312526029407/d38405dex991.htm"
+        },
+        "CSGP": {
+          "importedRevenueUsd": null,
+          "reconciledRevenueUsd": 900000000,
+          "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000012/q42025earningspressrelea.htm"
+        }
+      }
+    },
+    "recomputedCumulativeRevenue": {
+      "checkedAtUtc": "2026-11-21T02:58:08.094378+00:00",
+      "scope": "Re-read both consolidated filings for every remaining calculation. Compare period start, accounting line and published precision before subtracting the first-nine-month amount from the year.",
+      "records": {
+        "ATO|2026-09-30": {
+          "metricBasis": "Total operating revenues",
+          "revenueUsd": 796206000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000150/ato-20260930.htm",
+            "sourceSha256": "5ee8753444e4b1c84e86b01f7a51c756e712b3a56464de5ae8b33df95ae3bb6b",
+            "periodStart": "2025-10-01",
+            "periodEnd": "2026-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -3,
+            "revenueUsd": 4980252000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180226000102/ato-20260630.htm",
+            "sourceSha256": "8708e3553595bda1dcce699871aba6fa5fdf57f3c4f1617e528d16708c5816ff",
+            "periodStart": "2025-10-01",
+            "periodEnd": "2026-06-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -3,
+            "revenueUsd": 4184046000
+          }
+        },
+        "BRK-B|2025-12-31": {
+          "metricBasis": "Total revenues",
+          "revenueUsd": 94232000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+            "sourceSha256": "23d19dd8a1d437fe9cfaf2ca54aaf685e8d43477f4400c8329afea4fac6d800a",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 371444000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+            "sourceSha256": "0c304dcfb5657c5f75018d4a313855d24609d79141cdd5d5680f0cfdb12e4818",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 277212000000
+          }
+        },
+        "CB|2025-12-31": {
+          "metricBasis": "Total revenues",
+          "revenueUsd": 15065000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/cb-20251231.htm",
+            "sourceSha256": "7a6a0597e779143fccd4f28e22330bc28225e1a125055aa72519f558289ffe59",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 59402000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/896159/000089615925000017/cb-20250930.htm",
+            "sourceSha256": "658d9c65fcdc03128b29263bb9a009eb03f1df5f286cd866f14517c3a16d1a46",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 44337000000
+          }
+        },
+        "CNP|2025-12-31": {
+          "metricBasis": "Total revenues",
+          "revenueUsd": 2505000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031026000008/cnp-20251231.htm",
+            "sourceSha256": "9b8576f4855897638aeea351c08e1c1f387a4a7721666079f9c16b23aba4ef97",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 9357000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1130310/000113031025000143/cnp-20250930.htm",
+            "sourceSha256": "a40e995948cba2d7b454d7dcf12df1552e785150b0ba27457f3912fed91ff00e",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 6852000000
+          }
+        },
+        "DTE|2025-12-31": {
+          "metricBasis": "Operating Revenues subtotal after utility and non-utility operations",
+          "revenueUsd": 4428000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000054/dte-20251231.htm",
+            "sourceSha256": "2f19ced1702a5a5f9bbe8343300cdae6c3688624d5869d504fb3a01a42444732",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:regulatedandunregulatedoperatingrevenue",
+            "xbrlDecimals": -6,
+            "revenueUsd": 15814000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/936340/000093634025000223/dte-20250930.htm",
+            "sourceSha256": "51c3f0007d729ffefd9eaad851b6a1b265d716f4e5b301a2f1352ceca03e4dde",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:regulatedandunregulatedoperatingrevenue",
+            "xbrlDecimals": -6,
+            "revenueUsd": 11386000000
+          }
+        },
+        "EIX|2025-12-31": {
+          "metricBasis": "Operating revenue",
+          "revenueUsd": 5213000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/827052/000082705226000012/eix-20251231.htm",
+            "sourceSha256": "f6473005edeecbc2618bc635df2423f37b4af96bef7f833751eac42897ea2d35",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 19317000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/827052/000082705225000100/eix-20250930.htm",
+            "sourceSha256": "15ad97b3893bf1f2aafc2619f2cc00178e6a684c768c9c548b43968c2082f14e",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 14104000000
+          }
+        },
+        "PCG|2025-12-31": {
+          "metricBasis": "Total operating revenues",
+          "revenueUsd": 6804000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1004980/000100498026000009/pcg-20251231.htm",
+            "sourceSha256": "a35dd47e2c145bdcd0446723e6d57ce9c664472b4b2df0605e8adb5f731dc0db",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 24935000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000148/pcg-20250930.htm",
+            "sourceSha256": "addc6c6bad410e11f292af3e88ba51cc0b9ba35b8fb5ff3a7a82c5e92d19c920",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 18131000000
+          }
+        },
+        "PGR|2025-12-31": {
+          "metricBasis": "Total revenues",
+          "revenueUsd": 22746000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000086/pgr-20251231_d2.htm",
+            "sourceSha256": "0b67863f8392b065c2190e875106223971babf628f5599807034c259317673a6",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "revenueUsd": 87671000000,
+            "tableIndex": 0,
+            "rowIndex": 12,
+            "columnIndex": 3,
+            "basis": "Audited Consolidated Statements of Comprehensive Income incorporated as Exhibit 13 of the 10-K"
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000129/pgr-20250930.htm",
+            "sourceSha256": "548e0b4bca45afbd0ab78b202d95ad4b6da9c12809815ad91620d22b85cf5e4a",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 64925000000
+          },
+          "independentMonthlyCrossCheck": {
+            "2025-10-31": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000134/pgr20251031ex99earningsrel.htm",
+              "sourceSha256": "c3c046274486d6759d2d4cac63265dae78e75ef99e326a6b3a0fc0f4472fac11",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7595000000
+            },
+            "2025-11-30": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000142/pgr202511ex99earningsrelea.htm",
+              "sourceSha256": "172ff4160ecf9cfc9e99d6e67ffdd742f740be42f93ebc7ee2e6e2379c42894c",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7388000000
+            },
+            "2025-12-31": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000071/pgr202512ex991earningsrele.htm",
+              "sourceSha256": "7c1e4d639683b796be96a3f66fb5b306630e6e6644f6f62934e0dda320175cdd",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7763000000
+            }
+          }
+        },
+        "WMB|2025-12-31": {
+          "metricBasis": "Total revenues",
+          "revenueUsd": 3198000000,
+          "annual": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000006/wmb-20251231.htm",
+            "sourceSha256": "10424daeaae16761c8f9ac7ccfbda4742b3670c5120078b58106148ebec80c56",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-12-31",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 11950000000
+          },
+          "nineMonths": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726325000145/wmb-20250930.htm",
+            "sourceSha256": "7e074d0b8b27e580f9aba4e5d8e0b3c4f92ea5d7f9906e729a03ba2969601936",
+            "periodStart": "2025-01-01",
+            "periodEnd": "2025-09-30",
+            "xbrlTag": "us-gaap:revenues",
+            "xbrlDecimals": -6,
+            "revenueUsd": 8752000000
+          }
+        }
+      }
     }
   },
   "postCloseFilingProvenance": {
