@@ -25961,7 +25961,7 @@
       "fiscalQuarter": 1
     },
     {
-      "date": "2026-02-18",
+      "date": "2026-02-17",
       "quarter": "2025 Q4",
       "periodEnd": "2025-12-31",
       "periodScope": "quarter",
@@ -25970,9 +25970,8 @@
       "epsBasis": null,
       "currency": "USD",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
-      "verifiedAt": "2026-11-18",
+      "verifiedAt": "2026-11-21",
       "verificationStatus": "official_verified",
-      "dateSource": "sec_filing",
       "filingDate": "2026-02-18",
       "accessionNumber": "0001031296-26-000046",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
@@ -25985,7 +25984,10 @@
         "zh-TW": "本季營收由全年 GAAP 總營收減去首九個月總營收計算。本季 GAAP 稀釋 EPS 仍待核實。"
       },
       "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
-      "periodStart": "2025-10-01"
+      "periodStart": "2025-10-01",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
+      "releaseFilingDate": "2026-02-17",
+      "releaseAccession": "0001031296-26-000041"
     },
     {
       "date": "2025-10-22",

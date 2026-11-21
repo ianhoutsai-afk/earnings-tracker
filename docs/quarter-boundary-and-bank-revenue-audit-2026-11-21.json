@@ -1045,8 +1045,228 @@
       "draftGaapDilutedEps": 1.44,
       "mainRevenue": null,
       "mainGaapDilutedEps": null,
-      "disposition": "Keep the original fourth-quarter consolidated earnings exhibit metrics and the separately sourced annual filing date and accession. The annual filing supplies full-year amounts."
+      "disposition": "Keep the original fourth-quarter consolidated earnings exhibit metrics and the separately sourced annual filing date and accession. The annual filing supplies full-year amounts.",
+      "manifestMergeReplay": "Retains both reviewed metrics, all provenance fields and the quarter start."
     },
     "otherMainChanges": "Six third-party earnings calendar estimates are carried forward with their estimate status. Draft coverage and verification timestamps reflect the evidence actually reviewed for the draft."
+  },
+  "remainingFieldRecheck": {
+    "checkedAtUtc": "2026-11-21T16:16:50.168200+00:00",
+    "firstEnergyRelease": {
+      "ticker": "FE",
+      "periodEnd": "2025-12-31",
+      "earningsReleaseDate": "2026-02-17",
+      "earningsCallDate": "2026-02-18",
+      "earningsCallSourceUrl": "https://investors.firstenergycorp.com/investor-materials/event-calendar/default.aspx",
+      "financialStatementDate": "2026-02-18",
+      "financialStatementUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
+      "releaseSha256": "083fdeb2b69d58c04ca0276352bd2ce438723baedf04ea99fc66feb7a07b2fda",
+      "releaseFilingAccession": "0001031296-26-000041",
+      "releaseFilingUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/fe-20260217.htm",
+      "releaseFilingSha256": "ce63ac8698de8f8d34a226057d42546c956a2291560b0c14f4c47d216c5585bb",
+      "quarterSupplementUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9924q25strategicfinanc.htm",
+      "quarterSupplementSha256": "defa4860da4e338498623bc520726d4dd1c99d9e1f286f9112ac97ff2d7d2dae",
+      "quarterSupplementScope": "Exhibit 99.2 contains Q4 operating tables within the February 17 year-end earnings package. Its consolidated earnings reconciliation is full-year.",
+      "calendarAnnouncementUrl": "https://investors.firstenergycorp.com/investor-materials/news-releases/news-details/2026/FirstEnergy-to-Webcast-Fourth-Quarter-Earnings-Teleconference/default.aspx",
+      "nineMonthsFilingUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129625000085/fe-20250930.htm",
+      "annualAndNineMonthIncomeMillions": [
+        1020,
+        1069
+      ],
+      "annualAndNineMonthBasicWeightedAverageSharesMillions": [
+        577,
+        577
+      ],
+      "roundingCheck": "The source totals imply roughly $49M of Q4 attributable loss. Even treating potential shares as antidilutive, nearest-cent EPS could be -$0.08 or -$0.09 from rounded filings.",
+      "quarterRevenue": 3797000000,
+      "quarterGaapDilutedEps": null,
+      "manifestMergeReplay": "A later filing-only scan preserves the earlier publication date, release exhibit, filing and numeric fields."
+    },
+    "additionalResidualChecks": {
+      "TECH": {
+        "sourceUrl": "https://investors.bio-techne.com/financial-results",
+        "amendmentUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926126284/tech-20260930x10qa.htm",
+        "finding": "The company lists a 10-Q and 10-Q/A for this quarter. The amendment corrects electronic signatures. The standalone earnings release date remains unverified."
+      },
+      "AES|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000119312526084157/d100078dex991.htm",
+        "finding": "The March 2 acquisition announcement canceled the March 3 call and indicated that the company expected to file its annual report on March 2. The release does not establish a standalone earnings release date."
+      },
+      "TRGP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "finding": "Note 12 allocates income between common shares and participating securities. The release’s consolidated attributable income does not give the quarter EPS numerator and diluted share denominator."
+      },
+      "TXT|2026-01-03": {
+        "sourceUrl": "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
+        "finding": "The quarter shows rounded net income of $235M and 177.125M diluted shares. The implied rounding interval spans $1.32 and $1.33. The displayed $1.33 EPS is for continuing operations."
+      },
+      "ECHO|2026-09-30": {
+        "issuerQuarterlyResultsUrl": "https://ir.echostar.com/financial-information/quarterly-results",
+        "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+        "finding": "The company archive lists 2026 Q2 and Q1 releases. The original third-quarter 10-Q confirms metrics and filing date. The standalone earnings release date remains unverified."
+      }
+    },
+    "standaloneFinancialFilingRecheck": {
+      "checkedAtUtc": "2026-11-21T16:14:18.839030+00:00",
+      "records": {
+        "AMAT|2026-10-25": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+          "submissionsSha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "BDX|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+          "submissionsSha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "COR|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+          "submissionsSha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2026-06-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2026-03-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2026-03-28": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2025-09-27": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "KEYS|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "submissionsSha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "LOW|2026-10-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "submissionsSha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "NVDA|2026-10-25": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "submissionsSha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "P|2026-11-01": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+          "submissionsSha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "RJF|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+          "submissionsSha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "ROST|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "submissionsSha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "TGT|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "submissionsSha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "TJX|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "submissionsSha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VMRK|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000906107.json",
+          "submissionsSha256": "d200184441542e87827a9053e642dcf68f1d604143a0d1a2945b06190de1dbdf",
+          "candidates": [
+            {
+              "form": "10-Q",
+              "accessionNumber": "0001193125-25-258599",
+              "primaryDocument": "eqr-20250930.htm",
+              "filingDate": "2025-10-30",
+              "reportDate": "2025-09-30",
+              "items": "",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312525258599/eqr-20250930.htm",
+              "sourceSha256": "8692a4d8d42d1c8493ff0750d6343c8d6c678f88e2296904d67df70cfe1adfc4",
+              "parsed": {
+                "fiscalYear": 2025,
+                "fiscalQuarter": 3,
+                "periodScope": "quarter",
+                "periodEnd": "2025-09-30",
+                "periodStart": "2025-07-01",
+                "epsGaapDiluted": 0.76,
+                "revenue": null,
+                "epsBasis": "GAAP diluted",
+                "currency": "USD"
+              }
+            }
+          ],
+          "disposition": "Equity Residential was the legal acquirer. The retained comparative is AvalonBay on the Vivmark exchange-ratio basis.",
+          "accountingAcquirerSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+        },
+        "VYLR|2026-06-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2026-03-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "WMT|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "submissionsSha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "WSM|2026-11-01": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "submissionsSha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        }
+      }
+    },
+    "remainingFields": {
+      "companies": 9,
+      "gaapDilutedEps": 15,
+      "revenue": 1,
+      "earningsReleaseDate": 6,
+      "standaloneFinancialFilingLinks": 25
+    }
   }
 }
