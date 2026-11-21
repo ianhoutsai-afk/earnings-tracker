@@ -121,7 +121,7 @@
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            quarterEstimates, nextCompanyEvent, quarterlyMetrics, historyCoverage,
+            quarterEstimates, nextCompanyEvent, quarterlyMetrics, quarterMetricSources, historyCoverage,
         } from './quarterly-history.mjs';
 
         // 深淺色模式
@@ -499,15 +499,12 @@
                                         ${t(h.dateSource === 'recast' ? 'history.recastSource' : 'earnings.releaseSource')}
                                     </a>
                                 ` : ''}
-                                ${h.epsSourceUrl && h.revenueSourceUrl && h.epsSourceUrl !== h.revenueSourceUrl ? `
-                                    <a href="${h.epsSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.epsSource')}</a>
-                                    <a href="${h.revenueSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.revenueSource')}</a>
-                                ` : h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl && (!filingDated || h.metricSourceUrl !== secUrl) ? `
-                                    <a href="${h.metricSourceUrl}" target="_blank" rel="noopener noreferrer"
+                                ${quarterMetricSources(h, metrics).map(({url, labelKey}) => `
+                                    <a href="${escapeHtml(url).replaceAll('"', '&quot;')}" target="_blank" rel="noopener noreferrer"
                                        class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
-                                        ${t('earnings.metricSource')}
+                                        ${t(labelKey)}
                                     </a>
-                                ` : ''}
+                                `).join('')}
 
                                 ${
                                     secUrl

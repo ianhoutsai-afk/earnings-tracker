@@ -67,6 +67,25 @@ export function quarterlyMetrics(row) {
   };
 }
 
+export function quarterMetricSources(row, metrics = quarterlyMetrics(row)) {
+  const epsUrl = metrics.eps !== '-' ? row.epsSourceUrl || row.metricSourceUrl : null;
+  const revenueUrl = metrics.revenue !== '-' ? row.revenueSourceUrl || row.metricSourceUrl : null;
+
+  if (epsUrl && revenueUrl && epsUrl !== revenueUrl) {
+    return [
+      {url: epsUrl, labelKey: 'history.epsSource'},
+      {url: revenueUrl, labelKey: 'history.revenueSource'},
+    ];
+  }
+
+  const url = epsUrl || revenueUrl;
+  if (!url || url === row.releaseSourceUrl || (row.dateSource === 'sec_filing' && url === row.secUrl)) {
+    return [];
+  }
+  const labelKey = epsUrl && revenueUrl ? 'earnings.metricSource'
+    : epsUrl ? 'history.epsSource' : 'history.revenueSource';
+  return [{url, labelKey}];
+}
 
 export function historyCoverage(companies, history, sourceStatus) {
   const coverage = { count: companies.length, verified: 0, failed: 0, pending: 0, filingDated: 0, recastDated: 0 };

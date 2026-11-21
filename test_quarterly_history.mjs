@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent, historyCoverage } from './quarterly-history.mjs';
+import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent, historyCoverage, quarterMetricSources } from './quarterly-history.mjs';
 
 test('NVDA shows five distinct periods newest first while other companies keep their history', () => {
   const rows = [
@@ -99,4 +99,29 @@ test('coverage reports retained gaps independently from automatic scan diagnosti
   assert.deepEqual(historyCoverage(companies, history, sourceStatus), {
     count: 7, verified: 28, failed: 1, pending: 5, filingDated: 1, recastDated: 1,
   });
+});
+
+test('quarter cards use the actual metric documents when sources share the same exhibit', () => {
+  const row = {
+    verificationStatus: 'official_verified', periodScope: 'quarter', currency: 'USD',
+    epsBasis: 'GAAP diluted', eps_reported: '$0.58', revenue_reported: '$1.09B',
+    releaseSourceUrl: 'https://www.sec.gov/release',
+    secUrl: 'https://www.sec.gov/annual',
+    metricSourceUrl: 'https://www.sec.gov/annual',
+    epsSourceUrl: 'https://www.sec.gov/quarter-exhibit',
+    revenueSourceUrl: 'https://www.sec.gov/quarter-exhibit',
+  };
+  const sharedLink = {url: row.epsSourceUrl, labelKey: 'earnings.metricSource'};
+  assert.deepEqual(quarterMetricSources(row), [sharedLink]);
+  assert.deepEqual(quarterMetricSources({...row, releaseSourceUrl: row.epsSourceUrl}), []);
+  assert.deepEqual(quarterMetricSources({...row, epsSourceUrl: row.secUrl}), [
+    {url: row.secUrl, labelKey: 'history.epsSource'},
+    {url: row.revenueSourceUrl, labelKey: 'history.revenueSource'},
+  ]);
+  assert.deepEqual(quarterMetricSources({...row, eps_reported: '-', epsSourceUrl: row.secUrl}), [
+    {url: row.revenueSourceUrl, labelKey: 'history.revenueSource'},
+  ]);
+  assert.deepEqual(quarterMetricSources({...row, epsSourceUrl: null, revenueSourceUrl: null}), [
+    {url: row.metricSourceUrl, labelKey: 'earnings.metricSource'},
+  ]);
 });
