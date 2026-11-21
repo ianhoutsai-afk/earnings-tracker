@@ -37,6 +37,31 @@ class OfficialParserTests(unittest.TestCase):
     row = parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
     self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2026-09-30',2026,4))
 
+ def test_item_202_pairs_completed_quarter_with_exhibit_highlights(self):
+  from official_sources import parse_earnings_filing
+  for quarter, cumulative, event, end, number in (
+      ('Second', 'six', 'February 3, 2026', 'December 31, 2025', 2),
+      ('Third', 'nine', 'May 6, 2026', 'March 31, 2026', 3)):
+   with self.subTest(quarter=quarter):
+    primary = (
+        '<h2>Item 2.02 Results of Operations</h2>'
+        f'<p>On {event}, the Company issued a press release regarding financial results '
+        f'for the {quarter.lower()} quarter and first {cumulative} months of fiscal year 2026.</p>'
+        '<h2>Item 9.01 Financial Statements and Exhibits</h2>'
+        '<p>See the prior Quarterly Report for the quarter ended June 30, 2025.</p>')
+    exhibit = (
+        f'<h1>Example Reports Solid {quarter} Quarter Results and Updates Fiscal 2026 Guidance</h1>'
+        f'<p>Highlights - Three Months Ended {end}</p>')
+    filed = '2026-02-03' if number == 2 else '2026-05-06'
+    result = parse_earnings_filing(primary, filed, filed, TODAY, exhibit=exhibit)
+    expected_date = date(2026, 2, 3) if number == 2 else date(2026, 5, 6)
+    expected_end = date(2025, 12, 31) if number == 2 else date(2026, 3, 31)
+    self.assertEqual(result, {'date':expected_date.isoformat(), 'periodEnd':expected_end.isoformat(),
+                              'fiscalYear':2026, 'fiscalQuarter':number})
+    wrong_exhibit = exhibit.replace(f'{quarter} Quarter', 'First Quarter')
+    with self.assertRaises(ValueError):
+     parse_earnings_filing(primary, filed, filed, TODAY, exhibit=wrong_exhibit)
+
  def test_item_202_can_identify_three_and_twelve_months_after_earliest_event(self):
   from official_sources import parse_earnings_filing
   primary = ('<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, the Company '

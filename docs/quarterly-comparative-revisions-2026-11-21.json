@@ -1,0 +1,936 @@
+{
+  "checkedAtUtc": "2026-11-21T16:31:23.346602+00:00",
+  "scope": "Compare each retained pair with the same fiscal-quarter number one fiscal year apart. Both historical start and end must match the filing context. Document identity, CIK, consolidated context, currency, duration and metric basis are checked before review.",
+  "screenedPairs": 501,
+  "sourceStatus": {
+    "read": 488,
+    "noStandaloneFiling": 13
+  },
+  "comparableFields": {
+    "epsGaapDiluted": 446,
+    "revenue": 214
+  },
+  "differences": [
+    {
+      "ticker": "AEP",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 6010400000,
+        "epsGaapDiluted": 1.81
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490425000171/aep-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm",
+      "comparisonSha256": "195c6130336d5e495bd343cc6ca9e273e658a131e47ea183afa8ade5c2d44af2",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 6011000000.0,
+        "epsGaapDiluted": 1.81
+      },
+      "disposition": "Source values differ by $0.6 million. The two reported presentations do not establish a documented restatement of the precise amount."
+    },
+    {
+      "ticker": "AMCR",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 5745000000.0,
+        "epsGaapDiluted": 0.113
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
+      "comparisonSha256": "974e5c2d202c0f860f0d3d5230a12310ccad18797c0b268885ff1118248d40bc",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 0.57
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "APH",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 6194400000.0,
+        "epsGaapDiluted": 0.97
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465925102142/aph-20250930x10q.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
+      "comparisonSha256": "3dae681237495ebabdc86fbd8e1617161c7ab0e9160f56941c18e0a0ffe9a6fa",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 0.49
+      },
+      "disposition": "Stock split confirmed. The scope review of other retained pre-split quarters is pending."
+    },
+    {
+      "ticker": "APTV",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 5212000000.0,
+        "epsGaapDiluted": -1.63
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133225000051/aptv-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000075/aptv-20260930.htm",
+      "comparisonSha256": "0141b6a9e83b56b95b32689fc1132710f277ec6cfbf45c6165fdab7a10553943",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 3127000000.0,
+        "epsGaapDiluted": -1.63
+      },
+      "disposition": "Different scope. The later continuing-operations sales exclude Versigent."
+    },
+    {
+      "ticker": "BKNG",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 9008000000.0,
+        "epsGaapDiluted": 84.41
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+      "comparisonSha256": "c0c175652268eb0bb3906bf620f2de5e8a1d7a0af77a10147d3ddc7bd70e56cb",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 9008000000.0,
+        "epsGaapDiluted": 3.38
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "CBRE",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 10258000000.0,
+        "epsGaapDiluted": 1.21
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+      "comparisonSha256": "8bed08b47e29d78a92103ee0efc758813aacad6c938c950d8f4722dcf8872f31",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 10221000000.0,
+        "epsGaapDiluted": 1.21
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "CRWD",
+      "currentPeriod": "2026-07-31",
+      "priorPeriod": "2025-07-31",
+      "priorPeriodStart": "2025-05-01",
+      "displayed": {
+        "revenue": 1168952000,
+        "epsGaapDiluted": -0.31
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "comparisonSha256": "05d182f447e1ef5988d75d9bad650be0744f4f79a5f2e82a91d60ba77eed73ab",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": -0.07
+      },
+      "disposition": "Four-for-one split and share-based compensation correction confirmed. Period-by-period split-basis review remains pending."
+    },
+    {
+      "ticker": "DD",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 3072000000.0,
+        "epsGaapDiluted": -0.29
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+      "comparisonSha256": "6f084141bd71235346b61733589c5a460e18e1f6a899bd2ea07f3ceb2270ec05",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": -0.88
+      },
+      "disposition": "Reverse split confirmed. The newer statement also reclassifies businesses to discontinued operations."
+    },
+    {
+      "ticker": "EBAY",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 2820000000.0,
+        "epsGaapDiluted": 1.35
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
+      "comparisonSha256": "a281f4539178f94e4e9394da013bb75a924815bf7b28434aed5506a9992284c2",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 1.34
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "EMR",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 4855000000,
+        "epsGaapDiluted": 1.12
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000087/emr-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+      "comparisonSha256": "03d20fac1e04d6758428db8c4c0f018b01e3ca24c152f094602363c3c480f559",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 1.08
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "HIG",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 7232000000.0,
+        "epsGaapDiluted": 3.77
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476625000107/hig-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000078/hig-20260930.htm",
+      "comparisonSha256": "3d4a49dd2fe6fb9c89563a1ae6a19308fe18f39c82de3881a94e8c541af8f5d5",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 6946000000.0,
+        "epsGaapDiluted": 3.77
+      },
+      "disposition": "Different scope. The later continuing-operations revenue excludes Hartford Funds."
+    },
+    {
+      "ticker": "HON",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 10408000000.0,
+        "epsGaapDiluted": 2.86
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
+      "comparisonSha256": "ca57e6e4da4bbd81db4ed07dda22d417f7ab0bc8edf44a959ec45acd8fa6b915",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 5.71
+      },
+      "disposition": "Reverse split confirmed. The newer statement also reclassifies separated businesses to discontinued operations."
+    },
+    {
+      "ticker": "KLAC",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 3209696000.0,
+        "epsGaapDiluted": 8.47
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "comparisonSha256": "af73faa7bc38c40578d261a7ee6566ea4dec3b31ecb0abe8e2598067e18e2d43",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 0.85
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "LII",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 1426800000.0,
+        "epsGaapDiluted": 6.98
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000048/lii-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000096/lii-20260930.htm",
+      "comparisonSha256": "3f85e93c038e1a929494a4bc112445c98cda62ba4fd193f3f60c7e9d89552e09",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 1426800000.0,
+        "epsGaapDiluted": 7.38
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "LLY",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 17600800000.0,
+        "epsGaapDiluted": 6.21
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000254/lly-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/lly-20260930.htm",
+      "comparisonSha256": "23f4d9becf1c20cb96965d21382be7b092d9a25d7264321245feeacdd5a40f62",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 17601000000.0,
+        "epsGaapDiluted": 6.21
+      },
+      "disposition": "The original $17,600.8 million rounds to the latest presentation of $17,601 million."
+    },
+    {
+      "ticker": "MPWR",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 737176000.0,
+        "epsGaapDiluted": 3.71
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026069440/mpwr-20260930.htm",
+      "comparisonSha256": "82068dad96ebc55c9a44c7645a045235c237c65ef13f31d28be659664c40fdef",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 3.74
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "NFLX",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 11510307000.0,
+        "epsGaapDiluted": 5.87
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+      "comparisonSha256": "9b888ecc26f7c842e281e903ebab448a4244b41272bca5cd38b4ccf142eee286",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 11510307000.0,
+        "epsGaapDiluted": 0.59
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "NOW",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 3407000000.0,
+        "epsGaapDiluted": 2.4
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
+      "comparisonSha256": "124f48c1c41e09e5ee3e06421b5e64830adb9c77b05dcfcad364e9be00514ceb",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 0.48
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "OXY",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 6624000000.0,
+        "epsGaapDiluted": 0.65
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828025051071/oxy-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026072198/oxy-20260930.htm",
+      "comparisonSha256": "eb80ecb045e45983ab35880a3fbab54590b7924b408ca3914ccd104bcfa17f1e",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 5519000000.0,
+        "epsGaapDiluted": 0.65
+      },
+      "disposition": "Different scope. The later statement excludes OxyChem from continuing operations."
+    },
+    {
+      "ticker": "TPL",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 203085000.0,
+        "epsGaapDiluted": 5.27
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107425000096/tpl-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107426000077/tpl-20260930.htm",
+      "comparisonSha256": "e061192bb747b2c99bd47459613a736215659650d760052868ef46886f543d81",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": null,
+        "epsGaapDiluted": 1.76
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    },
+    {
+      "ticker": "VYLR",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 917000000,
+        "epsGaapDiluted": null
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+      "comparisonSha256": "ece3ac41a42c917e368847d151127d251c1cdfe537f6e2bf7baeb252be63cfa9",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 917000000.0,
+        "epsGaapDiluted": -0.47
+      },
+      "disposition": "Different issuer amount. The comparative EPS belongs to Corteva common stockholders."
+    },
+    {
+      "ticker": "WAT",
+      "currentPeriod": "2026-10-03",
+      "priorPeriod": "2025-09-27",
+      "priorPeriodStart": "2025-06-29",
+      "displayed": {
+        "revenue": 799887000.0,
+        "epsGaapDiluted": 2.5
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1000697/000119312525263533/d35664d10q.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1000697/000119312526455594/d56471d10q.htm",
+      "comparisonSha256": "96fcee7e220bab5ff8ff801976d7021a368cccc9c33ae58a97845193d50c5d87",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 800000000.0,
+        "epsGaapDiluted": 2.5
+      },
+      "disposition": "The original $799.887 million rounds to the latest presentation of $800 million."
+    },
+    {
+      "ticker": "ZTS",
+      "currentPeriod": "2026-09-30",
+      "priorPeriod": "2025-09-30",
+      "priorPeriodStart": "2025-07-01",
+      "displayed": {
+        "revenue": 2400000000.0,
+        "epsGaapDiluted": 1.63
+      },
+      "priorSourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528025000274/zts-20250930.htm",
+      "comparisonSourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000050/zts-20260930.htm",
+      "comparisonSha256": "782b9681c04e8547a6c133f7bbe1cc16779f61da7fe29a36a33c6c2dc02bf0c1",
+      "sourceStatus": "read",
+      "comparison": {
+        "revenue": 2422000000.0,
+        "epsGaapDiluted": 1.63
+      },
+      "disposition": "Applied to the draft with quarter-level receipts."
+    }
+  ],
+  "updatedMetrics": {
+    "CBRE|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-23",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000023/cbre-20251023x8kexx991.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-23",
+      "previousValues": {
+        "revenue": 10258000000.0
+      },
+      "revisedValues": {
+        "revenue": 10221000000
+      },
+      "comparativeFilingDate": "2026-10-22",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+        "sha256": "8bed08b47e29d78a92103ee0efc758813aacad6c938c950d8f4722dcf8872f31",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": 10221000000.0,
+          "epsGaapDiluted": 1.21
+        }
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
+      "accountingBasis": "Mortgage servicing rights amortization is netted against the related revenue under the revised presentation."
+    },
+    "EBAY|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000124/exhibit991erebayq32025.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-30",
+      "previousValues": {
+        "epsGaapDiluted": 1.35
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.34
+      },
+      "comparativeFilingDate": "2026-10-29",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
+        "sha256": "a281f4539178f94e4e9394da013bb75a924815bf7b28434aed5506a9992284c2",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": null,
+          "epsGaapDiluted": 1.34
+        }
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
+      "accountingBasis": "GAAP diluted EPS reflects the retrospective adoption of ASU 2025-06 for internal-use software."
+    },
+    "EMR|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-11-05",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000079/emr-20251103.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000087/emr-20250930.htm",
+      "originalQuarterFilingDate": "2025-11-10",
+      "previousValues": {
+        "epsGaapDiluted": 1.12
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.08
+      },
+      "comparativeFilingDate": "2026-11-09",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+        "sha256": "03d20fac1e04d6758428db8c4c0f018b01e3ca24c152f094602363c3c480f559",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": null,
+          "epsGaapDiluted": 1.08
+        }
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000079/a2025q4release_ex991.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+      "accountingBasis": "GAAP diluted EPS reflects retrospective adoption of mark-to-market accounting for pension and other postretirement benefits."
+    },
+    "EMR|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-02-03",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000006/a2026q1release_ex991.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000007/emr-20251231.htm",
+      "originalQuarterFilingDate": "2026-02-03",
+      "previousValues": {
+        "epsGaapDiluted": 1.07
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.08
+      },
+      "comparativeFilingDate": "2026-11-09",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+        "sha256": "03d20fac1e04d6758428db8c4c0f018b01e3ca24c152f094602363c3c480f559",
+        "periodStart": "2025-10-01",
+        "periodEnd": "2025-12-31",
+        "statementValues": {
+          "revenue": null,
+          "epsGaapDiluted": 1.08
+        }
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000007/emr-20251231.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+      "accountingBasis": "GAAP diluted EPS reflects retrospective adoption of mark-to-market accounting for pension and other postretirement benefits."
+    },
+    "LII|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-22",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000046/lii-20251022.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000048/lii-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-22",
+      "previousValues": {
+        "epsGaapDiluted": 6.98
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 7.38
+      },
+      "comparativeFilingDate": "2026-10-28",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000096/lii-20260930.htm",
+        "sha256": "3f85e93c038e1a929494a4bc112445c98cda62ba4fd193f3f60c7e9d89552e09",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": 1426800000.0,
+          "epsGaapDiluted": 7.38
+        },
+        "firstRecastFilingUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000028/lii-20251231.htm",
+        "firstRecastFilingSha256": "8f717d70abcd74472016caa850fdb5213865b211f1122d29467f3837e8629d3e"
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000048/lii-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000096/lii-20260930.htm",
+      "accountingBasis": "GAAP diluted EPS reflects the retrospective switch from LIFO to FIFO for certain inventories."
+    },
+    "MPWR|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-30",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925032411/ex_854756.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
+      "originalQuarterFilingDate": "2025-11-05",
+      "previousValues": {
+        "epsGaapDiluted": 3.71
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 3.74
+      },
+      "comparativeFilingDate": "2026-11-03",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026069440/mpwr-20260930.htm",
+        "sha256": "82068dad96ebc55c9a44c7645a045235c237c65ef13f31d28be659664c40fdef",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": null,
+          "epsGaapDiluted": 3.74
+        },
+        "firstRecastFilingUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774926006113/mpwr20251231_10k.htm",
+        "firstRecastFilingSha256": "89f446096212302aa811cbbdf8dd589f9be89d6c62464e90fa150c0544058710"
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026069440/mpwr-20260930.htm",
+      "accountingBasis": "GAAP diluted EPS reflects the restatement of deferred tax treatment for a one-time foreign tax incentive."
+    },
+    "ZTS|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-11-04",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528025000272/exhibit99q32025.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528025000274/zts-20250930.htm",
+      "originalQuarterFilingDate": "2025-11-04",
+      "previousValues": {
+        "revenue": 2400000000.0
+      },
+      "revisedValues": {
+        "revenue": 2422000000
+      },
+      "comparativeFilingDate": "2026-11-05",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000050/zts-20260930.htm",
+        "sha256": "782b9681c04e8547a6c133f7bbe1cc16779f61da7fe29a36a33c6c2dc02bf0c1",
+        "periodStart": "2025-07-01",
+        "periodEnd": "2025-09-30",
+        "statementValues": {
+          "revenue": 2422000000.0,
+          "epsGaapDiluted": 1.63
+        }
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000050/zts-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1555280/000155528025000274/zts-20250930.htm",
+      "accountingBasis": "The comparative recognizes international subsidiaries in the same calendar months after elimination of the one-month reporting lag."
+    },
+    "CBRE|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-02-12",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000002/cbre-20260212x8kexx991.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000005/cbre-20251231.htm",
+      "originalQuarterFilingDate": "2026-02-12",
+      "previousValues": {
+        "revenue": 11629000000
+      },
+      "revisedValues": {
+        "revenue": 11591000000
+      },
+      "comparativeFilingDate": "2026-10-22",
+      "primaryEvidence": {
+        "calculation": "40,404 million minus 28,813 million, both at the recast basis.",
+        "annualSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000015/cbre-20260331.htm",
+        "annualSha256": "5966fd3a35552075d140a6410b5e8fa6d18fc5815af5894d4896601af0ddf94e",
+        "nineMonthSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+        "nineMonthSha256": "8bed08b47e29d78a92103ee0efc758813aacad6c938c950d8f4722dcf8872f31"
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000002/cbre-20260212x8kexx991.htm",
+      "accountingBasis": "Mortgage servicing rights amortization is netted against the related revenue under the revised presentation."
+    },
+    "AMCR|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-11-05",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000034/amcr-20251105.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
+      "originalQuarterFilingDate": "2025-11-06",
+      "previousValues": {
+        "epsGaapDiluted": 0.113
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.57
+      },
+      "comparativeFilingDate": "2026-11-05",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
+        "sha256": "974e5c2d202c0f860f0d3d5230a12310ccad18797c0b268885ff1118248d40bc",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-01-14",
+        "newSharesPerOldShares": [
+          1,
+          5
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the 1-for-5 reverse stock split. Originally reported EPS was $0.113."
+    },
+    "BKNG|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-28",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000050/q3-25bkngearningsrelease.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-28",
+      "previousValues": {
+        "epsGaapDiluted": 84.41
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 3.38
+      },
+      "comparativeFilingDate": "2026-11-03",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+        "sha256": "c0c175652268eb0bb3906bf620f2de5e8a1d7a0af77a10147d3ddc7bd70e56cb",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-04-02",
+        "newSharesPerOldShares": [
+          25,
+          1
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the 25-for-1 stock split. Originally reported EPS was $84.41."
+    },
+    "BKNG|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-02-18",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+      "originalQuarterFilingDate": "2026-02-18",
+      "previousValues": {
+        "epsGaapDiluted": 44.22
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.77
+      },
+      "comparativeFilingDate": "2026-11-03",
+      "primaryEvidence": {
+        "splitSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+        "splitSourceSha256": "c0c175652268eb0bb3906bf620f2de5e8a1d7a0af77a10147d3ddc7bd70e56cb",
+        "splitEffectiveDate": "2026-04-02",
+        "newSharesPerOldShares": [
+          25,
+          1
+        ],
+        "originalEpsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
+        "originalEpsSourceSha256": "b47dd47b7c39b88d6709f8d33036b2ca4a56039264e56ee63ec947c3d1009f1e",
+        "roundedOriginalEPS": "44.22",
+        "roundingBoundsBeforeRounding": [
+          "1.7686",
+          "1.769"
+        ],
+        "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+      "accountingBasis": "The tracker applies the 25-for-1 stock split to the original GAAP diluted EPS of $44.22; the published precision yields a unique rounded result."
+    },
+    "KLAC|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000031/exhibit991earningsrelease0.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-31",
+      "previousValues": {
+        "epsGaapDiluted": 8.47
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.85
+      },
+      "comparativeFilingDate": "2026-10-29",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "sha256": "af73faa7bc38c40578d261a7ee6566ea4dec3b31ecb0abe8e2598067e18e2d43",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2026-06-11",
+        "newSharesPerOldShares": [
+          10,
+          1
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the ten-for-one stock split. Originally reported EPS was $8.47."
+    },
+    "KLAC|2025-12-31": {
+      "originalEarningsReleaseDate": "2026-01-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000006/exhibit991earningsrelease1.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
+      "originalQuarterFilingDate": "2026-01-30",
+      "previousValues": {
+        "epsGaapDiluted": 8.68
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.87
+      },
+      "comparativeFilingDate": "2026-10-29",
+      "primaryEvidence": {
+        "splitSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "splitSourceSha256": "af73faa7bc38c40578d261a7ee6566ea4dec3b31ecb0abe8e2598067e18e2d43",
+        "splitEffectiveDate": "2026-06-11",
+        "newSharesPerOldShares": [
+          10,
+          1
+        ],
+        "originalEpsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
+        "originalEpsSourceSha256": "f6db5956ef8ce965bf49f346c59ed895398347cbb9cf9dcce952960122d2890a",
+        "roundedOriginalEPS": "8.68",
+        "roundingBoundsBeforeRounding": [
+          "0.8675",
+          "0.8685"
+        ],
+        "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "accountingBasis": "The tracker applies the ten-for-one stock split to the original GAAP diluted EPS of $8.68; the published precision yields a unique rounded result."
+    },
+    "KLAC|2026-03-31": {
+      "originalEarningsReleaseDate": "2026-04-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000014/exhibit991earningsrelease3.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
+      "originalQuarterFilingDate": "2026-04-30",
+      "previousValues": {
+        "epsGaapDiluted": 9.12
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.91
+      },
+      "comparativeFilingDate": "2026-10-29",
+      "primaryEvidence": {
+        "splitSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "splitSourceSha256": "af73faa7bc38c40578d261a7ee6566ea4dec3b31ecb0abe8e2598067e18e2d43",
+        "splitEffectiveDate": "2026-06-11",
+        "newSharesPerOldShares": [
+          10,
+          1
+        ],
+        "originalEpsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
+        "originalEpsSourceSha256": "840f9989495cbef43fb3edd39fa0f48b3baa8e74419a7a55fa4aecc793be11f9",
+        "roundedOriginalEPS": "9.12",
+        "roundingBoundsBeforeRounding": [
+          "0.9115",
+          "0.9125"
+        ],
+        "method": "Restate the share denominator using the confirmed split ratio and round to the only possible cent."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+      "accountingBasis": "The tracker applies the ten-for-one stock split to the original GAAP diluted EPS of $9.12; the published precision yields a unique rounded result."
+    },
+    "NFLX|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-21",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000404/nflx-20251021.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-22",
+      "previousValues": {
+        "epsGaapDiluted": 5.87
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.59
+      },
+      "comparativeFilingDate": "2026-10-21",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+        "sha256": "9b888ecc26f7c842e281e903ebab448a4244b41272bca5cd38b4ccf142eee286",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2025-11-14",
+        "newSharesPerOldShares": [
+          10,
+          1
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the ten-for-one forward stock split. Originally reported EPS was $5.87."
+    },
+    "NOW|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-10-29",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000305/erq3fy25.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm",
+      "originalQuarterFilingDate": "2025-10-30",
+      "previousValues": {
+        "epsGaapDiluted": 2.4
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 0.48
+      },
+      "comparativeFilingDate": "2026-10-28",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
+        "sha256": "124f48c1c41e09e5ee3e06421b5e64830adb9c77b05dcfcad364e9be00514ceb",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2025-12-17",
+        "newSharesPerOldShares": [
+          5,
+          1
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the 5-for-1 split. Originally reported EPS was $2.4."
+    },
+    "TPL|2025-09-30": {
+      "originalEarningsReleaseDate": "2025-11-05",
+      "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107425000094/exhibit991q32025earningsre.htm",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107425000096/tpl-20250930.htm",
+      "originalQuarterFilingDate": "2025-11-05",
+      "previousValues": {
+        "epsGaapDiluted": 5.27
+      },
+      "revisedValues": {
+        "epsGaapDiluted": 1.76
+      },
+      "comparativeFilingDate": "2026-11-04",
+      "primaryEvidence": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107426000077/tpl-20260930.htm",
+        "sha256": "e061192bb747b2c99bd47459613a736215659650d760052868ef46886f543d81",
+        "periodEnd": "2025-09-30",
+        "splitEffectiveDate": "2025-12-22",
+        "newSharesPerOldShares": [
+          3,
+          1
+        ],
+        "method": "Issuer-reported GAAP diluted EPS in the prior-year quarter column."
+      },
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107425000096/tpl-20250930.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1811074/000181107426000077/tpl-20260930.htm",
+      "accountingBasis": "The issuer retrospectively adjusted GAAP diluted EPS for the three-for-one stock split. Originally reported EPS was $5.27."
+    }
+  },
+  "amcorReleaseCorrection": {
+    "periodEnd": "2025-12-31",
+    "previousStoredDate": "2026-05-06",
+    "verifiedReleaseDate": "2026-02-03",
+    "originalPublishedExhibitUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000004/exhibit991q22026.htm",
+    "originalPublishedExhibitSha256": "ecfefefe35cb1f46be4f65cb87bcc11dc7b20df118d203442bfe59f902b3a905",
+    "item202Url": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000004/amcr-20260203.htm",
+    "item202Sha256": "28938ac968c982b308142dc24d181e15fd917402d0932bae11a078e1f109dbd2",
+    "financialStatementFiled": "2026-02-04",
+    "financialStatementUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000006/amcr-20251231.htm",
+    "replay": "Both February and May 8-Ks reproduce their own dates and exact periods through the SEC issuer pipeline."
+  }
+}

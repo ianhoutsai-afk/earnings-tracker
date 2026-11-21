@@ -265,6 +265,20 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     # Exhibit descriptions can explicitly identify a quarter that is not repeated in the body.
     descriptions=re.search(r'(?is)\bItem\s*9\.01\b(.*?)(?=\bSIGNATURES?\b|$)',text)
     publication_text=' '.join(clause for _,clause in supported)
+    paired_period = re.search(
+        r'(?i)\b(?:second\s+quarter\s+and\s+first\s+six|third\s+quarter\s+and\s+first\s+nine)'
+        r'\s+months\s+of\s+fiscal\s+(?:year\s+)?(20\d{2})\b', publication_text)
+    if paired_period and actual_headline:
+        quarter_word = paired_period[0].split()[0].lower()
+        title = re.search(r'(?i)\b(?:reports?|announces?)\b[^.!?]{0,80}?'
+                          r'\b(first|second|third|fourth)\s+quarter\s+(?:financial\s+)?results\b', headline)
+        period = re.search(r'(?i)\bHighlights\s*[-–—:]\s*Three\s+Months\s+Ended\s+(' + DATE + ')', headline)
+        if title and period:
+            end = _date(period[1])
+            if title[1].lower() != quarter_word or not 0 < (event-end).days <= 180:
+                raise ValueError('Conflicting fiscal identity or period in earnings exhibit')
+            return {'date':event.isoformat(), 'periodEnd':end.isoformat(),
+                    'fiscalYear':int(paired_period[1]), 'fiscalQuarter':QUARTERS[quarter_word]}
     end=_completed_period_end(publication_text+' '+(descriptions[1] if descriptions else ''),event)
     if end is not None and (event-end).days>180:raise ValueError('Stale earnings period')
     year,quarter=_fiscal_identity(publication_text)
