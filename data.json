@@ -1626,12 +1626,12 @@
     "name": "Costco Wholesale Corporation",
     "reportDate": "2026-12-10",
     "reportDateSource": "official",
-    "reportDateSourceUrl": "https://investor.costco.com/events-and-presentations/",
+    "reportDateSourceUrl": "https://investor.costco.com/events-and-presentations/default.aspx",
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "nextEarningsCallDate": "2026-12-10",
-    "nextEarningsCallSourceUrl": "https://investor.costco.com/events-and-presentations/",
+    "nextEarningsCallSourceUrl": "https://investor.costco.com/events-and-presentations/default.aspx",
     "latestPublishedQuarter": "2026 Q4",
     "latestPublishedDate": "2026-09-24"
   },
@@ -1725,13 +1725,15 @@
     "ticker": "DRI",
     "name": "Darden Restaurants, Inc.",
     "reportDate": "2026-12-18",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://www.prnewswire.com/news-releases/darden-restaurants-to-release-fiscal-2027-second-quarter-results-on-december-18-2026-302943972.html",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2027 Q1",
-    "latestPublishedDate": "2026-09-24"
+    "latestPublishedDate": "2026-09-24",
+    "nextEarningsCallDate": "2026-12-18",
+    "nextEarningsCallSourceUrl": "https://www.prnewswire.com/news-releases/darden-restaurants-to-release-fiscal-2027-second-quarter-results-on-december-18-2026-302943972.html"
   },
   {
     "ticker": "DDOG",
@@ -2660,14 +2662,16 @@
   {
     "ticker": "GIS",
     "name": "General Mills, Inc.",
-    "reportDate": "2026-12-23",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDate": "2026-12-17",
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investors.generalmills.com/press-releases/press-release-details/2026/General-Mills-to-Webcast-Fiscal-2027-Second-Quarter-Earnings-Results-on-December-17-2026/default.aspx",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2027 Q1",
-    "latestPublishedDate": "2026-09-23"
+    "latestPublishedDate": "2026-09-23",
+    "nextEarningsCallDate": "2026-12-17",
+    "nextEarningsCallSourceUrl": "https://investors.generalmills.com/press-releases/press-release-details/2026/General-Mills-to-Webcast-Fiscal-2027-Second-Quarter-Earnings-Results-on-December-17-2026/default.aspx"
   },
   {
     "ticker": "GM",
@@ -3824,14 +3828,16 @@
   {
     "ticker": "MU",
     "name": "Micron Technology, Inc.",
-    "reportDate": "2026-12-23",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
+    "reportDate": "2026-12-17",
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-First-Quarter-Results-on-December-17-2026/default.aspx",
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q4",
-    "latestPublishedDate": "2026-09-30"
+    "latestPublishedDate": "2026-09-30",
+    "nextEarningsCallDate": "2026-12-17",
+    "nextEarningsCallSourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-First-Quarter-Results-on-December-17-2026/default.aspx"
   },
   {
     "ticker": "MSFT",

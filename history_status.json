@@ -2810,7 +2810,7 @@
     "nextEarningsEvent": {
       "date": "2026-12-10",
       "eventType": "earnings_release",
-      "sourceUrl": "https://investor.costco.com/events-and-presentations/",
+      "sourceUrl": "https://investor.costco.com/events-and-presentations/default.aspx",
       "bmo_amc": null
     },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
@@ -2985,7 +2985,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-18",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/darden-restaurants-to-release-fiscal-2027-second-quarter-results-on-december-18-2026-302943972.html",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000940944",
     "recordCount": 5,
@@ -4593,7 +4598,12 @@
     "metricPending": 3,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.generalmills.com/press-releases/press-release-details/2026/General-Mills-to-Webcast-Fiscal-2027-Second-Quarter-Earnings-Results-on-December-17-2026/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000040704",
     "recordCount": 5,
@@ -6656,7 +6666,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-First-Quarter-Results-on-December-17-2026/default.aspx",
+      "bmo_amc": null
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000723125",
     "recordCount": 5,

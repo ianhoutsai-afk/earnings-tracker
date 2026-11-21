@@ -1,0 +1,131 @@
+{
+  "checkedAtUtc": "2026-11-21T17:51:19.707076+00:00",
+  "scope": "Issuer-announced financial release schedules and completion of the uncached financial comparison review.",
+  "newOfficialSchedules": {
+    "GIS": {
+      "releaseDate": "2026-12-17",
+      "releaseTiming": "BMO",
+      "announcementDate": "2026-11-19",
+      "callDate": "2026-12-17",
+      "callTimeEastern": "09:00",
+      "sourceUrl": "https://investors.generalmills.com/press-releases/press-release-details/2026/General-Mills-to-Webcast-Fiscal-2027-Second-Quarter-Earnings-Results-on-December-17-2026/default.aspx",
+      "basis": "The company states that it plans to report on December 17. Its release precedes the 8 a.m. Central webcast that morning.",
+      "previousEstimatedDate": "2026-12-23"
+    },
+    "MU": {
+      "releaseDate": "2026-12-17",
+      "releaseTiming": null,
+      "announcementDate": "2026-11-19",
+      "callDate": "2026-12-17",
+      "callTimeEastern": "16:30",
+      "sourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-First-Quarter-Results-on-December-17-2026/default.aspx",
+      "basis": "The official headline dates the reporting of first-quarter results to December 17. The body dates and times the conference call at 2:30 p.m. Mountain and gives no time for release of the results.",
+      "previousEstimatedDate": "2026-12-23"
+    },
+    "DRI": {
+      "releaseDate": "2026-12-18",
+      "releaseTiming": "BMO",
+      "announcementDate": "2026-11-18",
+      "callDate": "2026-12-18",
+      "callTimeEastern": "08:30",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/darden-restaurants-to-release-fiscal-2027-second-quarter-results-on-december-18-2026-302943972.html",
+      "basis": "The issuer-authored release says results are due before the open on December 18 and separately announces the 8:30 a.m. Eastern call.",
+      "previousEstimatedDate": "2026-12-18"
+    }
+  },
+  "confirmedExistingSchedule": {
+    "COST": {
+      "releaseDate": "2026-12-10",
+      "callDate": "2026-12-10",
+      "sourceUrl": "https://investor.costco.com/events-and-presentations/default.aspx",
+      "basis": "The investor calendar lists the quarterly results and the earnings call as separate events, and November monthly sales as a different event on December 2."
+    }
+  },
+  "uncachedComparativeFilingReview": {
+    "checkedAtUtc": "2026-11-21T17:45:55.894958+00:00",
+    "summary": {
+      "filings": 69,
+      "fetchErrors": [
+        {
+          "ticker": "PCAR",
+          "periodEnd": "2026-06-30",
+          "error": "Official SEC connection unavailable"
+        },
+        {
+          "ticker": "PCAR",
+          "periodEnd": "2026-03-31",
+          "error": "Official SEC connection unavailable"
+        }
+      ],
+      "comparisons": 165,
+      "readStatuses": {
+        "read": 165
+      },
+      "exactFacts": {}
+    },
+    "candidates": [],
+    "directFilingReviews": {
+      "2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526323642/pcar-20260630.htm",
+        "retainedPeriodEnd": "2026-06-30",
+        "priorYearStatementPeriodEnd": "2025-06-30",
+        "disposition": "SEC filing read directly. Its historical quarter column predates the five retained periods; no matching historical quarter value to update."
+      },
+      "2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526191499/pcar-20260331.htm",
+        "retainedPeriodEnd": "2026-03-31",
+        "priorYearStatementPeriodEnd": "2025-03-31",
+        "disposition": "SEC filing read directly. Its historical quarter column predates the five retained periods; no matching historical quarter value to update."
+      }
+    }
+  },
+  "supplementalQuarterSources": {
+    "AES|2025-12-31": {
+      "sourceUrls": [
+        "https://www.aes.com/sites/vault/files/2026-03/AES-Fact-Sheet-Q4-FY-2025-March-03-26.pdf",
+        "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-acquire-aes"
+      ],
+      "disposition": "The fact sheet lists generation assets and capacity. The merger announcement reports the cancellation of the results call and the expected filing of the annual report. There is no separately dated quarterly earnings release or exact quarterly diluted EPS in these sources."
+    },
+    "ECHO|2026-09-30": {
+      "sourceUrls": [
+        "https://ir.echostar.com/static-files/56190f3f-0cb3-4550-8652-4056b4b944dd",
+        "https://ir.echostar.com/static-files/4b6c2851-be0f-41e6-b43c-ceec2ce0f886"
+      ],
+      "disposition": "The issuer-hosted quarterly report confirms the filed results. The same-day current report does not announce these quarterly results."
+    },
+    "FE|2025-12-31": {
+      "sourceUrls": [
+        "https://s27.q4cdn.com/655807321/files/doc_financials/2025/q4/4Q25-Investor-Factbook.pdf",
+        "https://s27.q4cdn.com/655807321/files/doc_financials/2025/q4/4Q25-Strategic-Financial-Highlights.pdf"
+      ],
+      "disposition": "The EPS reconciliation covers full-year results. The reviewed slides do not establish consolidated fourth-quarter diluted EPS."
+    },
+    "TECH|2026-09-30": {
+      "sourceUrls": [
+        "https://investors.bio-techne.com/financial-results"
+      ],
+      "disposition": "The fiscal 2027 first-quarter entry links to the 10-Q, 10-Q/A and XBRL. The issuer separately labels an Earnings Release in earlier entries."
+    },
+    "TRGP|2025-12-31": {
+      "sourceUrls": [
+        "https://www.targaresources.com/static-files/79973bff-8235-42c5-a841-45348d54fa64",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm"
+      ],
+      "disposition": "The earnings supplement has no diluted EPS. The filed two-class calculations use their reporting-period earnings allocation and weighted shares; they do not establish the quarter’s own allocation and denominator."
+    },
+    "TXT|2026-01-03": {
+      "sourceUrls": [
+        "https://www.textron.com/assets/FB/2025/Textron_Fact_Book_2025.pdf",
+        "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx"
+      ],
+      "disposition": "The fact book confirms the release’s $1.33 continuing-operations diluted EPS. The consolidated income in the release is $235 million, rounded to the nearest million. At approximately 177.125 million diluted shares, the feasible range straddles $1.325, so the consolidated quarter EPS cannot be inferred to the cent."
+    }
+  },
+  "remainingRequiredHistoricalFields": {
+    "earningsReleaseDate": 6,
+    "epsGaapDiluted": 15,
+    "revenue": 1
+  }
+}
