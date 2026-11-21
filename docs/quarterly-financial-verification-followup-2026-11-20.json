@@ -9065,5 +9065,36 @@
         "nextEarningsEvent": null
       }
     }
+  },
+  "followupMainReconciliation": {
+    "checkedAtUtc": "2026-11-21T03:19:54.612501+00:00",
+    "previousMainCommit": "af61ff87add471eaf3b6cda52fe354ad0d8edf4f",
+    "mainCommit": "8057b89eb2190c78b64b75b3f825497d9f7f3600",
+    "onlyChangedRetainedFinancialStatement": {
+      "ticker": "HD",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3,
+      "periodScope": "quarter",
+      "periodEnd": "2026-11-01",
+      "periodStart": "2026-08-03",
+      "epsGaapDiluted": 3.72,
+      "revenue": 43398000000.0,
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "filed": "2026-11-20",
+      "releaseDate": "2026-11-17",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000162828026075287/hd-20261101.htm",
+      "sourceSha256": "a9216aace9867c6ea7231dae9e9cd31c15b7f076504a177367f7538d16c65a1a"
+    },
+    "otherChanges": "The scheduled scan updated the source-check timestamps and Home Depot coverage. The draft retains its reviewed active-company roster and greater verified coverage.",
+    "publishedHistory": {
+      "sourceUrl": "https://ianhoutsai-afk.github.io/earnings-tracker/historical_data.json",
+      "sourceSha256": "f73d0b357fe5f2edce829775c1c80cdfca2982bb35b827bafb03f1f05adfe3f4",
+      "matchesMainFile": true,
+      "deploymentUrl": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/44855178013",
+      "quarterRecords": 2515,
+      "officialQuarterRecords": 2440,
+      "officialQuarterRecordsWithBothMetrics": 2211
+    }
   }
 }
