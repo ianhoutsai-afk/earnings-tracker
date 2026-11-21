@@ -7518,5 +7518,344 @@
       "scope": "Original SEC filing indexes and all listed 99-series HTML exhibits, with two UDR PDF source receipts. Exact-period, as-reported consolidated values are accepted.",
       "accessErrors": {}
     }
+  },
+  "postCloseFilingProvenance": {
+    "checkedAtUtc": "2026-11-21T02:43:36.180318+00:00",
+    "filings": [
+      {
+        "ticker": "TSN",
+        "accepted": "2026-11-20T17:10:25-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049326000085/0000100493-26-000085-index.htm",
+        "title": "8-K - TYSON FOODS, INC. (0000100493) ()",
+        "form": "8-K",
+        "indexSha256": "25b95c5e31617891c8af2fb117a649620b698b106e7e82c730ece9bf82b5a9af",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 17:10:25",
+          "Documents": "16",
+          "Period of Report": "2026-11-19",
+          "Items": "Item 5.02: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain OfficersItem 7.01: Regulation FD DisclosureItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "WEC",
+        "accepted": "2026-11-20T16:46:30-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000112/0000783325-26-000112-index.htm",
+        "title": "8-K - WEC ENERGY GROUP, INC. (0000783325) ()",
+        "form": "8-K",
+        "indexSha256": "e080772f3911a8bd2ebcf85556e24ec8d7b8277c387e3cb8f63a05998cb9465e",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:46:30",
+          "Documents": "11",
+          "Period of Report": "2026-11-19",
+          "Items": "Item 8.01: Other Events"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "BAC",
+        "accepted": "2026-11-20T16:45:43-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000608/0000070858-26-000608-index.htm",
+        "title": "8-K - BANK OF AMERICA CORP /DE/ (0000070858) ()",
+        "form": "8-K",
+        "indexSha256": "7a88abe758a0f089c9e7e3cfc77610b6dd7a2391aaaf8d3a8b57f6bb1f1ddcd6",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:45:43",
+          "Documents": "13",
+          "Period of Report": "2026-11-19",
+          "Items": "Item 5.03: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal YearItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "COHR",
+        "accepted": "2026-11-20T16:30:25-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526470356/0001193125-26-470356-index.htm",
+        "title": "8-K - COHERENT CORP. (0000820318) ()",
+        "form": "8-K",
+        "indexSha256": "9ff909f5aa41c35497507a8a4b9672a0639de292e1d427874148e83ca197fed8",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:30:25",
+          "Documents": "11",
+          "Period of Report": "2026-11-18",
+          "Items": "Item 5.07: Submission of Matters to a Vote of Security Holders"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "ORCL",
+        "accepted": "2026-11-20T16:30:15-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526470351/0001193125-26-470351-index.htm",
+        "title": "8-K - ORACLE CORP (0001341439) ()",
+        "form": "8-K",
+        "indexSha256": "ecab32b98a456ce0686ee6b81b38df879cc7efba99acfe31a6930b47a6709e8f",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:30:15",
+          "Documents": "9",
+          "Period of Report": "2026-11-18",
+          "Items": "Item 5.07: Submission of Matters to a Vote of Security Holders"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "WDC",
+        "accepted": "2026-11-20T16:21:28-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026075289/0001628280-26-075289-index.htm",
+        "title": "8-K - WESTERN DIGITAL CORP (0000106040) ()",
+        "form": "8-K",
+        "indexSha256": "5a854dbac6d6cd555563169279d137c871f2dcf68a5d2d1ee85f4ac57a0c3510",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:21:28",
+          "Documents": "12",
+          "Period of Report": "2026-11-20",
+          "Items": "Item 5.07: Submission of Matters to a Vote of Security Holders"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "AMD",
+        "accepted": "2026-11-20T16:19:32-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000218/0000002488-26-000218-index.htm",
+        "title": "8-K - ADVANCED MICRO DEVICES INC (0000002488) ()",
+        "form": "8-K",
+        "indexSha256": "a8e594f3827b269e58411c7012ea9aa889553f863d9c42959bcd1bbb1694879b",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:19:32",
+          "Documents": "13",
+          "Period of Report": "2026-11-18",
+          "Items": "Item 5.03: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal YearItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "EVRG",
+        "accepted": "2026-11-20T16:18:53-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1711269/000119312526470295/0001193125-26-470295-index.htm",
+        "title": "8-K - Evergy, Inc. (0001711269) ()",
+        "form": "8-K",
+        "indexSha256": "a930df34f541bee741f0480d5acf4398d9fa257bced9b987d499862342f814e5",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:18:53",
+          "Documents": "12",
+          "Period of Report": "2026-11-20",
+          "Items": "Item 8.01: Other EventsItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "LYB",
+        "accepted": "2026-11-20T16:18:41-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1489393/000148939326000072/0001489393-26-000072-index.htm",
+        "title": "8-K - LyondellBasell Industries N.V. (0001489393) ()",
+        "form": "8-K",
+        "indexSha256": "2c6b3367aeeacf90f4df46c441b85de23400eb00eca50c8ed3113243632c0d5a",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:18:41",
+          "Documents": "13",
+          "Period of Report": "2026-11-18",
+          "Items": "Item 5.02: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain OfficersItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "EL",
+        "accepted": "2026-11-20T16:15:42-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000069/0001001250-26-000069-index.htm",
+        "title": "8-K - ESTEE LAUDER COMPANIES INC (0001001250) ()",
+        "form": "8-K",
+        "indexSha256": "248d0e3368fd5e9dfef67369dcf1932a64df404ea2195c8f50c90ccdf6230429",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:15:42",
+          "Documents": "11",
+          "Period of Report": "2026-11-17",
+          "Items": "Item 5.07: Submission of Matters to a Vote of Security HoldersItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "A",
+        "accepted": "2026-11-20T16:15:14-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090872/000119312526470278/0001193125-26-470278-index.htm",
+        "title": "8-K - AGILENT TECHNOLOGIES, INC. (0001090872) ()",
+        "form": "8-K",
+        "indexSha256": "2a796061da3691e6fd5080de9094b2a9987c603f593ab08f6deccdecbbe82ad6",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:15:14",
+          "Documents": "9",
+          "Period of Report": "2026-11-16",
+          "Items": "Item 5.02: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "BKR",
+        "accepted": "2026-11-20T16:15:00-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000038/0001701605-26-000038-index.htm",
+        "title": "8-K - Baker Hughes Co (0001701605) ()",
+        "form": "8-K",
+        "indexSha256": "90edb97a0c96958c3b6dc77f05bb6f11d9295fab724d65f8880ce7e21fa66702",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:15:00",
+          "Documents": "14",
+          "Period of Report": "2026-11-20",
+          "Items": "Item 8.01: Other EventsItem 9.01: Financial Statements and Exhibits"
+        },
+        "parsed": null,
+        "disposition": "Item 2.02 absent from the SEC index. No quarterly release imported."
+      },
+      {
+        "ticker": "HD",
+        "accepted": "2026-11-20T16:21:23-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/354950/000162828026075287/0001628280-26-075287-index.htm",
+        "title": "10-Q - HOME DEPOT, INC. (0000354950) ()",
+        "form": "10-Q",
+        "indexSha256": "b3ed1dc111c0762b2e00963e98164a696bd8b481abe9f860f5fa9eaa45e32a6f",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:21:23",
+          "Documents": "64",
+          "Period of Report": "2026-11-01"
+        },
+        "parsed": {
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3,
+          "periodScope": "quarter",
+          "periodEnd": "2026-11-01",
+          "periodStart": "2026-08-03",
+          "epsGaapDiluted": 3.72,
+          "revenue": 43398000000.0,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        },
+        "sourceSha256": "a9216aace9867c6ea7231dae9e9cd31c15b7f076504a177367f7538d16c65a1a",
+        "primaryDocument": "https://www.sec.gov/Archives/edgar/data/354950/000162828026075287/hd-20261101.htm",
+        "existingPeriod": "2026-11-01",
+        "previousForm": null,
+        "previousFilingDate": null,
+        "previousSecUrl": null,
+        "existingMetrics": {
+          "revenue": 43398000000.0,
+          "epsGaapDiluted": 3.72,
+          "fiscalYear": 2026,
+          "fiscalQuarter": 3
+        },
+        "disposition": "Quarterly statement revenue and diluted EPS match the original earnings release."
+      },
+      {
+        "ticker": "PTC",
+        "accepted": "2026-11-20T16:02:25-05:00",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526470217/0001193125-26-470217-index.htm",
+        "title": "10-K - PTC INC. (0000857005) ()",
+        "form": "10-K",
+        "indexSha256": "aa3caa7597ea5d63ad196901ec3eec9218888aac2b66a10174c6d8a42aa9f0d9",
+        "indexMetadata": {
+          "Filing Date": "2026-11-20",
+          "Accepted": "2026-11-20 16:02:25",
+          "Documents": "126",
+          "Period of Report": "2026-09-30"
+        },
+        "parsed": {
+          "fiscalYear": 2026,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodEnd": "2026-09-30",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        },
+        "sourceSha256": "279cbb5ec7040bc9d0957df2579b6d30fc8e69d2e3492a12e0053c4d4c002d30",
+        "primaryDocument": "https://www.sec.gov/Archives/edgar/data/857005/000119312526470217/ptc-20260930.htm",
+        "existingPeriod": "2026-09-30",
+        "previousForm": null,
+        "previousFilingDate": null,
+        "previousSecUrl": null,
+        "existingMetrics": {
+          "revenue": 673254000,
+          "epsGaapDiluted": 1.44,
+          "fiscalYear": 2026,
+          "fiscalQuarter": 4
+        },
+        "disposition": "The filing establishes the annual reporting period and filing date. Fourth-quarter metrics retain their independent earnings exhibit source."
+      }
+    ],
+    "scope": "Later SEC filings reported for tracked issuers after the earlier November 20 feed snapshot.",
+    "feedCheckedAtUtc": "2026-11-21T02:43:06.195993+00:00",
+    "feedSources": {
+      "8-K": {
+        "observedNewest": "2026-11-20T17:30:44-05:00",
+        "previousNewest": "2026-11-20T09:33:45-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=8-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "4bcc95c3bb8676e6b0efd08d450faa718e1a4ea26a2576db4e87d5e5331dc7fd",
+        "count": 100
+      },
+      "10-Q": {
+        "observedNewest": "2026-11-20T17:30:17-05:00",
+        "previousNewest": "2026-11-20T09:22:22-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-Q&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "cc2574c71b00f1977e5024830a7a38ecbf82b7469b1d909d79f56521b0e54635",
+        "count": 100
+      },
+      "10-K": {
+        "observedNewest": "2026-11-20T16:15:44-05:00",
+        "previousNewest": "2026-11-20T09:31:37-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "866b0c8a02c4e5a8643e2f4c4e617abc17c26d3f5fb75d5a79ddf81a099ec2e6",
+        "count": 100
+      },
+      "8-K/A": {
+        "observedNewest": "2026-11-20T17:13:27-05:00",
+        "previousNewest": "2026-11-19T16:58:49-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "9e95e007b884259bef1e3411be8cc9f22b67218f1210cd8266b5e3a1c5dc25b4",
+        "count": 19
+      },
+      "10-Q/A": {
+        "observedNewest": "2026-11-20T13:09:48-05:00",
+        "previousNewest": "2026-11-19T17:16:35-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "7de1d150281abdc87df9f64325ca557359345a6b438733f1aa16415d24143d95",
+        "count": 10
+      },
+      "10-K/A": {
+        "observedNewest": "2026-11-19T17:15:48-05:00",
+        "previousNewest": "2026-11-19T17:15:48-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "fc6b94ca34644524e1d0ceca57fae24e5fc625f6a845dd58004e5959cc04ef83",
+        "count": 2
+      },
+      "6-K": {
+        "observedNewest": "2026-11-20T17:25:15-05:00",
+        "previousNewest": "2026-11-20T10:25:38-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=6-K&owner=include&start=0&count=100&output=atom",
+        "sha256": "b8b1a725b1986842f2de63bdee0e129f2bf8592451d7c0c171277ae4a1656bac",
+        "count": 100
+      }
+    },
+    "newQuarterlyFinancialFilingLinks": 2
   }
 }
