@@ -2,7 +2,7 @@ import copy
 import unittest
 from datetime import date
 
-from quarterly_policy import retain_history, retain_manifest, company_fields, pending_history_companies
+from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, pending_history_companies
 from verified_history import apply_official_records
 
 TODAY = date(2026, 10, 22)
@@ -16,6 +16,19 @@ def official(end, quarter, released, eps=1.0):
 
 
 class QuarterlyPolicyTests(unittest.TestCase):
+    def test_manifest_retains_known_start_only_for_the_same_quarter(self):
+        older = dict(official('2026-06-30', 4, '2026-07-29'), verifiedAt='2026-08-01')
+        newer = dict(older, verifiedAt='2026-10-22', periodStart=None)
+        known = dict(older, periodStart='2026-04-01')
+        updated = dict(newer, periodStart='2026-04-02')
+        self.assertEqual(merge_manifest_record(known, newer)['periodStart'], '2026-04-01')
+        self.assertEqual(merge_manifest_record(newer, known)['periodStart'], '2026-04-01')
+        self.assertEqual(merge_manifest_record(known, updated)['periodStart'], '2026-04-02')
+        for change in ({'ticker':'EL'}, {'periodEnd':'2026-06-29'}, {'periodScope':'year'},
+                       {'fiscalYear':2027}, {'fiscalQuarter':3}):
+            with self.subTest(change=change):
+                self.assertIsNone(merge_manifest_record(known, {**newer, **change})['periodStart'])
+
     def test_pending_history_uses_retained_metrics_and_date_provenance(self):
         periods = [('2026-09-30',2026,3), ('2026-06-30',2026,2), ('2026-03-31',2026,1),
                    ('2025-12-31',2025,4), ('2025-09-30',2025,3)]

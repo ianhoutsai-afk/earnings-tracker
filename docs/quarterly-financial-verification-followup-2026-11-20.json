@@ -8266,5 +8266,804 @@
       }
     },
     "newQuarterlyFinancialFilingLinks": 2
+  },
+  "historicalPendingFieldReview": {
+    "checkedAtUtc": "2026-11-21T03:13:54.370426+00:00",
+    "scope": "Review all unresolved metric and release-date fields and compare the retained site rows with the official-history manifest.",
+    "periodStartReconciliation": {
+      "verifiedSourceFacts": {
+        "BKR|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1701605/000170160525000117/bkr-20250930.htm",
+          "sourceSha256": "edd3957794b068ba5fe8d529f9cb3c77e48258578dc136acc5cec09ce64f4e8e",
+          "contextId": "c-12",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "revenueFact": {
+            "id": "f-42",
+            "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+            "reported": "7,010",
+            "scale": 6,
+            "revenueUsd": 7010000000
+          }
+        },
+        "EL|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000019/el-20260331.htm",
+          "sourceSha256": "9853fb9cfe8a2f5929ac5d9ba643c6cc7ad7b9167ca23066f9461ce79e472e53",
+          "contextId": "c-4",
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "revenueFact": {
+            "id": "f-31",
+            "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+            "reported": "3,712",
+            "scale": 6,
+            "revenueUsd": 3712000000
+          },
+          "dilutedEpsReplay": {
+            "id": "f-99",
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "reported": ".24",
+            "epsGaapDiluted": 0.24
+          }
+        },
+        "EL|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000006/el-20251231.htm",
+          "sourceSha256": "8f7646192844ccbb9383f08e4c26f94545a8c588d03a286e15448ad62bf74321",
+          "contextId": "c-4",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2025-12-31",
+          "revenueFact": {
+            "id": "f-31",
+            "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+            "reported": "4,229",
+            "scale": 6,
+            "revenueUsd": 4229000000
+          },
+          "dilutedEpsReplay": {
+            "id": "f-95",
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "reported": ".44",
+            "epsGaapDiluted": 0.44
+          }
+        },
+        "EL|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125025000109/el-20250930.htm",
+          "sourceSha256": "93f6bbcd46673937384b4bc8c41c065147d89074b224320e3abf3ec6ee03fd48",
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "revenueFact": {
+            "id": "f-31",
+            "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+            "reported": "3,481",
+            "scale": 6,
+            "revenueUsd": 3481000000
+          },
+          "dilutedEpsReplay": {
+            "id": "f-61",
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "reported": ".13",
+            "epsGaapDiluted": 0.13
+          }
+        }
+      },
+      "finding": "Four site rows already had the documented start date, but the manifest had null. Re-imports for the same fiscal quarter retain a verified start when a later document has no start evidence."
+    },
+    "earningsReleaseDateReview": {
+      "checkedAtUtc": "2026-11-21T03:05:31.960820+00:00",
+      "confirmedNewReleaseDates": 0,
+      "scope": "SEC submission records available as of the review, including current reports outside Item 2.02 in the periods examined. The date ranges give the search windows, not a claim of coverage beyond the review timestamp.",
+      "records": {
+        "AES|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+          "filingDateRange": [
+            "2026-10-03",
+            "2026-12-08"
+          ],
+          "formCounts": {
+            "10-Q": 1,
+            "8-K": 4
+          },
+          "retainedFilingDate": "2026-11-03",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001140361-26-044617",
+              "filed": "2026-11-18",
+              "items": "7.01,8.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000114036126044617/ny20085743x2_8k.htm",
+              "sourceSha256": "d91453a2c4adcc12f47bed30697f06c0e9f2927257d4d431e2c8c87fce1242b1",
+              "finding": "Stub-period dividend."
+            },
+            {
+              "accessionNumber": "0001140361-26-044548",
+              "filed": "2026-11-17",
+              "items": "7.01,8.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000114036126044548/ny20085743x1_8k.htm",
+              "sourceSha256": "f58a4f8c8e3e9f85e03b7bd1201f67dde8df89cba9d9c18a65d1a67b0128f296",
+              "finding": "Merger approval and closing update."
+            },
+            {
+              "accessionNumber": "0001140361-26-041045",
+              "filed": "2026-10-28",
+              "items": "8.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000114036126041045/ef20084505_8k.htm",
+              "sourceSha256": "657875fea99765f435f8590dc46bca3ece3320ac99ad08aba5aaec7e6ddfbb96",
+              "finding": "Merger update."
+            },
+            {
+              "accessionNumber": "0001140361-26-040117",
+              "filed": "2026-10-19",
+              "items": "8.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000114036126040117/ef20083812_8k.htm",
+              "sourceSha256": "d498f4e323fbaea57478058d34ca1c3f7ea9ea4c667035b553d1b01199ccf1be",
+              "finding": "Merger update."
+            }
+          ]
+        },
+        "AES|2026-06-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+          "filingDateRange": [
+            "2026-07-04",
+            "2026-09-08"
+          ],
+          "formCounts": {
+            "10-Q": 1,
+            "8-K": 3
+          },
+          "retainedFilingDate": "2026-08-04",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001140361-26-034714",
+              "filed": "2026-08-27",
+              "items": "8.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000114036126034714/ef20081101_8k.htm",
+              "sourceSha256": "2a0e09c1c37e34788a8f854655f61fe85060413be5e7ebaff3e049f9a3dcb48d",
+              "finding": "Merger update."
+            },
+            {
+              "accessionNumber": "0000950103-26-011951",
+              "filed": "2026-08-05",
+              "items": "1.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000095010326011951/dp251078_8k.htm",
+              "sourceSha256": "22fd406df68ca4577fe28776dbe091804c640053d7639dc51c859cd6b338d133",
+              "finding": "Credit agreement amendments."
+            },
+            {
+              "accessionNumber": "0000874761-26-000138",
+              "filed": "2026-07-27",
+              "items": "4.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000138/aes-20260721.htm",
+              "sourceSha256": "eeafc2a2b7186b360b28750a43329a2d96bc9e145bc0ad9d3415bafb58594542",
+              "finding": "Change of independent public accounting firm."
+            }
+          ]
+        },
+        "AES|2026-03-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+          "filingDateRange": [
+            "2026-04-04",
+            "2026-06-09"
+          ],
+          "formCounts": {
+            "10-Q": 1,
+            "8-K": 2
+          },
+          "retainedFilingDate": "2026-05-05",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0000874761-26-000100",
+              "filed": "2026-04-30",
+              "items": "5.07",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000100/aes-20260429.htm",
+              "sourceSha256": "126585593ba02d0932f5fff76269c910e839f7b0eae990a57dd4c5bb054d9491",
+              "finding": "Annual meeting voting results."
+            },
+            {
+              "accessionNumber": "0000874761-26-000075",
+              "filed": "2026-04-16",
+              "items": "5.02",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000075/aes-20260414.htm",
+              "sourceSha256": "8af9a7bbc3644c0b054a234bc4abf20f0f74224131e63e0cba528bdaaa521a14",
+              "finding": "Change of chief accounting officer and controller."
+            }
+          ]
+        },
+        "AES|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+          "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+          "filingDateRange": [
+            "2026-01-30",
+            "2026-04-06"
+          ],
+          "formCounts": {
+            "10-K": 1,
+            "8-K": 2
+          },
+          "retainedFilingDate": "2026-03-02",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001193125-26-116111",
+              "filed": "2026-03-19",
+              "items": "1.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000119312526116111/d80729d8k.htm",
+              "sourceSha256": "f3c51cae9e33a221db23ce73a566b9936823b3b5ecb73e7c41da1c375c29d04d",
+              "finding": "Amendment following the merger announcement."
+            },
+            {
+              "accessionNumber": "0001193125-26-084157",
+              "filed": "2026-03-02",
+              "items": "1.01,5.02,7.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000119312526084157/d100078d8k.htm",
+              "sourceSha256": "5db4d795abaea2b4d5a1af9f214b6ded177c0b32e6d18616b9e0f94c48d1fe3e",
+              "finding": "Merger announcement and cancellation of the scheduled results call."
+            }
+          ]
+        },
+        "ECHO|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+          "submissionsSha256": "7d085d28cce56bc88bbebb5b298d2489bb07ac4fa637b175099086fe5200f301",
+          "filingDateRange": [
+            "2026-10-03",
+            "2026-12-08"
+          ],
+          "formCounts": {
+            "10-Q": 1,
+            "8-K": 1
+          },
+          "retainedFilingDate": "2026-11-03",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001415404-26-000057",
+              "filed": "2026-11-03",
+              "items": "5.07,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000141540426000057/sats-20261030x8k.htm",
+              "sourceSha256": "f37af092b1a5868e0e45361bab09660c3f472d797adf4a19c0f547575dd231db",
+              "finding": "Annual meeting voting results."
+            }
+          ]
+        },
+        "FE|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001031296.json",
+          "submissionsSha256": "82f8c27408023d524a726c35742f9df00dc42f9136d845cc8169b1bf8653c4e9",
+          "filingDateRange": [
+            "2026-01-18",
+            "2026-03-25"
+          ],
+          "formCounts": {
+            "10-K": 1,
+            "8-K": 2
+          },
+          "retainedFilingDate": "2026-02-18",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001031296-26-000041",
+              "filed": "2026-02-17",
+              "items": "2.02,7.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/fe-20260217.htm",
+              "sourceSha256": "ce63ac8698de8f8d34a226057d42546c956a2291560b0c14f4c47d216c5585bb",
+              "finding": "Item 2.02 reports the year ended December 31, 2025. The earnings tables in the attached materials are full year."
+            },
+            {
+              "accessionNumber": "0001031296-26-000020",
+              "filed": "2026-02-12",
+              "items": "5.02",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000020/fe-20260208.htm",
+              "sourceSha256": "afdd4dd4e30517af6bd21ca3a082482b65ba37986bf34af50c2b5e2301d01a45",
+              "finding": "Director notice."
+            }
+          ]
+        },
+        "TECH|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+          "submissionsSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3",
+          "filingDateRange": [
+            "2026-10-06",
+            "2026-12-11"
+          ],
+          "formCounts": {
+            "10-K/A": 1,
+            "10-Q": 1,
+            "10-Q/A": 1,
+            "8-K": 1
+          },
+          "retainedFilingDate": "2026-11-06",
+          "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
+          "currentReportsExamined": [
+            {
+              "accessionNumber": "0001104659-26-122283",
+              "filed": "2026-11-04",
+              "items": "8.01,9.01",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926122283/tech-20261103x8k.htm",
+              "sourceSha256": "a6aeb615a67b318ff3334815a6f1de52714c07d54fffa2da7e48654917c733f1",
+              "finding": "Cash dividend announcement."
+            }
+          ],
+          "amendedFiling": {
+            "sourceUrl": "https://investors.bio-techne.com/all-sec-filings/content/0001104659-26-126284/tech-20260930x10qa.htm",
+            "finding": "The November 12 amendment adds signature pages only."
+          }
+        }
+      }
+    },
+    "numericEvidence": {
+      "AES": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/R69.htm"
+        ],
+        "finding": "The issuer’s EPS methodology includes adjustments to net income in the diluted numerator, including redeemable stock and contingent distributions. The annual note cannot establish the missing quarter-specific diluted numerator."
+      },
+      "BRK-B": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+          "https://www.sec.gov/Archives/edgar/data/1067983/000119312526106253/d882687ddef14a.htm"
+        ],
+        "finding": "The financial statement uses the basic EPS tag. Disclosure of executive compensation policy does not establish diluted EPS for the issuer."
+      },
+      "FE": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+          "https://www.sec.gov/Archives/edgar/data/1031296/000103129625000085/fe-20250930.htm",
+          "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9934q25investorfactboo.htm"
+        ],
+        "finding": "The annual and first-nine-month income figures imply a fourth-quarter loss in rounded millions. They do not establish the quarter-specific diluted share basis or the sign and size of all dilution adjustments."
+      },
+      "SKYD": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm"
+        ],
+        "finding": "The 2025 comparative period reports predecessor and successor separately. Its combined $6,714 million quarterly figure is pro forma and differs by $12 million from the sum of the two lines. No comparable quarter-wide actual diluted EPS was found."
+      },
+      "TRGP": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+          "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/R42.htm",
+          "https://www.sec.gov/Archives/edgar/data/1389170/000119312526449541/trgp-20260930.htm"
+        ],
+        "finding": "Participating share allocations affect the EPS numerator. Even assuming day-weighted diluted shares and comparable EPS numerator definitions, the precision of the published annual and nine-month inputs permits both $2.51 and $2.52.",
+        "hypotheticalBoundsBeforeRounding": [
+          2.5081021255188025,
+          2.5171068503106437
+        ]
+      },
+      "TXT": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm"
+        ],
+        "finding": "The displayed $1.33 is continuing-operations EPS. Rounded total net income of $235 million and 177.125 million diluted shares permit both $1.32 and $1.33 for total EPS.",
+        "boundsBeforeRoundingUsingMonetaryPrecision": [
+          1.323923782639379,
+          1.3295695130557517
+        ]
+      },
+      "VYLR": {
+        "sourceUrls": [
+          "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+          "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm"
+        ],
+        "finding": "Historical carve-out statements lack a standalone diluted EPS field. The Article 11 pro forma and Corteva group EPS candidates apply to different reporting bases."
+      }
+    },
+    "pendingFieldsByPeriod": {
+      "AES|2025-12-31": [
+        "epsGaapDiluted",
+        "earningsReleaseDate"
+      ],
+      "AES|2026-03-31": [
+        "earningsReleaseDate"
+      ],
+      "AES|2026-06-30": [
+        "earningsReleaseDate"
+      ],
+      "AES|2026-09-30": [
+        "earningsReleaseDate"
+      ],
+      "BRK-B|2025-09-30": [
+        "epsGaapDiluted"
+      ],
+      "BRK-B|2025-12-31": [
+        "epsGaapDiluted"
+      ],
+      "BRK-B|2026-03-31": [
+        "epsGaapDiluted"
+      ],
+      "BRK-B|2026-06-30": [
+        "epsGaapDiluted"
+      ],
+      "BRK-B|2026-09-30": [
+        "epsGaapDiluted"
+      ],
+      "ECHO|2026-09-30": [
+        "earningsReleaseDate"
+      ],
+      "FE|2025-12-31": [
+        "epsGaapDiluted",
+        "earningsReleaseDate"
+      ],
+      "SKYD|2025-09-30": [
+        "epsGaapDiluted",
+        "revenue"
+      ],
+      "TECH|2026-09-30": [
+        "earningsReleaseDate"
+      ],
+      "TRGP|2025-12-31": [
+        "epsGaapDiluted"
+      ],
+      "TXT|2026-01-03": [
+        "epsGaapDiluted"
+      ],
+      "VYLR|2025-09-30": [
+        "epsGaapDiluted"
+      ],
+      "VYLR|2025-12-31": [
+        "epsGaapDiluted"
+      ],
+      "VYLR|2026-03-31": [
+        "epsGaapDiluted"
+      ],
+      "VYLR|2026-06-30": [
+        "epsGaapDiluted"
+      ],
+      "VYLR|2026-09-30": [
+        "epsGaapDiluted"
+      ]
+    },
+    "leadingDecimalReplay": {
+      "checkedAtUtc": "2026-11-21T03:17:57.339808+00:00",
+      "scope": "Compared old and new parsing for retained filings containing tagged leading-decimal candidates in the available source archive.",
+      "quarterRecordsWithAvailableFilings": 2201,
+      "quarterRecordsWithLeadingDecimalCandidates": 185,
+      "quarterRecordsWithoutLocallyArchivedFilingsInBroadReplay": 263,
+      "quarterRecordsWithChangedParsing": [
+        {
+          "ticker": "AFL",
+          "periodEnd": "2026-09-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.61,
+              "stored": 0.61
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026070776/afl-20260930.htm",
+          "sourceSha256": "1ebd93994f8ca16a25d9e68512ee079d5e1cd9a3ef08ca7d4229a3ed70957c8b"
+        },
+        {
+          "ticker": "EL",
+          "periodEnd": "2026-09-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.64,
+              "stored": 0.64
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000060/el-20260930.htm",
+          "sourceSha256": "be5810f3317163ad3496f6985c34f5f609f7e017489cd7c70cb69d5fbb5a5284"
+        },
+        {
+          "ticker": "EL",
+          "periodEnd": "2026-03-31",
+          "changes": {
+            "periodStart": {
+              "previous": null,
+              "current": "2026-01-01",
+              "stored": "2026-01-01"
+            },
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.24,
+              "stored": 0.24
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000019/el-20260331.htm",
+          "sourceSha256": "9853fb9cfe8a2f5929ac5d9ba643c6cc7ad7b9167ca23066f9461ce79e472e53"
+        },
+        {
+          "ticker": "EL",
+          "periodEnd": "2025-12-31",
+          "changes": {
+            "periodStart": {
+              "previous": null,
+              "current": "2025-10-01",
+              "stored": "2025-10-01"
+            },
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.44,
+              "stored": 0.44
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000006/el-20251231.htm",
+          "sourceSha256": "8f7646192844ccbb9383f08e4c26f94545a8c588d03a286e15448ad62bf74321"
+        },
+        {
+          "ticker": "EL",
+          "periodEnd": "2025-09-30",
+          "changes": {
+            "periodStart": {
+              "previous": null,
+              "current": "2025-07-01",
+              "stored": "2025-07-01"
+            },
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.13,
+              "stored": 0.13
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125025000109/el-20250930.htm",
+          "sourceSha256": "93f6bbcd46673937384b4bc8c41c065147d89074b224320e3abf3ec6ee03fd48"
+        },
+        {
+          "ticker": "KEY",
+          "periodEnd": "2026-09-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.51,
+              "stored": 0.51
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000009157626000023/key-20260930.htm",
+          "sourceSha256": "be95b03aff2ee4558f75889520e389725a1b90372a3b8ed781c61d9476d52f10"
+        },
+        {
+          "ticker": "KEY",
+          "periodEnd": "2026-06-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.44,
+              "stored": 0.44
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026052671/key-20260630.htm",
+          "sourceSha256": "793682f9ac2606201cca67125584814f6e6176654a3518fd71866694bf876c23"
+        },
+        {
+          "ticker": "KEY",
+          "periodEnd": "2026-03-31",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.44,
+              "stored": 0.44
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828026030507/key-20260331.htm",
+          "sourceSha256": "c4b8d3bf80dfa92d165803e84bfe3b4aaa6fb726485885564bd60a1fafdcf373"
+        },
+        {
+          "ticker": "KEY",
+          "periodEnd": "2025-09-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.41,
+              "stored": 0.41
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/91576/000162828025048757/key-20250930.htm",
+          "sourceSha256": "34441c052ccf44a1fe3492ecbb5a57c90e5fe5c178d75bb15628e8da6051fadf"
+        },
+        {
+          "ticker": "WMB",
+          "periodEnd": "2026-06-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.68,
+              "stored": 0.68
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000026/wmb-20260630.htm",
+          "sourceSha256": "06732e0eba8e6841bba8a76ac8907c51b12cbb109abf16f0b02082373889b7b9"
+        },
+        {
+          "ticker": "WMB",
+          "periodEnd": "2026-03-31",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.7,
+              "stored": 0.7
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000017/wmb-20260331.htm",
+          "sourceSha256": "f82cd4bbb33539b631c327339c429b01386517ddaded8caa8b4ed4ae683bf7fe"
+        },
+        {
+          "ticker": "WMB",
+          "periodEnd": "2025-09-30",
+          "changes": {
+            "epsGaapDiluted": {
+              "previous": null,
+              "current": 0.53,
+              "stored": 0.53
+            }
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/107263/000010726325000145/wmb-20250930.htm",
+          "sourceSha256": "7e074d0b8b27e580f9aba4e5d8e0b3c4f92ea5d7f9906e729a03ba2969601936"
+        }
+      ]
+    },
+    "originalPendingMetricFilingReplay": {
+      "scope": "All retained SEC financial filing links attached to quarters missing revenue or diluted EPS. Four other pending Vylor carve-out records have no standalone contemporaneous filing.",
+      "records": {
+        "AES|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+          "sourceSha256": "127bebd5b40a83c6e99e90a03cd9c1c8cfe5d104f95800d9b3b17f47621900ce",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "BRK-B|2026-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+          "sourceSha256": "d523cde8f7f2fdc3d01d45aba7eb3c5c60c1279cb22f0b792ebef6f9908bf189",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "BRK-B|2026-06-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+          "sourceSha256": "95c226d9e503f989a98e87060f578a355f817e6ba252acb8c711f14eab563edc",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "BRK-B|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+          "sourceSha256": "dd363e0c4ca33aa2346207f02a54f26ba9b0ed90f49a018f389bc56937d9a7db",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "BRK-B|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "sourceSha256": "23d19dd8a1d437fe9cfaf2ca54aaf685e8d43477f4400c8329afea4fac6d800a",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "BRK-B|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+          "sourceSha256": "0c304dcfb5657c5f75018d4a313855d24609d79141cdd5d5680f0cfdb12e4818",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "FE|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+          "sourceSha256": "afc264b3829938e6b82ca8f49e94461320528525fe7cf27bcdb02813a7575872",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "SKYD|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+          "sourceSha256": "e469ac7b228a48f34f62b757dfe98858afea298ed5d1b0cc612a63c6ff40598a",
+          "pendingFields": [
+            "epsGaapDiluted",
+            "revenue"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null,
+            "revenue": null
+          }
+        },
+        "TRGP|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+          "sourceSha256": "bacbb6547861608636f24858bf8035c8e9f217e7d1ceea1ce42419467c6d2bb6",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "TXT|2026-01-03": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+          "sourceSha256": "5cbc4d35b619e7b9163460f3eb726c6a341207a6dfe5f0949434bf7e1ca12e0f",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        },
+        "VYLR|2026-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+          "sourceSha256": "ece3ac41a42c917e368847d151127d251c1cdfe537f6e2bf7baeb252be63cfa9",
+          "pendingFields": [
+            "epsGaapDiluted"
+          ],
+          "parsed": {
+            "epsGaapDiluted": null
+          }
+        }
+      }
+    },
+    "vylorIngestionReplay": {
+      "checkedAtUtc": "2026-11-21T03:18:59.358271+00:00",
+      "finding": "The original filing uses Vylor’s identifier on the diluted EPS facts for Corteva common stockholders. The issuer-period guard keeps the $905 million actual carve-out revenue and leaves standalone EPS pending.",
+      "rejectedCortevaEps": -0.85,
+      "rejectedFactIds": [
+        "f-119",
+        "f-840"
+      ],
+      "verifiedPeriodFact": {
+        "id": "f-1969",
+        "contextId": "c-11",
+        "periodStart": "2026-07-01",
+        "revenueUsd": 905000000
+      },
+      "replayedOriginalSources": {
+        "https://data.sec.gov/submissions/CIK0002128626.json": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+        "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/vylr-20261111.htm": "96248b1d8920bbfcecd68c945edbc2057a7cb2f7e07e48b6671f3176876b3429",
+        "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a3q_2026xearningsxnewsxr.htm": "78d652685a2c4cd35a3b34a3c3dd78dbdda8ff50b135cd9b606690e37b66f670",
+        "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm": "ece3ac41a42c917e368847d151127d251c1cdfe537f6e2bf7baeb252be63cfa9"
+      },
+      "result": {
+        "date": "2026-11-11",
+        "periodEnd": "2026-09-30",
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "periodScope": "quarter",
+        "periodStart": "2026-07-01",
+        "epsGaapDiluted": null,
+        "revenue": 905000000.0,
+        "epsBasis": "GAAP diluted",
+        "currency": "USD",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000009/a3q_2026xearningsxnewsxr.htm",
+        "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "verifiedAt": "2026-11-20",
+        "releaseFilingDate": "2026-11-12",
+        "releaseAccession": "0002128626-26-000009",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000012/vylr-20260930.htm",
+        "form": "10-Q",
+        "filingDate": "2026-11-12",
+        "accessionNumber": "0002128626-26-000012"
+      },
+      "diagnostic": {
+        "releaseCandidates": 1,
+        "parsedQuarters": 1,
+        "parsePending": 0,
+        "metricPending": 1,
+        "requestFailures": 0,
+        "sourceErrors": [],
+        "nextEarningsEvent": null
+      }
+    }
   }
 }

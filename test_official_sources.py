@@ -69,6 +69,25 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual(r['periodStart'],'2026-07-01')
   self.assertEqual((r['fiscalYear'],r['fiscalQuarter']),(2026,3))
 
+ def test_inline_diluted_eps_allows_omitted_leading_zero(self):
+  for attributes, number, expected in [('', '0.24', 0.24), ('', '.24', 0.24),
+                                        (' sign="-"', '.24', -0.24), ('', '.', None)]:
+   with self.subTest(attributes=attributes, number=number):
+    document = filing().replace('>1.25</ix:nonFraction>', f'{attributes}>{number}</ix:nonFraction>')
+    self.assertEqual(parse_inline_quarter(document, '2026-09-30')['epsGaapDiluted'], expected)
+
+ def test_vylor_quarter_keeps_carve_out_sales_and_excludes_corteva_eps(self):
+  document = filing('<ix:nonNumeric name="dei:EntityCentralIndexKey">0002128626</ix:nonNumeric>')
+  document = document.replace('>1</xbrli:identifier>', '>0002128626</xbrli:identifier>')
+  document = document.replace('>1.25</ix:nonFraction>', ' sign="-">0.85</ix:nonFraction>')
+  for cik in ('2128626', None):
+   with self.subTest(cik=cik):
+    parsed = parse_inline_quarter(document, '2026-09-30', cik=cik)
+    self.assertEqual((parsed['revenue'], parsed['periodStart']), (1200000000, '2026-07-01'))
+    self.assertIsNone(parsed['epsGaapDiluted'])
+  post_separation = document.replace('2026-09-30', '2026-12-31').replace('2026-07-01', '2026-10-01').replace('>Q3<', '>FY<')
+  self.assertEqual(parse_inline_quarter(post_separation, '2026-12-31', '2128626')['epsGaapDiluted'], -0.85)
+
  def test_standard_revenue_tag_on_explicit_segment_row_is_not_consolidated_total(self):
   fact='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
   segment='<table><tr><td>Hybrid Cloud segment net revenues</td><td>'+fact+'</td></tr></table>'

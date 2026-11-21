@@ -403,12 +403,18 @@ def parse_inline_quarter(document, period_end, cik=None):
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
     eps, revenue, starts = set(), set(), set()
     keycorp = cik is not None and str(cik).lstrip('0') == '91576'
+    # Vylor's pre-separation filing tags Corteva's diluted EPS with Vylor's
+    # own CIK. Its stand-alone carve-out statement reports revenue only.
+    vylor_pre_separation = (period_end == '2026-09-30'
+                            and str(cik or dei('EntityCentralIndexKey') or '').lstrip('0') == '2128626')
     keycorp_components = {}
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
         tag = node.get('name', '')
         is_eps = tag.lower() == 'us-gaap:earningspersharediluted'
+        if is_eps and vylor_pre_separation:
+            continue
         is_revenue = tag.lower() in {t.lower() for t in REVENUE_TAGS}
         # Extension names need an explicit consolidated total row and the same
         # dimensionless quarter context and USD unit as standard facts.
@@ -439,7 +445,7 @@ def parse_inline_quarter(document, period_end, cik=None):
             continue
         try:
             raw = ''.join(_text(node).split()).replace(',', '')
-            if not re.fullmatch(r'\d+(?:\.\d+)?', raw):
+            if not re.fullmatch(r'(?:\d+(?:\.\d+)?|\.\d+)', raw):
                 continue
             scale = int(node.get('scale', '0'))
             if not -12 <= scale <= 15:
