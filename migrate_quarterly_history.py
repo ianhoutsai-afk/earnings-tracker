@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from quarterly_policy import retain_manifest, company_fields
+from quarterly_policy import official_source_url, retain_manifest, company_fields
 from verified_history import apply_official_records, write_json_bundle
 from validate_quarterly_data import validate
 
@@ -30,7 +30,7 @@ def migrate(root='.',today=None):
             current['officialCheckedAt']=current['checkedAt']
         status[ticker]={**current,'recordCount':len(rows),'officialQuarterCount':verified,
                         'latestStoredDate':latest.get('date'),'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
-                        'officialSourceUrl':latest.get('releaseSourceUrl')}
+                        'officialSourceUrl':official_source_url(latest)}
         retained_dates={r['date'] for r in rows}
         report['companyChanges'].append({'ticker':ticker,'beforeCount':len(before[ticker]),'afterCount':len(rows),
                 'officialQuarters':verified,'missingQuarters':max(0,5-len(rows)),

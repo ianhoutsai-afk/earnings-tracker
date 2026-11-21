@@ -4,6 +4,7 @@ import copy
 import json
 import math
 import os
+import re
 import tempfile
 import time
 from datetime import date, datetime, timezone
@@ -12,7 +13,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 from update_data import format_eps, format_revenue
-from quarterly_policy import retain_history, company_fields, preserve_release_provenance
+from quarterly_policy import retain_history, company_fields, official_source_url, preserve_release_provenance
 
 
 NEW_YORK = ZoneInfo('America/New_York')
@@ -36,15 +37,15 @@ def _iso_date(value, label):
 
 def _validate_record(record, tickers, today):
     required = ('ticker', 'date', 'periodEnd', 'fiscalYear', 'fiscalQuarter',
-                'periodScope', 'currency', 'releaseSourceUrl', 'verifiedAt')
+                'periodScope', 'currency', 'verifiedAt')
     if any(key not in record for key in required):
         raise ValueError(f'Missing official record field: {record.get("ticker", "?")}')
     if record['ticker'] not in tickers:
         raise ValueError(f'Unknown ticker: {record["ticker"]}')
-    release = _iso_date(record['date'], 'release date')
+    event_date = _iso_date(record['date'], 'official record date')
     period_end = _iso_date(record['periodEnd'], 'period end')
     verified = _iso_date(record['verifiedAt'], 'verification date')
-    if not period_end <= release <= today or verified > today:
+    if not period_end <= event_date <= today or verified > today:
         raise ValueError(f'Invalid official dates for {record["ticker"]}')
     if record['periodScope'] != 'quarter' or record['fiscalQuarter'] not in (1, 2, 3, 4):
         raise ValueError('Only explicit quarterly results are accepted')
@@ -52,12 +53,30 @@ def _validate_record(record, tickers, today):
         raise ValueError('Invalid fiscal year')
     if record['currency'] != 'USD':
         raise ValueError('Only verified USD values can use the current $ display')
-    source = urlparse(record['releaseSourceUrl'])
+    if record.get('dateSource') not in (None, 'sec_filing', 'recast'):
+        raise ValueError('Unknown official date source')
+    source_url = official_source_url(record)
+    source = urlparse(source_url or '')
     host = (source.hostname or '').lower()
-    if source.scheme != 'https' or not host or host == 'finance.yahoo.com' or host.endswith('.yahoo.com'):
-        raise ValueError('A reviewed official HTTPS release URL is required')
+    if source.scheme != 'https' or not host or host == 'yahoo.com' or host.endswith('.yahoo.com') or source.username or source.password:
+        raise ValueError('A reviewed official HTTPS source URL is required')
+    if record.get('dateSource') == 'sec_filing':
+        accession = record.get('accessionNumber') or ''
+        archive = re.fullmatch(r'/Archives/edgar/data/[0-9]+/([0-9]{18})/[^/]+', source.path)
+        if (host != 'www.sec.gov' or not archive or not re.fullmatch(r'[0-9]{10}-[0-9]{2}-[0-9]{6}', accession)
+                or archive[1] != accession.replace('-', '') or record.get('form') not in ('10-Q', '10-K')
+                or record.get('filingDate') != record['date'] or
+                any(record.get(field) for field in ('releaseSourceUrl', 'releaseAccession', 'releaseFilingDate'))):
+            raise ValueError('A filing-dated quarter requires a matching SEC form, accession and filing date')
+    if record.get('dateSource') == 'recast':
+        accession = record.get('releaseAccession') or ''
+        archive = re.fullmatch(r'/Archives/edgar/data/[0-9]+/([0-9]{18})/[^/]+', source.path)
+        filed = _iso_date(record.get('releaseFilingDate'), 'recast filing date')
+        if (host != 'www.sec.gov' or not archive or not re.fullmatch(r'[0-9]{10}-[0-9]{2}-[0-9]{6}', accession)
+                or archive[1] != accession.replace('-', '') or not event_date <= filed <= today):
+            raise ValueError('A recast quarter requires a matching SEC disclosure accession and filing date')
     for field in ('metricSourceUrl','epsSourceUrl','revenueSourceUrl'):
-        metric_source = urlparse(record.get(field) or record['releaseSourceUrl'])
+        metric_source = urlparse(record.get(field) or source_url)
         if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com') or metric_source.username or metric_source.password:
             raise ValueError('A reviewed official HTTPS metric URL is required')
     if record.get('epsGaapDiluted') is not None and record.get('epsBasis') != 'GAAP diluted':
@@ -77,6 +96,14 @@ def _validate_record(record, tickers, today):
         or not isinstance(note.get('zh-TW'), str)
     ):
         raise ValueError('Metric note must have English and Traditional Chinese text')
+    note_url = record.get('metricNoteSourceUrl')
+    if note_url is not None:
+        note_source = urlparse(note_url if isinstance(note_url, str) else '')
+        note_host = note_source.hostname or ''
+        if (note is None or note_source.scheme != 'https' or not note_host or
+                note_host == 'yahoo.com' or note_host.endswith('.yahoo.com') or
+                note_source.username or note_source.password):
+            raise ValueError('A metric note and a reviewed official HTTPS note source are required')
 
 
 def apply_official_records(companies, history, records, today):
@@ -100,6 +127,7 @@ def apply_official_records(companies, history, records, today):
             or (row.get('periodEnd') == record['periodEnd']
                 and row.get('periodScope') == record['periodScope'])
         )), None)
+        source_url = official_source_url(record)
         eps = record.get('epsGaapDiluted')
         revenue = record.get('revenue')
         official_row = {
@@ -111,23 +139,25 @@ def apply_official_records(companies, history, records, today):
             'revenue_reported': format_revenue(revenue),
             'epsBasis': 'GAAP diluted' if eps is not None else None,
             'currency': record['currency'],
-            'releaseSourceUrl': record['releaseSourceUrl'],
-            'metricSourceUrl': record.get('metricSourceUrl') or record['releaseSourceUrl'],
+            'metricSourceUrl': record.get('metricSourceUrl') or source_url,
             'verifiedAt': record['verifiedAt'],
             'verificationStatus': 'official_verified',
         }
-        for field in ('periodStart','filingDate','accessionNumber','secUrl','form','releaseFilingDate','releaseAccession'):
+        for field in ('periodStart','dateSource','filingDate','accessionNumber','secUrl','form','releaseSourceUrl','releaseFilingDate','releaseAccession'):
             if record.get(field) is not None:
                 official_row[field] = record[field]
         for field,source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
             if record.get(field) is not None:
-                official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or record['releaseSourceUrl']
+                official_row[source_field]=record.get(source_field) or record.get('metricSourceUrl') or source_url
         if record.get('metricNote'):
             official_row['metricNote'] = record['metricNote']
+            if record.get('metricNoteSourceUrl'):
+                official_row['metricNoteSourceUrl'] = record['metricNoteSourceUrl']
         official_row['fiscalYear'] = record['fiscalYear']
         official_row['fiscalQuarter'] = record['fiscalQuarter']
         if existing:
             if existing.get('verifiedAt', '') > record['verifiedAt']:
+                preserve_release_provenance(existing, official_row)
                 continue
             # A restatement changes values, not the original release or its provenance.
             if existing.get('verificationStatus') == 'official_verified':
@@ -147,6 +177,10 @@ def apply_official_records(companies, history, records, today):
                         existing.pop('revenueSourceUrl', None)
                 if eps is None and revenue is None:
                     official_row['metricSourceUrl'] = existing.get('metricSourceUrl', existing.get('releaseSourceUrl'))
+            if 'dateSource' not in official_row:
+                existing.pop('dateSource', None)
+            if 'metricNote' in official_row and 'metricNoteSourceUrl' not in official_row:
+                existing.pop('metricNoteSourceUrl', None)
             existing.update(official_row)
             continue
         rows.append(official_row)
@@ -207,15 +241,16 @@ def status_from_discovery(companies, history, candidates, errors, checked_at):
         latest_candidate = max(candidates.get(ticker, []), default='')
         latest_row = next((row for row in rows if row.get('date') == latest_stored), {})
         verified = latest_row.get('verificationStatus') == 'official_verified'
+        release_verified = verified and latest_row.get('dateSource') is None
         if ticker in errors:
             status, reason = 'discovery_failed', errors[ticker]
         elif latest_candidate and latest_candidate > latest_stored:
             status, reason = 'pending_official', 'newer_release_requires_official_check'
-        elif latest_candidate == latest_stored and verified:
+        elif latest_candidate == latest_stored and release_verified:
             status, reason = 'verified_to_latest_candidate', 'latest_yahoo_candidate_is_officially_verified'
-        elif latest_candidate and latest_candidate < latest_stored and verified:
+        elif latest_candidate and latest_candidate < latest_stored and release_verified:
             status, reason = 'official_newer_than_discovery', 'official_release_newer_than_yahoo_candidate'
-        elif latest_candidate and not verified:
+        elif latest_candidate and not release_verified:
             status, reason = 'pending_official', 'stored_latest_requires_official_check'
         else:
             status, reason = 'no_new_candidate', 'no_new_release_found_in_yahoo_scan'
@@ -224,7 +259,7 @@ def status_from_discovery(companies, history, candidates, errors, checked_at):
             'reason': reason,
             'latestStoredDate': latest_stored or None,
             'latestStoredOfficial': verified,
-            'officialSourceUrl': latest_row.get('releaseSourceUrl') if verified else None,
+            'officialSourceUrl': official_source_url(latest_row) if verified else None,
             'discoverySource': 'yfinance.get_earnings_dates',
             'checkedAt': checked_at,
         }
@@ -343,26 +378,28 @@ def refresh_site_data(root, today=None, scan=False, fetch=None, sleep=time.sleep
             latest = max((row.get('date', '') for row in rows), default='')
             latest_row = next((row for row in rows if row.get('date') == latest), {})
             verified = latest_row.get('verificationStatus') == 'official_verified'
+            added_reason = {'sec_filing': 'official_filing_added', 'recast': 'official_recast_added'}.get(
+                latest_row.get('dateSource'), 'official_release_added')
             prior = existing_status.get(ticker)
             if prior and prior.get('latestStoredDate') == (latest or None):
                 status[ticker] = {
                     **prior,
                     'latestStoredOfficial': verified,
-                    'officialSourceUrl': latest_row.get('releaseSourceUrl') if verified else None,
+                    'officialSourceUrl': official_source_url(latest_row) if verified else None,
                 }
                 if verified and prior.get('status') == 'pending_official':
                     status[ticker].update({
                         'status': 'official_verified_scan_pending',
-                        'reason': 'official_release_added; next_discovery_scan_pending',
+                        'reason': f'{added_reason}; next_discovery_scan_pending',
                         'checkedAt': checked_at,
                     })
             elif verified:
                 status[ticker] = {
                     'status': 'official_verified_scan_pending',
-                    'reason': 'official_release_added; next_discovery_scan_pending',
+                    'reason': f'{added_reason}; next_discovery_scan_pending',
                     'latestStoredDate': latest,
                     'latestStoredOfficial': True,
-                    'officialSourceUrl': latest_row.get('releaseSourceUrl'),
+                    'officialSourceUrl': official_source_url(latest_row),
                     'discoverySource': None,
                     'checkedAt': checked_at,
                 }

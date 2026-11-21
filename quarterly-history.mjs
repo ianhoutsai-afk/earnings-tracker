@@ -66,3 +66,29 @@ export function quarterlyMetrics(row) {
     revenue: verified ? row.revenue_reported || '-' : '-',
   };
 }
+
+
+export function historyCoverage(companies, history, sourceStatus) {
+  const coverage = { count: companies.length, verified: 0, failed: 0, pending: 0, filingDated: 0, recastDated: 0 };
+  for (const { ticker } of companies) {
+    if (['official_source_failed', 'official_mapping_missing'].includes(sourceStatus[ticker]?.status)) {
+      coverage.failed += 1;
+    }
+
+    const rows = selectHistory(ticker, history[ticker] || []);
+    let pending = rows.length < 5;
+    for (const row of rows) {
+      if (row.verificationStatus === 'official_verified') {
+        coverage.verified += 1;
+        if (row.dateSource === 'sec_filing') coverage.filingDated += 1;
+        if (row.dateSource === 'recast') coverage.recastDated += 1;
+      }
+      const { eps, revenue } = quarterlyMetrics(row);
+      if (eps === '-' || revenue === '-' || (row.dateSource != null && row.dateSource !== 'recast')) {
+        pending = true;
+      }
+    }
+    if (pending) coverage.pending += 1;
+  }
+  return coverage;
+}

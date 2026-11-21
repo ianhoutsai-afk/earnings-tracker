@@ -49,6 +49,15 @@ class OfficialSyncTests(unittest.TestCase):
    sync_all(root,TODAY,fetch=tracked,full=True)
    self.assertEqual((root/'historical_data.json').read_text(),before)
 
+ def test_start_of_reporting_basis_excludes_prior_periods_for_one_ticker(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)
+   self.setup_root(root,mapping={'ABC':{'cik':'0000000001','automaticQuarterStart':'2026-10-01'},
+                                  'ABCA':{'cik':'0000000001'}})
+   sync_all(root,TODAY,fetch=fetch,full=True)
+   records=json.loads((root/'official_history.json').read_text())
+   self.assertEqual([(r['ticker'],r['periodEnd']) for r in records],[('ABCA','2026-09-30')])
+
  def test_source_failure_preserves_values_and_publishes_failure_for_each_company(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp);self.setup_root(root)
@@ -113,6 +122,28 @@ class IssuerIsolationTests(unittest.TestCase):
 
 class OfficialReviewRegressions(unittest.TestCase):
  setup_root=OfficialSyncTests.setup_root
+ def test_financial_filing_amendment_needs_quarter_metrics_to_replace_original(self):
+  from official_sync import check_issuer
+  submissions={'filings':{'recent':{
+   'form':['8-K','10-Q','10-Q/A'], 'items':['2.02','', ''],
+   'accessionNumber':['0000000001-26-000001','0000000001-26-000002','0000000001-26-000003'],
+   'primaryDocument':['results.htm','quarter.htm','amendment.htm'],
+   'filingDate':['2026-10-15','2026-10-16','2026-10-20'],
+   'reportDate':['2026-10-14','2026-09-30','2026-09-30']}}}
+  for includes_financials in (False, True):
+   with self.subTest(includes_financials=includes_financials):
+    def source(url):
+     if url.endswith('/amendment.htm'):
+      document = filing().replace('>1.25<', '>1.26<')
+      return document if includes_financials else document.split('<ix:nonFraction', 1)[0] + '</body></html>'
+     return fetch(url)
+    rows, diagnostics = check_issuer('0000000001', submissions, source, TODAY)
+    row, = rows
+    self.assertEqual(diagnostics['requestFailures'], 0)
+    self.assertEqual(row['accessionNumber'], '0000000001-26-000003' if includes_financials else '0000000001-26-000002')
+    self.assertEqual(row['epsGaapDiluted'], 1.26 if includes_financials else 1.25)
+    self.assertEqual(row['date'], '2026-10-14')
+
  def test_metric_filing_transport_failure_is_visible_in_source_health(self):
   from official_sync import check_issuer
   def missing(url):
@@ -306,3 +337,156 @@ class SupplementalHistoryTests(unittest.TestCase):
    return fetch(url)
   rows,_=check_issuer('0000000001',submissions,source,TODAY)
   self.assertEqual([r['periodEnd'] for r in rows],['2026-09-30','2026-06-30'])
+
+class ReviewedReleaseExclusionTests(unittest.TestCase):
+ def test_known_trade_desk_guidance_filing_cannot_replace_results(self):
+  from official_sync import check_issuer
+  published = '2026-02-25'
+  notice = '2026-01-26'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K', '8-K'], 'items': ['2.02,9.01', '2.02,9.01'],
+   'accessionNumber': ['0001671933-26-000009', '0001193125-26-021804'],
+   'primaryDocument': ['results.htm', 'guidance.htm'],
+   'filingDate': [published, notice], 'reportDate': [published, notice],
+  }}}
+  def documents(url):
+   if url.endswith('results.htm'):
+    return '<a href="ex991.htm">99.1 Earnings release</a>'
+   if url.endswith('guidance.htm'):
+    return '<a href="ex991.htm">99.1 Earnings announcement</a>'
+   day = 'February 25' if '/000167193326000009/' in url else 'January 26'
+   return f'<html><h1>Fourth quarter 2025 results</h1><p>{day}, 2026 — Results for the quarter ended December 31, 2025.</p></html>'
+  rows, _ = check_issuer('0001671933', submissions, documents, date(2026, 11, 14))
+  self.assertEqual([r['date'] for r in rows], [published])
+
+ def test_preliminary_filings_do_not_supplant_final_quarterly_releases(self):
+  from official_sync import check_issuer
+  for cik, notice_accession, final_accession, notice, final in (
+   ('0000055785', '0001104659-26-115960', '0001628280-26-070514', '2026-10-15', '2026-11-05'),
+   ('0000074208', '0000074208-26-000081', '0000074208-26-000084', '2026-10-21', '2026-11-02'),
+  ):
+   with self.subTest(cik=cik):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K', '8-K'], 'items': ['2.02,9.01', '2.02,9.01'],
+     'accessionNumber': [final_accession, notice_accession],
+     'primaryDocument': ['final.htm', 'preliminary.htm'],
+     'filingDate': [final, notice], 'reportDate': [final, notice],
+    }}}
+    def documents(url):
+     if url.endswith(('final.htm', 'preliminary.htm')):
+      return '<a href="ex991.htm">Earnings release</a>'
+     is_final = final_accession.replace('-', '') in url
+     published = date.fromisoformat(final if is_final else notice)
+     subject = 'Results' if is_final else 'Preliminary results'
+     return (f'<h1>Third quarter 2026 {subject}</h1>'
+             f'<p>{published:%B} {published.day}, 2026 — {subject} for the quarter ended September 30, 2026.</p>')
+    rows, _ = check_issuer(cik, submissions, documents, date(2026, 11, 16))
+    self.assertEqual([(row['date'], row['releaseAccession']) for row in rows], [(final, final_accession)])
+
+ def test_bio_techne_dividend_exhibit_is_skipped_within_results_filing(self):
+  from official_sync import check_issuer
+  published = '2026-08-12'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K'], 'items': ['2.02,9.01'],
+   'accessionNumber': ['0001104659-26-094391'],
+   'primaryDocument': ['tech-20260812x8k.htm'],
+   'filingDate': [published], 'reportDate': [published],
+  }}}
+  def documents(url):
+   if url.endswith('tech-20260812x8k.htm'):
+    return ('<a href="tech-20260812xex99d2.htm">Dividend news release</a>'
+            '<a href="tech-20260812xex99d1.htm">Earnings press release</a>')
+   return '<html><h1>Fourth quarter 2026 earnings</h1><p>August 12, 2026 — quarter ended June 30, 2026.</p></html>'
+  rows, _ = check_issuer('0000842023', submissions, documents, date(2026, 11, 14))
+  self.assertEqual(len(rows), 1)
+  self.assertTrue(rows[0]['releaseSourceUrl'].endswith('tech-20260812xex99d1.htm'))
+
+ def test_oracle_known_fiscal_year_tag_error_is_scoped_to_matching_filing(self):
+  from official_sync import check_issuer
+  day = '2026-09-10'
+  correction = '0001193125-26-389274'
+  release = '<h1>Oracle Reports Q1 Fiscal 2027 Results</h1><p>September 10, 2026. Oracle reported results for the quarter ended August 31, 2026.</p>'
+  for accession, expected in ((correction,[(2027,1,1.25)]),('0001193125-26-389275',[])):
+   with self.subTest(accession=accession):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K','10-Q'], 'items': ['2.02,9.01',''],
+     'accessionNumber': ['0001193125-26-387905',accession],
+     'primaryDocument': ['results.htm','quarter.htm'],
+     'filingDate':[day,'2026-09-11'], 'reportDate':[day,'2026-08-31'],
+    }}}
+    def documents(url):
+     if url.endswith('results.htm'):
+      return '<a href="ex991.htm">99.1 Earnings release</a>'
+     if url.endswith('ex991.htm'):
+      return release
+     return (filing(quarter='Q1').replace('2026-09-30','2026-08-31').replace('2026-07-01','2026-06-01')
+             .replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1341439</xbrli:identifier>'))
+    rows,_ = check_issuer('0001341439',submissions,documents,TODAY)
+    self.assertEqual([(r['fiscalYear'],r['fiscalQuarter'],r['epsGaapDiluted']) for r in rows],expected)
+
+ def test_bxp_first_quarter_filing_tag_requires_the_reviewed_accession(self):
+  from official_sync import check_issuer
+  day = '2026-04-28'
+  report = ('<h1>BXP announces first quarter 2026 results</h1>'
+            '<p>April 28, 2026 - BXP reported results today for the first quarter ended March 31, 2026.</p>')
+  for accession, expected in (('0001037540-26-000019',[(2026,1,1.25)]),('0001037540-26-000020',[])):
+   with self.subTest(accession=accession):
+    submissions = {'filings': {'recent': {
+     'form': ['8-K','10-Q'], 'items': ['2.02,9.01',''],
+     'accessionNumber': ['0001037540-26-000015',accession],
+     'primaryDocument': ['results.htm','quarter.htm'],
+     'filingDate':[day,'2026-05-01'], 'reportDate':[day,'2026-03-31'],
+    }}}
+    def documents(url):
+     if url.endswith('results.htm'):
+      return '<a href="q12026pressrelease.htm">99.2 Earnings press release</a>'
+     if url.endswith('q12026pressrelease.htm'):
+      return report
+     return (filing(quarter='FY').replace('2026-09-30','2026-03-31').replace('2026-07-01','2026-01-01')
+             .replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1037540</xbrli:identifier>'))
+    rows,_ = check_issuer('0001037540',submissions,documents,TODAY)
+    self.assertEqual([(row['fiscalYear'],row['fiscalQuarter'],row['epsGaapDiluted']) for row in rows],expected)
+
+ def test_cigna_uses_current_period_from_item_202_over_comparative_in_exhibit(self):
+  import copy
+  from official_sync import check_issuer
+  submissions = copy.deepcopy(SUBMISSIONS)
+  submissions['filings']['recent']['accessionNumber'][0] = '0001140361-26-042030'
+  def documents(url):
+   if url.endswith('results.htm'):
+    return ('<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, the issuer issued a press release '
+            'announcing results for the three months ended September 30, 2026.</p>'
+            '<a href="ef20084818_ex99-1.htm">99.1 Earnings release</a>')
+   if url.endswith('ef20084818_ex99-1.htm'):
+    return RELEASE.replace('September 30, 2026','June 30, 2026')
+   if url.endswith('quarter.htm'):
+    return filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1739940</xbrli:identifier>')
+   return fetch(url)
+  rows,_ = check_issuer('0001739940',submissions,documents,TODAY)
+  self.assertEqual([(r['periodEnd'],r['revenue'],r['epsGaapDiluted']) for r in rows],
+                   [('2026-09-30',1200000000,1.25)])
+
+ def test_kdp_second_quarter_uses_current_filing_instead_of_prior_quarter_reference(self):
+  from official_sync import check_issuer
+  accession = '0001418135-26-000048'
+  day = '2026-08-06'
+  submissions = {'filings': {'recent': {
+   'form': ['8-K', '10-Q', '10-Q'], 'items': ['2.02,9.01', '', ''],
+   'accessionNumber': [accession, '0001418135-26-000051', '0001418135-26-000026'],
+   'primaryDocument': ['results.htm', 'quarter.htm', 'previous.htm'],
+   'filingDate': [day, day, '2026-04-23'],
+   'reportDate': [day, '2026-06-30', '2026-03-31'],
+  }}}
+  def documents(url):
+   if url.endswith('results.htm'):
+    return ('<h2>Item 2.02 Results of Operations</h2>'
+            '<p>On August 6, 2026, Example issued a press release announcing its financial results for the second quarter of 2026.</p>'
+            '<a href="ex991-keurigdrpepperreport.htm">99.1 Earnings release</a>')
+   if url.endswith('ex991-keurigdrpepperreport.htm'):
+    return ('<h1>Second quarter 2026 results</h1><p>August 6, 2026 — Example reported results for its second quarter.</p>'
+            '<p>Acquisition information for the quarter ended March 31, 2026.</p>')
+   if url.endswith('quarter.htm'):
+    return filing(quarter='Q2').replace('2026-09-30','2026-06-30').replace('2026-07-01','2026-04-01')
+   raise AssertionError(url)
+  rows, _ = check_issuer('0001418135', submissions, documents, TODAY)
+  self.assertEqual([(r['date'],r['periodEnd'],r['fiscalQuarter']) for r in rows], [(day,'2026-06-30',2)])

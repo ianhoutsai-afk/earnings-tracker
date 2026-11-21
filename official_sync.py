@@ -22,7 +22,7 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance, pending_history_companies, history_continuity_issues
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -86,18 +86,73 @@ def _base(cik, filing):
     return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{filing['accessionNumber'].replace('-', '')}/"
 
 
-def _exhibit_links(document, base):
+def _exhibit_links(document, base, reviewed_supplement=None):
     tree = html.fromstring(document.encode('utf-8') if isinstance(document, str) else document)
     result = []
     for link in tree.xpath('//a[@href]'):
         label = ' '.join(link.itertext()) + ' ' + link.get('href')
-        if not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
-            continue
         target = urljoin(base, link.get('href')).split('#')[0]
+        if target != reviewed_supplement and not re.search(r'(?i)(?:99[._-]?1|(?<!\d)99(?![\d.])|earnings|(?:press|news)\s*release)', label):
+            continue
         parsed = urlparse(target)
         if parsed.scheme == 'https' and parsed.hostname == 'www.sec.gov' and target.startswith(base) and not parsed.query:
             result.append(target)
     return list(dict.fromkeys(result))[:4]
+
+
+# Original EDGAR documents reviewed in the November 14 quarterly evidence reports.
+# These accessions held guidance, preliminary data, schedules, or an appointment.
+NON_RESULTS_ACCESSIONS = {
+    '0001193125-26-021804',  # The Trade Desk
+    '0001171843-26-000788',  # Norwegian Cruise Line
+    '0000031791-26-000003',  # Revvity
+    '0000016918-25-000132',  # Constellation Brands
+    '0001104659-26-115960',  # Kimberly-Clark preliminary third-quarter figures
+    '0000074208-26-000081',  # UDR preliminary third-quarter figures
+    # APA supplemental guidance and conference schedules for the reviewed periods.
+    '0001841666-25-000023',
+    '0001841666-26-000003',
+    '0001841666-26-000021',
+    '0001841666-26-000045',
+    '0001841666-26-000058',
+}
+
+# Bio-Techne submitted dividend and quarterly results exhibits together.
+NON_RESULTS_EXHIBITS = {
+    ('0001558370-25-010393', 'tech-20250806xex99d2.htm'),
+    ('0001104659-26-094391', 'tech-20260812xex99d2.htm'),
+}
+
+# These exhibits include comparative dates that do not identify the release's period.
+# The Item 2.02 statement and matching 10-Q establish the current quarter.
+PERIOD_FROM_FILING_EXHIBITS = {
+    ('0001418135-26-000048', 'ex991-keurigdrpepperreport.htm'),
+    ('0001140361-26-042030', 'ef20084818_ex99-1.htm'),
+}
+
+
+# Original releases were independently reviewed against
+# these conflicting DEI tags. Corrections require the exact filing and release
+# identity, rather than an inferred calendar year. See the November audit logs.
+REVIEWED_FISCAL_TAG_CORRECTIONS = {
+    ('0001037540', '0001037540-26-000019', '2026-03-31'): ((2026, 4), (2026, 1)),
+    ('0001037540', '0001037540-26-000034', '2026-06-30'): ((2026, 4), (2026, 2)),
+    ('0001341439', '0001193125-26-389274', '2026-08-31'): ((2026, 1), (2027, 1)),
+    ('0001521332', '0001521332-26-000048', '2026-03-31'): ((2025, 1), (2026, 1)),
+    ('0001108524', '0001108524-26-000060', '2026-01-31'): ((2025, 4), (2026, 4)),
+    ('0000034903', '0000034903-26-000017', '2025-12-31'): ((2024, 4), (2025, 4)),
+    ('0001327811', '0001327811-25-000198', '2025-10-31'): ((2025, 3), (2026, 3)),
+    ('0001327811', '0001327811-25-000184', '2025-07-31'): ((2025, 2), (2026, 2)),
+    ('0000820318', '0000820318-26-000023', '2026-09-30'): ((2026, 1), (2027, 1)),
+    ('0001037646', '0001037646-26-000051', '2026-06-30'): ((2024, 2), (2026, 2)),
+    ('0001037646', '0001037646-26-000074', '2026-09-30'): ((2025, 3), (2026, 3)),
+    ('0001002047', '0001193125-26-380207', '2026-07-31'): ((2026, 1), (2027, 1)),
+    ('0001002047', '0001193125-25-297237', '2025-10-24'): ((2025, 2), (2026, 2)),
+    ('0001002047', '0001193125-25-189700', '2025-07-25'): ((2025, 1), (2026, 1)),
+}
+
+# Filed with Raymond James's fourth-quarter earnings release under Item 2.02.
+RJF_QUARTER_METRIC_EXHIBIT = ('0000720005-26-000080', 'rjf0930q426supplement.htm')
 
 
 def check_issuer(cik, submissions, fetch, today):
@@ -124,13 +179,17 @@ def check_issuer(cik, submissions, fetch, today):
                 pending+=1
         filings=list({r['accessionNumber']:r for r in filings}.values())
     releases = [r for r in filings if r['form'] in ('8-K','8-K/A') and '2.02' in re.split(r'[,;\s]+', r['items'])
+                and r['accessionNumber'] not in NON_RESULTS_ACCESSIONS
                 and r['reportDate'] and (today-date.fromisoformat(r['filingDate'])).days <= 550]
     releases.sort(key=lambda r:r['filingDate'], reverse=True)
     for event in releases[:12]:
         base = _base(cik, event)
+        supplement_url = (base + RJF_QUARTER_METRIC_EXHIBIT[1]
+                          if event['accessionNumber'] == RJF_QUARTER_METRIC_EXHIBIT[0] else None)
         try:
             primary_doc=fetch(base + event['primaryDocument'])
-            links = _exhibit_links(primary_doc, base)
+            links = [url for url in _exhibit_links(primary_doc, base, supplement_url)
+                     if (event['accessionNumber'], url.rsplit('/', 1)[-1]) not in NON_RESULTS_EXHIBITS]
         except (OSError, TimeoutError) as exc:
             failures += 1
             source_errors.append({'stage':'announcement_filing','sourceUrl':base+event['primaryDocument'],'errorType':type(exc).__name__})
@@ -142,7 +201,8 @@ def check_issuer(cik, submissions, fetch, today):
         event_conflict=False
         first_exhibit=None
         first_exhibit_url=None
-        for url in links+[base+event['primaryDocument']]:
+        release_urls = [url for url in links if url != supplement_url]
+        for url in release_urls + [base + event['primaryDocument']]:
             try:
                 if url==base+event['primaryDocument']:
                     if event_conflict:continue
@@ -154,6 +214,8 @@ def check_issuer(cik, submissions, fetch, today):
                     scheduled = parse_expected_release(release_doc, today)
                     if scheduled and next_event is None:
                         next_event = {**scheduled, 'sourceUrl':url, 'announcementFilingDate':event['filingDate']}
+                    if (event['accessionNumber'], url.rsplit('/', 1)[-1]) in PERIOD_FROM_FILING_EXHIBITS:
+                        continue
                     release = parse_earnings_release(release_doc, event['reportDate'], event['filingDate'], today)
             except (OSError, TimeoutError) as exc:
                 failures += 1
@@ -182,11 +244,25 @@ def check_issuer(cik, submissions, fetch, today):
                 except (ValueError, html.etree.ParserError):
                     metric_pending += 1
                     continue
+                correction = REVIEWED_FISCAL_TAG_CORRECTIONS.get(
+                    (str(cik).zfill(10), candidate['accessionNumber'], parsed['periodEnd']))
+                if correction and (parsed['fiscalYear'], parsed['fiscalQuarter']) == correction[0]:
+                    if (release.get('fiscalYear'), release.get('fiscalQuarter')) != correction[1]:
+                        identity_conflict = event_conflict = True
+                        metric_pending += 1
+                        continue
+                    parsed['fiscalYear'], parsed['fiscalQuarter'] = correction[1]
                 if (release.get('fiscalYear') is not None and
                         (release['fiscalYear'], release['fiscalQuarter']) != (parsed['fiscalYear'], parsed['fiscalQuarter'])):
                     identity_conflict = True
                     event_conflict = True
                     metric_pending += 1
+                    continue
+                # Some amendments publish only corrections to other sections.
+                # Keep the amendment as a fallback when the original is unavailable.
+                if candidate['form'].endswith('/A') and all(parsed[field] is None for field in ('revenue', 'epsGaapDiluted')):
+                    if metrics is None:
+                        metrics, metric_url, matched_filing = parsed, candidate_url, candidate
                     continue
                 metrics, metric_url, matched_filing = parsed, candidate_url, candidate
                 break
@@ -200,6 +276,13 @@ def check_issuer(cik, submissions, fetch, today):
                 metrics = {'epsGaapDiluted':None, 'revenue':None, 'epsBasis':None, 'currency':'USD', 'periodScope':'quarter'}
             metric_release = first_exhibit if url == base+event['primaryDocument'] else release_doc
             metric_release_url = first_exhibit_url if url == base+event['primaryDocument'] else url
+            if supplement_url in links:
+                try:
+                    metric_release = fetch(supplement_url)
+                    metric_release_url = supplement_url
+                except (OSError, TimeoutError) as exc:
+                    failures += 1
+                    source_errors.append({'stage':'earnings_metrics_supplement','sourceUrl':supplement_url,'errorType':type(exc).__name__})
             if metric_release is not None:
                 extra = parse_release_quarter_metrics(metric_release, metrics.get('periodEnd') or release['periodEnd'], cik)
                 for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:
@@ -324,7 +407,8 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
                 source_failures += bool(details['requestFailures'])
                 state = 'official_source_failed' if details['requestFailures'] else 'official_parse_pending' if details['parsePending'] or details['metricPending'] else 'official_source_checked'
                 for ticker in aliases:
-                    incoming = [{**r,'ticker':ticker} for r in records]
+                    quarter_start = mapping[ticker].get('automaticQuarterStart', '')
+                    incoming = [{**r,'ticker':ticker} for r in records if r['periodEnd'] >= quarter_start]
                     # Keep original verified figures when this run only confirms the release.
                     by_period = {(r['ticker'],r['periodEnd']):r for r in manifest}
                     incoming=[merge_manifest_record(by_period.get((ticker,r['periodEnd']),{}),r) for r in incoming]
@@ -386,10 +470,11 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
         latest = rows[0] if rows else {}
         status[ticker] = {**status.get(ticker,{}), 'recordCount':len(rows), 'officialQuarterCount':sum(r.get('verificationStatus')=='official_verified' for r in rows),
                          'latestStoredDate':latest.get('date'), 'latestStoredOfficial':latest.get('verificationStatus')=='official_verified',
-                         'officialSourceUrl':latest.get('releaseSourceUrl') if latest.get('verificationStatus')=='official_verified' else None,
+                         'officialSourceUrl':official_source_url(latest) if latest.get('verificationStatus')=='official_verified' else None,
                          'metricsVerifiedQuarterCount':sum(r.get('verificationStatus')=='official_verified' and r.get('epsBasis')=='GAAP diluted' and r.get('eps_reported') not in (None,'-') and r.get('revenue_reported') not in (None,'-') for r in rows)}
     summary = {'companies':len(companies), 'issuersChecked':issuers_checked,'issuerTargets':len(groups),'deferredCompanies':deferred, 'newRecords':parsed_count,
-               'sourceFailures':source_failures, 'pendingCompanies':sum(s.get('status')!='official_source_checked' or s.get('officialQuarterCount',0)<5 or s.get('metricsVerifiedQuarterCount',0)<5 for s in status.values()),
+               'sourceFailures':source_failures, 'pendingCompanies':pending_history_companies(history),
+               'scanPendingCompanies':sum(s.get('status')!='official_source_checked' for s in status.values()),
                'officialQuarters':sum(s.get('officialQuarterCount',0) for s in status.values()),
                'fiveOfficialQuarterCompanies':sum(s.get('officialQuarterCount',0)==5 for s in status.values()),
                'fiveCompleteMetricCompanies':sum(s.get('metricsVerifiedQuarterCount',0)==5 for s in status.values()),
@@ -398,9 +483,17 @@ def sync_all(root, today=None, fetch=None, full=False, nvda_sync=None, budget_se
     summary['storedQuarters'] = sum(s.get('recordCount', 0) for s in status.values())
     summary['completeMetricQuarters'] = sum(s.get('metricsVerifiedQuarterCount', 0) for s in status.values())
     summary['sourceHealthy'] = source_failures == 0 and deferred == 0
-    summary['historyComplete'] = summary['fiveOfficialQuarterCompanies'] == len(companies)
+    continuity = history_continuity_issues(history)
+    summary['historyContinuityPendingCompanies'] = len(continuity)
+    summary['fiveConsecutiveQuarterCompanies'] = sum(
+        len(rows) == 5 and ticker not in continuity
+        and all(row.get('verificationStatus') == 'official_verified' for row in rows)
+        for ticker, rows in history.items())
+    summary['historyComplete'] = summary['fiveConsecutiveQuarterCompanies'] == len(companies)
     summary['metricsComplete'] = summary['fiveCompleteMetricCompanies'] == len(companies)
-    summary['dataComplete'] = summary['historyComplete'] and summary['metricsComplete']
+    summary['filingDatedQuarters'] = filing_dated_quarters(history)
+    summary['releaseDatesComplete'] = all_release_dates_verified(history)
+    summary['dataComplete'] = summary['historyComplete'] and summary['releaseDatesComplete'] and summary['metricsComplete']
     summary['healthy'] = summary['sourceHealthy'] and summary['dataComplete']
     summary['dataStatus'] = 'complete' if summary['dataComplete'] else 'incomplete'
     write_json_bundle({root/'data.json':companies,root/'historical_data.json':history,

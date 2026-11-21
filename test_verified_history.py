@@ -42,6 +42,62 @@ class VerifiedHistoryTests(unittest.TestCase):
         self.companies = [{'ticker': 'MSFT', 'reportDate': '2026-07-29', 'bmo_amc': '🌙'}]
         self.history = {'MSFT': [{'date': '2026-04-29', 'quarter': '2026 Q3', 'eps_reported': '$3.50'}]}
 
+    def test_filing_metrics_and_later_discovered_release_use_distinct_date_sources(self):
+        from quarterly_policy import company_fields, merge_manifest_record
+
+        today = date(2026, 10, 1)
+        filing = {key: value for key, value in OFFICIAL.items() if key != 'releaseSourceUrl'}
+        filing.update(date='2026-07-30', dateSource='sec_filing', filingDate='2026-07-30', form='10-Q',
+                      accessionNumber='0000789019-26-000055',
+                      secUrl='https://www.sec.gov/Archives/edgar/data/789019/000078901926000055/msft.htm')
+        history, _ = apply_official_records(self.companies, self.history, [filing], today)
+        row = history['MSFT'][0]
+        self.assertEqual(row['dateSource'], 'sec_filing')
+        self.assertEqual(row['epsSourceUrl'], filing['secUrl'])
+        self.assertNotIn('releaseSourceUrl', row)
+        self.assertNotIn('latestPublishedDate', company_fields(self.companies[0], history, today))
+
+        release = {**OFFICIAL, 'date': '2026-07-31', 'revenue': None, 'epsGaapDiluted': None}
+        record = merge_manifest_record(filing, release)
+        self.assertEqual(record['date'], release['date'])
+        self.assertNotIn('dateSource', record)
+        self.assertEqual(record['revenueSourceUrl'], filing['secUrl'])
+        promoted, _ = apply_official_records(self.companies, history, [record], today)
+        self.assertNotIn('dateSource', promoted['MSFT'][0])
+        self.assertEqual(promoted['MSFT'][0]['date'], release['date'])
+        self.assertEqual(company_fields(self.companies[0], promoted, today)['latestPublishedDate'], release['date'])
+
+        later_filing = {**filing, 'date': '2026-09-30', 'filingDate': '2026-09-30', 'verifiedAt': '2026-09-30'}
+        revised = merge_manifest_record(record, later_filing)
+        self.assertEqual(revised['date'], release['date'])
+        self.assertEqual(revised['releaseSourceUrl'], release['releaseSourceUrl'])
+        self.assertNotIn('dateSource', revised)
+        self.assertEqual(revised['filingDate'], later_filing['filingDate'])
+        for invalid in ({'filingDate': '2026-07-31'}, {'secUrl': 'https://example.com/report'},
+                        {'releaseSourceUrl': OFFICIAL['releaseSourceUrl']}, {'form': '8-K'}):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [{**filing, **invalid}], today)
+
+    def test_recast_disclosure_preserves_metrics_without_becoming_original_release(self):
+        from quarterly_policy import company_fields, merge_manifest_record
+
+        today = date(2026, 10, 1)
+        restated = {**OFFICIAL, 'date': '2026-09-30', 'dateSource': 'recast',
+                    'releaseSourceUrl': 'https://www.sec.gov/Archives/edgar/data/789019/000078901926000055/recast.htm',
+                    'releaseAccession': '0000789019-26-000055', 'releaseFilingDate': '2026-09-30',
+                    'verifiedAt': '2026-09-30'}
+        history, _ = apply_official_records(self.companies, self.history, [restated], today)
+        self.assertEqual(history['MSFT'][0]['dateSource'], 'recast')
+        self.assertNotIn('latestPublishedDate', company_fields(self.companies[0], history, today))
+        for older, newer in ((restated, OFFICIAL), (OFFICIAL, restated)):
+            promoted = merge_manifest_record(older, newer)
+            self.assertEqual(promoted['date'], OFFICIAL['date'])
+            self.assertIsNone(promoted.get('dateSource'))
+            self.assertEqual(promoted['releaseSourceUrl'], OFFICIAL['releaseSourceUrl'])
+        for invalid in ({'releaseFilingDate': '2026-09-27'}, {'releaseAccession': '0000789019-26-000001'}):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [{**restated, **invalid}], today)
+
     def test_official_gaap_values_append_once_and_preserve_existing_history(self):
         original = copy.deepcopy(self.history)
         result, added = apply_official_records(self.companies, self.history, [OFFICIAL], date(2026, 9, 29))
@@ -106,6 +162,36 @@ class VerifiedHistoryTests(unittest.TestCase):
         record = {**OFFICIAL, 'metricNote': note}
         result, _ = apply_official_records(self.companies, self.history, [record], date(2026, 9, 29))
         self.assertEqual(result['MSFT'][0]['metricNote'], note)
+
+    def test_linked_metric_note_persists_on_refresh_and_loses_old_source_on_replacement(self):
+        from quarterly_policy import merge_manifest_record
+
+        today = date(2026, 9, 29)
+        note = {'en': 'Basic EPS was $4.81.', 'zh-TW': '基本每股盈餘為 4.81 美元。'}
+        source = 'https://www.sec.gov/Archives/edgar/data/789019/example.htm'
+        record = {**OFFICIAL, 'metricNote': note, 'metricNoteSourceUrl': source}
+        merged = merge_manifest_record(record, OFFICIAL)
+        self.assertEqual(merged['metricNote'], note)
+        self.assertEqual(merged['metricNoteSourceUrl'], source)
+        history, _ = apply_official_records(self.companies, self.history, [merged], today)
+        self.assertEqual(history['MSFT'][0]['metricNoteSourceUrl'], source)
+        history, _ = apply_official_records(self.companies, history, [OFFICIAL], today)
+        self.assertEqual(history['MSFT'][0]['metricNoteSourceUrl'], source)
+
+        replacement = {**OFFICIAL, 'metricNote': {'en': 'Updated note.', 'zh-TW': '已更新。'}}
+        self.assertNotIn('metricNoteSourceUrl', merge_manifest_record(record, replacement))
+        history, _ = apply_official_records(self.companies, history, [replacement], today)
+        self.assertNotIn('metricNoteSourceUrl', history['MSFT'][0])
+
+    def test_metric_note_source_requires_note_and_reviewed_https_url(self):
+        today = date(2026, 9, 29)
+        note = {'en': 'Basic EPS was $4.81.', 'zh-TW': '基本每股盈餘為 4.81 美元。'}
+        for text, url in [(None, 'https://www.sec.gov/report'), (note, 'http://www.sec.gov/report'),
+                          (note, 'https://yahoo.com/report'), (note, 'javascript:alert(1)')]:
+            with self.subTest(url=url), self.assertRaises(ValueError):
+                apply_official_records(self.companies, self.history, [
+                    {**OFFICIAL, 'metricNote': text, 'metricNoteSourceUrl': url},
+                ], today)
 
     def test_untrusted_or_future_official_record_aborts_without_changing_history(self):
         original = copy.deepcopy(self.history)
