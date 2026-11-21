@@ -207,6 +207,18 @@ def merge_manifest_record(previous, incoming):
         filing_fields = ('secUrl', 'accessionNumber', 'filingDate', 'form')
         if not any(result.get(field) for field in filing_fields) and all(older.get(field) for field in filing_fields):
             result.update({field: older[field] for field in filing_fields})
+        # A later scan of the original filing has a fresh check timestamp but
+        # still predates a reviewed comparative disclosure for the same quarter.
+        if (older.get('metricRevisionFilingDate') or '') > (result.get('metricRevisionFilingDate') or ''):
+            revision_fields = ('metricRevisionFilingDate', 'revenue', 'epsGaapDiluted', 'epsBasis',
+                               'metricSourceUrl', 'revenueSourceUrl', 'epsSourceUrl',
+                               'metricNote', 'metricNoteSourceUrl')
+            for field in revision_fields:
+                if field in older:
+                    result[field] = copy.deepcopy(older[field])
+                else:
+                    result.pop(field, None)
+            return preserve_release_provenance(result, older)
     if previous_is_newer:
         return preserve_release_provenance(result, incoming)
     for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:

@@ -118,6 +118,34 @@ class OfficialParserTests(unittest.TestCase):
   self.assertIsNone(parsed['epsGaapDiluted'])
   self.assertEqual(parsed['revenue'],1200000000)
 
+ def test_us_bancorp_does_not_use_taxable_equivalent_net_revenue(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  headline = f'<table><tr><td>Total net revenue</td><td>{total}</td></tr></table>'
+  components = (
+      '<table><tr><td>Net interest income</td><td><ix:nonFraction name="us-gaap:InterestIncomeExpenseNet" '
+      'contextRef="q" unitRef="usd" scale="6">730</ix:nonFraction></td></tr>'
+      '<tr><td>Total noninterest income</td><td><ix:nonFraction name="us-gaap:NoninterestIncome" '
+      'contextRef="q" unitRef="usd" scale="6">442</ix:nonFraction></td></tr></table>'
+  )
+  document = filing().replace('>1</xbrli:identifier>', '>36104</xbrli:identifier>')
+  for statement, revenue in [(components, 1_172_000_000), ('', None)]:
+   with self.subTest(revenue=revenue):
+    result = parse_inline_quarter(document.replace(total, headline + statement), '2026-09-30', cik='36104')
+    self.assertEqual(result['revenue'], revenue)
+    self.assertEqual(result['epsGaapDiluted'], 1.25)
+
+ def test_truist_rebuilds_net_revenue_from_quarter_statement_components(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  components = (
+      '<table><tr><td>Net Interest Income</td><td><ix:nonFraction name="us-gaap:InterestIncomeExpenseNet" '
+      'contextRef="q" unitRef="usd" scale="6">3,629</ix:nonFraction></td></tr>'
+      '<tr><td>Total noninterest income</td><td><ix:nonFraction name="us-gaap:NoninterestIncome" '
+      'contextRef="q" unitRef="usd" scale="6">1,558</ix:nonFraction></td></tr></table>'
+  )
+  document = filing().replace(total, components).replace('>1</xbrli:identifier>', '>92230</xbrli:identifier>')
+  result = parse_inline_quarter(document, '2026-09-30', cik='92230')
+  self.assertEqual(result['revenue'], 5_187_000_000)
+
  def test_ytd_or_annual_eps_cannot_be_used_as_q4(self):
   doc=filing(quarter='FY').replace('contextRef="q"','contextRef="ytd"')
   r=parse_inline_quarter(doc,'2026-09-30')

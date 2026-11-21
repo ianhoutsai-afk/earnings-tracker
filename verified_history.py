@@ -79,6 +79,12 @@ def _validate_record(record, tickers, today):
         metric_source = urlparse(record.get(field) or source_url)
         if metric_source.scheme != 'https' or not metric_source.hostname or metric_source.hostname.endswith('.yahoo.com') or metric_source.username or metric_source.password:
             raise ValueError('A reviewed official HTTPS metric URL is required')
+    if record.get('metricRevisionFilingDate') is not None:
+        revision = _iso_date(record['metricRevisionFilingDate'], 'comparative filing date')
+        if (not event_date < revision <= verified
+                or any(record.get(field) is None for field in ('revenue', 'epsGaapDiluted'))
+                or not all(record.get(field) for field in ('metricSourceUrl', 'epsSourceUrl', 'revenueSourceUrl'))):
+            raise ValueError('A reviewed comparative filing requires a later date and both metric sources')
     if record.get('epsGaapDiluted') is not None and record.get('epsBasis') != 'GAAP diluted':
         raise ValueError('EPS must explicitly be GAAP diluted, not adjusted')
     if record.get('epsGaapDiluted') is None and record.get('epsBasis') not in (None, 'GAAP diluted'):

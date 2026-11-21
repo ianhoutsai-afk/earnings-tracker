@@ -17,7 +17,7 @@ QUARTERS = {'first':1, 'second':2, 'third':3, 'fourth':4, '1st':1, '2nd':2, '3rd
 REVENUE_TAGS = {'us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax',
                 'us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax', 'us-gaap:SalesRevenueNet',
                 'us-gaap:RevenuesNetOfInterestExpense'}
-KEYCORP_GAAP_REVENUE_COMPONENTS = {
+BANK_GAAP_REVENUE_COMPONENTS = {
     'us-gaap:interestincomeexpensenet': 'net interest income',
     'us-gaap:noninterestincome': 'total noninterest income',
 }
@@ -402,12 +402,12 @@ def parse_inline_quarter(document, period_end, cik=None):
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
     eps, revenue, starts = set(), set(), set()
-    keycorp = cik is not None and str(cik).lstrip('0') == '91576'
+    issuer = str(cik or dei('EntityCentralIndexKey') or '').lstrip('0')
+    bank_revenue_uses_components = issuer in ('91576', '36104', '92230')
     # Vylor's pre-separation filing tags Corteva's diluted EPS with Vylor's
     # own CIK. Its stand-alone carve-out statement reports revenue only.
-    vylor_pre_separation = (period_end == '2026-09-30'
-                            and str(cik or dei('EntityCentralIndexKey') or '').lstrip('0') == '2128626')
-    keycorp_components = {}
+    vylor_pre_separation = period_end == '2026-09-30' and issuer == '2128626'
+    bank_components = {}
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
@@ -422,7 +422,7 @@ def parse_inline_quarter(document, period_end, cik=None):
                 and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])
                 and not re.search(r'(?i)adjusted|nongaap|proforma|segment',tag)):
             is_revenue = _contract_revenue_total(node)
-        component_label = KEYCORP_GAAP_REVENUE_COMPONENTS.get(tag.lower()) if keycorp else None
+        component_label = BANK_GAAP_REVENUE_COMPONENTS.get(tag.lower()) if bank_revenue_uses_components else None
         if not is_eps and not is_revenue and component_label is None:
             continue
         if is_revenue or component_label:
@@ -431,9 +431,12 @@ def parse_inline_quarter(document, period_end, cik=None):
                 # A standard tag and dimensionless context can still be applied
                 # to an explicitly labelled segment amount in the source.
                 continue
-            cells = row.xpath('./td|./th') if row is not None and keycorp else []
+            cells = row.xpath('./td|./th') if row is not None and bank_revenue_uses_components else []
             label = ' '.join(_text(cells[0]).split()).casefold() if cells else ''
-            if keycorp and is_revenue and re.search(r'\(te\)|taxable[\s-]equivalent', label):
+            # U.S. Bancorp's tagged total can be taxable-equivalent even when
+            # the row label simply says "Total net revenue".
+            if is_revenue and (issuer == '36104' or
+                               (issuer == '91576' and re.search(r'\(te\)|taxable[\s-]equivalent', label))):
                 continue
             if component_label and label != component_label:
                 continue
@@ -465,14 +468,13 @@ def parse_inline_quarter(document, period_end, cik=None):
         if component_label:
             tables = row.xpath('ancestor::table[1]')
             if tables:
-                components = keycorp_components.setdefault((tables[0], context_id), {})
+                components = bank_components.setdefault((tables[0], context_id), {})
                 components.setdefault(component_label, set()).add(value)
             continue
         (eps if is_eps else revenue).add(float(value))
         starts.add(contexts[context_id])
-    # KeyCorp's management tables tag a taxable-equivalent figure as revenue.
-    # Rebuild GAAP revenue only when both exact-quarter GAAP lines share a table and context.
-    for (_, context_id), components in keycorp_components.items():
+    # Both exact-quarter GAAP lines must share a table and context.
+    for (_, context_id), components in bank_components.items():
         if len(components) == 2 and all(len(values) == 1 for values in components.values()):
             total = sum(next(iter(values)) for values in components.values())
             if total >= 0:

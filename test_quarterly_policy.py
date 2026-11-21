@@ -51,6 +51,39 @@ class QuarterlyPolicyTests(unittest.TestCase):
         actual = merge_manifest_record(original, {**refreshed, **revised_filing})
         self.assertEqual({name:actual.get(name) for name in filing},revised_filing)
 
+    def test_reviewed_comparative_metrics_survive_a_refresh_of_the_original_filing(self):
+        original = official('2026-06-30', 2, '2026-07-29')
+        source = 'https://www.sec.gov/Archives/edgar/data/1/000000000126000005/revised.htm'
+        revised = dict(original, verifiedAt='2026-10-20', revenue=1_050_000_000, epsGaapDiluted=1.21,
+                       metricRevisionFilingDate='2026-10-19', metricSourceUrl=source,
+                       revenueSourceUrl=source, epsSourceUrl=source)
+        refreshed = dict(original, verifiedAt='2026-10-22', filingDate='2026-08-03')
+        saved = merge_manifest_record(revised, refreshed)
+        self.assertEqual((saved['revenue'], saved['epsGaapDiluted']), (1_050_000_000, 1.21))
+        self.assertEqual(saved['epsSourceUrl'], source)
+        self.assertEqual(saved['metricRevisionFilingDate'], '2026-10-19')
+        self.assertEqual(saved['filingDate'], '2026-08-03')
+        self.assertEqual(saved['date'], '2026-07-29')
+        later = dict(revised, metricRevisionFilingDate='2026-10-21', verifiedAt='2026-10-21', revenue=1_060_000_000)
+        self.assertEqual(merge_manifest_record(saved, later)['revenue'], 1_060_000_000)
+        different = dict(refreshed, fiscalQuarter=3)
+        self.assertEqual(merge_manifest_record(revised, different)['revenue'], 1_000_000_000)
+
+    def test_reviewed_metric_revision_requires_a_later_dated_source_and_both_metrics(self):
+        source = 'https://www.sec.gov/Archives/edgar/data/1/000000000126000005/revised.htm'
+        revised = dict(official('2026-06-30', 2, '2026-07-29'),
+                       metricRevisionFilingDate='2026-10-19', epsSourceUrl=source,
+                       revenueSourceUrl=source, metricSourceUrl=source)
+        companies = [{'ticker':'MSFT'}]
+        result, added = apply_official_records(companies, {}, [revised], TODAY)
+        self.assertEqual(added, 1)
+        self.assertEqual(result['MSFT'][0]['date'], '2026-07-29')
+        for changed in ({'metricRevisionFilingDate':'2026-10-23'}, {'metricRevisionFilingDate':'2026-07-28'},
+                        {'epsGaapDiluted':None}, {'revenueSourceUrl':None}):
+            with self.subTest(changed=changed):
+                with self.assertRaises(ValueError):
+                    apply_official_records(companies, {}, [{**revised, **changed}], TODAY)
+
     def test_pending_history_uses_retained_metrics_and_date_provenance(self):
         periods = [('2026-09-30',2026,3), ('2026-06-30',2026,2), ('2026-03-31',2026,1),
                    ('2025-12-31',2025,4), ('2025-09-30',2025,3)]
