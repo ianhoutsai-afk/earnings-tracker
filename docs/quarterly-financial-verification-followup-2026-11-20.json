@@ -5281,7 +5281,7 @@
     "checkedAtUtc": "2026-11-20T16:28:15.068139+00:00",
     "scope": "Retained fiscal Q4 revenue records previously annotated as annual less first nine months. Company-quarter matches use unambiguous original quarter dates or fiscal-quarter headers and published units. A targeted KeyCorp review also covers its other four retained quarters.",
     "q4CandidatesScreened": 92,
-    "q4DirectReportsConfirmed": 68,
+    "q4DirectReportsConfirmed": 76,
     "keycorpQuartersCorrected": 5,
     "numericCorrections": [
       "KEY|2025-09-30",
@@ -5304,6 +5304,38 @@
         "amountContext": "2,142M $2,748M $3,732M $2,480M $2,272M $3,096M $4,095M $2,778M Y/Y 20% 18% 18% 17% 18% 11% 10% 12% 6% 13% 10% 12",
         "image": "g58192ex99_1p19g1.jpg",
         "nearby": []
+      },
+      "ACGL|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/947484/000094748426000010/ex-992supplement123125.htm",
+        "sourceSha256": "b6479864754af6a504ef3e50bc01e1b8168c739a7c925f1e65e7fbc60cd3bbeb",
+        "tableIndex": 7,
+        "rowIndex": 14,
+        "columnIndex": 6,
+        "label": "Total revenues",
+        "reported": "4,934",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 4934000000,
+        "revenue": 4934000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "(U.S. Dollars and shares in millions, except per share data) / Three Months Ended / Year Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "December 31, / September 30, / June 30, / March 31,",
+            "columnText": "December 31,"
+          },
+          {
+            "row": 3,
+            "text": "2025 / 2024",
+            "columnText": "2025"
+          }
+        ],
+        "nearby": [
+          "Arch Capital Group Ltd. and Subsidiaries Consolidated Statements of Income"
+        ]
       },
       "AFL|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4977/000162828026005458/aflex991-q42025.htm",
@@ -5352,6 +5384,16 @@
           "Consolidated Statements of Income (Unaudited)",
           "Aon plc"
         ]
+      },
+      "APO|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1858681/000185868126000007/agmearningsrelease4q2025.htm",
+        "sourceSha256": "03f5bd6e3e2786b33389b6c10d098e9a40c091fb70f03fc0e0d02ecc6fc456ea",
+        "image": "agmearningsrelease4q2025003.jpg",
+        "basis": "GAAP consolidated total revenues, 4Q25 column, USD millions",
+        "reported": "9,864",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 9864000000,
+        "revenue": 9864000000
       },
       "ARES|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1176948/000162828026005596/a2025q4-ex992earningspre.htm",
@@ -5527,6 +5569,62 @@
         "nearby": [
           "13",
           "Exhibit 99.1"
+        ]
+      },
+      "COF|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/927628/000119312526019444/d45426dex992.htm",
+        "sourceSha256": "f9625f7e4117569e1601bd9cff9096e760de357b99f0594c72ccefbea41e39b8",
+        "tableIndex": 4,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total net revenue (1)",
+        "reported": "15,583",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 15583000000,
+        "revenue": 15583000000,
+        "headings": [
+          {
+            "row": 2,
+            "text": "(Dollars in millions, except per share data and as noted) / 2025 Q4 / 2025 Q3 / 2025 Q2 / 2025 Q1 / 2024 Q4 / 2025 / 2024 / 2025 vs. 2024",
+            "columnText": "2025 Q4"
+          },
+          {
+            "row": 4,
+            "text": "Net interest income / $ / 12,466 / 12,404 / 9,995 / 8,013 / 8,098 / — / 54 / % / 42,878 / 31,208 / 37",
+            "columnText": "12,466"
+          }
+        ],
+        "nearby": [
+          "Table 1: Financial Summary—Consolidated",
+          "CAPITAL ONE FINANCIAL CORPORATION (COF)"
+        ]
+      },
+      "COP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000005/cop-20260205x8kexx992.htm",
+        "sourceSha256": "d48e309e02bbfb9aedc53d03e006cb79deb1842e5d4cab5b33bca0dbeca9ce2b",
+        "tableIndex": 0,
+        "rowIndex": 7,
+        "columnIndex": 30,
+        "label": "Sales and other operating revenues",
+        "reported": "13,392",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 13392000000,
+        "revenue": 13392000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "2024 / 2025",
+            "columnText": "2025"
+          },
+          {
+            "row": 2,
+            "text": "1st Qtr / 2nd Qtr / 3rd Qtr / 4th Qtr / Full Year",
+            "columnText": "4th Qtr"
+          }
+        ],
+        "nearby": [
+          "Exhibit 99.2 Fourth-quarter 2025 Detailed Supplemental Information",
+          "Document"
         ]
       },
       "CVNA|2025-12-31": {
@@ -5802,6 +5900,40 @@
         ],
         "nearby": [],
         "basis": "Consolidated income statement total under Operating Revenues and Other, 4th Qtr 2025"
+      },
+      "ERIE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026010640/ex-99212312025.htm",
+        "sourceSha256": "fd64675f2b04a7132fcaa3d4e41b90396433146335aaade479ab3327a607ab5a",
+        "tableIndex": 0,
+        "rowIndex": 9,
+        "columnIndex": 6,
+        "label": "Total operating revenue",
+        "reported": "951,023",
+        "usdPerUnit": 1000,
+        "priorRevenue": 951023000,
+        "revenue": 951023000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three months ended December 31, / Twelve months ended December 31,",
+            "columnText": "Three months ended December 31,"
+          },
+          {
+            "row": 2,
+            "text": "2025 / 2024",
+            "columnText": "2025"
+          },
+          {
+            "row": 3,
+            "text": "(Unaudited)",
+            "columnText": "(Unaudited)"
+          }
+        ],
+        "nearby": [
+          "(dollars in thousands, except per share data)",
+          "Consolidated Statements of Operations",
+          "Erie Indemnity Company"
+        ]
       },
       "ESS|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/920522/000114036126003709/ef20064474_ex99-1.htm",
@@ -6587,6 +6719,40 @@
         "image": "okeq42025earningsrelease012.jpg",
         "nearby": []
       },
+      "REG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/910606/000119312526039477/reg-ex99_2.htm",
+        "sourceSha256": "4f686a7292eec86fa1dac61929c07d06c4f31a3409a88a72c766e8dc46033918",
+        "tableIndex": 11,
+        "rowIndex": 7,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "404,194",
+        "usdPerUnit": 1000,
+        "priorRevenue": 404194000,
+        "revenue": 404194000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended / Year Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "2025 / 2024",
+            "columnText": "2025"
+          },
+          {
+            "row": 4,
+            "text": "Lease income / $ / 393,480 / 361,371 / 1,511,425 / 1,411,379",
+            "columnText": "393,480"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "(in thousands)",
+          "Supplemental Information 4"
+        ]
+      },
       "SBUX|2025-09-28": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000074/sbux-09282025xexhibit991.htm",
         "sourceSha256": "b43e2064d242fa2d10672bec791551ab66d6f7c5e473b0efd2cadccd6b5e556c",
@@ -6785,6 +6951,50 @@
           "Document"
         ]
       },
+      "UDR|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000009/udr-20260209xex99d2.htm",
+        "sourceSha256": "fe83485ddebe983ce81b7dd23fbb2fea147118ddaf0e1b22e13c7ccf4b1f051b",
+        "tableIndex": 5,
+        "rowIndex": 8,
+        "columnIndex": 3,
+        "label": "Total revenues",
+        "reported": "433,106",
+        "usdPerUnit": 1000,
+        "priorRevenue": 433106000,
+        "revenue": 433106000,
+        "headings": [
+          {
+            "row": 0,
+            "text": "​",
+            "columnText": "​"
+          },
+          {
+            "row": 1,
+            "text": "​ / Three Months Ended / Twelve Months Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "​ / December 31,",
+            "columnText": "December 31,"
+          },
+          {
+            "row": 3,
+            "text": "In thousands, except per share amounts / ​ / 2025 / ​ ​ ​ / 2024",
+            "columnText": "2025"
+          },
+          {
+            "row": 4,
+            "text": "​",
+            "columnText": "​"
+          }
+        ],
+        "nearby": [
+          "​",
+          "(Unaudited) (1)",
+          "Consolidated Statements of Operations"
+        ]
+      },
       "UNH|2025-12-31": {
         "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000025/a991unherq42025.htm",
         "sourceSha256": "da21c6b7842930863e5227ea0a55db8f57e60d8f28dadcbc370e2f2fc8717e37",
@@ -6824,6 +7034,40 @@
         "nearby": [
           "Condensed Consolidated Statements of Income (unaudited)",
           "UNION PACIFIC CORPORATION AND SUBSIDIARY COMPANIES"
+        ]
+      },
+      "UPS|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026003510/exhibit992-financialstatem.htm",
+        "sourceSha256": "bc3ed171c9aa4fead656dcaf026181441214f476fbab51b25eac894e5e45dabc",
+        "tableIndex": 0,
+        "rowIndex": 10,
+        "columnIndex": 3,
+        "label": "Total revenue",
+        "reported": "24,479",
+        "usdPerUnit": 1000000,
+        "priorRevenue": 24479000000,
+        "revenue": 24479000000,
+        "headings": [
+          {
+            "row": 1,
+            "text": "Three Months Ended",
+            "columnText": "Three Months Ended"
+          },
+          {
+            "row": 2,
+            "text": "December 31,",
+            "columnText": "December 31,"
+          },
+          {
+            "row": 3,
+            "text": "2025 / 2024 / Change / % Change",
+            "columnText": "2025"
+          }
+        ],
+        "nearby": [
+          "(unaudited)",
+          "Selected Financial Data - Fourth Quarter",
+          "United Parcel Service, Inc."
         ]
       },
       "VLO|2025-12-31": {
@@ -7224,28 +7468,20 @@
       }
     },
     "q4CandidatesWithoutDirectConfirmationInThisPass": [
-      "ACGL|2025-12-31",
       "AIG|2025-12-31",
       "AJG|2025-12-31",
-      "APO|2025-12-31",
       "ATO|2026-09-30",
       "BRK-B|2025-12-31",
       "CB|2025-12-31",
       "CNP|2025-12-31",
-      "COF|2025-12-31",
       "COIN|2025-12-31",
-      "COP|2025-12-31",
       "CSGP|2025-12-31",
       "DTE|2025-12-31",
       "EIX|2025-12-31",
-      "ERIE|2025-12-31",
       "EVRG|2025-12-31",
       "PCG|2025-12-31",
       "PFG|2025-12-31",
       "PGR|2025-12-31",
-      "REG|2025-12-31",
-      "UDR|2025-12-31",
-      "UPS|2025-12-31",
       "WMB|2025-12-31"
     ],
     "candidateSourceErrors": {
@@ -7264,6 +7500,23 @@
         ]
       ]
     },
-    "remainingFields": "These are corrections and provenance upgrades to populated records. The previously documented 16 metric and seven release-date gaps still require independent evidence."
+    "remainingFields": "These are corrections and provenance upgrades to populated records. The previously documented 16 metric and seven release-date gaps still require independent evidence.",
+    "supplementalExhibitReview": {
+      "checkedAtUtc": "2026-11-21T02:41:19.056961+00:00",
+      "q4CandidatesRechecked": 23,
+      "sourcesChecked": 44,
+      "additionalDirectConfirmed": [
+        "ACGL|2025-12-31",
+        "APO|2025-12-31",
+        "COF|2025-12-31",
+        "COP|2025-12-31",
+        "ERIE|2025-12-31",
+        "REG|2025-12-31",
+        "UDR|2025-12-31",
+        "UPS|2025-12-31"
+      ],
+      "scope": "Original SEC filing indexes and all listed 99-series HTML exhibits, with two UDR PDF source receipts. Exact-period, as-reported consolidated values are accepted.",
+      "accessErrors": {}
+    }
   }
 }
