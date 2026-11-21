@@ -29,6 +29,28 @@ class QuarterlyPolicyTests(unittest.TestCase):
             with self.subTest(change=change):
                 self.assertIsNone(merge_manifest_record(known, {**newer, **change})['periodStart'])
 
+    def test_manifest_preserves_a_financial_filing_as_one_source(self):
+        filing = {
+            'secUrl':'https://www.sec.gov/Archives/edgar/data/1/000000000126000001/quarter.htm',
+            'accessionNumber':'0000000001-26-000001',
+            'filingDate':'2026-08-03',
+            'form':'10-Q',
+        }
+        original = dict(official('2026-06-30', 2, '2026-07-29'), verifiedAt='2026-08-03', **filing)
+        refreshed = dict(official('2026-06-30', 2, '2026-07-29'), verifiedAt='2026-10-22', epsGaapDiluted=1.25)
+        for previous,incoming in ((original,refreshed), (refreshed,original)):
+            actual = merge_manifest_record(previous,incoming)
+            self.assertEqual({name:actual.get(name) for name in filing},filing)
+            self.assertEqual(actual['epsGaapDiluted'],1.25)
+        for change in ({'fiscalQuarter':3}, {'ticker':'AAPL'},
+                       {'secUrl':'https://www.sec.gov/Archives/edgar/data/1/000000000126000002/other.htm'}):
+            with self.subTest(change=change):
+                actual = merge_manifest_record(original, {**refreshed, **change})
+                self.assertIsNone(actual.get('accessionNumber'))
+        revised_filing = {**filing,'filingDate':'2026-08-04'}
+        actual = merge_manifest_record(original, {**refreshed, **revised_filing})
+        self.assertEqual({name:actual.get(name) for name in filing},revised_filing)
+
     def test_pending_history_uses_retained_metrics_and_date_provenance(self):
         periods = [('2026-09-30',2026,3), ('2026-06-30',2026,2), ('2026-03-31',2026,1),
                    ('2025-12-31',2025,4), ('2025-09-30',2025,3)]

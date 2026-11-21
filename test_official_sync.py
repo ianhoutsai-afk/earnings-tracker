@@ -122,6 +122,28 @@ class IssuerIsolationTests(unittest.TestCase):
 
 class OfficialReviewRegressions(unittest.TestCase):
  setup_root=OfficialSyncTests.setup_root
+ def test_financial_filing_amendment_needs_quarter_metrics_to_replace_original(self):
+  from official_sync import check_issuer
+  submissions={'filings':{'recent':{
+   'form':['8-K','10-Q','10-Q/A'], 'items':['2.02','', ''],
+   'accessionNumber':['0000000001-26-000001','0000000001-26-000002','0000000001-26-000003'],
+   'primaryDocument':['results.htm','quarter.htm','amendment.htm'],
+   'filingDate':['2026-10-15','2026-10-16','2026-10-20'],
+   'reportDate':['2026-10-14','2026-09-30','2026-09-30']}}}
+  for includes_financials in (False, True):
+   with self.subTest(includes_financials=includes_financials):
+    def source(url):
+     if url.endswith('/amendment.htm'):
+      document = filing().replace('>1.25<', '>1.26<')
+      return document if includes_financials else document.split('<ix:nonFraction', 1)[0] + '</body></html>'
+     return fetch(url)
+    rows, diagnostics = check_issuer('0000000001', submissions, source, TODAY)
+    row, = rows
+    self.assertEqual(diagnostics['requestFailures'], 0)
+    self.assertEqual(row['accessionNumber'], '0000000001-26-000003' if includes_financials else '0000000001-26-000002')
+    self.assertEqual(row['epsGaapDiluted'], 1.26 if includes_financials else 1.25)
+    self.assertEqual(row['date'], '2026-10-14')
+
  def test_metric_filing_transport_failure_is_visible_in_source_health(self):
   from official_sync import check_issuer
   def missing(url):

@@ -1,0 +1,4461 @@
+{
+  "checkedAtUtc": "2026-11-21T03:43:23.589550+00:00",
+  "previousDraftCommit": "be6420f9124aaacd2c9b3358bc26acb29ddf27cd",
+  "counts": {
+    "quarterStartsVerified": 173,
+    "quarterlyFilingsCorrected": 5,
+    "releaseFilingsVerified": 9,
+    "quarterRecordsUpdated": 185,
+    "remaining": {
+      "quarterStart": 14,
+      "financialFiling": 25,
+      "earningsReleaseDate": 7,
+      "epsGaapDiluted": 15,
+      "revenue": 1
+    }
+  },
+  "sourceCollection": {
+    "uniqueDocumentsInspected": 419,
+    "documentsNewlyDownloaded": 300,
+    "earlierQuarterlyFilingsSearched": 30
+  },
+  "quarterStarts": {
+    "AAPL|2025-09-27": {
+      "periodStart": "2025-06-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+        "sourceSha256": "1aa7482bc93c4fe93f0b6c1b37b2bb9f0123c751d01d34a01ac59e807bc04077",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-09-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-120",
+          "value": 7.46,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm",
+        "sourceSha256": "e2b050b2e03036fbdd1093d8f66c0ff9a9d6f85007799b8713ffe5af67b269f5",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-06-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-117",
+          "value": 5.62,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "ABNB|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972025000030/abnb-20250930.htm",
+      "sourceSha256": "bccfab0175d08cde0450de5b61d9d1ac4cda9f154b8eb56ec323be86e486bd9c",
+      "matchingFacts": [
+        {
+          "contextId": "c-17",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-108",
+          "value": 4095000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      ]
+    },
+    "ABNB|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000004/abnb-20251231.htm",
+        "sourceSha256": "82132fb8f9aa81eecd78af60708443effee57e5a052b498f72b8cb388f8b3876",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-133",
+          "value": 12241000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972025000030/abnb-20250930.htm",
+        "sourceSha256": "bccfab0175d08cde0450de5b61d9d1ac4cda9f154b8eb56ec323be86e486bd9c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-110",
+          "value": 9463000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      }
+    },
+    "ABNB|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000014/abnb-20260331.htm",
+      "sourceSha256": "7a11bc55248aadeaa329a511c1e74a871c0f3e83578a634da1d1b729b18660c5",
+      "matchingFacts": [
+        {
+          "contextId": "c-1",
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-108",
+          "value": 2678000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      ]
+    },
+    "ABNB|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000027/abnb-20260630.htm",
+      "sourceSha256": "8aaaf6757e970c844cf567e37a2fe8db29edd01b0a7050860367a19923e828b5",
+      "matchingFacts": [
+        {
+          "contextId": "c-17",
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-108",
+          "value": 3608000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      ]
+    },
+    "ABNB|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1559720/000155972026000032/abnb-20260930.htm",
+      "sourceSha256": "12d013b8827977371578ec5e57d603a4ad5c29e4678bcd12b6661f6c60d1f4bc",
+      "matchingFacts": [
+        {
+          "contextId": "c-17",
+          "periodStart": "2026-07-01",
+          "periodEnd": "2026-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-108",
+          "value": 4869000000.0,
+          "unit": "USD",
+          "rowLabel": "Revenue"
+        }
+      ]
+    },
+    "AEP|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000013/aep-20251231.htm",
+        "sourceSha256": "85070f7e64355a76940ae4b41c78e0d5cf7723090af3bb174a517e42443e3f13",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-242",
+          "value": 6.66,
+          "unit": "USD/shares",
+          "rowLabel": "TOTAL DILUTED EARNINGS PER SHARE ATTRIBUTABLE TO AEP COMMON SHAREHOLDERS"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490425000171/aep-20250930.htm",
+        "sourceSha256": "13bb688b4be257af8b6bbde2230fd85c4fe37634959f4d73578699fbac4d099a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-202",
+          "value": 5.59,
+          "unit": "USD/shares",
+          "rowLabel": "TOTAL DILUTED EARNINGS PER SHARE ATTRIBUTABLE TO AEP COMMON SHAREHOLDERS"
+        }
+      }
+    },
+    "AES|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+        "sourceSha256": "127bebd5b40a83c6e99e90a03cd9c1c8cfe5d104f95800d9b3b17f47621900ce",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-272",
+          "value": 1.26,
+          "unit": "USD/shares",
+          "rowLabel": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm",
+        "sourceSha256": "9ec17116044aa37139511f7a015b898dcf431d3bf44fa21526c0b77c6d385b42",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-287",
+          "value": 0.81,
+          "unit": "USD/shares",
+          "rowLabel": "NET INCOME AVAILABLE TO THE AES CORPORATION COMMON STOCKHOLDERS"
+        }
+      }
+    },
+    "AES|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
+      "sourceSha256": "49c13a6cd32778287e588a6a22832917a18390fece51187128e2fcbf4275dacb",
+      "matchedMetrics": {
+        "revenue": 3180000000.0,
+        "epsGaapDiluted": 0.68
+      }
+    },
+    "AES|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+      "sourceSha256": "04addb7705b4baa2bfe1b041f407ddb789af7fe0d104c8bc865675fb5994dce0",
+      "matchedMetrics": {
+        "revenue": 3422000000.0,
+        "epsGaapDiluted": 0.6
+      }
+    },
+    "AES|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+      "sourceSha256": "dcbe48a7198b610d419810a1424922a88d06a6c4322caa8967170072a3ba4f32",
+      "matchedMetrics": {
+        "revenue": 3872000000.0,
+        "epsGaapDiluted": 0.76
+      }
+    },
+    "ALB|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591326000016/a4q25earningsreleaseex991.htm",
+        "sourceSha256": "a7f121ec611010eec9c2a1dc4f5e13ba3016034218ae140f0e0caf53ed67d9aa",
+        "matchedMetrics": {
+          "revenue": 1428031000
+        },
+        "statement": {
+          "table": 11,
+          "row": 4,
+          "column": 4,
+          "rowLabel": "Net sales",
+          "amountShown": "1,428,031",
+          "dollarsPerUnit": 1000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591325000162/alb-20250930.htm",
+        "sourceSha256": "8e7ba0fd270ae52e86d8fc6bf4a7909b1b5e2f66d0127b267e4f41e2ddbeb40c",
+        "periodEnd": "2025-09-30"
+      },
+      "days": 92
+    },
+    "AMAT|2025-10-26": {
+      "periodStart": "2025-07-28",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828025056742/amat-20251026.htm",
+        "sourceSha256": "b2ee26ba5ad78d55a94d9d5371f521cff4081e5b925640d3fea22eecc4f0eb34",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-28",
+          "periodEnd": "2025-10-26",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-104",
+          "value": 8.66,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000000695125000037/amat-20250727.htm",
+        "sourceSha256": "5dce29b5d29e1c1383606b3e81197e44168fb1b94a82f16308fd8256971f6c5d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-28",
+          "periodEnd": "2025-07-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-89",
+          "value": 6.29,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "AMAT|2026-10-25": {
+      "periodStart": "2026-07-27",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
+        "sourceSha256": "d80ab8619944daa11a621c1389e2baa67e236984ececa648ce637b5bb59d88c8",
+        "matchedMetrics": {
+          "revenue": 10409000000
+        },
+        "statement": {
+          "table": 5,
+          "row": 3,
+          "column": 4,
+          "rowLabel": "Revenue",
+          "amountShown": "10,409",
+          "dollarsPerUnit": 1000000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm",
+        "sourceSha256": "8468758226fa91f12b57a1037271c5dcc0917b8f5757dccd67cbda62706ce87a",
+        "periodEnd": "2026-07-26"
+      },
+      "days": 91
+    },
+    "APA|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166626000015/apa-20251231.htm",
+        "sourceSha256": "6ab0845ea051a1e69b3121ea739a813b430690ee3ff62ce126e20508a2b28662",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-140",
+          "value": 3.99,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1841666/000184166625000031/apa-20250930.htm",
+        "sourceSha256": "e9bd3f7ee5233ed5503facd96712df8a3b8de84fd0d4bc1e66479ccf44577c27",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-140",
+          "value": 3.2,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "APD|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296925000055/apd-20250930.htm",
+        "sourceSha256": "41ee76669c388115244e0f6135c3b463d0be42b25fb98ea0b1cbca05edf23d8c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-154",
+          "value": -1.77,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings (Loss) Per Share Attributable to Air Products"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296925000044/apd-20250630.htm",
+        "sourceSha256": "f66c911c19ff3dde6547f69c5a1f0c3bc27570aeb89e1ef695ba4815ebe2948d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-158",
+          "value": -1.79,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings (Loss) Per Share Attributable to Air Products"
+        }
+      }
+    },
+    "APD|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000050/apd-20260930.htm",
+        "sourceSha256": "f196f139e7e4a40cc562fdcd0a538ddee74378e120eef49ce057ca37d4fd79c9",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-153",
+          "value": 2.39,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings (Loss) Per Share Attributable to Air Products"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/apd-20260630.htm",
+        "sourceSha256": "bd28d2bc3a2afd3d1b861c1291111fef28b1491be0a7250a96f982e850ee6991",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-158",
+          "value": -0.23,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings (loss) per share attributable to Air Products"
+        }
+      }
+    },
+    "ATO|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000056/ato-20250930.htm",
+        "sourceSha256": "8bf591a7f7ae7285d979758ef895af2d4531a496822989dc309ecee31371b75e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-191",
+          "value": 7.46,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/731802/000073180225000026/ato-20250630.htm",
+        "sourceSha256": "6b2a44fec76b40dd3d0b057994fda3b6eab46c2c09bba1f253e8aa0b6937eb40",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-197",
+          "value": 6.4,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      }
+    },
+    "AZO|2025-08-30": {
+      "periodStart": "2025-05-11",
+      "method": "The issuer’s consolidated statement identifies the fourth quarter as 16 weeks.",
+      "days": 112,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm",
+      "sourceSha256": "564923ffc26eeed7c1b3fc806b038feb51ce033939492086a5b2aef4f3dd1d51",
+      "revenueUsd": 6242726000
+    },
+    "AZO|2025-11-22": {
+      "periodStart": "2025-08-31",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000110465925123222/azo-20251122x10q.htm",
+      "sourceSha256": "1ec5b6261f5e9fd75d022dd21693e676adf07897863c113c5a73e09362f42728",
+      "matchedMetrics": {
+        "revenue": 4628630000.0,
+        "epsGaapDiluted": 31.04
+      }
+    },
+    "AZO|2026-02-14": {
+      "periodStart": "2025-11-23",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000110465926032757/azo-20260214x10q.htm",
+      "sourceSha256": "3f3880479b9f7fd79a7ab028cbe3de088958abae3f49364bb4350ae65372eb1c",
+      "matchedMetrics": {
+        "revenue": 4274098000.0,
+        "epsGaapDiluted": 27.63
+      }
+    },
+    "AZO|2026-05-09": {
+      "periodStart": "2026-02-15",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000110465926073525/azo-20260509x10q.htm",
+      "sourceSha256": "94d6231b4a41befc44846947881660c51640917bd3b6f1b1756764e1f913c69d",
+      "matchedMetrics": {
+        "revenue": 4840950000.0,
+        "epsGaapDiluted": 38.07
+      }
+    },
+    "AZO|2026-08-29": {
+      "periodStart": "2026-05-10",
+      "method": "The issuer’s consolidated statement identifies the fourth quarter as 16 weeks.",
+      "days": 112,
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm",
+      "sourceSha256": "564923ffc26eeed7c1b3fc806b038feb51ce033939492086a5b2aef4f3dd1d51",
+      "revenueUsd": 6594879000
+    },
+    "BAX|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026007733/bax-20251231.htm",
+        "sourceSha256": "f34f7b02df36aba7c1a0256b26811fe9675a344d88996e352704051505c0f6e6",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-201",
+          "value": -1.87,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828025048897/bax-20250930.htm",
+        "sourceSha256": "9962ba3c869b23e4613e45c5c1612f521df7e5912e05cf5b922f01a04b5c1cbf",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-205",
+          "value": 0.33,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "BAX|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026028962/bax-20260331.htm",
+      "sourceSha256": "aded801df207cf480ec2266f8297a38907a8bfa90fb0b5cdda307310fd3e25b3",
+      "matchedMetrics": {
+        "epsGaapDiluted": -0.03
+      }
+    },
+    "BAX|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026051118/bax-20260630.htm",
+      "sourceSha256": "fd9662787144be05c734ffd00029ac2cde4eb19c8984ccae400c658b26a11cae",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.24
+      }
+    },
+    "BAX|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026068278/bax-20260930.htm",
+      "sourceSha256": "5990232d9d8ee0c75e59cbd83cfd67f37254baea5d9387eca46631fb9f811371",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.57
+      }
+    },
+    "BDX|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000001079525000099/bdx-20250930.htm",
+        "sourceSha256": "89d1a95920e40bf95780e8d22a746172bd5c779ba041abd5f24ffab371833844",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-137",
+          "value": 5.82,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings per Share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000001079525000072/bdx-20250630.htm",
+        "sourceSha256": "daec89596bbeaa325f627260d3c1fd7ab11095802efb3f9b945d018d8ec0a8b2",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-110",
+          "value": 4.1,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings per Share"
+        }
+      }
+    },
+    "BDX|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm",
+        "sourceSha256": "210605399f134353a5e5a1a9984f4fd2036fbe0c657b13a37af582d36d9bbdc7",
+        "matchedMetrics": {
+          "revenue": 5274000000
+        },
+        "statement": {
+          "table": 0,
+          "row": 3,
+          "column": 4,
+          "rowLabel": "Revenues",
+          "amountShown": "5,274",
+          "dollarsPerUnit": 1000000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/bdx-20260630.htm",
+        "sourceSha256": "65895404e9d1d66345c8d08acc7ba461a197b794d42fa2e752e6ad1254c5c904",
+        "periodEnd": "2026-06-30"
+      },
+      "days": 92
+    },
+    "BEN|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/38777/000003877725000238/ben-20250930.htm",
+        "sourceSha256": "3496d03309c7ae987bffcd229e6a18713cf6ce12bb2a8fc17405ba6acc851a7c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-53",
+          "value": 0.91,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/38777/000003877725000135/ben-20250630.htm",
+        "sourceSha256": "2185a03b9489e8220755e3e6458ed2dbada7e96e06df057b16c09dd96d4223f1",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-136",
+          "value": 0.7,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "BE|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828026006516/be-20251231.htm",
+        "sourceSha256": "772791175eab95db2eb38733222b9294487570b21009dbd19395e82cf021c3b7",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-266",
+          "value": -0.37,
+          "unit": "USD/shares",
+          "rowLabel": "Net loss per share available to common stockholders, basic and diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828025046844/be-20250930.htm",
+        "sourceSha256": "8aabec09bea12267a555e4b39b68db1c9eae1e139f6947336b07f440ec640cab",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-264",
+          "value": -380.0,
+          "unit": "USD/shares",
+          "rowLabel": "Net loss per share available to common stockholders, basic and diluted"
+        }
+      }
+    },
+    "BF-B|2025-10-31": {
+      "periodStart": "2025-08-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469325000112/bfb-20251031.htm",
+      "sourceSha256": "340c43e3fd01f704bb7b725b845404cf92c9cc38a6db514f715c6f4f006da891",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.47
+      }
+    },
+    "BF-B|2026-04-30": {
+      "periodStart": "2026-02-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469326000024/bfb-20260430.htm",
+        "sourceSha256": "7541b16fb7b345e329e0db25c09a6f161388d93d47eafc13ba93583548665463",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-05-01",
+          "periodEnd": "2026-04-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-130",
+          "value": 1.53,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469326000010/bfb-20260131.htm",
+        "sourceSha256": "5ecf0aadfd34a384d577e930e66984d7d6dfcc18ebfaedc38d5c3d82ceca563e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-05-01",
+          "periodEnd": "2026-01-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-116",
+          "value": 1.41,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "BXP|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000019/bxp-20260331.htm",
+      "sourceSha256": "40924ad58c528a7c86de3aaf9dccd27ea27d07d56711145b8820425247ec2cef",
+      "matchedMetrics": {
+        "revenue": 872148000.0,
+        "epsGaapDiluted": 0.64
+      }
+    },
+    "CCL|2025-11-30": {
+      "periodStart": "2025-09-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509726000007/ccl-20251130.htm",
+        "sourceSha256": "66dc09d6458a1cd8c77dea2f779a8fd1170fb7dd7c886d25bb3d726d6829b556",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-01",
+          "periodEnd": "2025-11-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-138",
+          "value": 2.02,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509725000084/ccl-20250831.htm",
+        "sourceSha256": "79bf7d08caf6c62360141bbdc046eb970b1893f2b3882d3f126047fa6afe159c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-140",
+          "value": 1.71,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "CFG|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994425000153/cfg-20250930.htm",
+      "sourceSha256": "7b1ddce50fbdab75f311431346888164472f6cd52c2c1a561be237a1ebed3b64",
+      "matchedMetrics": {
+        "revenue": 2118000000.0,
+        "epsGaapDiluted": 1.05
+      }
+    },
+    "CFG|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000028/cfg-20251231.htm",
+        "sourceSha256": "33fadf2be9a03dc6a8b62968b8d427545de7d2bb41cda6e489948846483caa34",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-256",
+          "value": 3.86,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994425000153/cfg-20250930.htm",
+        "sourceSha256": "7b1ddce50fbdab75f311431346888164472f6cd52c2c1a561be237a1ebed3b64",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-273",
+          "value": 2.74,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings"
+        }
+      }
+    },
+    "CFG|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000101/cfg-20260331.htm",
+      "sourceSha256": "fcb007a26084c0958a55718b985dc4a90aa66ee0f21f3c2f73ae12e7890494f8",
+      "matchedMetrics": {
+        "revenue": 2168000000.0,
+        "epsGaapDiluted": 1.13
+      }
+    },
+    "CFG|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000148/cfg-20260630.htm",
+      "sourceSha256": "2426eaec8d95b7a80989b096e23dfb177e20ba0656febc1e5b0b0214c9cfcc3e",
+      "matchedMetrics": {
+        "revenue": 2283000000.0,
+        "epsGaapDiluted": 1.3
+      }
+    },
+    "CFG|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000213/cfg-20260930.htm",
+      "sourceSha256": "dd4b3a3a74efe5d9f0f2940902f717a531141d441163ccb193db453ec1ad9a32",
+      "matchedMetrics": {
+        "revenue": 2322000000.0,
+        "epsGaapDiluted": 1.41
+      }
+    },
+    "CI|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000071/ci-20260930.htm",
+      "sourceSha256": "ce1f60cb3c29a1f743bf345b74d4c3da081e2d31430472e5fab3a7a752d1668e",
+      "matchedMetrics": {
+        "revenue": 73683000000.0,
+        "epsGaapDiluted": 5.47
+      }
+    },
+    "COHR|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031825000019/iivi-20250930.htm",
+      "sourceSha256": "c85eadc51a0cd7e4d453988761b624719f8ce91ede6f122db9f2375da5479268",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.19
+      }
+    },
+    "COHR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000006/iivi-20251231.htm",
+      "sourceSha256": "fb59c28748f0415a75bc0b0d20324b8537c8e28e67b6713ae2533ad0db3a9613",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.76
+      }
+    },
+    "COHR|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm",
+        "sourceSha256": "7371c767bed1344a45cb0829db2003c05fa5f1afd93dade3debc0fb2a7568e64",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-195",
+          "value": 4.12,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings (Loss) Per Share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
+        "sourceSha256": "6ee4b6b0ff3add5e784e00a6281dcea832da07102ebd7837426b5df7f13af85c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-190",
+          "value": 2.92,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings Per Share"
+        }
+      }
+    },
+    "COHR|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000023/iivi-20260930.htm",
+      "sourceSha256": "2c6f2d35a6212011e7c704e7be390afd166f4f74583bd96312879e35a4665ffb",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.9
+      }
+    },
+    "COIN|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000015/coin-20251231.htm",
+        "sourceSha256": "46da1c6170012cacc61c7c40d9f7617b52ab33bf87d56658d9a41aeab70649cd",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-222",
+          "value": 4.45,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978825000208/coin-20250930.htm",
+        "sourceSha256": "8cd953716e42c7c9a8dbeabba5427aef6d3963642d0b40537c3e5add687ccd04",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-212",
+          "value": 6.85,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "COIN|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000054/coin-20260331.htm",
+      "sourceSha256": "dfea54a8d4dcc226d87d92b6b2e89d23de65a1995476d31e4e81294e191fa81b",
+      "matchedMetrics": {
+        "revenue": 1412982000.0,
+        "epsGaapDiluted": -1.49
+      }
+    },
+    "COIN|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "sourceSha256": "5c775c5dd5f8e7b44ab3f9c65d42da640b3edfc6dbb2e7a087b33105f2de3e35",
+      "matchedMetrics": {
+        "revenue": 1220068000.0,
+        "epsGaapDiluted": -1.36
+      }
+    },
+    "COIN|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000122/coin-20260930.htm",
+      "sourceSha256": "bacf11e0b7fcd58292d266909417749862678293968634f0e22cf9994be1d374",
+      "matchedMetrics": {
+        "revenue": 1215582000.0,
+        "epsGaapDiluted": 2.51
+      }
+    },
+    "COR|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085925000131/cor-20250930.htm",
+        "sourceSha256": "a7138b9f1f3ce3f73e001981988d008cc3c60f6aa85c998bcfdfc5a08f35fa17",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-191",
+          "value": 7.96,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085925000122/cor-20250630.htm",
+        "sourceSha256": "24fb4f8cd15755b31bd9b537437909aac5201e1c32a63450aaaddc283c90f851",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-184",
+          "value": 9.7,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "COR|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm",
+        "sourceSha256": "8d04aeb99d7265e6074f909308340d10b689874faf7de821a0a87005ef6ab3ff",
+        "matchedMetrics": {
+          "revenue": 88354530000
+        },
+        "statement": {
+          "table": 4,
+          "row": 2,
+          "column": 7,
+          "rowLabel": "Revenue",
+          "amountShown": "88,354,530",
+          "dollarsPerUnit": 1000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000034/cor-20260630.htm",
+        "sourceSha256": "4ce3eaeb90bcf69aca3f3dd96eec84484a90648cc2b811e72a4d946ae37e8b0c",
+        "periodEnd": "2026-06-30"
+      },
+      "days": 92
+    },
+    "CPRT|2025-07-31": {
+      "periodStart": "2025-05-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000162828025042946/cprt-20250731.htm",
+        "sourceSha256": "774bc220d38a2000b0136272944624e4e7cb1c0ff46b4c8b0a344778a3bbe9c6",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-01",
+          "periodEnd": "2025-07-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-192",
+          "value": 1.59,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per common share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000162828025029093/cprt-20250430.htm",
+        "sourceSha256": "cde533c1070b1536e808cb7ac8de3efa9f94a76a1af252a8bf1ed1d0a86c69e4",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-01",
+          "periodEnd": "2025-04-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-181",
+          "value": 1.18,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per common share"
+        }
+      }
+    },
+    "CPRT|2026-07-31": {
+      "periodStart": "2026-05-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
+        "sourceSha256": "c9793ab4f82c7032e9603f0abe7869bfc26ec3ac4db0a5ecb90ad94955a39694",
+        "fact": {
+          "contextId": "C_3704a8b7-049d-4bf9-a075-5bc00166e38a",
+          "periodStart": "2025-08-01",
+          "periodEnd": "2026-07-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_85875067-4354-4503-b8af-4e6ddaf0726e",
+          "value": 1.55,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per common share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526245578/cprt-20260430.htm",
+        "sourceSha256": "57a0b74c95ed9efdf611e3e5790c67ea53396a782d9410ce90c7d1b85b8aad16",
+        "fact": {
+          "contextId": "C_9d6215de-0b2e-415a-9535-af516be3dab1",
+          "periodStart": "2025-08-01",
+          "periodEnd": "2026-04-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_d2a099aa-0fb6-4db3-b6b5-d549ac9b3f08",
+          "value": 1.2,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per common share"
+        }
+      }
+    },
+    "CPT|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828026007697/cpt-20251231.htm",
+        "sourceSha256": "6fdb1e0403ae93e8adb46d42c4e47ad2a8d94e7d2d23eddb178fd036eda5a63f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-201",
+          "value": 3.54,
+          "unit": "USD/shares",
+          "rowLabel": "Total earnings per common share – diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906345/000162828025050524/cpt-20250930.htm",
+        "sourceSha256": "ad58b277a2c8892e7eee0740b92efda57e63a02d9214d0c9a86b667a79693a01",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-197",
+          "value": 2.1,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings (loss) per share – diluted"
+        }
+      }
+    },
+    "CRM|2026-01-31": {
+      "periodStart": "2025-11-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+        "sourceSha256": "1c2d5d8ecea1eedcf8840e23a16afe08d46875812b18894479243ee23975827b",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2026-01-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-192",
+          "value": 7.8,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000238/crm-20251031.htm",
+        "sourceSha256": "439078d589ad7a22687fc96105abf55f4ab2a2741e337704fd5cf478a8df1dcd",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2025-10-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-168",
+          "value": 5.73,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      }
+    },
+    "CVNA|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082025000353/cvna-20250930.htm",
+      "sourceSha256": "8cd98a37c8a26f59773a61ff249e3115206378ebcbf420291d3ed7c2ece901b8",
+      "matchingFacts": [
+        {
+          "contextId": "c-32",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-153",
+          "value": 5647000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales and operating revenues"
+        }
+      ]
+    },
+    "CVNA|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000035/cvna-20260331.htm",
+      "sourceSha256": "25a44ffa45820a9ef29c1f1aa0f7364e474407a23ad99d8af86a0cb991f815d8",
+      "matchingFacts": [
+        {
+          "contextId": "c-1",
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-147",
+          "value": 6432000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales and operating revenues"
+        }
+      ]
+    },
+    "CVNA|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000055/cvna-20260630.htm",
+      "sourceSha256": "b3bf7f13a3e196979e5a6b8a3a1391632bbf284f579034bd1395fab1cd848ee5",
+      "matchingFacts": [
+        {
+          "contextId": "c-32",
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-157",
+          "value": 7376000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales and operating revenues"
+        }
+      ]
+    },
+    "CVNA|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000067/cvna-20260930.htm",
+      "sourceSha256": "118a35a9fa7c96e43c224ac8d4c289d521f6a67ef419de05766beaa5fc542350",
+      "matchingFacts": [
+        {
+          "contextId": "c-32",
+          "periodStart": "2026-07-01",
+          "periodEnd": "2026-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-159",
+          "value": 8040000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales and operating revenues"
+        }
+      ]
+    },
+    "DHI|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218425000081/dhi-20250930.htm",
+        "sourceSha256": "9f90de0b1e24a637533b350dc84214e9975aa5b576ad38bebb7a0c5b40aee435",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-163",
+          "value": 11.57,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218425000040/dhi-20250630.htm",
+        "sourceSha256": "1a7070bb413697f3eff1e1279d6a27bbbdd6a1c553b8a22e2b9a4dd079cf5dac",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-154",
+          "value": 8.53,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "DHI|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218426000157/dhi-20260930.htm",
+        "sourceSha256": "85bcb4f8c01c8b307d93d1969f4569fa0690ada40b6ec962b5f3987e180bd37f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-164",
+          "value": 10.11,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218426000096/dhi-20260630.htm",
+        "sourceSha256": "5adf88781a9c32ec02bc444c1a0d9d349d396a35346e419f62faae2be44b9826",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-154",
+          "value": 7.45,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "DIS|2025-09-27": {
+      "periodStart": "2025-06-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "sourceSha256": "b5146efeb43ad2f4a5b8daf54a6b1d970c527dcc199902c438f21af8b4dda0eb",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-09-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-203",
+          "value": 6.85,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000136/dis-20250628.htm",
+        "sourceSha256": "dbbd79baccd6c05933f60c5fe1f4a099ea7d3c64c9df28643d4feff333fd8d20",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-06-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-100",
+          "value": 6.12,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "ECHO|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+      "sourceSha256": "7c06bd118767994a9ccff7d0f720e6b57eb9175692722dd3fbf7b1150d9e8e9c",
+      "matchedMetrics": {
+        "epsGaapDiluted": -44.37
+      }
+    },
+    "ECHO|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+        "sourceSha256": "e7499a1de1cfb0e4c3a4d4916fab2d6830b0e14807a24579b05ed0de3cb6641e",
+        "fact": {
+          "contextId": "Duration_1_1_2025_To_12_31_2025_8NsjDCeazEKE-v6FP5YZxg",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_MCU8k5Jo0kWl2C2vqZoj8A_36_3",
+          "value": -50.41,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income (loss) per share attributable to EchoStar"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
+        "sourceSha256": "7c06bd118767994a9ccff7d0f720e6b57eb9175692722dd3fbf7b1150d9e8e9c",
+        "fact": {
+          "contextId": "Duration_1_1_2025_To_9_30_2025_i1XEntlcqkOkU1w1R1_0tg",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_pirj04fupk-aCnT0tKYo-Q_37_9",
+          "value": -46.25,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income (loss) per share attributable to EchoStar"
+        }
+      }
+    },
+    "ECHO|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926058150/sats-20260331x10q.htm",
+      "sourceSha256": "0d273a4d42de45b9bfa9952d22fe2f18ea4819691875c3bc3494d309c8334038",
+      "matchedMetrics": {
+        "epsGaapDiluted": -0.51
+      }
+    },
+    "ECHO|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926089370/sats-20260630x10q.htm",
+      "sourceSha256": "27caf7fad8a738ad85cddd81a90dd569a5b6f704e32e0730048661832af7891d",
+      "matchedMetrics": {
+        "epsGaapDiluted": 24.12
+      }
+    },
+    "ECHO|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "sourceSha256": "480328ef75ab9d065dc4a1baa2e4fa5111c2fcb3c377ff1d4bc7f41cf4aebef2",
+      "matchedMetrics": {
+        "epsGaapDiluted": 7.97
+      }
+    },
+    "ETR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/65984/000006598426000174/etr-20251231.htm",
+        "sourceSha256": "292e39c2ae2c0f086cd72c37ccc9868780dbf7b5c83fdf1ed82aec9c07d22092",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-267",
+          "value": 3.91,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/65984/000006598425000132/etr-20250930.htm",
+        "sourceSha256": "76079be67c13e9bfc5352d54edc7bac94e8528c4b7e0ba8e717722e105720a34",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-268",
+          "value": 3.4,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FDS|2025-08-31": {
+      "periodStart": "2025-06-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828025045769/fds-20250831.htm",
+        "sourceSha256": "88dfb166aedb5aa6c8cb6700172c40f05c2ee8a5bb45b5979ca9be83987f6492",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-94",
+          "value": 15.55,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per common share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000101323725000070/fds-20250531.htm",
+        "sourceSha256": "7a0fe86b888910ead009a0c70bff6814d4cb7075dcd8f38427c3919b2d8eccc8",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-01",
+          "periodEnd": "2025-05-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-85",
+          "value": 11.53,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per common share"
+        }
+      }
+    },
+    "FDS|2026-08-31": {
+      "periodStart": "2026-06-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
+        "sourceSha256": "dfb214594b64bec97ec35e0fa7151ba11d29825068303c846d4c5e682172d278",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-09-01",
+          "periodEnd": "2026-08-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-94",
+          "value": 14.57,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per common share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026046549/fds-20260531.htm",
+        "sourceSha256": "af26b8da8b4d983c91c6a3387ba1c39bb10b8206f1892a425583399c5bb57728",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-09-01",
+          "periodEnd": "2026-05-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-85",
+          "value": 11.16,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per common share"
+        }
+      }
+    },
+    "FDX|2026-05-31": {
+      "periodStart": "2026-03-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000105/fdx-20260531.htm",
+        "sourceSha256": "399eb77a02de62b16b8349089b2cf502b84dc1c922981df6f457524d104269f2",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-06-01",
+          "periodEnd": "2026-05-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-244",
+          "value": 18.55,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000011/fdx-20260228.htm",
+        "sourceSha256": "508806e5f2acac7defb4e85cd36b2595d61c02cc11c8e702b034093c45ea139d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-06-01",
+          "periodEnd": "2026-02-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-221",
+          "value": 11.91,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FERG|2025-07-31": {
+      "periodStart": "2025-05-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2011641/000201164125000027/ferg-20250731.htm",
+        "sourceSha256": "f135fffe17954f148f23abcb1d34bceab4fa36e6715bb79cefc089abc251450a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-01",
+          "periodEnd": "2025-07-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-94",
+          "value": 9.32,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share - Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2011641/000201164125000015/ferg-20250430.htm",
+        "sourceSha256": "8763f86475fa05d3be5b9a349107c3b6eea343544b355094e1922d306593d0de",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-01",
+          "periodEnd": "2025-04-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-89",
+          "value": 5.78,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share - Diluted"
+        }
+      }
+    },
+    "FFIV|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000157/ffiv-20250930.htm",
+        "sourceSha256": "a3be00e18623b3bfee46ae3f17570c4d8b21ef2bea55d7cbc75838cd1f24d614",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-186",
+          "value": 11.8,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share — diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000129/ffiv-20250630.htm",
+        "sourceSha256": "8b9e952fa1d190e4b88a8bf8bbebc689804270c93f3bb03fbfeea13cbd2832c5",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-180",
+          "value": 8.54,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share — diluted"
+        }
+      }
+    },
+    "FFIV|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000077/ffiv-20260930.htm",
+        "sourceSha256": "c4191a65c3a88d45ef4e8f6ba247e45d74c5bf9bbaeb61636728836834e7b079",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-185",
+          "value": 12.52,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share — diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000067/ffiv-20260630.htm",
+        "sourceSha256": "bfeda7bb7b0d9d38aff14105715bad3f6d51ee429ede96dfa52d57a6c2abb032",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-180",
+          "value": 9.29,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share — diluted"
+        }
+      }
+    },
+    "FICO|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454725000030/fico-20250930.htm",
+        "sourceSha256": "92bcbc89690594f0a19fcbb4320dd32d4fdace730bde9db52ee37b27b8af8f5c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-191",
+          "value": 26.54,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454725000022/fico-20250630.htm",
+        "sourceSha256": "9f7a7d5846a408709b75d52a4428b2ae007a54f0ac420aef503278d3e7a1a72c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-182",
+          "value": 20.12,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FITB|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552725000212/fitb-20250930.htm",
+      "sourceSha256": "88c93f235eb4f093d2955b86104c6f3fc7415f5efbafffe66a57a0d11672fd81",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.91
+      }
+    },
+    "FITB|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000124/fitb-20251231.htm",
+        "sourceSha256": "ae1142587ad230a90d2227fa3c5f27fc14c2e920b526eaf6ce94c628feecee4d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-278",
+          "value": 3.53,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share - diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552725000212/fitb-20250930.htm",
+        "sourceSha256": "88c93f235eb4f093d2955b86104c6f3fc7415f5efbafffe66a57a0d11672fd81",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-295",
+          "value": 2.49,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share - diluted"
+        }
+      }
+    },
+    "FITB|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000182/fitb-20260331.htm",
+      "sourceSha256": "c0ef52b9b6bbb0b8dab3cd4bb73ea54dba99ae6f6948984e64de033e9fa88381",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.15
+      }
+    },
+    "FITB|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000202/fitb-20260630.htm",
+      "sourceSha256": "2aead52fa29310ebe10284c0a099bf54fcb46c913069ff95328e9f5c38d70437",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.83
+      }
+    },
+    "FITB|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000243/fitb-20260930.htm",
+      "sourceSha256": "d1e2328989986bf9d6580b6184e8cf5a1989d7efb87bcc5dc5c8b001c54fc523",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.9
+      }
+    },
+    "FLEX|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000012/flex-20260331.htm",
+        "sourceSha256": "5945f516fa6e3238c0dc905f640ac1c861f70513d11066a812d8f2ec8d5d730d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-04-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-194",
+          "value": 2.33,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per share attributable to the shareholders of Flex Ltd."
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000005/flex-20251231.htm",
+        "sourceSha256": "230f398ff0a1a3b0ef64c4cefd0fb8fa4901e873e7d92079d3d1846d5a88a9e1",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-164",
+          "value": 1.66,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FOXA|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026053960/fox-20260630.htm",
+        "sourceSha256": "f19a06f6c7a4e829637a8aa1f4008585baabcea7c118d33a291ed708efe35fe0",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-101",
+          "value": 3.84,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026033172/fox-20260331.htm",
+        "sourceSha256": "4aaff8ded05ae160f7fcbacfb2f21710bac94860f8eb72e80919886bba2e8656",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-100",
+          "value": 2.24,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FOX|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026053960/fox-20260630.htm",
+        "sourceSha256": "f19a06f6c7a4e829637a8aa1f4008585baabcea7c118d33a291ed708efe35fe0",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-101",
+          "value": 3.84,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026033172/fox-20260331.htm",
+        "sourceSha256": "4aaff8ded05ae160f7fcbacfb2f21710bac94860f8eb72e80919886bba2e8656",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2026-03-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-100",
+          "value": 2.24,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "FRT|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000017/frt-20251231.htm",
+        "sourceSha256": "bdd8b57b43979ea8cdaf5b79a03c7cc6131dc1912de84874640a528643369c1f",
+        "fact": {
+          "contextId": "c-2",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-253",
+          "value": 4.68,
+          "unit": "USD/shares",
+          "rowLabel": "Net income available for common shareholders"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490325000063/frt-20250930.htm",
+        "sourceSha256": "27007900c0d74397b28d714a4625767588ec426dd624fa77f58a504c06731695",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-234",
+          "value": 3.2,
+          "unit": "USD/shares",
+          "rowLabel": "Net income available for common shareholders"
+        }
+      }
+    },
+    "HBAN|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49196/000004919626000015/hban-20251231.htm",
+        "sourceSha256": "9cbdabb97294d97a7397537cc482803d5daeb3b6603467afb0ba92188ebea6fb",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-301",
+          "value": 1.39,
+          "unit": "USD/shares",
+          "rowLabel": "Net income—diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/49196/000004919625000079/hban-20250930.htm",
+        "sourceSha256": "36547a45a29ee326a9a976dc87c47da9ed14d22258ea8d93810a11f90ba9c400",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-317",
+          "value": 1.09,
+          "unit": "USD/shares",
+          "rowLabel": "Net income—diluted"
+        }
+      }
+    },
+    "HONA|2025-09-27": {
+      "periodStart": "2025-06-29",
+      "method": "Original inline XBRL directly tags both quarter figures and the duration.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+      "sourceSha256": "a139ca36c6e93077bb9491710e5842ebab0d2346de30505eccfc06efeed1223f",
+      "contextId": "c-12",
+      "facts": [
+        {
+          "factId": "f-39",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "field": "revenue",
+          "value": 4533000000.0
+        },
+        {
+          "factId": "f-99",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "field": "epsGaapDiluted",
+          "value": 2.03
+        }
+      ]
+    },
+    "HON|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Directly from the original financial filing, including the exact-quarter total diluted EPS.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
+      "sourceSha256": "e5e6e3b12edb413de7fd75c1f58242de44014a2a3ceb4c933cd42e2350e4fa26"
+    },
+    "HSIC|2025-12-27": {
+      "periodStart": "2025-09-28",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1000228/000100022826000013/hsic-20251227.htm",
+        "sourceSha256": "33791be116605ce756fdd0973fbe0bc734d49f23ba1d12501fb1ba35c8700800",
+        "fact": {
+          "contextId": "FROM_Dec29_2024_TO_Dec27_2025_Entity_0001000228",
+          "periodStart": "2024-12-29",
+          "periodEnd": "2025-12-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "ID_382",
+          "value": 3.27,
+          "unit": "USD/shares"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1000228/000100022825000066/hsic-20250927.htm",
+        "sourceSha256": "db21a31885a138787e6d3c049d43851d85cb9645ec8da279279d2bee11132db1",
+        "fact": {
+          "contextId": "FROM_Dec29_2024_TO_Sep27_2025_Entity_0001000228",
+          "periodStart": "2024-12-29",
+          "periodEnd": "2025-09-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "ID_264",
+          "value": 2.42,
+          "unit": "USD/shares"
+        }
+      }
+    },
+    "IBKR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000119312526016540/ibkr-ex99_1.htm",
+        "sourceSha256": "6cd5f489caa15b527b971b9438697da155851f80177cf4a4dce29b9de52bc3ed",
+        "matchedMetrics": {
+          "revenue": 1643000000
+        },
+        "statement": {
+          "table": 0,
+          "row": 16,
+          "column": 3,
+          "rowLabel": "Total net revenues",
+          "amountShown": "1,643",
+          "dollarsPerUnit": 1000000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119725000158/ibkr-20250930x10q.htm",
+        "sourceSha256": "1534f9e4dc04b86c6b79c512124337b36e31d5a5cbe82233308243a46bda2dbd",
+        "periodEnd": "2025-09-30"
+      },
+      "days": 92
+    },
+    "IBM|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000004/ibm-20260128xex991.htm",
+        "sourceSha256": "b4e6804aa72de84248f355a23dbc06884a7f24789cc43eb21f03a7b6af77e5c9",
+        "matchedMetrics": {
+          "revenue": 19686000000
+        },
+        "statement": {
+          "table": 3,
+          "row": 9,
+          "column": 3,
+          "rowLabel": "TOTAL REVENUE",
+          "amountShown": "19,686",
+          "dollarsPerUnit": 1000000
+        }
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000064/ibm-20250930.htm",
+        "sourceSha256": "73a77d7031e9bb3a0a9f236055387b6fded1c27c6026409dc9470ff9bc8513e5",
+        "periodEnd": "2025-09-30"
+      },
+      "days": 92
+    },
+    "ILMN|2025-12-28": {
+      "periodStart": "2025-09-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000024/ilmn-20251228.htm",
+        "sourceSha256": "8e3977b900ef0eb2d20750587173348a480f8263e00d3a203394f20794a74fc8",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-30",
+          "periodEnd": "2025-12-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-196",
+          "value": 5.45,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080325000073/ilmn-20250928.htm",
+        "sourceSha256": "0c6783d06d5b70cb88d8505adadbcb6ef2d8e81616201b2c5bc990daf2ff66c7",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-30",
+          "periodEnd": "2025-09-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-174",
+          "value": 3.29,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "JBL|2025-08-31": {
+      "periodStart": "2025-06-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025045293/jbl-20250831.htm",
+        "sourceSha256": "74de91943b8d4d0c964132927c9296e82152b77aa955f5e828a4d334e83db0a5",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-224",
+          "value": 5.92,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828025033410/jbl-20250531.htm",
+        "sourceSha256": "41571d1bc66deace59ffd89c8398c34d8f8e6784780f49ffcfe8ef5c32595c94",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-01",
+          "periodEnd": "2025-05-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-198",
+          "value": 3.94,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "JCI|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344425000097/jci-20250930.htm",
+        "sourceSha256": "6ee22dcb0ed6b5606568f4fecf38155ab13eb4a439c1537c2bb283e5e066d231",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-191",
+          "value": 5.03,
+          "unit": "USD/shares",
+          "rowLabel": "Total"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344425000063/jci-20250630.htm",
+        "sourceSha256": "8cea8d762c163423c3e84faa13aa5b2b9a3c1bdfcf596c47cd972a2cb7f8a154",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-194",
+          "value": 2.42,
+          "unit": "USD/shares",
+          "rowLabel": "Total"
+        }
+      }
+    },
+    "KDP|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813525000125/kdp-20250930.htm",
+      "sourceSha256": "67f420055c2668a86abc2e492b214208da855534ed7240cf69508f5d97033ee6",
+      "matchedMetrics": {
+        "revenue": 4306000000.0,
+        "epsGaapDiluted": 0.49
+      }
+    },
+    "KDP|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000016/kdp-20251231.htm",
+        "sourceSha256": "9498e721853dfa8903c3df9cf72a6950101cd99c5ad2081e0c0c3d2bd4683c95",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-87",
+          "value": 1.53,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813525000125/kdp-20250930.htm",
+        "sourceSha256": "67f420055c2668a86abc2e492b214208da855534ed7240cf69508f5d97033ee6",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-80",
+          "value": 1.27,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "KDP|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/kdp-20260630.htm",
+      "sourceSha256": "e8f60f02473ccf1b90d87751dad882400d0af95bbb599295fcde95d29e5798c4",
+      "matchedMetrics": {
+        "revenue": 7309000000.0,
+        "epsGaapDiluted": 0.04
+      }
+    },
+    "KEYS|2025-10-31": {
+      "periodStart": "2025-08-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104625000127/keys-20251031.htm",
+        "sourceSha256": "51f6b02f7af71b3527fac93f4d615b82afb79d30abd5fdd62ddad779d17ba87e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-11-01",
+          "periodEnd": "2025-10-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-141",
+          "value": 4.91,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104625000091/keys-20250731.htm",
+        "sourceSha256": "c41e3ab8f6b3bbda95df8ac1f18a5b649e37bad90de05530b4767b7dd1a4c090",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-11-01",
+          "periodEnd": "2025-07-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-104",
+          "value": 3.56,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "KEYS|2026-10-31": {
+      "periodStart": "2026-08-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "sourceSha256": "da55675ebde44bcb9706f7a81ec4aa6f05091ccfe54b3e3f013393315acfcfdd",
+        "matchedMetrics": {
+          "revenue": 1994000000.0,
+          "epsGaapDiluted": 2.82
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000036/keys-20260731.htm",
+        "sourceSha256": "15ba2b8fd96a2d39f6472da160c8790ea08b2837bfa6f610d5a7a25af7c89903",
+        "periodEnd": "2026-07-31"
+      },
+      "days": 92
+    },
+    "KKR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000007/kkr-20251231.htm",
+        "sourceSha256": "68da757af384b8427add3c064da914464e4c86f6e4ac4de167c16905f9c80aea",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:Revenues",
+          "factId": "f-327",
+          "value": 19464307000.0,
+          "unit": "USD",
+          "rowLabel": "Total Revenues"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1404912/000140491225000042/kkr-20250930.htm",
+        "sourceSha256": "c51e34e4f9facbcf5df6d13ffe05199d46ff98bc0cf6ac4835f08c776c6daa49",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:Revenues",
+          "factId": "f-315",
+          "value": 13725001000.0,
+          "unit": "USD",
+          "rowLabel": "Total Revenues"
+        }
+      }
+    },
+    "KR|2026-05-23": {
+      "periodStart": "2026-02-01",
+      "method": "Original inline XBRL directly tags both quarter figures and the duration.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/56873/000110465926078236/kr-20260523x10q.htm",
+      "sourceSha256": "92593380296cbf2664409ebcc4290575d7cbf61528aba4d3df9cc38c43bcc2a3",
+      "contextId": "Duration_2_1_2026_To_5_23_2026_pzjo5dGNjkaNIkCjDCmqyg",
+      "facts": [
+        {
+          "factId": "Tc_aFrAqb8jPUin33LG4eUKQQ_4_3",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "field": "revenue",
+          "value": 46121000000.0
+        },
+        {
+          "factId": "Tc_V4bDRveHy0aAjdFNqhbfnw_32_3",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "field": "epsGaapDiluted",
+          "value": 1.46
+        }
+      ]
+    },
+    "LHX|2026-10-02": {
+      "periodStart": "2026-07-04",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/hrs-20261002.htm",
+      "sourceSha256": "fd52c2961ec6bf738c7d8f5bc9fca17dfb33b7979cd1979bfc92030285ef4fb9",
+      "matchedMetrics": {
+        "revenue": 6060000000.0,
+        "epsGaapDiluted": 3.28
+      }
+    },
+    "LOW|2026-10-30": {
+      "periodStart": "2026-08-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+        "sourceSha256": "947a5b474ef85ecd8f68e5b24b03fdb5cf01fd764f1b6c17f342b6895f574b1c",
+        "matchedMetrics": {
+          "revenue": 22756000000.0,
+          "epsGaapDiluted": 2.98
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000117/low-20260731.htm",
+        "sourceSha256": "b7d06b6e232e68992efbe8c33e8f03c8bb96d94c6219dc321a819a5073d5e229",
+        "periodEnd": "2026-07-31"
+      },
+      "days": 91
+    },
+    "LYV|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000009/lyv-20251231.htm",
+        "sourceSha256": "66944e32a564d89d7c10cd4a22f9b69f6b45c9ec0f4110d09957aa65863ff969",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-202",
+          "value": -0.24,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income (loss) per common share available to common stockholders of Live Nation"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525825000151/lyv-20250930.htm",
+        "sourceSha256": "42527e9e4f5785455bae6998c55a3f8a6269d9aab52be2412de12d8322c61858",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-174",
+          "value": 0.82,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per common share available to common stockholders of Live Nation"
+        }
+      }
+    },
+    "L|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000008/l-20251231.htm",
+        "sourceSha256": "6ed90a786a97cf0faf4c1481a91c036e0f1e134515789e8fe68d67a55fee18ee",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-210",
+          "value": 7.97,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008625000181/l-20250930.htm",
+        "sourceSha256": "58f4040aba1d9916f9326e82a09674e9e249db8668fa0675f2dac6bf96694603",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-206",
+          "value": 6.03,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted net income per share"
+        }
+      }
+    },
+    "MKC|2025-11-30": {
+      "periodStart": "2025-09-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000037/mkc-20251130.htm",
+        "sourceSha256": "074b28c468141e3139cbba8843f382d835977d989cd8a1291c549be6cc346d10",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-01",
+          "periodEnd": "2025-11-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-98",
+          "value": 2.93,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share–diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63754/000006375425000065/mkc-20250831.htm",
+        "sourceSha256": "2eec6736541fcfecb09365b37580bd12fd1b8e829d0b012918776fc5c2dc9990",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-92",
+          "value": 2.09,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share – diluted"
+        }
+      }
+    },
+    "MRVL|2026-01-31": {
+      "periodStart": "2025-11-02",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000011/mrvl-20260131.htm",
+        "sourceSha256": "266395fca83a2b2e68e6eba44946d437ebbce198d4a634579df66c1da06ccf3f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-02",
+          "periodEnd": "2026-01-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-170",
+          "value": 3.07,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per share — diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000197/mrvl-20251101.htm",
+        "sourceSha256": "79e795bae37e81685763a54b73e1dac152813bf8eb7a4bfb3b727dfed463a324",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-02",
+          "periodEnd": "2025-11-01",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-146",
+          "value": 2.61,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per share — diluted"
+        }
+      }
+    },
+    "MTB|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36270/000003627026000010/mtb-20251231.htm",
+        "sourceSha256": "ddd1518c53c9137e6607f3ba04fe2a7f908ea0c2ec3d0e693066e7f009df8448",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-256",
+          "value": 17.0,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36270/000003627025000024/mtb-20250930.htm",
+        "sourceSha256": "9195367445a932a7fb4a28cf452f4b1f2b02845895a3d29fd8a9ba82363ca1f3",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-267",
+          "value": 12.34,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "MTD|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000011/mtd-20251231.htm",
+        "sourceSha256": "3f6b93751b327e90a2ee8d1027151ef75d38799e8b752e6a225570a432fe495f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-117",
+          "value": 42.05,
+          "unit": "USD/shares",
+          "rowLabel": "Net earnings"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1037646/000103764625000058/mtd-20250930.htm",
+        "sourceSha256": "7a3a69354210488131ae67192b0642b00d1d84032dca9a635ce740ec0edaf054",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-104",
+          "value": 28.12,
+          "unit": "USD/shares",
+          "rowLabel": "Net earnings"
+        }
+      }
+    },
+    "MU|2025-08-28": {
+      "periodStart": "2025-05-30",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+        "sourceSha256": "d7342efe166022f84ebcd5414edd06f5543e93abdca07e2a2747b74a770b293d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-30",
+          "periodEnd": "2025-08-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-101",
+          "value": 7.59,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm",
+        "sourceSha256": "9120c11e1d454fc09272d4a0c3029eb83d51d1678078c1da79f557c3979bcb21",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-08-30",
+          "periodEnd": "2025-05-29",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-92",
+          "value": 4.75,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "NCLH|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513761/000110465926022067/nclh-20251231x10k.htm",
+        "sourceSha256": "bb8663f0d54504b1d2e89afe103444194e8c9ac36113d26b4103d53adeefd7bc",
+        "fact": {
+          "contextId": "Duration_1_1_2025_To_12_31_2025_tzq92KaTNkW5iTAz_L5jgA",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_D86H2b-tl0WX_0ypc6dFdg_32_3",
+          "value": 0.92,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513761/000110465925106057/nclh-20250930x10q.htm",
+        "sourceSha256": "a455ca200a0e723fa18ae7adbe14abc0b6a5accb97774b5350494ebfb1066080",
+        "fact": {
+          "contextId": "Duration_1_1_2025_To_9_30_2025_YG4btYcbYU-nsric5v8aFQ",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_9ZDnIai6vku0PwNt6xrEpQ_33_9",
+          "value": 0.87,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "NI|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000027/nix-20251231.htm",
+        "sourceSha256": "86d15185ae2e213b2216ecaa229c3cb6d2227114715d04c7dcc575c748f5a55c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-126",
+          "value": 1.95,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings Per Share"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171125000055/nix-20250930.htm",
+        "sourceSha256": "4760eb1f8274f392e8cc88bb645418886dfdae7bfa327740fcf2709bd11bd7ea",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-124",
+          "value": 1.42,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted Earnings Per Share"
+        }
+      }
+    },
+    "NRG|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000004/nrg-20251231.htm",
+        "sourceSha256": "e294304a0ecfe29c6858d1f318797cc0b8d3a5ce73c31593a725e59693b88376",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-136",
+          "value": 4.01,
+          "unit": "USD/shares",
+          "rowLabel": "Income/(Loss) per Weighted Average Common Share — Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1013871/000101387125000025/nrg-20250930.htm",
+        "sourceSha256": "977831d29e388c80ab5e1854071782a169fd616d2c2811b45e66988923947b41",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-132",
+          "value": 3.72,
+          "unit": "USD/shares",
+          "rowLabel": "Income/(Loss) per Weighted Average Common Share —Diluted"
+        }
+      }
+    },
+    "NSC|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/702165/000162828026006268/nsc-20251231.htm",
+        "sourceSha256": "3367b35c66d429ad2e32f332db6e7cc93f6c6967335bf62bc9be57428d8677f4",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-103",
+          "value": 12.75,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/702165/000162828025046128/nsc-20250930.htm",
+        "sourceSha256": "a82252c3ae1510d4173f561be10cc80d56626c136d9593506c9a58ba757b4d2a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-100",
+          "value": 9.88,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "NTAP|2025-07-25": {
+      "periodStart": "2025-04-26",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312525189700/ntap-20250725.htm",
+      "sourceSha256": "71860403e17868a3c64a6231ee34c92be3e17cace9041ebb41574c892dfd206e",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.15
+      }
+    },
+    "NTAP|2025-10-24": {
+      "periodStart": "2025-07-26",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312525297237/ntap-20251024.htm",
+      "sourceSha256": "adfdc93c3567bef5e6180797dc98bffb6c0f79d38d28f5528c8601d9bf61104f",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.51
+      }
+    },
+    "NTAP|2026-04-24": {
+      "periodStart": "2026-01-24",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm",
+        "sourceSha256": "da6218f4dd3d8a1561b284a3e87d8d6895e8cb18e38e1a5f83e84fcccccd6e3e",
+        "fact": {
+          "contextId": "C_8b080b7c-0608-403e-83dc-1abdd7dc29c9",
+          "periodStart": "2025-04-26",
+          "periodEnd": "2026-04-24",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_ad44ad3e-6967-4a20-8c7f-1987a26ca6ae",
+          "value": 6.35,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm",
+        "sourceSha256": "e4badf8f9a79daec56d91f0784a04446f7d79d00ed0e60f99ee515e8036e4df1",
+        "fact": {
+          "contextId": "C_0caedf8a-dfeb-4f1e-9e5a-b67926ebbf09",
+          "periodStart": "2025-04-26",
+          "periodEnd": "2026-01-23",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_0d15d5ef-2219-4fa2-8498-fa623a2904e7",
+          "value": 4.32,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "NTAP|2026-07-31": {
+      "periodStart": "2026-04-25",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526380207/ntap-20260731.htm",
+      "sourceSha256": "074f0090269f3d833f4a4031562dc8d74d71f8b417eb6e571ec4679d9c8c9fbf",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.88
+      }
+    },
+    "NVDA|2026-10-25": {
+      "periodStart": "2026-07-27",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+        "sourceSha256": "c20e573b531ab81df80e31b7da35f29a51ff47dc19f3df0e1a71c956f4aeab7b",
+        "matchedMetrics": {
+          "revenue": 115844000000.0,
+          "epsGaapDiluted": 2.7
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        "sourceSha256": "2b4ce93e19b53d2165347ebcf3b5af36d26465ef71d19f3be92fbb52bf643c54",
+        "periodEnd": "2026-07-26"
+      },
+      "days": 91
+    },
+    "OKTA|2026-01-31": {
+      "periodStart": "2025-11-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000020/okta-20260131.htm",
+        "sourceSha256": "c546bab0da4036ee0dbe3b2f0719463579ab1e6ddeffbb01a90aebbd514f349f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2026-01-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-208",
+          "value": 1.31,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per share, diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013425000171/okta-20251031.htm",
+        "sourceSha256": "79d2ce61f4756ded12896c5ddb4908abf98372cd57f362a1819648a80ebdc5ba",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2025-10-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-205",
+          "value": 0.96,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per share, diluted"
+        }
+      }
+    },
+    "ORCL|2026-08-31": {
+      "periodStart": "2026-06-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+      "sourceSha256": "f1ba5dc4516766798d14f657e7d69c337447bb9f5dc272e10e2ea392fc9be89b",
+      "matchedMetrics": {
+        "epsGaapDiluted": 1.56
+      }
+    },
+    "OXY|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026009059/oxy-20251231.htm",
+        "sourceSha256": "e6c8661d7cb265194721aa4d0b1acf61aec674ab8ad30f290e1422cbdcb1f874",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-243",
+          "value": 1.61,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to common stockholders—diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828025051071/oxy-20250930.htm",
+        "sourceSha256": "c49ebc7ed2eb093696291ef489c6d131d3247cfb6228684e3b41642f66b91c1e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-252",
+          "value": 1.68,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to common stockholders—diluted"
+        }
+      }
+    },
+    "PCAR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526057025/pcar-20251231.htm",
+        "sourceSha256": "aaaa8bd9e3766ae0654b938977ce056e97f1cba7d5af40f4ba8a6e5ec71c0017",
+        "fact": {
+          "contextId": "C_46e60203-44d8-4189-a72e-c41f4afcbb07",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_1005098d-2403-4271-b576-0cf3a580895e",
+          "value": 4.51,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312525258509/pcar-20250930.htm",
+        "sourceSha256": "3724e71ab484464c3e9e0f6976f306367190e012849b66b2c3425cd36764245f",
+        "fact": {
+          "contextId": "C_9a9ed0cb-09be-43b1-a2a9-8961aa701300",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_80d59bca-30fc-4895-b9c5-a7fdd6dfa3b4",
+          "value": 3.45,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "PPG|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/79879/000007987926000046/ppg-20251231.htm",
+        "sourceSha256": "d0b71fce873c7aa2702a2863545192066ab4d5e2e328f95d8f67daa2aaa97e27",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-149",
+          "value": 6.94,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (attributable to PPG)"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/79879/000007987925000311/ppg-20250930.htm",
+        "sourceSha256": "0f57d8196982252f7b1cfe32d5c581eecfc71c85f4ab801401a8e3492c8b5188",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-140",
+          "value": 5.6,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per common share (attributable to PPG) - assuming dilution"
+        }
+      }
+    },
+    "PRU|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000048/pru-20251231.htm",
+        "sourceSha256": "d112376128f608ef2e53ededf90a2a40fc3f82fd09c1262da03ae808a4368e3a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-276",
+          "value": 9.99,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) attributable to Prudential Financial, Inc."
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1137774/000113777425000178/pru-20250930.htm",
+        "sourceSha256": "108f821bad4017e39b628a9266b11901657e34e399920e28bca0900ea52ddee7",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-275",
+          "value": 7.44,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) attributable to Prudential Financial, Inc."
+        }
+      }
+    },
+    "PTC|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312525291326/ptc-20250930.htm",
+        "sourceSha256": "c41e358c380a8298a398fd762a467202b0929d043829e92c09a64cdd13bef84a",
+        "fact": {
+          "contextId": "C_68344110-8909-4234-b18b-7944eb02ee8c",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_11b71ea2-dbbf-4739-8293-300e8644a854",
+          "value": 6.08,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share—Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000095017025100879/ptc-20250630.htm",
+        "sourceSha256": "7c38d7abb63618e6da63ce03b13d4e49897686c966cb98ce69dd086025266d93",
+        "fact": {
+          "contextId": "C_b520c933-f491-4004-b14e-3485a77021ab",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_cb13448e-26a2-4109-bbc2-9d5766a1ee7a",
+          "value": 3.2,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share—Diluted"
+        }
+      }
+    },
+    "P|2026-02-01": {
+      "periodStart": "2025-11-03",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000027/pstg-20260201.htm",
+        "sourceSha256": "301375b58f3281a02bb29f92229a4f93a06cd9f8f7bc1cf53cd86b5331919199",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-03",
+          "periodEnd": "2026-02-01",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-200",
+          "value": 0.55,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share attributable to common stockholders, diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443225000065/pstg-20251102.htm",
+        "sourceSha256": "3201b918917149bd236eed8608de30cd2b923cf2c8e47f91a2cf6aa04b0d0b8a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-03",
+          "periodEnd": "2025-11-02",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-197",
+          "value": 0.26,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share attributable to common stockholders, diluted"
+        }
+      }
+    },
+    "P|2026-11-01": {
+      "periodStart": "2026-08-03",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+        "sourceSha256": "d2f3534f046599924ab482463131ec826531dbe17e5c2b0cc052bbced6202253",
+        "matchedMetrics": {
+          "revenue": 1459791000.0,
+          "epsGaapDiluted": 0.29
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000088/pstg-20260802.htm",
+        "sourceSha256": "83c6ab628c4e5c2188e979d3b03479537936b697b998ea2e7c60135b9dc75482",
+        "periodEnd": "2026-08-02"
+      },
+      "days": 91
+    },
+    "QCOM|2025-09-28": {
+      "periodStart": "2025-06-30",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000085/qcom-20250928.htm",
+        "sourceSha256": "07f7b5532ce829fae6f436203e8bef1be2f48eeec7a8c96c7698d7b6dd111b3c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-30",
+          "periodEnd": "2025-09-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-195",
+          "value": 5.01,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000045/qcom-20250629.htm",
+        "sourceSha256": "aa573d09016e773478cb6840f6a0ed660c72b72dff24ca1521c9c93dded93b28",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-30",
+          "periodEnd": "2025-06-29",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-190",
+          "value": 7.79,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      }
+    },
+    "QCOM|2026-09-27": {
+      "periodStart": "2026-06-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm",
+        "sourceSha256": "1b01d24656180bedf3c4469c5ef37d6e1b6325977a6ebebfb12cdd92ddb56e42",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-09-29",
+          "periodEnd": "2026-09-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-191",
+          "value": 12.7,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm",
+        "sourceSha256": "e0a5fbdbb2dbbfd8b156dc2e1b60718dcdd81cb0141d3a55160fc375895c9219",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-09-29",
+          "periodEnd": "2026-06-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-166",
+          "value": 11.53,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted earnings per share"
+        }
+      }
+    },
+    "RDDT|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm",
+        "sourceSha256": "da5d0191546a1bd294951a0bec8806c18deb3d16d60e97534d1a96e591550bad",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-182",
+          "value": 2.62,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000227/rddt-20250930.htm",
+        "sourceSha256": "2c3e039a1413134ef8b4b25accb01a3a533773a0060f8a07d544ebce30bc67dd",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-172",
+          "value": 1.38,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "RF|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176125000080/rf-20250930.htm",
+      "sourceSha256": "394fcc11f086e721fa041fa086d408e5cd15404b5733db735feb4095bcfb0db1",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.61
+      }
+    },
+    "RF|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000019/rf-20251231.htm",
+        "sourceSha256": "394d748645e95b2cd22ce9305490320c1f35d5555c829b334cc18630d0941aaa",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-249",
+          "value": 2.3,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176125000080/rf-20250930.htm",
+        "sourceSha256": "394fcc11f086e721fa041fa086d408e5cd15404b5733db735feb4095bcfb0db1",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-260",
+          "value": 1.72,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "RF|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000037/rf-20260331.htm",
+      "sourceSha256": "a43cfc4a2f6a84d637b33127cc57b07249e1e3d07e8a70701eae67b2e201f527",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.62
+      }
+    },
+    "RF|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000055/rf-20260630.htm",
+      "sourceSha256": "80cacb8c0f2790cda951cc72a4764622619058837875d19b16ecf3ef5b08d09e",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.64
+      }
+    },
+    "RF|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000073/rf-20260930.htm",
+      "sourceSha256": "3ccde4034282101748d794cc0823e96317c51f0c0a867370dca84d388e1e8fd4",
+      "matchedMetrics": {
+        "epsGaapDiluted": 0.71
+      }
+    },
+    "RJF|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000525000093/rjf-20250930.htm",
+        "sourceSha256": "c324afdd79889d3a2db5c0de9f084748886c92f63f9591e78e8ec8fbfc7f673d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-229",
+          "value": 10.3,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per common share – diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000525000072/rjf-20250630.htm",
+        "sourceSha256": "7b3497c657bd7d09a348bb9e833db7c086289d211bda7b87c983b35a346c7b7a",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-235",
+          "value": 7.35,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per common share – diluted"
+        }
+      }
+    },
+    "RJF|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/rjf0930q426supplement.htm",
+        "sourceSha256": "772783f18e5a1a61532b4158bb240c38c6dae7237a2398f2e5b5c51355965c75",
+        "matchedMetrics": {
+          "revenue": 4739000000.0,
+          "epsGaapDiluted": 3.4
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000070/rjf-20260630.htm",
+        "sourceSha256": "eb657bb6f625bbd54dc80d01026db34fff722b99a849b17cdfe87fd7b102ca22",
+        "periodEnd": "2026-06-30"
+      },
+      "days": 92
+    },
+    "ROK|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447825000116/rok-20250930.htm",
+        "sourceSha256": "c4f44bcbd91508ec76cc847afc23dc75ad3e432a99a270981486e760c94e135d",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-184",
+          "value": 7.67,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1024478/000102447825000083/rok-20250630.htm",
+        "sourceSha256": "76408ac6d848b591e54a22edad06fdbf20bbf7208a1bd99e080c37bfc80fcd76",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-177",
+          "value": 6.43,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "ROST|2026-10-31": {
+      "periodStart": "2026-08-02",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+        "sourceSha256": "11e3ffd37fa250f637f990fc497f321cf692bd395a013553dd17de59e7bab111",
+        "matchedMetrics": {
+          "revenue": 6255954000.0,
+          "epsGaapDiluted": 1.91
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000041/rost-20260801.htm",
+        "sourceSha256": "8c123ef866631189552772d2b4965e749a52cc747b5cf3919c3a18c4d89a79b4",
+        "periodEnd": "2026-08-01"
+      },
+      "days": 91
+    },
+    "RVTY|2025-12-28": {
+      "periodStart": "2025-09-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000012/revv-20251228.htm",
+        "sourceSha256": "cb086c2f8bd4d3dfa27d27d04ce4e5ed8102e60791147a6305d8e4594348e00f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-30",
+          "periodEnd": "2025-12-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-114",
+          "value": 2.07,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179125000037/revv-20250928.htm",
+        "sourceSha256": "05f357cf66aade7369f61043efa134ef7b23bc35da7931613fd3dac817c71152",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-30",
+          "periodEnd": "2025-09-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-115",
+          "value": 1.21,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      }
+    },
+    "SBUX|2025-09-28": {
+      "periodStart": "2025-06-30",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+        "sourceSha256": "58bced6e6697f7da235633238ee477d05e3928b16da87264b6b4d7e555f684f9",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-30",
+          "periodEnd": "2025-09-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-117",
+          "value": 1.63,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share — diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000058/sbux-20250629.htm",
+        "sourceSha256": "ec8ca35858e2c2ba4d540dc46949b1a1cdaf704cf94e288031abe886d04a217e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-30",
+          "periodEnd": "2025-06-29",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-116",
+          "value": 1.51,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share - diluted"
+        }
+      }
+    },
+    "SO|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92122/000009212226000006/so-20251231.htm",
+        "sourceSha256": "533a17069e062d2fc45e36cff140b685ccaf394084ac1523e6963d85c5466886",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-263",
+          "value": 3.92,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92122/000009212225000084/so-20250930.htm",
+        "sourceSha256": "10363d4afce3d1c449f0cf54b15fcc9267a9d48e391852cee9263296ee40a576",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-251",
+          "value": 3.54,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "STZ|2025-08-31": {
+      "periodStart": "2025-06-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691825000141/stz-20250831.htm",
+      "sourceSha256": "559b0aca593a623b2607f2667f72202029460fd83b969a4256524cc421b46586",
+      "matchingFacts": [
+        {
+          "contextId": "c-9",
+          "periodStart": "2025-06-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-111",
+          "value": 2481000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        },
+        {
+          "contextId": "c-9",
+          "periodStart": "2025-06-01",
+          "periodEnd": "2025-08-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-1148",
+          "value": 2481000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        }
+      ]
+    },
+    "STZ|2025-11-30": {
+      "periodStart": "2025-09-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000005/stz-20251130.htm",
+      "sourceSha256": "7962ceaacda621f922a2d41c84e858227b84c7e7fcedfea3e5a4756b0ee6c9e8",
+      "matchingFacts": [
+        {
+          "contextId": "c-9",
+          "periodStart": "2025-09-01",
+          "periodEnd": "2025-11-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-111",
+          "value": 2222800000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        },
+        {
+          "contextId": "c-9",
+          "periodStart": "2025-09-01",
+          "periodEnd": "2025-11-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-1214",
+          "value": 2222800000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        }
+      ]
+    },
+    "STZ|2026-02-28": {
+      "periodStart": "2025-12-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000011/stz-20260228.htm",
+      "sourceSha256": "e8b21a54c947acd4fbf7bb599ae5097374a32ccd49efedfce5dca23f5d16c298",
+      "matchingFacts": [
+        {
+          "contextId": "c-491",
+          "periodStart": "2025-12-01",
+          "periodEnd": "2026-02-28",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-2097",
+          "value": 1920200000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        }
+      ]
+    },
+    "STZ|2026-05-31": {
+      "periodStart": "2026-03-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000029/stz-20260531.htm",
+      "sourceSha256": "be9b9d62a1a2dd65c153c942b24eff15133df60a17904f643437efb9d06b424f",
+      "matchingFacts": [
+        {
+          "contextId": "c-1",
+          "periodStart": "2026-03-01",
+          "periodEnd": "2026-05-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-105",
+          "value": 2432700000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        },
+        {
+          "contextId": "c-1",
+          "periodStart": "2026-03-01",
+          "periodEnd": "2026-05-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-723",
+          "value": 2432700000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        }
+      ]
+    },
+    "STZ|2026-08-31": {
+      "periodStart": "2026-06-01",
+      "method": "Exact-quarter tagged fact matching the stored consolidated value and issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000040/stz-20260831.htm",
+      "sourceSha256": "fb6ce762686ce5a7ed5d93e65047449cd0b467c7d91e35fe1cf2900aeb6b705a",
+      "matchingFacts": [
+        {
+          "contextId": "c-9",
+          "periodStart": "2026-06-01",
+          "periodEnd": "2026-08-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-109",
+          "value": 2633000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        },
+        {
+          "contextId": "c-9",
+          "periodStart": "2026-06-01",
+          "periodEnd": "2026-08-31",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-1110",
+          "value": 2633000000.0,
+          "unit": "USD",
+          "rowLabel": "Net sales"
+        }
+      ]
+    },
+    "SWKS|2026-10-02": {
+      "periodStart": "2026-07-04",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000055/swks-20261002.htm",
+        "sourceSha256": "ae3383862bb164808a4b64f3ccdcefd79c4a4fef255e9be6377441a2cde8f3aa",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-10-02",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-110",
+          "value": 1.14,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000049/swks-20260703.htm",
+        "sourceSha256": "4e6c83a2bec88b4f332aec58558d3aa79deb69f0db3550bba075654614f12c07",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-07-03",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-93",
+          "value": 0.99,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "SYF|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601712/000160171226000006/syf-20251231.htm",
+        "sourceSha256": "a4ee75f56c9321d82875a1dbc43e2540163777485f8ed22ca957aec87bf5aa50",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-138",
+          "value": 9.28,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1601712/000160171225000259/syf-20250930.htm",
+        "sourceSha256": "3735c7bc4c965b066077daff923dd84fc20b049c1dc7cb75c60b17eb1244c7e5",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-146",
+          "value": 7.22,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "TDG|2025-09-30": {
+      "periodStart": "2025-06-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1260221/000126022125000081/tdg-20250930.htm",
+        "sourceSha256": "034208b28602afa4ee3ff736f4f6da3b96af9b20d08e662d05c95119cb92e314",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-569",
+          "value": 32.08,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share—basic and diluted (1)"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1260221/000126022125000051/tdg-20250628.htm",
+        "sourceSha256": "0f3d7a3f90f8ad28458b944f1828ede02b11211f3e31936027e702c018c43b75",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-160",
+          "value": 24.31,
+          "unit": "USD/shares",
+          "rowLabel": "Earnings per share"
+        }
+      }
+    },
+    "TECH|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
+      "sourceSha256": "1f5815df9a51893d3024ca7f835cffb18cbad4d3aed95cac1e918bd335fec7ce",
+      "matchedMetrics": {
+        "revenue": 299712000.0,
+        "epsGaapDiluted": 0.18
+      }
+    },
+    "TEL|2025-09-26": {
+      "periodStart": "2025-06-28",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000110465925109150/tel-20250926x10k.htm",
+        "sourceSha256": "c9c3359dd07965dce13649572996c05d0a7279e208293da942766471db8cff9f",
+        "fact": {
+          "contextId": "Duration_9_28_2024_To_9_26_2025_OTxJxNOr-USJ-G8kRN4NFg",
+          "periodStart": "2024-09-28",
+          "periodEnd": "2025-09-26",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_8Sg91Kd7nUS2J_3EdgOHiw_29_3",
+          "value": 6.16,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1385157/000155837025009599/tel-20250627x10q.htm",
+        "sourceSha256": "df8e5f64b80889c314bc17fddf2743d75b1357af107bfb4c41780dc5b5cb9c8f",
+        "fact": {
+          "contextId": "Duration_9_28_2024_To_6_27_2025_C68UijA1BEusYvMbUGadfw",
+          "periodStart": "2024-09-28",
+          "periodEnd": "2025-06-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "Tc_RNRnHvjkhE-rAHBO7BMVXA_29_9",
+          "value": 3.93,
+          "unit": "USD/shares",
+          "rowLabel": "Net income"
+        }
+      }
+    },
+    "TFC|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000030/tfc-20251231.htm",
+        "sourceSha256": "3c23d534a93bfcab496c64ebf240c7950338e1590b948814ce8203fc09b835b6",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-274",
+          "value": 3.82,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted EPS"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000157/tfc-20250930.htm",
+        "sourceSha256": "0f650c844147dd66b756c4709f863c663fda27c54b6352f716c63084dc8abbb9",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-302",
+          "value": 2.82,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted EPS"
+        }
+      }
+    },
+    "TGT|2026-10-31": {
+      "periodStart": "2026-08-02",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000051/a2026q3ex-99.htm",
+        "sourceSha256": "2fb96c4d5c2cdf7fc204dc68e2a48fdaa01f1cd5aa125c4e1364864087ef0caf",
+        "matchedMetrics": {
+          "revenue": 27067000000.0,
+          "epsGaapDiluted": 2.65
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm",
+        "sourceSha256": "27c8d5e69d977a9c46aa1bc32c14f1c5b3b0e803622db37d702f98b1bdda51ab",
+        "periodEnd": "2026-08-01"
+      },
+      "days": 91
+    },
+    "TJX|2026-10-31": {
+      "periodStart": "2026-08-02",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+        "sourceSha256": "9c764821cebae44da24460676897420d838672f417a03ca4351fff52f90ac63a",
+        "matchedMetrics": {
+          "revenue": 15952000000.0,
+          "epsGaapDiluted": 1.39
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000048/tjx-20260801.htm",
+        "sourceSha256": "0a124fccdc3f2cd75de7f500dac9ef9fe75e29b39c8de22b7a9f7db6505f047e",
+        "periodEnd": "2026-08-01"
+      },
+      "days": 91
+    },
+    "TRGP|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "sourceSha256": "bacbb6547861608636f24858bf8035c8e9f217e7d1ceea1ce42419467c6d2bb6",
+        "fact": {
+          "contextId": "C_7d638ab5-d823-454b-89f8-6d6bb5eba282",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_0855210a-c6fc-4871-8d2d-86a0ac590d43",
+          "value": 8.49,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per common share - diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm",
+        "sourceSha256": "2c8ef7bf8becc3812b02f12ea289eb1bba7e0b64793e9bc29cc63baf3773f587",
+        "fact": {
+          "contextId": "C_c15b07a0-7ad9-460d-a0b0-5017b483c4f0",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "F_6f7b9e7b-5df0-4d05-afaf-caff978147fe",
+          "value": 5.98,
+          "unit": "USD/shares",
+          "rowLabel": "Net income (loss) per common share - diluted"
+        }
+      }
+    },
+    "TSN|2025-09-27": {
+      "periodStart": "2025-06-29",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049325000095/tsn-20250927.htm",
+        "sourceSha256": "12eba32eaa602667a54139f1fc2e394011ef1379d87fe543e554b040ba344d3c",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-09-27",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-106",
+          "value": 1.33,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/100493/000010049325000076/tsn-20250628.htm",
+        "sourceSha256": "0c981d2976d48ebb895f2b63eaef98901da2dadb3cf0c5a7e97ed452bd9240c3",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-09-29",
+          "periodEnd": "2025-06-28",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-102",
+          "value": 1.2,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "TWLO|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1447669/000144766926000021/twlo-20251231.htm",
+        "sourceSha256": "dc32b9950ff374f7e4ada82f7c50c0f37701c22f1a6f38fd291aa4fb58c33778",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-184",
+          "value": 0.21,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1447669/000144766925000151/twlo-20250930.htm",
+        "sourceSha256": "e91beeb36b8e0e11b14cb139bfbe148031d30a14efe95ea51e45314e5d73210b",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-151",
+          "value": 0.5,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "TXT|2026-01-03": {
+      "periodStart": "2025-09-28",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+        "sourceSha256": "5cbc4d35b619e7b9163460f3eb726c6a341207a6dfe5f0949434bf7e1ca12e0f",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-29",
+          "periodEnd": "2026-01-03",
+          "tag": "us-gaap:Revenues",
+          "factId": "f-60",
+          "value": 14799000000.0,
+          "unit": "USD",
+          "rowLabel": "Total revenues"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734625000077/txt-20250927.htm",
+        "sourceSha256": "6f49730bef8dce57e9293673bb5bf630b431d777a435813a69dbb87dffede64e",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-12-29",
+          "periodEnd": "2025-09-27",
+          "tag": "us-gaap:Revenues",
+          "factId": "f-44",
+          "value": 10624000000.0,
+          "unit": "USD",
+          "rowLabel": "Total revenues"
+        }
+      }
+    },
+    "VMRK|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Original inline XBRL directly tags both quarter figures and the duration.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+      "sourceSha256": "7af93cc0f6fee9f0430cac721f8fd89653afc4fcce274611b6613f2b88ead579",
+      "contextId": "C_c23775fa-4958-4ede-afc0-b87caab99c09",
+      "facts": [
+        {
+          "factId": "F_98f5057f-122b-4bbd-ba7f-0640eab3741c",
+          "tag": "us-gaap:Revenues",
+          "field": "revenue",
+          "value": 766796000.0
+        },
+        {
+          "factId": "F_4ba0699b-5d8e-4a42-9ed9-f445f17d0b2d",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "field": "epsGaapDiluted",
+          "value": 0.96
+        }
+      ]
+    },
+    "VMRK|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000004/avb-20251231.htm",
+        "sourceSha256": "85180060167a41a22c380f459081e2311482ba0c321d588fff65c31785fd8cc3",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-226",
+          "value": 7.4,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to common stockholders"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591225000025/avb-20250930.htm",
+        "sourceSha256": "567c3ad8ed15a7cca3ff124edea066f00b18a121dcd0c822b0094810e6381a45",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-220",
+          "value": 6.22,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to common stockholders"
+        }
+      }
+    },
+    "VMRK|2026-09-30": {
+      "periodStart": "2026-07-01",
+      "method": "Original filing parser independently matches a stored quarterly value in a unique issuer context.",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+      "sourceSha256": "7af93cc0f6fee9f0430cac721f8fd89653afc4fcce274611b6613f2b88ead579",
+      "matchedMetrics": {
+        "revenue": 1195484000.0,
+        "epsGaapDiluted": -1.27
+      }
+    },
+    "VST|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+        "sourceSha256": "979a7db4ae7f96bfeb249e09a9460ac01474800ad8cf0c809c192557e8d1f9b5",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-114",
+          "value": 2.18,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/vistra-20250930.htm",
+        "sourceSha256": "6d9b6dfabc67e876147eb43371107c2de42c178d526a8973e01410a6d4ce8a09",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-113",
+          "value": 1.64,
+          "unit": "USD/shares",
+          "rowLabel": "Diluted"
+        }
+      }
+    },
+    "VYLR|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Corteva reports exactly three calendar months for the corresponding Seed Business sales.",
+      "statementCell": {
+        "table": 3,
+        "row": 26,
+        "column": 7,
+        "revenueUsd": 917000000
+      },
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567225000020/a93025enrschedules.htm",
+      "sourceSha256": "0fe74076e182931253b987464a2446f444e254c8e8284952aa9d0791cda7b860"
+    },
+    "VYLR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Corteva reports exactly three calendar months for the corresponding Seed Business sales.",
+      "statementCell": {
+        "table": 3,
+        "row": 25,
+        "column": 7,
+        "revenueUsd": 1737000000
+      },
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000002/a123125enrschedules.htm",
+      "sourceSha256": "37f5c87f7bb45c78dd7468e64c47729fe82ff7822f25d28e424203e7df82957e"
+    },
+    "VYLR|2026-03-31": {
+      "periodStart": "2026-01-01",
+      "method": "Corteva reports exactly three calendar months for the corresponding Seed Business sales.",
+      "statementCell": {
+        "table": 3,
+        "row": 26,
+        "column": 7,
+        "revenueUsd": 3023000000
+      },
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000008/a3312026enrschedules.htm",
+      "sourceSha256": "b299d05b6b9430821d6d9e1b89dc092db09668a69e2f5f93e6d9f92da130ed5d"
+    },
+    "VYLR|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "Corteva reports exactly three calendar months for the corresponding Seed Business sales.",
+      "statementCell": {
+        "table": 3,
+        "row": 26,
+        "column": 7,
+        "revenueUsd": 4532000000
+      },
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/a6302026enrschedules.htm",
+      "sourceSha256": "6f7b14a085c1b7ff7d8862ed1449386772c48591b4b89dd5bd0c002eb8beee6a"
+    },
+    "VZ|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000007/vz-20251231.htm",
+        "sourceSha256": "7709c2c5cb2ef97cf33e3477143fb3f75ddd0f6eae73df6932863d428a5fbba3",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-216",
+          "value": 4.06,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to Verizon"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/732712/000073271225000116/vz-20250930.htm",
+        "sourceSha256": "96c36f54e83cfe8b8f5aba6fc282505c6e0dee6e7bc23596ce63b8f8fa5fc063",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-208",
+          "value": 3.51,
+          "unit": "USD/shares",
+          "rowLabel": "Net income attributable to Verizon"
+        }
+      }
+    },
+    "V|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+        "sourceSha256": "38bbf9c68441b7f89035fc94d0a81fb740489dd7431aebb198fc971baf48e627",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-09-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-189",
+          "value": 40000000000.0,
+          "unit": "USD",
+          "rowLabel": "Net revenue"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000052/v-20250630.htm",
+        "sourceSha256": "010208e94266c61b75fa352ec3badbb4fd313924c27d3575ccdd9d37bf7290ce",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2025-06-30",
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "factId": "f-164",
+          "value": 29276000000.0,
+          "unit": "USD",
+          "rowLabel": "Net revenue"
+        }
+      }
+    },
+    "WDAY|2026-01-31": {
+      "periodStart": "2025-11-01",
+      "method": "Day after the reported fiscal third-quarter end, using matched issuer and fiscal-year contexts in the full-year and first-nine-month filings.",
+      "annual": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000014/wday-20260131.htm",
+        "sourceSha256": "5415da355b6a92c40de7dee09be391521f4fdbe59dd5d8e3dfb699b77578ede3",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2026-01-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-203",
+          "value": 2.59,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share, diluted"
+        }
+      },
+      "firstNineMonths": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327811/000132781125000198/wday-20251031.htm",
+        "sourceSha256": "ecc1a5e08e5e5e001460b6dc5fd4bed7e16a6606ae029c44c19a94f0f2cb7190",
+        "fact": {
+          "contextId": "c-1",
+          "periodStart": "2025-02-01",
+          "periodEnd": "2025-10-31",
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "factId": "f-161",
+          "value": 2.03,
+          "unit": "USD/shares",
+          "rowLabel": "Net income per share, diluted"
+        }
+      }
+    },
+    "WMT|2026-10-31": {
+      "periodStart": "2026-08-01",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+        "sourceSha256": "b570dd1c85ab0682751661dc0e92540f1a09fb56f1eebfc9e29b059a448ab075",
+        "matchedMetrics": {
+          "revenue": 188835000000.0,
+          "epsGaapDiluted": 0.62
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm",
+        "sourceSha256": "488e112c91cc568d7f13e503392dfb6a2cb22c850a899a4996298f6dda1d2b7a",
+        "periodEnd": "2026-07-31"
+      },
+      "days": 92
+    },
+    "WSM|2026-11-01": {
+      "periodStart": "2026-08-03",
+      "method": "Consecutive reported fiscal quarters. The current quarterly release and prior quarter source establish the period boundary.",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+        "sourceSha256": "9c55e2641a3c58bb353c86cc523f052f15935aacbeee1bf4d60a0e19c3e4416f",
+        "matchedMetrics": {
+          "revenue": 1991175000.0,
+          "epsGaapDiluted": 2.38
+        },
+        "statement": "Quarter column in the original issuer results exhibit."
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000208/wsm-20260802.htm",
+        "sourceSha256": "638066d527fdc67f77ad1522ea0ecfc6a91fc0982d5d0a9c6adab60e3503f0cb",
+        "periodEnd": "2026-08-02"
+      },
+      "days": 91
+    },
+    "XOM|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "method": "The successor archive hosts the quarter filed under predecessor Exxon Mobil’s CIK, which tags both exact quarter metrics.",
+      "taggedCik": "0000034088",
+      "successionSourceUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000119312526291990/d71068d8k12b.htm",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000003408826000093/xom-20260630.htm",
+      "sourceSha256": "775b44f3a5d98491bf35e8fc4db9e708874a054344d2b2299e90a2c7989d7ed9"
+    }
+  },
+  "originalFinancialFilings": {
+    "HON|2026-06-30": {
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
+        "sourceSha256": "e5e6e3b12edb413de7fd75c1f58242de44014a2a3ceb4c933cd42e2350e4fa26",
+        "form": "10-Q",
+        "filingDate": "2026-07-23",
+        "accessionNumber": "0000773840-26-000124",
+        "parsed": {
+          "fiscalYear": 2026,
+          "fiscalQuarter": 2,
+          "periodScope": "quarter",
+          "periodEnd": "2026-06-30",
+          "periodStart": "2026-04-01",
+          "epsGaapDiluted": 17.83,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        }
+      },
+      "supersededAmendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000127/hon-20260630.htm",
+        "sourceSha256": "662d533e358e06f82d8c9d37f37ea0c1419305d7cf9d45a324d368538af79948"
+      },
+      "finding": "The amendment corrects the backlog discussion. The original filing retains the actual financial statements.",
+      "fullIngestionReplay": {
+        "quarter": {
+          "date": "2026-07-23",
+          "periodEnd": "2026-06-30",
+          "fiscalYear": 2026,
+          "fiscalQuarter": 2,
+          "periodScope": "quarter",
+          "periodStart": "2026-04-01",
+          "epsGaapDiluted": 17.83,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD",
+          "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/exhibit99-q22026earningsre.htm",
+          "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
+          "verifiedAt": "2026-11-20",
+          "releaseFilingDate": "2026-07-23",
+          "releaseAccession": "0000773840-26-000120",
+          "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
+          "form": "10-Q",
+          "filingDate": "2026-07-23",
+          "accessionNumber": "0000773840-26-000124"
+        },
+        "diagnostic": {
+          "releaseCandidates": 1,
+          "parsedQuarters": 1,
+          "parsePending": 0,
+          "metricPending": 1,
+          "requestFailures": 0,
+          "sourceErrors": [],
+          "nextEarningsEvent": null
+        },
+        "sourceHashes": {
+          "https://data.sec.gov/submissions/CIK0000773840.json": "2acd408372c000f19c40cfd646b480c953514c9d4aaf4f9f5b1273db123e6564",
+          "https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/hon-20260723.htm": "d5beac9800375ecbc92637c4cde71ded8e42837c27c94f355958d2a66743585e",
+          "https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/exhibit99-q22026earningsre.htm": "6726804e33456fc5254572239703f0093f01196a2632b7c23d275b7fcc6d7b20",
+          "https://www.sec.gov/Archives/edgar/data/773840/000077384026000127/hon-20260630.htm": "662d533e358e06f82d8c9d37f37ea0c1419305d7cf9d45a324d368538af79948",
+          "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm": "e5e6e3b12edb413de7fd75c1f58242de44014a2a3ceb4c933cd42e2350e4fa26"
+        }
+      }
+    },
+    "DVN|2025-12-31": {
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526056485/dvn-20251231.htm",
+        "sourceSha256": "0c562a7cc503412175890dbd7f36802b0699c53b689f0450f4aa6be39a56cf44",
+        "form": "10-K",
+        "filingDate": "2026-02-18",
+        "accessionNumber": "0001193125-26-056485",
+        "parsed": {
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodEnd": "2025-12-31",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        }
+      },
+      "supersededAmendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000110465926046005/tmb-20251231x10ka.htm",
+        "sourceSha256": "d3e56e7e6f2fd3343e41e86763b15e6055b01068fe66d76a496373451f305a12"
+      },
+      "finding": "The amendment adds Part III disclosures. The original filing retains the audited financial statements."
+    },
+    "TECH|2026-06-30": {
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926100322/tech-20260630x10k.htm",
+        "sourceSha256": "e5b53167317a803850ebb7c773bd6d64dc0b8a5b0f96e880981518e163744104",
+        "form": "10-K",
+        "filingDate": "2026-08-24",
+        "accessionNumber": "0001104659-26-100322",
+        "parsed": {
+          "fiscalYear": 2026,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodEnd": "2026-06-30",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        }
+      },
+      "supersededAmendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000114036126041062/ef20084361_10ka.htm",
+        "sourceSha256": "858de82548000e44ba3e931442e472d03d63aeb00e3ba94829aac5926781a0b8"
+      },
+      "finding": "The amendment adds Part III disclosures. The original filing retains the audited financial statements."
+    },
+    "TSLA|2025-12-31": {
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+        "sourceSha256": "84d70ac56d2e0f16c28ccea5dd6e9e2aeb3733b5cbbf6130cce2544fd5561c99",
+        "form": "10-K",
+        "filingDate": "2026-01-29",
+        "accessionNumber": "0001628280-26-003952",
+        "parsed": {
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodEnd": "2025-12-31",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        }
+      },
+      "supersededAmendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926053166/tm2611837d1_10ka.htm",
+        "sourceSha256": "5e3060d44a986e45b9ddee1e40e56b241fd5353d3990bccd3b1ebff25267cbc9"
+      },
+      "finding": "The amendment adds Part III disclosures. The original filing retains the audited financial statements."
+    },
+    "SKYD|2025-12-31": {
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000011/psky-20251231.htm",
+        "sourceSha256": "c20dd065da0b644f5c82e52cb43ff946fce20d0373844eb05ecd1e075e1f148c",
+        "form": "10-K",
+        "filingDate": "2026-02-25",
+        "accessionNumber": "0002041610-26-000011",
+        "parsed": {
+          "fiscalYear": 2025,
+          "fiscalQuarter": 4,
+          "periodScope": "quarter",
+          "periodEnd": "2025-12-31",
+          "periodStart": null,
+          "epsGaapDiluted": null,
+          "revenue": null,
+          "epsBasis": "GAAP diluted",
+          "currency": "USD"
+        }
+      },
+      "supersededAmendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000114036126016758/ef20071103_10ka.htm",
+        "sourceSha256": "35857a3551d7acbf4dcb77a4d4f5d939db3c351ee9ad9f477c45dc423ee06e18"
+      },
+      "finding": "The amendment adds Part III disclosures. The original filing retains the audited financial statements."
+    }
+  },
+  "releaseFilingProvenance": {
+    "MET|2026-06-30": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000048/met-20260805.htm",
+        "sourceSha256": "e1bf051b6334e74b2bd556ef2e3b49137c1f32701ec0cabd05804e0db4df7c5e",
+        "filed": "2026-08-05",
+        "accessionNumber": "0001099219-26-000048"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000048/ex991earningsreleasetables.htm",
+        "sourceSha256": "5a64f3d085610700b04bb5151c448e316306188c61848161d1b5bbbb2e85293c"
+      },
+      "periodEnd": "2026-06-30",
+      "releaseDate": "2026-08-05",
+      "investorRelationsSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/august/metlife-announces-second-quarter-2026-results/"
+    },
+    "MET|2026-03-31": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000032/met-20260506.htm",
+        "sourceSha256": "753ebf5492d48934af2c75615a4ff7ce66d1d8d6591ab35105fb02cec3610089",
+        "filed": "2026-05-06",
+        "accessionNumber": "0001099219-26-000032"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000032/ex991earningsreleasetables.htm",
+        "sourceSha256": "1f012a8cb7c0adb007c29c49ac3025c67221ac4d91a5daf5a7dac5980beda062"
+      },
+      "periodEnd": "2026-03-31",
+      "releaseDate": "2026-05-06",
+      "investorRelationsSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/may/metlife-announces-first-quarter-2026-results/"
+    },
+    "MKC|2025-08-31": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63754/000006375425000063/mkc-20251007.htm",
+        "sourceSha256": "90e96c20a462d3a2915e4a67ae32e53e9b8e4d5a8c3fc74b21aa77a32877623c",
+        "filed": "2025-10-07",
+        "accessionNumber": "0000063754-25-000063"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63754/000006375425000063/mkcreportsthirdquarterpe.htm",
+        "sourceSha256": "0a78bb98dcc153bb9a2ba569e752134e4fb3198b67f3eb7b22e7bee2afb9d811"
+      },
+      "periodEnd": "2025-08-31",
+      "releaseDate": "2025-10-07",
+      "investorRelationsSourceUrl": "https://ir.mccormick.com/news-releases/news-release-details/mccormick-reports-third-quarter-performance-reaffirms-strong"
+    },
+    "NVDA|2026-10-25": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/nvda-20261117.htm",
+        "sourceSha256": "b2fc7d302916b30c0313ad5018cb729267f894b4ed17a09cd70b86364d19fe74",
+        "filed": "2026-11-17",
+        "accessionNumber": "0001045810-26-000088"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+        "sourceSha256": "c20e573b531ab81df80e31b7da35f29a51ff47dc19f3df0e1a71c956f4aeab7b"
+      },
+      "periodEnd": "2026-10-25",
+      "releaseDate": "2026-11-17",
+      "investorRelationsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+    },
+    "NVDA|2026-07-26": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+        "sourceSha256": "11df9785bdca5f89af135770482e2b6778008c19103d9b4bf1ee5c6610d3321d",
+        "filed": "2026-08-26",
+        "accessionNumber": "0001045810-26-000073"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+        "sourceSha256": "b5c0aebf9d38ab2a009cd7c1c766a4fd115a8d325636df0712f867bb5d68ca1a"
+      },
+      "periodEnd": "2026-07-26",
+      "releaseDate": "2026-08-26",
+      "investorRelationsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027"
+    },
+    "NVDA|2026-04-26": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm",
+        "sourceSha256": "2a24744de594850df0407ea9bef1502c8e211af5855575bcf4a90b865fd447dc",
+        "filed": "2026-05-20",
+        "accessionNumber": "0001045810-26-000051"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+        "sourceSha256": "04109ec7dc3ff1458e9640ac0c8c55656e6588925f2df0051e444fad19b42ea7"
+      },
+      "periodEnd": "2026-04-26",
+      "releaseDate": "2026-05-20",
+      "investorRelationsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027"
+    },
+    "NVDA|2026-01-25": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/nvda-20260225.htm",
+        "sourceSha256": "c0c19a1c795d4c78859f41309e9c2e11897967a67b32e354f092cebe7598ae44",
+        "filed": "2026-02-25",
+        "accessionNumber": "0001045810-26-000019"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "sourceSha256": "2a02ef15c6f167eec7329067f19c939bea7bcc61c5980ca1391dfc688b1fb9ed"
+      },
+      "periodEnd": "2026-01-25",
+      "releaseDate": "2026-02-25",
+      "investorRelationsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026"
+    },
+    "NVDA|2025-10-26": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/nvda-20251119.htm",
+        "sourceSha256": "5c7bcd36f54db555463ca2486922324220ef59d15902c26c17417037b3d48a8c",
+        "filed": "2025-11-19",
+        "accessionNumber": "0001045810-25-000228"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+        "sourceSha256": "5c983710a8015f06704b91551f0098dae7a1df4cb6b4915b02559691bf5eb9f5"
+      },
+      "periodEnd": "2025-10-26",
+      "releaseDate": "2025-11-19",
+      "investorRelationsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026"
+    },
+    "OKE|2026-06-30": {
+      "filing": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000027/oke-20260803.htm",
+        "sourceSha256": "a4050f8a8296bcc9669909994a3e334e716c5e0073e103a7dbf710b6b8b525b2",
+        "filed": "2026-08-03",
+        "accessionNumber": "0001039684-26-000027"
+      },
+      "exhibit": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000027/okeq22026earningsrelease.htm",
+        "sourceSha256": "7f1f84dc716b4f86a9c8bb3fe16eb3c8616c97b2a6847f2b00d4e9b273e7471a"
+      },
+      "periodEnd": "2026-06-30",
+      "releaseDate": "2026-08-03",
+      "investorRelationsSourceUrl": "https://ir.oneok.com/news-and-events/press-releases/2026/08-03-2026-211637100",
+      "index": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000027/0001039684-26-000027-index.htm",
+        "sourceSha256": "01e3a0641d21d5e96622fa300f3ae981a9e381c38872c0bd24d99c6c6532ae07",
+        "finding": "The index labels Item 2.01. The original report text identifies quarterly results under Item 2.02 and links the earnings exhibit."
+      }
+    }
+  },
+  "ibmRevenuePrecisionCorrection": {
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000004/ibm-20260128xex991.htm",
+    "sourceSha256": "b4e6804aa72de84248f355a23dbc06884a7f24789cc43eb21f03a7b6af77e5c9",
+    "previousRevenueUsd": 19700000000,
+    "correctedRevenueUsd": 19686000000,
+    "statementCell": {
+      "table": 3,
+      "row": 9,
+      "column": 3,
+      "rowLabel": "TOTAL REVENUE",
+      "amountShown": "19,686",
+      "dollarsPerUnit": 1000000
+    },
+    "corroboratingProspectus": "https://www.sec.gov/Archives/edgar/data/51143/000110465926008740/tm264285-3_424b5.htm"
+  },
+  "unresolvedQuarterStarts": {
+    "BNY|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "CLX|2026-06-30": "no unique common start in comparably tagged annual and nine-month periods",
+    "DVN|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "HONA|2026-03-28": "no linked financial filing",
+    "HONA|2025-12-31": "no linked financial filing",
+    "LUV|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "PGR|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "SKYD|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "SKYD|2025-09-30": {
+      "reason": "no unique matching fact",
+      "quarterContexts": [],
+      "tags": []
+    },
+    "SWKS|2025-10-03": "no unique common start in comparably tagged annual and nine-month periods",
+    "TECH|2026-06-30": "no unique common start in comparably tagged annual and nine-month periods",
+    "TSLA|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "USB|2025-12-31": "no unique common start in comparably tagged annual and nine-month periods",
+    "WFC|2025-12-31": "filing date or fiscal focus needs review"
+  },
+  "unconfirmedEarningsReleaseDates": {
+    "AES|2026-09-30": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+      "candidates": []
+    },
+    "AES|2026-06-30": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+      "candidates": []
+    },
+    "AES|2026-03-31": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+      "candidates": []
+    },
+    "AES|2025-12-31": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0000874761.json",
+      "submissionsSha256": "44f5ed1324e8ddd2c8a967ecc6d138d9731b49af2801c7282fab025a6fb146b8",
+      "candidates": []
+    },
+    "ECHO|2026-09-30": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+      "submissionsSha256": "7d085d28cce56bc88bbebb5b298d2489bb07ac4fa637b175099086fe5200f301",
+      "candidates": []
+    },
+    "FE|2025-12-31": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0001031296.json",
+      "submissionsSha256": "82f8c27408023d524a726c35742f9df00dc42f9136d845cc8169b1bf8653c4e9",
+      "candidates": [
+        {
+          "form": "8-K",
+          "accessionNumber": "0001031296-26-000041",
+          "filed": "2026-02-17",
+          "reportedEventDate": "2026-02-17",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/fe-20260217.htm",
+          "sourceSha256": "ce63ac8698de8f8d34a226057d42546c956a2291560b0c14f4c47d216c5585bb",
+          "exhibits": [
+            {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
+              "sourceSha256": "083fdeb2b69d58c04ca0276352bd2ce438723baedf04ea99fc66feb7a07b2fda",
+              "releaseIdentity": null,
+              "filingIdentity": null
+            }
+          ]
+        }
+      ]
+    },
+    "TECH|2026-09-30": {
+      "submissionsUrl": "https://data.sec.gov/submissions/CIK0000842023.json",
+      "submissionsSha256": "5c22891fa1beb83a23d0f26666cad95330d2eafe8579843573d97e57b73abce3",
+      "candidates": []
+    }
+  }
+}

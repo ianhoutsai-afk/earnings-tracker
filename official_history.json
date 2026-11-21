@@ -221,7 +221,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-29",
     "epsGaapDiluted": 1.85,
     "revenue": 102466000000.0,
     "epsBasis": "GAAP diluted",
@@ -365,7 +365,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 3,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-07-01",
     "epsGaapDiluted": 3.16,
     "revenue": 4869000000.0,
     "epsBasis": "GAAP diluted",
@@ -389,7 +389,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 1.37,
     "revenue": 3608000000.0,
     "epsBasis": "GAAP diluted",
@@ -413,7 +413,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 1,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-01-01",
     "epsGaapDiluted": 0.26,
     "revenue": 2678000000.0,
     "epsBasis": "GAAP diluted",
@@ -437,7 +437,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.56,
     "revenue": 2778000000,
     "epsBasis": "GAAP diluted",
@@ -466,7 +466,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 3,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 2.21,
     "revenue": 4095000000,
     "epsBasis": "GAAP diluted",
@@ -1662,7 +1662,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000011/a4q20258kpressreleaseex991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000011/a4q20258kpressreleaseex991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "AEP",
@@ -1707,7 +1708,8 @@
     "revenue": 3872000000,
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "AES",
@@ -1728,7 +1730,8 @@
     "revenue": 3422000000,
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "AES",
@@ -1749,7 +1752,8 @@
     "revenue": 3180000000,
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "AES",
@@ -1773,7 +1777,8 @@
       "en": "Quarterly revenue is calculated from annual less first-nine-month consolidated GAAP revenue. Net income available to common stockholders was approximately $325M, calculated from the reported rounded annual and nine-month amounts.",
       "zh-TW": "單季營收以全年合併 GAAP 營收減首九個月合併 GAAP 營收計算。普通股股東可享淨利約為 3.25 億美元，以已披露的全年及前九個月四捨五入金額相減。"
     },
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm"
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-11-04",
@@ -2492,7 +2497,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": -3.87,
     "revenue": 1428031000,
     "epsBasis": "GAAP diluted",
@@ -2911,7 +2916,8 @@
     "releaseAccession": "0001628280-26-073360",
     "ticker": "AMAT",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
+    "periodStart": "2026-07-27"
   },
   {
     "date": "2026-08-13",
@@ -2991,7 +2997,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-28",
     "epsGaapDiluted": 2.38,
     "revenue": 6800000000.0,
     "epsBasis": "GAAP diluted",
@@ -4290,7 +4296,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.79,
     "revenue": 1991000000,
     "epsBasis": "GAAP diluted",
@@ -4353,7 +4359,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000050/apd-20260930.htm",
     "filingDate": "2026-11-19",
     "form": "10-K",
-    "accessionNumber": "0000002969-26-000050"
+    "accessionNumber": "0000002969-26-000050",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-30",
@@ -4433,7 +4440,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodEnd": "2025-09-30",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 0.02,
     "revenue": 3166900000.0,
     "epsBasis": "GAAP diluted",
@@ -5296,7 +5303,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 1.07,
     "revenue": 737480000,
     "epsBasis": "GAAP diluted",
@@ -5953,7 +5960,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/azo-20260829x10k.htm",
     "filingDate": "2026-10-26",
     "form": "10-K",
-    "accessionNumber": "0001104659-26-118791"
+    "accessionNumber": "0001104659-26-118791",
+    "periodStart": "2026-05-10"
   },
   {
     "ticker": "AZO",
@@ -5976,7 +5984,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326003674/exh_991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326003674/exh_991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-02-15"
   },
   {
     "ticker": "AZO",
@@ -5999,7 +6008,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326001288/exh_991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184326001288/exh_991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-11-23"
   },
   {
     "ticker": "AZO",
@@ -6022,7 +6032,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184325007831/exh_991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184325007831/exh_991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-08-31"
   },
   {
     "ticker": "AZO",
@@ -6045,7 +6056,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184325006024/exh_991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866787/000117184325006024/exh_991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-05-11"
   },
   {
     "date": "2026-10-27",
@@ -6428,7 +6440,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000001045626000004/bax-20260930xex991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000001045626000004/bax-20260930xex991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "BAX",
@@ -6451,7 +6464,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026050795/bax-20260630xex991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026050795/bax-20260630xex991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "BAX",
@@ -6474,7 +6488,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026028582/bax-20260331xex991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026028582/bax-20260331xex991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "BAX",
@@ -6497,7 +6512,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026007474/bax-20260212xex991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/10456/000162828026007474/bax-20260212xex991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-10-30",
@@ -6660,7 +6676,8 @@
     "releaseAccession": "0001628280-26-070511",
     "ticker": "BDX",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-08-06",
@@ -6740,7 +6757,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 1.72,
     "revenue": 5890000000,
     "epsBasis": "GAAP diluted",
@@ -6836,7 +6853,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0,
     "revenue": 777683000,
     "epsBasis": "GAAP diluted",
@@ -6980,7 +6997,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 0.21,
     "revenue": 2343700000.0,
     "epsBasis": "GAAP diluted",
@@ -7028,7 +7045,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-02-01",
     "epsGaapDiluted": 0.12,
     "revenue": 912000000,
     "epsBasis": "GAAP diluted",
@@ -7091,7 +7108,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469325000107/fy26_q2xerevergreen.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/14693/000001469325000107/fy26_q2xerevergreen.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-08-01"
   },
   {
     "date": "2025-08-28",
@@ -8653,7 +8671,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1037540/000103754026000019/bxp-20260331.htm",
     "form": "10-Q",
     "filingDate": "2026-05-07",
-    "accessionNumber": "0001037540-26-000019"
+    "accessionNumber": "0001037540-26-000019",
+    "periodStart": "2026-01-01"
   },
   {
     "date": "2026-01-27",
@@ -9881,7 +9900,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000162828025058106/a20254qearningsrelease8-k.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000162828025058106/a20254qearningsrelease8-k.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-09-01"
   },
   {
     "date": "2025-09-29",
@@ -10408,7 +10428,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000206/a3q26earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000206/a3q26earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "CFG",
@@ -10431,7 +10452,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000133/a2q26earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000133/a2q26earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "CFG",
@@ -10454,7 +10476,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000070/a1q26earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000070/a1q26earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "CFG",
@@ -10477,7 +10500,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000017/a4q25earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000017/a4q25earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "CFG",
@@ -10500,7 +10524,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994425000139/a3q25earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/759944/000075994425000139/a3q25earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "date": "2026-10-30",
@@ -10883,7 +10908,8 @@
     "releaseFilingDate": "2026-11-05",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126042030/ef20084818_ex99-1.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126042030/ef20084818_ex99-1.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126042030/ef20084818_ex99-1.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1739940/000114036126042030/ef20084818_ex99-1.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-30",
@@ -12456,7 +12482,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000023/iivi-20260930.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000023/iivi-20260930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-08-12",
@@ -12464,7 +12491,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 1.19,
     "revenue": 2045500000.0,
     "epsBasis": "GAAP diluted",
@@ -12527,7 +12554,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000006/iivi-20251231.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000006/iivi-20251231.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "COHR",
@@ -12550,7 +12578,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031825000019/iivi-20250930.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031825000019/iivi-20250930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "ticker": "COIN",
@@ -12573,7 +12602,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000122/coin-20260930.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000122/coin-20260930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "COIN",
@@ -12596,7 +12626,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "COIN",
@@ -12619,7 +12650,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000054/coin-20260331.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000054/coin-20260331.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "date": "2026-02-12",
@@ -12627,7 +12659,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": -2.49,
     "revenue": 1781129000,
     "epsBasis": "GAAP diluted",
@@ -12936,7 +12968,8 @@
     "releaseAccession": "0001140859-26-000038",
     "ticker": "COR",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-08-05",
@@ -13016,7 +13049,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": -1.75,
     "revenue": 83728554000,
     "epsBasis": "GAAP diluted",
@@ -13295,7 +13328,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
     "filingDate": "2026-09-29",
     "form": "10-K",
-    "accessionNumber": "0001193125-26-405731"
+    "accessionNumber": "0001193125-26-405731",
+    "periodStart": "2026-05-01"
   },
   {
     "date": "2026-05-21",
@@ -13375,7 +13409,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-05-01",
     "epsGaapDiluted": 0.41,
     "revenue": 1125097000,
     "epsBasis": "GAAP diluted",
@@ -13471,7 +13505,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.44,
     "revenue": 390794000,
     "epsBasis": "GAAP diluted",
@@ -13807,7 +13841,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodEnd": "2026-01-31",
-    "periodStart": null,
+    "periodStart": "2025-11-01",
     "epsGaapDiluted": 2.07,
     "revenue": 11201000000.0,
     "epsBasis": "GAAP diluted",
@@ -14604,7 +14638,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 3,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-07-01",
     "epsGaapDiluted": 0.39,
     "revenue": 8040000000,
     "epsBasis": "GAAP diluted",
@@ -14628,7 +14662,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 0.42,
     "revenue": 7376000000,
     "epsBasis": "GAAP diluted",
@@ -14652,7 +14686,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 1,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-01-01",
     "epsGaapDiluted": 1.69,
     "revenue": 6432000000,
     "epsBasis": "GAAP diluted",
@@ -14705,7 +14739,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 3,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 1.03,
     "revenue": 5647000000,
     "epsBasis": "GAAP diluted",
@@ -16194,7 +16228,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/882184/000088218426000157/dhi-20260930.htm",
     "filingDate": "2026-11-18",
     "form": "10-K",
-    "accessionNumber": "0000882184-26-000157"
+    "accessionNumber": "0000882184-26-000157",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-21",
@@ -16274,7 +16309,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 3.04,
     "revenue": 9677800000.0,
     "epsBasis": "GAAP diluted",
@@ -16524,7 +16559,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodEnd": "2025-09-27",
-    "periodStart": null,
+    "periodStart": "2025-06-29",
     "epsGaapDiluted": 0.73,
     "revenue": 22464000000.0,
     "epsBasis": "GAAP diluted",
@@ -17835,14 +17870,14 @@
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526054657/d111666d8k.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000110465926046005/tmb-20251231x10ka.htm",
+    "metricSourceUrl": "https://s2.q4cdn.com/462548525/files/doc_financials/quarterly/2026/q1/Q1-2026-DVN-Supplemental-Tables.pdf",
     "verifiedAt": "2026-11-15",
     "releaseFilingDate": "2026-02-17",
     "releaseAccession": "0001193125-26-054657",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000110465926046005/tmb-20251231x10ka.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526056485/dvn-20251231.htm",
     "form": "10-K",
-    "filingDate": "2026-04-21",
-    "accessionNumber": "0001104659-26-046005",
+    "filingDate": "2026-02-18",
+    "accessionNumber": "0001193125-26-056485",
     "ticker": "DVN",
     "revenueSourceUrl": "https://s2.q4cdn.com/462548525/files/doc_financials/quarterly/2026/q1/Q1-2026-DVN-Supplemental-Tables.pdf",
     "epsSourceUrl": "https://s2.q4cdn.com/462548525/files/doc_financials/quarterly/2026/q1/Q1-2026-DVN-Supplemental-Tables.pdf"
@@ -18134,7 +18169,8 @@
     "metricNote": {
       "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026.",
       "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。"
-    }
+    },
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "ECHO",
@@ -18159,7 +18195,8 @@
     },
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926089370/sats-20260630x10q.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926089370/sats-20260630x10q.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "ECHO",
@@ -18184,7 +18221,8 @@
     },
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926058150/sats-20260331x10q.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926058150/sats-20260331x10q.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "ECHO",
@@ -18210,7 +18248,8 @@
     "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-twelve-months-6",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "ECHO",
@@ -18235,7 +18274,8 @@
     },
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465925107277/tmb-20250930x10q.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "date": "2026-10-27",
@@ -20270,7 +20310,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.51,
     "revenue": 2958944000,
     "epsBasis": "GAAP diluted",
@@ -21676,7 +21716,8 @@
     "releaseFilingDate": "2026-09-30",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm",
+    "periodStart": "2026-06-01"
   },
   {
     "date": "2026-07-01",
@@ -21771,7 +21812,8 @@
     "form": "10-K",
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000101323725000084/fdsq42025earningsrelease.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000101323725000084/fdsq42025earningsrelease.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1013237/000101323725000084/fdsq42025earningsrelease.htm",
+    "periodStart": "2025-06-01"
   },
   {
     "date": "2026-10-28",
@@ -21808,7 +21850,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-03-01",
     "epsGaapDiluted": 6.6,
     "revenue": 25007000000,
     "epsBasis": "GAAP diluted",
@@ -22285,7 +22327,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-05-01",
     "epsGaapDiluted": 3.55,
     "revenue": 8497000000,
     "epsBasis": "GAAP diluted",
@@ -22324,7 +22366,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000077/ffiv-20260930.htm",
     "filingDate": "2026-11-17",
     "form": "10-K",
-    "accessionNumber": "0001048695-26-000077"
+    "accessionNumber": "0001048695-26-000077",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-27",
@@ -22404,7 +22447,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 3.26,
     "revenue": 810090000,
     "epsBasis": "GAAP diluted",
@@ -22524,7 +22567,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 6.42,
     "revenue": 515751000.0,
     "epsBasis": "GAAP diluted",
@@ -22803,7 +22846,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000229/q32026earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000229/q32026earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "FITB",
@@ -22826,7 +22870,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000193/q22026earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000193/q22026earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "FITB",
@@ -22849,7 +22894,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000134/q12026earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000134/q12026earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "FITB",
@@ -22872,7 +22918,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000013/q42025earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552726000013/q42025earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "FITB",
@@ -22895,7 +22942,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552725000200/q32025earningsrelease.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/35527/000003552725000200/q32025earningsrelease.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "date": "2026-10-22",
@@ -23086,7 +23134,8 @@
     "epsGaapDiluted": 0.67,
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000009/flexex991-3312026.htm",
     "epsBasis": "GAAP diluted",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000009/flexex991-3312026.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000009/flexex991-3312026.htm",
+    "periodStart": "2026-01-01"
   },
   {
     "date": "2026-02-04",
@@ -23166,7 +23215,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 1.61,
     "revenue": 4212000000.0,
     "epsBasis": "GAAP diluted",
@@ -23286,7 +23335,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 1.61,
     "revenue": 4212000000.0,
     "epsBasis": "GAAP diluted",
@@ -23454,7 +23503,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodEnd": "2025-12-31",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.48,
     "revenue": 336045000.0,
     "epsBasis": "GAAP diluted",
@@ -26469,7 +26518,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.3,
     "revenue": 2174000000,
     "epsBasis": "GAAP diluted",
@@ -27151,20 +27200,20 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 17.83,
     "revenue": 9719000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/exhibit99-q22026earningsre.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000127/hon-20260630.htm",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
     "verifiedAt": "2026-11-15",
     "releaseFilingDate": "2026-07-23",
     "releaseAccession": "0000773840-26-000120",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000127/hon-20260630.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
     "form": "10-Q",
-    "filingDate": "2026-07-24",
-    "accessionNumber": "0000773840-26-000127",
+    "filingDate": "2026-07-23",
+    "accessionNumber": "0000773840-26-000124",
     "ticker": "HON",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/exhibit99-q22026earningsre.htm"
@@ -27365,7 +27414,8 @@
       "zh-TW": "對 2026 年 6 月 29 日分拆前截止的季度，公司按分拆日約 3.17 億股計算所公布的稀釋 EPS。"
     },
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000031/exhibit991q32026earningsre.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+    "periodStart": "2025-06-29"
   },
   {
     "date": "2026-10-27",
@@ -27925,7 +27975,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-09-28",
     "epsGaapDiluted": 0.85,
     "revenue": 3400000000,
     "epsBasis": "GAAP diluted",
@@ -28650,7 +28700,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.63,
     "revenue": 1643000000,
     "epsBasis": "GAAP diluted",
@@ -28770,14 +28820,14 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 5.88,
-    "revenue": 19700000000,
+    "revenue": 19686000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000004/ibm-20260128xex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
-    "verifiedAt": "2026-11-15",
+    "verifiedAt": "2026-11-20",
     "releaseFilingDate": "2026-01-28",
     "releaseAccession": "0000051143-26-000004",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
@@ -29370,7 +29420,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-09-29",
     "epsGaapDiluted": 2.16,
     "revenue": 1159000000,
     "epsBasis": "GAAP diluted",
@@ -31209,7 +31259,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-01",
     "epsGaapDiluted": 1.99,
     "revenue": 8252000000.0,
     "epsBasis": "GAAP diluted",
@@ -31329,7 +31379,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 2.67,
     "revenue": 6442000000,
     "epsBasis": "GAAP diluted",
@@ -31752,7 +31802,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/kdp-20260630.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/kdp-20260630.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "date": "2026-04-23",
@@ -31799,7 +31850,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000016/kdp-20251231.htm",
     "form": "10-K",
     "filingDate": "2026-02-24",
-    "accessionNumber": "0001418135-26-000016"
+    "accessionNumber": "0001418135-26-000016",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "KDP",
@@ -31822,7 +31874,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813525000125/kdp-20250930.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1418135/000141813525000125/kdp-20250930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "date": "2026-10-20",
@@ -31986,7 +32039,8 @@
     "releaseAccession": "0001601046-26-000040",
     "ticker": "KEYS",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+    "periodStart": "2026-08-01"
   },
   {
     "date": "2026-08-18",
@@ -32066,7 +32120,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-08-01",
     "epsGaapDiluted": 1.33,
     "revenue": 1419000000.0,
     "epsBasis": "GAAP diluted",
@@ -32407,7 +32461,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.16,
     "revenue": 5739306000,
     "epsBasis": "GAAP diluted",
@@ -32964,7 +33018,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 1,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-02-01",
     "epsGaapDiluted": 1.46,
     "revenue": 46121000000,
     "epsBasis": "GAAP diluted",
@@ -33152,7 +33206,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/60086/000006008626000008/l-20251231.htm",
     "filingDate": "2026-02-10",
     "form": "10-K",
-    "accessionNumber": "0000060086-26-000008"
+    "accessionNumber": "0000060086-26-000008",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-11-03",
@@ -33559,7 +33614,8 @@
     "releaseFilingDate": "2026-10-29",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/exhibit991q3cy26earnings.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/exhibit991q3cy26earnings.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/exhibit991q3cy26earnings.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/exhibit991q3cy26earnings.htm",
+    "periodStart": "2026-07-04"
   },
   {
     "date": "2026-07-29",
@@ -34404,7 +34460,8 @@
     "releaseAccession": "0000060667-26-000126",
     "ticker": "LOW",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+    "periodStart": "2026-08-01"
   },
   {
     "date": "2026-08-19",
@@ -35195,7 +35252,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000009/lyv-20251231.htm",
     "form": "10-K",
     "filingDate": "2026-02-19",
-    "accessionNumber": "0001335258-26-000009"
+    "accessionNumber": "0001335258-26-000009",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-11-04",
@@ -36483,7 +36541,9 @@
     "filingDate": "2026-08-06",
     "accessionNumber": "0001099219-26-000050",
     "verifiedAt": "2026-11-18",
-    "releaseSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/august/metlife-announces-second-quarter-2026-results/"
+    "releaseSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/august/metlife-announces-second-quarter-2026-results/",
+    "releaseAccession": "0001099219-26-000048",
+    "releaseFilingDate": "2026-08-05"
   },
   {
     "ticker": "MET",
@@ -36503,7 +36563,9 @@
     "filingDate": "2026-05-07",
     "accessionNumber": "0001099219-26-000035",
     "verifiedAt": "2026-11-18",
-    "releaseSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/may/metlife-announces-first-quarter-2026-results/"
+    "releaseSourceUrl": "https://www.metlife.com/about-us/newsroom/2026/may/metlife-announces-first-quarter-2026-results/",
+    "releaseAccession": "0001099219-26-000032",
+    "releaseFilingDate": "2026-05-06"
   },
   {
     "date": "2026-02-04",
@@ -36876,7 +36938,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-09-01",
     "epsGaapDiluted": 0.84,
     "revenue": 1850400000,
     "epsBasis": "GAAP diluted",
@@ -36912,7 +36974,9 @@
     "filingDate": "2025-10-07",
     "accessionNumber": "0000063754-25-000065",
     "verifiedAt": "2026-11-18",
-    "releaseSourceUrl": "https://ir.mccormick.com/news-releases/news-release-details/mccormick-reports-third-quarter-performance-reaffirms-strong"
+    "releaseSourceUrl": "https://ir.mccormick.com/news-releases/news-release-details/mccormick-reports-third-quarter-performance-reaffirms-strong",
+    "releaseAccession": "0000063754-25-000063",
+    "releaseFilingDate": "2025-10-07"
   },
   {
     "date": "2026-11-04",
@@ -38171,7 +38235,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-11-02",
     "epsGaapDiluted": 0.46,
     "revenue": 2218700000,
     "epsBasis": "GAAP diluted",
@@ -38800,7 +38864,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 4.67,
     "revenue": 2475000000,
     "epsBasis": "GAAP diluted",
@@ -38935,7 +38999,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000011/mtd-20251231.htm",
     "form": "10-K",
     "filingDate": "2026-02-06",
-    "accessionNumber": "0001037646-26-000011"
+    "accessionNumber": "0001037646-26-000011",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-11-06",
@@ -39068,7 +39133,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-05-30",
     "epsGaapDiluted": 2.83,
     "revenue": 11315000000,
     "epsBasis": "GAAP diluted",
@@ -39164,7 +39229,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.03,
     "revenue": 2244400000,
     "epsBasis": "GAAP diluted",
@@ -39899,7 +39964,8 @@
     "verifiedAt": "2026-11-15",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000026/ni-ex991_20251231.htm",
     "epsBasis": "GAAP diluted",
-    "revenueSourceUrl": "https://s1.q4cdn.com/829981032/files/doc_earnings/2025/q4/supplemental-info/NiSource-4Q2025-Supplemental-Financial-Information-FINAL.pdf"
+    "revenueSourceUrl": "https://s1.q4cdn.com/829981032/files/doc_earnings/2025/q4/supplemental-info/NiSource-4Q2025-Supplemental-Financial-Information-FINAL.pdf",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-10-29",
@@ -40363,7 +40429,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.26,
     "revenue": 7753000000,
     "epsBasis": "GAAP diluted",
@@ -40481,7 +40547,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 2.87,
     "revenue": 2974000000,
     "epsBasis": "GAAP diluted",
@@ -40544,7 +40610,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000100204726000003/ntap-ex99_1.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526380207/ntap-20260731.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-25"
   },
   {
     "date": "2026-05-28",
@@ -40552,7 +40619,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-01-24",
     "epsGaapDiluted": 2.03,
     "revenue": 1948000000,
     "epsBasis": "GAAP diluted",
@@ -40615,7 +40682,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312525297164/ntap-ex99_1.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312525297237/ntap-20251024.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-26"
   },
   {
     "ticker": "NTAP",
@@ -40638,7 +40706,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000095017025111700/ntap-ex99_1.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312525189700/ntap-20250725.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-04-26"
   },
   {
     "date": "2026-10-21",
@@ -40900,7 +40969,10 @@
     "metricSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
     "verifiedAt": "2026-11-18",
     "epsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
-    "revenueSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+    "revenueSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+    "releaseAccession": "0001045810-26-000088",
+    "releaseFilingDate": "2026-11-17",
+    "periodStart": "2026-07-27"
   },
   {
     "ticker": "NVDA",
@@ -40922,7 +40994,9 @@
     "filingDate": "2026-08-26",
     "form": "10-Q",
     "accessionNumber": "0001045810-26-000075",
-    "periodStart": "2026-04-27"
+    "periodStart": "2026-04-27",
+    "releaseAccession": "0001045810-26-000073",
+    "releaseFilingDate": "2026-08-26"
   },
   {
     "ticker": "NVDA",
@@ -40944,7 +41018,9 @@
     "form": "10-Q",
     "filingDate": "2026-05-20",
     "accessionNumber": "0001045810-26-000052",
-    "periodStart": "2026-01-26"
+    "periodStart": "2026-01-26",
+    "releaseAccession": "0001045810-26-000051",
+    "releaseFilingDate": "2026-05-20"
   },
   {
     "ticker": "NVDA",
@@ -40966,7 +41042,9 @@
     "form": "10-K",
     "filingDate": "2026-02-25",
     "accessionNumber": "0001045810-26-000021",
-    "periodStart": "2025-10-27"
+    "periodStart": "2025-10-27",
+    "releaseAccession": "0001045810-26-000019",
+    "releaseFilingDate": "2026-02-25"
   },
   {
     "ticker": "NVDA",
@@ -40988,7 +41066,9 @@
     "form": "10-Q",
     "filingDate": "2025-11-19",
     "accessionNumber": "0001045810-25-000230",
-    "periodStart": "2025-07-28"
+    "periodStart": "2025-07-28",
+    "releaseAccession": "0001045810-25-000228",
+    "releaseFilingDate": "2025-11-19"
   },
   {
     "date": "2026-10-22",
@@ -41752,7 +41832,9 @@
     "filingDate": "2026-08-04",
     "accessionNumber": "0001039684-26-000029",
     "verifiedAt": "2026-11-18",
-    "releaseSourceUrl": "https://ir.oneok.com/news-and-events/press-releases/2026/08-03-2026-211637100"
+    "releaseSourceUrl": "https://ir.oneok.com/news-and-events/press-releases/2026/08-03-2026-211637100",
+    "releaseAccession": "0001039684-26-000027",
+    "releaseFilingDate": "2026-08-03"
   },
   {
     "date": "2026-04-28",
@@ -41885,7 +41967,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-11-01",
     "epsGaapDiluted": 0.35,
     "revenue": 761000000,
     "epsBasis": "GAAP diluted",
@@ -42212,7 +42294,8 @@
     "releaseFilingDate": "2026-09-10",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+    "periodStart": "2026-06-01"
   },
   {
     "date": "2026-06-10",
@@ -42628,7 +42711,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": -0.07,
     "revenue": 5112000000,
     "epsBasis": "GAAP diluted",
@@ -42691,7 +42774,8 @@
     "releaseAccession": "0001474432-26-000110",
     "ticker": "P",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000110/everpure-ex991q3fy2027xpre.htm",
+    "periodStart": "2026-08-03"
   },
   {
     "date": "2026-08-26",
@@ -42747,7 +42831,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-11-03",
     "epsGaapDiluted": 0.29,
     "revenue": 1058903000,
     "epsBasis": "GAAP diluted",
@@ -43122,7 +43206,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526023374/pcar-ex99_1.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526023374/pcar-ex99_1.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "PCAR",
@@ -45291,7 +45376,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/79879/000007987926000025/exhibit99-4q2025earningsre.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/79879/000007987926000025/exhibit99-4q2025earningsre.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "PPG",
@@ -45530,7 +45616,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000012/exhibit992-4q25qfs.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000012/exhibit992-4q25qfs.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "PRU",
@@ -45898,7 +45985,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 2.94,
     "revenue": 893795000.0,
     "epsBasis": "GAAP diluted",
@@ -46297,7 +46384,8 @@
     "releaseFilingDate": "2026-11-04",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000127/qcom092726erex991.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000127/qcom092726erex991.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000127/qcom092726erex991.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000127/qcom092726erex991.htm",
+    "periodStart": "2026-06-29"
   },
   {
     "date": "2026-07-29",
@@ -46377,7 +46465,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-30",
     "epsGaapDiluted": -2.89,
     "revenue": 11270000000,
     "epsBasis": "GAAP diluted",
@@ -46593,7 +46681,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.24,
     "revenue": 725607000,
     "epsBasis": "GAAP diluted",
@@ -46901,7 +46989,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000063/rf-2026930xexhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000073/rf-20260930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-01"
   },
   {
     "ticker": "RF",
@@ -46924,7 +47013,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000050/rf-2026630xexhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000055/rf-20260630.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "RF",
@@ -46947,7 +47037,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000032/rf-2026331xexhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000037/rf-20260331.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "RF",
@@ -46970,7 +47061,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000006/rf-20251231xexhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176126000006/rf-20251231xexhibit991.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "RF",
@@ -46993,7 +47085,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176125000074/rf-2025930xexhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1281761/000128176125000080/rf-20250930.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-07-01"
   },
   {
     "ticker": "RJF",
@@ -47017,7 +47110,8 @@
       "en": "Revenue is consolidated total revenue before interest expense. The earnings release headline uses net revenue.",
       "zh-TW": "營收採合併總營收，尚未扣除利息支出。公司新聞稿標題使用淨營收。"
     },
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/rjf20260930q426earnings.htm"
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/rjf20260930q426earnings.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-22",
@@ -47097,7 +47191,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 2.95,
     "revenue": 4190000000,
     "epsBasis": "GAAP diluted",
@@ -47457,7 +47551,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 1.23,
     "revenue": 2316000000,
     "epsBasis": "GAAP diluted",
@@ -47732,7 +47826,8 @@
     "releaseAccession": "0000745732-26-000047",
     "ticker": "ROST",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+    "periodStart": "2026-08-02"
   },
   {
     "date": "2026-08-20",
@@ -48163,7 +48258,8 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000012/revv-20251228.htm",
     "filingDate": "2026-02-24",
     "form": "10-K",
-    "accessionNumber": "0000031791-26-000012"
+    "accessionNumber": "0000031791-26-000012",
+    "periodStart": "2025-09-29"
   },
   {
     "date": "2025-10-27",
@@ -48411,7 +48507,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-30",
     "epsGaapDiluted": 0.12,
     "revenue": 9569000000,
     "epsBasis": "GAAP diluted",
@@ -48874,14 +48970,14 @@
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/psky-20260225.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000114036126016758/ef20071103_10ka.htm",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/ex99_q425.htm",
     "verifiedAt": "2026-11-15",
     "releaseFilingDate": "2026-02-25",
     "releaseAccession": "0002041610-26-000008",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000114036126016758/ef20071103_10ka.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000011/psky-20251231.htm",
     "form": "10-K",
-    "filingDate": "2026-04-24",
-    "accessionNumber": "0001140361-26-016758",
+    "filingDate": "2026-02-25",
+    "accessionNumber": "0002041610-26-000011",
     "ticker": "SKYD",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/ex99_q425.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/ex99_q425.htm"
@@ -49596,7 +49692,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.38,
     "revenue": 6981000000,
     "epsBasis": "GAAP diluted",
@@ -50614,7 +50710,7 @@
     "fiscalYear": 2027,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-06-01",
     "epsGaapDiluted": 3.32,
     "revenue": 2633000000,
     "epsBasis": "GAAP diluted",
@@ -50638,7 +50734,7 @@
     "fiscalYear": 2027,
     "fiscalQuarter": 1,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-03-01",
     "epsGaapDiluted": 3.79,
     "revenue": 2432700000,
     "epsBasis": "GAAP diluted",
@@ -50662,7 +50758,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-12-01",
     "epsGaapDiluted": 1.16,
     "revenue": 1920200000,
     "epsBasis": "GAAP diluted",
@@ -50686,7 +50782,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 3,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-09-01",
     "epsGaapDiluted": 2.88,
     "revenue": 2222800000,
     "epsBasis": "GAAP diluted",
@@ -50710,7 +50806,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-01",
     "epsGaapDiluted": 2.65,
     "revenue": 2481000000,
     "epsBasis": "GAAP diluted",
@@ -50994,7 +51090,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000052/q426earningsreleaseformex9.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000052/q426earningsreleaseformex9.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2026-07-04"
   },
   {
     "ticker": "SWKS",
@@ -51182,7 +51279,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 2.04,
     "revenue": 3793000000,
     "epsBasis": "GAAP diluted",
@@ -51704,7 +51801,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-29",
     "epsGaapDiluted": 7.75,
     "revenue": 2437000000,
     "epsBasis": "GAAP diluted",
@@ -51860,7 +51957,8 @@
     "dateSource": "sec_filing",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-08-12",
@@ -51878,10 +51976,10 @@
     "verifiedAt": "2026-11-14",
     "releaseFilingDate": "2026-08-12",
     "releaseAccession": "0001104659-26-094391",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/842023/000114036126041062/ef20084361_10ka.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926100322/tech-20260630x10k.htm",
     "form": "10-K",
-    "filingDate": "2026-10-28",
-    "accessionNumber": "0001140361-26-041062",
+    "filingDate": "2026-08-24",
+    "accessionNumber": "0001104659-26-100322",
     "ticker": "TECH",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926094391/tech-20260812xex99d1.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926094391/tech-20260812xex99d1.htm"
@@ -52058,7 +52156,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-28",
     "epsGaapDiluted": 2.22,
     "revenue": 4749000000,
     "epsBasis": "GAAP diluted",
@@ -52274,7 +52372,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.0,
     "revenue": 5250000000,
     "epsBasis": "GAAP diluted",
@@ -52333,7 +52431,8 @@
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000051/a2026q3ex-99.htm",
     "verifiedAt": "2026-11-18",
     "releaseFilingDate": "2026-11-18",
-    "releaseAccession": "0000027419-26-000051"
+    "releaseAccession": "0000027419-26-000051",
+    "periodStart": "2026-08-02"
   },
   {
     "date": "2026-08-19",
@@ -52448,7 +52547,8 @@
     "releaseAccession": "0000109198-26-000058",
     "ticker": "TJX",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+    "periodStart": "2026-08-02"
   },
   {
     "date": "2026-08-19",
@@ -53224,7 +53324,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": null,
     "revenue": 4055500000,
     "epsBasis": "GAAP diluted",
@@ -53836,14 +53936,14 @@
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926053166/tm2611837d1_10ka.htm",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm",
     "verifiedAt": "2026-11-15",
     "releaseFilingDate": "2026-01-28",
     "releaseAccession": "0001628280-26-003837",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926053166/tm2611837d1_10ka.htm",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
     "form": "10-K",
-    "filingDate": "2026-04-30",
-    "accessionNumber": "0001104659-26-053166",
+    "filingDate": "2026-01-29",
+    "accessionNumber": "0001628280-26-003952",
     "ticker": "TSLA"
   },
   {
@@ -53977,7 +54077,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-06-29",
     "epsGaapDiluted": 0.13,
     "revenue": 13860000000.0,
     "epsBasis": "GAAP diluted",
@@ -54313,7 +54413,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": -0.3,
     "revenue": 1365930000,
     "epsBasis": "GAAP diluted",
@@ -54553,7 +54653,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-09-28",
     "epsGaapDiluted": null,
     "revenue": 4175000000,
     "epsBasis": "GAAP diluted",
@@ -56046,7 +56146,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-07-01",
     "epsGaapDiluted": 2.62,
     "revenue": 10724000000,
     "epsBasis": "GAAP diluted",
@@ -56700,7 +56800,8 @@
       "zh-TW": "AvalonBay 是會計收購方。比較季採 AvalonBay 的歷史業績，並按換股比率調整。2026 年第三季自 8 月 17 日合併起納入 Equity Residential。"
     },
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+    "periodStart": "2026-07-01"
   },
   {
     "date": "2026-07-22",
@@ -56766,7 +56867,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.42,
     "revenue": 767856000,
     "epsBasis": "GAAP diluted",
@@ -56812,7 +56913,8 @@
       "zh-TW": "AvalonBay 是會計收購方。比較季採 AvalonBay 的歷史業績，並按換股比率調整。2026 年第三季自 8 月 17 日合併起納入 Equity Residential。"
     },
     "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm",
+    "periodStart": "2025-07-01"
   },
   {
     "date": "2026-11-05",
@@ -57372,7 +57474,7 @@
     "fiscalYear": 2025,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.54,
     "revenue": 4584000000,
     "epsBasis": "GAAP diluted",
@@ -57713,7 +57815,8 @@
     "metricNote": {
       "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $1.022B of net income attributable to the business. In separate pre-spin pro forma disclosures, Vylor reported diluted EPS from continuing operations of $2.21 for the first six months of 2026. A second-quarter figure on that basis was not disclosed in that statement.",
       "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 10.22 億美元。另一份分拆前備考財報披露，2026 年上半年繼續營業稀釋 EPS 為 2.21 美元。該份報表未列同口徑的第二季單季數字。"
-    }
+    },
+    "periodStart": "2026-04-01"
   },
   {
     "ticker": "VYLR",
@@ -57736,7 +57839,8 @@
     "metricNote": {
       "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business reported $502M of net income attributable to the business. Corteva’s August 6 bond exchange exhibit reported illustrative pro forma diluted EPS from continuing operations of $0.70 and pro forma sales of $3.043B, using pre-close financing assumptions.",
       "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務錄得歸屬淨利 5.02 億美元。Corteva 於 8 月 6 日公布的債券交換文件按分拆完成前的融資假設，列出繼續營業備考稀釋 EPS 0.70 美元與備考營收 30.43 億美元。"
-    }
+    },
+    "periodStart": "2026-01-01"
   },
   {
     "ticker": "VYLR",
@@ -57759,7 +57863,8 @@
     "metricNote": {
       "en": "The date and seed sales come from former parent Corteva’s original release and schedules. The net sales reconcile to Vylor’s separation disclosures. Stand-alone GAAP diluted EPS is unavailable for this quarter. The pre-spin Seed Business’s attributable net loss was approximately $610M, calculated from the reported full-year and first-nine-month amounts.",
       "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告及附件，營收已與 Vylor 的分拆揭露核對。此季的獨立 GAAP 稀釋 EPS 待核實。分拆前的種子業務歸屬淨虧損約 6.10 億美元，以已披露的全年及前九個月金額相減。"
-    }
+    },
+    "periodStart": "2025-10-01"
   },
   {
     "ticker": "VYLR",
@@ -57782,7 +57887,8 @@
       "en": "The release date and seed sales come from former parent Corteva. Vylor’s later combined financial statements confirm the seed sales. Under SEC Article 11, the company separately reports pro forma revenue of $944M and a pro forma diluted loss per share from continuing operations of $0.58.",
       "zh-TW": "公布日與種子業務營收採原母公司 Corteva 的同期公告。Vylor 後續獨立編製的合併報表確認了這筆營收。 公司另依 SEC Article 11 披露備考營收 9.44 億美元，及持續營業每股備考稀釋虧損 0.58 美元。"
     },
-    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm"
+    "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000212862626000007/vylorarticle11proformafs1.htm",
+    "periodStart": "2025-07-01"
   },
   {
     "ticker": "VZ",
@@ -57877,7 +57983,8 @@
     "verifiedAt": "2026-11-14",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000003/a2025q4exhibit99.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000003/a2025q4exhibit99.htm",
-    "epsBasis": "GAAP diluted"
+    "epsBasis": "GAAP diluted",
+    "periodStart": "2025-10-01"
   },
   {
     "date": "2025-10-29",
@@ -58202,7 +58309,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 4,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2025-11-01",
     "epsGaapDiluted": 0.55,
     "revenue": 2532000000.0,
     "epsBasis": "GAAP diluted",
@@ -59012,7 +59119,8 @@
     "releaseFilingDate": "2026-11-19",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+    "periodStart": "2026-08-01"
   },
   {
     "date": "2026-08-20",
@@ -59246,7 +59354,8 @@
     "releaseAccession": "0000719955-26-000244",
     "ticker": "WSM",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+    "periodStart": "2026-08-03"
   },
   {
     "date": "2026-08-26",
@@ -59975,7 +60084,7 @@
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
     "periodScope": "quarter",
-    "periodStart": null,
+    "periodStart": "2026-04-01",
     "epsGaapDiluted": 3.48,
     "revenue": 116017000000,
     "epsBasis": "GAAP diluted",

@@ -199,11 +199,14 @@ def merge_manifest_record(previous, incoming):
     previous_is_newer = previous.get('verifiedAt', '') > incoming.get('verifiedAt', '')
     newer, older = (previous, incoming) if previous_is_newer else (incoming, previous)
     result = copy.deepcopy(newer)
-    if (result.get('periodStart') is None and older.get('periodStart')
-            and result.get('periodScope') == older.get('periodScope') == 'quarter'
+    if (result.get('periodScope') == older.get('periodScope') == 'quarter'
             and all(result.get(field) and result[field] == older.get(field)
                     for field in ('ticker', 'periodEnd', 'fiscalYear', 'fiscalQuarter'))):
-        result['periodStart'] = older['periodStart']
+        if result.get('periodStart') is None and older.get('periodStart'):
+            result['periodStart'] = older['periodStart']
+        filing_fields = ('secUrl', 'accessionNumber', 'filingDate', 'form')
+        if not any(result.get(field) for field in filing_fields) and all(older.get(field) for field in filing_fields):
+            result.update({field: older[field] for field in filing_fields})
     if previous_is_newer:
         return preserve_release_provenance(result, incoming)
     for field, source_field in [('epsGaapDiluted','epsSourceUrl'),('revenue','revenueSourceUrl')]:

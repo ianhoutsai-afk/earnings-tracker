@@ -258,6 +258,12 @@ def check_issuer(cik, submissions, fetch, today):
                     event_conflict = True
                     metric_pending += 1
                     continue
+                # Some amendments publish only corrections to other sections.
+                # Keep the amendment as a fallback when the original is unavailable.
+                if candidate['form'].endswith('/A') and all(parsed[field] is None for field in ('revenue', 'epsGaapDiluted')):
+                    if metrics is None:
+                        metrics, metric_url, matched_filing = parsed, candidate_url, candidate
+                    continue
                 metrics, metric_url, matched_filing = parsed, candidate_url, candidate
                 break
             if metrics is None and identity_conflict:
