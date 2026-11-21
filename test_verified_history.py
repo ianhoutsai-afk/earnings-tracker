@@ -88,6 +88,7 @@ class VerifiedHistoryTests(unittest.TestCase):
                     'verifiedAt': '2026-09-30'}
         history, _ = apply_official_records(self.companies, self.history, [restated], today)
         self.assertEqual(history['MSFT'][0]['dateSource'], 'recast')
+        self.assertNotIn('secStatus', history['MSFT'][0])
         self.assertNotIn('latestPublishedDate', company_fields(self.companies[0], history, today))
         for older, newer in ((restated, OFFICIAL), (OFFICIAL, restated)):
             promoted = merge_manifest_record(older, newer)
@@ -116,6 +117,25 @@ class VerifiedHistoryTests(unittest.TestCase):
         again, second_added = apply_official_records(self.companies, result, [OFFICIAL], date(2026, 9, 29))
         self.assertEqual(second_added, 0)
         self.assertEqual(again, result)
+
+    def test_recent_release_waits_for_standalone_sec_filing(self):
+        from quarterly_policy import merge_manifest_record
+
+        today = date(2026, 9, 29)
+        history, _ = apply_official_records(self.companies, self.history, [OFFICIAL], today)
+        self.assertEqual(history['MSFT'][0].get('secStatus'), 'pending')
+
+        filing = {**OFFICIAL, 'filingDate': '2026-09-29', 'form': '10-K',
+                  'accessionNumber': '0000789019-26-000055',
+                  'secUrl': 'https://www.sec.gov/Archives/edgar/data/789019/000078901926000055/msft.htm'}
+        filed, _ = apply_official_records(
+            self.companies, history, [merge_manifest_record(OFFICIAL, filing)], today
+        )
+        self.assertEqual(filed['MSFT'][0]['secUrl'], filing['secUrl'])
+        self.assertNotIn('secStatus', filed['MSFT'][0])
+
+        expired, _ = apply_official_records(self.companies, history, [], date(2026, 11, 1))
+        self.assertNotIn('secStatus', expired['MSFT'][0])
 
     def test_missing_official_metrics_stay_blank(self):
         record = {**OFFICIAL, 'epsGaapDiluted': None, 'revenue': None}

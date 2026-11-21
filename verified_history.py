@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
-from update_data import format_eps, format_revenue
+from update_data import SEC_FILING_GRACE_DAYS, format_eps, format_revenue
 from quarterly_policy import retain_history, company_fields, official_source_url, preserve_release_provenance
 
 
@@ -192,7 +192,18 @@ def apply_official_records(companies, history, records, today):
         rows.append(official_row)
         rows.sort(key=lambda item: item['date'])
         added += 1
-    return retain_history(result, today), added
+    retained = retain_history(result, today)
+    for rows in retained.values():
+        for row in rows:
+            if row['verificationStatus'] != 'official_verified':
+                continue
+            release_age = (today - date.fromisoformat(row['date'])).days
+            if (row.get('releaseSourceUrl') and row.get('dateSource') is None
+                    and not row.get('secUrl') and release_age <= SEC_FILING_GRACE_DAYS):
+                row['secStatus'] = 'pending'
+            else:
+                row.pop('secStatus', None)
+    return retained, added
 
 
 def clear_past_report_dates(companies, today):
