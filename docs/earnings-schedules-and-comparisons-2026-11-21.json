@@ -190,5 +190,133 @@
       "laterGaapComparatorRevenue": 7025000000,
       "disposition": "The following year’s shareholder letter confirms the two GAAP reporting periods and the separate supplemental pro forma comparison. Preserve both original periods in the note. The single consolidated GAAP revenue and diluted EPS remain unverified for the full quarter."
     }
+  },
+  "fourthQuarterEpsPrecisionReview": {
+    "checkedAtUtc": "2026-11-22T02:44:38.530180+00:00",
+    "units": "US dollars and shares in millions except for per-share amounts.",
+    "FE|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129625000085/fe-20250930.htm"
+      ],
+      "publishedAnnualAttributableEarnings": 1020,
+      "publishedNineMonthAttributableEarnings": 1069,
+      "illustrativeQuarterShareCount": 577.3,
+      "illustrativeAnnualEarningsAtPublishedPrecision": [
+        1019.6,
+        1020.4
+      ],
+      "illustrativeRoundedLossPerShare": [
+        -0.09,
+        -0.08
+      ],
+      "disposition": "The illustrations also reproduce the reported annual and nine-month basic and diluted EPS using share counts within the published precision. The issuer’s exact quarter numerator and denominator are unverified."
+    },
+    "AES|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm"
+      ],
+      "publishedAnnualCommonStockholderIncome": 900,
+      "publishedNineMonthCommonStockholderIncome": 575,
+      "illustrativeQuarterShareCount": 714,
+      "illustrativeNineMonthIncomeAtPublishedPrecision": [
+        575.0,
+        575.25
+      ],
+      "illustrativeRoundedEps": [
+        0.46,
+        0.45
+      ],
+      "disposition": "The annual and first-nine-month diluted counts both round to 714 million. Even a fixed illustrative quarter denominator of 714 million admits both results. The issuer’s exact quarter numerator and denominator are unverified."
+    },
+    "TXT|2026-01-03": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734625000077/txt-20250927.htm"
+      ],
+      "publishedQuarterNetIncome": 235,
+      "publishedQuarterDilutedShares": 177.125,
+      "illustrativeQuarterNetIncomeAtPublishedPrecision": [
+        234.6,
+        235.1
+      ],
+      "illustrativeRoundedEps": [
+        1.32,
+        1.33
+      ],
+      "disposition": "Both examples are consistent with the published quarter net income, continuing-operations EPS and diluted share count. The annual and nine-month published results also permit both cases. The $1.33 actually published for the quarter is continuing operations."
+    },
+    "TRGP|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm"
+      ],
+      "publishedQuarterCommonStockholderIncome": 545.0,
+      "annualParticipatingShareBasedEarnings": 11.1,
+      "nineMonthParticipatingShareBasedEarnings": 8.1,
+      "annualWeightedAverageDilutedShares": 216.9,
+      "nineMonthWeightedAverageDilutedShares": 217.3,
+      "disposition": "The participating-earnings allocation and dilutive award calculations use period-specific inputs. Differences between the annual and nine-month per-share figures do not establish the fourth-quarter two-class calculation."
+    }
+  },
+  "berkshireClassBPerShareVerification": {
+    "checkedAtUtc": "2026-11-22T02:44:38.530180+00:00",
+    "secTaggingReference": "https://www.sec.gov/files/edgar/filer-information/specifications/xbrl-guide-2026-01-16.pdf",
+    "filings": {
+      "2026-09-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+        "documentSha256": "d523cde8f7f2fdc3d01d45aba7eb3c5c60c1279cb22f0b792ebef6f9908bf189",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "10.33",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2026-06-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+        "documentSha256": "95c226d9e503f989a98e87060f578a355f817e6ba252acb8c711f14eab563edc",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "11.91",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2026-03-31": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+        "documentSha256": "dd363e0c4ca33aa2346207f02a54f26ba9b0ed90f49a018f389bc56937d9a7db",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "4.68",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2025-12-31": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+        "documentSha256": "23d19dd8a1d437fe9cfaf2ca54aaf685e8d43477f4400c8329afea4fac6d800a",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "8.90",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283dex991.htm",
+        "classBValueBasis": "Berkshire release: net earnings per average equivalent Class B share"
+      },
+      "2025-09-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+        "documentSha256": "0c304dcfb5657c5f75018d4a313855d24609d79141cdd5d5680f0cfdb12e4818",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "14.28",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      }
+    },
+    "disposition": "The filings tag the presented per-share figures as basic. The fourth-quarter announcement describes its standalone figure as net earnings per average equivalent Class B share. Diluted EPS remains unverified for all five quarters."
   }
 }
