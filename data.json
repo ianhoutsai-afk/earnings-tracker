@@ -1345,13 +1345,15 @@
     "ticker": "C",
     "name": "Citigroup, Inc.",
     "reportDate": "2027-01-14",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://www.citigroup.com/global/news/press-release/2025/print/citi-third-fourth-quarter-2025-and-2026-earnings-calls",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-13"
+    "latestPublishedDate": "2026-10-13",
+    "nextEarningsCallDate": "2027-01-14",
+    "nextEarningsCallSourceUrl": "https://www.citigroup.com/global/news/press-release/2025/print/citi-third-fourth-quarter-2025-and-2026-earnings-calls"
   },
   {
     "ticker": "CFG",
@@ -2749,13 +2751,15 @@
     "ticker": "GS",
     "name": "Goldman Sachs Group, Inc. (The)",
     "reportDate": "2027-01-19",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://www.goldmansachs.com/pressroom/press-releases/2025/updated-conference-call-number-for-4q25-and-2026-earnings-results",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-13"
+    "latestPublishedDate": "2026-10-13",
+    "nextEarningsCallDate": "2027-01-19",
+    "nextEarningsCallSourceUrl": "https://www.goldmansachs.com/pressroom/press-releases/2025/updated-conference-call-number-for-4q25-and-2026-earnings-results"
   },
   {
     "ticker": "HAL",
@@ -3109,7 +3113,9 @@
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-29"
+    "latestPublishedDate": "2026-10-29",
+    "nextEarningsCallDate": "2027-02-04",
+    "nextEarningsCallSourceUrl": "https://ir.theice.com/press/news-details/2026/Intercontinental-Exchange-Reports-Third-Quarter-2026/default.aspx"
   },
   {
     "ticker": "IFF",
@@ -3285,13 +3291,15 @@
     "ticker": "JPM",
     "name": "JP Morgan Chase & Co.",
     "reportDate": "2027-01-14",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-13"
+    "latestPublishedDate": "2026-10-13",
+    "nextEarningsCallDate": "2027-01-14",
+    "nextEarningsCallSourceUrl": "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings"
   },
   {
     "ticker": "OKTA",
@@ -3975,13 +3983,15 @@
     "ticker": "MSCI",
     "name": "MSCI Inc.",
     "reportDate": "2027-01-26",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://ir.msci.com/node/22526/pdf",
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-20"
+    "latestPublishedDate": "2026-10-20",
+    "nextEarningsCallDate": "2027-01-26",
+    "nextEarningsCallSourceUrl": "https://ir.msci.com/node/22526/pdf"
   },
   {
     "ticker": "NDAQ",
@@ -4498,13 +4508,15 @@
     "ticker": "PNC",
     "name": "PNC Financial Services Group, I",
     "reportDate": "2027-01-15",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investor.pnc.com/news-events/financial-press-releases/detail/656/the-pnc-financial-services-group-provides-quarterly-2026-earnings-release-dates",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-15"
+    "latestPublishedDate": "2026-10-15",
+    "nextEarningsCallDate": "2027-01-15",
+    "nextEarningsCallSourceUrl": "https://investor.pnc.com/news-events/financial-press-releases/detail/656/the-pnc-financial-services-group-provides-quarterly-2026-earnings-release-dates"
   },
   {
     "ticker": "MRVL",
@@ -5126,13 +5138,15 @@
     "ticker": "STT",
     "name": "State Street Corporation",
     "reportDate": "2027-01-15",
-    "reportDateSource": "third_party_estimate",
-    "reportDateSourceUrl": null,
-    "bmo_amc": null,
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investors.statestreet.com/investor-news-events/press-releases/news-details/2026/State-Street-Corporation-NYSE-STT-Announces-Remaining-2026-Quarterly-Financial-Results-Release-Dates-and-Conference-Call-Webcasts/default.aspx",
+    "bmo_amc": "BMO",
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-14"
+    "latestPublishedDate": "2026-10-14",
+    "nextEarningsCallDate": "2027-01-15",
+    "nextEarningsCallSourceUrl": "https://investors.statestreet.com/investor-news-events/press-releases/news-details/2026/State-Street-Corporation-NYSE-STT-Announces-Remaining-2026-Quarterly-Financial-Results-Release-Dates-and-Conference-Call-Webcasts/default.aspx"
   },
   {
     "ticker": "STLD",
@@ -5494,7 +5508,9 @@
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-16"
+    "latestPublishedDate": "2026-10-16",
+    "nextEarningsCallDate": "2027-01-20",
+    "nextEarningsCallSourceUrl": "https://ir.truist.com/2025-05-01-Truist-provides-schedule-for-2026-earnings-conference-calls"
   },
   {
     "ticker": "TYL",
@@ -5530,7 +5546,9 @@
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-15"
+    "latestPublishedDate": "2026-10-15",
+    "nextEarningsCallDate": "2027-01-19",
+    "nextEarningsCallSourceUrl": "https://ir.usbank.com/news-events/news/news-details/2026/U-S--Bancorp-Provides-Updated-Schedule-for-2027-Earnings-Conference-Calls/default.aspx"
   },
   {
     "ticker": "UBER",
@@ -5911,7 +5929,7 @@
   {
     "ticker": "WEC",
     "name": "WEC Energy Group, Inc.",
-    "reportDate": "2027-02-04",
+    "reportDate": "2027-02-02",
     "reportDateSource": "third_party_estimate",
     "reportDateSourceUrl": null,
     "bmo_amc": null,

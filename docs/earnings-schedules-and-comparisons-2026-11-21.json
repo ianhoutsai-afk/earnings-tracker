@@ -318,5 +318,260 @@
       }
     },
     "disposition": "The filings tag the presented per-share figures as basic. The fourth-quarter announcement describes its standalone figure as net earnings per average equivalent Class B share. Diluted EPS remains unverified for all five quarters."
+  },
+  "quarterEndCalendarVerification": {
+    "checkedAtUtc": "2026-11-22T15:39:52.001362+00:00",
+    "financialResultsReleases": {
+      "JPM": {
+        "date": "2027-01-14",
+        "releaseTimeEastern": "06:45",
+        "callTimeEastern": "08:30",
+        "session": "BMO",
+        "sourceUrl": "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings",
+        "basis": "The company lists January 14 for the 2026 fourth quarter and says it will issue results at approximately 6:45 a.m. Eastern on the stated dates.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "C": {
+        "date": "2027-01-14",
+        "releaseTimeEastern": "08:00",
+        "callTimeEastern": "11:00",
+        "session": "BMO",
+        "sourceUrl": "https://www.citigroup.com/global/news/press-release/2025/print/citi-third-fourth-quarter-2025-and-2026-earnings-calls",
+        "basis": "The date and expected press release time are in the issuer schedule. The issuer event calendar also lists the call on January 14.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "PNC": {
+        "date": "2027-01-15",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "10:00",
+        "session": "BMO",
+        "sourceUrl": "https://investor.pnc.com/news-events/financial-press-releases/detail/656/the-pnc-financial-services-group-provides-quarterly-2026-earnings-release-dates",
+        "basis": "The issuer expects to release its 2026 fourth-quarter results before the market opens on January 15.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "STT": {
+        "date": "2027-01-15",
+        "releaseTimeEastern": "07:30",
+        "callTimeEastern": "10:00",
+        "session": "BMO",
+        "sourceUrl": "https://investors.statestreet.com/investor-news-events/press-releases/news-details/2026/State-Street-Corporation-NYSE-STT-Announces-Remaining-2026-Quarterly-Financial-Results-Release-Dates-and-Conference-Call-Webcasts/default.aspx",
+        "basis": "The company schedules quarterly results at approximately 7:30 a.m. Eastern on the day of the January 15 call.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "GS": {
+        "date": "2027-01-19",
+        "releaseTimeEastern": "07:30",
+        "callTimeEastern": "09:30",
+        "session": "BMO",
+        "sourceUrl": "https://www.goldmansachs.com/pressroom/press-releases/2025/updated-conference-call-number-for-4q25-and-2026-earnings-results",
+        "basis": "The updated issuer press release gives January 19 and says results are due at approximately 7:30 a.m. Eastern.",
+        "previousEstimatedDate": "2027-01-19"
+      },
+      "MSCI": {
+        "date": "2027-01-26",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "11:00",
+        "session": null,
+        "sourceUrl": "https://ir.msci.com/node/22526/pdf",
+        "basis": "The announcement gives dates for both releases and calls. 11:00 a.m. Eastern applies to the call.",
+        "previousEstimatedDate": "2027-01-26"
+      }
+    },
+    "quarterlyConferenceCalls": {
+      "USB": {
+        "date": "2027-01-19",
+        "callTimeEastern": "09:00",
+        "sourceUrl": "https://ir.usbank.com/news-events/news/news-details/2026/U-S--Bancorp-Provides-Updated-Schedule-for-2027-Earnings-Conference-Calls/default.aspx",
+        "basis": "The company confirms the fourth-quarter call at 8 a.m. Central and says a subsequent notice will confirm the release timing.",
+        "currentEstimatedReleaseDate": "2027-01-19"
+      },
+      "TFC": {
+        "date": "2027-01-20",
+        "callTimeEastern": "08:00",
+        "sourceUrl": "https://ir.truist.com/2025-05-01-Truist-provides-schedule-for-2026-earnings-conference-calls",
+        "basis": "The issuer announcement gives the date and time of the fourth-quarter earnings call.",
+        "currentEstimatedReleaseDate": "2027-01-20"
+      },
+      "ICE": {
+        "date": "2027-02-04",
+        "callTimeEastern": "08:30",
+        "sourceUrl": "https://ir.theice.com/press/news-details/2026/Intercontinental-Exchange-Reports-Third-Quarter-2026/default.aspx",
+        "basis": "The latest issuer results release gives the following quarter’s conference-call date and time.",
+        "currentEstimatedReleaseDate": "2027-02-04"
+      }
+    },
+    "latestMainComparison": {
+      "previousMain": "7b1caca1675dd7aa65ae435a2cbd670aae30ec74",
+      "main": "9888e32007e301a9566f3982e54c5bc0dbfdb579",
+      "equivalentQuarterRecordTimestampsUpdated": 1444,
+      "equivalentIssuerSourceTimestampsUpdated": 304,
+      "WecProviderEstimate": {
+        "previous": "2027-02-04",
+        "current": "2027-02-02"
+      },
+      "numericFieldsChangedOnMain": 0
+    },
+    "pendingPeriodicFilingReview": {
+      "checkedAtUtc": "2026-11-22T15:36:01.212072+00:00",
+      "matchingPeriodicFilings": 0,
+      "issuers": {
+        "AMAT": {
+          "periodEnd": "2026-10-25",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+          "sha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-20",
+            "reportDate": "2026-07-26",
+            "accessionNumber": "0001628280-26-058235",
+            "primaryDocument": "amat-20260726.htm"
+          }
+        },
+        "BDX": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+          "sha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-06",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0000010795-26-000035",
+            "primaryDocument": "bdx-20260630.htm"
+          }
+        },
+        "COR": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+          "sha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-05",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0001140859-26-000034",
+            "primaryDocument": "cor-20260630.htm"
+          }
+        },
+        "KEYS": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "sha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-02",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0001601046-26-000036",
+            "primaryDocument": "keys-20260731.htm"
+          }
+        },
+        "LOW": {
+          "periodEnd": "2026-10-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "sha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-27",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0000060667-26-000117",
+            "primaryDocument": "low-20260731.htm"
+          }
+        },
+        "NVDA": {
+          "periodEnd": "2026-10-25",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "sha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-26",
+            "reportDate": "2026-07-26",
+            "accessionNumber": "0001045810-26-000075",
+            "primaryDocument": "nvda-20260726.htm"
+          }
+        },
+        "P": {
+          "periodEnd": "2026-11-01",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+          "sha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-04",
+            "reportDate": "2026-08-02",
+            "accessionNumber": "0001474432-26-000088",
+            "primaryDocument": "pstg-20260802.htm"
+          }
+        },
+        "RJF": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+          "sha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-05",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0000720005-26-000070",
+            "primaryDocument": "rjf-20260630.htm"
+          }
+        },
+        "ROST": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "sha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-01",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000745732-26-000041",
+            "primaryDocument": "rost-20260801.htm"
+          }
+        },
+        "TGT": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "sha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000027419-26-000042",
+            "primaryDocument": "tgt-20260801.htm"
+          }
+        },
+        "TJX": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "sha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000109198-26-000048",
+            "primaryDocument": "tjx-20260801.htm"
+          }
+        },
+        "WMT": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "sha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0000104169-26-000154",
+            "primaryDocument": "wmt-20260731.htm"
+          }
+        },
+        "WSM": {
+          "periodEnd": "2026-11-01",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "sha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-02",
+            "accessionNumber": "0000719955-26-000208",
+            "primaryDocument": "wsm-20260802.htm"
+          }
+        }
+      }
+    }
   }
 }
