@@ -127,5 +127,68 @@
     "earningsReleaseDate": 6,
     "epsGaapDiluted": 15,
     "revenue": 1
+  },
+  "followUpScheduleVerification": {
+    "checkedAtUtc": "2026-11-22T02:37:05.736347+00:00",
+    "newOfficialSchedules": {
+      "DELL": {
+        "releaseDate": "2026-11-24",
+        "releaseTiming": null,
+        "announcementDate": "2026-11-10",
+        "callDate": "2026-11-24",
+        "callTimeEastern": "16:30",
+        "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+        "basis": "Dell will issue its fiscal 2027 third-quarter results by press release before its November 24 conference call. The announcement gives the call time of 3:30 p.m. Central and gives no separate release time.",
+        "previousEstimatedDate": "2026-11-24"
+      },
+      "NKE": {
+        "releaseDate": "2026-12-17",
+        "releaseTiming": "AMC",
+        "releaseTimeEasternApproximate": "16:15",
+        "announcementDate": "2026-11-20",
+        "callDate": "2026-12-17",
+        "callTimeEastern": "17:00",
+        "sourceUrl": "https://investors.nike.com/news-events/press-releases/detail/580/nike-inc-announces-second-quarter-fiscal-2027-earnings-and-conference-call",
+        "basis": "Nike schedules the fiscal 2027 second-quarter release for about 1:15 p.m. Pacific after the regular close. The call follows at 2 p.m. Pacific.",
+        "previousEstimatedDate": "2026-12-17"
+      }
+    }
+  },
+  "followUpHistoricalSourceVerification": {
+    "checkedAtUtc": "2026-11-22T02:38:34.717252+00:00",
+    "currentSecFilings": {
+      "checkedAtUtc": "2026-11-22T02:35:12.419083+00:00",
+      "newTrackedFilingCount": 0,
+      "latestAcceptedByForm": {
+        "8-K": "2026-11-20T17:30:44-05:00",
+        "10-Q": "2026-11-20T17:30:17-05:00",
+        "10-K": "2026-11-20T16:15:44-05:00",
+        "8-K/A": "2026-11-20T17:13:27-05:00",
+        "10-Q/A": "2026-11-20T13:09:48-05:00",
+        "10-K/A": "2026-11-19T17:15:48-05:00",
+        "6-K": "2026-11-20T17:25:15-05:00"
+      },
+      "feedSources": "quarterly-release-exhibit-verification-2026-11-21.json#liveCurrentFilingsReview",
+      "amendedFormRechecksCompletedAtUtc": "2026-11-22T02:37:48.008390+00:00"
+    },
+    "SKYD|2025-09-30": {
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000062/ex99_q326.htm",
+      "sourceSection": "Supplemental Disclosures Regarding Non-GAAP Financial Measures, Total Revenues",
+      "predecessorPeriod": {
+        "start": "2025-07-01",
+        "end": "2025-08-06",
+        "revenue": 2581000000
+      },
+      "successorPeriod": {
+        "start": "2025-08-07",
+        "end": "2025-09-30",
+        "revenue": 4121000000
+      },
+      "supplementalNonGaapProFormaRevenue": 6714000000,
+      "preCloseSkydanceRevenueNetOfEliminations": 12000000,
+      "laterGaapComparatorPeriodEnd": "2026-09-30",
+      "laterGaapComparatorRevenue": 7025000000,
+      "disposition": "The following year’s shareholder letter confirms the two GAAP reporting periods and the separate supplemental pro forma comparison. Preserve both original periods in the note. The single consolidated GAAP revenue and diluted EPS remain unverified for the full quarter."
+    }
   }
 }

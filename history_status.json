@@ -3095,7 +3095,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-11-24",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+      "bmo_amc": null
+    },
     "officialCheckedAt": "2026-11-21T17:58:56.773483Z",
     "cik": "0001571996",
     "recordCount": 5,
@@ -7091,7 +7096,12 @@
     "metricPending": 6,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2026-12-17",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investors.nike.com/news-events/press-releases/detail/580/nike-inc-announces-second-quarter-fiscal-2027-earnings-and-conference-call",
+      "bmo_amc": "AMC"
+    },
     "officialCheckedAt": "2026-11-21T19:53:53.318729Z",
     "cik": "0000320187",
     "recordCount": 5,
