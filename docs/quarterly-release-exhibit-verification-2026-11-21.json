@@ -5237,5 +5237,638 @@
         }
       }
     ]
+  },
+  "remainingCurrentReportReleaseLinks": {
+    "checkedAtUtc": "2026-11-22T15:46:58.667462+00:00",
+    "reviewedCurrentReportCount": 55,
+    "issuerCount": 18,
+    "issuerWebsiteReleasesUsed": 5,
+    "secExhibitsUsed": 50,
+    "records": {
+      "AMCR|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcor4q2026ex991-june302026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcr-20260812.htm",
+        "currentReportSha256": "330cf7000a9cbcb94be5ff086f7f5a92ef2ef52cd84434fd50973269311a8930",
+        "releaseDate": "2026-08-12",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-08-12",
+        "filingAccession": "0001748790-26-000020",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "f79f75cf5c4f0c34a4554e9e1b6f25fab17730d0d7e6a184c20bebb8438ea2e2"
+      },
+      "AMCR|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000034/exhibit991q12026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000034/amcr-20251105.htm",
+        "currentReportSha256": "ba2bf485bb8de75dcbeede21469f2c2cd2fe01ecb9767647da819ea329b672dc",
+        "releaseDate": "2025-11-05",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-11-05",
+        "filingAccession": "0001748790-25-000034",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "9488fa4d04900160e0659c665ddf8b3d9d75f6f52aa1a774190b85250fda1000"
+      },
+      "ARE|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000077/a3q26ex991supp.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000077/are-20261026.htm",
+        "currentReportSha256": "89af309ae2c7318635881f7f821b5e9506584e2b33cec4c97c70c08e60bd9f00",
+        "releaseDate": "2026-10-26",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-26",
+        "filingAccession": "0001035443-26-000077",
+        "currentPeriodBasis": "The accession identifies the exhibit as the press release and supplemental information. The exhibit contains the complete earnings press release in its opening section.",
+        "sourceSha256": "f2e2aa8436a6b1aa097c0e2009d8a40d9834e5fe150773bfbf62800528d6b85f"
+      },
+      "ARE|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000067/a2q26ex991supp.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000067/are-20260803.htm",
+        "currentReportSha256": "23849af1e26e021dcae1a8dd860e9ca95ff22548854fc365c737d8043ee49a61",
+        "releaseDate": "2026-08-03",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-08-03",
+        "filingAccession": "0001035443-26-000067",
+        "currentPeriodBasis": "The accession identifies the exhibit as the press release and supplemental information. The exhibit contains the complete earnings press release in its opening section.",
+        "sourceSha256": "478e409a042301a67bfb95c0695155f29a1c48a758a3fbb3273d191ba74123f6"
+      },
+      "ARE|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/a4q25ex991supp.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1035443/000103544326000014/are-20260126.htm",
+        "currentReportSha256": "ba99fd0a08f0a8cca1e83ac1cf3bc4d049c5f97df1660e44fc3b76dbdfc9c19f",
+        "releaseDate": "2026-01-26",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-26",
+        "filingAccession": "0001035443-26-000014",
+        "currentPeriodBasis": "The accession identifies the exhibit as the press release and supplemental information. The exhibit contains the complete earnings press release in its opening section.",
+        "sourceSha256": "29a0cd60b0379c15599b927eac4eb2efd3d9cc90adbedba881272b55a162d263"
+      },
+      "EOG|2026-09-30": {
+        "sourceUrl": "https://investors.eogresources.com/2026-11-05-EOG-Resources-Reports-Third-Quarter-2026-Results-and-Raises-Regular-Dividend-8",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000226/eog-20261105.htm",
+        "currentReportSha256": "b4748a6d2f1b61498bb04dd16488b57c43dacdc23ff640e6e209faa232cfd093",
+        "releaseDate": "2026-11-05",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-11-05",
+        "filingAccession": "0000821189-26-000226",
+        "currentPeriodBasis": "The company investor-relations release states the actual results and the same publication date as Item 2.02. The filed HTML exhibit contains the separate supplemental financial and operating tables.",
+        "sourceSha256": "92a5f2130858130593cd69084f8da8297ce3a3045b9c579ef2c5248cc33ef6b7"
+      },
+      "EOG|2026-06-30": {
+        "sourceUrl": "https://investors.eogresources.com/2026-08-04-EOG-Resources-Reports-Second-Quarter-2026-Results",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000147/eog-20260804.htm",
+        "currentReportSha256": "8cd22973e55db3ee2828abeb2ef7709a30199f71f4019e09bd957d4fe7f6b900",
+        "releaseDate": "2026-08-04",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-08-04",
+        "filingAccession": "0000821189-26-000147",
+        "currentPeriodBasis": "The company investor-relations release states the actual results and the same publication date as Item 2.02. The filed HTML exhibit contains the separate supplemental financial and operating tables.",
+        "sourceSha256": "71d5df09f6e41262601948e69c210629bebaad66f9866744e7db05481f73b8e7"
+      },
+      "EOG|2026-03-31": {
+        "sourceUrl": "https://investors.eogresources.com/2026-05-05-EOG-Resources-Reports-First-Quarter-2026-Results",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000102/eog-20260505.htm",
+        "currentReportSha256": "71677c47cda53fcf3b5a78f047a27d8d78485b184f42dec0ecee937d26f44ed1",
+        "releaseDate": "2026-05-05",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-05-05",
+        "filingAccession": "0000821189-26-000102",
+        "currentPeriodBasis": "The company investor-relations release states the actual results and the same publication date as Item 2.02. The filed HTML exhibit contains the separate supplemental financial and operating tables.",
+        "sourceSha256": "bcd4d5be607b15158ea014713ba05865e6b51c7a9a0ea2db9b8ef5d79cf4bdfc"
+      },
+      "EOG|2025-12-31": {
+        "sourceUrl": "https://investors.eogresources.com/2026-02-24-EOG-Resources-Reports-Fourth-Quarter-and-Full-Year-2025-Results-Announces-2026-Capital-Plan",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000052/eog-20260224.htm",
+        "currentReportSha256": "a89533afffee1de93496bdf9554ab4730b7e246984d44b79c25bd09f4c1b12d7",
+        "releaseDate": "2026-02-24",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-02-24",
+        "filingAccession": "0000821189-26-000052",
+        "currentPeriodBasis": "The company investor-relations release states the actual results and the same publication date as Item 2.02. The filed HTML exhibit contains the separate supplemental financial and operating tables.",
+        "sourceSha256": "8fd4a66afc5ec2611fe4f196a02134087cc942247a4eca076f3e1b96481cc943"
+      },
+      "EOG|2025-09-30": {
+        "sourceUrl": "https://investors.eogresources.com/2025-11-06-EOG-Resources-Reports-Third-Quarter-2025-Results",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/821189/000082118925000129/eog-20251106.htm",
+        "currentReportSha256": "face8558ef6f67ea3b6d8bc4a5f0907c07db6a1a9bf3cd26223b236608f8dd84",
+        "releaseDate": "2025-11-06",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-11-06",
+        "filingAccession": "0000821189-25-000129",
+        "currentPeriodBasis": "The company investor-relations release states the actual results and the same publication date as Item 2.02. The filed HTML exhibit contains the separate supplemental financial and operating tables.",
+        "sourceSha256": "bb4f553f55c311a9b21ebb9dca54b7627eb29b18b6a8042d8d68022bdf46c051"
+      },
+      "ETN|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000002/etn12312025exhibit99.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000002/etn-20260203.htm",
+        "currentReportSha256": "419f0905158b426c89a08354833f8a74f0fb069d14205f2e42998138873dd8cd",
+        "releaseDate": "2026-02-03",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-02-03",
+        "filingAccession": "0001551182-26-000002",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "dca645cfaf6ca467d0066be773ce0ee29f63fabf6f8ecadaaef17ab683a194d7"
+      },
+      "F|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000190/exhibit99tooctober282026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000190/f-20261028.htm",
+        "currentReportSha256": "a20c89d827d9bb9c0ad6b55644d7b3b9745724c11c4c17a14aa3fcc58ef014ba",
+        "releaseDate": "2026-10-28",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-28",
+        "filingAccession": "0000037996-26-000190",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "71b43b09a048859afba361d47ee171d46064c14b64535f3ffba2e84e876a5a76"
+      },
+      "F|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000155/exhibit99tojuly282026for.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000155/f-20260728.htm",
+        "currentReportSha256": "382c5aa815acb900605d06e03890bdf3a93271dcf27c3285bd232559e05eac2e",
+        "releaseDate": "2026-07-28",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-28",
+        "filingAccession": "0000037996-26-000155",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "916a5df9ce58e95dafa4b52387df131f51236411905454a31aa7ed2dbea73865"
+      },
+      "F|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000084/exhibit99toapril292026fo.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000084/f-20260429.htm",
+        "currentReportSha256": "8b8bcc710da73d6afc84de86fea34695785be516f0f659bf5b8c5e220beed99e",
+        "releaseDate": "2026-04-29",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-29",
+        "filingAccession": "0000037996-26-000084",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "06ac364006cd13ce43469e5cb4a29fcb883bd87091e870c762f3056fb1125597"
+      },
+      "F|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000185/exhibit99tooctober232025.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000185/f-20251023.htm",
+        "currentReportSha256": "29aedfa47403dc17c36afd26f541bbb957dc9646aba8f5c42c686e86aef5b118",
+        "releaseDate": "2025-10-23",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-23",
+        "filingAccession": "0000037996-25-000185",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "2f09ae11d02bbf128dc3fcbe65daef2381c1f65f07f3b0887155cdcece65f917"
+      },
+      "FCX|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000045/a3q2026exhibit991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000045/fcx-20261027.htm",
+        "currentReportSha256": "031532268f056b31beba5be360dc68f32d7ddd0c6c811fae77eeae0cc4a5a8c1",
+        "releaseDate": "2026-10-27",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-27",
+        "filingAccession": "0000831259-26-000045",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "62279c313e43703585e6094a8ac11849b5dd67506ce1d1cf358069befdc5fd54"
+      },
+      "FCX|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000021/a1q2026exhibit991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000021/fcx-20260423.htm",
+        "currentReportSha256": "e81152d188a1675dd237579466371f14f1d197012e0935341d22d58ee89a2daf",
+        "releaseDate": "2026-04-23",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-23",
+        "filingAccession": "0000831259-26-000021",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "fd41aaf31c7e845609fa7c7ad31f83c36bef316cd4d27852909f398230f4cc1a"
+      },
+      "FCX|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/a4q2025exhibit991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000006/fcx-20260122.htm",
+        "currentReportSha256": "92d223f0d3f04761f79d2d07015bad046345b42196aea19450c49640c0643b3f",
+        "releaseDate": "2026-01-22",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-22",
+        "filingAccession": "0000831259-26-000006",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "e9ec2e60ded2629aa592e86c32e195a641cede50a2339ade4142814276ef8ef0"
+      },
+      "FRT|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000054/frt-9302026xex991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000054/frt-20261030.htm",
+        "currentReportSha256": "986e353fde192d38fdef02aae0457b70c62d76f2efd14be121291061e2da4e7b",
+        "releaseDate": "2026-10-30",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-30",
+        "filingAccession": "0000034903-26-000054",
+        "currentPeriodBasis": "The exhibit includes the original quarterly news release before the supplemental schedules.",
+        "sourceSha256": "bf387be941d4ff9fb666847af10c6aa4e52c6566a2d7ad4f002f7945942c0d2c"
+      },
+      "FRT|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000040/frt-6302026xex991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000040/frt-20260731.htm",
+        "currentReportSha256": "55432673b088603f82a482564620ef0a7113bdf3c448d4787ae39671e19a7fa1",
+        "releaseDate": "2026-07-31",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-31",
+        "filingAccession": "0000034903-26-000040",
+        "currentPeriodBasis": "The exhibit includes the original quarterly news release before the supplemental schedules.",
+        "sourceSha256": "874ca5447283850920092c39f25f74ca07750e32997517ba22395270ebab5419"
+      },
+      "FRT|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000025/frt-3312026xex991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000025/frt-20260501.htm",
+        "currentReportSha256": "36d1709f952e5d856195fe48bc33c9735c901bbd86b05b47c2dd86204249c670",
+        "releaseDate": "2026-05-01",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-05-01",
+        "filingAccession": "0000034903-26-000025",
+        "currentPeriodBasis": "The exhibit includes the original quarterly news release before the supplemental schedules.",
+        "sourceSha256": "dda04c09f403f936eb80fe2bbe9e8eab10fdf9395935c98708a84df0f5bf7254"
+      },
+      "FRT|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490325000062/frt-9302025xex991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/34903/000003490325000062/frt-20251031.htm",
+        "currentReportSha256": "018756b9c65893ed9c537ccca653d76b884533ca50d50cee0a76af12860d3e7b",
+        "releaseDate": "2025-10-31",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-31",
+        "filingAccession": "0000034903-25-000062",
+        "currentPeriodBasis": "The exhibit includes the original quarterly news release before the supplemental schedules.",
+        "sourceSha256": "2ad1e1d9466e550aeeace4c5e11238e322bd63b3daf961232c423da483ee50c0"
+      },
+      "JPM|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfexhibit991narrative.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/jpm-20261013.htm",
+        "currentReportSha256": "e776b48c05c2353cd55dbbccf502a7ab44a8ce5555d0922ed0d9e272dc615b69",
+        "releaseDate": "2026-10-13",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-13",
+        "filingAccession": "0001628280-26-065582",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the earnings release. Exhibit 99.2 supplies the separate financial supplement.",
+        "sourceSha256": "85db607c34b166f6adf518a71935940f5ae9396b57bd0510e566875e480fd2bc"
+      },
+      "JPM|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026048078/a2q26erfexhibit991narrative.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026048078/jpm-20260714.htm",
+        "currentReportSha256": "bff641a73b2d8bcf3591a1ff3786fd2acf87036b5ca8307f5592f2053ce7d164",
+        "releaseDate": "2026-07-14",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-14",
+        "filingAccession": "0001628280-26-048078",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the earnings release. Exhibit 99.2 supplies the separate financial supplement.",
+        "sourceSha256": "b4ec5a1306be8bfd9777c940210b5f1098c592765c995a1287307d66af28f0f2"
+      },
+      "JPM|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026024990/a1q26erfexhibit991narrative.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026024990/jpm-20260414.htm",
+        "currentReportSha256": "c47bff9afe9ca4862bb0bc3f1cb46ee7c0e5e062de5b0b13cc1726560d83ac15",
+        "releaseDate": "2026-04-14",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-14",
+        "filingAccession": "0001628280-26-024990",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the earnings release. Exhibit 99.2 supplies the separate financial supplement.",
+        "sourceSha256": "0bd3e46a73835c5b71f5bdfe799819598124367da9ab6155d10003aff5136b88"
+      },
+      "JPM|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026001902/a4q25erfexhibit991narrative.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828026001902/jpm-20260113.htm",
+        "currentReportSha256": "41e4d4a35b59f71568ae777f91e7af2c9499a7efc8d9fda90f18b38679c73d4f",
+        "releaseDate": "2026-01-13",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-13",
+        "filingAccession": "0001628280-26-001902",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the earnings release. Exhibit 99.2 supplies the separate financial supplement.",
+        "sourceSha256": "67d933dd3d632bd57656d8163cf4056093816cae535de1a03d64a60412670d6e"
+      },
+      "JPM|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828025044845/a3q25erfexhibit991narrative.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/19617/000162828025044845/jpm-20251014.htm",
+        "currentReportSha256": "3dff6a9ebfce82dbdb5056679241f1ee614518c4f546f05d358a6a5e798f3494",
+        "releaseDate": "2025-10-14",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-14",
+        "filingAccession": "0001628280-25-044845",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the earnings release. Exhibit 99.2 supplies the separate financial supplement.",
+        "sourceSha256": "c755493fbc094cec378cdbd950e96d0cbae29ea03991f058530ec2aae1225825"
+      },
+      "LYV|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000052/lyv-2026q3xex991er.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000052/lyv-20261105.htm",
+        "currentReportSha256": "fbeedd118a571cc181c051575949b97f4bd84b7b4ef507b273c9c49c5aaf9b09",
+        "releaseDate": "2026-11-05",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-11-05",
+        "filingAccession": "0001335258-26-000052",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "434f02c6352c9c46a3e075af32f9f3b0f9ade14bbe6148da7c28cbd9673d24dd"
+      },
+      "LYV|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000034/lyv-2026q2xex991er.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000034/lyv-20260730.htm",
+        "currentReportSha256": "8e9df1f909c70f7414f0da2603164ac3dd85f3240e1c0e06f70545e54cf2e32a",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-30",
+        "filingAccession": "0001335258-26-000034",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "68dbdd916a5a8fc415cd318cb58ce1af6901d54cf9e3df73be4452e479dad517"
+      },
+      "LYV|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000018/lyv-2026q1xex991er.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000018/lyv-20260505.htm",
+        "currentReportSha256": "f4f2c747e8afc6d1b86c8c820d1f4683bd48a116bda2a7c79daf71b30ffceb1a",
+        "releaseDate": "2026-05-05",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-05-05",
+        "filingAccession": "0001335258-26-000018",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "e71ae1f3d88320461007ce2f92dc19c42eb467e014ad96b8a0422057c940f680"
+      },
+      "LYV|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000007/lyv-2025q4xex991er.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000007/lyv-20260219.htm",
+        "currentReportSha256": "932e54b15df1aad2371eebc8a3ce39d183887b32c33e6bd6bf69c1a6cd350132",
+        "releaseDate": "2026-02-19",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-02-19",
+        "filingAccession": "0001335258-26-000007",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "923e8efda344f30f35c2cc6ca78f78bdca946b9d35f1c89334c460e5990ccd55"
+      },
+      "LYV|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525825000150/lyv-2025q3xex991er.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1335258/000133525825000150/lyv-20251104.htm",
+        "currentReportSha256": "ccfeeb9641c697bccbed8e1a9c54e83b208ac348cc8b079fd8df52aa92888c38",
+        "releaseDate": "2025-11-04",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-11-04",
+        "filingAccession": "0001335258-25-000150",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "6bb39e934bef4ff3616e5ae0c145fc446dc710acf79abcc041cdc2bc23aab6e4"
+      },
+      "MCD|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000080/exhibit991-9302026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000080/mcd-20261104.htm",
+        "currentReportSha256": "7678857b6d96e24403738c769b1919355b05a8c20e992a93d3f9fd3439174a0a",
+        "releaseDate": "2026-11-04",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-11-04",
+        "filingAccession": "0000063908-26-000080",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "cb63cc23e2801e0375585c7582b7a00d001850c2b98f8911136144fe164de720"
+      },
+      "MCD|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000067/exhibit991-6302026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000067/mcd-20260804.htm",
+        "currentReportSha256": "9657b1401a6b47326743a68f7bbb9db501832cbae5b73c4a291c232a3c8b0a9a",
+        "releaseDate": "2026-08-04",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-08-04",
+        "filingAccession": "0000063908-26-000067",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "61ce24c3df19cda8e338eb677466349ed7bcebff6d404bce038d1a4f9ede27d8"
+      },
+      "MCD|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000048/exhibit991-33126xq1.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000048/mcd-20260507.htm",
+        "currentReportSha256": "e2e2ca53ce81776380345aad84355bf0d0adaffced8eb5bf01e0ad746758775b",
+        "releaseDate": "2026-05-07",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-05-07",
+        "filingAccession": "0000063908-26-000048",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "10f4271dc08fe6450b1ea632ce0244a140587b995e7602fc49783478482ba7ec"
+      },
+      "MCD|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000032/exhibit991-12312025.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000032/mcd-20260211.htm",
+        "currentReportSha256": "a8ebb5123a893af394c5f75ced1b0847627080ead706400877940ee3a6de5ab6",
+        "releaseDate": "2026-02-11",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-02-11",
+        "filingAccession": "0000063908-26-000032",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "a9addb5cebf8f7b2262c5195162293a5c84854bcd89182e263f8b4c3a0917ecd"
+      },
+      "MCD|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000057/exhibit991-9302025.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000057/mcd-20251105.htm",
+        "currentReportSha256": "4b55aadb1163375ac33984dd43eceedd896a51bf0b3a3d3f07e76f6886ab2526",
+        "releaseDate": "2025-11-05",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-11-05",
+        "filingAccession": "0000063908-25-000057",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "b03e576f37c74305f33bd78774217b450e70fd9daff3bec3c37f53ab65ace6ed"
+      },
+      "PFG|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926012083/tm265638d1_ex99.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926012083/tm265638d1_8k.htm",
+        "currentReportSha256": "2299ab5ea5721df0bb31fb034a7f7bca78a47334c3acbf76cb4d6bd37db596fc",
+        "releaseDate": "2026-02-09",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-02-09",
+        "filingAccession": "0001104659-26-012083",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "0330b310710341c658fd39503c3a6a198a9e9bd15243aa60752510734fb17013"
+      },
+      "STT|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000592/a3q26earningspressrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000592/stt-20261009.htm",
+        "currentReportSha256": "f2c182a68eeabb84bcac5a09cbf40e8ca5c6d669b413a8a20b8ba66349fee2bf",
+        "releaseDate": "2026-10-14",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-14",
+        "filingAccession": "0000093751-26-000592",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the news release. Exhibit 99.2 is the financial addendum. The publicly readable SEC release confirms the dateline and headline.",
+        "directlyMatchedValues": {
+          "revenue": 4004000000,
+          "epsGaapDiluted": 3.69
+        }
+      },
+      "STT|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000387/a2q26earningspressrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000387/stt-20260716.htm",
+        "currentReportSha256": "fb320b69ae62980b43d530006886eae4d38efee9145ea2ca071303ecbe216427",
+        "releaseDate": "2026-07-16",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-16",
+        "filingAccession": "0000093751-26-000387",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the news release. Exhibit 99.2 is the financial addendum. The publicly readable SEC release confirms the dateline and headline.",
+        "directlyMatchedValues": {
+          "revenue": 4048000000,
+          "epsGaapDiluted": 3.65
+        }
+      },
+      "STT|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000184/a1q26earningspressrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000184/stt-20260417.htm",
+        "currentReportSha256": "2767a3e090e1b2fb05fab8d341278fddd6ef0052b38f2de1c98e52a5667b2ef4",
+        "releaseDate": "2026-04-17",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-17",
+        "filingAccession": "0000093751-26-000184",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the news release. Exhibit 99.2 is the financial addendum. The publicly readable SEC release confirms the dateline and headline.",
+        "directlyMatchedValues": {
+          "revenue": 3796000000,
+          "epsGaapDiluted": 2.49
+        }
+      },
+      "STT|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/a4q25earningspressrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000008/stt-20260116.htm",
+        "currentReportSha256": "ad2d98fb9650b10d75a6493bc88b12d9edc1336717f279919984136cd1e8b44c",
+        "releaseDate": "2026-01-16",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-16",
+        "filingAccession": "0000093751-26-000008",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the news release. Exhibit 99.2 is the financial addendum. The publicly readable SEC release confirms the dateline and headline.",
+        "directlyMatchedValues": {
+          "revenue": 3667000000,
+          "epsGaapDiluted": 2.42
+        }
+      },
+      "STT|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375125000560/a3q25earningspressrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93751/000009375125000560/stt-20251017.htm",
+        "currentReportSha256": "e4df7052755668ace276de926e1e2cd500375eed6c9013360faef224516627ac",
+        "releaseDate": "2025-10-17",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-17",
+        "filingAccession": "0000093751-25-000560",
+        "currentPeriodBasis": "The 8-K identifies Exhibit 99.1 as the news release. Exhibit 99.2 is the financial addendum. The publicly readable SEC release confirms the dateline and headline.",
+        "directlyMatchedValues": {
+          "revenue": 3545000000,
+          "epsGaapDiluted": 2.78
+        }
+      },
+      "SWK|2026-04-04": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000013/ex991q12026.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000013/swk-20260429.htm",
+        "currentReportSha256": "344ddfecbbdd2d2ea73f915a201f68d56007c2010f78765aa063cb757881f87f",
+        "releaseDate": "2026-04-29",
+        "periodEnd": "2026-04-04",
+        "filingDate": "2026-04-29",
+        "filingAccession": "0000093556-26-000013",
+        "currentPeriodBasis": "Item 2.02 announces first-quarter results. Item 9.01 identifies the press release and accompanying financial statements as separate exhibits.",
+        "sourceSha256": "6f710297de0e0d6f987f6b7087e78195cb200734d99ea7dc375dbcaa827cbc54"
+      },
+      "TFC|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000096/ex991-pr2q26.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000096/tfc-20260717.htm",
+        "currentReportSha256": "f623dd326dc4bfee667bd991f1ef27ed56d2c96b1be80c1f8a4c439c0154b52e",
+        "releaseDate": "2026-07-17",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-17",
+        "filingAccession": "0000092230-26-000096",
+        "currentPeriodBasis": "Item 2.02 identifies Exhibit 99.1 as the news release. The earnings slide deck is separate.",
+        "sourceSha256": "4b85d59317dcf8ef37499d9dbabe350c22fa69a94c21975a7b4c06f992ad9ca6"
+      },
+      "TFC|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/ex991-pr1q26.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000039/tfc-20260417.htm",
+        "currentReportSha256": "e98d59bd96d8eadc232f19204cd1c0b77f2a2aa992e1ca24c845a7ee1d908480",
+        "releaseDate": "2026-04-17",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-17",
+        "filingAccession": "0000092230-26-000039",
+        "currentPeriodBasis": "Item 2.02 identifies Exhibit 99.1 as the news release. The earnings slide deck is separate.",
+        "sourceSha256": "1ef9facd9050d6f7fa7767b9ff8347cd73de2121f68b4e52adffbb49f058edaf"
+      },
+      "TFC|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/ex991-pr4q25.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000023/tfc-20260121.htm",
+        "currentReportSha256": "c6dab9fc5cf923452189ddea0a1468cd618fe5fe1b5877d45c8bf6339703d85c",
+        "releaseDate": "2026-01-21",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-21",
+        "filingAccession": "0000092230-26-000023",
+        "currentPeriodBasis": "Item 2.02 identifies Exhibit 99.1 as the news release. The earnings slide deck is separate.",
+        "sourceSha256": "23c0a80a3e7ad071d09fd4d553a791bbb916715486d3c962e10e7a169316c92f"
+      },
+      "TFC|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/ex991-pr3q25.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000150/tfc-20251017.htm",
+        "currentReportSha256": "1ded597e989ea4c544e9ef68b895279826d5bdad7d5c6ccc4b00c554b054084a",
+        "releaseDate": "2025-10-17",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-17",
+        "filingAccession": "0000092230-25-000150",
+        "currentPeriodBasis": "Item 2.02 identifies Exhibit 99.1 as the news release. The earnings slide deck is separate.",
+        "sourceSha256": "a09022d5a0be847034f5c09b51d82cc3172b143be818e198dd0d724fbe789dc0"
+      },
+      "TMUS|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369925000153/tmus09302025ex991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1283699/000128369925000153/tmus-20251023.htm",
+        "currentReportSha256": "0b44a959adc23fc4c0f7973c4dfd619dfbeafd71d3c09c4fd753bd1b1c731319",
+        "releaseDate": "2025-10-23",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-23",
+        "filingAccession": "0001283699-25-000153",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "2cc11f623df3e729c7ecc469a8e94934f8ce25540be9e4df2a5b571c42fa80b1"
+      },
+      "TSLA|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+        "currentReportSha256": "3f75b7140c2086378ae67152ddc82c832bdbc15875204cc62afd5b631a449883",
+        "releaseDate": "2026-01-28",
+        "periodEnd": "2025-12-31",
+        "filingDate": "2026-01-28",
+        "filingAccession": "0001628280-26-003837",
+        "currentPeriodBasis": "Item 2.02 identifies the fourth-quarter and full-year update posted on the company website as the publication of results.",
+        "sourceSha256": "fd933ec8d52a86ee6bfb9a234e4560d2a66df102e0c3d43a4db5d61c20f3de7b",
+        "directlyMatchedValues": {
+          "revenue": 24901000000.0,
+          "epsGaapDiluted": 0.24
+        }
+      },
+      "VTR|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000022/q22026earningsrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000022/vtr-20260729.htm",
+        "currentReportSha256": "1fe28b79e04401022c98e74ce995484ba904966790ff547788961082428dad74",
+        "releaseDate": "2026-07-29",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-29",
+        "filingAccession": "0000740260-26-000022",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "cfebdc60b2121ad3314f225bc4e0493168c6544ba313733d601182fe4c29dc53"
+      },
+      "VTR|2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000016/q12026earningsrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000016/vtr-20260427.htm",
+        "currentReportSha256": "47e61abd92b17f4d6f7e178c98b0f610b0c440a7e85e198605750fe0b3084c98",
+        "releaseDate": "2026-04-27",
+        "periodEnd": "2026-03-31",
+        "filingDate": "2026-04-27",
+        "filingAccession": "0000740260-26-000016",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "f29192c09ebf3a22b16c8924e9c58933d5ea9276e4e9987c3efbdd1912a85f49"
+      },
+      "VTR|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026025000274/q32025earningsrelease.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/740260/000074026025000274/vtr-20251029.htm",
+        "currentReportSha256": "77ff1702e47c8ff88927b8d6e33f39fa066a2ce7551cd1a338d9688b9b4caed4",
+        "releaseDate": "2025-10-29",
+        "periodEnd": "2025-09-30",
+        "filingDate": "2025-10-29",
+        "filingAccession": "0000740260-25-000274",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "b3f77c213f3589a766a250817802ed20d8a0055ad3565015f32b40c5bb407de3"
+      },
+      "XOM|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000018/livef8k3q26991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000018/xom-20261030.htm",
+        "currentReportSha256": "770cddfff009a55ec8d1b7b9f69c3f00c03ebfc5a2402cfe3e16c41187f97421",
+        "releaseDate": "2026-10-30",
+        "periodEnd": "2026-09-30",
+        "filingDate": "2026-10-30",
+        "filingAccession": "0002115436-26-000018",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "042af2b56d89a09dd0a5153f6b75f3da7f97dba5172dac7e835bd55879a9e3ad"
+      },
+      "XOM|2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000006/livef8k2q26991.htm",
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000006/xom-20260731.htm",
+        "currentReportSha256": "6b59302d4ffbf63710eed535aab93277687367ab4192c5f172d4754aa14a2d9a",
+        "releaseDate": "2026-07-31",
+        "periodEnd": "2026-06-30",
+        "filingDate": "2026-07-31",
+        "filingAccession": "0002115436-26-000006",
+        "currentPeriodBasis": "Item 2.02 and the attached issuer release identify the same publication and fiscal quarter.",
+        "sourceSha256": "35c0044c6e977e0793aa1b9d207ebd6f25d70112f1ddf72fc26da33ffba84781"
+      }
+    }
   }
 }
