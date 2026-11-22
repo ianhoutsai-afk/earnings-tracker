@@ -1,22 +1,65 @@
 {
   "companies": 503,
-  "issuersChecked": 52,
-  "issuerTargets": 52,
+  "issuersChecked": 176,
+  "issuerTargets": 176,
   "deferredCompanies": 0,
   "newRecords": 0,
   "sourceFailures": 0,
-  "pendingCompanies": 487,
-  "officialQuarters": 2440,
-  "fiveOfficialQuarterCompanies": 473,
-  "fiveCompleteMetricCompanies": 393,
+  "pendingCompanies": 9,
+  "officialQuarters": 2515,
+  "fiveOfficialQuarterCompanies": 503,
+  "fiveCompleteMetricCompanies": 496,
   "sourceFailedCompanies": 0,
-  "checkedAt": "2026-11-22T15:20:23.727710Z",
+  "checkedAt": "2026-11-15T10:57:04.176885Z",
   "storedQuarters": 2515,
-  "completeMetricQuarters": 2210,
+  "completeMetricQuarters": 2500,
   "sourceHealthy": true,
-  "historyComplete": false,
+  "historyComplete": true,
   "metricsComplete": false,
   "dataComplete": false,
   "healthy": false,
-  "dataStatus": "incomplete"
+  "dataStatus": "incomplete",
+  "metricBackfill": {
+    "date": "2026-11-15",
+    "filledFields": 12,
+    "reviewedFields": 12,
+    "evidence": "docs/quarterly-financial-verification-followup-2026-11-16.json",
+    "previousEvidence": "docs/quarterly-financial-verification-followup-2026-11-15.json"
+  },
+  "filingDatedQuarters": 6,
+  "releaseDatesComplete": false,
+  "scanPendingCompanies": 472,
+  "latestQuarterReview": {
+    "checkedAt": "2026-11-20T15:21:54.788569+00:00",
+    "issuers": [
+      "INTU",
+      "KEYS",
+      "LOW",
+      "P",
+      "PANW",
+      "ROST",
+      "TJX",
+      "WMT",
+      "WSM"
+    ],
+    "newQuarters": 8,
+    "evidence": "docs/quarterly-financial-verification-followup-2026-11-20.json"
+  },
+  "fiveConsecutiveQuarterCompanies": 503,
+  "historyContinuityPendingCompanies": 0,
+  "continuityReview": {
+    "checkedAtUtc": "2026-11-18T13:34:38.116273+00:00",
+    "addedMissingQuarters": 39,
+    "pendingCompanies": 0,
+    "evidence": "docs/quarterly-financial-verification-followup-2026-11-18.json"
+  },
+  "financialFilingSourceReview": {
+    "checkedAtUtc": "2026-11-18T13:41:07.583760+00:00",
+    "uniqueDocuments": 2415,
+    "sourceFailures": 0,
+    "unresolvedNumericConflicts": 0,
+    "evidence": "docs/financial-filing-source-audit-2026-11-18.json"
+  },
+  "reconciledMainCommit": "9888e32007e301a9566f3982e54c5bc0dbfdb579",
+  "dataMergedAt": "2026-11-22T15:39:52.001362+00:00"
 }

@@ -16,6 +16,18 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         result=self.parse(statement())
         self.assertEqual(result, {'revenue':1200000000, 'epsGaapDiluted':1.25})
 
+    def test_becton_dickinson_uses_reported_diluted_eps_including_discontinued_operations(self):
+        doc=statement(heading='CONDENSED CONSOLIDATED INCOME STATEMENTS').replace(
+            '<tr><td>Diluted</td><td>$1.25</td>',
+            '<tr><td>Income from Continuing Operations</td><td>$1.16</td></tr>'
+            '<tr><td>Income from Discontinued Operations</td><td>$0.09</td></tr>'
+            '<tr><td>Diluted Earnings per Share</td><td>$1.25</td>')
+        self.assertEqual(self.parse(doc,cik='0000010795'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
+    def test_republic_services_release_reads_unaudited_consolidated_statement(self):
+        doc=statement(heading='UNAUDITED CONSOLIDATED STATEMENTS OF INCOME')
+        self.assertEqual(self.parse(doc,cik='0001060391'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
     def test_q4_comes_from_three_months_not_full_year(self):
         doc=statement().replace('September 30,','June 30,').replace('Nine Months','Twelve Months')
         self.assertEqual(self.parse(doc,'2026-06-30')['epsGaapDiluted'],1.25)
@@ -52,6 +64,29 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         doc='<h2>INCOME STATEMENTS</h2><p>($ in millions, except per share amounts)</p><table><tr><td rowspan="2"></td><td colspan="4">Three Months Ended September 30,</td></tr><tr><td colspan="2">2026</td><td colspan="2">2025</td></tr><tr><td>Total revenue</td><td>$</td><td>1,200</td><td>$</td><td>1,080</td></tr><tr><td>Diluted earnings per share</td><td>$</td><td>1.25</td><td>$</td><td>1.15</td></tr></table>'
         self.assertEqual(self.parse(doc),{'revenue':1200000000,'epsGaapDiluted':1.25})
 
+    def test_reviewed_thousands_layout_reads_quarter_from_embedded_title_and_eps(self):
+        for cik in ('0001013237', '0000857005'):
+            with self.subTest(cik=cik):
+                doc = statement().replace('<h2>INCOME STATEMENTS</h2><p>(In millions, except per share amounts) (Unaudited)</p>', '')
+                doc = doc.replace('<table>', '<table><tr><td> </td><td colspan="4">Unaudited Consolidated Statements of Income</td></tr><tr><td colspan="5">(In thousands, except per share data)</td></tr>')
+                self.assertEqual(self.parse(doc,cik=cik), {'revenue':1200000, 'epsGaapDiluted':1.25})
+
+    def test_ptc_alternates_eps_and_weighted_share_rows(self):
+        doc = statement().replace('<tr><td>Diluted</td><td>$1.25',
+                                  '<tr><td>Weighted average shares outstanding</td><td>899</td><td>798</td></tr><tr><td>Diluted</td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000857005'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+        self.assertEqual(self.parse(doc,cik='0000789019'), {'revenue':1200000000})
+
+    def test_reviewed_qualcomm_layout_ignores_display_none_cells_and_annual_column(self):
+        doc = statement().replace('Nine Months', 'Twelve Months').replace('<td>2026</td><td>2025</td><td>2026</td><td>2025</td>', '<td style="display: none" colspan="2"></td><td>2026</td><td>2025</td><td>2026</td><td>2025</td>')
+        doc = doc.replace('<td>Total revenue</td>', '<td>Total revenue</td><td style="display:none" colspan="2"></td>').replace('<td>Diluted</td><td>$1.25', '<td>Diluted earnings (loss) per share</td><td style="display:none" colspan="2"></td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000804328'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
+    def test_reviewed_air_products_layout_reads_day_first_and_parent_eps(self):
+        doc = statement('Three Months Ended 30 September').replace('In millions,','Millions of U.S. Dollars,')
+        doc = doc.replace('<td>Diluted</td><td>$1.25', '<td>Diluted Earnings (Loss) Per Share Attributable to Air Products</td><td>$1.25')
+        self.assertEqual(self.parse(doc,cik='0000002969'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
     def test_integration_missing_inline_total_uses_release_and_records_metric_source(self):
         import copy
         from official_sync import check_issuer
@@ -67,6 +102,35 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         self.assertEqual(rows[0]['revenue'],1200000000)
         self.assertTrue(rows[0]['revenueSourceUrl'].endswith('/ex991.htm'))
         self.assertTrue(rows[0]['secUrl'].endswith('/quarter.htm'))
+
+    def test_raymond_james_supplement_keeps_total_revenue_and_exact_quarter_columns(self):
+        from official_sync import check_issuer
+        doc = ('<font>Three months ended % change from Twelve months ended in millions, except per share amounts '
+               'September 30, 2025 December 31, 2025 March 31, 2026 June 30, 2026 September 30, 2026 '
+               'September 30, 2025 June 30, 2026 September 30, 2025 September 30, 2026 % change Revenues: '
+               'Total revenues 4,190 4,176 4,262 4,362 4,739 13 % 9 % 15,912 17,539 10 % '
+               'Interest expense (463) (441) (403) (434) (470) '
+               'Net revenues 3,727 3,735 3,859 3,928 4,269 Other costs '
+               'Earnings per common share – diluted (2) $ 2.95 $ 2.79 $ 2.72 $ 3.01 $ 3.40 15 % 13 % $ 10.30 $ 11.91 16 % '
+               'Weighted-average common shares outstanding – basic '
+               'RAYMOND JAMES FINANCIAL, INC. Consolidated Statements of Income (Unaudited)</font>')
+        root='https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/'
+        exhibit='rjf0930q426supplement.htm'
+        day='2026-10-14'
+        sub={'filings':{'recent':{'form':['8-K'],'items':['2.02,9.01'],'accessionNumber':['0000720005-26-000080'],
+                                 'primaryDocument':['results.htm'],'filingDate':[day],'reportDate':[day]}}}
+        def source(url):
+            return {
+                root+'results.htm':f'<a href="ex991.htm">99.1 Earnings release</a><a href="{exhibit}">99.2 Financial Supplement</a>',
+                root+'ex991.htm':'<h1>Fourth quarter 2026 results</h1><p>October 14, 2026. Results for the quarter ended September 30, 2026.</p>',
+                root+exhibit:doc,
+            }[url]
+        rows,_=check_issuer('0000720005',sub,source,date(2026,10,22))
+        self.assertEqual((rows[0]['revenue'],rows[0]['epsGaapDiluted']),(4739000000,3.40))
+        self.assertEqual(rows[0]['revenueSourceUrl'],root+exhibit)
+        self.assertEqual(rows[0]['releaseSourceUrl'],root+'ex991.htm')
+        self.assertEqual(self.parse(doc,end='2026-06-30',cik='0000720005'),{'revenue':4362000000,'epsGaapDiluted':3.01})
+        self.assertEqual(self.parse(doc,end='2026-08-31',cik='0000720005'),{})
 
 class EmbeddedStatementHeadingTests(unittest.TestCase):
     def test_income_statement_title_inside_full_width_header_is_supported(self):

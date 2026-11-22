@@ -17,6 +17,10 @@ QUARTERS = {'first':1, 'second':2, 'third':3, 'fourth':4, '1st':1, '2nd':2, '3rd
 REVENUE_TAGS = {'us-gaap:Revenues', 'us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax',
                 'us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax', 'us-gaap:SalesRevenueNet',
                 'us-gaap:RevenuesNetOfInterestExpense'}
+BANK_GAAP_REVENUE_COMPONENTS = {
+    'us-gaap:interestincomeexpensenet': 'net interest income',
+    'us-gaap:noninterestincome': 'total noninterest income',
+}
 
 
 def normalize_proxy_base(value):
@@ -55,22 +59,59 @@ def _date(text):
 
 
 def _fiscal_identity(intro):
+    # A results release can put a specific future quarter in an outlook
+    # subtitle before identifying the reported quarter in the dateline/body.
+    intro = re.sub(
+        r'(?i)\bupdates?\s+(?:first|second|third|fourth)[\s-]+quarter\s+and\s+'
+        r'fiscal\s+(?:year\s+)?20\d{2}\s+outlook\b', ' ', intro)
     identity_text = re.split(r'(?i)all comparisons|compared (?:to|with)|forward-looking|forecasting|\boutlook\b',intro)[0]
     patterns = [
         r'(?i)\b(first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter[\s-]+(?:and[\s-]+(?:full[\s-]+)?(?:fiscal[\s-]+)?year[\s-]+)?(?:of[\s-]+)?(?:fiscal[\s-]+)?(?:year[\s-]+)?(20\d{2})\b',
-        r'(?i)\bQ([1-4])\s+(?:FY\s*)?(20\d{2})\b',
+        r'(?i)\bQ([1-4])\s+(?:(?:FY|fiscal(?:\s+year)?)\s+)?(20\d{2})\b',
         r'(?i)\b(20\d{2})[\s-]+(first|second|third|fourth)[\s-]+quarter\b',
     ]
     matches=[(m.start(),int(m[2]),int(m[1]) if m[1].isdigit() else QUARTERS[m[1].lower()]) for p in patterns[:2] for m in re.finditer(p,identity_text)]
     matches += [(m.start(),int(m[1]),QUARTERS[m[2].lower()]) for m in re.finditer(patterns[2],identity_text)]
     matches += [(m.start(),int('20'+m[2]) if len(m[2])==2 else int(m[2]),int(m[1])) for m in re.finditer(r'(?i)\b([1-4])Q\s*(20\d{2}|\d{2})\b',identity_text)]
+    combined_year_patterns = (
+        r'(?i)\bfourth[\s-]+(?:fiscal[\s-]+)?quarter\s+and\s+(?:full[\s-]+)?fiscal\s+(?:year\s+)?(20\d{2})\b',
+        r'(?i)\bfiscal\s+(20\d{2})\s+full[\s-]+year\s+and\s+fourth[\s-]+quarter\b',
+    )
+    matches += [(m.start(), int(m[1]), 4) for p in combined_year_patterns for m in re.finditer(p, identity_text)]
+    matches += [(m.start(), int(m[1]), QUARTERS[m[2].lower()]) for m in re.finditer(
+        r'(?i)\bwe closed fiscal\s+(20\d{2})\s+with\s+(?:a\s+)?(?:strong\s+)?(first|second|third|fourth)\s+quarter\b', identity_text)]
     return min(matches)[1:] if matches else (None,None)
 
 
 def _completed_period_end(text, event):
-    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:for\s+(?:the\s+)?)?(?:full[\s-]+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine))?\s+months)\s+ended\s+(' + DATE + ')', text)]
+    periods = [m[1] for m in re.finditer(r'(?i)(?:quarter(?:\s+and\s+(?:(?:for\s+(?:the\s+)?)?(?:full[\s-]+)?(?:fiscal\s+)?year|(?:six|nine)\s+months))?|three(?:\s+and\s+(?:six|nine|twelve))?\s+months)\s+ended\s+(' + DATE + ')', text)]
     ends = {_date(p) for p in periods if _date(p) < event}
     return max(ends) if ends else None
+
+
+def _walmart_fiscal_identity(tree, intro, event, period_end):
+    headline = re.search(r'(?i)\bWalmart reports (first|second|third|fourth) quarter results\b', intro[:250])
+    publication = re.search(
+        r'(?i)(' + DATE + r')\s*[–—-]\s*Walmart Inc\. \(NASDAQ: WMT\) announces '
+        r'(first|second|third|fourth)[\s-]+quarter results\b', intro)
+    if (not headline or not publication or _date(publication[1]) != event
+            or publication[2].lower() != headline[1].lower()):
+        return None, None
+    quarter = QUARTERS[headline[1].lower()]
+    labels = re.compile(rf'Q{quarter} FY(\d{{2}})')
+    years = set()
+    for row in tree.xpath('//table//tr'):
+        cells = [label for cell in row.xpath('./td|./th') if (label := ' '.join(_text(cell).split()))]
+        if len(cells) != 4 or cells[0] != 'Walmart U.S.' or cells[3] != 'Change':
+            continue
+        current, comparative = labels.fullmatch(cells[1]), labels.fullmatch(cells[2])
+        if current and comparative and int(current[1]) == int(comparative[1]) + 1:
+            years.add(2000 + int(current[1]))
+    if len(years) == 1:
+        year = years.pop()
+        if period_end.year <= year <= period_end.year + 1:
+            return year, quarter
+    return None, None
 
 
 def parse_earnings_release(document, event_date, filing_date, today):
@@ -87,16 +128,74 @@ def parse_earnings_release(document, event_date, filing_date, today):
     if event not in intro_dates or not event <= filed <= today:
         raise ValueError('Original earnings exhibit does not confirm release date')
     end = _completed_period_end(text,event)
+    # The dated results sentence can state a standalone quarter and its
+    # cumulative period together before naming their shared period end.
+    reported_half = re.search(
+        r'(?i)\b(?:reported|announced)\s+(?:financial\s+)?results\s+for\s+(?:its|the)\s+'
+        r'second\s+quarter\s+and\s+'
+        r'first\s+half\s+of\s+fiscal\s+(?P<year>20\d{2}),?\s+ended\s+(?P<end>' + DATE + ')',
+        intro,
+    )
+    prior_dates = list(re.finditer(DATE, intro[:reported_half.start()], re.I)) if reported_half else []
+    if prior_dates and _date(prior_dates[-1][0]) == event:
+        confirmed_end = _date(reported_half['end'])
+        if not 0 < (event - confirmed_end).days <= 180:
+            raise ValueError('Release period is not current for this event')
+        return {'date':event.isoformat(),'periodEnd':confirmed_end.isoformat(),
+                'fiscalYear':int(reported_half['year']),
+                'fiscalQuarter':2}
+    completed_opening = re.search(
+        r'(?i)\btoday\s+(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
+        r'(?:financial\s+)?results\s+for\s+the\s+'
+        r'(?:first|second|third|fourth|1st|2nd|3rd|4th)[\s-]+quarter\s+ending\s+(' + DATE + ')',
+        intro,
+    )
+    if completed_opening:
+        publication_dates = list(re.finditer(DATE, intro[:completed_opening.start()], re.I))
+        if publication_dates and _date(publication_dates[-1][0]) == event:
+            end = _date(completed_opening[1])
+            if end >= event:
+                raise ValueError('Earnings period has not ended')
     # Fiscal identity comes from the current release, never a calendar guess.
     year,fiscal_quarter=_fiscal_identity(intro)
+    # A long summary can precede the dateline. Only a dated, explicitly current
+    # results sentence may establish identity beyond the comparison boundary.
+    opening = re.search(
+        r'(?i)\btoday\s+(?:reported|announced|released)\s+(?:its|the)\s+'
+        r'(?:full[\s-]+(?:fiscal[\s-]+)?year\s+and\s+)?'
+        r'(?P<quarter>first|second|third|fourth)[\s-]+quarter\s+'
+        r'(?P<year>20\d{2})\s+(?:financial\s+)?results\s*[.!;]', text[:6000])
+    dated = list(re.finditer(DATE, text[:opening.start()], re.I)) if opening else []
+    if dated and _date(dated[-1][0]) == event:
+        current_identity = (int(opening['year']), QUARTERS[opening['quarter'].lower()])
+        if year is not None and (year, fiscal_quarter) != current_identity:
+            raise ValueError('Conflicting fiscal identities in earnings exhibit')
+        year,fiscal_quarter = current_identity
     if end is not None and (event - end).days > 180:
         raise ValueError('Release period is not current for this event')
+    if end is not None and year is None:
+        year, fiscal_quarter = _walmart_fiscal_identity(tree, intro, event, end)
     if end is None:
         # Some actual-results releases put the period only in the later financial
         # tables. The dated, completed-results sentence and explicit fiscal focus
         # can join a matching 10-Q/10-K. No filing means no new quarter is admitted.
-        actual = re.search(r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?(?:financial\s+)?results\s+for\b',intro)
-        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', text)
+        actual = re.search(
+            r'(?i)\b(?:reported|announced|released)\s+(?:(?:its|the)\s+)?'
+            r'(?:(?:financial\s+)?results\s+for\b|'
+            r'(?:full[\s-]+(?:fiscal[\s-]+)?year\s+and\s+)?'
+            r'(?P<quarter>first|second|third|fourth)[\s-]+quarter\s+'
+            r'(?P<year>20\d{2})\s+(?:financial\s+)?results\s*[.!;])',
+            intro,
+        )
+        if actual is not None and actual['year'] is not None:
+            stated_identity = (int(actual['year']), QUARTERS[actual['quarter'].lower()])
+            if year is not None and (year, fiscal_quarter) != stated_identity:
+                raise ValueError('Conflicting fiscal identities in earnings exhibit')
+            year, fiscal_quarter = stated_identity
+        # Table headers can split month/day and year across different columns.
+        # They do not make the dated, completed-results narrative malformed.
+        narrative = ' '.join(tree.xpath('//text()[not(ancestor::table)]'))
+        malformed_period = re.search(r'(?i)\b(?:quarter|months)\s+ended\b', narrative)
         if not actual or year is None or fiscal_quarter is None or malformed_period:
             raise ValueError('No explicit completed quarterly period')
         publication_dates = [m for m in re.finditer(DATE, intro[:actual.start()], re.I)]
@@ -166,6 +265,20 @@ def parse_earnings_filing(document,event_date,filing_date,today,exhibit=None):
     # Exhibit descriptions can explicitly identify a quarter that is not repeated in the body.
     descriptions=re.search(r'(?is)\bItem\s*9\.01\b(.*?)(?=\bSIGNATURES?\b|$)',text)
     publication_text=' '.join(clause for _,clause in supported)
+    paired_period = re.search(
+        r'(?i)\b(?:second\s+quarter\s+and\s+first\s+six|third\s+quarter\s+and\s+first\s+nine)'
+        r'\s+months\s+of\s+fiscal\s+(?:year\s+)?(20\d{2})\b', publication_text)
+    if paired_period and actual_headline:
+        quarter_word = paired_period[0].split()[0].lower()
+        title = re.search(r'(?i)\b(?:reports?|announces?)\b[^.!?]{0,80}?'
+                          r'\b(first|second|third|fourth)\s+quarter\s+(?:financial\s+)?results\b', headline)
+        period = re.search(r'(?i)\bHighlights\s*[-–—:]\s*Three\s+Months\s+Ended\s+(' + DATE + ')', headline)
+        if title and period:
+            end = _date(period[1])
+            if title[1].lower() != quarter_word or not 0 < (event-end).days <= 180:
+                raise ValueError('Conflicting fiscal identity or period in earnings exhibit')
+            return {'date':event.isoformat(), 'periodEnd':end.isoformat(),
+                    'fiscalYear':int(paired_period[1]), 'fiscalQuarter':QUARTERS[quarter_word]}
     end=_completed_period_end(publication_text+' '+(descriptions[1] if descriptions else ''),event)
     if end is not None and (event-end).days>180:raise ValueError('Stale earnings period')
     year,quarter=_fiscal_identity(publication_text)
@@ -204,7 +317,13 @@ def _contract_revenue_total(node):
     label=' '.join(' '.join(before).split()).strip(' :$')
     if not re.fullmatch(r'(?i)(?:total )?(?:net )?(?:revenues?|sales(?: to customers)?)(?: \((?:Note )?[a-z0-9]+\))?',label):return False
     table=tables[0]
-    statement=r'(?i)(?:(?:(?:consolidated|combined|condensed)\s+)+(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings))(?:\s*\(unaudited\))?'
+    statement = (
+        r'(?i)(?:unaudited\s+)?(?:'
+        r'(?:(?:consolidated|combined|condensed)\s+)+'
+        r'(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)'
+        r'|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings)'
+        r')(?:\s*\(loss\))?(?:\s*\(unaudited\))?'
+    )
     root=node.getroottree().getroot()
     issuer=_unique_text(n for n in root.iter() if isinstance(n.tag,str) and n.get('name','').lower()=='dei:entityregistrantname')
     def is_statement_heading(text):
@@ -231,9 +350,15 @@ def _contract_revenue_total(node):
             previous=previous.getprevious()
         parent=current.getparent()
         if parent is None or _local(parent) not in ('div','section'):break
-        # Empty formatting spans beside a table do not change its statement.
-        # Any textual sibling or additional table remains a hard boundary.
+        # Empty formatting spans and the standard trailing reference to the
+        # notes are part of the statement layout. An actual note is a boundary.
         siblings = [child for child in parent if child is not current]
+        trailing = current.getnext()
+        if trailing is not None and _local(trailing) == 'span':
+            reference = ' '.join(_text(trailing).split()).casefold()
+            if reference in ('the accompanying notes are an integral part of these statements.',
+                             'see notes to condensed consolidated financial statements.'):
+                siblings.remove(trailing)
         if any(_text(child).strip() or _local(child)=='table' or child.xpath('.//table') for child in siblings):break
         if (parent.text or '').strip() or (current.tail or '').strip():break
         current=parent
@@ -245,12 +370,35 @@ def parse_inline_quarter(document, period_end, cik=None):
     nodes = [node for node in tree.iter() if isinstance(node.tag,str)]
     def dei(tag):
         return _unique_text(n for n in nodes if n.get('name', '').lower() == 'dei:' + tag.lower())
-    raw_end = dei('DocumentPeriodEndDate')
-    try:
-        document_end = date.fromisoformat(raw_end).isoformat()
-    except (ValueError, TypeError):
-        document_end = _date(raw_end).isoformat() if raw_end and re.fullmatch(DATE, raw_end, re.I) else None
-    if document_end != period_end:
+    document_ends = set()
+    for node in nodes:
+        if node.get('name', '').lower() != 'dei:documentperiodenddate':
+            continue
+        parts = [_text(node)]
+        continuation = node.get('continuedat')
+        seen = set()
+        while continuation:
+            targets = [candidate for candidate in nodes if candidate.get('id') == continuation]
+            if continuation in seen or len(targets) != 1 or _local(targets[0]) != 'continuation':
+                raise ValueError('Official document period has an invalid continuation')
+            seen.add(continuation)
+            parts.append(_text(targets[0]))
+            continuation = targets[0].get('continuedat')
+        raw_end = ' '.join(' '.join(parts).split())
+        try:
+            if node.get('format', '').split(':')[-1] == 'date-month-day-year':
+                numeric_date = re.fullmatch(r'([0-9]{1,2})[^0-9]+([0-9]{1,2})[^0-9]+([0-9]{1,2}|[0-9]{4})', raw_end)
+                if numeric_date is None:
+                    raise ValueError('Invalid transformed date')
+                month, day, year = map(int, numeric_date.groups())
+                # The XBRL transform expands short years into the 2000s.
+                value = date(year + (2000 if len(numeric_date[3]) < 4 else 0), month, day)
+            else:
+                value = _date(raw_end) if re.fullmatch(DATE, raw_end, re.I) else date.fromisoformat(raw_end)
+        except ValueError:
+            raise ValueError('Official document period does not match release period') from None
+        document_ends.add(value.isoformat())
+    if document_ends != {period_end}:
         raise ValueError('Official document period does not match release period')
     year, focus = dei('DocumentFiscalYearFocus'), dei('DocumentFiscalPeriodFocus')
     if not year or not year.isdigit() or focus not in ('Q1','Q2','Q3','FY'):
@@ -280,11 +428,19 @@ def parse_inline_quarter(document, period_end, cik=None):
             units[unit.get('id')] = 'USD'
     noncontract_component=any(n.get('name','').lower()=='us-gaap:revenuenotfromcontractwithcustomer' and n.get('contextref') in contexts for n in nodes)
     eps, revenue, starts = set(), set(), set()
+    issuer = str(cik or dei('EntityCentralIndexKey') or '').lstrip('0')
+    bank_revenue_uses_components = issuer in ('91576', '36104', '92230')
+    # Vylor's pre-separation filing tags Corteva's diluted EPS with Vylor's
+    # own CIK. Its stand-alone carve-out statement reports revenue only.
+    vylor_pre_separation = period_end == '2026-09-30' and issuer == '2128626'
+    bank_components = {}
     for node in nodes:
         if _local(node) != 'nonfraction' or node.get('contextref') not in contexts:
             continue
         tag = node.get('name', '')
         is_eps = tag.lower() == 'us-gaap:earningspersharediluted'
+        if is_eps and vylor_pre_separation:
+            continue
         is_revenue = tag.lower() in {t.lower() for t in REVENUE_TAGS}
         # Extension names need an explicit consolidated total row and the same
         # dimensionless quarter context and USD unit as standard facts.
@@ -292,9 +448,30 @@ def parse_inline_quarter(document, period_end, cik=None):
                 and re.search(r'(?i)revenue|sales', tag.split(':',1)[1])
                 and not re.search(r'(?i)adjusted|nongaap|proforma|segment',tag)):
             is_revenue = _contract_revenue_total(node)
-        if not is_eps and not is_revenue:
+        component_label = BANK_GAAP_REVENUE_COMPONENTS.get(tag.lower()) if bank_revenue_uses_components else None
+        if not is_eps and not is_revenue and component_label is None:
             continue
-        if 'revenuefromcontractwithcustomer' in tag.lower() and (noncontract_component or not _contract_revenue_total(node)):
+        if is_revenue or component_label:
+            row = next((ancestor for ancestor in node.iterancestors() if _local(ancestor) == 'tr'), None)
+            if row is not None and re.search(r'(?i)\bsegment\b', _text(row)):
+                # A standard tag and dimensionless context can still be applied
+                # to an explicitly labelled segment amount in the source.
+                continue
+            cells = row.xpath('./td|./th') if row is not None and bank_revenue_uses_components else []
+            label = ' '.join(_text(cells[0]).split()).casefold() if cells else ''
+            # U.S. Bancorp's tagged total can be taxable-equivalent even when
+            # the row label simply says "Total net revenue".
+            if is_revenue and (issuer == '36104' or
+                               (issuer == '91576' and re.search(r'\(te\)|taxable[\s-]equivalent', label))):
+                continue
+            if component_label and label != component_label:
+                continue
+        contract_revenue = 'revenuefromcontractwithcustomer' in tag.lower()
+        if contract_revenue and noncontract_component:
+            continue
+        # Republic Services and Hasbro also tag pre-elimination revenues with
+        # entity-wide contexts in their segment notes.
+        if (contract_revenue or (is_revenue and issuer in ('1060391', '46080'))) and not _contract_revenue_total(node):
             continue
         if units.get(node.get('unitref')) != ('USD/shares' if is_eps else 'USD'):
             continue
@@ -302,10 +479,14 @@ def parse_inline_quarter(document, period_end, cik=None):
             continue
         try:
             raw = ''.join(_text(node).split()).replace(',', '')
-            if not re.fullmatch(r'\d+(?:\.\d+)?', raw):
+            if not re.fullmatch(r'(?:\d+(?:\.\d+)?|\.\d+)', raw):
                 continue
             scale = int(node.get('scale', '0'))
             if not -12 <= scale <= 15:
+                continue
+            # Some filings apply the statement's monetary scale to an EPS cell
+            # already shown in dollars per share. Leave it for release verification.
+            if is_eps and scale != 0:
                 continue
             value = Decimal(raw) * Decimal(10) ** scale
             if node.get('sign') == '-':
@@ -314,8 +495,22 @@ def parse_inline_quarter(document, period_end, cik=None):
                 continue
         except (ValueError, InvalidOperation):
             continue
+        context_id = node.get('contextref')
+        if component_label:
+            tables = row.xpath('ancestor::table[1]')
+            if tables:
+                components = bank_components.setdefault((tables[0], context_id), {})
+                components.setdefault(component_label, set()).add(value)
+            continue
         (eps if is_eps else revenue).add(float(value))
-        starts.add(contexts[node.get('contextref')])
+        starts.add(contexts[context_id])
+    # Both exact-quarter GAAP lines must share a table and context.
+    for (_, context_id), components in bank_components.items():
+        if len(components) == 2 and all(len(values) == 1 for values in components.values()):
+            total = sum(next(iter(values)) for values in components.values())
+            if total >= 0:
+                revenue.add(float(total))
+                starts.add(contexts[context_id])
     return {'fiscalYear':int(year), 'fiscalQuarter':4 if focus == 'FY' else int(focus[-1]),
             'periodScope':'quarter', 'periodEnd':period_end,
             'periodStart': next(iter(starts)) if len(starts)==1 else None,

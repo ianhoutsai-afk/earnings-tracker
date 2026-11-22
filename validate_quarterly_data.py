@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from quarterly_policy import retain_history, retain_manifest
+from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, pending_history_companies, history_continuity_issues
 from verified_history import _validate_record
 
 
@@ -22,6 +22,7 @@ def validate(root='.', today=None):
         raise ValueError('History must contain at most five distinct quarters, newest first')
     if records!=retain_manifest(records):
         raise ValueError('Official input must contain at most five distinct periods per company')
+    by_period = {(r['ticker'], r['periodEnd']): r for r in records}
     for record in records:
         _validate_record(record,tickers,today)
     for company in companies:
@@ -33,11 +34,48 @@ def validate(root='.', today=None):
             raise ValueError('Expired next-event date')
         for row in history[ticker]:
             if row.get('verificationStatus')=='official_verified':
-                if (not row.get('releaseSourceUrl') or row.get('periodScope')!='quarter'
+                if (not official_source_url(row) or row.get('periodScope')!='quarter'
                         or not row.get('periodEnd') or not row.get('fiscalYear') or row.get('fiscalQuarter') not in (1,2,3,4)):
-                    raise ValueError('Verified release lacks period or source')
+                    raise ValueError('Verified quarter lacks period or source')
+                if row.get('dateSource') == 'sec_filing':
+                    record = by_period.get((ticker, row['periodEnd']))
+                    if not record or any(row.get(field)!=record.get(field) for field in
+                                         ('date','dateSource','filingDate','form','secUrl','accessionNumber','releaseSourceUrl')):
+                        raise ValueError('Displayed filing provenance differs from the official record')
+                if row.get('dateSource') == 'recast':
+                    record = by_period.get((ticker, row['periodEnd']))
+                    if not record or any(row.get(field)!=record.get(field) for field in
+                                         ('date','dateSource','releaseFilingDate','releaseSourceUrl','releaseAccession')):
+                        raise ValueError('Displayed recast provenance differs from the official record')
         if status[ticker].get('recordCount')!=len(history[ticker]):
             raise ValueError('Per-company record count differs from active history')
+    state_path = root/'official_scan_state.json'
+    if state_path.exists():
+        state = json.loads(state_path.read_text())
+        continuity = history_continuity_issues(history)
+        consecutive = sum(len(rows) == 5 and ticker not in continuity
+                          and all(row.get('verificationStatus') == 'official_verified' for row in rows)
+                          for ticker, rows in history.items())
+        if state.get('historyComplete') and consecutive != len(companies):
+            raise ValueError('History marked complete without five consecutive verified quarters')
+        if state.get('dataComplete') and (consecutive != len(companies) or state.get('historyComplete') is False):
+            raise ValueError('Data marked complete without five consecutive verified quarters')
+        if 'historyContinuityPendingCompanies' in state and state['historyContinuityPendingCompanies'] != len(continuity):
+            raise ValueError('Quarter-continuity count differs from the published quarters')
+        if 'fiveConsecutiveQuarterCompanies' in state and state['fiveConsecutiveQuarterCompanies'] != consecutive:
+            raise ValueError('Consecutive-quarter count differs from the published quarters')
+        if 'scanPendingCompanies' in state:
+            if state.get('pendingCompanies') != pending_history_companies(history):
+                raise ValueError('Pending-data count differs from the published quarters')
+            if state['scanPendingCompanies'] != sum(row.get('status') != 'official_source_checked' for row in status.values()):
+                raise ValueError('Pending-scan count differs from the last source review')
+        if 'filingDatedQuarters' in state:
+            filing_count = filing_dated_quarters(history)
+            all_releases = all_release_dates_verified(history)
+            if state['filingDatedQuarters'] != filing_count or state.get('releaseDatesComplete') != all_releases:
+                raise ValueError('Release-date coverage differs from the published quarters')
+            if not all_releases and state.get('dataComplete'):
+                raise ValueError('Data marked complete while earnings-release dates are unverified')
     return {'companies':len(companies),'records':sum(map(len,history.values())),
             'officialQuarters':sum(r.get('verificationStatus')=='official_verified' for rows in history.values() for r in rows),
             'shortHistoryCompanies':sum(len(rows)<5 for rows in history.values())}

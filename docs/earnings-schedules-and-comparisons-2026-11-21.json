@@ -1,0 +1,811 @@
+{
+  "checkedAtUtc": "2026-11-21T17:51:19.707076+00:00",
+  "scope": "Issuer-announced financial release schedules and completion of the uncached financial comparison review.",
+  "newOfficialSchedules": {
+    "GIS": {
+      "releaseDate": "2026-12-17",
+      "releaseTiming": "BMO",
+      "announcementDate": "2026-11-19",
+      "callDate": "2026-12-17",
+      "callTimeEastern": "09:00",
+      "sourceUrl": "https://investors.generalmills.com/press-releases/press-release-details/2026/General-Mills-to-Webcast-Fiscal-2027-Second-Quarter-Earnings-Results-on-December-17-2026/default.aspx",
+      "basis": "The company states that it plans to report on December 17. Its release precedes the 8 a.m. Central webcast that morning.",
+      "previousEstimatedDate": "2026-12-23"
+    },
+    "MU": {
+      "releaseDate": "2026-12-17",
+      "releaseTiming": null,
+      "announcementDate": "2026-11-19",
+      "callDate": "2026-12-17",
+      "callTimeEastern": "16:30",
+      "sourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-First-Quarter-Results-on-December-17-2026/default.aspx",
+      "basis": "The official headline dates the reporting of first-quarter results to December 17. The body dates and times the conference call at 2:30 p.m. Mountain and gives no time for release of the results.",
+      "previousEstimatedDate": "2026-12-23"
+    },
+    "DRI": {
+      "releaseDate": "2026-12-18",
+      "releaseTiming": "BMO",
+      "announcementDate": "2026-11-18",
+      "callDate": "2026-12-18",
+      "callTimeEastern": "08:30",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/darden-restaurants-to-release-fiscal-2027-second-quarter-results-on-december-18-2026-302943972.html",
+      "basis": "The issuer-authored release says results are due before the open on December 18 and separately announces the 8:30 a.m. Eastern call.",
+      "previousEstimatedDate": "2026-12-18"
+    }
+  },
+  "confirmedExistingSchedule": {
+    "COST": {
+      "releaseDate": "2026-12-10",
+      "callDate": "2026-12-10",
+      "sourceUrl": "https://investor.costco.com/events-and-presentations/default.aspx",
+      "basis": "The investor calendar lists the quarterly results and the earnings call as separate events, and November monthly sales as a different event on December 2."
+    }
+  },
+  "uncachedComparativeFilingReview": {
+    "checkedAtUtc": "2026-11-21T17:45:55.894958+00:00",
+    "summary": {
+      "filings": 69,
+      "fetchErrors": [
+        {
+          "ticker": "PCAR",
+          "periodEnd": "2026-06-30",
+          "error": "Official SEC connection unavailable"
+        },
+        {
+          "ticker": "PCAR",
+          "periodEnd": "2026-03-31",
+          "error": "Official SEC connection unavailable"
+        }
+      ],
+      "comparisons": 165,
+      "readStatuses": {
+        "read": 165
+      },
+      "exactFacts": {}
+    },
+    "candidates": [],
+    "directFilingReviews": {
+      "2026-06-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526323642/pcar-20260630.htm",
+        "retainedPeriodEnd": "2026-06-30",
+        "priorYearStatementPeriodEnd": "2025-06-30",
+        "disposition": "SEC filing read directly. Its historical quarter column predates the five retained periods; no matching historical quarter value to update."
+      },
+      "2026-03-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75362/000119312526191499/pcar-20260331.htm",
+        "retainedPeriodEnd": "2026-03-31",
+        "priorYearStatementPeriodEnd": "2025-03-31",
+        "disposition": "SEC filing read directly. Its historical quarter column predates the five retained periods; no matching historical quarter value to update."
+      }
+    }
+  },
+  "supplementalQuarterSources": {
+    "AES|2025-12-31": {
+      "sourceUrls": [
+        "https://www.aes.com/sites/vault/files/2026-03/AES-Fact-Sheet-Q4-FY-2025-March-03-26.pdf",
+        "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-acquire-aes"
+      ],
+      "disposition": "The fact sheet lists generation assets and capacity. The merger announcement reports the cancellation of the results call and the expected filing of the annual report. There is no separately dated quarterly earnings release or exact quarterly diluted EPS in these sources."
+    },
+    "ECHO|2026-09-30": {
+      "sourceUrls": [
+        "https://ir.echostar.com/static-files/56190f3f-0cb3-4550-8652-4056b4b944dd",
+        "https://ir.echostar.com/static-files/4b6c2851-be0f-41e6-b43c-ceec2ce0f886"
+      ],
+      "disposition": "The issuer-hosted quarterly report confirms the filed results. The same-day current report does not announce these quarterly results."
+    },
+    "FE|2025-12-31": {
+      "sourceUrls": [
+        "https://s27.q4cdn.com/655807321/files/doc_financials/2025/q4/4Q25-Investor-Factbook.pdf",
+        "https://s27.q4cdn.com/655807321/files/doc_financials/2025/q4/4Q25-Strategic-Financial-Highlights.pdf"
+      ],
+      "disposition": "The EPS reconciliation covers full-year results. The reviewed slides do not establish consolidated fourth-quarter diluted EPS."
+    },
+    "TECH|2026-09-30": {
+      "sourceUrls": [
+        "https://investors.bio-techne.com/financial-results"
+      ],
+      "disposition": "The fiscal 2027 first-quarter entry links to the 10-Q, 10-Q/A and XBRL. The issuer separately labels an Earnings Release in earlier entries."
+    },
+    "TRGP|2025-12-31": {
+      "sourceUrls": [
+        "https://www.targaresources.com/static-files/79973bff-8235-42c5-a841-45348d54fa64",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm"
+      ],
+      "disposition": "The earnings supplement has no diluted EPS. The filed two-class calculations use their reporting-period earnings allocation and weighted shares; they do not establish the quarter’s own allocation and denominator."
+    },
+    "TXT|2026-01-03": {
+      "sourceUrls": [
+        "https://www.textron.com/assets/FB/2025/Textron_Fact_Book_2025.pdf",
+        "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx"
+      ],
+      "disposition": "The fact book confirms the release’s $1.33 continuing-operations diluted EPS. The consolidated income in the release is $235 million, rounded to the nearest million. At approximately 177.125 million diluted shares, the feasible range straddles $1.325, so the consolidated quarter EPS cannot be inferred to the cent."
+    }
+  },
+  "remainingRequiredHistoricalFields": {
+    "earningsReleaseDate": 6,
+    "epsGaapDiluted": 15,
+    "revenue": 1
+  },
+  "followUpScheduleVerification": {
+    "checkedAtUtc": "2026-11-22T02:37:05.736347+00:00",
+    "newOfficialSchedules": {
+      "DELL": {
+        "releaseDate": "2026-11-24",
+        "releaseTiming": null,
+        "announcementDate": "2026-11-10",
+        "callDate": "2026-11-24",
+        "callTimeEastern": "16:30",
+        "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+        "basis": "Dell will issue its fiscal 2027 third-quarter results by press release before its November 24 conference call. The announcement gives the call time of 3:30 p.m. Central and gives no separate release time.",
+        "previousEstimatedDate": "2026-11-24"
+      },
+      "NKE": {
+        "releaseDate": "2026-12-17",
+        "releaseTiming": "AMC",
+        "releaseTimeEasternApproximate": "16:15",
+        "announcementDate": "2026-11-20",
+        "callDate": "2026-12-17",
+        "callTimeEastern": "17:00",
+        "sourceUrl": "https://investors.nike.com/news-events/press-releases/detail/580/nike-inc-announces-second-quarter-fiscal-2027-earnings-and-conference-call",
+        "basis": "Nike schedules the fiscal 2027 second-quarter release for about 1:15 p.m. Pacific after the regular close. The call follows at 2 p.m. Pacific.",
+        "previousEstimatedDate": "2026-12-17"
+      }
+    }
+  },
+  "followUpHistoricalSourceVerification": {
+    "checkedAtUtc": "2026-11-22T02:38:34.717252+00:00",
+    "currentSecFilings": {
+      "checkedAtUtc": "2026-11-22T02:35:12.419083+00:00",
+      "newTrackedFilingCount": 0,
+      "latestAcceptedByForm": {
+        "8-K": "2026-11-20T17:30:44-05:00",
+        "10-Q": "2026-11-20T17:30:17-05:00",
+        "10-K": "2026-11-20T16:15:44-05:00",
+        "8-K/A": "2026-11-20T17:13:27-05:00",
+        "10-Q/A": "2026-11-20T13:09:48-05:00",
+        "10-K/A": "2026-11-19T17:15:48-05:00",
+        "6-K": "2026-11-20T17:25:15-05:00"
+      },
+      "feedSources": "quarterly-release-exhibit-verification-2026-11-21.json#liveCurrentFilingsReview",
+      "amendedFormRechecksCompletedAtUtc": "2026-11-22T02:37:48.008390+00:00"
+    },
+    "SKYD|2025-09-30": {
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000062/ex99_q326.htm",
+      "sourceSection": "Supplemental Disclosures Regarding Non-GAAP Financial Measures, Total Revenues",
+      "predecessorPeriod": {
+        "start": "2025-07-01",
+        "end": "2025-08-06",
+        "revenue": 2581000000
+      },
+      "successorPeriod": {
+        "start": "2025-08-07",
+        "end": "2025-09-30",
+        "revenue": 4121000000
+      },
+      "supplementalNonGaapProFormaRevenue": 6714000000,
+      "preCloseSkydanceRevenueNetOfEliminations": 12000000,
+      "laterGaapComparatorPeriodEnd": "2026-09-30",
+      "laterGaapComparatorRevenue": 7025000000,
+      "disposition": "The following year’s shareholder letter confirms the two GAAP reporting periods and the separate supplemental pro forma comparison. Preserve both original periods in the note. The single consolidated GAAP revenue and diluted EPS remain unverified for the full quarter."
+    }
+  },
+  "fourthQuarterEpsPrecisionReview": {
+    "checkedAtUtc": "2026-11-22T02:44:38.530180+00:00",
+    "units": "US dollars and shares in millions except for per-share amounts.",
+    "FE|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1031296/000103129625000085/fe-20250930.htm"
+      ],
+      "publishedAnnualAttributableEarnings": 1020,
+      "publishedNineMonthAttributableEarnings": 1069,
+      "illustrativeQuarterShareCount": 577.3,
+      "illustrativeAnnualEarningsAtPublishedPrecision": [
+        1019.6,
+        1020.4
+      ],
+      "illustrativeRoundedLossPerShare": [
+        -0.09,
+        -0.08
+      ],
+      "disposition": "The illustrations also reproduce the reported annual and nine-month basic and diluted EPS using share counts within the published precision. The issuer’s exact quarter numerator and denominator are unverified."
+    },
+    "AES|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/874761/000087476125000084/aes-20250930.htm"
+      ],
+      "publishedAnnualCommonStockholderIncome": 900,
+      "publishedNineMonthCommonStockholderIncome": 575,
+      "illustrativeQuarterShareCount": 714,
+      "illustrativeNineMonthIncomeAtPublishedPrecision": [
+        575.0,
+        575.25
+      ],
+      "illustrativeRoundedEps": [
+        0.46,
+        0.45
+      ],
+      "disposition": "The annual and first-nine-month diluted counts both round to 714 million. Even a fixed illustrative quarter denominator of 714 million admits both results. The issuer’s exact quarter numerator and denominator are unverified."
+    },
+    "TXT|2026-01-03": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734626000002/q4258-kex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
+        "https://www.sec.gov/Archives/edgar/data/217346/000021734625000077/txt-20250927.htm"
+      ],
+      "publishedQuarterNetIncome": 235,
+      "publishedQuarterDilutedShares": 177.125,
+      "illustrativeQuarterNetIncomeAtPublishedPrecision": [
+        234.6,
+        235.1
+      ],
+      "illustrativeRoundedEps": [
+        1.32,
+        1.33
+      ],
+      "disposition": "Both examples are consistent with the published quarter net income, continuing-operations EPS and diluted share count. The annual and nine-month published results also permit both cases. The $1.33 actually published for the quarter is continuing operations."
+    },
+    "TRGP|2025-12-31": {
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "https://www.sec.gov/Archives/edgar/data/1389170/000119312525266435/trgp-20250930.htm"
+      ],
+      "publishedQuarterCommonStockholderIncome": 545.0,
+      "annualParticipatingShareBasedEarnings": 11.1,
+      "nineMonthParticipatingShareBasedEarnings": 8.1,
+      "annualWeightedAverageDilutedShares": 216.9,
+      "nineMonthWeightedAverageDilutedShares": 217.3,
+      "disposition": "The participating-earnings allocation and dilutive award calculations use period-specific inputs. Differences between the annual and nine-month per-share figures do not establish the fourth-quarter two-class calculation."
+    }
+  },
+  "berkshireClassBPerShareVerification": {
+    "checkedAtUtc": "2026-11-22T02:44:38.530180+00:00",
+    "secTaggingReference": "https://www.sec.gov/files/edgar/filer-information/specifications/xbrl-guide-2026-01-16.pdf",
+    "filings": {
+      "2026-09-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+        "documentSha256": "d523cde8f7f2fdc3d01d45aba7eb3c5c60c1279cb22f0b792ebef6f9908bf189",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "10.33",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2026-06-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+        "documentSha256": "95c226d9e503f989a98e87060f578a355f817e6ba252acb8c711f14eab563edc",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "11.91",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2026-03-31": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+        "documentSha256": "dd363e0c4ca33aa2346207f02a54f26ba9b0ed90f49a018f389bc56937d9a7db",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "4.68",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      },
+      "2025-12-31": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+        "documentSha256": "23d19dd8a1d437fe9cfaf2ca54aaf685e8d43477f4400c8329afea4fac6d800a",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "8.90",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283dex991.htm",
+        "classBValueBasis": "Berkshire release: net earnings per average equivalent Class B share"
+      },
+      "2025-09-30": {
+        "tagReviewSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+        "documentSha256": "0c304dcfb5657c5f75018d4a313855d24609d79141cdd5d5680f0cfdb12e4818",
+        "earningsPerShareTags": [
+          "us-gaap:EarningsPerShareBasic"
+        ],
+        "classBValue": "14.28",
+        "classBValueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm",
+        "classBValueBasis": "Basic EPS, average equivalent Class B share"
+      }
+    },
+    "disposition": "The filings tag the presented per-share figures as basic. The fourth-quarter announcement describes its standalone figure as net earnings per average equivalent Class B share. Diluted EPS remains unverified for all five quarters."
+  },
+  "quarterEndCalendarVerification": {
+    "checkedAtUtc": "2026-11-22T15:39:52.001362+00:00",
+    "financialResultsReleases": {
+      "JPM": {
+        "date": "2027-01-14",
+        "releaseTimeEastern": "06:45",
+        "callTimeEastern": "08:30",
+        "session": "BMO",
+        "sourceUrl": "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings",
+        "basis": "The company lists January 14 for the 2026 fourth quarter and says it will issue results at approximately 6:45 a.m. Eastern on the stated dates.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "C": {
+        "date": "2027-01-14",
+        "releaseTimeEastern": "08:00",
+        "callTimeEastern": "11:00",
+        "session": "BMO",
+        "sourceUrl": "https://www.citigroup.com/global/news/press-release/2025/print/citi-third-fourth-quarter-2025-and-2026-earnings-calls",
+        "basis": "The date and expected press release time are in the issuer schedule. The issuer event calendar also lists the call on January 14.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "PNC": {
+        "date": "2027-01-15",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "10:00",
+        "session": "BMO",
+        "sourceUrl": "https://investor.pnc.com/news-events/financial-press-releases/detail/656/the-pnc-financial-services-group-provides-quarterly-2026-earnings-release-dates",
+        "basis": "The issuer expects to release its 2026 fourth-quarter results before the market opens on January 15.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "STT": {
+        "date": "2027-01-15",
+        "releaseTimeEastern": "07:30",
+        "callTimeEastern": "10:00",
+        "session": "BMO",
+        "sourceUrl": "https://investors.statestreet.com/investor-news-events/press-releases/news-details/2026/State-Street-Corporation-NYSE-STT-Announces-Remaining-2026-Quarterly-Financial-Results-Release-Dates-and-Conference-Call-Webcasts/default.aspx",
+        "basis": "The company schedules quarterly results at approximately 7:30 a.m. Eastern on the day of the January 15 call.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "GS": {
+        "date": "2027-01-19",
+        "releaseTimeEastern": "07:30",
+        "callTimeEastern": "09:30",
+        "session": "BMO",
+        "sourceUrl": "https://www.goldmansachs.com/pressroom/press-releases/2025/updated-conference-call-number-for-4q25-and-2026-earnings-results",
+        "basis": "The updated issuer press release gives January 19 and says results are due at approximately 7:30 a.m. Eastern.",
+        "previousEstimatedDate": "2027-01-19"
+      },
+      "MSCI": {
+        "date": "2027-01-26",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "11:00",
+        "session": null,
+        "sourceUrl": "https://ir.msci.com/node/22526/pdf",
+        "basis": "The announcement gives dates for both releases and calls. 11:00 a.m. Eastern applies to the call.",
+        "previousEstimatedDate": "2027-01-26"
+      }
+    },
+    "quarterlyConferenceCalls": {
+      "USB": {
+        "date": "2027-01-19",
+        "callTimeEastern": "09:00",
+        "sourceUrl": "https://ir.usbank.com/news-events/news/news-details/2026/U-S--Bancorp-Provides-Updated-Schedule-for-2027-Earnings-Conference-Calls/default.aspx",
+        "basis": "The company confirms the fourth-quarter call at 8 a.m. Central and says a subsequent notice will confirm the release timing.",
+        "currentEstimatedReleaseDate": "2027-01-19"
+      },
+      "TFC": {
+        "date": "2027-01-20",
+        "callTimeEastern": "08:00",
+        "sourceUrl": "https://ir.truist.com/2025-05-01-Truist-provides-schedule-for-2026-earnings-conference-calls",
+        "basis": "The issuer announcement gives the date and time of the fourth-quarter earnings call.",
+        "currentEstimatedReleaseDate": "2027-01-20"
+      },
+      "ICE": {
+        "date": "2027-02-04",
+        "callTimeEastern": "08:30",
+        "sourceUrl": "https://ir.theice.com/press/news-details/2026/Intercontinental-Exchange-Reports-Third-Quarter-2026/default.aspx",
+        "basis": "The latest issuer results release gives the following quarter’s conference-call date and time.",
+        "currentEstimatedReleaseDate": "2027-02-04"
+      }
+    },
+    "latestMainComparison": {
+      "previousMain": "7b1caca1675dd7aa65ae435a2cbd670aae30ec74",
+      "main": "9888e32007e301a9566f3982e54c5bc0dbfdb579",
+      "equivalentQuarterRecordTimestampsUpdated": 1444,
+      "equivalentIssuerSourceTimestampsUpdated": 304,
+      "WecProviderEstimate": {
+        "previous": "2027-02-04",
+        "current": "2027-02-02"
+      },
+      "numericFieldsChangedOnMain": 0
+    },
+    "pendingPeriodicFilingReview": {
+      "checkedAtUtc": "2026-11-22T15:36:01.212072+00:00",
+      "matchingPeriodicFilings": 0,
+      "issuers": {
+        "AMAT": {
+          "periodEnd": "2026-10-25",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+          "sha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-20",
+            "reportDate": "2026-07-26",
+            "accessionNumber": "0001628280-26-058235",
+            "primaryDocument": "amat-20260726.htm"
+          }
+        },
+        "BDX": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+          "sha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-06",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0000010795-26-000035",
+            "primaryDocument": "bdx-20260630.htm"
+          }
+        },
+        "COR": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+          "sha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-05",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0001140859-26-000034",
+            "primaryDocument": "cor-20260630.htm"
+          }
+        },
+        "KEYS": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "sha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-02",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0001601046-26-000036",
+            "primaryDocument": "keys-20260731.htm"
+          }
+        },
+        "LOW": {
+          "periodEnd": "2026-10-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "sha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-27",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0000060667-26-000117",
+            "primaryDocument": "low-20260731.htm"
+          }
+        },
+        "NVDA": {
+          "periodEnd": "2026-10-25",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "sha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-26",
+            "reportDate": "2026-07-26",
+            "accessionNumber": "0001045810-26-000075",
+            "primaryDocument": "nvda-20260726.htm"
+          }
+        },
+        "P": {
+          "periodEnd": "2026-11-01",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+          "sha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-04",
+            "reportDate": "2026-08-02",
+            "accessionNumber": "0001474432-26-000088",
+            "primaryDocument": "pstg-20260802.htm"
+          }
+        },
+        "RJF": {
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+          "sha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-05",
+            "reportDate": "2026-06-30",
+            "accessionNumber": "0000720005-26-000070",
+            "primaryDocument": "rjf-20260630.htm"
+          }
+        },
+        "ROST": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "sha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-09-01",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000745732-26-000041",
+            "primaryDocument": "rost-20260801.htm"
+          }
+        },
+        "TGT": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "sha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000027419-26-000042",
+            "primaryDocument": "tgt-20260801.htm"
+          }
+        },
+        "TJX": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "sha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-01",
+            "accessionNumber": "0000109198-26-000048",
+            "primaryDocument": "tjx-20260801.htm"
+          }
+        },
+        "WMT": {
+          "periodEnd": "2026-10-31",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "sha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-07-31",
+            "accessionNumber": "0000104169-26-000154",
+            "primaryDocument": "wmt-20260731.htm"
+          }
+        },
+        "WSM": {
+          "periodEnd": "2026-11-01",
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "sha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+          "lastPeriodicFiling": {
+            "form": "10-Q",
+            "filingDate": "2026-08-28",
+            "reportDate": "2026-08-02",
+            "accessionNumber": "0000719955-26-000208",
+            "primaryDocument": "wsm-20260802.htm"
+          }
+        }
+      }
+    }
+  },
+  "additionalIssuerCalendarAndFilingDateReview": {
+    "checkedAtUtc": "2026-11-22T15:57:18.904592+00:00",
+    "financialResultsReleases": {
+      "OKTA": {
+        "date": "2026-12-01",
+        "session": "AMC",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "17:00",
+        "sourceUrl": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-to-Announce-Third-Quarter-Fiscal-Year-2027-Financial-Results-on-December-1-2026/default.aspx",
+        "basis": "The fiscal 2027 third quarter ended October 31, 2026. The issuer schedules results after the U.S. market close and the webcast at 2 p.m. Pacific.",
+        "previousEstimatedDate": null
+      },
+      "MS": {
+        "date": "2027-01-14",
+        "session": "BMO",
+        "releaseTimeEastern": "07:30",
+        "callTimeEastern": "09:30",
+        "sourceUrl": "https://www.morganstanley.com/press-releases/morgan-stanley-schedules-4q-and-fy-2026-investor-call",
+        "basis": "The issuer gives both times for its fourth-quarter and full-year 2026 results.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "WFC": {
+        "date": "2027-01-14",
+        "session": "BMO",
+        "releaseTimeEastern": "07:00",
+        "callTimeEastern": "10:00",
+        "sourceUrl": "https://newsroom.wf.com/news-releases/news-details/2026/Wells-Fargo-Updates-2026-Earnings-Release-Date-Information/default.aspx",
+        "basis": "The updated annual schedule retains January 14 for the fourth quarter and gives both Eastern times.",
+        "previousEstimatedDate": "2027-01-14"
+      },
+      "BNY": {
+        "date": "2027-01-15",
+        "session": "BMO",
+        "releaseTimeEastern": "06:30",
+        "callTimeEastern": "11:00",
+        "sourceUrl": "https://www.bny.com/corporate/global/en/about-us/newsroom/press-release/bny-announces-conference-calls-to-review-earnings-in-2027-130473.html",
+        "basis": "The 2027 issuer calendar explicitly schedules release and call for January 15 for its fourth-quarter 2026 results.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "CFG": {
+        "date": "2027-01-15",
+        "session": "BMO",
+        "releaseTimeEastern": "06:20",
+        "callTimeEastern": "09:00",
+        "sourceUrl": "https://investor.citizensbank.com/about-us/newsroom/latest-news/2026/2026-01-14-183506130.aspx",
+        "basis": "The revised fourth-quarter 2026 notice gives January 15 and includes the press release and conference call times.",
+        "previousEstimatedDate": "2027-01-15"
+      },
+      "FITB": {
+        "date": "2027-01-19",
+        "session": "BMO",
+        "releaseTimeEastern": "06:30",
+        "callTimeEastern": "10:00",
+        "sourceUrl": "https://ir.53.com/news/news-details/2025/Fifth-Third-Bancorp-Announces-Earnings-Release-Dates-for-2026-and-2027/default.aspx",
+        "basis": "The calendar gives January 19 for the 2026 fourth-quarter call and the common financial-results release time of 6:30 a.m. Eastern.",
+        "previousEstimatedDate": "2027-01-19"
+      },
+      "KEY": {
+        "date": "2027-01-20",
+        "session": "BMO",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "10:00",
+        "sourceUrl": "https://investor.key.com/press-releases/news-details/2025/KEYCORP-ANNOUNCES-2026-QUARTERLY-EARNINGS-CONFERENCE-CALL-DATES/default.aspx",
+        "basis": "The company explicitly schedules fourth-quarter results before market open on the day of the January 20 call.",
+        "previousEstimatedDate": "2027-01-20"
+      },
+      "RF": {
+        "date": "2027-01-22",
+        "session": "BMO",
+        "releaseTimeEastern": null,
+        "callTimeEastern": "10:00",
+        "sourceUrl": "https://ir.regions.com/news-events/press-releases/news-details/2026/Regions-Financial-Corp--Announces-Quarterly-Earnings-Release-Dates-for-2027/default.aspx",
+        "basis": "The issuer explicitly schedules its 2026 fourth-quarter results before market open and its call at 10 a.m. Eastern on January 22.",
+        "previousEstimatedDate": "2027-01-22"
+      }
+    },
+    "quarterlyConferenceCalls": {
+      "MRVL": {
+        "date": "2026-12-01",
+        "callTimeEastern": "16:30",
+        "sourceUrl": "https://investor.marvell.com/news-events/press-releases/detail/1041/marvell-technology-inc-announces-conference-call-to-review-third-quarter-of-fiscal-year-2027-financial-results",
+        "basis": "The notice assigns 1:30 p.m. Pacific to the call after the release. The issuer calendar confirms the call date. An explicit independent release schedule is unverified.",
+        "currentEstimatedReleaseDate": null,
+        "issuerCalendar": "https://investor.marvell.com/news-events/ir-calendar/detail/20261201-q3-2027-marvell-technology-inc-earnings-conference-call"
+      },
+      "MTB": {
+        "date": "2027-01-19",
+        "callTimeEastern": "08:00",
+        "sourceUrl": "https://ir.mtb.com/node/39416",
+        "basis": "M&T dates the fourth-quarter results call on January 19 and says a later announcement will confirm the release and call details.",
+        "currentEstimatedReleaseDate": "2027-01-19"
+      }
+    },
+    "historicalFilingDates": {
+      "AES|2026-09-30": {
+        "filingDate": "2026-11-03",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
+        "issuerArchiveUrl": "https://www.aes.com/investors",
+        "supplementaryReviewedUrls": [],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "A separate date for the company’s third-quarter results release remains unverified."
+      },
+      "AES|2026-06-30": {
+        "filingDate": "2026-08-04",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
+        "issuerArchiveUrl": "https://www.aes.com/investors",
+        "supplementaryReviewedUrls": [],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "A separate date for the company’s second-quarter results release remains unverified."
+      },
+      "AES|2026-03-31": {
+        "filingDate": "2026-05-05",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
+        "issuerArchiveUrl": "https://www.aes.com/investors",
+        "supplementaryReviewedUrls": [],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "A separate date for the company’s first-quarter results release remains unverified."
+      },
+      "AES|2025-12-31": {
+        "filingDate": "2026-03-02",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+        "issuerArchiveUrl": "https://www.aes.com/investors",
+        "supplementaryReviewedUrls": [
+          "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-acquire-aes"
+        ],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "AES canceled the March 3 results call and announced that it expected to file its annual report on March 2."
+      },
+      "ECHO|2026-09-30": {
+        "filingDate": "2026-11-03",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+        "issuerArchiveUrl": "https://ir.echostar.com/financial-information/quarterly-results",
+        "supplementaryReviewedUrls": [
+          "https://ir.echostar.com/static-files/56190f3f-0cb3-4550-8652-4056b4b944dd"
+        ],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "The November 3 date comes from the quarterly SEC filing. A separate third-quarter results release remains unverified."
+      },
+      "TECH|2026-09-30": {
+        "filingDate": "2026-11-06",
+        "secSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
+        "issuerArchiveUrl": "https://investors.bio-techne.com/financial-results",
+        "supplementaryReviewedUrls": [
+          "https://investors.bio-techne.com/all-sec-filings/content/0001104659-26-126284/tech-20260930x10qa.htm",
+          "https://investors.bio-techne.com/all-sec-filings/content/0001104659-26-122283/tech-ex99d1.htm"
+        ],
+        "separateEarningsReleaseDate": null,
+        "evidenceNote": "Bio-Techne filed its fiscal 2027 first-quarter report on November 6. The November 12 amendment adds signatures and leaves the financial disclosures intact."
+      }
+    },
+    "pendingPeriodicFilingRecheck": {
+      "checkedAtUtc": "2026-11-22T15:59:30.563959+00:00",
+      "results": {
+        "AMAT": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+          "periodEnd": "2026-10-25",
+          "sha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+          "filings": []
+        },
+        "BDX": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+          "periodEnd": "2026-09-30",
+          "sha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+          "filings": []
+        },
+        "COR": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+          "periodEnd": "2026-09-30",
+          "sha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+          "filings": []
+        },
+        "KEYS": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "periodEnd": "2026-10-31",
+          "sha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+          "filings": []
+        },
+        "LOW": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "periodEnd": "2026-10-30",
+          "filings": [],
+          "sha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e"
+        },
+        "NVDA": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "periodEnd": "2026-10-25",
+          "sha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+          "filings": []
+        },
+        "P": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+          "periodEnd": "2026-11-01",
+          "sha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+          "filings": []
+        },
+        "RJF": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+          "periodEnd": "2026-09-30",
+          "filings": [],
+          "sha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827"
+        },
+        "ROST": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "periodEnd": "2026-10-31",
+          "filings": [],
+          "sha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef"
+        },
+        "TGT": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "periodEnd": "2026-10-31",
+          "sha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+          "filings": []
+        },
+        "TJX": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "periodEnd": "2026-10-31",
+          "sha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+          "filings": []
+        },
+        "WMT": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "periodEnd": "2026-10-31",
+          "sha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+          "filings": []
+        },
+        "WSM": {
+          "sourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "periodEnd": "2026-11-01",
+          "sha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+          "filings": []
+        }
+      }
+    }
+  }
+}

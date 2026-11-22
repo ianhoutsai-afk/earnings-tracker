@@ -98,6 +98,9 @@ class NvdaOfficialSourceTests(unittest.TestCase):
         records = reviewed_records()
         source_url = 'https://nvidianews.nvidia.com/news/quarterly-statements'
         records[-1]['metricSourceUrl'] = source_url
+        filing = {'secUrl':'https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm',
+                  'filingDate':'2026-08-26','accessionNumber':'0001045810-26-000075','form':'10-Q'}
+        records[-1].update(filing)
         companies = [{'ticker': 'NVDA'}]
         history, _ = apply_official_records(companies, {'NVDA': []}, records, date(2026, 10, 22))
         tree = html.fromstring((FIXTURES / 'fy2027-q2.html').read_text())
@@ -119,7 +122,10 @@ class NvdaOfficialSourceTests(unittest.TestCase):
             manifest = json.loads((root / 'official_history.json').read_text())
             self.assertEqual(latest['eps_reported'], '$2.46')
             self.assertEqual(latest['metricSourceUrl'], source_url)
-            self.assertEqual(next(row for row in manifest if row['periodEnd'] == '2026-07-26')['metricSourceUrl'], source_url)
+            stored = next(row for row in manifest if row['periodEnd'] == '2026-07-26')
+            self.assertEqual(stored['metricSourceUrl'], source_url)
+            self.assertEqual({key:stored.get(key) for key in filing}, filing)
+            self.assertEqual({key:latest.get(key) for key in filing}, filing)
 
     def test_successful_official_sync_changes_only_nvda_and_is_idempotent(self):
         from nvda_history import sync_nvda, FEED_URL, release_url

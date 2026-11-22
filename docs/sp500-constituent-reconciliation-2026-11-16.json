@@ -1,0 +1,569 @@
+{
+  "checkedDateNewYork": "2026-11-15",
+  "baselineCommit": "7947f303658c11fd5115eaa08ab48277a2512784",
+  "scope": "Compare the website’s tracked ticker list with holdings from two S&P 500 index ETFs and verify differences against index notices and issuer filings.",
+  "method": "Compare positively held listed equity tickers, normalize share-class ticker separators, and remove cash and Hologic residual holdings. ETF holdings corroborate the listed equities while index notices and regulatory filings establish each change.",
+  "sources": [
+    {
+      "sourceUrl": "https://www.blackrock.com/us/individual/products/239726/ishares-core-s-p-500-etf/latest-holdings.csv",
+      "sourceSha256": "d4a60e4f4a5221ab505373ad79b9f624162fb4e07207f311ab57ed52be485afc",
+      "holdingsAsOf": "2026-11-13",
+      "excludedNonListedRows": [
+        "HOLX without a market listing"
+      ],
+      "listedEquities": 503
+    },
+    {
+      "sourceUrl": "https://www.ssga.com/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+      "sourceSha256": "ed54e8453c6fd9f6efdda93394e2e569adfb5303b03884a45006a5b7f4175c10",
+      "holdingsAsOf": "2026-11-12",
+      "excludedNonListedRows": [
+        "USD cash",
+        "Hologic contingent value right, CUSIP 436CVR021"
+      ],
+      "listedEquities": 503
+    }
+  ],
+  "counts": {
+    "trackedTickers": 503,
+    "holdingsConsensus": 503,
+    "matchedTickers": 488,
+    "newTickersMissingFromTracker": 15,
+    "legacyTickersStillTracked": 15
+  },
+  "missingTickers": [
+    {
+      "ticker": "BE",
+      "name": "Bloom Energy Corp",
+      "cik": "0001664703",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001664703.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "ECHO",
+      "name": "EchoStar CORP",
+      "cik": "0001415404",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001415404.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "FDXF",
+      "name": "FedEx Freight Holding Company, Inc.",
+      "cik": "0002082247",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "FERG",
+      "name": "Ferguson Enterprises Inc. /DE/",
+      "cik": "0002011641",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002011641.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "FLEX",
+      "name": "FLEX LTD.",
+      "cik": "0000866374",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000866374.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "HONA",
+      "name": "Honeywell Aerospace Inc.",
+      "cik": "0002089271",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "ILMN",
+      "name": "ILLUMINA, INC.",
+      "cik": "0001110803",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001110803.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "cik": "0001835632",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001835632.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "OKTA",
+      "name": "Okta, Inc.",
+      "cik": "0001660134",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001660134.json",
+      "presentInCache": false
+    },
+    {
+      "ticker": "P",
+      "name": "Everpure, Inc.",
+      "cik": "0001474432",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "RDDT",
+      "name": "Reddit, Inc.",
+      "cik": "0001713445",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001713445.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "SKYD",
+      "name": "Skydance Corp",
+      "cik": "0002041610",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002041610.json",
+      "presentInCache": false
+    },
+    {
+      "ticker": "TWLO",
+      "name": "TWILIO INC",
+      "cik": "0001447669",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0001447669.json",
+      "presentInCache": false
+    },
+    {
+      "ticker": "VMRK",
+      "name": "VIVMARK RESIDENTIAL",
+      "cik": "0000906107",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0000906107.json",
+      "presentInCache": true
+    },
+    {
+      "ticker": "VYLR",
+      "name": "Vylor Inc.",
+      "cik": "0002128626",
+      "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+      "presentInCache": false
+    }
+  ],
+  "legacyTickers": [
+    {
+      "ticker": "AVB",
+      "name": "AvalonBay Communities, Inc."
+    },
+    {
+      "ticker": "BLDR",
+      "name": "Builders FirstSource, Inc."
+    },
+    {
+      "ticker": "CAG",
+      "name": "ConAgra Brands, Inc."
+    },
+    {
+      "ticker": "CPB",
+      "name": "The Campbell's Company"
+    },
+    {
+      "ticker": "CTVA",
+      "name": "Corteva, Inc."
+    },
+    {
+      "ticker": "EA",
+      "name": "Electronic Arts Inc."
+    },
+    {
+      "ticker": "EPAM",
+      "name": "EPAM Systems, Inc."
+    },
+    {
+      "ticker": "EQR",
+      "name": "Equity Residential"
+    },
+    {
+      "ticker": "KVUE",
+      "name": "Kenvue Inc."
+    },
+    {
+      "ticker": "POOL",
+      "name": "Pool Corporation"
+    },
+    {
+      "ticker": "PSKY",
+      "name": "Paramount Skydance Corporation"
+    },
+    {
+      "ticker": "SATS",
+      "name": "EchoStar Corporation"
+    },
+    {
+      "ticker": "TAP",
+      "name": "Molson Coors Beverage Company"
+    },
+    {
+      "ticker": "TTD",
+      "name": "The Trade Desk, Inc."
+    },
+    {
+      "ticker": "WBD",
+      "name": "Warner Bros. Discovery, Inc. - "
+    }
+  ],
+  "indexChanges": [
+    {
+      "added": {
+        "FDXF": "2026-06-01"
+      },
+      "removed": {
+        "EPAM": "2026-06-02"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-05-27-FedEx-Freight-Holding-Company-Set-to-Join-S-P-500-EPAM-Systems-and-Dave-to-Join-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "MRVL": "2026-06-22",
+        "FLEX": "2026-06-22"
+      },
+      "removed": {
+        "POOL": "2026-06-22",
+        "CPB": "2026-06-22"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-06-05-Marvell-Technology-and-Flex-Set-to-Join-S-P-500-Others-to-Join-S-P-MidCap-400-and-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "HONA": "2026-06-29"
+      },
+      "removed": {
+        "CAG": "2026-06-30"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-06-23-Honeywell-Aerospace-Set-to-Join-S-P-500-S-P-100-Others-to-Join-S-P-MidCap-400-and-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "FERG": "2026-08-05"
+      },
+      "removed": {
+        "EA": "2026-08-05"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-07-31-Ferguson-Enterprises-Set-to-Join-S-P-500-and-ADI-Global-Distribution-to-Join-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "RDDT": "2026-08-18"
+      },
+      "removed": {
+        "AVB": "2026-08-18"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-08-13-Reddit-Set-to-Join-S-P-500-and-Sun-Communities-to-Join-S-P-MidCap-400"
+    },
+    {
+      "added": {
+        "BE": "2026-09-21",
+        "ILMN": "2026-09-21",
+        "P": "2026-09-21"
+      },
+      "removed": {
+        "TAP": "2026-09-21",
+        "TTD": "2026-09-21",
+        "BLDR": "2026-09-21"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-09-04-Bloom-Energy%2C-Illumina%2C-and-Everpure-Set-to-Join-S-P-500-Others-to-Join-S-P-100%2C-S-P-MidCap-400%2C-and-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "VYLR": "2026-10-01",
+        "TWLO": "2026-10-06"
+      },
+      "removed": {
+        "CTVA": "2026-10-06",
+        "WBD": "2026-10-06"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-10-01-Vylor-Added-to-the-S-P-500-Twilio-Set-to-Join-S-P-500-Others-to-Join-S-P-MidCap-400-and-S-P-SmallCap-600"
+    },
+    {
+      "added": {
+        "OKTA": "2026-11-04"
+      },
+      "removed": {
+        "KVUE": "2026-11-04"
+      },
+      "sourceUrl": "https://press.spglobal.com/2026-10-30-Okta-Set-to-Join-S-P-500-Others-to-Join-S-P-MidCap-400-and-S-P-SmallCap-600"
+    }
+  ],
+  "issuerCorporateActions": [
+    {
+      "formerTicker": "SATS",
+      "currentTicker": "ECHO",
+      "effectiveDate": "2026-06-24",
+      "kind": "same issuer ticker change",
+      "sourceUrls": [
+        "https://ir.echostar.com/news-releases/news-release-details/echostar-changing-stocker-ticker-sats-echo-marking-companys-next",
+        "https://data.sec.gov/submissions/CIK0001415404.json"
+      ]
+    },
+    {
+      "formerTicker": "PSKY",
+      "currentTicker": "SKYD",
+      "effectiveDate": "2026-10-06",
+      "kind": "same issuer ticker and name change after acquisition of WBD",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2041610/000110465926113913/tm2626659d7_8k.htm"
+      ]
+    },
+    {
+      "formerTicker": "EQR",
+      "currentTicker": "VMRK",
+      "effectiveDate": "2026-08-18",
+      "kind": "a ticker and name change with a reverse acquisition. Vivmark retains EQR’s CIK and equity structure, while AvalonBay is the accounting acquirer. Historical records require accounting-basis review before reuse.",
+      "mergerClosingDate": "2026-08-17",
+      "sourceUrls": [
+        "https://investors.vivmarkresidential.com/sec-filings/all-sec-filings/content/0001140361-26-033377/ef20080318_ex99-1.htm",
+        "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+      ]
+    }
+  ],
+  "preliminarySecReview": {
+    "reviewedIssuerCount": 15,
+    "automaticallyParsedQuarterCandidates": 60,
+    "requestFailures": 0,
+    "basis": "Initial release discovery. Candidate rows require comparison against the full quarterly period sequence and the exact reported amounts before use.",
+    "knownGaps": [
+      "FLEX initial discovery omitted fiscal 2026 Q4 despite finding five candidate periods.",
+      "VMRK needs a reverse-acquisition accounting-basis review. The current quarter and each historical period must be verified against the new basis.",
+      "ECHO and SKYD have reviewed histories under their previous ticker codes. Their existing evidence must be preserved."
+    ],
+    "scaleConflict": {
+      "ticker": "BE",
+      "periodEnd": "2025-09-30",
+      "filingUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828025046844/be-20250930.htm",
+      "filingSha256": "8a87261c81d7d5b2cc265bd7e00092de1575ba9a7ef7a50eeb5b5d9263634239",
+      "filingLocator": "Condensed consolidated statements of operations, table 6, row 35, column 7",
+      "filedTag": "us-gaap:EarningsPerShareDiluted, sign=-, scale=3, text=0.10",
+      "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828025046745/ex991_q32025financialresul.htm",
+      "releaseSha256": "edfc36ad5a3abe3b8ec067d2ad4e8b98b1f409e29af5bcd10efedb0d93b47129",
+      "releaseLocator": "GAAP EPS, Diluted, table 0, row 12, column 4",
+      "corroboratingSourceUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828026066890/ex992_q32026supplemental.htm",
+      "rejectedMachineValue": -100.0,
+      "verifiedReportedGaapDilutedEps": -0.1,
+      "readerDisposition": "Defer nonzero-scale USD-per-share tags for independent quarterly EPS evidence.",
+      "existingPublishedDraftSourceSample": {
+        "availableCachedSecEpsRecordsChecked": 314,
+        "nonzeroScaleTagsFound": 0
+      }
+    }
+  },
+  "draftApplication": {
+    "baselineCommit": "c4605aafe38d9ecce93c096f6608b579933ac4ce",
+    "activeReplacements": {
+      "TAP": "BE",
+      "EA": "FERG",
+      "CPB": "FLEX",
+      "BLDR": "ILMN",
+      "POOL": "MRVL",
+      "KVUE": "OKTA",
+      "TTD": "P",
+      "AVB": "RDDT",
+      "WBD": "TWLO"
+    },
+    "sameIssuerTickerChanges": {
+      "SATS": "ECHO",
+      "PSKY": "SKYD"
+    },
+    "newQuarterRecords": 45,
+    "archivedFormerConstituents": [
+      "AVB",
+      "BLDR",
+      "CPB",
+      "EA",
+      "KVUE",
+      "POOL",
+      "TAP",
+      "TTD",
+      "WBD"
+    ],
+    "archivePath": "docs/sp500-former-constituent-history-2026-11-16.json",
+    "newQuarterEvidencePath": "docs/sp500-new-constituent-quarterly-evidence-2026-11-16.json",
+    "remainingReplacements": {
+      "EPAM": "FDXF",
+      "CAG": "HONA",
+      "EQR": "VMRK",
+      "CTVA": "VYLR"
+    },
+    "remainingCurrentTrackerFinancialGaps": {
+      "AES": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {
+          "2026-09-30": "2026-11-03",
+          "2026-06-30": "2026-08-04",
+          "2026-03-31": "2026-05-05",
+          "2025-12-31": "2026-03-02"
+        }
+      },
+      "ATO": {
+        "missingMetrics": {
+          "2026-09-30": [
+            "revenue"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "BRK-B": {
+        "missingMetrics": {
+          "2026-09-30": [
+            "epsGaapDiluted"
+          ],
+          "2026-06-30": [
+            "epsGaapDiluted"
+          ],
+          "2026-03-31": [
+            "epsGaapDiluted"
+          ],
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ],
+          "2025-09-30": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "TRGP": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "TXT": {
+        "missingMetrics": {
+          "2026-01-03": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "VST": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      },
+      "ECHO": {
+        "missingMetrics": {
+          "2025-12-31": [
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {
+          "2026-09-30": "2026-11-03"
+        }
+      },
+      "SKYD": {
+        "missingMetrics": {
+          "2025-09-30": [
+            "revenue",
+            "epsGaapDiluted"
+          ]
+        },
+        "secFilingDatesWithUnverifiedReleaseDates": {}
+      }
+    },
+    "after": {
+      "trackedTickerCount": 503,
+      "matchedToHoldings": 499,
+      "storedQuarterCount": 2515,
+      "completeMetricQuarterCount": 2503,
+      "missingRevenueCount": 2,
+      "missingDilutedEpsCount": 11,
+      "onlyFilingDateCount": 5
+    }
+  },
+  "remainingReplacementsApplied": {
+    "baselineCommit": "2d46e4a44fbc27e740c6d6cc5a048237553be7b0",
+    "replacements": {
+      "EPAM": "FDXF",
+      "CAG": "HONA",
+      "EQR": "VMRK",
+      "CTVA": "VYLR"
+    },
+    "after": {
+      "trackedTickerCount": 503,
+      "matchedToHoldings": 503,
+      "verifiedQuarterCount": 2515,
+      "completeMetricQuarterCount": 2500,
+      "quartersWithoutStandaloneRecords": 0,
+      "missingRevenueCount": 2,
+      "missingDilutedEpsCount": 14,
+      "onlyFilingDateCount": 5,
+      "historicalRecastDates": 8
+    },
+    "archivedFormerConstituents": [
+      "AVB",
+      "BLDR",
+      "CAG",
+      "CPB",
+      "CTVA",
+      "EA",
+      "EPAM",
+      "EQR",
+      "KVUE",
+      "POOL",
+      "TAP",
+      "TTD",
+      "WBD"
+    ],
+    "completeMetricQuartersAdded": 15,
+    "quarterlyRecordsAdded": 20,
+    "financialCoverageByIncomingTicker": {
+      "FDXF": {
+        "quarterCount": 5,
+        "withBothMetrics": 5,
+        "periodEnds": [
+          "2026-09-30",
+          "2026-06-30",
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30"
+        ]
+      },
+      "HONA": {
+        "quarterCount": 5,
+        "withBothMetrics": 5,
+        "periodEnds": [
+          "2026-09-26",
+          "2026-06-27",
+          "2026-03-28",
+          "2025-12-31",
+          "2025-09-27"
+        ]
+      },
+      "VMRK": {
+        "quarterCount": 5,
+        "withBothMetrics": 5,
+        "periodEnds": [
+          "2026-09-30",
+          "2026-06-30",
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30"
+        ]
+      },
+      "VYLR": {
+        "quarterCount": 5,
+        "withBothMetrics": 0,
+        "periodEnds": [
+          "2026-09-30",
+          "2026-06-30",
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30"
+        ]
+      }
+    },
+    "reportingBasisNotes": {
+      "FDXF": "All five quarters follow FedEx Freight’s standalone calendar basis. The August 6 8-K directly discloses September and December 2025 quarterly GAAP results. The October 29 8-K and 10-Q cover the retained 2026 quarters and corroborate the September 2025 comparative.",
+      "HONA": "Quarterly scope from company filings and carve-out exhibits, with pre-spin EPS calculated using the fixed distribution share count where needed.",
+      "VMRK": "Reverse acquisition with AvalonBay as accounting predecessor. For the three intervening quarters, AvalonBay original revenue and release dates are used, and diluted EPS is calculated with the merger conversion ratio. The issuer separately disclosed the September 2025 recast and the first quarter that incorporates Equity Residential after closing.",
+      "VYLR": "All five seed-business sales figures reconcile to official Corteva/Vylor disclosures. The four predecessor dates are the original releases from former parent Corteva. Stand-alone GAAP diluted EPS remains unverified."
+    }
+  }
+}

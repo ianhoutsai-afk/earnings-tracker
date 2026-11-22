@@ -26,6 +26,60 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual((r['date'],r['periodEnd'],r['fiscalYear'],r['fiscalQuarter']),('2026-10-14','2026-09-30',2026,3))
   self.assertNotIn('epsGaapDiluted',r)
 
+ def test_fiscal_year_and_fourth_quarter_headlines_take_precedence_over_comparatives(self):
+  for title in ('Reports Fiscal 2026 Full-Year and Fourth Quarter Results',
+                'Reports Fourth Quarter and Fiscal 2026 Results',
+                'Reports Fourth Fiscal Quarter and Full Fiscal Year 2026 Results'):
+   with self.subTest(title=title):
+    doc = (f'<h1>Example {title}</h1><p>October 14, 2026. Example reported results '
+           'for the fourth quarter ended September 30, 2026.</p>'
+           '<p>Fourth quarter 2025 results included a lower prior-year total.</p>')
+    row = parse_earnings_release(doc,'2026-10-14','2026-10-15',TODAY)
+    self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2026-09-30',2026,4))
+
+ def test_item_202_pairs_completed_quarter_with_exhibit_highlights(self):
+  from official_sources import parse_earnings_filing
+  for quarter, cumulative, event, end, number in (
+      ('Second', 'six', 'February 3, 2026', 'December 31, 2025', 2),
+      ('Third', 'nine', 'May 6, 2026', 'March 31, 2026', 3)):
+   with self.subTest(quarter=quarter):
+    primary = (
+        '<h2>Item 2.02 Results of Operations</h2>'
+        f'<p>On {event}, the Company issued a press release regarding financial results '
+        f'for the {quarter.lower()} quarter and first {cumulative} months of fiscal year 2026.</p>'
+        '<h2>Item 9.01 Financial Statements and Exhibits</h2>'
+        '<p>See the prior Quarterly Report for the quarter ended June 30, 2025.</p>')
+    exhibit = (
+        f'<h1>Example Reports Solid {quarter} Quarter Results and Updates Fiscal 2026 Guidance</h1>'
+        f'<p>Highlights - Three Months Ended {end}</p>')
+    filed = '2026-02-03' if number == 2 else '2026-05-06'
+    result = parse_earnings_filing(primary, filed, filed, TODAY, exhibit=exhibit)
+    expected_date = date(2026, 2, 3) if number == 2 else date(2026, 5, 6)
+    expected_end = date(2025, 12, 31) if number == 2 else date(2026, 3, 31)
+    self.assertEqual(result, {'date':expected_date.isoformat(), 'periodEnd':expected_end.isoformat(),
+                              'fiscalYear':2026, 'fiscalQuarter':number})
+    wrong_exhibit = exhibit.replace(f'{quarter} Quarter', 'First Quarter')
+    with self.assertRaises(ValueError):
+     parse_earnings_filing(primary, filed, filed, TODAY, exhibit=wrong_exhibit)
+
+ def test_item_202_can_identify_three_and_twelve_months_after_earliest_event(self):
+  from official_sources import parse_earnings_filing
+  primary = ('<h2>Item 2.02 Results of Operations</h2><p>On October 14, 2026, the Company '
+             'issued a press release announcing its results for the three and twelve months ended September 30, 2026.</p>')
+  row = parse_earnings_filing(primary,'2026-10-10','2026-10-15',TODAY,
+                              exhibit='<h1>Example Reports Fourth Quarter and Fiscal 2026 Results</h1>')
+  self.assertEqual((row['date'],row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),
+                   ('2026-10-14','2026-09-30',2026,4))
+
+ def test_dated_results_with_quarter_before_results_can_join_matching_filing(self):
+  text = ('<h1>Example reports third-quarter results</h1>'
+          '<p>MELBOURNE, Fla., October 14, 2026 — Example reported its third quarter 2026 results.</p>')
+  result = parse_earnings_release(text, '2026-10-14', '2026-10-15', TODAY)
+  self.assertEqual((result['periodEnd'],result['fiscalYear'],result['fiscalQuarter']), (None,2026,3))
+  for other in (text.replace('reported','will report'), text.replace('2026 results','2026 results date')):
+   with self.assertRaises(ValueError):
+    parse_earnings_release(other, '2026-10-14', '2026-10-15', TODAY)
+
  def test_unconfirmed_event_date_does_not_become_release_date(self):
   with self.assertRaises(ValueError):parse_earnings_release(RELEASE,'2026-10-13','2026-10-15',TODAY)
 
@@ -39,6 +93,83 @@ class OfficialParserTests(unittest.TestCase):
   self.assertEqual(r['revenue'],1200000000)
   self.assertEqual(r['periodStart'],'2026-07-01')
   self.assertEqual((r['fiscalYear'],r['fiscalQuarter']),(2026,3))
+
+ def test_inline_diluted_eps_allows_omitted_leading_zero(self):
+  for attributes, number, expected in [('', '0.24', 0.24), ('', '.24', 0.24),
+                                        (' sign="-"', '.24', -0.24), ('', '.', None)]:
+   with self.subTest(attributes=attributes, number=number):
+    document = filing().replace('>1.25</ix:nonFraction>', f'{attributes}>{number}</ix:nonFraction>')
+    self.assertEqual(parse_inline_quarter(document, '2026-09-30')['epsGaapDiluted'], expected)
+
+ def test_vylor_quarter_keeps_carve_out_sales_and_excludes_corteva_eps(self):
+  document = filing('<ix:nonNumeric name="dei:EntityCentralIndexKey">0002128626</ix:nonNumeric>')
+  document = document.replace('>1</xbrli:identifier>', '>0002128626</xbrli:identifier>')
+  document = document.replace('>1.25</ix:nonFraction>', ' sign="-">0.85</ix:nonFraction>')
+  for cik in ('2128626', None):
+   with self.subTest(cik=cik):
+    parsed = parse_inline_quarter(document, '2026-09-30', cik=cik)
+    self.assertEqual((parsed['revenue'], parsed['periodStart']), (1200000000, '2026-07-01'))
+    self.assertIsNone(parsed['epsGaapDiluted'])
+  post_separation = document.replace('2026-09-30', '2026-12-31').replace('2026-07-01', '2026-10-01').replace('>Q3<', '>FY<')
+  self.assertEqual(parse_inline_quarter(post_separation, '2026-12-31', '2128626')['epsGaapDiluted'], -0.85)
+
+ def test_standard_revenue_tag_on_explicit_segment_row_is_not_consolidated_total(self):
+  fact='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  segment='<table><tr><td>Hybrid Cloud segment net revenues</td><td>'+fact+'</td></tr></table>'
+  self.assertIsNone(parse_inline_quarter(filing().replace(fact,segment),'2026-09-30')['revenue'])
+
+ def test_keycorp_uses_gaap_components_in_place_of_taxable_equivalent_revenue(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  def row(label, tag, number, context='q'):
+   return (f'<tr><td>{label}</td><td><ix:nonFraction name="us-gaap:{tag}" '
+           f'contextRef="{context}" unitRef="usd" scale="6">{number}</ix:nonFraction></td></tr>')
+  taxable_equivalent = f'<table><tr><td>Total revenue (TE) (a)</td><td>{total}</td></tr></table>'
+  net_interest = row('NET INTEREST INCOME', 'InterestIncomeExpenseNet', '730')
+  noninterest = row('Total noninterest income', 'NoninterestIncome', '462')
+  annual = row('Total noninterest income', 'NoninterestIncome', '1,386', 'ytd')
+  doc = filing().replace('>1</xbrli:identifier>', '>91576</xbrli:identifier>')
+  for components, expected in ((net_interest + noninterest + annual, 1_192_000_000),
+                               (net_interest + annual, None)):
+   with self.subTest(expected=expected):
+    statement = f'<table>{components}</table>'
+    parsed = parse_inline_quarter(doc.replace(total, statement + taxable_equivalent), '2026-09-30', cik='91576')
+    self.assertEqual(parsed['revenue'], expected)
+    self.assertEqual(parsed['epsGaapDiluted'], 1.25)
+
+ def test_nonzero_eps_scale_requires_independent_reconciliation(self):
+  exact_eps = 'name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare"'
+  doc = filing().replace(exact_eps + '>1.25', exact_eps + ' scale="3" sign="-">0.10')
+  parsed = parse_inline_quarter(doc,'2026-09-30')
+  self.assertIsNone(parsed['epsGaapDiluted'])
+  self.assertEqual(parsed['revenue'],1200000000)
+
+ def test_us_bancorp_does_not_use_taxable_equivalent_net_revenue(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  headline = f'<table><tr><td>Total net revenue</td><td>{total}</td></tr></table>'
+  components = (
+      '<table><tr><td>Net interest income</td><td><ix:nonFraction name="us-gaap:InterestIncomeExpenseNet" '
+      'contextRef="q" unitRef="usd" scale="6">730</ix:nonFraction></td></tr>'
+      '<tr><td>Total noninterest income</td><td><ix:nonFraction name="us-gaap:NoninterestIncome" '
+      'contextRef="q" unitRef="usd" scale="6">442</ix:nonFraction></td></tr></table>'
+  )
+  document = filing().replace('>1</xbrli:identifier>', '>36104</xbrli:identifier>')
+  for statement, revenue in [(components, 1_172_000_000), ('', None)]:
+   with self.subTest(revenue=revenue):
+    result = parse_inline_quarter(document.replace(total, headline + statement), '2026-09-30', cik='36104')
+    self.assertEqual(result['revenue'], revenue)
+    self.assertEqual(result['epsGaapDiluted'], 1.25)
+
+ def test_truist_rebuilds_net_revenue_from_quarter_statement_components(self):
+  total = '<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  components = (
+      '<table><tr><td>Net Interest Income</td><td><ix:nonFraction name="us-gaap:InterestIncomeExpenseNet" '
+      'contextRef="q" unitRef="usd" scale="6">3,629</ix:nonFraction></td></tr>'
+      '<tr><td>Total noninterest income</td><td><ix:nonFraction name="us-gaap:NoninterestIncome" '
+      'contextRef="q" unitRef="usd" scale="6">1,558</ix:nonFraction></td></tr></table>'
+  )
+  document = filing().replace(total, components).replace('>1</xbrli:identifier>', '>92230</xbrli:identifier>')
+  result = parse_inline_quarter(document, '2026-09-30', cik='92230')
+  self.assertEqual(result['revenue'], 5_187_000_000)
 
  def test_ytd_or_annual_eps_cannot_be_used_as_q4(self):
   doc=filing(quarter='FY').replace('contextRef="q"','contextRef="ytd"')
@@ -58,8 +189,46 @@ class OfficialParserTests(unittest.TestCase):
   extra='<ix:nonFraction name="us-gaap:EarningsPerShareDiluted" contextRef="q" unitRef="perShare">2.00</ix:nonFraction>'
   self.assertIsNone(parse_inline_quarter(filing(extra),'2026-09-30')['epsGaapDiluted'])
 
+ def test_document_period_end_normalizes_equivalent_date_spellings(self):
+  doc=filing().replace('>2026-09-30</ix:nonNumeric>',
+      '>SEPTEMBER 30, 2026</ix:nonNumeric><ix:nonNumeric name="dei:DocumentPeriodEndDate">September 30, 2026</ix:nonNumeric>')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  with self.assertRaises(ValueError):
+   parse_inline_quarter(doc.replace('>September 30, 2026</','>September 29, 2026</'),'2026-09-30')
+
  def test_document_identity_must_match_period_end(self):
   with self.assertRaises(ValueError):parse_inline_quarter(filing(),'2026-06-30')
+
+ def test_document_period_end_honors_explicit_numeric_date_transform(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+      'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">9/30/2026')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  for changed in (doc.replace('9/30/2026','9/29/2026'),
+                  doc.replace('date-month-day-year','date-day-month-year'),
+                  doc.replace(' format="ixt:date-month-day-year"','')):
+   with self.assertRaises(ValueError):parse_inline_quarter(changed,'2026-09-30')
+
+ def test_numeric_document_period_end_may_use_short_year_and_spaced_separators(self):
+  original = 'name="dei:DocumentPeriodEndDate">2026-09-30'
+  transformed = 'name="dei:DocumentPeriodEndDate" format="ixt:date-month-day-year">'
+  for raw in ('9/30/26', '09/30 /2026'):
+   with self.subTest(raw=raw):
+    doc = filing().replace(original, transformed + raw)
+    self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+    with self.assertRaises(ValueError):
+     parse_inline_quarter(doc, '1926-09-30')
+  for raw in ('9/31/26', '9/30/026'):
+   with self.assertRaises(ValueError):
+    parse_inline_quarter(filing().replace(original, transformed + raw), '2026-09-30')
+
+ def test_document_period_end_follows_explicit_continuation(self):
+  doc=filing().replace('name="dei:DocumentPeriodEndDate">2026-09-30',
+      'name="dei:DocumentPeriodEndDate" continuedAt="date-year">September 30,')
+  doc=doc.replace('</body>', '<ix:continuation id="date-year">2026</ix:continuation></body>')
+  self.assertEqual(parse_inline_quarter(doc,'2026-09-30')['periodEnd'],'2026-09-30')
+  for changed in (doc.replace('id="date-year"','id="other"'),
+                  doc.replace('id="date-year"','id="date-year" continuedAt="date-year"')):
+   with self.assertRaises(ValueError):parse_inline_quarter(changed,'2026-09-30')
 
  def test_proxy_scheme_is_normalized_without_leaking_bad_input(self):
   self.assertEqual(normalize_proxy_base(' sec-proxy.example.workers.dev/ '),'https://sec-proxy.example.workers.dev')
@@ -132,6 +301,39 @@ class RevenueScopeTests(unittest.TestCase):
    self.assertIsNone(parse_inline_quarter(doc,'2026-09-30')['revenue'])
 
 class ConsolidatedContractRevenueTests(unittest.TestCase):
+ def test_hasbro_segment_revenues_do_not_override_consolidated_net_revenues(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  consolidated=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  statement=('<table><caption>Consolidated Statements of Operations</caption>'
+             '<tr><td>Net revenues</td><td>'+consolidated+'</td></tr></table>')
+  segment=('<div>Note 10. Segment Reporting</div><table><tr><td>Revenues</td><td>'
+           +original.replace('1,200','1,400')+'</td></tr></table>')
+  doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>46080</xbrli:identifier>')
+  self.assertEqual(parse_inline_quarter(doc.replace(original,statement+segment),'2026-09-30','46080')['revenue'],1200000000)
+
+ def test_coherent_earnings_loss_heading_and_trailing_notes_reference(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  exact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  exact=exact.replace('scale="6">1,200','scale="3">1,200,041')
+  statement=('<div>Condensed Consolidated Statements of Earnings (Loss) (Unaudited)</div>'
+             '<div><table><tr><td>Revenues</td><td>'+exact+'</td></tr></table>'
+             '<span>See Notes to Condensed Consolidated Financial Statements.</span></div>')
+  self.assertEqual(parse_inline_quarter(filing().replace(original,statement),'2026-09-30')['revenue'],1200041000)
+
+ def test_republic_services_uses_unaudited_consolidated_revenue_instead_of_segment_gross(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  consolidated=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  gross=original.replace('1,200','1,400')
+  statement=('<div>UNAUDITED CONSOLIDATED STATEMENTS OF INCOME</div>'
+             '<div>(in millions, except per share data)</div>'
+             '<div><span> </span><table><tr><td>Revenue</td><td>$</td><td>'+consolidated+'</td></tr></table>'
+             '<span>The accompanying notes are an integral part of these statements.</span></div>')
+  note='<div>Note 12. Segment Reporting</div><table><tr><td>Gross revenue</td><td>'+gross+'</td></tr></table>'
+  for html, expected in ((statement+note,1200000000),(note,None)):
+   with self.subTest(has_statement=expected is not None):
+    doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1060391</xbrli:identifier>')
+    self.assertEqual(parse_inline_quarter(doc.replace(original,html),'2026-09-30','1060391')['revenue'],expected)
+
  def test_wrapped_consolidated_statement_total_is_not_lost(self):
   original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
   fact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
@@ -175,3 +377,25 @@ class EntityContextTests(unittest.TestCase):
  def test_another_registrants_context_cannot_supply_the_issuers_values(self):
   doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>2</xbrli:identifier>')
   self.assertIsNone(parse_inline_quarter(doc,'2026-09-30',cik='0000000001')['epsGaapDiluted'])
+
+class CompletedQuarterWordingTests(unittest.TestCase):
+ def test_completed_results_can_use_quarter_ending_in_publication_sentence(self):
+  doc = '''<html><h1>Example Releases Fourth Quarter Fiscal 2026 Results</h1>
+  <p>August 12, 2026 — Example today reported its financial results for the fourth quarter ending June 30, 2026.</p>
+  <p>Net earnings are presented for the year and compared with the quarter ended June 30, 2025.</p></html>'''
+  result = parse_earnings_release(doc,'2026-08-12','2026-08-12',date(2026,11,14))
+  self.assertEqual(result, {'date':'2026-08-12','periodEnd':'2026-06-30','fiscalYear':2026,'fiscalQuarter':4})
+
+ def test_second_quarter_and_first_half_are_anchored_to_the_completed_period(self):
+  doc = """<html><h1>Example reports first half fiscal 2026 results</h1>
+  <p>December 4, 2025 — Example Corporation reported financial results for its second quarter
+  and first half of fiscal 2026, ended October 31, 2025.</p>
+  <p>Earlier results for the quarter ended April 30, 2025 were previously reported.</p></html>"""
+  row=parse_earnings_release(doc,'2025-12-04','2025-12-04',TODAY)
+  self.assertEqual((row['periodEnd'],row['fiscalYear'],row['fiscalQuarter']),('2025-10-31',2026,2))
+
+ def test_release_schedule_using_quarter_ending_is_rejected(self):
+  doc = '''<html><h1>Example Schedules Fourth Quarter Fiscal 2026 Results</h1>
+  <p>August 12, 2026 — Example will report its financial results for the fourth quarter ending June 30, 2026.</p></html>'''
+  with self.assertRaises(ValueError):
+   parse_earnings_release(doc,'2026-08-12','2026-08-12',date(2026,11,14))

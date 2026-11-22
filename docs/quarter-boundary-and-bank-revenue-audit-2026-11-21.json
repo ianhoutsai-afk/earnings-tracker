@@ -1,0 +1,1272 @@
+{
+  "checkedAtUtc": "2026-11-21T03:56:48.649429+00:00",
+  "previousDraftCommit": "fd375e12a6e98131e208415ad63e1f37ede4846d",
+  "summary": {
+    "currentDraftQuarterRecords": 2515,
+    "verifiedQuarterStarts": 14,
+    "quarterStartsStillAbsent": 0,
+    "originalFilingsRestored": 6,
+    "financialFilingLinksStillAbsent": 25,
+    "netRevenueFieldsCorrected": 10,
+    "changedQuarterRecords": 28,
+    "revisedComparativeQuarterRecords": 1
+  },
+  "quarterStartReceipts": {
+    "BNY|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000004/ex991_earningsreleasex4q25.htm",
+        "sourceSha256": "66bc278274bbc216d559a587b89a07add9a1549a04ff7eececb3704679effa7c",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 36,
+            "rowIndex": 17,
+            "columnIndex": 4,
+            "label": "Total revenue 5,179",
+            "amountShown": "5,179",
+            "scale": 1000000
+          },
+          "currentQuarterRevenueUsd": 5179000000
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077725000159/bk-20250930.htm",
+        "sourceSha256": "e60a60322ee79fafd0b98fa0bcb53d9bd68814d9bd68e6ffc18d28d2f264d244",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "CLX|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "periodEnd": "2026-06-30",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000028/ex991-pressreleasedatedaug.htm",
+        "sourceSha256": "438ad09ece118c5a0299c514d7a6d56f4a29a9ab51781d628532bed7d046e4b5",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 13,
+            "rowIndex": 7,
+            "columnIndex": 10,
+            "label": "Net sales",
+            "amountShown": "1,948",
+            "scale": 1000000
+          },
+          "currentQuarterRevenueUsd": 1948000000
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000019/clx-20260331.htm",
+        "sourceSha256": "1fff753c565ab007d115711790993473b7a9bd71ad64820f96dd8fe51b54c1a0",
+        "periodEnd": "2026-03-31"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "LUV|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92380/000009238026000002/er-12312025xerdoc.htm",
+        "sourceSha256": "988934c56b74bbd74671f23c6f3b08704ed4c10c087770265ce87d7a9b935f19",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 2,
+            "rowIndex": 8,
+            "columnIndex": 4,
+            "label": "Total operating revenues 7,442",
+            "amountShown": "7,442",
+            "scale": 1000000
+          },
+          "currentQuarterRevenueUsd": 7442000000.0
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92380/000009238025000140/luv-20250930.htm",
+        "sourceSha256": "6d3adab4d52e3d5459d278a8acc53f30a38d58886034bccad54e957480f12370",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "SKYD|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/ex99_q425.htm",
+        "sourceSha256": "477e926953821ec3ca970ccf74b0be0786d30d4d52a09476c1f467a2ef5d94df",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 2,
+            "rowIndex": 4,
+            "columnIndex": 4,
+            "label": "Revenues",
+            "amountShown": "8,148",
+            "scale": 1000000
+          },
+          "currentQuarterRevenueUsd": 8148000000
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+        "sourceSha256": "e469ac7b228a48f34f62b757dfe98858afea298ed5d1b0cc612a63c6ff40598a",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "TECH|2026-06-30": {
+      "periodStart": "2026-04-01",
+      "periodEnd": "2026-06-30",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926094391/tech-20260812xex99d1.htm",
+        "sourceSha256": "8d7965622bb13b08047e9bec98caf5f4c13e73f29d905537688471e515bc2c60",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 10,
+            "rowIndex": 4,
+            "columnIndex": 3,
+            "label": "Net sales ​",
+            "amountShown": "321,191",
+            "scale": 1000
+          },
+          "currentQuarterRevenueUsd": 321191000
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926056302/tech-20260331x10q.htm",
+        "sourceSha256": "d3d3ccaa4425458829e991cad91ab009dd10af460a150a833228bde4ba8a936d",
+        "periodEnd": "2026-03-31"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "WFC|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000009/wfc4qer01-14x26ex991xrelea.htm",
+        "sourceSha256": "43cb0cb8a6ee1f57332f447e4dda8ed4c6ac7e3c69fc032c673e5bf501736245",
+        "reportedStatement": {
+          "revenueCell": {
+            "tableIndex": 6,
+            "rowIndex": 6,
+            "columnIndex": 6,
+            "label": "Total revenue",
+            "amountShown": "21,292",
+            "scale": 1000000
+          },
+          "currentQuarterRevenueUsd": 21292000000
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/72971/000007297125000253/wfc-20250930.htm",
+        "sourceSha256": "714f6f0095e378b86414b31f6c767b6b800ec05e27312c7705079710d2fa8725",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "SWKS|2025-10-03": {
+      "periodStart": "2025-06-28",
+      "periodEnd": "2025-10-03",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000110465925102814/tm2529602d1_ex99-1.htm",
+        "sourceSha256": "f920dfc62f509477f7ff91230bebb147371a4932c32630541718d1bbe3f9af89",
+        "reportedStatement": {
+          "epsCell": {
+            "tableIndex": 15,
+            "rowIndex": 2,
+            "columnIndex": 3,
+            "label": "GAAP net income per share, diluted",
+            "amountShown": "1.07",
+            "scale": 1
+          },
+          "fiscalCalendar": {
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412725000085/swks-20251003.htm",
+            "sourceSha256": "6162ed2ecad04ba6ab25dc2ee008b4137b7aad8dd8b50486f705eafb134a1f9d"
+          }
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412725000073/swks-20250627.htm",
+        "sourceSha256": "cb5d81b212825ea3730260a834e810792b304eefb565985531c918e36bebf91a",
+        "periodEnd": "2025-06-27"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "PGR|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000071/pgr202512ex991earningsrele.htm",
+        "sourceSha256": "8737ae370d348dfd8c898169e0a9c2ddc10e9ba4584abdc4c49686be5d8fd1c6",
+        "reportedStatement": {
+          "quarterEpsCell": {
+            "tableIndex": 2,
+            "rowIndex": 6,
+            "columnIndex": 22,
+            "label": "Per share available to common shareholders 1.95 1.60 22 %",
+            "amountShown": "5.02",
+            "scale": 1
+          },
+          "monthlyRevenueComponents": {
+            "2025-10-31": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000134/pgr20251031ex99earningsrel.htm",
+              "sourceSha256": "c3c046274486d6759d2d4cac63265dae78e75ef99e326a6b3a0fc0f4472fac11",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7595000000
+            },
+            "2025-11-30": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000142/pgr202511ex99earningsrelea.htm",
+              "sourceSha256": "172ff4160ecf9cfc9e99d6e67ffdd742f740be42f93ebc7ee2e6e2379c42894c",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7388000000
+            },
+            "2025-12-31": {
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000071/pgr202512ex991earningsrele.htm",
+              "sourceSha256": "7c1e4d639683b796be96a3f66fb5b306630e6e6644f6f62934e0dda320175cdd",
+              "label": "Total revenues",
+              "tableIndex": 4,
+              "rowIndex": 14,
+              "columnIndex": 3,
+              "revenueUsd": 7763000000
+            }
+          }
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/80661/000008066125000129/pgr-20250930.htm",
+        "sourceSha256": "548e0b4bca45afbd0ab78b202d95ad4b6da9c12809815ad91620d22b85cf5e4a",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "TSLA|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm",
+        "sourceSha256": "fd933ec8d52a86ee6bfb9a234e4560d2a66df102e0c3d43a4db5d61c20f3de7b",
+        "reportedStatement": {
+          "revenue": 24901000000.0,
+          "epsGaapDiluted": 0.24
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025045968/tsla-20250930.htm",
+        "sourceSha256": "cc264bfe1648e78c3de92fb9c81bbe3b42815942f491c0536e61f9bb84fe90e7",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "USB|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000005/a4q25earningsrelease.htm",
+        "sourceSha256": "d5394453cc39ba468b6f838857b0631d2ce9f4d68e949596cc17f4cc479a4867",
+        "reportedStatement": {
+          "netInterest": {
+            "tableIndex": 36,
+            "rowIndex": 15,
+            "columnIndex": 3,
+            "label": "Net interest income",
+            "amountShown": "4,284",
+            "scale": 1000000
+          },
+          "noninterestIncome": {
+            "tableIndex": 36,
+            "rowIndex": 29,
+            "columnIndex": 3,
+            "label": "Total noninterest income",
+            "amountShown": "3,053",
+            "scale": 1000000
+          }
+        }
+      },
+      "priorQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000064/usb-20250930.htm",
+        "sourceSha256": "9621914efe1afb8649b5e7275509aae8e0ed011969b345590758df348d862208",
+        "periodEnd": "2025-09-30"
+      },
+      "method": "The prior official quarter close and the original current-quarter statement establish the start of the following reporting period."
+    },
+    "DVN|2025-12-31": {
+      "periodStart": "2025-10-01",
+      "periodEnd": "2025-12-31",
+      "currentQuarter": {
+        "sourceUrl": "https://s2.q4cdn.com/462548525/files/doc_financials/quarterly/2026/q1/Q1-2026-DVN-Supplemental-Tables.pdf",
+        "sourceSha256": "c87caed694cfbc043dcc4bffb1edaf9758876db0f7d7d551b0ee0d3bae086388",
+        "page": 2,
+        "column": "2025 Quarter 4",
+        "revenueUsd": 4121000000,
+        "dilutedEps": 0.9
+      },
+      "previousQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312525268574/dvn-20250930.htm",
+        "sourceSha256": "271b3eca675e81429d6450f36b4c0476b0664d8ec532bcd0e2c96abe8a9c903c",
+        "periodEnd": "2025-09-30"
+      },
+      "currentYear": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526056485/dvn-20251231.htm",
+        "sourceSha256": "0c562a7cc503412175890dbd7f36802b0699c53b689f0450f4aa6be39a56cf44"
+      },
+      "method": "The issuer’s consolidated quarterly supplement and the filed fiscal period boundaries agree."
+    },
+    "SKYD|2025-09-30": {
+      "periodStart": "2025-07-01",
+      "periodEnd": "2025-09-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161025000044/psky-20250930.htm",
+      "sourceSha256": "e469ac7b228a48f34f62b757dfe98858afea298ed5d1b0cc612a63c6ff40598a",
+      "method": "The filing identifies July 1 to August 6 as predecessor and August 7 to September 30 as successor. The boundary covers both. No combined actual GAAP revenue or EPS was attributed."
+    },
+    "HONA|2026-03-28": {
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-03-28",
+      "currentQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000162828026043193/exhibit991-informationstat.htm",
+        "sourceSha256": "636e2207cd1d6c03f010195e8dad9faf813f94a935699b1083df7e4890b8829b",
+        "historicalRevenueCell": {
+          "tableIndex": 135,
+          "rowIndex": 5,
+          "columnIndex": 3,
+          "label": "Net sales",
+          "amountShown": "4,352",
+          "scale": 1000000
+        }
+      },
+      "sixMonthsFiling": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000021/hona-20260627.htm",
+        "sourceSha256": "3f635210689b516c7f8d99e92af3ba0e1e98db24c8a18a823fac491e5c8e2d3e",
+        "firstHalfContext": "c-1",
+        "secondQuarterContext": "c-11"
+      },
+      "method": "The six-month tagged context begins January 1 and the second-quarter tagged context begins the day after the March 28 close."
+    },
+    "HONA|2025-12-31": {
+      "periodStart": "2025-09-28",
+      "periodEnd": "2025-12-31",
+      "fullYearAndFourthQuarter": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000162828026045874/exhibit991-closing8xk.htm",
+        "sourceSha256": "adb3a0356f3c80dfff869db089955f3fef4d5b4f33dd2cc5a3246417eb51f10b",
+        "annualNetSalesCell": {
+          "tableIndex": 0,
+          "rowIndex": 5,
+          "columnIndex": 27,
+          "label": "Total Net sales 4,074 4,289 4,533 4,508",
+          "amountShown": "17,404",
+          "scale": 1000000
+        },
+        "fourthQuarterNetSalesCell": {
+          "tableIndex": 0,
+          "rowIndex": 5,
+          "columnIndex": 21,
+          "label": "Total Net sales 4,074 4,289 4,533",
+          "amountShown": "4,508",
+          "scale": 1000000
+        }
+      },
+      "nineMonthsComparative": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2089271/000208927126000032/hona-20260926.htm",
+        "sourceSha256": "a139ca36c6e93077bb9491710e5842ebab0d2346de30505eccfc06efeed1223f",
+        "contextId": "c-13",
+        "periodStart": "2025-01-01",
+        "periodEnd": "2025-09-27",
+        "facts": [
+          "f-41",
+          "f-443",
+          "f-1032"
+        ],
+        "revenueUsd": 12896000000
+      },
+      "method": "The carve-out fourth quarter reconciles to full-year net sales less net sales through September 27."
+    }
+  },
+  "originalFilingReceipts": {
+    "ALB|2025-12-31": {
+      "finding": "The amendment adds financial statements of equity-method investee Windfield under Rule 3-09.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591326000018/alb-20251231.htm",
+        "sourceSha256": "49d28bba1a98365dea57ac1363d4483bdd3e0a78decffbfdc900113e748bcef6",
+        "filingDate": "2026-02-11",
+        "accessionNumber": "0000915913-26-000018",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/915913/000091591326000060/alb-20251231.htm",
+        "sourceSha256": "fc020e4459061e174453bb55e55bf2c0f3bf5ae4516651a63db5274ae25cc1b9"
+      }
+    },
+    "DASH|2025-12-31": {
+      "finding": "The amendment corrects a clerical error in the independent auditor report.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000013/dash-20251231.htm",
+        "sourceSha256": "49dd19167d878030692e5200f7793dc9b23b9bb09b3976ee033e7e44a0115933",
+        "filingDate": "2026-02-18",
+        "accessionNumber": "0001792789-26-000013",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000035/dash-20251231.htm",
+        "sourceSha256": "61f2ef115fb5415a63082685a331bb8a7c12c13047ae47befced0409d7fa2e65"
+      }
+    },
+    "HOOD|2025-12-31": {
+      "finding": "The amendment repairs EDGAR transmission formatting.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
+        "sourceSha256": "caafcfe881230bdb49828449d58900c48ce15e16c5c42daadd13effaebb13731",
+        "filingDate": "2026-02-18",
+        "accessionNumber": "0001783879-26-000023",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000029/hood-20251231.htm",
+        "sourceSha256": "baac24205c7523e96c9d3727e7eec8eff9d1a7372cd6919e0f1cacea4d233cac"
+      }
+    },
+    "IBKR|2025-12-31": {
+      "finding": "The amendment corrects a clerical error in Item 9A.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000062/ibkr-20251231.htm",
+        "sourceSha256": "ae71c0bf9ca154b49b9e9bfbed4e9b21766d8cb107a74dfa06a6f895963d66ba",
+        "filingDate": "2026-02-27",
+        "accessionNumber": "0001381197-26-000062",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1381197/000138119726000072/ibkr-20251231.htm",
+        "sourceSha256": "a7ecd1cf60026b5d3e6c9da283acc6ec313ec6c442911bb85384c9f5ad2048c6"
+      }
+    },
+    "LUV|2025-12-31": {
+      "finding": "The amendment corrects the hyperlink to the bylaws exhibit.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92380/000009238026000004/luv-20251231.htm",
+        "sourceSha256": "439728b1bdf155fe02d1ed999b71a4c0516662bcce6b59ee03bf93faea5bfe9c",
+        "filingDate": "2026-02-05",
+        "accessionNumber": "0000092380-26-000004",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92380/000009238026000006/luv-20251231.htm",
+        "sourceSha256": "85dcb7b9dc9590a7ce8186fd7ea9afb4100c82454a7ece9b8669ac0b0a04c59d"
+      }
+    },
+    "SWKS|2025-10-03": {
+      "finding": "The amendment adds Part III disclosures.",
+      "original": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412725000085/swks-20251003.htm",
+        "sourceSha256": "6162ed2ecad04ba6ab25dc2ee008b4137b7aad8dd8b50486f705eafb134a1f9d",
+        "filingDate": "2025-11-07",
+        "accessionNumber": "0000004127-25-000085",
+        "form": "10-K"
+      },
+      "amendment": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000003/swks-20251003.htm",
+        "sourceSha256": "fe6db34bf6fe9fbbb45e285530284e35bc31004c958901459ddb8b71d9cfd893"
+      }
+    }
+  },
+  "bankNetRevenueReview": {
+    "bankRoster": [
+      "BAC",
+      "BNY",
+      "C",
+      "CFG",
+      "FITB",
+      "GS",
+      "HBAN",
+      "JPM",
+      "KEY",
+      "MS",
+      "MTB",
+      "NTRS",
+      "PNC",
+      "RF",
+      "STT",
+      "TFC",
+      "USB",
+      "WFC",
+      "ZION"
+    ],
+    "periodsWithComparablyTaggedBanks": 51,
+    "adjustedRevenueFields": {
+      "TFC|2026-09-30": {
+        "previousUsd": 3750000000,
+        "correctedUsd": 3747000000,
+        "recordedRevenueUsd": 3750000000,
+        "netRevenueUsd": 3747000000,
+        "directParts": {
+          "periodStart": "2026-07-01",
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000129/tfc-20260930.htm",
+          "sourceSha256": "66af887daa940e173c0cbe5316b0ca70dc6208db8c6a5f406a75a186969f3dc5",
+          "contextId": "c-11",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-157",
+              "valueUsd": 3663000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-201",
+              "valueUsd": 84000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 3747000000
+        }
+      },
+      "TFC|2026-06-30": {
+        "previousUsd": 5270000000,
+        "correctedUsd": 5265000000,
+        "recordedRevenueUsd": 5270000000,
+        "netRevenueUsd": 5265000000,
+        "directParts": {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000099/tfc-20260630.htm",
+          "sourceSha256": "fcd93111e7b4f532fe15fca3a104e6fb4d717fd0ad32d23890dd7ee06b255a7d",
+          "contextId": "c-11",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-157",
+              "valueUsd": 3621000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-201",
+              "valueUsd": 1644000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 5265000000
+        }
+      },
+      "TFC|2026-03-31": {
+        "previousUsd": 5150000000,
+        "correctedUsd": 5152000000,
+        "recordedRevenueUsd": 5150000000,
+        "netRevenueUsd": 5152000000,
+        "directParts": {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000062/tfc-20260331.htm",
+          "sourceSha256": "9b0d5bb7d16c7600bf837b0de17ca182c7eb1683ae23224b84a7dbfa84a971f9",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-141",
+              "valueUsd": 3599000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-163",
+              "valueUsd": 1553000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 5152000000
+        }
+      },
+      "TFC|2025-12-31": {
+        "previousUsd": 5250000000,
+        "correctedUsd": 5246000000,
+        "recordedRevenueUsd": 5250000000,
+        "netRevenueUsd": 5246000000,
+        "annualParts": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000030/tfc-20251231.htm",
+          "sourceSha256": "3c23d534a93bfcab496c64ebf240c7950338e1590b948814ce8203fc09b835b6",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-172",
+              "valueUsd": 14423000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-205",
+              "valueUsd": 5896000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 20319000000
+        },
+        "ytdParts": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000157/tfc-20250930.htm",
+          "sourceSha256": "0f650c844147dd66b756c4709f863c663fda27c54b6352f716c63084dc8abbb9",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-158",
+              "valueUsd": 10723000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-206",
+              "valueUsd": 4350000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 15073000000
+        }
+      },
+      "TFC|2025-09-30": {
+        "previousUsd": 5190000000,
+        "correctedUsd": 5187000000,
+        "recordedRevenueUsd": 5190000000,
+        "netRevenueUsd": 5187000000,
+        "directParts": {
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000157/tfc-20250930.htm",
+          "sourceSha256": "0f650c844147dd66b756c4709f863c663fda27c54b6352f716c63084dc8abbb9",
+          "contextId": "c-9",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-156",
+              "valueUsd": 3629000000,
+              "rowLabel": "Net Interest Income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-204",
+              "valueUsd": 1558000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 5187000000
+        }
+      },
+      "USB|2026-09-30": {
+        "previousUsd": 7970000000.0,
+        "correctedUsd": 7948000000,
+        "recordedRevenueUsd": 7970000000.0,
+        "netRevenueUsd": 7948000000,
+        "directParts": {
+          "periodStart": "2026-07-01",
+          "periodEnd": "2026-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000058/usb-20260930.htm",
+          "sourceSha256": "024cb7833f381285455cfe50d422be23732c38710072bb7555b7af2498e05519",
+          "contextId": "c-26",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-178",
+              "valueUsd": 4468000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-230",
+              "valueUsd": 3480000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 7948000000
+        }
+      },
+      "USB|2026-06-30": {
+        "previousUsd": 7712000000.0,
+        "correctedUsd": 7686000000,
+        "recordedRevenueUsd": 7712000000.0,
+        "netRevenueUsd": 7686000000,
+        "directParts": {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000044/usb-20260630.htm",
+          "sourceSha256": "191325d5c7323721be488af0984e96c0e6f495696a9924f1687e919144b60819",
+          "contextId": "c-27",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-182",
+              "valueUsd": 4361000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-234",
+              "valueUsd": 3325000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 7686000000
+        }
+      },
+      "USB|2026-03-31": {
+        "previousUsd": 7288000000.0,
+        "correctedUsd": 7260000000,
+        "recordedRevenueUsd": 7288000000.0,
+        "netRevenueUsd": 7260000000,
+        "directParts": {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000024/usb-20260331.htm",
+          "sourceSha256": "ccaf38db3dada6d88dced536525f85f1100d605cb160bfad6b0fd06981b06ea2",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-160",
+              "valueUsd": 4263000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-186",
+              "valueUsd": 2997000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 7260000000
+        }
+      },
+      "USB|2025-12-31": {
+        "previousUsd": 7365000000,
+        "correctedUsd": 7337000000,
+        "directParts": {
+          "netInterestIncomeCell": {
+            "tableIndex": 36,
+            "rowIndex": 15,
+            "columnIndex": 3,
+            "label": "Net interest income",
+            "amountShown": "4,284",
+            "scale": 1000000
+          },
+          "totalNoninterestIncomeCell": {
+            "tableIndex": 36,
+            "rowIndex": 29,
+            "columnIndex": 3,
+            "label": "Total noninterest income",
+            "amountShown": "3,053",
+            "scale": 1000000
+          },
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000005/a4q25earningsrelease.htm",
+          "sourceSha256": "d5394453cc39ba468b6f838857b0631d2ce9f4d68e949596cc17f4cc479a4867"
+        },
+        "excludedTaxableEquivalentAdjustmentUsd": 28000000
+      },
+      "USB|2025-09-30": {
+        "previousUsd": 7329000000.0,
+        "correctedUsd": 7300000000,
+        "recordedRevenueUsd": 7329000000.0,
+        "netRevenueUsd": 7300000000,
+        "directParts": {
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000064/usb-20250930.htm",
+          "sourceSha256": "9621914efe1afb8649b5e7275509aae8e0ed011969b345590758df348d862208",
+          "contextId": "c-26",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-178",
+              "valueUsd": 4222000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-230",
+              "valueUsd": 3078000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 7300000000
+        }
+      }
+    },
+    "bankOfAmericaPriorBasisMismatch": {
+      "finding": "The original nine-month 2025 10-Q precedes the accounting-method change. Using it against the adjusted full-year figures gives $31,180 million and is invalid. The annual report shows $28,367 million for Q4. The 2026 Q3 filing recasts Q3 2025 to $29,040 million and $1.04 diluted EPS.",
+      "recordedFourthQuarterRevenueUsd": 28367000000,
+      "annualFiling": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+        "sourceSha256": "8dfac1a8a3e7ba39c2e588fd22f4de13601833e354885169f96a9918c09de7ac"
+      },
+      "recastComparative": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+        "sourceSha256": "87620a40c7fc983e3b78c991b51abd97391d1849524bbbaf7d034bffd5b0ee13"
+      },
+      "mixedBasisCalculationRejected": {
+        "recordedRevenueUsd": 28367000000,
+        "netRevenueUsd": 31180000000,
+        "annualParts": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "sourceSha256": "8dfac1a8a3e7ba39c2e588fd22f4de13601833e354885169f96a9918c09de7ac",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-114",
+              "valueUsd": 60096000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-126",
+              "valueUsd": 53001000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 113097000000
+        },
+        "ytdParts": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-09-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
+          "sourceSha256": "eb0087250a5ed1234ecfb03e705761899d52cb719cbc8fc80686d2f8bb1421e9",
+          "contextId": "c-1",
+          "components": {
+            "interest": {
+              "tag": "us-gaap:InterestIncomeExpenseNet",
+              "factId": "f-94",
+              "valueUsd": 44346000000,
+              "rowLabel": "Net interest income"
+            },
+            "noninterest": {
+              "tag": "us-gaap:NoninterestIncome",
+              "factId": "f-110",
+              "valueUsd": 37571000000,
+              "rowLabel": "Total noninterest income"
+            }
+          },
+          "netRevenueUsd": 81917000000
+        }
+      }
+    },
+    "verifiedBankOfAmericaComparative": {
+      "currentMeasures": {
+        "revenue": 29040000000,
+        "epsGaapDiluted": 1.04
+      },
+      "originalMeasures": {
+        "revenue": 28088000000.0,
+        "epsGaapDiluted": 1.06
+      },
+      "originalEarningsReleaseDate": "2025-10-15",
+      "originalQuarterFilingUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
+      "comparativeSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+      "comparativeSourceSha256": "87620a40c7fc983e3b78c991b51abd97391d1849524bbbaf7d034bffd5b0ee13",
+      "comparativeSourceFilingDate": "2026-10-30",
+      "periodStart": "2025-07-01",
+      "periodEnd": "2025-09-30",
+      "acceptedFacts": {
+        "revenue": [
+          {
+            "factId": "f-115",
+            "contextId": "c-23",
+            "tag": "us-gaap:Revenues",
+            "value": 29040000000
+          }
+        ],
+        "epsGaapDiluted": [
+          {
+            "factId": "f-179",
+            "contextId": "c-23",
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "value": 1.04
+          },
+          {
+            "factId": "f-4657",
+            "contextId": "c-23",
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "value": 1.04
+          }
+        ]
+      },
+      "originalFilingReparseKeptReviewedComparative": true
+    }
+  },
+  "liveSecReview": {
+    "checkedAtUtc": "2026-11-21T03:48:04.366524+00:00",
+    "feeds": {
+      "8-K": {
+        "observedNewest": "2026-11-20T17:30:44-05:00",
+        "previousNewest": "2026-11-20T17:30:44-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=8-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "732f06424d3b1b09facd5d2a257503953a5e0ae204dd548138e1dfe74eb41894",
+        "count": 100,
+        "candidates": []
+      },
+      "10-Q": {
+        "observedNewest": "2026-11-20T17:30:17-05:00",
+        "previousNewest": "2026-11-20T17:30:17-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-Q&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "2c72613a16e44c031f68b348954690390d5535188ab945b25c4d74c002a045e7",
+        "count": 100,
+        "candidates": []
+      },
+      "10-K": {
+        "observedNewest": "2026-11-20T16:15:44-05:00",
+        "previousNewest": "2026-11-20T16:15:44-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+        "sha256": "2e03d07edd9da6e3fef9107ca9cc830fda60cfbf434a1d0674a08a84af34ce54",
+        "count": 100,
+        "candidates": []
+      },
+      "8-K/A": {
+        "observedNewest": "2026-11-20T17:13:27-05:00",
+        "previousNewest": "2026-11-20T17:13:27-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "fc74e77245d014c8c2d775d0b1bec2030e2212b584c866f932d4ac9be0a91771",
+        "count": 11,
+        "candidates": []
+      },
+      "10-Q/A": {
+        "observedNewest": "2026-11-20T13:09:48-05:00",
+        "previousNewest": "2026-11-20T13:09:48-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "ae94a6a85f80c1a00c4b947b964b35bce729f2c491197aa98dc2f41c54bf1135",
+        "count": 7,
+        "candidates": []
+      },
+      "10-K/A": {
+        "observedNewest": "2026-11-19T17:15:48-05:00",
+        "previousNewest": "2026-11-19T17:15:48-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-K%2FA&owner=include&start=0&count=100&output=atom",
+        "sha256": "0feec4f00c73d55d6d9f1c59eef2704eb6a0f1967d8fa7fdc692ee22175bdf6b",
+        "count": 2,
+        "candidates": []
+      },
+      "6-K": {
+        "observedNewest": "2026-11-20T17:25:15-05:00",
+        "previousNewest": "2026-11-20T17:25:15-05:00",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=6-K&owner=include&start=0&count=100&output=atom",
+        "sha256": "94d21787745686f18bb750f414c33361cd67f897742ee70ae10ac2b011c44dfa",
+        "count": 100,
+        "candidates": []
+      }
+    }
+  },
+  "followupMainReconciliation": {
+    "checkedAtUtc": "2026-11-21T16:12:31.100553+00:00",
+    "previousMainCommit": "8057b89eb2190c78b64b75b3f825497d9f7f3600",
+    "mainCommit": "f6ff0e7922601f34292a61767a5c796ad230b67f",
+    "latestSecFeedCheck": {
+      "checkedAtUtc": "2026-11-21T16:09:57.679714+00:00",
+      "feeds": {
+        "8-K": {
+          "observedNewest": "2026-11-20T17:30:44-05:00",
+          "previousNewest": "2026-11-20T17:30:44-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=8-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "fd05c13711a5ea830270ddbf87248bef35ff489eacaef75c485405ca58c4ea0d",
+          "count": 100,
+          "candidates": []
+        },
+        "10-Q": {
+          "observedNewest": "2026-11-20T17:30:17-05:00",
+          "previousNewest": "2026-11-20T17:30:17-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-Q&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "cbd3b6a4684080d46e17c7f7caf9a5c2ce834240b842377f9aaa0ef1c0657f09",
+          "count": 100,
+          "candidates": []
+        },
+        "10-K": {
+          "observedNewest": "2026-11-20T16:15:44-05:00",
+          "previousNewest": "2026-11-20T16:15:44-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=10-K&company=&dateb=20261120&owner=include&start=0&count=100&output=atom",
+          "sha256": "7e9c8d1187ef155285363213b3f6e114ce80d29fad5f26f3a57eeb9776befb61",
+          "count": 100,
+          "candidates": []
+        },
+        "8-K/A": {
+          "observedNewest": "2026-11-20T17:13:27-05:00",
+          "previousNewest": "2026-11-20T17:13:27-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "3bda19aef46e4e9046a1590064849594b545e3f345c79e62243b2657180520a2",
+          "count": 11,
+          "candidates": []
+        },
+        "10-Q/A": {
+          "observedNewest": "2026-11-20T13:09:48-05:00",
+          "previousNewest": "2026-11-20T13:09:48-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "aa9642a0002e9cc453b68597a1bea4568103f40704b46d48f59bb58414a710ea",
+          "count": 7,
+          "candidates": []
+        },
+        "10-K/A": {
+          "observedNewest": "2026-11-19T17:15:48-05:00",
+          "previousNewest": "2026-11-19T17:15:48-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-K%2FA&owner=include&start=0&count=100&output=atom",
+          "sha256": "8569f48cb752c6b2d01ab3d248fbf56a83a6a5a20292ea759c0abcdc44711238",
+          "count": 2,
+          "candidates": []
+        },
+        "6-K": {
+          "observedNewest": "2026-11-20T17:25:15-05:00",
+          "previousNewest": "2026-11-20T17:25:15-05:00",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=6-K&owner=include&start=0&count=100&output=atom",
+          "sha256": "648512dbc3b940d5e902ead44596a1bd5401b22fd15ab7f79bb77c8aafafbd64",
+          "count": 100,
+          "candidates": []
+        }
+      }
+    },
+    "officialHistoryWorkflowUrl": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/44897428502",
+    "publishedHistory": {
+      "sourceUrl": "https://ianhoutsai-afk.github.io/earnings-tracker/historical_data.json",
+      "sourceSha256": "6249555370b3e8c09feaed50699402721c085f0c3bd7d9e934e6561f13a53c14",
+      "matchesMainFile": true,
+      "deploymentUrl": "https://github.com/ianhoutsai-afk/earnings-tracker/actions/runs/44897537453",
+      "quarterRecords": 2515,
+      "officialQuarterRecords": 2440,
+      "officialQuarterRecordsWithBothMetrics": 2210
+    },
+    "overlappingQuarter": {
+      "ticker": "PTC",
+      "periodStart": "2026-07-01",
+      "periodEnd": "2026-09-30",
+      "releaseDate": "2026-11-04",
+      "filingDate": "2026-11-20",
+      "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526470217/ptc-20260930.htm",
+      "quarterMetricSourceUrl": "https://www.sec.gov/Archives/edgar/data/857005/000119312526447186/ptc-ex99_1.htm",
+      "draftRevenue": 673254000,
+      "draftGaapDilutedEps": 1.44,
+      "mainRevenue": null,
+      "mainGaapDilutedEps": null,
+      "disposition": "Keep the original fourth-quarter consolidated earnings exhibit metrics and the separately sourced annual filing date and accession. The annual filing supplies full-year amounts.",
+      "manifestMergeReplay": "Retains both reviewed metrics, all provenance fields and the quarter start."
+    },
+    "otherMainChanges": "Six third-party earnings calendar estimates are carried forward with their estimate status. Draft coverage and verification timestamps reflect the evidence actually reviewed for the draft."
+  },
+  "remainingFieldRecheck": {
+    "checkedAtUtc": "2026-11-21T16:16:50.168200+00:00",
+    "firstEnergyRelease": {
+      "ticker": "FE",
+      "periodEnd": "2025-12-31",
+      "earningsReleaseDate": "2026-02-17",
+      "earningsCallDate": "2026-02-18",
+      "earningsCallSourceUrl": "https://investors.firstenergycorp.com/investor-materials/event-calendar/default.aspx",
+      "financialStatementDate": "2026-02-18",
+      "financialStatementUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex991-q42025newsrelease.htm",
+      "releaseSha256": "083fdeb2b69d58c04ca0276352bd2ce438723baedf04ea99fc66feb7a07b2fda",
+      "releaseFilingAccession": "0001031296-26-000041",
+      "releaseFilingUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/fe-20260217.htm",
+      "releaseFilingSha256": "ce63ac8698de8f8d34a226057d42546c956a2291560b0c14f4c47d216c5585bb",
+      "quarterSupplementUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000041/ex9924q25strategicfinanc.htm",
+      "quarterSupplementSha256": "defa4860da4e338498623bc520726d4dd1c99d9e1f286f9112ac97ff2d7d2dae",
+      "quarterSupplementScope": "Exhibit 99.2 contains Q4 operating tables within the February 17 year-end earnings package. Its consolidated earnings reconciliation is full-year.",
+      "calendarAnnouncementUrl": "https://investors.firstenergycorp.com/investor-materials/news-releases/news-details/2026/FirstEnergy-to-Webcast-Fourth-Quarter-Earnings-Teleconference/default.aspx",
+      "nineMonthsFilingUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129625000085/fe-20250930.htm",
+      "annualAndNineMonthIncomeMillions": [
+        1020,
+        1069
+      ],
+      "annualAndNineMonthBasicWeightedAverageSharesMillions": [
+        577,
+        577
+      ],
+      "roundingCheck": "The source totals imply roughly $49M of Q4 attributable loss. Even treating potential shares as antidilutive, nearest-cent EPS could be -$0.08 or -$0.09 from rounded filings.",
+      "quarterRevenue": 3797000000,
+      "quarterGaapDilutedEps": null,
+      "manifestMergeReplay": "A later filing-only scan preserves the earlier publication date, release exhibit, filing and numeric fields."
+    },
+    "additionalResidualChecks": {
+      "TECH": {
+        "sourceUrl": "https://investors.bio-techne.com/financial-results",
+        "amendmentUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926126284/tech-20260930x10qa.htm",
+        "finding": "The company lists a 10-Q and 10-Q/A for this quarter. The amendment corrects electronic signatures. The standalone earnings release date remains unverified."
+      },
+      "AES|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000119312526084157/d100078dex991.htm",
+        "finding": "The March 2 acquisition announcement canceled the March 3 call and indicated that the company expected to file its annual report on March 2. The release does not establish a standalone earnings release date."
+      },
+      "TRGP|2025-12-31": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526059296/trgp-20251231.htm",
+        "finding": "Note 12 allocates income between common shares and participating securities. The release’s consolidated attributable income does not give the quarter EPS numerator and diluted share denominator."
+      },
+      "TXT|2026-01-03": {
+        "sourceUrl": "https://investor.textron.com/news-releases/news-details/2026/Textron-Reports-Fourth-Quarter-2025-Results-Announces-2026-Financial-Outlook/default.aspx",
+        "finding": "The quarter shows rounded net income of $235M and 177.125M diluted shares. The implied rounding interval spans $1.32 and $1.33. The displayed $1.33 EPS is for continuing operations."
+      },
+      "ECHO|2026-09-30": {
+        "issuerQuarterlyResultsUrl": "https://ir.echostar.com/financial-information/quarterly-results",
+        "filingSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+        "finding": "The company archive lists 2026 Q2 and Q1 releases. The original third-quarter 10-Q confirms metrics and filing date. The standalone earnings release date remains unverified."
+      }
+    },
+    "standaloneFinancialFilingRecheck": {
+      "checkedAtUtc": "2026-11-21T16:14:18.839030+00:00",
+      "records": {
+        "AMAT|2026-10-25": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+          "submissionsSha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "BDX|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+          "submissionsSha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "COR|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+          "submissionsSha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2026-06-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2026-03-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "FDXF|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002082247.json",
+          "submissionsSha256": "0450bea73de4c74160c8cd9074a9663deab2c9820dbff934ec3a100bc252968d",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2026-03-28": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "HONA|2025-09-27": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002089271.json",
+          "submissionsSha256": "977e62ad9bba1fa02725fe6fdf3041eff786e56fd1086e59c28e87457024de36",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "KEYS|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+          "submissionsSha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "LOW|2026-10-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+          "submissionsSha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "NVDA|2026-10-25": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+          "submissionsSha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "P|2026-11-01": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0001474432.json",
+          "submissionsSha256": "fc3e25409a3ab47049f77e8e23eb2073fff07bd578b10976fae618dc7be17ec4",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "RJF|2026-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+          "submissionsSha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "ROST|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+          "submissionsSha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "TGT|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+          "submissionsSha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "TJX|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+          "submissionsSha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VMRK|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000906107.json",
+          "submissionsSha256": "d200184441542e87827a9053e642dcf68f1d604143a0d1a2945b06190de1dbdf",
+          "candidates": [
+            {
+              "form": "10-Q",
+              "accessionNumber": "0001193125-25-258599",
+              "primaryDocument": "eqr-20250930.htm",
+              "filingDate": "2025-10-30",
+              "reportDate": "2025-09-30",
+              "items": "",
+              "sourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312525258599/eqr-20250930.htm",
+              "sourceSha256": "8692a4d8d42d1c8493ff0750d6343c8d6c678f88e2296904d67df70cfe1adfc4",
+              "parsed": {
+                "fiscalYear": 2025,
+                "fiscalQuarter": 3,
+                "periodScope": "quarter",
+                "periodEnd": "2025-09-30",
+                "periodStart": "2025-07-01",
+                "epsGaapDiluted": 0.76,
+                "revenue": null,
+                "epsBasis": "GAAP diluted",
+                "currency": "USD"
+              }
+            }
+          ],
+          "disposition": "Equity Residential was the legal acquirer. The retained comparative is AvalonBay on the Vivmark exchange-ratio basis.",
+          "accountingAcquirerSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526453735/vmrk-20260930.htm"
+        },
+        "VYLR|2026-06-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2026-03-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2025-12-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "VYLR|2025-09-30": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0002128626.json",
+          "submissionsSha256": "97000767e43de3b05f04828de84ae5271235d0ae8a34ca52d912f7f75de24ddd",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "WMT|2026-10-31": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+          "submissionsSha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        },
+        "WSM|2026-11-01": {
+          "submissionsUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+          "submissionsSha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+          "reason": "No original 10-Q or 10-K for the quarter end in this issuer’s submissions."
+        }
+      }
+    },
+    "remainingFields": {
+      "companies": 9,
+      "gaapDilutedEps": 15,
+      "revenue": 1,
+      "earningsReleaseDate": 6,
+      "standaloneFinancialFilingLinks": 25
+    }
+  }
+}

@@ -45,6 +45,8 @@ test('both languages expose the same translation keys', () => {
 test('reviewed quarterly metrics remain quarterly when linked to an annual filing', () => {
   assert.equal(historyFilingKey({ form: '10-K', periodScope: 'quarter' }), 'sec.annual');
   assert.equal(earningsMetricLabelKey({ form: '10-K', periodScope: 'quarter', epsBasis: 'GAAP diluted' }), 'earnings.gaapQuarterEps');
+  assert.equal(historyFilingKey({ form: '10-Q', dateSource: 'sec_filing', verificationStatus: 'official_verified' }), 'sec.quarterly');
+  assert.equal(historyFilingKey({ dateSource: 'recast', verificationStatus: 'official_verified' }), 'history.recastBadge');
   assert.equal(historyFilingKey({ verificationStatus: 'official_verified' }), 'earnings.officialRelease');
   assert.equal(earningsMetricLabelKey({ quarter: '2025 FY' }), 'earnings.legacyEps');
   assert.equal(historyStatusKey({ status: 'pending_official' }), 'earnings.pendingOfficial');
