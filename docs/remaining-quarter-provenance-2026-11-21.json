@@ -881,5 +881,229 @@
         "newest": "2026-11-20T17:25:15-05:00"
       }
     }
+  },
+  "periodicFilingFollowUp": {
+    "checkedAtUtc": "2026-11-22T02:26:09.217849+00:00",
+    "issuers": {
+      "AMAT": {
+        "periodEnd": "2026-10-25",
+        "releaseDate": "2026-11-12",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
+        "issuerName": "APPLIED MATERIALS INC /DE",
+        "cik": "6951",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000006951.json",
+        "submissionsSha256": "bd35a826257fd83379f9b533c2287510fde9dc9218ef02df0aafe956d0ff8e19",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-20",
+          "reportDate": "2026-07-26",
+          "accessionNumber": "0001628280-26-058235",
+          "primaryDocument": "amat-20260726.htm"
+        }
+      },
+      "BDX": {
+        "periodEnd": "2026-09-30",
+        "releaseDate": "2026-11-05",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/10795/000162828026070511/ex9919302026.htm",
+        "issuerName": "BECTON DICKINSON & CO",
+        "cik": "10795",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000010795.json",
+        "submissionsSha256": "96fbe9f41544e72c1584dfcbb165c9a94ce4848784e926008b21f05bcb0dc47c",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-06",
+          "reportDate": "2026-06-30",
+          "accessionNumber": "0000010795-26-000035",
+          "primaryDocument": "bdx-20260630.htm"
+        }
+      },
+      "COR": {
+        "periodEnd": "2026-09-30",
+        "releaseDate": "2026-11-04",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000038/exhibit991-q42026.htm",
+        "issuerName": "Cencora, Inc.",
+        "cik": "1140859",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0001140859.json",
+        "submissionsSha256": "d134c65e459b64bd217a0b758170615b9604964699c4f98c0a0a553f9644eeae",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-05",
+          "reportDate": "2026-06-30",
+          "accessionNumber": "0001140859-26-000034",
+          "primaryDocument": "cor-20260630.htm"
+        }
+      },
+      "KEYS": {
+        "periodEnd": "2026-10-31",
+        "releaseDate": "2026-11-19",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1601046/000160104626000040/exhibit991-q426pressrelease.htm",
+        "issuerName": "Keysight Technologies, Inc.",
+        "cik": "1601046",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0001601046.json",
+        "submissionsSha256": "c117235e35afb09c93a0376bd34ea3f2001075848039032456c1af8193a58fc0",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-09-02",
+          "reportDate": "2026-07-31",
+          "accessionNumber": "0001601046-26-000036",
+          "primaryDocument": "keys-20260731.htm"
+        }
+      },
+      "LOW": {
+        "periodEnd": "2026-10-30",
+        "releaseDate": "2026-11-18",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+        "issuerName": "LOWES COMPANIES INC",
+        "cik": "60667",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000060667.json",
+        "submissionsSha256": "5ad8298a4f2137c48f8857c261658ca199bd4cebf6877f98ad55eba8a264117e",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-27",
+          "reportDate": "2026-07-31",
+          "accessionNumber": "0000060667-26-000117",
+          "primaryDocument": "low-20260731.htm"
+        }
+      },
+      "NVDA": {
+        "periodEnd": "2026-10-25",
+        "releaseDate": "2026-11-17",
+        "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+        "issuerName": "NVIDIA CORP",
+        "cik": "1045810",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+        "submissionsSha256": "8dd44fbc9bc7fd47f0b16155e66cd22445345d0f9706f316e9e55d7ce4f48045",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-26",
+          "reportDate": "2026-07-26",
+          "accessionNumber": "0001045810-26-000075",
+          "primaryDocument": "nvda-20260726.htm"
+        }
+      },
+      "P": {
+        "periodEnd": "2026-11-01",
+        "issuerName": "Everpure, Inc.",
+        "cik": "1474432",
+        "checkedAtUtc": "2026-11-22T02:31:14.243207+00:00",
+        "filingsIndexUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001474432&owner=exclude&count=40",
+        "filingsIndexSha256": "a48627b89fe977c9a3d51c3598e74e20e62284a1196c3e6ff2e2530a57771e97",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-09-04",
+          "reportDate": "2026-08-02",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1474432/000147443226000088/0001474432-26-000088-index.htm"
+        }
+      },
+      "RJF": {
+        "periodEnd": "2026-09-30",
+        "releaseDate": "2026-10-28",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/720005/000072000526000080/rjf20260930q426earnings.htm",
+        "issuerName": "RAYMOND JAMES FINANCIAL INC",
+        "cik": "720005",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000720005.json",
+        "submissionsSha256": "006369631570b9499a72c5d61a9d5faf4ad2ddaf88ba5bf25e337b26cf273827",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-05",
+          "reportDate": "2026-06-30",
+          "accessionNumber": "0000720005-26-000070",
+          "primaryDocument": "rjf-20260630.htm"
+        }
+      },
+      "ROST": {
+        "periodEnd": "2026-10-31",
+        "releaseDate": "2026-11-19",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
+        "issuerName": "ROSS STORES, INC.",
+        "cik": "745732",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000745732.json",
+        "submissionsSha256": "5bb3e55bf596c5ed8dc841ae222d09c01fbd784a8c9e2f5c85154f693389ccef",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-09-01",
+          "reportDate": "2026-08-01",
+          "accessionNumber": "0000745732-26-000041",
+          "primaryDocument": "rost-20260801.htm"
+        }
+      },
+      "TGT": {
+        "periodEnd": "2026-10-31",
+        "releaseDate": "2026-11-18",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000051/a2026q3ex-99.htm",
+        "issuerName": "TARGET CORP",
+        "cik": "27419",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000027419.json",
+        "submissionsSha256": "b340d6bf96df3bc9952a9dc84303d37bca4f4499004f96e43b7f77cb7df426e6",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-28",
+          "reportDate": "2026-08-01",
+          "accessionNumber": "0000027419-26-000042",
+          "primaryDocument": "tgt-20260801.htm"
+        }
+      },
+      "TJX": {
+        "periodEnd": "2026-10-31",
+        "releaseDate": "2026-11-18",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+        "issuerName": "TJX COMPANIES INC /DE/",
+        "cik": "109198",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000109198.json",
+        "submissionsSha256": "61e696fb661212651ae1ad90c31edf23ecd6edf12b043297548980a32ef45135",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-28",
+          "reportDate": "2026-08-01",
+          "accessionNumber": "0000109198-26-000048",
+          "primaryDocument": "tjx-20260801.htm"
+        }
+      },
+      "WMT": {
+        "periodEnd": "2026-10-31",
+        "releaseDate": "2026-11-19",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
+        "issuerName": "Walmart Inc.",
+        "cik": "104169",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000104169.json",
+        "submissionsSha256": "dbebd8330ad7cae30c60fbfe6a5121814e61d6497b7e2db923fb1ad2f21b3509",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-28",
+          "reportDate": "2026-07-31",
+          "accessionNumber": "0000104169-26-000154",
+          "primaryDocument": "wmt-20260731.htm"
+        }
+      },
+      "WSM": {
+        "periodEnd": "2026-11-01",
+        "releaseDate": "2026-11-19",
+        "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/719955/000071995526000244/exhibit991fy2026q3earnings.htm",
+        "issuerName": "WILLIAMS SONOMA INC",
+        "cik": "719955",
+        "submissionsSourceUrl": "https://data.sec.gov/submissions/CIK0000719955.json",
+        "submissionsSha256": "24e19758870eef5e7ab0278eddb7add214c2f3185c4dfccfa9ca34c160eded0e",
+        "matchingFilings": [],
+        "latestPeriodicFiling": {
+          "form": "10-Q",
+          "filingDate": "2026-08-28",
+          "reportDate": "2026-08-02",
+          "accessionNumber": "0000719955-26-000208",
+          "primaryDocument": "wsm-20260802.htm"
+        }
+      }
+    }
   }
 }
