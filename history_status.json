@@ -1446,7 +1446,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-15",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://www.bny.com/corporate/global/en/about-us/newsroom/press-release/bny-announces-conference-calls-to-review-earnings-in-2027-130473.html",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-22T08:07:01.379032Z",
     "cik": "0001390777",
     "recordCount": 5,
@@ -2354,7 +2359,12 @@
     "metricPending": 0,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-15",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.citizensbank.com/about-us/newsroom/latest-news/2026/2026-01-14-183506130.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000759944",
     "recordCount": 5,
@@ -4209,7 +4219,12 @@
     "metricPending": 0,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-19",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://ir.53.com/news/news-details/2025/Fifth-Third-Bancorp-Announces-Earnings-Release-Dates-for-2026-and-2027/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0000035527",
     "recordCount": 5,
@@ -5746,7 +5761,13 @@
     "metricsVerifiedQuarterCount": 5,
     "latestStoredDate": "2026-08-26",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm"
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm",
+    "nextEarningsEvent": {
+      "date": "2026-12-01",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-to-Announce-Third-Quarter-Fiscal-Year-2027-Financial-Results-on-December-1-2026/default.aspx",
+      "bmo_amc": "AMC"
+    }
   },
   "KDP": {
     "status": "official_parse_pending",
@@ -5783,7 +5804,12 @@
     "metricPending": 6,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-20",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://investor.key.com/press-releases/news-details/2025/KEYCORP-ANNOUNCES-2026-QUARTERLY-EARNINGS-CONFERENCE-CALL-DATES/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-22T08:07:01.379032Z",
     "cik": "0000091576",
     "recordCount": 5,
@@ -6875,7 +6901,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-14",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://www.morganstanley.com/press-releases/morgan-stanley-schedules-4q-and-fy-2026-investor-call",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-22T08:07:01.379032Z",
     "cik": "0000895421",
     "recordCount": 5,
@@ -8348,7 +8379,12 @@
     "metricPending": 1,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-22",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://ir.regions.com/news-events/press-releases/news-details/2026/Regions-Financial-Corp--Announces-Quarterly-Earnings-Release-Dates-for-2027/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-15T07:55:35.310198Z",
     "cik": "0001281761",
     "recordCount": 5,
@@ -10402,7 +10438,12 @@
     "metricPending": 2,
     "requestFailures": 0,
     "sourceErrors": [],
-    "nextEarningsEvent": null,
+    "nextEarningsEvent": {
+      "date": "2027-01-14",
+      "eventType": "earnings_release",
+      "sourceUrl": "https://newsroom.wf.com/news-releases/news-details/2026/Wells-Fargo-Updates-2026-Earnings-Release-Date-Information/default.aspx",
+      "bmo_amc": "BMO"
+    },
     "officialCheckedAt": "2026-11-22T08:07:01.379032Z",
     "cik": "0000072971",
     "recordCount": 5,

@@ -914,7 +914,11 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 3,
-      "periodStart": "2026-07-01"
+      "periodStart": "2026-07-01",
+      "metricNote": {
+        "en": "A separate date for the company’s third-quarter results release remains unverified.",
+        "zh-TW": "第三季業績的獨立公布日仍待核實。"
+      }
     },
     {
       "date": "2026-08-04",
@@ -937,7 +941,11 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/aes-20260630.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "periodStart": "2026-04-01"
+      "periodStart": "2026-04-01",
+      "metricNote": {
+        "en": "A separate date for the company’s second-quarter results release remains unverified.",
+        "zh-TW": "第二季業績的獨立公布日仍待核實。"
+      }
     },
     {
       "date": "2026-05-05",
@@ -960,7 +968,11 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000120/aes-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 1,
-      "periodStart": "2026-01-01"
+      "periodStart": "2026-01-01",
+      "metricNote": {
+        "en": "A separate date for the company’s first-quarter results release remains unverified.",
+        "zh-TW": "第一季業績的獨立公布日仍待核實。"
+      }
     },
     {
       "date": "2026-03-02",
@@ -981,12 +993,12 @@
       "accessionNumber": "0000874761-26-000063",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
       "metricNote": {
-        "en": "Quarterly revenue and approximately $325 million of net income available to AES common stockholders are calculated from the filed annual and first-nine-month figures. The published precision and available share counts leave fourth-quarter diluted EPS unresolved.",
-        "zh-TW": "單季營收與普通股股東可享淨利約 3.25 億美元，均以全年申報數字減首九個月計算。已披露的精度與股數資料不足以核定第四季稀釋 EPS。"
+        "en": "Quarterly revenue and approximately $325 million of net income available to AES common stockholders are calculated from the filed annual and first-nine-month figures. The published precision and available share counts leave fourth-quarter diluted EPS unresolved. AES canceled the March 3 results call and announced that it expected to file its annual report on March 2.",
+        "zh-TW": "單季營收與普通股股東可享淨利約 3.25 億美元，均以全年申報數字減首九個月計算。已披露的精度與股數資料不足以核定第四季稀釋 EPS。 AES 取消 3 月 3 日的業績電話會議，並預計於 3 月 2 日申報年報。"
       },
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
+      "metricNoteSourceUrl": "https://www.aes.com/energy-insights/consortium-led-global-infrastructure-partners-and-eqt-agrees-acquire-aes",
       "periodStart": "2025-10-01"
     },
     {
@@ -8160,7 +8172,12 @@
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926123907/tech-20260930x10q.htm",
       "fiscalYear": 2027,
       "fiscalQuarter": 1,
-      "periodStart": "2026-07-01"
+      "periodStart": "2026-07-01",
+      "metricNote": {
+        "en": "Bio-Techne filed its fiscal 2027 first-quarter report on November 6. The November 12 amendment adds signatures and leaves the financial disclosures intact.",
+        "zh-TW": "Bio-Techne 於 11 月 6 日申報 2027 財年第一季報告。11 月 12 日的修正案補上簽名，財務揭露相同。"
+      },
+      "metricNoteSourceUrl": "https://investors.bio-techne.com/all-sec-filings/content/0001104659-26-126284/tech-20260930x10qa.htm"
     },
     {
       "date": "2026-08-12",
@@ -21276,12 +21293,13 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
       "metricNote": {
-        "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026.",
-        "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。"
+        "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026. The November 3 date comes from the quarterly SEC filing. A separate third-quarter results release remains unverified.",
+        "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。11 月 3 日為該季 SEC 申報日。第三季業績的獨立公布日仍待核實。"
       },
       "fiscalYear": 2026,
       "fiscalQuarter": 3,
-      "periodStart": "2026-07-01"
+      "periodStart": "2026-07-01",
+      "metricNoteSourceUrl": "https://ir.echostar.com/financial-information/quarterly-results"
     },
     {
       "date": "2026-08-03",
