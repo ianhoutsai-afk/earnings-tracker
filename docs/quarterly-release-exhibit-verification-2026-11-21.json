@@ -1721,5 +1721,1415 @@
         "periodBasis": "The Form 8-K identifies the exact period end and links to the dated results exhibit."
       }
     }
+  },
+  "remainingCurrentReportExhibitsReview": {
+    "checkedAtUtc": "2026-11-22T02:49:50.971569+00:00",
+    "currentReportsReviewed": 328,
+    "originalSourcesUpdated": 151,
+    "issuersUpdated": 59,
+    "updatedSources": {
+      "AEE|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1002910/000100291026000005/aee-20260211.htm",
+        "currentReportSha256": "a1d26ccb9b5e67d84e3a19b8b8875d8f914a9ed4646b4d9a4053ea1946267d7b",
+        "originalReleaseUrl": "https://www.amereninvestors.com/investors/financial-releases/financial-releases-details/2026/Ameren-Announces-2025-Results-Affirms-Guidance-for-2026-Earnings-and-Issues-Long-Term-Growth-Guidance/default.aspx",
+        "releaseDate": "2026-02-11",
+        "periodEnd": "2025-12-31",
+        "reason": "The SEC exhibit’s year in the dateline conflicts with the Item 2.02 statement. The issuer’s original release confirms February 11, 2026 and fourth-quarter 2025 financial results.",
+        "conflictingExhibit": "https://www.sec.gov/Archives/edgar/data/1002910/000100291026000005/q42025ex991earningsrelease.htm",
+        "conflictingPrintedDate": "2025-02-11"
+      },
+      "ANET|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000010/anet-20260212.htm",
+        "currentReportSha256": "76aefd2e034e936cf902d4d4fd34be8974abf0b9124b4f7ad6d15d13d7ba7353",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000010/ex991q425-earningsrelease.htm",
+        "releaseDate": "2026-02-12",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "bae29c38f97b7479a47019992eff9ec426a526e864a2e11ff7e63fec0aa96889"
+      },
+      "AOS|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000148/aos-20251028.htm",
+        "currentReportSha256": "d603e08d28fbbd84595a3258f4f5578756daed721c249df0bd280ff0f5818ae1",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/91142/000009114225000148/a9302025exhibit991.htm",
+        "releaseDate": "2025-10-28",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "18014bf59bea9d454d536509f08507ee57f945d01027da3f0ef456370e682f97"
+      },
+      "AVGO|2025-08-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000094/avgo-20250904.htm",
+        "currentReportSha256": "04e58a3ecc71e34213b9cc21892aec2c5ae44d3dbd1dd2b35adf68a53d27e1ba",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000094/avgo-08032025x8kxex99.htm",
+        "releaseDate": "2025-09-04",
+        "periodEnd": "2025-08-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "838be7506c341a26cddca159e6bda833ecde7780151729d1052bdf20f59e18bd"
+      },
+      "AVGO|2026-05-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000051/avgo-20260603.htm",
+        "currentReportSha256": "7d10fad55bb3e96f1c5823a6d34197ecc584cbcb5a5fee54abb755d5d3b4fdbd",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000051/avgo-05032026x8kxex99.htm",
+        "releaseDate": "2026-06-03",
+        "periodEnd": "2026-05-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "40a6741e14d6d00260a5bdff9fa093215fc7b936b63eed429e7a9d6b920d55b3"
+      },
+      "AVGO|2026-08-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-20260902.htm",
+        "currentReportSha256": "0ddbce6ca02f1d14be7fd49550fb44b6429b6b6b56131c249434d7ab91dfbf94",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+        "releaseDate": "2026-09-02",
+        "periodEnd": "2026-08-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b00facd9b49f21d597213406fae5efcf42d3234dbf01dcab5e97a1620e0b538d"
+      },
+      "BNY|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000004/bk-20260113.htm",
+        "currentReportSha256": "3ba010b957b0b460182636f3157f5a0f4beeb42f5e7e19fd800205e3e3b91876",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000004/ex991_earningsreleasex4q25.htm",
+        "releaseDate": "2026-01-13",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "66bc278274bbc216d559a587b89a07add9a1549a04ff7eececb3704679effa7c"
+      },
+      "BRO|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/79282/000119312525251743/bro-20251027.htm",
+        "currentReportSha256": "d1375946fec529e29ca23bf98b8c85ff7549d56aeb3c9bd3acc7ffff612b9c25",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/79282/000119312525251743/bro-ex99_1.htm",
+        "releaseDate": "2025-10-27",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b5732ab0b213afe4a700da02b23fa6a65add264cfe3b0e3a3e4e3dcbb0abe30c"
+      },
+      "BR|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000138331226000022/br-20260803.htm",
+        "currentReportSha256": "3a079d356c0fdc3d516d2bb11dea4d0cf670293fd256ccb005b167a1a94fecf5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1383312/000138331226000022/ex991earningsrelease4q2026.htm",
+        "releaseDate": "2026-08-04",
+        "periodEnd": "2026-06-30",
+        "reason": "Item 2.02 identifies the press release as Exhibit 99.1 and the presentation as Exhibit 99.2. Both were published on August 4.",
+        "sourceSha256": "bbdba75cbf5dae533a9730ac7b98d88e9fca6d3d221eced33789a1464913efa2"
+      },
+      "CAH|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137125000128/cah-20251030.htm",
+        "currentReportSha256": "149c28add11c461f207b3b1a3ecb5db699aa1f5885b54d8b3fccaaf52c60bb34",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137125000128/a26q1_x093025xex991xnewsre.htm",
+        "releaseDate": "2025-10-30",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "1b0e5a0d16f695fccef7889e6dd2d87c0fe2e162b8652e2296d8fe565ca6f3e0"
+      },
+      "CAH|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000004/cah-20260205.htm",
+        "currentReportSha256": "c1429966437064af70e67137f45b4ae6cb995433c5a063dc96e9317835e5e0ac",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000004/a26q2_x123125xex991xnewsre.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "d786dfe70d5abb87577ee4f54cbdfba712b807fdfaf682671a4acb4c81a3e41a"
+      },
+      "CAH|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000037/cah-20260811.htm",
+        "currentReportSha256": "f2873d88b5da686596384bb6858ee9419dc1b2915e35af5b699947c5a78dd7a0",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/721371/000072137126000037/a26q4_x063026xex991xnewsre.htm",
+        "releaseDate": "2026-08-11",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6a210b0601f1643f230aa75d773a8b54a2d58ea31cdf5cb45fda86bb60916bd8"
+      },
+      "CME|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637525000204/cme-20251022.htm",
+        "currentReportSha256": "96ef39c42614206160907cf456b1c70190d0f09a1112ef08a154689554d522ba",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637525000204/exhibit9919302025.htm",
+        "releaseDate": "2025-10-22",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "98eb3dec52d62b73fcd6abe666a71113a1aee44b5fb3f2a969b1a53e5abc1801"
+      },
+      "CME|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000006/cme-20260204.htm",
+        "currentReportSha256": "7a8c4557785a73e78e143c8318f86f250a920e3d5b6d9bd8988804e7ef93b6c2",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000006/exhibit991123125.htm",
+        "releaseDate": "2026-02-04",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "4775ac473ad62c8eb037e3ba6dc05284c6a5a998a142ba3d09ef2c7b2ed0d49e"
+      },
+      "CME|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000042/cme-20260722.htm",
+        "currentReportSha256": "6b05fd368c38b8ede93aa2c56faa660cc3189a0beb313b63e4a731c83b46376c",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000042/exhibit9916302026.htm",
+        "releaseDate": "2026-07-22",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "1c3ffe229bd7ea194fe0c3ed911f30553f96604105240e8747e54ff0de5c0bfd"
+      },
+      "CME|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000065/cme-20261021.htm",
+        "currentReportSha256": "3285fc066f4c2c9c06aac6d8bd43af8a6b484d62c29a70ea2d3121c3b6e66ce9",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000065/exhibit9919302026.htm",
+        "releaseDate": "2026-10-21",
+        "periodEnd": "2026-09-30",
+        "reason": "The original CME release names the third quarter and reports financial results.",
+        "sourceSha256": "3cb47f7caaeba65f073196b7ee4632be2af071c0208e2bd9a70cfc7ca3859011"
+      },
+      "COF|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000267/cof-20251020.htm",
+        "currentReportSha256": "9e48acf4ed685af93c5e5b585289ea49134c846da85bdf0865467d0e17b54447",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000267/ex991q32025earningsrelease.htm",
+        "releaseDate": "2025-10-21",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "60275373e89886a604b795814bb94d3815ebd1459977c1ca1f1006c1d74e8ebe"
+      },
+      "COF|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/927628/000119312526019444/d45426d8k.htm",
+        "currentReportSha256": "5ec93970f90ed8f7efc03d549d076efa2df8b1694bebbab6f66bd50ebb0e0152",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927628/000119312526019444/d45426dex991.htm",
+        "releaseDate": "2026-01-22",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "0b27cd8264ef1af32cabbef869327503d91ca4dd43416513bb89d727975da20e"
+      },
+      "COF|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000039/cof-20260421.htm",
+        "currentReportSha256": "3fb51119778f97fda62746105ee4af5323bc52c5e0d8d064fbb170b159e70583",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000039/ex991q12026earningsrelease.htm",
+        "releaseDate": "2026-04-21",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "468c6594941bd1f17bb84917e0b38b120f0f50e6b5a85718bb3a8f904c42f49d"
+      },
+      "COF|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000083/cof-20260721.htm",
+        "currentReportSha256": "655cf6fa7ad9b7d77242a0fc899577af805e83f7429d694903b152543386278a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000083/ex991q22026earningsrelease.htm",
+        "releaseDate": "2026-07-21",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3484d13d3dec49c23832a4e26bfab8c0c404979208475b1d8381647f288b7be9"
+      },
+      "COF|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000142/cof-20261020.htm",
+        "currentReportSha256": "9285cf85c062bb86e8fe8014b42ffc25b0751f29d61cca14e3b4dc62aa57d052",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000142/ex991q32026earningsrelease.htm",
+        "releaseDate": "2026-10-20",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a6cc93df515531d592b0ad232d626e3feb4ecc7cf990ea9ceeca4f80f3339f02"
+      },
+      "COHR|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030d8k.htm",
+        "currentReportSha256": "1d4b0c6df96c581f83552e38a2f3cd369d00128f41b8948dd17558c0c10ffc7e",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex991.htm",
+        "releaseDate": "2026-08-12",
+        "periodEnd": "2026-06-30",
+        "reason": "The original August 12 Coherent release explicitly identifies the fiscal fourth quarter and year ended June 30, 2026.",
+        "sourceSha256": "44f89e65196a304eebbd59cfbe03aeb48b0aef8021bd860b394094ec59ed16c9"
+      },
+      "COP|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000056/cop-20251106.htm",
+        "currentReportSha256": "04fdf003ebec26f922c108b433d30f015e41ff0822394740fae8748bba9ca2b1",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000056/cop-20251106x8kexx991.htm",
+        "releaseDate": "2025-11-06",
+        "periodEnd": "2025-09-30",
+        "reason": "The release reports current earnings and separately gives preliminary guidance for 2026.",
+        "sourceSha256": "082921a64da5d0aa2c8544e203a237b28dbcc6e49b6ead9385f01ff75eaa7dc1"
+      },
+      "COP|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000005/cop-20260205.htm",
+        "currentReportSha256": "e78a120edddb399c88d3516d2f0ce138bcb238f6bb6689f5ebc14c2b75920bfe",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000005/cop-20260205x8kexx991.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "c177a4e8592a3b524a7673f1823b6939f23e9b3d8b56e656de49453ce9a4cbec"
+      },
+      "COP|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000016/cop-20260430.htm",
+        "currentReportSha256": "b25e387190a58febc2d1c2dfcd39907e579ea301cac0deda7a7ce62b19947d08",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000016/cop-20260430x8kexx991.htm",
+        "releaseDate": "2026-04-30",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3a5b82f147d608d47cf432d37be0444ff08ef081793220158885401abe4706bb"
+      },
+      "COP|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000030/cop-20260806.htm",
+        "currentReportSha256": "6ca2ef1fea93160d9dbb904d91ee69ecce81d5adb8d287cb75743244772f41c1",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000030/cop-20260806x8kexx991.htm",
+        "releaseDate": "2026-08-06",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "e462bf6e4541053c68f09a5fd4077f422eba26907657b89e3de91546f3f00ac8"
+      },
+      "COP|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000043/cop-20261105.htm",
+        "currentReportSha256": "f323e6bb699019b08e9612437fe6c58413be16dd26f6a5f29786e176493c80bd",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000043/cop-20261105x8kexx991.htm",
+        "releaseDate": "2026-11-05",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8b5a5f32e3fbb49b30d5ab43d72e0b7ad173bc185885e9243785d37469ac15e0"
+      },
+      "CRWD|2025-07-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
+        "currentReportSha256": "b97944ebdb1c79d447a6f96a981f87e988b3c95160b1f03f0d46fa3de9af9d73",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20252708xex991.htm",
+        "releaseDate": "2025-08-27",
+        "periodEnd": "2025-07-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "c0850d4317563beeab7995feaad02da3d432a4e9e752fcd39a9816890e06e128"
+      },
+      "CRWD|2026-01-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+        "currentReportSha256": "56a3c5360fe522a993ba5be9565e16f488a25c0d1d40da8b42f431f8198a62e6",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+        "releaseDate": "2026-03-03",
+        "periodEnd": "2026-01-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "cdda73ddb6a382220fa0cd4cdfefd455a9bcc6a45dd9ed9722616970d4d3ed12"
+      },
+      "CRWD|2026-07-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+        "currentReportSha256": "a01d551ecc34d748f7f312b751ad13571f868904731555b4208f788240ad8d3a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+        "releaseDate": "2026-08-26",
+        "periodEnd": "2026-07-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "fe8077d0c5f84bb1de3681aaadedab57d3fcb15937579755328ce588f775f6f9"
+      },
+      "C|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465925099097/c-20251014x8k.htm",
+        "currentReportSha256": "9e0f26acd44fbb385af82b02769109a2e41cc10abfef476f1fc9fcfc89cef91f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465925099097/c-20251014xex99d1.htm",
+        "releaseDate": "2025-10-14",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a6a490bc93cf73add0a1a62e3a7b31e3c1ea449e091954e17cbe8c8c8b43a9d0"
+      },
+      "C|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926003604/c-20260114x8k.htm",
+        "currentReportSha256": "fd3b160514687d3ea7f92a2744705d76d7a6763e7b5650be52f13b5e780c0687",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/831001/000110465926003604/c-20260114xex99d1.htm",
+        "releaseDate": "2026-01-14",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "fdf85c7c9ae4ea1c8a1c192996175c961045a72673c4664447896201579e63c3"
+      },
+      "DELL|2025-08-01": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199625000096/dell-20250828.htm",
+        "currentReportSha256": "4194abeb2890e68108d59a879841df4d0da4a658bc9afc7b3e9a287dce72cb80",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199625000096/exhibit991earnings8kq2fy26.htm",
+        "releaseDate": "2025-08-28",
+        "periodEnd": "2025-08-01",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b0f1bf518f9e855dd743258c8d5f692327b43be34552ae6a1c2b78144ad2f121"
+      },
+      "DELL|2025-10-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199625000118/dell-20251125.htm",
+        "currentReportSha256": "b56f665753486559a757dbd04c6d45147141ecacb6f5341db17808a1d922d77d",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1571996/000157199625000118/exhibit991earnings8kq3fy26.htm",
+        "releaseDate": "2025-11-25",
+        "periodEnd": "2025-10-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "4d002be4cfb3192bfd0c0480cbcb5aee32b4478205468a3a5b6a4ec08f001496"
+      },
+      "DHR|2026-03-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000109/dhr-20260421.htm",
+        "currentReportSha256": "a293d2a2a2cdad673f435c2a755a53b44843f2bdb49045beaa70b0ac7316f395",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000109/dhr-20260421xex991.htm",
+        "releaseDate": "2026-04-21",
+        "periodEnd": "2026-03-27",
+        "reason": "The release names the matching quarter and labels its measures as continuing operations. The existing metric source controls the stored figures.",
+        "sourceSha256": "553906881d2c2387b8da2ea28204b663b68aea6a33c45efd6e6d3fc004b3cf6e"
+      },
+      "DHR|2026-06-26": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000163/dhr-20260721.htm",
+        "currentReportSha256": "4d3a3edd9ed93aabf29c0e5bee048cf7082f888ff23cd23e4284dc69d92182b5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000163/dhr-20260721xex991.htm",
+        "releaseDate": "2026-07-21",
+        "periodEnd": "2026-06-26",
+        "reason": "The release names the matching quarter and labels its measures as continuing operations. The existing metric source controls the stored figures.",
+        "sourceSha256": "4549ed16097ff7dd8fa724b94b8d726ec6283014e038cc6df4b2a01e122e544d"
+      },
+      "DHR|2026-09-25": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000201/dhr-20261021.htm",
+        "currentReportSha256": "ecbaa04e9527510ab63915c9b13ff43596218b255c0476394d2b7c551cd98e5d",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000201/dhr-20261021xex991.htm",
+        "releaseDate": "2026-10-21",
+        "periodEnd": "2026-09-25",
+        "reason": "The release names the matching quarter and labels its measures as continuing operations. The existing metric source controls the stored figures.",
+        "sourceSha256": "aa60f90ed95d55189f363031c536a61e5256c2c4cb44098f4023cef5d241bfde"
+      },
+      "DVN|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526054657/d111666d8k.htm",
+        "currentReportSha256": "4e14c41a51b3787d4381a5b8d719606bbcc57f411048da1af07791e439a97243",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526054657/d111666dex991.htm",
+        "releaseDate": "2026-02-17",
+        "periodEnd": "2025-12-31",
+        "reason": "The original release identifies and reports the fourth-quarter results.",
+        "sourceSha256": "af74a9f6e23d99734e5e4eca1e2c107dac3e4a8531c27963712f8855a85c7c9c"
+      },
+      "ERIE|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828025047550/erie-20251028.htm",
+        "currentReportSha256": "3aca3da2e16a441615b54b14c4ee47e2e3b908efa7add6215915ed1628319fde",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828025047550/ex-99109302025.htm",
+        "releaseDate": "2025-10-30",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "17427c0a0ff95b513fd506f7d33f4face33861a59a1566712b2c2dd88d6fbee1"
+      },
+      "ERIE|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026026857/erie-20260421.htm",
+        "currentReportSha256": "a168c8e7c7be1c614adce0df4b1518112313f8e3eb583203bf98ef717166191f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026026857/ex-99103312026.htm",
+        "releaseDate": "2026-04-23",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "5fd12e834d17a9787789e09866dcfa7732cd6016870a67cee35d43e63e98669e"
+      },
+      "ERIE|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026051071/erie-20260728.htm",
+        "currentReportSha256": "d14bcb49c82747a80f1b8ee07f1df3ee4e6177ba1b84ef25f0bd74af2ff85958",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026051071/ex-99106302026.htm",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "7bab4bd3fab4a8e26952cf239c7084772f1abb54c7c765e43549c1676c670f7e"
+      },
+      "ERIE|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026068265/erie-20261029.htm",
+        "currentReportSha256": "61e0dd3c7f876a21058f7a1e370baca67c059e28a0fd189ecefc358e2ecf2a7b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922621/000162828026068265/ex-99109302026.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "ad90e9d3d45cafda74066e2a50fd76493aee6514f28d62a82b206bf1ea13ab45"
+      },
+      "ES|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_8k.htm",
+        "currentReportSha256": "949737a8779683cdb08c0c9c592067bca0c1a7fd2fcf7a71a18b35101549b191",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/72741/000110465926014302/tm266120d1_ex99-1.htm",
+        "releaseDate": "2026-02-12",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6e01d277dbc4f0224e6a44a6a3f0b6ced9107e51e9ade4a0d674889a231fe3dc"
+      },
+      "FDX|2025-11-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000076/fdx-20251218.htm",
+        "currentReportSha256": "4bcbcda1515cf8d35bf9598e3f3c904299d65f904f79fc7d9dbd8061a408f101",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000076/fdx-earningsreleasefy2026q2.htm",
+        "releaseDate": "2025-12-18",
+        "periodEnd": "2025-11-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "e8526ec930c4cb7ace9194659759ee51e984d801b9f0f972da60197410b9c296"
+      },
+      "FDX|2026-02-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000010/fdx-20260319.htm",
+        "currentReportSha256": "92091deeed097bb0f75a915dcb74fa57a1a9c4ddff4b70050b8e7cb72e18fc14",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000010/fdx-earningsreleasefy2026q3.htm",
+        "releaseDate": "2026-03-19",
+        "periodEnd": "2026-02-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8e36ec931e721022fff7a9946f9b5c1101b30e2700b5fd6bcdbdfd4c1b16d8c5"
+      },
+      "FDX|2026-05-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-20260623.htm",
+        "currentReportSha256": "80a4e04778a9bdaf6cc036a948b5487449efa485e4986d65afbcf644b975a103",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-earningsreleasefy2026q4.htm",
+        "releaseDate": "2026-06-23",
+        "periodEnd": "2026-05-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6924aeb9dbd20b255faffd1ca766e6e816586cab6c117f6dcfbfe46350e777db"
+      },
+      "FFIV|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000153/ffiv-20251024.htm",
+        "currentReportSha256": "6d53739428e5bbdafe83d71955eee01843b063a61c8c8a0d8b2b030452f83d79",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000153/ex991-q425earningsreleasef.htm",
+        "releaseDate": "2025-10-27",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "9d6381840392abae3c9dc58c125e35c0efa084e9279d012fa5969100a66f59c1"
+      },
+      "FFIV|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000042/ffiv-20260428.htm",
+        "currentReportSha256": "5c32053a5fae0d2d8809dc01899bee005a4ec4dd5fc931b32ac17f6fcd3303ca",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000042/ex991-q226earningsreleasef.htm",
+        "releaseDate": "2026-04-28",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8567c5524b16b3b8721d513591e5c6d4dc12885622faacd39fbad21b5b10b8ca"
+      },
+      "FFIV|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000063/ffiv-20260727.htm",
+        "currentReportSha256": "2e91747735b30d3ed31b3074a07ffe394e2a70ecdb3571c57487a81a5b794f18",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000063/ex991-q326earningsreleasef.htm",
+        "releaseDate": "2026-07-27",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6768ed7d32675d98b8043700e5fb915f711f2dd9a255dc18946a0696f8835381"
+      },
+      "FFIV|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000074/ffiv-20261023.htm",
+        "currentReportSha256": "98c7660c98fb0a3cc593acd50a633518490066890265868665dceff88a8de47d",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000074/ex991-q426earningsreleasef.htm",
+        "releaseDate": "2026-10-27",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "d3aa2d88f414b3f55586228825627b9fc49b80b6a67f5ca0b9ba85df1cb203c9"
+      },
+      "FICO|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000020/fico-20260428.htm",
+        "currentReportSha256": "d08228b98ea48b00775b523ee0dcc641757ab7b63b481bb202329ac7a2b223d3",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000020/exhibit991erq22026.htm",
+        "releaseDate": "2026-04-28",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3505328ba8e3513788e0c877c0919a2c8f8bb34ff02f40b0025759edc2678613"
+      },
+      "FICO|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000031/fico-20260729.htm",
+        "currentReportSha256": "77f7cf22168ba4746e8bdecad28261ac1fac92acc45f491ae77c9974740cfb25",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000031/exhibit991erq32026.htm",
+        "releaseDate": "2026-07-29",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "d12a56b1d486102976b639474f853f6825bdcf70df3a4f3130e54efc4c7982f2"
+      },
+      "FISV|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000006/fi-20260210.htm",
+        "currentReportSha256": "ccfe4d0d9fd7af5aaae335fb80985ce21166d95632a3af6e529a43d62586be98",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000006/fisv4q25earningsrelease.htm",
+        "releaseDate": "2026-02-10",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "718a02befcc96cf5c308f4b90d9aae4e014cf22e9d5c569f2db8df48560468ff"
+      },
+      "FTNT|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000003/ftnt-20260205.htm",
+        "currentReportSha256": "a37d11c24da63c2213e01179c058ebbf5dfb5c7228e761e467553fdc81c8e9f4",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000003/ftntq4-2025ex991.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6192c8847d0ab96b7f5fd5837ba40a4a82a0c7e37f67f28727efed5a75f5ddb1"
+      },
+      "GD|2025-09-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053325000043/gd-20251024.htm",
+        "currentReportSha256": "6a856530197ceeed6abcb3f40328d20716d1aa32a5dd0993d8e100d9a3964ff6",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053325000043/gd-20250928exhibit9911.htm",
+        "releaseDate": "2025-10-24",
+        "periodEnd": "2025-09-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "47f1d7dc649109a0b0fea80891314a244c5446c25e143f035340fced5a465969"
+      },
+      "GD|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000003/gd-20260128.htm",
+        "currentReportSha256": "08b6f0b5f102614829fac053be491b2795f0a56d0d16be5c16052a60a4b75e9b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000003/gd-20251231exhibit991.htm",
+        "releaseDate": "2026-01-28",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "98dce1a96b4a3fb3d9d91f4d829c700a4decd489223e7006ee6ac1f582b486a6"
+      },
+      "GD|2026-07-05": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000029/gd-20260729.htm",
+        "currentReportSha256": "febf1f252fa950fa382962f37dd6985c2bc734b51c35ca369899f8213cf7d3f4",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000029/gd-20260705exhibit991.htm",
+        "releaseDate": "2026-07-29",
+        "periodEnd": "2026-07-05",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "2ee7cc4c36dc6ea33a1048da6e7a326b914b90bee78019e3aa936f289a14f1c6"
+      },
+      "GD|2026-10-04": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000036/gd-20261030.htm",
+        "currentReportSha256": "9ccf29b0f2c9ccd730fc16ee2d3d9cf1d5e0124b25efc58b14025e4c1df8eb3b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000036/gd-20261004exhibit991.htm",
+        "releaseDate": "2026-10-30",
+        "periodEnd": "2026-10-04",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "e26ced7b2dcda840ae67ec543560d276fd6896196249237a7c493d354ece1195"
+      },
+      "HII|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158525000109/hii-20251030.htm",
+        "currentReportSha256": "4d0cd84185905089f8f108cab4b35428611ad60ac393a38cf2fdfe5980d71e53",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158525000109/hii2025q3earningsrelease.htm",
+        "releaseDate": "2025-10-30",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "de0dcaff4e9e91a49bcf53a10ca380ccd978f763b2474375d354651554c3fcb4"
+      },
+      "HII|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000004/hii-20260205.htm",
+        "currentReportSha256": "80cd45229e8a97c99c87e42f0973bdc49ddb4d36aa206f7f08c39452a8daf0b1",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000004/hiiq42025earningsrelease.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "5d4ca12bbf2310a35f8b4787bf6af50b23b01217d4c762a472293a4644ad0895"
+      },
+      "HII|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000027/hii-20260505.htm",
+        "currentReportSha256": "c82253dab5a6a65b39529a8c08c51a6175315844f58a6d5458271b3222346815",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000027/hii2026q1earningsrelease.htm",
+        "releaseDate": "2026-05-05",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6665c829df89e2366de4c098bd3f7370105bf59888f8c6f4f6394c53afe350d8"
+      },
+      "HII|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000045/hii-20260730.htm",
+        "currentReportSha256": "e11e4532b4fdfaa137b19bb64b2ed5de9e750031ca85502e40c41def40a3bb17",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000045/hii2026q2earningsrelease.htm",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "cb778afabb6dd7f7b009efa2d09ff842276e0bb627633142059347598a92d15d"
+      },
+      "HII|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000054/hii-20261029.htm",
+        "currentReportSha256": "850f1759909c6e8add476ca43009e2fb0510fe54c4f9333157517a445a6bc2cc",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000054/hii2026q3earningsrelease.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3f0e49219fe7894fa2dafba6ffa6a564b2cadc58b221b2b38838b90f88174e16"
+      },
+      "HOOD|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000013/hood-20260206.htm",
+        "currentReportSha256": "e6ba39cd487bd976e08f3b89fdfadc96486801729945c7894421d5052370486e",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000013/q42025robinhoodexhibit991.htm",
+        "releaseDate": "2026-02-10",
+        "periodEnd": "2025-12-31",
+        "reason": "The dated announcement states that the fourth quarter and full year ended December 31, 2025. Its September comparative is a different period.",
+        "sourceSha256": "5b421bc4809964b84c07c4ee7cc7fefcaa8e1205d637967bc52513223f6c8142"
+      },
+      "ILMN|2026-06-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000155/ilmn-20260730.htm",
+        "currentReportSha256": "da28f4553ee8b0221fe15e8403ac5ca2385e10fc2a8b6ce0cd7c6e85ff8b064b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000155/q226earningsrelease.htm",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "ebd35d438703de6c97cd314f3704055b6f8f8f9df0b4d79cca523893a7c6fb30"
+      },
+      "ILMN|2026-09-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000202/ilmn-20261029.htm",
+        "currentReportSha256": "ce2ef04098883194208e653ad2000ccb201fe89ca7c6360dd88aef44290ea713",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000202/q326earningsrelease.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "e7916561a616c7e84852ccda1b12aec3ec9eab728c0a77b0b02cf406ee53598a"
+      },
+      "INTC|2025-09-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000169/intc-20251023.htm",
+        "currentReportSha256": "47f0dc229e7fb8468a87e0bbf88ee734d7df44cb393a38b29738e0aacf5e6559",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000169/q325earningsrelease.htm",
+        "releaseDate": "2025-10-23",
+        "periodEnd": "2025-09-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "0dfbccb65efc459cda274bd45cb88164d79dea31c55efa9b4fa2380d9e2a56ac"
+      },
+      "INTC|2025-12-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/intc-20260122.htm",
+        "currentReportSha256": "b0feb535679d678550080e0a884e148e48577cd58a1d7161cd43ca62bf8f7ccf",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm",
+        "releaseDate": "2026-01-22",
+        "periodEnd": "2025-12-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b95b5d19933fa3a9bd629562686562bb6f968476dc0a1ef49c8748913df0948c"
+      },
+      "INTC|2026-03-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000077/intc-20260423.htm",
+        "currentReportSha256": "0f2fc1f9630c0ed673293b29f8dccc6dbc8b59b714494b84dc746f2db7307e0c",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000077/q126earningsrelease.htm",
+        "releaseDate": "2026-04-23",
+        "periodEnd": "2026-03-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "812d430138b337b6716845d65244543a48974297604b151f5e9d37facda2df7a"
+      },
+      "INTC|2026-06-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/intc-20260723.htm",
+        "currentReportSha256": "0e394092257eb07f2b9d3f524f845545dfdeba011ad20b71168187df8de44642",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm",
+        "releaseDate": "2026-07-23",
+        "periodEnd": "2026-06-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "367162c0295d676917d239419adab9cacf3021306cf9ff1b3bb16f0b2876dc64"
+      },
+      "IR|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828025047573/iri-20251030.htm",
+        "currentReportSha256": "5f3bb28dba8be0024e4a9bcbc05927920c0ae0753b276cad7f4354da1ea4d93b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828025047573/ir2025q3ex991.htm",
+        "releaseDate": "2025-10-30",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8412a77b6e52936f459317abd437d511e06c3a7dac54655c9a0989d7399e26f5"
+      },
+      "IR|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026027949/iri-20260428.htm",
+        "currentReportSha256": "32aad33e7604f2d62958f79b8ca1a348c4a09c364dab936469cf68fa7f015647",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026027949/ir2026q1ex991.htm",
+        "releaseDate": "2026-04-28",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3cfb190a3ad9cb0e40f9fae03537eece1a5175a72860f51c1362050226986428"
+      },
+      "IR|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026051068/iri-20260730.htm",
+        "currentReportSha256": "2880beaf366b5f67b60ba650718ab8e447efa00bdd711e5913625860914ecb28",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026051068/ir2026q2ex991.htm",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "cd578c8c68a557dff8208a2db23e3eff8f0b45eb3e10f3195b788a944dce3c50"
+      },
+      "IR|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026068260/iri-20261029.htm",
+        "currentReportSha256": "7206e42399cf4b3cf8f6a4cb8f3394b4565ede58212093affc30e46c46c9dc9a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026068260/ir2026q3ex991.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "1534eca2c1f914450428b927646fbd1f6d290563fd7cbd9d0f849cced2cd9753"
+      },
+      "JBL|2026-02-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm",
+        "currentReportSha256": "60459ce23799c02dacc68b755ec78765ae3c51ec76b1975ba4c6cc5df4bdc05d",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318ex991.htm",
+        "releaseDate": "2026-03-18",
+        "periodEnd": "2026-02-28",
+        "reason": "Jabil first issued its actual quarterly results as preliminary and unaudited. The subsequently filed 10-Q confirms the release’s GAAP diluted EPS and net revenue.",
+        "sourceSha256": "9bb8ac3c8fe5fe31cb185f73881b7b398645e402915f15de593ac0c4a45e6232"
+      },
+      "JBL|2026-05-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm",
+        "currentReportSha256": "6cacc98d5562d306d19ca86b845acdb0513fa667b5a61a0829c9b9a766eda1d7",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617ex991.htm",
+        "releaseDate": "2026-06-17",
+        "periodEnd": "2026-05-31",
+        "reason": "Jabil first issued its actual quarterly results as preliminary and unaudited. The subsequently filed 10-Q confirms the release’s GAAP diluted EPS and net revenue.",
+        "sourceSha256": "1a70f6c9786073db67f048b570d12a5c187825207d5c871ecf300e76fa15e85a"
+      },
+      "JCI|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000047/jci-20260506.htm",
+        "currentReportSha256": "8fd8cb496fcf041d108d5403d9affd3d4fb3c97f64fe8392119e38b11daf361f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000047/q2ex991xq2fy26earningsrele.htm",
+        "releaseDate": "2026-05-06",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "4521a3620e37c3174daa5740b3c3a38895bc7dd4162e1644be5f69853eb5eca9"
+      },
+      "JCI|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000083/jci-20260729.htm",
+        "currentReportSha256": "94e59c6b63b47fabe3d6bc662230394781a5860a0f6664e1565e2ff43984c1b8",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000083/q3ex991xq3fy26earningsrele.htm",
+        "releaseDate": "2026-07-29",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "add340244e8e179769b05ca27809d0edb97ecaeb285765210d6fabb63b5c666c"
+      },
+      "JNJ|2025-09-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000201/jnj-20251014.htm",
+        "currentReportSha256": "b39873fc2c580f3901edf6702b965ab3e3bd30d9f480994da5c1be568688bc1d",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000201/a2025q3exhibit991.htm",
+        "releaseDate": "2025-10-14",
+        "periodEnd": "2025-09-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3b72770c61b629fbfeb3de7f2704fea2d6749b2ecee7c6b789d0fbc83e6281d6"
+      },
+      "JNJ|2026-03-29": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000076/jnj-20260414.htm",
+        "currentReportSha256": "5b397ec38e39c5af0b922f93230458544f0bb71da8f3d46587828e87f1fe7f7c",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000076/a2026q1exhibit991.htm",
+        "releaseDate": "2026-04-14",
+        "periodEnd": "2026-03-29",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "40ab40fccbe7cf5d82ced79378c4208ba63f59c043767de80735512c4049c88c"
+      },
+      "JNJ|2026-06-28": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000146/jnj-20260715.htm",
+        "currentReportSha256": "7d600d6c851a8e527deb86eefa153f602881fe61134821adb09aed7e1fb11b06",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000146/a2026q2exhibit991.htm",
+        "releaseDate": "2026-07-15",
+        "periodEnd": "2026-06-28",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "160e024ce62b600fce31cb67aa1faecfc0394e157030e7bc4bd0bf4d8f3d294f"
+      },
+      "JNJ|2026-09-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000189/jnj-20261013.htm",
+        "currentReportSha256": "ef765b01a600855606d6dba6914ab472663017f38089393a5694a6f89d2b84da",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000189/a2026q3exhibit991.htm",
+        "releaseDate": "2026-10-13",
+        "periodEnd": "2026-09-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "4053316caf48f6eebf5fd092d21741323b0d4f60e084126d9f1656f8c2df964c"
+      },
+      "LIN|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_8k.htm",
+        "currentReportSha256": "da41f1302541b277e505a02e678188aad7e4d1103e3ddf6ac369b40c5941aaa9",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1707925/000165495426000913/lin_ex991.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a5bc55dd95b2b98cd38caffef2c9c79d7e628374fbfb611c021b844bc0e1acd6"
+      },
+      "LMT|2026-09-27": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066780/lmt-20261022.htm",
+        "currentReportSha256": "6d90e30e971032b6bc42f9d907e62ea6cdb54dd6e76e86d190efa4fce34222ab",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066780/ex991q32026.htm",
+        "releaseDate": "2026-10-22",
+        "periodEnd": "2026-09-27",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "ba649e972ca57088cc2a024910ea9e7e6fe29925b645d0078174ef75f92aaa1f"
+      },
+      "LULU|2025-08-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718725000038/lulu-20250904.htm",
+        "currentReportSha256": "a576a7fd5f18ef0ea4c8baaf9d8aa09f20d2de43afa4b56eec3698d9368d3ad5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718725000038/lulu-20250803xex991.htm",
+        "releaseDate": "2025-09-04",
+        "periodEnd": "2025-08-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "21855e2aba3161ccc16caa9bbeb6fbbc07a6c609c0a7cd8d8913adffd481c53f"
+      },
+      "LULU|2025-11-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718725000054/lulu-20251203.htm",
+        "currentReportSha256": "468b21ade36c845923e615bbe37961358944590dc28e42c8897b9b549ac472b0",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718725000054/lulu-20251102xex991.htm",
+        "releaseDate": "2025-12-11",
+        "periodEnd": "2025-11-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "eb884eeac6af7698802442a293e43bee8674acebe14e57a4de4fa71c74ffc842"
+      },
+      "LULU|2026-05-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000077/lulu-20260604.htm",
+        "currentReportSha256": "cc677afe5b894386f7e9b711bf2a69d13129bcc63f37a47c32f8302be0a82656",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000077/lulu-20260503xex991.htm",
+        "releaseDate": "2026-06-04",
+        "periodEnd": "2026-05-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "bfbe3c85fa5bd4ec21db9d3da3f2c5c1e108533af66d86d9e548a42245b463f3"
+      },
+      "LULU|2026-08-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000126/lulu-20260903.htm",
+        "currentReportSha256": "9107f612e49e67088f0d2b710d9faeca754031a207a8ba85863839ffd0bb6cb5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000126/lulu-20260802xex991.htm",
+        "releaseDate": "2026-09-03",
+        "periodEnd": "2026-08-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "ac408ad2779fca9b0537b0b6becfb48412a3f9a322f6ca625fbe21c1b865d995"
+      },
+      "MPWR|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026051029/mpwr-20260730.htm",
+        "currentReportSha256": "5ec408b63a248b2dae709db8d6fa64629d40f6aaa16177976e993f156b94007a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026051029/mpwr-20260630xexx991.htm",
+        "releaseDate": "2026-07-30",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "11dad6e25b1a699a17b68d6f82f864f65c60a8ad0005b0e59599755865f362f1"
+      },
+      "MPWR|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026068202/mpwr-20261027.htm",
+        "currentReportSha256": "7daef443338c6b1b887d3035aad60c9f091141b6ed7d3cf45f324c59980d4184",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026068202/mpwr-20260930xexx991.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "d9bf0e0d29a221e01efe14a8597760e3f5415def6bab0a9733178d5027886347"
+      },
+      "MRK|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_8k.htm",
+        "currentReportSha256": "36185f9a4710d680e5464bfdc350bd8c1cfcad6101978aedfe84dd8b704c4fe6",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/310158/000110465926009495/tm264564d1_ex99-1.htm",
+        "releaseDate": "2026-02-03",
+        "periodEnd": "2025-12-31",
+        "reason": "Item 2.02 identifies the February 3 original earnings release as Exhibit 99.1. Exhibit 99.2 consists of supplemental statements. The 10-K confirms the fiscal-year end.",
+        "sourceSha256": "a3551b6b75586671524243d2c69da875f1f1c41ae4e41e05791776c1df55d670"
+      },
+      "MRNA|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000073/mrna-20251106.htm",
+        "currentReportSha256": "8fdb5b55584251aba26575a647c642145b8cbe5710f69c17d20b14178914ba71",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000073/exhibit9912025q3pressrelea.htm",
+        "releaseDate": "2025-11-06",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "772973e49a8b7df639aaaf8fd4975dcec04e16c2e28d99bf1d6a76d8f216fcbf"
+      },
+      "MRNA|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000015/mrna-20260213.htm",
+        "currentReportSha256": "9f12970aaf5ec6d1cb9f25cf794bb0bd92c0412c8cd12f6ea32539b8eb126bfc",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000015/exhibit9912025q4pressrelea.htm",
+        "releaseDate": "2026-02-13",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "577c1e728f33aaa21d0dbd393314b497068fbff4784152f172411c6bedefa37b"
+      },
+      "MRNA|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000147/mrna-20260731.htm",
+        "currentReportSha256": "dd66cbfdc4e4dbb7348382de9583083db19522a9a580379dc52159a06c66b960",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000147/exhibit9912026q2pressrelea.htm",
+        "releaseDate": "2026-07-31",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6ae3255bca3a9cb52da0514ab84cb11986edcc3c6c0ed98e4989bf6ad2ac01cc"
+      },
+      "MRNA|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/mrna-20261106.htm",
+        "currentReportSha256": "8ba22e26726d47bbe2e44a6ecc3bddd1f4ed18f3ba6fd4f3dff42d44665761b0",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+        "releaseDate": "2026-11-06",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "5120c9f6586bfe3793649a38c795328464b803f2ef4d4e5ab6c29b3af8890294"
+      },
+      "NFLX|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000404/nflx-20251021.htm",
+        "currentReportSha256": "3867cc48d7074a846ddfbfebef8a2f0f0f4935acd702b2683fba1fd54fed298b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000404/ex991_q325.htm",
+        "releaseDate": "2025-10-21",
+        "periodEnd": "2025-09-30",
+        "reason": "The original dated shareholder letter presents current-quarter results. The Form 8-K identifies the date and exact period end.",
+        "sourceSha256": "a42b91cdf6be9a5e0bb29ba963be2bf782cc69ec74429bf337d419c71e4d8ebc"
+      },
+      "NFLX|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/nflx-20260120.htm",
+        "currentReportSha256": "080cfd8cd51d697397980aab407720ac498b70d45adbcd59dd4a6b599d14cd40",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm",
+        "releaseDate": "2026-01-20",
+        "periodEnd": "2025-12-31",
+        "reason": "The original dated shareholder letter presents current-quarter results. The Form 8-K identifies the date and exact period end.",
+        "sourceSha256": "195474ca3d0ce93faf718bba82c4e9689fc8658a34c4726e6ab6079a0f965a5b"
+      },
+      "NFLX|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000211/nflx-20260716.htm",
+        "currentReportSha256": "af2f20f86758959fba8866dfad3698670ea4e2de6eb27f5ff19493f8d3bd0697",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000211/ex991_q226.htm",
+        "releaseDate": "2026-07-16",
+        "periodEnd": "2026-06-30",
+        "reason": "The original dated shareholder letter presents current-quarter results. The Form 8-K identifies the date and exact period end.",
+        "sourceSha256": "9a1a86f2e9a8c38dde43ff4514dd057489297e322a382944c5362eef4e4efa51"
+      },
+      "NFLX|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/nflx-20261020.htm",
+        "currentReportSha256": "ab4342a9411f8caa2269adcdd7b1b684cf923a28050f22c7a8bea9dfe73bc890",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm",
+        "releaseDate": "2026-10-20",
+        "periodEnd": "2026-09-30",
+        "reason": "The original dated shareholder letter presents current-quarter results. The Form 8-K identifies the date and exact period end.",
+        "sourceSha256": "37e8ca73b6cc2c7232a34daa081bb883f3d4674c2084ceddf1267a738289ee23"
+      },
+      "NTAP|2026-01-23": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm",
+        "currentReportSha256": "49dd580c40d3e20e789c5809967810e8bebe44a2c8323baf2e469e8f3b30fc57",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-ex99_1.htm",
+        "releaseDate": "2026-02-26",
+        "periodEnd": "2026-01-23",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "fb0859a84a7861816baefacc670fe0ab2634427b798744bfd7ff050610bb6879"
+      },
+      "NTAP|2026-04-24": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm",
+        "currentReportSha256": "74c521926dff2982d0116c95f19ac78f179b4cc77e5682870d78f952c4f758b5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-ex99_1.htm",
+        "releaseDate": "2026-05-28",
+        "periodEnd": "2026-04-24",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "5613531c6d2e3667334225c1f76a6dcd5da1ac9c1300e9aaba89c78341626fa5"
+      },
+      "NTRS|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312425000244/ntrs-20251022.htm",
+        "currentReportSha256": "3dc79de53860cc1f5f6c44706bd3316f09f3daba321f92b4ec9d9a99af8d6c9a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312425000244/q32025earningsreleaseex991.htm",
+        "releaseDate": "2025-10-22",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "220eea70a6a8f417ca3ee2fcdd014462b0062891d7543c95b50fb27b450c2a56"
+      },
+      "NTRS|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000028/ntrs-20260421.htm",
+        "currentReportSha256": "dd7cb7c8e3fa28e417b1d3ff9166949653bc0ef544eb9f58c45ba173ac2b9b2f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000028/q12026earningsreleaseex991.htm",
+        "releaseDate": "2026-04-21",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "ea147cc29fda04d2694e63c5e3f1da1d4b9db0b8185eed42382382b3889c7a90"
+      },
+      "NTRS|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000043/ntrs-20260722.htm",
+        "currentReportSha256": "7482aa56a41ae45a0de45d2ad9313f2012efe5642cdb121f0c147f0240579c84",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000043/q22026earningsreleaseex991.htm",
+        "releaseDate": "2026-07-22",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "347708bfc50a6dda96794a01d1f34835d892b3c7ff9490c6b670e98bfc8b7624"
+      },
+      "NTRS|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000063/ntrs-20261021.htm",
+        "currentReportSha256": "f985e7a4b4ac2c288872954971a38896e46e25010752d873b7c887a32d57104b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000063/q32026earningsreleaseex991.htm",
+        "releaseDate": "2026-10-21",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "eed0eb1378a0f57233a15f768e4ea9f6c86d22fdd4b142312e70be170dc44d3a"
+      },
+      "NUE|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933d8k.htm",
+        "currentReportSha256": "7e2ebd7a8f64027db6d2d91ac8249a518832d3129de31735fa6e2ee3e1162170",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/73309/000119312526022733/d20933dex991.htm",
+        "releaseDate": "2026-01-26",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "066b4ae0d3e4b75c30a37f608f221f8ab753c8266841e349632752a3f5f89a18"
+      },
+      "OKE|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/oke-20260223.htm",
+        "currentReportSha256": "1cf078a712295c5a06dbef489f1b60a485eab8b9a11eb832ce41a19eccd1ca09",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000004/okeq42025earningsrelease.htm",
+        "releaseDate": "2026-02-23",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "24471e60285c02d44cd163fc2aa62ff48061c6601184bfda29636b609dc232a5"
+      },
+      "OXY|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828025051056/oxy-20251110.htm",
+        "currentReportSha256": "9cb71eba59cd0a4c5ec949b40fad4f523cb948dba389e211e25b3769446015bd",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828025051056/oxyex99109-30x25earningsre.htm",
+        "releaseDate": "2025-11-10",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "47b75b4704e328497662754146a3eb2c6cd512a5b8de1bafdc35026b61264a86"
+      },
+      "OXY|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026030567/oxy-20260505.htm",
+        "currentReportSha256": "6d468b1c1c77b89e78be3333cf644957b8ef7c4e19d791fa2a582359a3994822",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026030567/oxyex9913-31x26earningsrel.htm",
+        "releaseDate": "2026-05-05",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a0b67add33704ff2fc61b13d3fda7cf14673410f493eb3ffe95f173924d43955"
+      },
+      "OXY|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053377/oxy-20260805.htm",
+        "currentReportSha256": "c09dabb36851fba64160fca83f3b10aa80aa2a68067d5723ba8aa8e0d6317ff9",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053377/oxyex9916-30x26earningsrel.htm",
+        "releaseDate": "2026-08-05",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "f0922b0b97a33c38b3ee60319af6d3363dc0d13828c7a24b221896c64df79dd6"
+      },
+      "PANW|2026-07-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/panw-20260901.htm",
+        "currentReportSha256": "56902e1ee4d05df30a100eee930faaf52c4d5e50b7d4c301db90bdc25542ec91",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/ex991q426earningsrelease.htm",
+        "releaseDate": "2026-09-01",
+        "periodEnd": "2026-07-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "aa1eef92048af1c298176009ec8f2806d72d1cc80131132ce65db9d2a7c8126c"
+      },
+      "PNW|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/764622/000076462225000086/pnw-20251103.htm",
+        "currentReportSha256": "113de1f0d4faa13fbf6a74449290b09387dc52af31fe2f01f58d3d4311452e30",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/764622/000076462225000086/a8-kpnw093025exhibit991.htm",
+        "releaseDate": "2025-11-03",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "d3d08f197b8be24ba565d1e267a1120308c654304376497db80518e3b4faa24c"
+      },
+      "PNW|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/764622/000076462226000026/pnw-20260502.htm",
+        "currentReportSha256": "e3cb5078be875bce94cb2f14a67eb8734cc27f70e60755086622c065ece8fc26",
+        "originalReleaseUrl": "https://www.pinnaclewest.com/newsroom/company-news/news-release-details/2026/Pinnacle-West-Reports-2026-First-Quarter-Financial-Results/default.aspx",
+        "releaseDate": "2026-05-04",
+        "periodEnd": "2026-03-31",
+        "reason": "The SEC exhibit’s year in the dateline conflicts with the Item 2.02 statement. The issuer’s original release confirms May 4, 2026 and the quarter ended March 31, 2026.",
+        "conflictingExhibit": "https://www.sec.gov/Archives/edgar/data/764622/000076462226000026/a8-kpnw033126exhibit991.htm",
+        "conflictingPrintedDate": "2025-05-04"
+      },
+      "PNW|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/764622/000076462226000051/pnw-20261103.htm",
+        "currentReportSha256": "2d41214a5377f09a92419dd97cdc760ea855b90dccb885fa72b7fc520f535ab5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/764622/000076462226000051/a8-kpnw093026exhibit991.htm",
+        "releaseDate": "2026-11-03",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "19695dbd77ebef30c4eb517ae8faca8e39a5b85496bdcf3c88900d0eb7fa6272"
+      },
+      "PPL|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/922224/000092222426000042/ppl-20260807.htm",
+        "currentReportSha256": "05ca26d9be0a844cd69ff45b7f2270d13aad80557fd32654c536cee761aad2d8",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/922224/000092222426000042/ppl-6302026exhibit991.htm",
+        "releaseDate": "2026-08-07",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "5d63e6998b89b89373bab3481ecce9b9cc0a9b9a51fa95bfd09d8e1cd4f9e1cd"
+      },
+      "PSX|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470125000153/psx-20251029.htm",
+        "currentReportSha256": "b4a62bb09a6535d78da7b90e9423592f4fc9698f1f5fe482e49255cc6c0e4ca5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470125000153/psx-20250930_ex991.htm",
+        "releaseDate": "2025-10-29",
+        "periodEnd": "2025-09-30",
+        "reason": "The original dated earnings announcement reports the current quarter. The Form 8-K identifies its exact period end.",
+        "sourceSha256": "262c14b3616ff541aac45e9cc82bc5bafe3db4527371bb3245d4a8135fd9f2be"
+      },
+      "PSX|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000003/psx-20260204.htm",
+        "currentReportSha256": "eed051a32e8041df1b690c2adf9027c4431fb7c036adde0d6495db9a9f4d5be6",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000003/psx-20251231_ex991.htm",
+        "releaseDate": "2026-02-04",
+        "periodEnd": "2025-12-31",
+        "reason": "The original dated earnings announcement reports the current quarter. The Form 8-K identifies its exact period end.",
+        "sourceSha256": "e3edb227f72cb6a8e813b60ec189770b265f31403e5840eb0742e4c58e218e48"
+      },
+      "PSX|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000020/psx-20260429.htm",
+        "currentReportSha256": "ce9a04ac424e951de71956b0aba13b5477a0fb80fe8d8b50c2d9b68f685dde98",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000020/psx-2026331_ex991.htm",
+        "releaseDate": "2026-04-29",
+        "periodEnd": "2026-03-31",
+        "reason": "The original dated earnings announcement reports the current quarter. The Form 8-K identifies its exact period end.",
+        "sourceSha256": "706107fbfc923bdbd8e9adab3b7e7c11858e5908701eb70a5f57a71b58dfd50a"
+      },
+      "PSX|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000030/psx-20260805.htm",
+        "currentReportSha256": "7ba636b714a0d7ffe3de9e24cdbdaedf4817cc0252eef80b62e882a62da80398",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000030/psx-2026630_ex991.htm",
+        "releaseDate": "2026-08-05",
+        "periodEnd": "2026-06-30",
+        "reason": "The original dated earnings announcement reports the current quarter. The Form 8-K identifies its exact period end.",
+        "sourceSha256": "02ab22853b2507da0d40f00e92d78c60cfcfef7ce3ff81f9ec29f486d83df448"
+      },
+      "PSX|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000035/psx-20261028.htm",
+        "currentReportSha256": "89ddf1bbf284f914c06ceb997dca12f059aa86aa762521f165029dd31012fefc",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000035/psx-2026930_ex991.htm",
+        "releaseDate": "2026-10-28",
+        "periodEnd": "2026-09-30",
+        "reason": "The original dated earnings announcement reports the current quarter. The Form 8-K identifies its exact period end.",
+        "sourceSha256": "87da8206cf3f22e7916a2ce8d04758447b4bb352ffb1ee82e7caaa1eed6d2c51"
+      },
+      "RCL|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488725000146/rcl-20251028.htm",
+        "currentReportSha256": "a29ef053ad2376b2f988fe5054ed841484a6c78526eb222c29cf11eeb0032ba8",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488725000146/a2025q3earningsrelease8-k.htm",
+        "releaseDate": "2025-10-28",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "6da2c31d7b8d8fb90f3b4424bcd1dac941b8e3bba4d46e8d6d306a4dad1d6fba"
+      },
+      "RCL|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000003/rcl-20260129.htm",
+        "currentReportSha256": "858bb2fe599b1f5308637cb484f206d86bd70fe44a32fae42857911f0e399d23",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000003/a10k2025earningsrelease8-k.htm",
+        "releaseDate": "2026-01-29",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "bc02d8cde595ccccdc68caea5a92157ad47967659acd62e5f0c93bb67783f56c"
+      },
+      "RCL|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000036/rcl-20260728.htm",
+        "currentReportSha256": "0fb160b035cd971f4e0352ecabf8657707ba16ec98d31f0d1c8e361a0d9d020f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000036/a2026q2earningsrelease.htm",
+        "releaseDate": "2026-07-28",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "908e3afb333642bb2dd2da59d544c66ef02cd15fec5e8c2368f33c7a4892c960"
+      },
+      "RCL|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000042/rcl-20261027.htm",
+        "currentReportSha256": "73abf417e673abe70fa0f5395e30ee2238add667d63fc61d481731ae5f2edde9",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000042/a2026q3earningsrelease.htm",
+        "releaseDate": "2026-10-27",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "7b009af2046057b210a2c229cca63ca81c7c7b1595d69bc563b67220b688fd97"
+      },
+      "ROST|2025-11-01": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573225000055/rost-20251120.htm",
+        "currentReportSha256": "a9aa77ea2a5358fe4b11a5c30260e35b07e45fa27f4c9e8dcb313a45771de122",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573225000055/q325exhibit991.htm",
+        "releaseDate": "2025-11-20",
+        "periodEnd": "2025-11-01",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "72a174273ecf6c472c6bc5d291c79e293abc19fb77a86997e74a458d1a3a6f75"
+      },
+      "ROST|2026-01-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000003/rost-20260303.htm",
+        "currentReportSha256": "d5ad1aa355f000314d013dd1b215c50a30b9f5331beb71b980626c7874f32155",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000003/q4fy25exhibit991.htm",
+        "releaseDate": "2026-03-03",
+        "periodEnd": "2026-01-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "444d404e4d8ca8518575f9abb6cf3e3c549b510418c258070d42d3b67113f525"
+      },
+      "SKYD|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/psky-20260225.htm",
+        "currentReportSha256": "99ea8a4779704256f6ff875de662cd2d3f08d271d110ef78d49513ec6c94f147",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000008/ex99_q425.htm",
+        "releaseDate": "2026-02-25",
+        "periodEnd": "2025-12-31",
+        "reason": "The original dated shareholder letter reports fourth-quarter results in the accompanying statements. The Form 8-K identifies the exact period end.",
+        "sourceSha256": "477e926953821ec3ca970ccf74b0be0786d30d4d52a09476c1f467a2ef5d94df"
+      },
+      "SMCI|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000006/smci-20260203.htm",
+        "currentReportSha256": "7df98a9d6b84b7b815fc2f8c8c827836c9a6024f7a463ae1f9739950459fe6dd",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000006/exhibit991_20251231.htm",
+        "releaseDate": "2026-02-03",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "46113028b650eda893c258386eb29c6cadf793abe2977fcb8b48ef4cf34d7fef"
+      },
+      "TRMB|2025-10-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474925000283/trmb-20251105.htm",
+        "currentReportSha256": "c6c4e078ed00a6614fb24a850753d5569cc7d9c47f188fc1cb70973aec092382",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474925000283/a2025q3-8kex991.htm",
+        "releaseDate": "2025-11-05",
+        "periodEnd": "2025-10-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "1d4220d2ee849ff5ad6dcfd9e0edec9bc372d47a1a2ab44753070b3029b773de"
+      },
+      "TRMB|2026-01-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000006/trmb-20260210.htm",
+        "currentReportSha256": "2c160ce09561924fec27dc6a9af4331bc974bdfae5567137cdfafa12426323fd",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000006/a2025q4-8kex991.htm",
+        "releaseDate": "2026-02-10",
+        "periodEnd": "2026-01-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8a6e97dc45ed48778562a4634b8f72640e0791c06d8ed5471d793475c93de5f2"
+      },
+      "TRMB|2026-04-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000061/trmb-20260506.htm",
+        "currentReportSha256": "8243e6b2749c08ea311eada51eafb27a949159cec1233acefc50dcc6f7a2d6d8",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000061/a2026q1-8kex991.htm",
+        "releaseDate": "2026-05-06",
+        "periodEnd": "2026-04-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "3730cdea91a0ec7e4818fbf6b3df521b098dbe0a4e6599b64a49f19acb930a63"
+      },
+      "TRMB|2026-07-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000106/trmb-20260812.htm",
+        "currentReportSha256": "5d59e0dc5f6b6785a40b6ef7ac31ea3c6cf4160d09a6f80b96db1d984102e50c",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000106/a2026q2-8kex991_00version.htm",
+        "releaseDate": "2026-08-12",
+        "periodEnd": "2026-07-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "bf9d7d336b2f099535375da48cd1c443deabfd166826fb3195852a2fba9a5429"
+      },
+      "TRMB|2026-10-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000119/trmb-20261104.htm",
+        "currentReportSha256": "00e9d97e28597fded1b6780afba15944164f015ccabe29bfb3e0dc769e921f80",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000119/a2026q3-8kex991.htm",
+        "releaseDate": "2026-11-04",
+        "periodEnd": "2026-10-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "297307f4570e33283d6adac53e533283f8d958606c79e11d23a7a7b954d144cf"
+      },
+      "ULTA|2025-08-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000155837025011803/ulta-20250828x8k.htm",
+        "currentReportSha256": "faa3aef59cae788375d809bb84ed76bbacbf5f873b03e5cedf1d403fd8f295e4",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000155837025011803/ulta-20250828xex99d1.htm",
+        "releaseDate": "2025-08-28",
+        "periodEnd": "2025-08-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "22d8f5aa9837ecc3ed032f6942c85b5d9d0cb465758fb200360960ae5e8a23e5"
+      },
+      "ULTA|2025-11-01": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465925118457/ulta-20251204x8k.htm",
+        "currentReportSha256": "440a112b627fe31bbe36b48f943373dbd32dae6a9d52f29bc86786c20a9ddc28",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465925118457/ulta-20251204xex99d1.htm",
+        "releaseDate": "2025-12-04",
+        "periodEnd": "2025-11-01",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "54f3cbf8ec2ff212a63bef70ac4d110e2fd882b0688adacbacecdae06953d017"
+      },
+      "ULTA|2026-01-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926027061/ulta-20260312x8k.htm",
+        "currentReportSha256": "920ee19220903413947e4e4305d16c71f5d08447182fdb769a712db8debc9d26",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926027061/ulta-20260312xex99d1.htm",
+        "releaseDate": "2026-03-12",
+        "periodEnd": "2026-01-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "7caf5a08ae96675c582b7b1840f18b469406ee5ea48125ec08d03d1a289eef10"
+      },
+      "ULTA|2026-05-02": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926069464/ulta-20260602x8k.htm",
+        "currentReportSha256": "a6caf9492283b61bd015086b7760b52a99d7591bb61bdda8ef23d448119fe1fe",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926069464/ulta-20260602xex99d1.htm",
+        "releaseDate": "2026-06-02",
+        "periodEnd": "2026-05-02",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "f7027e241639d116bed27192f09df5b5a9e7201ba1a964ea8ab49988c28ef086"
+      },
+      "ULTA|2026-08-01": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926102438/ulta-20260827x8k.htm",
+        "currentReportSha256": "6ce98ff015f962ba6142310020e072d5e9742e8cadc7d5021cbe0bd516192aa2",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1403568/000110465926102438/ulta-20260827xex99d1.htm",
+        "releaseDate": "2026-08-27",
+        "periodEnd": "2026-08-01",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "e4a6263952ea22a94afb3697a678ede7a7ba38ba72d574c8486b26196f78df00"
+      },
+      "VRSN|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447325000045/vrsn-20251023.htm",
+        "currentReportSha256": "abf1c1d714c6da0813b2fb5ee143980e4bb1c2cf8f4f778d7b956178b0c0c188",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447325000045/q32025earningsrelease.htm",
+        "releaseDate": "2025-10-23",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "f2e8ef58892a3573b273df32193217307f8a45cf34051d6df0f153714106c3ea"
+      },
+      "VRSN|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000005/vrsn-20260205.htm",
+        "currentReportSha256": "b919e806f6403919926ce691a218925472842856d764a2924f2bb5c842aa001b",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000005/q42025earningsrelease.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "befaf204fe926d76e4dbbb1e0aa34d3acb5c9429cb8744b8e8a9c0f6e970c01a"
+      },
+      "VRSN|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000026/vrsn-20260723.htm",
+        "currentReportSha256": "25842021a3591df4baeec6d17379de0994b91d86d00093b5ec8132a3e9cadff5",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000026/q22026earningsrelease.htm",
+        "releaseDate": "2026-07-23",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "71e001dddab1fbbeddd75ce8a797d55bc13180ef9735132a9209a38375fddb31"
+      },
+      "WDC|2026-04-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026028878/wdc-20260430.htm",
+        "currentReportSha256": "0f33744c0d1504a5045299376daa886ca6baf7d7f08fef1dac9b9ca5b7669766",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026028878/a4ex991-pressreleaseq326.htm",
+        "releaseDate": "2026-04-30",
+        "periodEnd": "2026-04-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b5d7588493a2a12fbe51f73409507334cdbbc1d940b7ac85f137ec509187b95e"
+      },
+      "WDC|2026-07-03": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/wdc-20260805.htm",
+        "currentReportSha256": "83e210f156a0a30bfade2a72ec1a11bf20f7b55af19d6b7641cb72e0af566262",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/a4ex991-pressreleaseq426.htm",
+        "releaseDate": "2026-08-05",
+        "periodEnd": "2026-07-03",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "56993b4e740123a8072460f305c5a4da486352d3e38444ae4faaa4f6573dc226"
+      },
+      "WEC|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000011/wec-20260205.htm",
+        "currentReportSha256": "86763abc5493095e32f9c1d051ab8f8b451fb7f8e94ce490e5304433f5f38771",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000011/a2025q4wecearningsreleasee.htm",
+        "releaseDate": "2026-02-05",
+        "periodEnd": "2025-12-31",
+        "reason": "The original dated annual results release includes the fourth-quarter results. The Form 8-K identifies the exact period end.",
+        "sourceSha256": "08c3dcb40c55c6471bb190c1f526be022f666ebb0755234384bde9399b6519d0"
+      },
+      "WEC|2026-03-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000049/wec-20260505.htm",
+        "currentReportSha256": "de326355501bb861e18dc44a4d155f6cc6e756217d55aef99148c255e5737c4f",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000049/a2026q1wecearningsreleasee.htm",
+        "releaseDate": "2026-05-05",
+        "periodEnd": "2026-03-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "981fe69f3ea1937f4c10ce707b3443425f614be24c9b8dd7a9b05de3216482a9"
+      },
+      "WEC|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000080/wec-20260729.htm",
+        "currentReportSha256": "068577c4c1739e97bb33ae18f8458e3b72c3df562e4a3a86db291a025f4b3e31",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000080/a2026q2wecearningsreleasee.htm",
+        "releaseDate": "2026-07-29",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a23a6d5d2d170aefcc87e97fb831a65320b19dcd93d9c30b08e2cfb42fb579a9"
+      },
+      "WEC|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000104/wec-20261029.htm",
+        "currentReportSha256": "59d05b183b7648b4293f1b6272d7e54233da6396f63cd508838d549011b6fc43",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000104/a2026q3wecearningsreleasee.htm",
+        "releaseDate": "2026-10-29",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "8178d72a377d6a208897d43fcae8e6c81686c3d50d64b56e7226168550f8cbc0"
+      },
+      "XYL|2025-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447225000043/xyl-20251028.htm",
+        "currentReportSha256": "af560ca61e194799cc9be2010c2509b8e91d51535d158709d13f9f7d82c5ad74",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447225000043/xyl10282025ex991.htm",
+        "releaseDate": "2025-10-28",
+        "periodEnd": "2025-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "414fea29aa100dd44afa17ab7af21ed147f89a0abbafb780fd355e343719608a"
+      },
+      "XYL|2025-12-31": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl-20260210.htm",
+        "currentReportSha256": "2c23fd2d5de33877d2957d572a111db948cbea6265b5bf4a90d019911009cf88",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000008/xyl02102026ex991.htm",
+        "releaseDate": "2026-02-10",
+        "periodEnd": "2025-12-31",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "b2cd0767485950352a1e1ee0cb8774b5894f4bc12a3fab10ab0db1c8793a0b12"
+      },
+      "XYL|2026-06-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000108/xyl-20260728.htm",
+        "currentReportSha256": "253daf7d330cb6a202fe05282f177d137687eaef205407b08e7f778b2f144937",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000108/xyl07282026ex991.htm",
+        "releaseDate": "2026-07-28",
+        "periodEnd": "2026-06-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "dca8271bfbe35760900e23fbd0471dfc827a5a7210f503903201fe253cc090df"
+      },
+      "XYL|2026-09-30": {
+        "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000146/xyl-20261027.htm",
+        "currentReportSha256": "1f132e2a9e920cb747008c9ae2ae0ca440360599f402a324700d834c7a0fe83a",
+        "originalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000146/xyl10272026ex991.htm",
+        "releaseDate": "2026-10-27",
+        "periodEnd": "2026-09-30",
+        "reason": "Dated quarterly results exhibit and exact reporting period in Item 2.02.",
+        "sourceSha256": "a56c122b77578612b9dfec65609239624ae98a848cd994441973c90eaa6a0f43"
+      }
+    },
+    "currentSecFilingsRefresh": {
+      "checkedAtUtc": "2026-11-22T02:50:46.615422+00:00",
+      "feeds": {
+        "8-K": {
+          "entries": 100,
+          "latestAccepted": "2026-11-20T17:30:44-05:00",
+          "newObserved": false
+        },
+        "10-Q": {
+          "entries": 58,
+          "latestAccepted": "2026-11-20T17:30:17-05:00",
+          "newObserved": false
+        },
+        "10-K": {
+          "entries": 28,
+          "latestAccepted": "2026-11-20T16:15:44-05:00",
+          "newObserved": false
+        },
+        "8-K/A": {
+          "entries": 11,
+          "latestAccepted": "2026-11-20T17:13:27-05:00",
+          "newObserved": false
+        },
+        "10-Q/A": {
+          "entries": 7,
+          "latestAccepted": "2026-11-20T13:09:48-05:00",
+          "newObserved": false,
+          "sourceUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=10-Q%2FA&owner=include&start=0&count=50&output=atom"
+        },
+        "10-K/A": {
+          "entries": 2,
+          "latestAccepted": "2026-11-19T17:15:48-05:00",
+          "newObserved": false
+        },
+        "6-K": {
+          "entries": 100,
+          "latestAccepted": "2026-11-20T17:25:15-05:00",
+          "newObserved": false
+        }
+      }
+    }
   }
 }
