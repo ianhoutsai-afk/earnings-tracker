@@ -301,6 +301,20 @@ class RevenueScopeTests(unittest.TestCase):
    self.assertIsNone(parse_inline_quarter(doc,'2026-09-30')['revenue'])
 
 class ConsolidatedContractRevenueTests(unittest.TestCase):
+ def test_republic_services_uses_unaudited_consolidated_revenue_instead_of_segment_gross(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  consolidated=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  gross=original.replace('1,200','1,400')
+  statement=('<div>UNAUDITED CONSOLIDATED STATEMENTS OF INCOME</div>'
+             '<div>(in millions, except per share data)</div>'
+             '<div><span> </span><table><tr><td>Revenue</td><td>$</td><td>'+consolidated+'</td></tr></table>'
+             '<span>The accompanying notes are an integral part of these statements.</span></div>')
+  note='<div>Note 12. Segment Reporting</div><table><tr><td>Gross revenue</td><td>'+gross+'</td></tr></table>'
+  for html, expected in ((statement+note,1200000000),(note,None)):
+   with self.subTest(has_statement=expected is not None):
+    doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>1060391</xbrli:identifier>')
+    self.assertEqual(parse_inline_quarter(doc.replace(original,html),'2026-09-30','1060391')['revenue'],expected)
+
  def test_wrapped_consolidated_statement_total_is_not_lost(self):
   original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
   fact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')

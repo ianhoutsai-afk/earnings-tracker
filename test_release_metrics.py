@@ -16,6 +16,18 @@ class ReviewedReleaseMetricTests(unittest.TestCase):
         result=self.parse(statement())
         self.assertEqual(result, {'revenue':1200000000, 'epsGaapDiluted':1.25})
 
+    def test_becton_dickinson_uses_reported_diluted_eps_including_discontinued_operations(self):
+        doc=statement(heading='CONDENSED CONSOLIDATED INCOME STATEMENTS').replace(
+            '<tr><td>Diluted</td><td>$1.25</td>',
+            '<tr><td>Income from Continuing Operations</td><td>$1.16</td></tr>'
+            '<tr><td>Income from Discontinued Operations</td><td>$0.09</td></tr>'
+            '<tr><td>Diluted Earnings per Share</td><td>$1.25</td>')
+        self.assertEqual(self.parse(doc,cik='0000010795'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
+    def test_republic_services_release_reads_unaudited_consolidated_statement(self):
+        doc=statement(heading='UNAUDITED CONSOLIDATED STATEMENTS OF INCOME')
+        self.assertEqual(self.parse(doc,cik='0001060391'), {'revenue':1200000000, 'epsGaapDiluted':1.25})
+
     def test_q4_comes_from_three_months_not_full_year(self):
         doc=statement().replace('September 30,','June 30,').replace('Nine Months','Twelve Months')
         self.assertEqual(self.parse(doc,'2026-06-30')['epsGaapDiluted'],1.25)
