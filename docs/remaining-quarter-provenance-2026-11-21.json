@@ -1105,5 +1105,21 @@
         }
       }
     }
+  },
+  "nvidiaQuarterlyReleaseExhibitCrossCheck": {
+    "checkedAtUtc": "2026-11-22T03:01:38.104793+00:00",
+    "periodEnd": "2026-10-25",
+    "releaseDate": "2026-11-17",
+    "form": "8-K",
+    "currentReportUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/nvda-20261117.htm",
+    "pressReleaseExhibitUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+    "supplementalStatementsUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/supplementalfinancialinfor.htm",
+    "supplementalStatementsSha256": "ff99db8a4cf790f2dfb5e1e34bd39fb470838dfc9afc15b52dc1c3e7a2b76984",
+    "valuesInThreeMonthsEndedOctober25_2026": {
+      "revenue": 115844000000.0,
+      "epsGaapDiluted": 2.7
+    },
+    "periodicFilingStatus": "pending",
+    "disposition": "The SEC press release and supplemental consolidated statement agree with the issuer release. The supplement is furnished with Form 8-K; this quarter still awaits a matching Form 10-Q."
   }
 }
