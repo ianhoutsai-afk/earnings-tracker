@@ -6130,5 +6130,430 @@
         }
       }
     }
+  },
+  "independentConsolidatedIncomeStatementReview": {
+    "checkedAtUtc": "2026-11-22T16:25:21.517935+00:00",
+    "availableOriginalFinancialReports": 1892,
+    "exactFieldMatches": {
+      "revenue": 996,
+      "epsGaapDiluted": 1078
+    },
+    "quartersFlaggedForManualReview": 22,
+    "correctedRecords": {
+      "COHR|2026-03-31": {
+        "revenue": {
+          "previous": 1805600000.0,
+          "corrected": 1805641000
+        },
+        "releaseSourceUrl": {
+          "previous": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080d8k.htm",
+          "corrected": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm"
+        },
+        "revenueSourceUrl": {
+          "previous": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm",
+          "corrected": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm"
+        }
+      },
+      "HAS|2026-06-28": {
+        "revenue": {
+          "previous": 1290500000.0,
+          "corrected": 1139600000
+        }
+      },
+      "HAS|2026-03-29": {
+        "date": {
+          "previous": "2026-04-23",
+          "corrected": "2026-05-20"
+        },
+        "revenue": {
+          "previous": 1113100000.0,
+          "corrected": 1000200000
+        },
+        "releaseSourceUrl": {
+          "previous": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm",
+          "corrected": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000029/exhibit991q12026.htm"
+        },
+        "releaseFilingDate": {
+          "previous": "2026-04-23",
+          "corrected": "2026-05-20"
+        },
+        "releaseAccession": {
+          "previous": "0000046080-26-000016",
+          "corrected": "0000046080-26-000029"
+        },
+        "metricNote": {
+          "previous": null,
+          "corrected": {
+            "en": "Hasbro released preliminary ranges on April 23, filed its quarterly report on May 13, and published full results on May 20.",
+            "zh-TW": "孩之寶於 4 月 23 日公布初步數字區間，5 月 13 日提交季報，5 月 20 日發布完整業績。"
+          }
+        },
+        "metricNoteSourceUrl": {
+          "previous": null,
+          "corrected": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm"
+        }
+      },
+      "HAS|2025-09-28": {
+        "revenue": {
+          "previous": 1590100000.0,
+          "corrected": 1387500000
+        }
+      }
+    },
+    "evidence": {
+      "COHR|2026-03-31": {
+        "financialFiling": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
+          "sha256": "6ee4b6b0ff3add5e784e00a6281dcea832da07102ebd7837426b5df7f13af85c"
+        },
+        "renderedStatement": {
+          "candidate": 1805641000.0,
+          "stored": 1805600000.0,
+          "label": "Revenues",
+          "tag": "us-gaap:revenuefromcontractwithcustomerexcludingassessedtax",
+          "header": "Condensed Consolidated Statements of Earnings (Loss) (Unaudited)",
+          "tableRow": 4
+        },
+        "treatment": "Use the thousand-dollar precision reported in the consolidated quarterly filing.",
+        "originalResultsReleaseUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm",
+        "originalResultsReleaseRevenueRoundedUsd": 1805600000,
+        "originalResultsCurrentReport": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080d8k.htm",
+          "sha256": "ddb83789341256d31c6e6dda0eca1adb855b494baab66c7c7b4c5cd333e86781"
+        }
+      },
+      "HAS|2026-06-28": {
+        "financialFiling": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000050/has-20260628.htm",
+          "sha256": "7d8014c6ea3d9df9bef8f6537442bc2c730ecb356e884919a3e6e4b6d58c9d82"
+        },
+        "renderedStatement": {
+          "candidate": 1139600000.0,
+          "stored": 1290500000.0,
+          "label": "Net revenues",
+          "tag": "us-gaap:revenuefromcontractwithcustomerexcludingassessedtax",
+          "header": "Consolidated Statements of Operations",
+          "tableRow": 3
+        },
+        "treatment": "Use consolidated net revenue after elimination of intersegment revenue.",
+        "independentOriginalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000044/exhibit991q22026.htm"
+      },
+      "HAS|2026-03-29": {
+        "financialFiling": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
+          "sha256": "cb2b339e86e5a7f7f5a9b3691b0d2d033e41f5dcda9f3be1b70697d3c0bd9b15"
+        },
+        "renderedStatement": {
+          "candidate": 1000200000.0,
+          "stored": 1113100000.0,
+          "label": "Net revenues",
+          "tag": "us-gaap:revenuefromcontractwithcustomerexcludingassessedtax",
+          "header": "Consolidated Statements of Operations",
+          "tableRow": 3
+        },
+        "treatment": "Use consolidated net revenue after elimination of intersegment revenue.",
+        "preliminaryAnnouncement": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm",
+          "date": "2026-04-23",
+          "estimatedRevenueUsdRange": [
+            970000000,
+            985000000
+          ]
+        },
+        "completeResultsAnnouncement": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000029/exhibit991q12026.htm",
+          "sha256": "f09e8d94cd37ecf69d7034ce7deb4230e7b16424501e1e6892ab4f35defb036a",
+          "date": "2026-05-20",
+          "filingDate": "2026-05-20",
+          "issuerUrl": "https://investor.hasbro.com/news-releases/news-release-details/hasbro-reports-first-quarter-2026-financial-results"
+        },
+        "completeResultsCurrentReport": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000029/has-20260520.htm",
+          "sha256": "7f399cf24948b93f05b3cce4d43ed6712485c7fb115059a882f60524049ff93d"
+        },
+        "periodicFilingDate": "2026-05-13"
+      },
+      "HAS|2025-09-28": {
+        "financialFiling": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm",
+          "sha256": "4b877c4e50b5a6983987aa848c1172d3ef44f5f2c0bb5fa7079d96c36a583e35"
+        },
+        "renderedStatement": {
+          "candidate": 1387500000.0,
+          "stored": 1590100000.0,
+          "label": "Net revenues",
+          "tag": "us-gaap:revenuefromcontractwithcustomerexcludingassessedtax",
+          "header": "Consolidated Statements of Operations",
+          "tableRow": 3
+        },
+        "treatment": "Use consolidated net revenue after elimination of intersegment revenue.",
+        "independentOriginalReleaseUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000156/exhibit991q32025.htm"
+      }
+    },
+    "originalFiguresSupersededByReviewedRevisions": {
+      "BAC|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+        "revisionFilingDate": "2026-10-30"
+      },
+      "BKNG|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
+        "revisionFilingDate": "2026-11-03"
+      },
+      "CBRE|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+        "revisionFilingDate": "2026-10-22"
+      },
+      "CRWD|2026-04-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+        "revisionFilingDate": "2026-08-27"
+      },
+      "CRWD|2025-10-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+        "revisionFilingDate": "2026-08-27"
+      },
+      "CRWD|2025-07-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+        "revisionFilingDate": "2026-08-27"
+      },
+      "DD|2026-03-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+        "revisionFilingDate": "2026-11-03"
+      },
+      "DD|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000061/dd-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
+        "revisionFilingDate": "2026-11-03"
+      },
+      "EBAY|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
+        "revisionFilingDate": "2026-10-29"
+      },
+      "EMR|2025-12-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000007/emr-20251231.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+        "revisionFilingDate": "2026-11-09"
+      },
+      "KLAC|2026-03-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "revisionFilingDate": "2026-10-29"
+      },
+      "KLAC|2025-12-31": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "revisionFilingDate": "2026-10-29"
+      },
+      "KLAC|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+        "revisionFilingDate": "2026-10-29"
+      },
+      "LII|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1069202/000106920225000048/lii-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1069202/000106920226000096/lii-20260930.htm",
+        "revisionFilingDate": "2026-10-28"
+      },
+      "MPWR|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026069440/mpwr-20260930.htm",
+        "revisionFilingDate": "2026-11-03"
+      },
+      "NFLX|2025-09-30": {
+        "initialFiling": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+        "revisedSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+        "revisionFilingDate": "2026-10-21"
+      }
+    },
+    "confirmedExcludedCandidates": {
+      "VYLR|2026-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526455591/d107437dnt10q.htm",
+        "sha256": "5fd40c49296e46ee862a20a0d35c21adcf5567401ca8d438d8609ce1f12319c2",
+        "candidate": -0.85,
+        "disposition": "Vylor explicitly says this quarterly statement is the interim consolidated statement of pre-spin Corteva. The candidate belongs to that predecessor."
+      },
+      "BE|2025-09-30": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1664703/000162828025046844/be-20250930.htm",
+        "sha256": "8aabec09bea12267a555e4b39b68db1c9eae1e139f6947336b07f440ec640cab",
+        "candidate": -100.0,
+        "visibleDilutedLossPerShare": -0.1,
+        "disposition": "The audited statement prints $0.10 of loss per share, basic and diluted. Its inline fact incorrectly applies a thousand-dollar scale."
+      }
+    },
+    "additionalHasbroQuarterChecks": {
+      "2026-09-27": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000065/has-20260927.htm",
+        "consolidatedRevenue": 1595300000.0
+      },
+      "2025-12-28": {
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000006/exhibit991q42025.htm",
+        "consolidatedRevenue": 1445900000
+      }
+    },
+    "automatedFilingReaderComparison": {
+      "checkedAtUtc": "2026-11-22T16:25:17.656191+00:00",
+      "counts": {
+        "notCached": 623,
+        "compared": 1891,
+        "existingIdentityException": 1
+      },
+      "changedParserResults": {
+        "BKR|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1701605/000170160525000117/bkr-20250930.htm",
+          "sourceSha256": "edd3957794b068ba5fe8d529f9cb3c77e48258578dc136acc5cec09ce64f4e8e",
+          "newlyReadFromFiling": {
+            "periodStart": "2025-07-01",
+            "revenue": 7010000000.0
+          }
+        },
+        "CCL|2026-02-28": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509726000037/ccl-20260228.htm",
+          "sourceSha256": "bd75b32f4de4f80cbc6f1c9fc1c0d25b78f05f7a3621e716acc7465c8de6ecb7",
+          "newlyReadFromFiling": {
+            "revenue": 6165000000.0
+          }
+        },
+        "CCL|2025-08-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/815097/000081509725000084/ccl-20250831.htm",
+          "sourceSha256": "79bf7d08caf6c62360141bbdc046eb970b1893f2b3882d3f126047fa6afe159c",
+          "newlyReadFromFiling": {
+            "revenue": 8153000000.0
+          }
+        },
+        "CHD|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/313927/000119312525260515/chd-20250930.htm",
+          "sourceSha256": "28465931aa2cc64880499927e3ea69a79a4a7fb8930cc6897799c1887756667c",
+          "newlyReadFromFiling": {
+            "revenue": 1585600000.0
+          }
+        },
+        "COHR|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
+          "sourceSha256": "6ee4b6b0ff3add5e784e00a6281dcea832da07102ebd7837426b5df7f13af85c",
+          "newlyReadFromFiling": {
+            "revenue": 1805641000.0
+          }
+        },
+        "COHR|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000006/iivi-20251231.htm",
+          "sourceSha256": "fb59c28748f0415a75bc0b0d20324b8537c8e28e67b6713ae2533ad0db3a9613",
+          "newlyReadFromFiling": {
+            "revenue": 1685629000.0
+          }
+        },
+        "COHR|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031825000019/iivi-20250930.htm",
+          "sourceSha256": "c85eadc51a0cd7e4d453988761b624719f8ce91ede6f122db9f2375da5479268",
+          "newlyReadFromFiling": {
+            "revenue": 1581378000.0
+          }
+        },
+        "EL|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000019/el-20260331.htm",
+          "sourceSha256": "9853fb9cfe8a2f5929ac5d9ba643c6cc7ad7b9167ca23066f9461ce79e472e53",
+          "newlyReadFromFiling": {
+            "revenue": 3712000000.0
+          }
+        },
+        "EL|2025-12-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125026000006/el-20251231.htm",
+          "sourceSha256": "8f7646192844ccbb9383f08e4c26f94545a8c588d03a286e15448ad62bf74321",
+          "newlyReadFromFiling": {
+            "revenue": 4229000000.0
+          }
+        },
+        "EL|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1001250/000100125025000109/el-20250930.htm",
+          "sourceSha256": "93f6bbcd46673937384b4bc8c41c065147d89074b224320e3abf3ec6ee03fd48",
+          "newlyReadFromFiling": {
+            "revenue": 3481000000.0
+          }
+        },
+        "FIS|2026-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000063/fis-20260930.htm",
+          "sourceSha256": "5831920a158521d471eb4aa3624846f471a287f5aceff7765a874e0476c5d421",
+          "newlyReadFromFiling": {
+            "revenue": 3454000000.0
+          }
+        },
+        "FIS|2026-06-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000050/fis-20260630.htm",
+          "sourceSha256": "6dc2c7a5eb486d51d902f1207edceecaad8134476758d6e899c9be88c587a443",
+          "newlyReadFromFiling": {
+            "revenue": 3377000000.0
+          }
+        },
+        "FIS|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689326000040/fis-20260331.htm",
+          "sourceSha256": "6e96c6e7a90fe0f92720d64f4c61bf7071084dbe0c6baba195b46592662cf46c",
+          "newlyReadFromFiling": {
+            "revenue": 3295000000.0
+          }
+        },
+        "FIS|2025-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1136893/000113689325000128/fis-20250930.htm",
+          "sourceSha256": "9382e89bc33cbcc7f3fc44dfd4263b9158390a60cd40322b3b30e11bbad438d3",
+          "newlyReadFromFiling": {
+            "revenue": 2717000000.0
+          }
+        },
+        "GEV|2026-09-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000163/gev-20260930.htm",
+          "sourceSha256": "076b6fc8eebb9a8109863c4752ce0cbce9d86215515f4d5a15a6fcbf14798598",
+          "newlyReadFromFiling": {
+            "revenue": 12642000000.0
+          }
+        },
+        "GEV|2026-06-30": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000148/gev-20260630.htm",
+          "sourceSha256": "99f399b062011eacaad482694c384386eb3a8a30624ab3a907590ba80bc0a34f",
+          "newlyReadFromFiling": {
+            "revenue": 11104000000.0
+          }
+        },
+        "GEV|2026-03-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000064/gev-20260331.htm",
+          "sourceSha256": "1b37dad09c2dc37fe239237ea61c498002b85d7f002a582c11326cd80a97c412",
+          "newlyReadFromFiling": {
+            "revenue": 9339000000.0
+          }
+        },
+        "HAS|2026-06-28": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000050/has-20260628.htm",
+          "sourceSha256": "7d8014c6ea3d9df9bef8f6537442bc2c730ecb356e884919a3e6e4b6d58c9d82",
+          "newlyReadFromFiling": {
+            "revenue": 1139600000.0
+          }
+        },
+        "HAS|2026-03-29": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
+          "sourceSha256": "cb2b339e86e5a7f7f5a9b3691b0d2d033e41f5dcda9f3be1b70697d3c0bd9b15",
+          "newlyReadFromFiling": {
+            "revenue": 1000200000.0
+          }
+        },
+        "HAS|2025-09-28": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm",
+          "sourceSha256": "4b877c4e50b5a6983987aa848c1172d3ef44f5f2c0bb5fa7079d96c36a583e35",
+          "newlyReadFromFiling": {
+            "revenue": 1387500000.0
+          }
+        },
+        "STZ|2026-05-31": {
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/16918/000001691826000029/stz-20260531.htm",
+          "sourceSha256": "be9b9d62a1a2dd65c153c942b24eff15133df60a17904f643437efb9d06b424f",
+          "newlyReadFromFiling": {
+            "periodStart": "2026-03-01"
+          }
+        }
+      }
+    }
   }
 }

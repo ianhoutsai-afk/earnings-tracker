@@ -322,7 +322,7 @@ def _contract_revenue_total(node):
         r'(?:(?:consolidated|combined|condensed)\s+)+'
         r'(?:statements? of (?:income|operations|earnings|comprehensive income)|income statements?)'
         r'|statements? of (?:(?:consolidated|combined|condensed)\s+)+(?:income|operations|earnings)'
-        r')(?:\s*\(unaudited\))?'
+        r')(?:\s*\(loss\))?(?:\s*\(unaudited\))?'
     )
     root=node.getroottree().getroot()
     issuer=_unique_text(n for n in root.iter() if isinstance(n.tag,str) and n.get('name','').lower()=='dei:entityregistrantname')
@@ -354,9 +354,11 @@ def _contract_revenue_total(node):
         # notes are part of the statement layout. An actual note is a boundary.
         siblings = [child for child in parent if child is not current]
         trailing = current.getnext()
-        if (trailing is not None and _local(trailing) == 'span'
-                and ' '.join(_text(trailing).split()).casefold() == 'the accompanying notes are an integral part of these statements.'):
-            siblings.remove(trailing)
+        if trailing is not None and _local(trailing) == 'span':
+            reference = ' '.join(_text(trailing).split()).casefold()
+            if reference in ('the accompanying notes are an integral part of these statements.',
+                             'see notes to condensed consolidated financial statements.'):
+                siblings.remove(trailing)
         if any(_text(child).strip() or _local(child)=='table' or child.xpath('.//table') for child in siblings):break
         if (parent.text or '').strip() or (current.tail or '').strip():break
         current=parent
@@ -467,9 +469,9 @@ def parse_inline_quarter(document, period_end, cik=None):
         contract_revenue = 'revenuefromcontractwithcustomer' in tag.lower()
         if contract_revenue and noncontract_component:
             continue
-        # The Republic Services segment footnote tags gross revenue with a
-        # standard entity-wide context. Use its consolidated statement only.
-        if (contract_revenue or (is_revenue and issuer == '1060391')) and not _contract_revenue_total(node):
+        # Republic Services and Hasbro also tag pre-elimination revenues with
+        # entity-wide contexts in their segment notes.
+        if (contract_revenue or (is_revenue and issuer in ('1060391', '46080'))) and not _contract_revenue_total(node):
             continue
         if units.get(node.get('unitref')) != ('USD/shares' if is_eps else 'USD'):
             continue

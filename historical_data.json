@@ -15150,7 +15150,7 @@
       "periodScope": "quarter",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080d8k.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
       "verifiedAt": "2026-11-22",
       "periodStart": "2026-01-01",
@@ -15161,7 +15161,7 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 3,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm"
     },
     {
       "date": "2026-02-04",
@@ -29493,7 +29493,7 @@
       "periodEnd": "2026-06-28",
       "periodScope": "quarter",
       "eps_reported": "$1.12",
-      "revenue_reported": "$1.29B",
+      "revenue_reported": "$1.14B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000044/exhibit991q22026.htm",
@@ -29513,15 +29513,15 @@
       "fiscalQuarter": 2
     },
     {
-      "date": "2026-04-23",
+      "date": "2026-05-20",
       "quarter": "2026 Q1",
       "periodEnd": "2026-03-29",
       "periodScope": "quarter",
       "eps_reported": "$1.39",
-      "revenue_reported": "$1.11B",
+      "revenue_reported": "$1.00B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000029/exhibit991q12026.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
       "verifiedAt": "2026-11-22",
       "verificationStatus": "official_verified",
@@ -29530,12 +29530,17 @@
       "accessionNumber": "0000046080-26-000026",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
       "form": "10-Q",
-      "releaseFilingDate": "2026-04-23",
-      "releaseAccession": "0000046080-26-000016",
+      "releaseFilingDate": "2026-05-20",
+      "releaseAccession": "0000046080-26-000029",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000026/has-20260329.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 1
+      "fiscalQuarter": 1,
+      "metricNote": {
+        "en": "Hasbro released preliminary ranges on April 23, filed its quarterly report on May 13, and published full results on May 20.",
+        "zh-TW": "孩之寶於 4 月 23 日公布初步數字區間，5 月 13 日提交季報，5 月 20 日發布完整業績。"
+      },
+      "metricNoteSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000016/exhibit991-apr232026.htm"
     },
     {
       "date": "2026-02-10",
@@ -29566,7 +29571,7 @@
       "date": "2025-10-23",
       "quarter": "2025 Q3",
       "eps_reported": "$1.64",
-      "revenue_reported": "$1.59B",
+      "revenue_reported": "$1.39B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",

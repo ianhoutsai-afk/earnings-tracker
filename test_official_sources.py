@@ -301,6 +301,25 @@ class RevenueScopeTests(unittest.TestCase):
    self.assertIsNone(parse_inline_quarter(doc,'2026-09-30')['revenue'])
 
 class ConsolidatedContractRevenueTests(unittest.TestCase):
+ def test_hasbro_segment_revenues_do_not_override_consolidated_net_revenues(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  consolidated=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  statement=('<table><caption>Consolidated Statements of Operations</caption>'
+             '<tr><td>Net revenues</td><td>'+consolidated+'</td></tr></table>')
+  segment=('<div>Note 10. Segment Reporting</div><table><tr><td>Revenues</td><td>'
+           +original.replace('1,200','1,400')+'</td></tr></table>')
+  doc=filing().replace('<xbrli:identifier>1</xbrli:identifier>','<xbrli:identifier>46080</xbrli:identifier>')
+  self.assertEqual(parse_inline_quarter(doc.replace(original,statement+segment),'2026-09-30','46080')['revenue'],1200000000)
+
+ def test_coherent_earnings_loss_heading_and_trailing_notes_reference(self):
+  original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
+  exact=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')
+  exact=exact.replace('scale="6">1,200','scale="3">1,200,041')
+  statement=('<div>Condensed Consolidated Statements of Earnings (Loss) (Unaudited)</div>'
+             '<div><table><tr><td>Revenues</td><td>'+exact+'</td></tr></table>'
+             '<span>See Notes to Condensed Consolidated Financial Statements.</span></div>')
+  self.assertEqual(parse_inline_quarter(filing().replace(original,statement),'2026-09-30')['revenue'],1200041000)
+
  def test_republic_services_uses_unaudited_consolidated_revenue_instead_of_segment_gross(self):
   original='<ix:nonFraction name="us-gaap:Revenues" contextRef="q" unitRef="usd" scale="6">1,200</ix:nonFraction>'
   consolidated=original.replace('us-gaap:Revenues','us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax')

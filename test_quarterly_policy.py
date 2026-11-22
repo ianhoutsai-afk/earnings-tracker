@@ -16,6 +16,17 @@ def official(end, quarter, released, eps=1.0):
 
 
 class QuarterlyPolicyTests(unittest.TestCase):
+    def test_reviewed_preliminary_release_does_not_survive_a_final_release(self):
+        final = dict(official('2026-03-29', 1, '2026-05-20'), ticker='HAS',
+                     releaseAccession='0000046080-26-000029', releaseFilingDate='2026-05-20',
+                     releaseSourceUrl='https://www.sec.gov/final')
+        earlier = dict(final, date='2026-04-23', releaseAccession='0000046080-26-000016',
+                       releaseFilingDate='2026-04-23', releaseSourceUrl='https://www.sec.gov/preliminary')
+        for args in ((earlier, final), (final, dict(earlier, verifiedAt='2026-11-22'))):
+            merged = merge_manifest_record(*args)
+            for field in ('date', 'releaseAccession', 'releaseFilingDate', 'releaseSourceUrl'):
+                self.assertEqual(merged[field], final[field])
+
     def test_manifest_retains_known_start_only_for_the_same_quarter(self):
         older = dict(official('2026-06-30', 4, '2026-07-29'), verifiedAt='2026-08-01')
         newer = dict(older, verifiedAt='2026-10-22', periodStart=None)

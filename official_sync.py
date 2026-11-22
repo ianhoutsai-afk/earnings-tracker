@@ -22,7 +22,12 @@ from official_sources import parse_earnings_release, parse_earnings_filing, pars
 from release_metrics import parse_release_quarter_metrics
 from official_events import parse_expected_release
 from issuer_mapping import fill_missing_ciks
-from quarterly_policy import all_release_dates_verified, filing_dated_quarters, official_source_url, retain_history, retain_manifest, company_fields, merge_manifest_record, preserve_release_provenance, pending_history_companies, history_continuity_issues
+from quarterly_policy import (
+    NON_RESULTS_ACCESSIONS, all_release_dates_verified, company_fields,
+    filing_dated_quarters, history_continuity_issues, merge_manifest_record,
+    official_source_url, pending_history_companies, preserve_release_provenance,
+    retain_history, retain_manifest,
+)
 from verified_history import apply_official_records, write_json_bundle
 
 
@@ -99,23 +104,6 @@ def _exhibit_links(document, base, reviewed_supplement=None):
             result.append(target)
     return list(dict.fromkeys(result))[:4]
 
-
-# Original EDGAR documents reviewed in the November 14 quarterly evidence reports.
-# These accessions held guidance, preliminary data, schedules, or an appointment.
-NON_RESULTS_ACCESSIONS = {
-    '0001193125-26-021804',  # The Trade Desk
-    '0001171843-26-000788',  # Norwegian Cruise Line
-    '0000031791-26-000003',  # Revvity
-    '0000016918-25-000132',  # Constellation Brands
-    '0001104659-26-115960',  # Kimberly-Clark preliminary third-quarter figures
-    '0000074208-26-000081',  # UDR preliminary third-quarter figures
-    # APA supplemental guidance and conference schedules for the reviewed periods.
-    '0001841666-25-000023',
-    '0001841666-26-000003',
-    '0001841666-26-000021',
-    '0001841666-26-000045',
-    '0001841666-26-000058',
-}
 
 # Bio-Techne submitted dividend and quarterly results exhibits together.
 NON_RESULTS_EXHIBITS = {

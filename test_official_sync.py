@@ -361,9 +361,10 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
 
  def test_preliminary_filings_do_not_supplant_final_quarterly_releases(self):
   from official_sync import check_issuer
-  for cik, notice_accession, final_accession, notice, final in (
-   ('0000055785', '0001104659-26-115960', '0001628280-26-070514', '2026-10-15', '2026-11-05'),
-   ('0000074208', '0000074208-26-000081', '0000074208-26-000084', '2026-10-21', '2026-11-02'),
+  for cik, notice_accession, final_accession, notice, final, quarter, period_end in (
+   ('0000055785', '0001104659-26-115960', '0001628280-26-070514', '2026-10-15', '2026-11-05', 'Third', 'September 30'),
+   ('0000074208', '0000074208-26-000081', '0000074208-26-000084', '2026-10-21', '2026-11-02', 'Third', 'September 30'),
+   ('0000046080', '0000046080-26-000016', '0000046080-26-000029', '2026-04-23', '2026-05-20', 'First', 'March 29'),
   ):
    with self.subTest(cik=cik):
     submissions = {'filings': {'recent': {
@@ -378,8 +379,8 @@ class ReviewedReleaseExclusionTests(unittest.TestCase):
      is_final = final_accession.replace('-', '') in url
      published = date.fromisoformat(final if is_final else notice)
      subject = 'Results' if is_final else 'Preliminary results'
-     return (f'<h1>Third quarter 2026 {subject}</h1>'
-             f'<p>{published:%B} {published.day}, 2026 — {subject} for the quarter ended September 30, 2026.</p>')
+     return (f'<h1>{quarter} quarter 2026 {subject}</h1>'
+             f'<p>{published:%B} {published.day}, 2026 — {subject} for the quarter ended {period_end}, 2026.</p>')
     rows, _ = check_issuer(cik, submissions, documents, date(2026, 11, 16))
     self.assertEqual([(row['date'], row['releaseAccession']) for row in rows], [(final, final_accession)])
 
