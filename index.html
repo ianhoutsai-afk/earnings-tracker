@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S&P 500 Earnings Tracker</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('earningsTrackerTheme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,17 +33,23 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8 font-sans transition-colors duration-300">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8 font-sans">
     <div class="max-w-[1200px] mx-auto">
 
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
             <h1 data-i18n="app.title" class="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">S&amp;P 500 Earnings Tracker</h1>
-            <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+                <button id="export-watchlist-btn" data-i18n="watchlist.export" type="button" class="px-3 py-2 text-xs font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    Export watchlist
+                </button>
+                <button id="import-watchlist-btn" data-i18n="watchlist.import" type="button" class="px-3 py-2 text-xs font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    Import watchlist
+                </button>
                 <button id="language-toggle" type="button" aria-label="Switch to Traditional Chinese" class="min-w-14 px-3 py-2 text-sm font-semibold bg-blue-600 text-white border border-blue-600 rounded-lg shadow-sm hover:bg-blue-700 hover:border-blue-700 transition">
                     中文
                 </button>
-                <button id="theme-toggle" data-i18n="theme.toggle" type="button" class="px-4 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                    Toggle light/dark mode
+                <button id="theme-toggle" type="button" class="px-4 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    🌙 Dark mode
                 </button>
             </div>
         </div>
@@ -73,28 +88,39 @@
                         </select>
                     </div>
 
-                    <button id="star-filter-btn" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition whitespace-nowrap">
+                    <button id="star-filter-btn" type="button" class="px-3 py-2 text-sm font-medium bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:text-yellow-600 dark:hover:text-yellow-400 transition whitespace-nowrap">
                         ⭐ Watchlist only
                     </button>
                 </div>
             </div>
 
-            <p id="search-status" data-i18n="search.loading" class="mt-2 px-1 text-xs text-gray-500 dark:text-gray-400" aria-live="polite">
-                Loading company data...
-            </p>
+            <!-- 時間區間快速篩選 -->
+            <div class="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label="Time window filter">
+                <button type="button" data-window="all" data-i18n="window.all" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">All</button>
+                <button type="button" data-window="today" data-i18n="window.today" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Today</button>
+                <button type="button" data-window="week" data-i18n="window.week" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Next 7 days</button>
+                <button type="button" data-window="month" data-i18n="window.month" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Next 30 days</button>
+            </div>
+
+            <div class="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-1">
+                <p id="search-status" data-i18n="search.loading" class="text-xs text-gray-500 dark:text-gray-400" aria-live="polite">
+                    Loading company data...
+                </p>
+                <p id="watchlist-feedback" class="text-xs text-blue-600 dark:text-blue-400 hidden" aria-live="polite"></p>
+            </div>
         </div>
 
         <p id="data-health" class="mb-3 text-xs text-amber-700 dark:text-amber-300" aria-live="polite"></p>
         <div class="w-full overflow-x-auto bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <table class="w-full text-left border-collapse whitespace-nowrap">
+            <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-850 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
-                        <th data-i18n="table.watch" class="p-4 font-semibold w-12 text-center">Watch</th>
-                        <th data-i18n="table.company" class="p-4 font-semibold">Company</th>
-                        <th data-i18n="table.reportDate" class="p-4 font-semibold">Expected report date</th>
-                        <th data-i18n="table.eps" class="p-4 font-semibold">Estimated EPS</th>
-                        <th data-i18n="table.revenue" class="p-4 font-semibold">Estimated revenue</th>
-                        <th data-i18n="table.sec" class="p-4 font-semibold text-center">SEC filings</th>
+                        <th data-i18n="table.watch" class="p-3 md:p-4 font-semibold w-12 text-center whitespace-nowrap">Watch</th>
+                        <th data-i18n="table.company" class="p-3 md:p-4 font-semibold">Company</th>
+                        <th data-i18n="table.reportDate" class="p-3 md:p-4 font-semibold">Next earnings event (New York)</th>
+                        <th data-i18n="table.latestEps" class="p-3 md:p-4 font-semibold whitespace-nowrap">Latest verified EPS</th>
+                        <th data-i18n="table.latestRevenue" class="p-3 md:p-4 font-semibold whitespace-nowrap">Latest verified revenue</th>
+                        <th data-i18n="table.sec" class="p-3 md:p-4 font-semibold text-center whitespace-nowrap">SEC filings</th>
                     </tr>
                 </thead>
                 <tbody id="data-container" class="text-sm">
@@ -104,35 +130,54 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- 分頁載入控制列 -->
+        <div id="pagination-bar" class="hidden mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 px-2 text-xs text-gray-500 dark:text-gray-400">
+            <span id="pagination-info"></span>
+            <div class="flex items-center gap-2">
+                <button id="load-more-btn" type="button" data-i18n="pagination.loadMore" class="px-4 py-2 text-xs font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    Show 50 more
+                </button>
+                <button id="show-all-btn" type="button" class="px-4 py-2 text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">
+                    Show all
+                </button>
+            </div>
+        </div>
     </div>
 
     <script type="module">
         import {
             createLanguageController,
-            earningsMetricLabelKey,
-            getExpandedTickers,
             historyFilingKey,
             historyStatusKey,
             restoreExpandedTickers,
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            quarterEstimates, nextCompanyEvent, quarterlyMetrics,
+            nextCompanyEvent, quarterlyMetrics,
         } from './quarterly-history.mjs';
 
-        // 深淺色模式
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-        });
+        const THEME_STORAGE_KEY = 'earningsTrackerTheme';
+        const PAGE_SIZE = 50;
 
         // 全域狀態
         let appData = [];
         let historicalData = {};
         let historyStatus = {};
+        let currentFilteredData = [];
+        let displayLimit = PAGE_SIZE;
         let starFilterActive = false;
+        let windowFilter = 'all';
         let searchQuery = '';
         let currentLanguage = 'en';
-        let t;
+        let t = key => key;
+        let searchDebounceTimer = null;
+
+        function updateThemeToggleLabel() {
+            const btn = document.getElementById('theme-toggle');
+            const isDark = document.documentElement.classList.contains('dark');
+            btn.textContent = isDark ? t('theme.darkLabel') : t('theme.lightLabel');
+        }
 
         function applyStaticTranslations() {
             document.documentElement.lang = currentLanguage;
@@ -156,6 +201,8 @@
                         t(node.dataset.i18nAriaLabel)
                     );
                 });
+
+            updateThemeToggleLabel();
         }
 
         function updateLanguageToggle() {
@@ -164,46 +211,173 @@
             button.setAttribute('aria-label', t('language.label'));
         }
 
-        // 客戶端倒計時計算
-        function calcCountdown(reportDateStr) {
-            if (!reportDateStr) return null;
+        function escapeHtml(value) {
+            const div = document.createElement('div');
+            div.textContent = String(value ?? '');
+            return div.innerHTML;
+        }
 
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-
-            const reportDate = new Date(reportDateStr + 'T00:00:00');
-            return Math.ceil((reportDate - today) / (1000 * 60 * 60 * 24));
+        function sanitizeUrl(url) {
+            if (!url || typeof url !== 'string') return null;
+            try {
+                const parsed = new URL(url, window.location.origin);
+                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+                    return parsed.href;
+                }
+            } catch {
+                return null;
+            }
+            return null;
         }
 
         function getCountdownBadgeHtml(countdown) {
             if (countdown === null || countdown === undefined) return '';
 
             if (countdown === 0) {
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">${t('countdown.today')}</span>`;
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">${escapeHtml(t('countdown.today'))}</span>`;
             }
 
             if (countdown > 0 && countdown <= 7) {
                 const label = countdown === 1
                     ? t('countdown.day')
                     : t('countdown.days', { count: countdown });
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">${label}</span>`;
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">${escapeHtml(label)}</span>`;
             }
 
             if (countdown > 7) {
-                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">${t('countdown.days', { count: countdown })}</span>`;
+                return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">${escapeHtml(t('countdown.days', { count: countdown }))}</span>`;
             }
 
-            return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">${t('countdown.published')}</span>`;
+            return `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">${escapeHtml(t('countdown.published'))}</span>`;
         }
 
-        // 展開或折疊歷史面板
-        window.toggleHistory = function(ticker) {
+        function getHistory(ticker) {
+            return selectHistory(ticker, historicalData[ticker] || []);
+        }
+
+        function buildHistoryPanelHtml(ticker) {
+            const history = getHistory(ticker);
+            if (!history.length) return '';
+
+            let cardsHtml = '';
+            history.forEach(h => {
+                const secForm = h.form || null;
+                const metrics = quarterlyMetrics(h);
+                const fiscalLabel = fiscalQuarterLabel(h);
+                const verifiedRelease = h.verificationStatus === 'official_verified';
+                const isAnnualFiling =
+                    secForm === '10-K'
+                    || (!secForm && (h.quarter || '').includes('FY'));
+
+                const filingLabel = t(historyFilingKey(h));
+                const secUrl = sanitizeUrl(h.secUrl);
+                const releaseUrl = sanitizeUrl(h.releaseSourceUrl);
+                const epsSourceUrl = sanitizeUrl(h.epsSourceUrl);
+                const revenueSourceUrl = sanitizeUrl(h.revenueSourceUrl);
+                const metricSourceUrl = sanitizeUrl(h.metricSourceUrl);
+
+                cardsHtml += `
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center h-full">
+                        <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 ${
+                            isAnnualFiling
+                                ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
+                                : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                        }">
+                            ${escapeHtml(filingLabel)}
+                        </span>
+
+                        <div class="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                            ${escapeHtml(fiscalLabel ? t('history.fiscalQuarter', { quarter: fiscalLabel }) : t('history.legacyQuarter', { quarter: h.quarter || '—' }))}
+                        </div>
+
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                            📅 ${escapeHtml(t(verifiedRelease ? 'history.released' : 'history.legacyDate', { date: h.date }))}
+                        </div>
+                        ${h.filingDate ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${escapeHtml(t('history.filed', { date: h.filingDate }))}</div>` : ''}
+                        ${h.periodEnd ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${escapeHtml(t('earnings.periodEnd', { date: h.periodEnd }))}</div>` : ''}
+
+                        <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
+                            ${escapeHtml(metrics.eps)}
+                        </div>
+                        <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">
+                            ${escapeHtml(t('earnings.gaapQuarterEps'))}
+                        </div>
+
+                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
+                            ${escapeHtml(metrics.revenue)}
+                        </div>
+                        <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+                            ${escapeHtml(t('history.quarterRevenue'))}
+                        </div>
+                        ${!verifiedRelease || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${escapeHtml(t('history.metricsPending'))}</div>` : ''}
+                        ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${escapeHtml(h.metricNote[currentLanguage] || h.metricNote.en || '')}</div>` : ''}
+
+                        ${releaseUrl ? `
+                            <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer"
+                               class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
+                                ${escapeHtml(t('earnings.releaseSource'))}
+                            </a>
+                        ` : ''}
+                        ${epsSourceUrl && revenueSourceUrl && epsSourceUrl !== revenueSourceUrl ? `
+                            <a href="${escapeHtml(epsSourceUrl)}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${escapeHtml(t('history.epsSource'))}</a>
+                            <a href="${escapeHtml(revenueSourceUrl)}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${escapeHtml(t('history.revenueSource'))}</a>
+                        ` : metricSourceUrl && metricSourceUrl !== releaseUrl ? `
+                            <a href="${escapeHtml(metricSourceUrl)}" target="_blank" rel="noopener noreferrer"
+                               class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
+                                ${escapeHtml(t('earnings.metricSource'))}
+                            </a>
+                        ` : ''}
+
+                        ${
+                            secUrl
+                                ? `
+                                    <a href="${escapeHtml(secUrl)}" target="_blank" rel="noopener noreferrer"
+                                       class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                                        ${escapeHtml(t('sec.original'))}
+                                    </a>
+                                `
+                                : `
+                                    <span class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs text-gray-400 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                        ${escapeHtml(
+                                            h.secStatus === 'pending'
+                                                ? t('sec.pending')
+                                                : t('sec.noOriginal')
+                                        )}
+                                    </span>
+                                `
+                        }
+                    </div>
+                `;
+            });
+
+            return `
+                <td colspan="6" class="p-0">
+                    <div class="history-panel">
+                        <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
+                            ${escapeHtml(t(historyStatusKey(historyStatus[ticker])))}
+                            <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${escapeHtml(t('history.note'))}</div>
+                            ${history.length < 5 ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${escapeHtml(t('history.short', { count: history.length, missing: 5 - history.length }))}</div>` : ''}
+                            ${historyStatus[ticker]?.officialCheckedAt
+                                ? `<div class="mt-1 text-xs text-gray-400">${escapeHtml(t('history.lastChecked', { time: historyStatus[ticker].officialCheckedAt.slice(0, 16).replace('T', ' ') + ' UTC' }))}</div>` : ''}
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                </td>
+            `;
+        }
+
+        function toggleHistory(ticker) {
             const row = document.getElementById(`history-${ticker}`);
             const icon = document.getElementById(`icon-${ticker}`);
-
             if (!row || !icon) return;
 
             if (row.classList.contains('hidden')) {
+                if (!row.dataset.rendered) {
+                    row.innerHTML = buildHistoryPanelHtml(ticker);
+                    row.dataset.rendered = 'true';
+                }
                 row.classList.remove('hidden');
                 icon.textContent = '▲';
                 icon.classList.add(
@@ -212,6 +386,8 @@
                     'dark:bg-blue-900',
                     'dark:text-blue-400'
                 );
+                const btn = row.previousElementSibling?.querySelector('.history-toggle-btn');
+                if (btn) btn.setAttribute('aria-expanded', 'true');
                 row.closest('table').parentElement.scrollLeft = 0;
             } else {
                 row.classList.add('hidden');
@@ -222,25 +398,47 @@
                     'dark:bg-blue-900',
                     'dark:text-blue-400'
                 );
+                const btn = row.previousElementSibling?.querySelector('.history-toggle-btn');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
             }
-        };
-
-        function getHistory(ticker) {
-            return selectHistory(ticker, historicalData[ticker] || []);
         }
+        window.toggleHistory = toggleHistory;
 
         function companyCountdown(company) {
             return calendarCountdown(nextCompanyEvent(company).date);
         }
 
+        function getTimingBadgeHtml(bmoAmc) {
+            const raw = String(bmoAmc || '').trim();
+            if (!raw) return '';
+            const upper = raw.toUpperCase();
+            if (raw.includes('☀️') || upper === 'BMO') {
+                return `<span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-200 dark:border-amber-800">${escapeHtml(t('timing.bmo'))}</span>`;
+            }
+            if (raw.includes('🌙') || upper === 'AMC') {
+                return `<span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">${escapeHtml(t('timing.amc'))}</span>`;
+            }
+            return `<span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">${escapeHtml(t('timing.tbd'))}</span>`;
+        }
+
         function companyEventHtml(company) {
             const event = nextCompanyEvent(company);
-            if (!event.date) return t('history.nextTba');
+            if (!event.date) return `<span class="text-gray-400 dark:text-gray-500 text-xs">${escapeHtml(t('history.nextTba'))}</span>`;
             const label = event.kind === 'call' ? t('history.officialCall')
                 : event.kind === 'official' ? t('table.officialDate') : t('table.thirdPartyEstimate');
-            return `<div>${event.date}</div><div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${event.url
-                ? `<a href="${event.url}" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 dark:text-blue-400">${label}</a>`
-                : label}</div>`;
+            const safeUrl = sanitizeUrl(event.url);
+            const timingHtml = getTimingBadgeHtml(company.bmo_amc);
+            return `
+                <div class="flex items-center flex-wrap gap-y-1">
+                    <span>${escapeHtml(event.date)}</span>
+                    ${timingHtml}
+                </div>
+                <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    ${safeUrl
+                        ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 dark:text-blue-400">${escapeHtml(label)}</a>`
+                        : escapeHtml(label)}
+                </div>
+            `;
         }
 
         function updateStarFilterBtn() {
@@ -281,10 +479,15 @@
             }
         }
 
-        function escapeHtml(value) {
-            const div = document.createElement('div');
-            div.textContent = value;
-            return div.innerHTML;
+        function updateWindowFilterBtns() {
+            document.querySelectorAll('.window-filter-btn').forEach(btn => {
+                const isActive = btn.dataset.window === windowFilter;
+                if (isActive) {
+                    btn.className = 'window-filter-btn px-3 py-1 text-xs font-semibold rounded-full border bg-blue-600 text-white border-blue-600 transition';
+                } else {
+                    btn.className = 'window-filter-btn px-3 py-1 text-xs font-medium rounded-full border bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition';
+                }
+            });
         }
 
         // 忽略大小寫、空格及標點符號
@@ -304,6 +507,16 @@
 
             return normalizeSearchValue(company.ticker).includes(normalizedQuery)
                 || normalizeSearchValue(company.name).includes(normalizedQuery);
+        }
+
+        function companyMatchesWindow(company) {
+            if (windowFilter === 'all') return true;
+            const countdown = companyCountdown(company);
+            if (countdown === null || countdown < 0) return false;
+            if (windowFilter === 'today') return countdown === 0;
+            if (windowFilter === 'week') return countdown >= 0 && countdown <= 7;
+            if (windowFilter === 'month') return countdown >= 0 && countdown <= 30;
+            return true;
         }
 
         function updateSearchUi(resultCount) {
@@ -334,19 +547,49 @@
             }
         }
 
+        function updatePaginationUi(shownCount, totalCount) {
+            const bar = document.getElementById('pagination-bar');
+            const info = document.getElementById('pagination-info');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const showAllBtn = document.getElementById('show-all-btn');
+
+            if (totalCount === 0 || shownCount >= totalCount) {
+                bar.classList.add('hidden');
+                return;
+            }
+
+            bar.classList.remove('hidden');
+            info.textContent = t('pagination.showing', {
+                shown: shownCount,
+                total: totalCount,
+            });
+            loadMoreBtn.textContent = t('pagination.loadMore');
+            showAllBtn.textContent = t('pagination.showAll', { total: totalCount });
+        }
+
         function renderTable(data) {
             const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
             const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            const pending=appData.filter(company=>{const row=historyStatus[company.ticker];return !row||row.status!=='official_source_checked'||row.officialQuarterCount<5||(row.metricsVerifiedQuarterCount || 0)<5;}).length;
-            document.getElementById('data-health').textContent = t('history.health', {count:appData.length,verified,failed,pending});
+            const pending = appData.filter(company => {
+                const row = historyStatus[company.ticker];
+                return !row || row.status !== 'official_source_checked' || row.officialQuarterCount < 5 || (row.metricsVerifiedQuarterCount || 0) < 5;
+            }).length;
+            document.getElementById('data-health').textContent = t('history.health', {
+                count: appData.length,
+                verified,
+                failed,
+                pending,
+            });
+
             const container = document.getElementById('data-container');
             container.innerHTML = '';
 
             if (data.length === 0) {
+                updatePaginationUi(0, 0);
                 const hasSearch = searchQuery.length > 0;
                 const emptyMessage = hasSearch
                     ? t('empty.searchTitle', {
-                        query: escapeHtml(searchQuery),
+                        query: searchQuery,
                     })
                     : t('empty.filteredTitle');
                 const emptyHint = hasSearch
@@ -357,10 +600,10 @@
                     <tr>
                         <td colspan="6" class="p-12 text-center">
                             <div class="text-base font-semibold text-gray-700 dark:text-gray-200">
-                                ${emptyMessage}
+                                ${escapeHtml(emptyMessage)}
                             </div>
                             <div class="mt-1 text-sm text-gray-400">
-                                ${emptyHint}
+                                ${escapeHtml(emptyHint)}
                             </div>
                         </td>
                     </tr>
@@ -368,57 +611,75 @@
                 return;
             }
 
-            data.forEach(company => {
+            const visibleData = data.slice(0, displayLimit);
+            updatePaginationUi(visibleData.length, data.length);
+
+            const fragment = document.createDocumentFragment();
+
+            visibleData.forEach(company => {
                 const isStarred =
                     localStorage.getItem(`star_${company.ticker}`) === 'true';
                 const starIcon = isStarred ? '⭐' : '☆';
 
-                const estimates = quarterEstimates(company);
                 const countdown = companyCountdown(company);
                 const badgeHtml = getCountdownBadgeHtml(countdown);
 
                 const history = getHistory(company.ticker);
                 const hasHistory = history.length > 0;
+                const latestRecord = history[0] || null;
+                const latestMetrics = latestRecord
+                    ? quarterlyMetrics(latestRecord)
+                    : { eps: '-', revenue: '-' };
+                const latestLabel = latestRecord ? fiscalQuarterLabel(latestRecord) : null;
+                const latestBadge = latestLabel && latestRecord?.verificationStatus === 'official_verified'
+                    ? `<div class="mt-1 text-xs text-emerald-700 dark:text-emerald-400">${escapeHtml(t('table.verifiedQuarterBadge', { quarter: latestLabel }))}</div>`
+                    : (latestMetrics.eps === '-' && latestMetrics.revenue === '-'
+                        ? `<div class="mt-1 text-xs text-gray-400">${escapeHtml(t('table.unverifiedQuarterBadge'))}</div>`
+                        : '');
 
                 const secBtnHtml = hasHistory
                     ? `
-                        <button onclick="toggleHistory('${company.ticker}')" class="px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
-                            ${t('sec.view')}
-                            <span id="icon-${company.ticker}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
+                        <button type="button" data-ticker="${escapeHtml(company.ticker)}" aria-expanded="false" aria-controls="history-${escapeHtml(company.ticker)}" class="history-toggle-btn px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center mx-auto text-gray-600 dark:text-gray-300 text-xs font-medium">
+                            ${escapeHtml(t('sec.view'))}
+                            <span id="icon-${escapeHtml(company.ticker)}" class="ml-1 w-5 h-5 flex items-center justify-center rounded transition-colors">▼</span>
                         </button>
                     `
-                    : `<span class="text-xs text-gray-400">${t('sec.noData')}</span>`;
+                    : `<span class="text-xs text-gray-400">${escapeHtml(t('sec.noData'))}</span>`;
 
                 const tr = document.createElement('tr');
                 tr.className =
                     'border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors duration-150';
 
                 tr.innerHTML = `
-                    <td class="p-4 text-center cursor-pointer text-lg star-btn select-none" data-ticker="${company.ticker}">
-                        ${starIcon}
+                    <td class="p-3 md:p-4 text-center whitespace-nowrap">
+                        <button type="button" class="star-btn text-lg select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded px-1" data-ticker="${escapeHtml(company.ticker)}" aria-pressed="${isStarred}" aria-label="${escapeHtml(t('watchlist.toggleAria', { ticker: company.ticker }))}">
+                            ${starIcon}
+                        </button>
                     </td>
-                    <td class="p-4">
-                        <span class="font-bold text-gray-900 dark:text-gray-100">
-                            ${company.name || company.ticker}
-                        </span>
-                        <span class="text-gray-500 dark:text-gray-400 ml-1 text-xs">
-                            (${company.ticker})
-                        </span>
-                        ${badgeHtml}
-                        ${company.tickerIdentityStatus==='historical_alias' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.renamedTicker',{tickers:(company.officialCurrentTickers || []).join(', ')})}</div>` : company.tickerIdentityStatus==='unconfirmed' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.tickerUnconfirmed')}</div>` : ''}
-                        ${history[0] ? `<div class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">${fiscalQuarterLabel(history[0]) && history[0].verificationStatus === 'official_verified' ? t('history.latest', { quarter: fiscalQuarterLabel(history[0]), date: history[0].date }) : t('history.latestUnverified', {date: history[0].date})}</div>` : ''}
+                    <td class="p-3 md:p-4 min-w-[200px] max-w-[300px] whitespace-normal">
+                        <div class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                            <span class="font-bold text-gray-900 dark:text-gray-100">
+                                ${escapeHtml(company.name || company.ticker)}
+                            </span>
+                            <span class="text-gray-500 dark:text-gray-400 text-xs">
+                                (${escapeHtml(company.ticker)})
+                            </span>
+                            ${badgeHtml}
+                        </div>
+                        ${company.tickerIdentityStatus === 'historical_alias' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${escapeHtml(t('history.renamedTicker', { tickers: (company.officialCurrentTickers || []).join(', ') }))}</div>` : company.tickerIdentityStatus === 'unconfirmed' ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${escapeHtml(t('history.tickerUnconfirmed'))}</div>` : ''}
+                        ${latestRecord ? `<div class="mt-1.5 text-xs font-medium text-gray-500 dark:text-gray-400">${escapeHtml(latestLabel && latestRecord.verificationStatus === 'official_verified' ? t('history.latest', { quarter: latestLabel, date: latestRecord.date }) : t('history.latestUnverified', { date: latestRecord.date }))}</div>` : ''}
                     </td>
-                    <td class="p-4 text-gray-800 dark:text-gray-300 font-medium">
+                    <td class="p-3 md:p-4 min-w-[150px] whitespace-normal text-gray-800 dark:text-gray-300 font-medium">
                         ${companyEventHtml(company)}
                     </td>
-                    <td class="p-4 text-gray-700 dark:text-gray-300">
-                        ${estimates.eps}
-                        <div class="mt-1 text-xs text-gray-400">${t('history.estimatePending')}</div>
+                    <td class="p-3 md:p-4 whitespace-nowrap text-gray-800 dark:text-gray-200 font-semibold">
+                        ${escapeHtml(latestMetrics.eps)}
+                        ${latestBadge}
                     </td>
-                    <td class="p-4 text-gray-700 dark:text-gray-300">
-                        ${estimates.revenue}
+                    <td class="p-3 md:p-4 whitespace-nowrap text-gray-800 dark:text-gray-200 font-semibold">
+                        ${escapeHtml(latestMetrics.revenue)}
                     </td>
-                    <td class="p-4 text-center">${secBtnHtml}</td>
+                    <td class="p-3 md:p-4 text-center whitespace-nowrap">${secBtnHtml}</td>
                 `;
 
                 const trExpand = document.createElement('tr');
@@ -426,139 +687,17 @@
                 trExpand.className =
                     'expand-row hidden bg-gray-50/50 dark:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700';
 
-                let historyContent = '';
-
-                if (hasHistory) {
-                    let cardsHtml = '';
-
-                    history.forEach(h => {
-                        const secForm = h.form || null;
-                        const metrics = quarterlyMetrics(h);
-                        const fiscalLabel = fiscalQuarterLabel(h);
-                        const verifiedRelease = h.verificationStatus === 'official_verified';
-                        const isAnnualFiling =
-                            secForm === '10-K'
-                            || (!secForm && (h.quarter || '').includes('FY'));
-
-                        const filingLabel = t(historyFilingKey(h));
-
-                        const secUrl = h.secUrl || null;
-
-                        cardsHtml += `
-                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center h-full">
-                                <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 ${
-                                    isAnnualFiling
-                                        ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
-                                        : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
-                                }">
-                                    ${filingLabel}
-                                </span>
-
-                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
-                                    ${fiscalLabel ? t('history.fiscalQuarter', {quarter:fiscalLabel}) : t('history.legacyQuarter', {quarter:h.quarter || '—'})}
-                                </div>
-
-                                <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                                    📅 ${t(verifiedRelease ? 'history.released' : 'history.legacyDate', {date:h.date})}
-                                </div>
-                                ${h.filingDate ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('history.filed', {date:h.filingDate})}</div>` : ''}
-                                ${h.periodEnd ? `<div class="text-xs text-gray-500 dark:text-gray-400 mb-2">${t('earnings.periodEnd', { date: h.periodEnd })}</div>` : ''}
-
-                                <div class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
-                                    ${metrics.eps}
-                                </div>
-                                <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">
-                                    ${t('earnings.gaapQuarterEps')}
-                                </div>
-
-                                <div class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
-                                    ${metrics.revenue}
-                                </div>
-                                <div class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
-                                    ${t('history.quarterRevenue')}
-                                </div>
-                                ${!verifiedRelease || metrics.eps === '-' || metrics.revenue === '-' ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${t('history.metricsPending')}</div>` : ''}
-                                ${h.metricNote ? `<div class="mb-3 text-xs text-amber-700 dark:text-amber-300">${h.metricNote[currentLanguage] || h.metricNote.en || ''}</div>` : ''}
-
-                                ${h.releaseSourceUrl ? `
-                                    <a href="${h.releaseSourceUrl}" target="_blank" rel="noopener noreferrer"
-                                       class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
-                                        ${t('earnings.releaseSource')}
-                                    </a>
-                                ` : ''}
-                                ${h.epsSourceUrl && h.revenueSourceUrl && h.epsSourceUrl !== h.revenueSourceUrl ? `
-                                    <a href="${h.epsSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.epsSource')}</a>
-                                    <a href="${h.revenueSourceUrl}" target="_blank" rel="noopener noreferrer" class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">${t('history.revenueSource')}</a>
-                                ` : h.metricSourceUrl && h.metricSourceUrl !== h.releaseSourceUrl ? `
-                                    <a href="${h.metricSourceUrl}" target="_blank" rel="noopener noreferrer"
-                                       class="mb-2 text-xs font-medium text-blue-600 dark:text-blue-400 underline">
-                                        ${t('earnings.metricSource')}
-                                    </a>
-                                ` : ''}
-
-                                ${
-                                    secUrl
-                                        ? `
-                                            <a href="${secUrl}" target="_blank"
-                                               class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
-                                                ${t('sec.original')}
-                                            </a>
-                                        `
-                                        : `
-                                            <span class="mt-auto inline-flex items-center justify-center w-full px-3 py-2 text-xs text-gray-400 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                                ${
-                                                    h.secStatus === 'pending'
-                                                        ? t('sec.pending')
-                                                        : t('sec.noOriginal')
-                                                }
-                                            </span>
-                                        `
-                                }
-                            </div>
-                        `;
-                    });
-
-                    historyContent = `
-                        <div class="history-panel">
-                        <div class="px-5 pt-4 text-sm text-gray-600 dark:text-gray-300">
-                            ${t(historyStatusKey(historyStatus[company.ticker]))}
-                            <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">${t('history.note')}</div>
-                            ${history.length < 5 ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300">${t('history.short', {count:history.length,missing:5-history.length})}</div>` : ''}
-                            ${historyStatus[company.ticker]?.officialCheckedAt
-                                ? `<div class="mt-1 text-xs text-gray-400">${t('history.lastChecked', {time:historyStatus[company.ticker].officialCheckedAt.slice(0,16).replace('T',' ')+' UTC'})}</div>` : ''}
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">
-                            ${cardsHtml}
-                        </div>
-                        </div>
-                    `;
-                }
-
-                trExpand.innerHTML = `
-                    <td colspan="6" class="p-0">${historyContent}</td>
-                `;
-
-                container.appendChild(tr);
-                container.appendChild(trExpand);
+                fragment.appendChild(tr);
+                fragment.appendChild(trExpand);
             });
 
-            document.querySelectorAll('.star-btn').forEach(btn => {
-                btn.addEventListener('click', event => {
-                    const ticker = event.target.getAttribute('data-ticker');
-                    const key = `star_${ticker}`;
-
-                    if (localStorage.getItem(key) === 'true') {
-                        localStorage.removeItem(key);
-                        event.target.textContent = '☆';
-                    } else {
-                        localStorage.setItem(key, 'true');
-                        event.target.textContent = '⭐';
-                    }
-                });
-            });
+            container.appendChild(fragment);
         }
 
-        function applySort() {
+        function applySort(resetLimit = true) {
+            if (resetLimit) {
+                displayLimit = PAGE_SIZE;
+            }
             const sortValue = document.getElementById('sort-select').value;
 
             let filtered = starFilterActive
@@ -569,7 +708,8 @@
                 : [...appData];
 
             filtered = filtered.filter(company =>
-                companyMatchesSearch(company, searchQuery)
+                companyMatchesWindow(company)
+                && companyMatchesSearch(company, searchQuery)
             );
 
             if (sortValue === 'countdown_asc') {
@@ -604,17 +744,28 @@
                 );
             }
 
+            currentFilteredData = filtered;
             updateSearchUi(filtered.length);
             renderTable(filtered);
         }
 
-        document
-            .getElementById('star-filter-btn')
-            .addEventListener('click', () => {
-                starFilterActive = !starFilterActive;
-                updateStarFilterBtn();
-                applySort();
-            });
+        function showWatchlistFeedback(message) {
+            const el = document.getElementById('watchlist-feedback');
+            el.textContent = message;
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), 4000);
+        }
+
+        function getStarredTickers() {
+            const tickers = [];
+            for (let i = 0; i < localStorage.length; i += 1) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('star_') && localStorage.getItem(key) === 'true') {
+                    tickers.push(key.slice(5));
+                }
+            }
+            return tickers.sort();
+        }
 
         function init() {
             let dataLoaded = false;
@@ -623,7 +774,7 @@
 
             function tryRender() {
                 if (dataLoaded && historicalLoaded && statusLoaded) {
-                    applySort();
+                    applySort(true);
                 }
             }
 
@@ -652,7 +803,7 @@
                             ).innerHTML = `
                                 <tr>
                                     <td colspan="6" data-i18n="data.error" class="p-8 text-center text-red-500 font-medium">
-                                        ${t('data.error')}
+                                        ${escapeHtml(t('data.error'))}
                                     </td>
                                 </tr>
                             `;
@@ -705,18 +856,17 @@
 
         const languageController = createLanguageController({
             storage: localStorage,
-            captureExpanded: () => getExpandedTickers(
-                document.querySelectorAll('.expand-row')
-            ),
+            captureExpanded: () => getExpandedTickersForLang(),
             apply: (language, translator) => {
                 currentLanguage = language;
                 t = translator;
                 applyStaticTranslations();
                 updateLanguageToggle();
                 updateStarFilterBtn();
+                updateWindowFilterBtns();
 
                 if (appData.length > 0) {
-                    applySort();
+                    applySort(false);
                 }
             },
             restoreExpanded: tickers => restoreExpandedTickers(
@@ -724,14 +874,26 @@
                 ticker => {
                     const row = document.getElementById(`history-${ticker}`);
                     if (row?.classList.contains('hidden')) {
-                        window.toggleHistory(ticker);
+                        toggleHistory(ticker);
                     }
                 }
             ),
         });
 
+        function getExpandedTickersForLang() {
+            return Array.from(document.querySelectorAll('.expand-row'))
+                .filter(row => !row.classList.contains('hidden'))
+                .map(row => row.id.replace(/^history-/, ''));
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             languageController.initialize();
+
+            document.getElementById('theme-toggle').addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem(THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
+                updateThemeToggleLabel();
+            });
 
             document
                 .getElementById('language-toggle')
@@ -741,30 +903,127 @@
 
             document
                 .getElementById('sort-select')
-                .addEventListener('change', applySort);
+                .addEventListener('change', () => applySort(true));
 
-            const searchInput =
-                document.getElementById('company-search');
+            document
+                .getElementById('star-filter-btn')
+                .addEventListener('click', () => {
+                    starFilterActive = !starFilterActive;
+                    updateStarFilterBtn();
+                    applySort(true);
+                });
+
+            document.querySelectorAll('.window-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    windowFilter = btn.dataset.window || 'all';
+                    updateWindowFilterBtns();
+                    applySort(true);
+                });
+            });
+
+            document.getElementById('load-more-btn').addEventListener('click', () => {
+                displayLimit += PAGE_SIZE;
+                renderTable(currentFilteredData);
+            });
+
+            document.getElementById('show-all-btn').addEventListener('click', () => {
+                displayLimit = currentFilteredData.length;
+                renderTable(currentFilteredData);
+            });
+
+            document.getElementById('export-watchlist-btn').addEventListener('click', async () => {
+                const tickers = getStarredTickers();
+                if (!tickers.length) {
+                    showWatchlistFeedback(t('watchlist.emptyExport'));
+                    return;
+                }
+                const text = tickers.join(', ');
+                try {
+                    await navigator.clipboard.writeText(text);
+                } catch {
+                    const blob = new Blob([JSON.stringify(tickers, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'watchlist.json';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }
+                showWatchlistFeedback(t('watchlist.exported', { count: tickers.length }));
+            });
+
+            document.getElementById('import-watchlist-btn').addEventListener('click', () => {
+                const input = window.prompt(t('watchlist.importPrompt'));
+                if (!input) return;
+                const tokens = input
+                    .toUpperCase()
+                    .split(/[\s,;]+/)
+                    .map(s => s.replace(/[^A-Z0-9.-]/g, ''))
+                    .filter(Boolean);
+                const validTickers = new Set(appData.map(c => c.ticker));
+                let added = 0;
+                tokens.forEach(ticker => {
+                    if (!validTickers.size || validTickers.has(ticker)) {
+                        localStorage.setItem(`star_${ticker}`, 'true');
+                        added += 1;
+                    }
+                });
+                showWatchlistFeedback(t('watchlist.imported', { count: added }));
+                applySort(false);
+            });
+
+            // 事件委派：收藏按鈕 & 歷史展開按鈕
+            document.getElementById('data-container').addEventListener('click', event => {
+                const starBtn = event.target.closest('.star-btn');
+                if (starBtn) {
+                    const ticker = starBtn.getAttribute('data-ticker');
+                    const key = `star_${ticker}`;
+                    if (localStorage.getItem(key) === 'true') {
+                        localStorage.removeItem(key);
+                        starBtn.textContent = '☆';
+                        starBtn.setAttribute('aria-pressed', 'false');
+                    } else {
+                        localStorage.setItem(key, 'true');
+                        starBtn.textContent = '⭐';
+                        starBtn.setAttribute('aria-pressed', 'true');
+                    }
+                    return;
+                }
+
+                const historyBtn = event.target.closest('.history-toggle-btn');
+                if (historyBtn) {
+                    const ticker = historyBtn.getAttribute('data-ticker');
+                    if (ticker) toggleHistory(ticker);
+                }
+            });
+
+            const searchInput = document.getElementById('company-search');
 
             searchInput.addEventListener('input', event => {
-                searchQuery = event.target.value.trim();
-                applySort();
+                const nextQuery = event.target.value.trim();
+                clearTimeout(searchDebounceTimer);
+                searchDebounceTimer = setTimeout(() => {
+                    searchQuery = nextQuery;
+                    applySort(true);
+                }, 120);
             });
 
             searchInput.addEventListener('keydown', event => {
                 if (event.key === 'Escape' && searchInput.value) {
+                    clearTimeout(searchDebounceTimer);
                     searchInput.value = '';
                     searchQuery = '';
-                    applySort();
+                    applySort(true);
                 }
             });
 
             document
                 .getElementById('clear-search-btn')
                 .addEventListener('click', () => {
+                    clearTimeout(searchDebounceTimer);
                     searchInput.value = '';
                     searchQuery = '';
-                    applySort();
+                    applySort(true);
                     searchInput.focus();
                 });
 
