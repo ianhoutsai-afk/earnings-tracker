@@ -21248,6 +21248,33 @@
   ],
   "SATS": [
     {
+      "date": "2026-11-03",
+      "quarter": "2026 Q3",
+      "periodEnd": "2026-09-30",
+      "periodScope": "quarter",
+      "eps_reported": "$7.97",
+      "revenue_reported": "$1.13B",
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "verifiedAt": "2026-11-26",
+      "verificationStatus": "official_verified",
+      "periodStart": "2026-07-01",
+      "filingDate": "2026-11-03",
+      "accessionNumber": "0001104659-26-121675",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "form": "10-Q",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926121675/sats-20260930x10q.htm",
+      "metricNote": {
+        "en": "EchoStar’s November 3 Form 10-Q is the source for this quarter. Its Class A shares trade as ECHO under the same SEC issuer as the historical SATS ticker. Revenue reflects the removal of most Pay-TV and Broadband and Satellite Services operations from consolidation, and EPS includes a $3.107 billion gain from the AT&T transactions.",
+        "zh-TW": "本季採用 EchoStar 於 11 月 3 日提交的 10-Q。公司 A 股現用 ECHO 代碼，與歷史代碼 SATS 屬同一 SEC 發行人。營收反映大部分付費電視及寬頻與衛星服務停止納入合併。EPS 包含 AT&T 交易的 31.07 億美元利益。"
+      },
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3
+    },
+    {
       "date": "2026-08-03",
       "quarter": "2026 Q2",
       "periodEnd": "2026-06-30",
@@ -21258,7 +21285,7 @@
       "currency": "USD",
       "releaseSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
       "metricSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
-      "verifiedAt": "2026-11-25",
+      "verifiedAt": "2026-11-26",
       "verificationStatus": "official_verified",
       "periodStart": "2026-04-01",
       "filingDate": "2026-08-03",
@@ -21268,8 +21295,8 @@
       "epsSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
       "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
       "metricNote": {
-        "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026. The original results were published on EchoStar’s investor relations site. The SEC quarterly filing is linked separately.",
-        "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。原始財報發布於公司投資者關係網站，SEC 季報另附連結。"
+        "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026. The original results were published on EchoStar’s investor relations site. The SEC quarterly filing is linked separately. Quarterly income includes approximately $9.73 billion of non-cash gains from deconsolidation.",
+        "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。原始財報發布於公司投資者關係網站，SEC 季報另附連結。 本季獲利包含停止合併認列所產生的約 97.3 億美元非現金利益。"
       },
       "fiscalYear": 2026,
       "fiscalQuarter": 2
@@ -21354,29 +21381,6 @@
       },
       "fiscalYear": 2025,
       "fiscalQuarter": 3
-    },
-    {
-      "date": "2025-08-01",
-      "quarter": "2025 Q2",
-      "eps_reported": "-$1.06",
-      "revenue_reported": "$3.72B",
-      "secUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
-      "form": "10-Q",
-      "verificationStatus": "official_verified",
-      "periodEnd": "2025-06-30",
-      "periodScope": "quarter",
-      "epsBasis": "GAAP diluted",
-      "currency": "USD",
-      "releaseSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-7",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
-      "verifiedAt": "2026-11-25",
-      "periodStart": "2025-04-01",
-      "filingDate": "2025-08-01",
-      "accessionNumber": "0001558370-25-009923",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1415404/000155837025009923/tmb-20250630x10q.htm",
-      "fiscalYear": 2025,
-      "fiscalQuarter": 2
     }
   ],
   "ECL": [
@@ -38064,7 +38068,11 @@
       "fiscalQuarter": 4,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite_ex991xq4fy26.htm",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite_ex991xq4fy26.htm",
-      "periodStart": "2026-03-29"
+      "periodStart": "2026-03-29",
+      "metricNote": {
+        "en": "The GAAP diluted loss per share includes a $7.7566 billion non-cash loss on extinguishing convertible notes through equity exchanges.",
+        "zh-TW": "GAAP 稀釋每股虧損包含可轉換票據轉換為股權時認列的 77.566 億美元非現金債務清償損失。"
+      }
     },
     {
       "date": "2026-05-05",
