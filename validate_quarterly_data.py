@@ -1,4 +1,4 @@
-"""Reject an inconsistent publication bundle before committing it to Pages."""
+"""Reject an inconsistent publication bundle before publishing it to Pages."""
 import json
 from datetime import datetime
 from pathlib import Path
@@ -47,5 +47,12 @@ if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root',default='.')
+    parser.add_argument('--snapshot-date', action='store_true',
+                        help='Validate stored dates as of the snapshot scan')
     args=parser.parse_args()
-    print(json.dumps(validate(args.root)))
+    snapshot_date = None
+    if args.snapshot_date:
+        state = json.loads((Path(args.root) / 'official_scan_state.json').read_text())
+        snapshot_date = datetime.fromisoformat(state['checkedAt'].replace('Z', '+00:00')).astimezone(
+            ZoneInfo('America/New_York')).date()
+    print(json.dumps(validate(args.root, today=snapshot_date)))

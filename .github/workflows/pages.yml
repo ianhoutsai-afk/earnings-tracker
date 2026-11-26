@@ -1,0 +1,76 @@
+name: Earnings Tracker Pages
+
+on:
+  workflow_run:
+    workflows: [Earnings Tracker Update, Official Quarterly History]
+    branches: [main]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: ['index.html', '*.mjs', 'scripts/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+    inputs:
+      snapshot_tag:
+        description: 'Optional published snapshot tag to redeploy'
+        type: string
+
+permissions:
+  contents: read
+  pages: read
+
+concurrency:
+  group: earnings-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      source: ${{ steps.source.outputs.build_type }}
+    steps:
+      - id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .build_type)
+          case "$build_type" in legacy|workflow) ;; *) exit 1 ;; esac
+          echo "build_type=$build_type" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.source.outputs.build_type == 'workflow'
+      - uses: actions/setup-node@v4
+        if: steps.source.outputs.build_type == 'workflow'
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        if: steps.source.outputs.build_type == 'workflow'
+        with:
+          python-version: '3.11'
+      - name: Prepare Pages from the published snapshot
+        if: steps.source.outputs.build_type == 'workflow'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SNAPSHOT_TAG: ${{ inputs.snapshot_tag }}
+        run: |
+          bash scripts/release-data.sh restore
+          python validate_quarterly_data.py --snapshot-date
+          node scripts/build-site.mjs
+          npx --yes tailwindcss@3.4.19 -c scripts/tailwind.config.cjs -i scripts/tailwind.css -o _site/tracker.css --minify
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.source.outputs.build_type == 'workflow'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.source == 'workflow'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

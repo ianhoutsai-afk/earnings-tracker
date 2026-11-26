@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  pages: read
 
 concurrency:
   group: earnings-data-write
@@ -44,6 +45,18 @@ jobs:
           restore-keys: sec-official-v1-
       - name: Install dependencies
         run: python -m pip install lxml requests pandas yfinance
+      - name: Select current publication source
+        id: publication
+        if: github.ref == 'refs/heads/main' && inputs.mode != 'preflight'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .build_type)
+          case "$build_type" in legacy|workflow) ;; *) exit 1 ;; esac
+          echo "build_type=$build_type" >> "$GITHUB_OUTPUT"
+          if [[ "$build_type" == workflow ]]; then
+            bash scripts/release-data.sh restore
+          fi
       - name: Verify quarterly policies and official parsers
         run: python -m unittest discover -q
       - name: Check SEC connections without revealing configuration
@@ -88,16 +101,12 @@ jobs:
         id: validate
         if: ${{ !cancelled() && inputs.mode != 'preflight' }}
         run: python validate_quarterly_data.py
-      - name: Publish verified data and honest source status
-        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && inputs.mode != 'preflight' && steps.validate.outcome == 'success' }}
-        run: |
-          git add data.json historical_data.json official_history.json history_status.json official_scan_state.json sp500_mapping.json
-          if git diff --cached --quiet; then exit 0; fi
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update official quarterly history and source status [skip ci]'
-          git pull --rebase origin main
-          git push origin HEAD:main
+      - name: Publish the verified snapshot
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && inputs.mode != 'preflight' && steps.publication.outcome == 'success' && steps.validate.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_BUILD_TYPE: ${{ steps.publication.outputs.build_type }}
+        run: bash scripts/publish-data.sh
       - uses: actions/cache/save@v4
         if: ${{ always() && inputs.mode != 'preflight' }}
         with:

@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches: [main]
-    paths: ['*.py', '*.mjs', '.github/workflows/quarterly-validation.yml']
+    paths: ['*.py', '*.mjs', 'index.html', 'scripts/**', '.github/workflows/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,4 +25,11 @@ jobs:
       - name: JavaScript regressions
         run: node --test test_*.mjs
       - name: Publication consistency
-        run: python validate_quarterly_data.py
+        run: python validate_quarterly_data.py --snapshot-date
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build static Pages assets
+        run: |
+          node scripts/build-site.mjs
+          npx --yes tailwindcss@3.4.19 -c scripts/tailwind.config.cjs -i scripts/tailwind.css -o _site/tracker.css --minify
