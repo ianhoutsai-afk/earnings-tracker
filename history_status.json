@@ -149,9 +149,9 @@
   "AES": {
     "status": "official_source_checked",
     "reason": "sec_earnings_exhibits_checked",
-    "latestStoredDate": "2026-05-05",
-    "latestStoredOfficial": false,
-    "officialSourceUrl": null,
+    "latestStoredDate": "2026-11-03",
+    "latestStoredOfficial": true,
+    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/aes-20260930.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-26T07:38:01.323395Z",
     "releaseCandidates": 2,
@@ -164,8 +164,8 @@
     "officialCheckedAt": "2026-11-26T07:38:01.323395Z",
     "cik": "0000874761",
     "recordCount": 5,
-    "officialQuarterCount": 3,
-    "metricsVerifiedQuarterCount": 3
+    "officialQuarterCount": 5,
+    "metricsVerifiedQuarterCount": 4
   },
   "AFL": {
     "status": "official_parse_pending",
@@ -1325,9 +1325,9 @@
   "TECH": {
     "status": "official_parse_pending",
     "reason": "sec_release_or_metric_check_pending",
-    "latestStoredDate": "2026-08-12",
+    "latestStoredDate": "2026-11-06",
     "latestStoredOfficial": true,
-    "officialSourceUrl": "https://www.sec.gov/Archives/edgar/data/842023/000110465926094391/tech-20260812xex99d1.htm",
+    "officialSourceUrl": "https://investors.bio-techne.com/all-sec-filings/content/0001104659-26-123907/tech-20260930x10q.htm",
     "discoverySource": "SEC submissions and earnings exhibits",
     "checkedAt": "2026-11-26T07:38:01.323395Z",
     "releaseCandidates": 5,
