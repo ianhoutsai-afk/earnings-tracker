@@ -6775,7 +6775,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000020/avb-20260630.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 2
+      "fiscalQuarter": 2,
+      "metricNote": {
+        "en": "The quarter is AvalonBay’s standalone reporting. Vivmark’s later consolidated financial statements follow the August 17, 2026 reverse acquisition, with AvalonBay as accounting acquirer.",
+        "zh-TW": "本季採 AvalonBay 原有財報口徑。2026 年 8 月 17 日完成反向收購後，由會計收購方 AvalonBay 的財報承接 Vivmark 的合併呈列。"
+      }
     },
     {
       "date": "2026-04-27",
@@ -22708,7 +22712,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526326170/eqr-20260630.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526312445/eqr-ex99_1.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/906107/000119312526312445/eqr-ex99_1.htm",
+      "metricNote": {
+        "en": "The quarter is Equity Residential’s standalone reporting. Vivmark’s financial statements include Equity Residential’s operations from the August 17, 2026 merger date, with AvalonBay as accounting acquirer.",
+        "zh-TW": "本季採 Equity Residential 原有財報口徑。Vivmark 自 2026 年 8 月 17 日合併日起納入 Equity Residential 的營運，會計收購方為 AvalonBay。"
+      }
     },
     {
       "date": "2026-04-28",
@@ -35667,6 +35675,31 @@
   ],
   "LHX": [
     {
+      "date": "2026-10-29",
+      "quarter": "2026 Q3",
+      "periodEnd": "2026-10-02",
+      "periodScope": "quarter",
+      "eps_reported": "$3.28",
+      "revenue_reported": "$6.06B",
+      "epsBasis": "GAAP diluted",
+      "currency": "USD",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000084/exhibit991q3cy26earnings.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/hrs-20261002.htm",
+      "verifiedAt": "2026-11-25",
+      "verificationStatus": "official_verified",
+      "periodStart": "2026-07-04",
+      "filingDate": "2026-10-29",
+      "accessionNumber": "0000202058-26-000087",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/hrs-20261002.htm",
+      "form": "10-Q",
+      "releaseFilingDate": "2026-10-29",
+      "releaseAccession": "0000202058-26-000084",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/hrs-20261002.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000087/hrs-20261002.htm",
+      "fiscalYear": 2026,
+      "fiscalQuarter": 3
+    },
+    {
       "date": "2026-07-29",
       "quarter": "2026 Q2",
       "periodEnd": "2026-07-03",
@@ -35675,7 +35708,7 @@
       "revenue_reported": "$5.88B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000054/hrs-20260729.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000054/exhibit991q2cy26earnings.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000058/hrs-20260703.htm",
       "verifiedAt": "2026-11-25",
       "verificationStatus": "official_verified",
@@ -35703,7 +35736,7 @@
       "periodScope": "quarter",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000032/hrs-20260430.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000032/exhibit991q1cy26earnings.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000035/hrs-20260403.htm",
       "verifiedAt": "2026-11-25",
       "periodStart": "2026-01-03",
@@ -35720,7 +35753,7 @@
       "date": "2026-01-29",
       "quarter": "2025 Q4",
       "eps_reported": "$1.59",
-      "revenue_reported": "$21.86B",
+      "revenue_reported": "$5.65B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/hrs-20260102.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -35728,15 +35761,15 @@
       "periodScope": "quarter",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000008/hrs-20260129.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/hrs-20260102.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000008/exhibit991q4cy25earnings.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000008/exhibit991q4cy25earnings.htm",
       "verifiedAt": "2026-11-25",
       "periodStart": "2025-10-04",
       "filingDate": "2026-02-12",
       "accessionNumber": "0000202058-26-000015",
       "releaseFilingDate": "2026-01-29",
       "releaseAccession": "0000202058-26-000008",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/hrs-20260102.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000008/exhibit991q4cy25earnings.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000008/exhibit991q4cy25earnings.htm"
@@ -35753,7 +35786,7 @@
       "periodScope": "quarter",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000169/hrs-20251030.htm",
+      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000169/exhibit991q3cy25earnings.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000173/hrs-20251003.htm",
       "verifiedAt": "2026-11-25",
       "periodStart": "2025-06-28",
@@ -35765,31 +35798,6 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 3,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000173/hrs-20251003.htm"
-    },
-    {
-      "date": "2025-07-24",
-      "quarter": "2025 Q2",
-      "eps_reported": "$2.44",
-      "revenue_reported": "$5.43B",
-      "secUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000151/hrs-20250627.htm",
-      "form": "10-Q",
-      "verificationStatus": "official_verified",
-      "periodEnd": "2025-06-27",
-      "periodScope": "quarter",
-      "epsBasis": "GAAP diluted",
-      "currency": "USD",
-      "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000147/hrs-20250724.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000151/hrs-20250627.htm",
-      "verifiedAt": "2026-11-25",
-      "periodStart": "2025-03-29",
-      "filingDate": "2025-07-24",
-      "accessionNumber": "0000202058-25-000151",
-      "releaseFilingDate": "2025-07-24",
-      "releaseAccession": "0000202058-25-000147",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000151/hrs-20250627.htm",
-      "fiscalYear": 2025,
-      "fiscalQuarter": 2,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/202058/000020205825000151/hrs-20250627.htm"
     }
   ],
   "LH": [
@@ -61370,7 +61378,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
       "fiscalYear": 2026,
       "fiscalQuarter": 2,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
+      "metricNote": {
+        "en": "The quarter is Warner Bros. Discovery’s standalone reporting before its October 6, 2026 acquisition by Skydance Corporation.",
+        "zh-TW": "本季採 Warner Bros. Discovery 原有財報口徑。Skydance Corporation 於 2026 年 10 月 6 日完成收購。"
+      }
     },
     {
       "date": "2026-05-06",
