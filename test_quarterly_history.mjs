@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent } from './quarterly-history.mjs';
+import { selectHistory, fiscalQuarterLabel, calendarCountdown, quarterEstimates, nextNvdaEvent, matchesEarningsWindow, quarterSeries, quarterGrowth } from './quarterly-history.mjs';
 
 test('NVDA shows five distinct periods newest first while other companies keep their history', () => {
   const rows = [
@@ -67,4 +67,33 @@ test('five verified periods cannot be displaced by an uncertain later legacy dat
  const rows=Array.from({length:5},(_,i)=>({date:`2026-0${i+1}-15`,periodEnd:`2026-0${i+1}-01`,periodScope:'quarter',verificationStatus:'official_verified'}));
  rows.push({date:'2026-06-15',quarter:'legacy pending'});
  assert.ok(selectHistory('ABC',rows).every(r=>r.verificationStatus==='official_verified'));
+});
+
+test('calendar week ends on Sunday and releases use verified dates', () => {
+  const company = { reportDate: '2026-11-30', latestVerifiedReleaseDate: '2026-11-23' };
+  assert.equal(matchesEarningsWindow(company, 'thisWeek', '2026-11-29'), false);
+  assert.equal(matchesEarningsWindow(company, 'thisWeek', '2026-11-30'), true);
+  assert.equal(matchesEarningsWindow(company, 'published', '2026-11-29'), true);
+  assert.equal(matchesEarningsWindow(company, 'published', '2026-11-30'), false);
+  assert.equal(matchesEarningsWindow({ reportDate: '2026-11-29' }, 'published', '2026-11-29'), false);
+});
+
+test('quarterly growth matches fiscal periods and omits missing or nonpositive bases', () => {
+  const fiscalRow = (fiscalYear, fiscalQuarter, revenue) => ({
+    fiscalYear, fiscalQuarter, verificationStatus: 'official_verified',
+    periodScope: 'quarter', currency: 'USD', revenue_reported: revenue,
+  });
+  const rows = [
+    fiscalRow(2026, 1, '$3.00B'),
+    fiscalRow(2025, 4, '$2.40B'),
+    fiscalRow(2025, 1, '$1.50B'),
+    fiscalRow(2025, 3, '$2.00B'),
+  ];
+  const series = quarterSeries(rows, 'revenue');
+  assert.deepEqual(quarterGrowth(series), { qoq: 0.25, yoy: 1 });
+  assert.equal(quarterGrowth(series.filter(row => row.label !== 'FY2025 Q4')).qoq, null);
+  const loss = quarterSeries([fiscalRow(2025, 4, '$0.00'), rows[0]], 'revenue');
+  assert.equal(quarterGrowth(loss).qoq, null);
+  const annotated = [{ ...rows[0], metricNote: { en: 'Pre-split data' } }, ...rows.slice(1)];
+  assert.deepEqual(quarterGrowth(quarterSeries(annotated, 'revenue')), { qoq: null, yoy: null });
 });

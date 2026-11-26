@@ -24,10 +24,12 @@ export function fiscalQuarterLabel(row) {
   return null;
 }
 
+const newYorkCalendar = new Intl.DateTimeFormat('en-US', {
+  timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit',
+});
+
 export function newYorkDate(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit',
-  }).formatToParts(now);
+  const parts = newYorkCalendar.formatToParts(now);
   const value = Object.fromEntries(parts.map(part=>[part.type,part.value]));
   return `${value.year}-${value.month}-${value.day}`;
 }
@@ -65,4 +67,53 @@ export function quarterlyMetrics(row) {
     eps: verified && row.epsBasis === 'GAAP diluted' ? row.eps_reported || '-' : '-',
     revenue: verified ? row.revenue_reported || '-' : '-',
   };
+}
+
+export function matchesEarningsWindow(company, window, today = newYorkDate()) {
+  if (window === 'all') return true;
+  const day = value => Date.parse(`${value}T00:00:00Z`) / 86400000;
+  const todayDay = day(today);
+  if (window === 'published') {
+    const age = todayDay - day(company.latestVerifiedReleaseDate);
+    return age >= 0 && age < 7;
+  }
+  const event = nextCompanyEvent(company, today);
+  const until = day(event.date) - todayDay;
+  if (window === 'today') return until === 0;
+  if (window === 'thisWeek') {
+    const weekday = new Date(todayDay * 86400000).getUTCDay() || 7;
+    return until >= 0 && until <= 7 - weekday;
+  }
+  return until >= 0 && until <= (window === 'week' ? 7 : 30);
+}
+
+function numericMetric(value) {
+  const text = String(value).replace(/[$,\s]/g, '');
+  const match = /^([+-]?\d+(?:\.\d+)?)([KMBT]?)$/.exec(text);
+  if (!match) return null;
+  return Number(match[1]) * ({ '': 1, K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]]);
+}
+
+export function quarterSeries(rows, metric) {
+  return rows.filter(row => row.verificationStatus === 'official_verified'
+    && row.periodScope === 'quarter' && fiscalQuarterLabel(row)).map(row => {
+    const label = fiscalQuarterLabel(row);
+    const [, year, quarter] = /^FY(\d+) Q([1-4])$/.exec(label);
+    const displayValue = quarterlyMetrics(row)[metric];
+    return {
+      label, ordinal: Number(year) * 4 + Number(quarter),
+      value: numericMetric(displayValue), displayValue, comparable: !row.metricNote,
+    };
+  }).sort((a, b) => a.ordinal - b.ordinal);
+}
+
+export function quarterGrowth(series) {
+  const latest = series.at(-1);
+  const growth = lag => {
+    const previous = series.find(row => row.ordinal === latest.ordinal - lag);
+    if (!latest.comparable || latest.value === null
+        || !previous?.comparable || previous.value === null || previous.value <= 0) return null;
+    return latest.value / previous.value - 1;
+  };
+  return latest ? { qoq: growth(1), yoy: growth(4) } : { qoq: null, yoy: null };
 }

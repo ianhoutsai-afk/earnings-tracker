@@ -2,19 +2,11 @@ import unittest
 import json
 import os
 import tempfile
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 from unittest.mock import patch
 
 import pandas as pd
-
-from notify_bark import (
-    companies_reporting_on,
-    format_notification,
-    format_test_notification,
-    get_local_date,
-    send_bark_notification,
-)
 
 from update_data import (
     apply_sec_matches,
@@ -383,121 +375,6 @@ class SecFilingMatchingTests(unittest.TestCase):
         self.assertEqual(companies[0]['ticker'], 'BNY')
         self.assertNotIn('BK', history)
         self.assertIn('BNY', history)
-
-
-class BarkNotificationTests(unittest.TestCase):
-    def test_local_date_uses_configured_timezone(self):
-        now = datetime(2026, 6, 30, 17, 30, tzinfo=timezone.utc)
-
-        self.assertEqual(
-            get_local_date('Asia/Shanghai', now),
-            date(2026, 7, 1),
-        )
-
-    def test_selects_only_companies_reporting_on_target_date(self):
-        companies = [
-            {'ticker': 'MSFT', 'reportDate': '2026-07-01'},
-            {'ticker': 'AAPL', 'reportDate': '2026-07-01'},
-            {'ticker': 'NVDA', 'reportDate': '2026-07-02'},
-            {'name': 'Missing ticker', 'reportDate': '2026-07-01'},
-        ]
-
-        matches = companies_reporting_on(companies, date(2026, 7, 1))
-
-        self.assertEqual([company['ticker'] for company in matches], ['AAPL', 'MSFT'])
-
-    def test_formats_companies_by_release_time(self):
-        companies = [
-            {'ticker': 'JPM', 'bmo_amc': '☀️'},
-            {'ticker': 'NFLX', 'bmo_amc': '🌙'},
-            {'ticker': 'UNH', 'bmo_amc': 'BMO'},
-            {'ticker': 'TSLA', 'bmo_amc': None},
-        ]
-
-        title, body = format_notification(companies, date(2026, 7, 1))
-
-        self.assertEqual(title, '今日財報｜07/01｜4 家')
-        self.assertIn('今日共有 4 家 S&P 500 公司發布財報。', body)
-        self.assertIn('股票代碼：JPM · NFLX · TSLA · UNH', body)
-        self.assertIn('☀️ 盤前（2）\nJPM · UNH', body)
-        self.assertIn('🌙 盤後（1）\nNFLX', body)
-        self.assertIn('⏱️ 時間待確認（1）\nTSLA', body)
-
-    def test_formats_empty_day_notification(self):
-        title, body = format_notification([], date(2026, 7, 4))
-
-        self.assertEqual(title, '今日財報｜07/04｜0 家')
-        self.assertEqual(
-            body,
-            '今日共有 0 家 S&P 500 公司發布財報。\n\n股票代碼：無',
-        )
-
-    def test_formats_test_notification_in_configured_timezone(self):
-        now = datetime(2026, 7, 4, 1, 5, tzinfo=timezone.utc)
-
-        title, body = format_test_notification('Asia/Shanghai', now)
-
-        self.assertEqual(title, 'Bark 測試成功')
-        self.assertIn('2026-07-04 09:05（Asia/Shanghai）', body)
-
-    def test_sends_json_post_to_bark(self):
-        captured = {}
-
-        class FakeResponse:
-            status = 200
-
-            def __enter__(self):
-                return self
-
-            def __exit__(self, *_args):
-                return None
-
-            def read(self):
-                return b'{"code": 200, "message": "success"}'
-
-        def fake_opener(request, timeout):
-            captured['request'] = request
-            captured['timeout'] = timeout
-            return FakeResponse()
-
-        send_bark_notification(
-            'test/key',
-            '今日財報',
-            'AAPL',
-            notification_id='earnings-2026-07-01',
-            opener=fake_opener,
-        )
-
-        request = captured['request']
-        payload = json.loads(request.data.decode('utf-8'))
-        self.assertEqual(request.full_url, 'https://api.day.app/test%2Fkey')
-        self.assertEqual(request.method, 'POST')
-        self.assertEqual(payload['title'], '今日財報')
-        self.assertEqual(payload['body'], 'AAPL')
-        self.assertEqual(payload['group'], 'Earnings Tracker')
-        self.assertEqual(payload['id'], 'earnings-2026-07-01')
-        self.assertEqual(captured['timeout'], 15)
-
-    def test_raises_when_bark_rejects_notification(self):
-        class FakeResponse:
-            status = 200
-
-            def __enter__(self):
-                return self
-
-            def __exit__(self, *_args):
-                return None
-
-            def read(self):
-                return b'{"code": 400, "message": "invalid device key"}'
-
-        with self.assertRaisesRegex(RuntimeError, 'invalid device key'):
-            send_bark_notification(
-                'invalid-key',
-                '今日財報',
-                'AAPL',
-                opener=lambda _request, timeout: FakeResponse(),
-            )
 
 
 if __name__ == '__main__':
