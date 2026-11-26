@@ -5329,7 +5329,7 @@
       "periodEnd": "2026-03-31",
       "periodScope": "quarter",
       "eps_reported": "$0.88",
-      "revenue_reported": "$5.09B",
+      "revenue_reported": "$3.03B",
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000044/aptvq12026ex991.htm",
@@ -5344,10 +5344,10 @@
       "releaseFilingDate": "2026-05-05",
       "releaseAccession": "0001521332-26-000044",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000048/aptv-20260331.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000048/aptv-20260331.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000061/aptv-20260630.htm",
       "metricNote": {
-        "en": "As originally reported, this quarter includes the Electrical Distribution Systems business, spun off as Versigent on April 1, 2026.",
-        "zh-TW": "此季採原始公布口徑，包含於 2026 年 4 月 1 日分拆為 Versigent 的電氣配電系統業務；跨季比較須留意業務範圍變動。"
+        "en": "In the June 2026 Form 10-Q, first-half continuing-operations net sales are $6.306 billion and second-quarter net sales are $3.274 billion. The first-quarter difference excludes Versigent.",
+        "zh-TW": "2026 年第二季 10-Q 列示上半年繼續營業淨營收為 63.06 億美元、第二季為 32.74 億美元。兩者相減得第一季排除 Versigent 後的淨營收。"
       },
       "fiscalYear": 2026,
       "fiscalQuarter": 1
@@ -5356,7 +5356,7 @@
       "date": "2026-02-02",
       "quarter": "2025 Q4",
       "eps_reported": "$0.64",
-      "revenue_reported": "$5.15B",
+      "revenue_reported": "$3.08B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000009/aptv-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -5373,15 +5373,19 @@
       "releaseFilingDate": "2026-02-02",
       "releaseAccession": "0001521332-26-000004",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000009/aptv-20251231.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000009/aptv-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000037/aptv-ex991xunaditedproform.htm",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "metricNote": {
+        "en": "Quarterly continuing-operations sales are derived from $12.397 billion for the full year after the Versigent reclassification, less $9.313 billion for the first nine months in the September 2026 Form 10-Q.",
+        "zh-TW": "以重列 Versigent 後的全年繼續營業淨營收 123.97 億美元，減去 2026 年第三季比較欄的前九個月 93.13 億美元，計算本季營收。"
+      }
     },
     {
       "date": "2025-10-30",
       "quarter": "2025 Q3",
       "eps_reported": "-$1.63",
-      "revenue_reported": "$5.21B",
+      "revenue_reported": "$3.13B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133225000051/aptv-20250930.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",
@@ -5398,9 +5402,13 @@
       "releaseFilingDate": "2025-10-30",
       "releaseAccession": "0001521332-25-000048",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133225000051/aptv-20250930.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133225000051/aptv-20250930.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000075/aptv-20260930.htm",
       "fiscalYear": 2025,
-      "fiscalQuarter": 3
+      "fiscalQuarter": 3,
+      "metricNote": {
+        "en": "The comparative statements exclude the Electrical Distribution Systems business spun off as Versigent. The originally reported revenue was $5.212 billion. Total diluted EPS remains −$1.63.",
+        "zh-TW": "比較財報的繼續營業淨營收已排除分拆為 Versigent 的電氣配電系統業務。原始合併淨營收為 52.12 億美元，合併稀釋 EPS 為 −1.63 美元。"
+      }
     }
   ],
   "ACGL": [
@@ -51699,7 +51707,7 @@
       "date": "2026-02-10",
       "quarter": "2025 Q4",
       "eps_reported": "$3.75",
-      "revenue_reported": "$3.92B",
+      "revenue_reported": "$3.47B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000013/spgi-20251231.htm",
       "form": "10-K",
       "verificationStatus": "official_verified",
@@ -51717,10 +51725,10 @@
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000007/a4q2025earningsrelease.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000013/spgi-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000049/a630proformaupdate.htm",
       "metricNote": {
-        "en": "Fourth-quarter revenue is calculated as fiscal-year revenue less first-nine-months revenue, using the same consolidated line in the 10-K and third-quarter 10-Q.",
-        "zh-TW": "第四季營收按 10-K 和第三季 10-Q 的同一合併報表科目，以全年營收減前九個月營收計算。"
+        "en": "Continuing-operations revenue is $13.589 billion for the full fiscal year less $10.117 billion through September. It also equals the originally reported $3.916 billion less $444 million of Mobility revenue.",
+        "zh-TW": "繼續營業營收按全年 135.89 億美元減前三季 101.17 億美元計算，亦等於原始單季 39.16 億美元減 Mobility 營收 4.44 億美元。"
       },
       "periodStart": "2025-10-01"
     },
@@ -51728,7 +51736,7 @@
       "date": "2025-10-30",
       "quarter": "2025 Q3",
       "eps_reported": "$3.86",
-      "revenue_reported": "$3.89B",
+      "revenue_reported": "$3.44B",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000167/spgi-20250930.htm",
       "form": "10-Q",
       "verificationStatus": "official_verified",
@@ -51747,7 +51755,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000167/spgi-20250930.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 3,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000167/spgi-20250930.htm"
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000058/spgi-20260930.htm",
+      "metricNote": {
+        "en": "The 2026 comparative statement presents continuing-operations revenue after the Mobility Global spin-off. The original quarter included $445 million of Mobility revenue.",
+        "zh-TW": "2026 年比較財報採分拆 Mobility Global 後的繼續營業營收。原始季度營收包含 Mobility 的 4.45 億美元。"
+      }
     }
   ],
   "CRM": [
