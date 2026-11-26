@@ -180,6 +180,18 @@
     "latestPublishedDate": "2026-11-18"
   },
   {
+    "ticker": "OKTA",
+    "name": "Okta, Inc.",
+    "reportDate": "2026-12-01",
+    "reportDateSource": "official",
+    "reportDateSourceUrl": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-to-Announce-Third-Quarter-Fiscal-Year-2027-Financial-Results-on-December-1-2026/default.aspx",
+    "bmo_amc": "AMC",
+    "eps": "-",
+    "revenue": "-",
+    "latestPublishedQuarter": "2027 Q2",
+    "latestPublishedDate": "2026-08-26"
+  },
+  {
     "ticker": "RDDT",
     "name": "Reddit",
     "reportDate": null,
@@ -3362,14 +3374,16 @@
   {
     "ticker": "KVUE",
     "name": "Kenvue Inc.",
-    "reportDate": "2027-02-04",
-    "reportDateSource": "third_party_estimate",
+    "reportDate": null,
+    "reportDateSource": null,
     "reportDateSourceUrl": null,
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-30"
+    "latestPublishedDate": "2026-10-30",
+    "tickerIdentityStatus": "unconfirmed",
+    "officialCurrentTickers": []
   },
   {
     "ticker": "KDP",
@@ -3417,7 +3431,7 @@
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-10-15"
+    "latestPublishedDate": "2026-11-05"
   },
   {
     "ticker": "KIM",
@@ -4417,15 +4431,19 @@
   },
   {
     "ticker": "PSKY",
-    "name": "Paramount Skydance Corporation",
-    "reportDate": "2027-02-24",
-    "reportDateSource": "third_party_estimate",
+    "name": "Skydance Corporation",
+    "reportDate": null,
+    "reportDateSource": null,
     "reportDateSourceUrl": null,
     "bmo_amc": null,
     "eps": "-",
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
-    "latestPublishedDate": "2026-11-09"
+    "latestPublishedDate": "2026-11-09",
+    "tickerIdentityStatus": "historical_alias",
+    "officialCurrentTickers": [
+      "SKYD"
+    ]
   },
   {
     "ticker": "PH",
@@ -5544,6 +5562,18 @@
     "latestPublishedDate": "2026-10-16"
   },
   {
+    "ticker": "TWLO",
+    "name": "Twilio Inc.",
+    "reportDate": null,
+    "reportDateSource": null,
+    "reportDateSourceUrl": null,
+    "bmo_amc": null,
+    "eps": "-",
+    "revenue": "-",
+    "latestPublishedQuarter": "2026 Q3",
+    "latestPublishedDate": "2026-10-29"
+  },
+  {
     "ticker": "TYL",
     "name": "Tyler Technologies, Inc.",
     "reportDate": "2027-02-10",
@@ -5866,6 +5896,18 @@
     "revenue": "-",
     "latestPublishedQuarter": "2026 Q3",
     "latestPublishedDate": "2026-10-29"
+  },
+  {
+    "ticker": "VYLR",
+    "name": "Vylor Inc.",
+    "reportDate": null,
+    "reportDateSource": null,
+    "reportDateSourceUrl": null,
+    "bmo_amc": null,
+    "eps": "-",
+    "revenue": "-",
+    "latestPublishedQuarter": "2026 Q3",
+    "latestPublishedDate": "2026-11-11"
   },
   {
     "ticker": "WRB",
