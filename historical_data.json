@@ -994,8 +994,8 @@
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
       "metricNote": {
-        "en": "AES canceled the results call and directed investors to its March 2 Form 10-K. Quarterly revenue is 2025 full-year revenue of $12.233 billion less $9.132 billion for the first nine months. The disclosed precision does not establish single-quarter diluted EPS.",
-        "zh-TW": "AES 取消業績電話會議，並指向 3 月 2 日提交的 10-K。單季營收以 2025 全年 122.33 億美元減前九個月 91.32 億美元。公開數值的精度不足以核定單季稀釋 EPS。"
+        "en": "AES canceled the results call and directed investors to its March 2 Form 10-K. Quarterly revenue is $12.233 billion for the year less $9.132 billion through September. The same subtraction for income available to common shareholders gives approximately $325 million ($900 million less $575 million). The published amounts are rounded to millions and do not establish quarterly diluted EPS to the nearest cent.",
+        "zh-TW": "AES 取消業績電話會議，並指向 3 月 2 日提交的 10-K。單季營收以全年 122.33 億美元減前九個月 91.32 億美元。以同法計算，歸屬普通股股東的第四季淨利約為 3.25 億美元（9.00 億美元減 5.75 億美元）。公開數字以百萬美元為單位，精度不足以核定單季稀釋 EPS 至美分。"
       },
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm",
       "verifiedAt": "2026-11-26"
@@ -2479,8 +2479,8 @@
       "verifiedAt": "2026-11-26",
       "verificationStatus": "official_verified",
       "metricNote": {
-        "en": "GAAP EPS includes a $98.0B net unrealized gain on equity securities.",
-        "zh-TW": "GAAP EPS 包含 980 億美元的股權證券未實現淨收益。"
+        "en": "GAAP EPS includes $99.031 billion of net gains on equity securities. Of that, $98.753 billion was unrealized. Other income and expense, net totaled about $98.0 billion.",
+        "zh-TW": "GAAP EPS 包含 990.31 億美元股權證券淨收益，其中 987.53 億美元為未實現收益。其他收入及費用淨額約為 980 億美元。"
       },
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
@@ -2610,8 +2610,8 @@
       "verifiedAt": "2026-11-26",
       "verificationStatus": "official_verified",
       "metricNote": {
-        "en": "GAAP EPS includes a $98.0B net unrealized gain on equity securities.",
-        "zh-TW": "GAAP EPS 包含 980 億美元的股權證券未實現淨收益。"
+        "en": "GAAP EPS includes $99.031 billion of net gains on equity securities. Of that, $98.753 billion was unrealized. Other income and expense, net totaled about $98.0 billion.",
+        "zh-TW": "GAAP EPS 包含 990.31 億美元股權證券淨收益，其中 987.53 億美元為未實現收益。其他收入及費用淨額約為 980 億美元。"
       },
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
@@ -12919,7 +12919,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000073/chtr-20260930.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000073/chtr-20260930.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 3
+      "fiscalQuarter": 3,
+      "metricNote": {
+        "en": "Reported revenue of $14.922 billion includes Cox from the August 19, 2026 closing. The issuer also disclosed $16.505 billion on a pro forma basis. The reported diluted loss per share includes a $6.326 billion franchise impairment.",
+        "zh-TW": "公布的營收 149.22 億美元自 2026 年 8 月 19 日交割起納入 Cox。公司另披露備考營收 165.05 億美元。公布的稀釋每股虧損反映 63.26 億美元特許經營權減值。"
+      }
     },
     {
       "date": "2026-07-24",
@@ -26018,8 +26022,8 @@
       "releaseAccession": "0001031296-26-000041",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000046/fe-20251231.htm",
       "metricNote": {
-        "en": "Quarterly revenue is annual GAAP revenue less first-nine-month revenue. The same calculation gives a net loss attributable to FirstEnergy of approximately $49 million. The reported precision leaves diluted loss per share unresolved.",
-        "zh-TW": "單季營收按全年合併 GAAP 營收減首九個月計算。同法算得歸屬 FirstEnergy 的淨虧損約 4,900 萬美元。已披露的精度不足以核定每股稀釋虧損。"
+        "en": "Quarterly GAAP revenue is full-year revenue less first-nine-month revenue. Earnings attributable to FirstEnergy were $1,020 million for the year and $1,069 million through September, implying a quarterly loss of about $49 million. The filings round both earnings and share counts to millions, which leaves the quarterly diluted loss per share unresolved to the nearest cent.",
+        "zh-TW": "單季 GAAP 營收以全年營收減前九個月營收。歸屬 FirstEnergy 的全年淨利為 10.20 億美元，前九個月為 10.69 億美元，因此第四季約虧損 4,900 萬美元。申報資料的盈餘和股數以百萬為單位，精度不足以核定單季稀釋每股虧損至美分。"
       },
       "fiscalYear": 2025,
       "fiscalQuarter": 4
@@ -30459,8 +30463,8 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm",
       "periodStart": "2026-04-01",
       "metricNote": {
-        "en": "Table 2 of the original release gives net sales excluding Aerospace. Total diluted EPS includes Aerospace and a gain on deconsolidation of Quantinuum.",
-        "zh-TW": "原始公告表 2 列示排除 Aerospace 的淨營收。合併稀釋 EPS 包含 Aerospace 及 Quantinuum 終止合併認列利益。"
+        "en": "Table 2 of the original release gives net sales excluding Aerospace. The total diluted EPS follows the June Form 10-Q scope, which includes Aerospace, and reflects a $6.629 billion gain from deconsolidating Quantinuum.",
+        "zh-TW": "原始公告表 2 的淨營收排除 Aerospace。合併稀釋 EPS 採 6 月季報的呈列範圍，包含 Aerospace，並反映 Quantinuum 終止合併認列的 66.29 億美元利益。"
       }
     },
     {
@@ -38895,7 +38899,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/916076/000119312526196029/mlm-20260331.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/916076/000119312526196029/mlm-20260331.htm",
       "fiscalYear": 2026,
-      "fiscalQuarter": 1
+      "fiscalQuarter": 1,
+      "metricNote": {
+        "en": "Total diluted EPS includes discontinued operations and an approximately $1.4 billion after-tax gain on the QUIKRETE asset exchange. The company reported the divested cement and ready-mixed concrete operations as discontinued through closing.",
+        "zh-TW": "合併稀釋 EPS 包含停業單位及約 14 億美元的 QUIKRETE 資產交換稅後利益。公司將交割前的出售水泥及預拌混凝土業務列為停業單位。"
+      }
     },
     {
       "date": "2026-02-11",
@@ -50925,8 +50933,8 @@
       "fiscalQuarter": 3,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/31791/000003179126000034/revv-20261004.htm",
       "metricNote": {
-        "en": "Revenue is shown at the precision stated in the official earnings release.",
-        "zh-TW": "營收採用官方財報公告所列精度。"
+        "en": "Quarterly revenue uses the $728.899 million consolidated total reported in the Form 10-Q.",
+        "zh-TW": "本季營收採 10-Q 所列合併營收 7.28899 億美元。"
       },
       "periodStart": "2026-07-06",
       "filingDate": "2026-11-10",
@@ -55934,8 +55942,8 @@
       "fiscalQuarter": 4,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1389170/000119312526058040/trgp-ex99_1.htm",
       "metricNote": {
-        "en": "The earnings release reports $545 million in quarterly net income attributable to Targa. Diluted EPS requires the quarterly allocation to participating securities and weighted-average diluted shares.",
-        "zh-TW": "財報公告列示本季歸屬 Targa 的淨利為 5.45 億美元。核實稀釋 EPS 仍需本季分配給參與證券的盈餘及加權平均稀釋股數。"
+        "en": "The earnings release reports $545.0 million of fourth-quarter net income attributable to Targa. Under the two-class method, the company reported $11.1 million of participating share-based earnings for the year and $8.1 million for the first nine months of 2025. The filings provide cumulative diluted share counts. A quarterly allocation of earnings and quarter-specific diluted shares are needed to establish fourth-quarter diluted EPS.",
+        "zh-TW": "財報公告列示第四季歸屬 Targa 的淨利為 5.450 億美元。依兩類法，公司披露全年分配給參與證券的盈餘為 1,110 萬美元，前九個月為 810 萬美元。申報資料列示累計期間的稀釋股數。核定第四季稀釋 EPS 仍需本季盈餘分配及加權平均稀釋股數。"
       },
       "periodStart": "2025-10-01"
     },
@@ -56965,8 +56973,8 @@
       "fiscalQuarter": 4,
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/217346/000021734626000006/txt-20260103.htm",
       "metricNote": {
-        "en": "The published $1.33 diluted EPS covers continuing operations. The release rounds total net income to $235 million, which does not determine total diluted EPS to the nearest cent. This quarter covers 14 weeks. The two SEC reporting dates place this quarter from September 28, 2025 through January 3, 2026.",
-        "zh-TW": "公告中的稀釋 EPS 1.33 美元屬於繼續營業單位。合併淨利以百萬美元呈列為 2.35 億美元，精度不足以確定合併稀釋 EPS 至美分。 本季涵蓋 14 週。依相鄰兩份 SEC 申報的期末日，本季涵蓋 2025 年 9 月 28 日至 2026 年 1 月 3 日。"
+        "en": "The release reports $1.33 of diluted EPS from continuing operations. The quarter has $235 million of consolidated net income and 177,125,000 diluted weighted-average shares. The rounding interval for net income allows consolidated diluted EPS of either $1.32 or $1.33. This 14-week quarter covers September 28, 2025 through January 3, 2026.",
+        "zh-TW": "公告列示繼續營業單位稀釋 EPS 為 1.33 美元。全季合併淨利以百萬美元呈列為 2.35 億美元，加權平均稀釋股數為 177,125,000 股。按合併淨利的四捨五入範圍計算，合併稀釋 EPS 可能為 1.32 或 1.33 美元。本季共 14 週，涵蓋 2025 年 9 月 28 日至 2026 年 1 月 3 日。"
       },
       "periodStart": "2025-09-28"
     },
