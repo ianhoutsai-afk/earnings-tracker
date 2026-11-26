@@ -6,6 +6,13 @@ on:
     - cron: '0 6 1 1,4,7,10 *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: earnings-data-write
+  cancel-in-progress: false
+
 jobs:
   build-cache:
     runs-on: ubuntu-latest

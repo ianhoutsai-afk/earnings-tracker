@@ -13,6 +13,7 @@
             }
         })();
     </script>
+    <!-- tailwind-source -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,6 +21,7 @@
             theme: { extend: { colors: { gray: { 850: '#1f2937' } } } }
         }
     </script>
+    <!-- /tailwind-source -->
     <style>
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -45,6 +47,10 @@
                 <button id="import-watchlist-btn" data-i18n="watchlist.import" type="button" class="px-3 py-2 text-xs font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                     Import watchlist
                 </button>
+                <button id="import-watchlist-file-btn" data-i18n="watchlist.importFile" type="button" class="px-3 py-2 text-xs font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+                    Import JSON
+                </button>
+                <input id="watchlist-file" type="file" accept=".json,application/json" hidden>
                 <button id="language-toggle" type="button" aria-label="Switch to Traditional Chinese" class="min-w-14 px-3 py-2 text-sm font-semibold bg-blue-600 text-white border border-blue-600 rounded-lg shadow-sm hover:bg-blue-700 hover:border-blue-700 transition">
                     中文
                 </button>
@@ -95,11 +101,17 @@
             </div>
 
             <!-- 時間區間快速篩選 -->
-            <div class="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label="Time window filter">
+            <div class="mt-3 flex flex-wrap items-center gap-2" role="group" data-i18n-aria-label="window.label" aria-label="Time window filter">
                 <button type="button" data-window="all" data-i18n="window.all" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">All</button>
                 <button type="button" data-window="today" data-i18n="window.today" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Today</button>
+                <button type="button" data-window="thisWeek" data-i18n="window.thisWeek" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">This week</button>
+                <button type="button" data-window="published" data-i18n="window.published" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Released in the last 7 days</button>
                 <button type="button" data-window="week" data-i18n="window.week" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Next 7 days</button>
                 <button type="button" data-window="month" data-i18n="window.month" class="window-filter-btn px-3 py-1 text-xs font-medium rounded-full border transition">Next 30 days</button>
+                <label for="sector-select" data-i18n="sector.label" class="ml-2 text-xs font-medium">Sector</label>
+                <select id="sector-select" class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-1 text-xs">
+                    <option value="" data-i18n="sector.all">All sectors</option>
+                </select>
             </div>
 
             <div class="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-1">
@@ -154,7 +166,7 @@
         } from './i18n.mjs';
         import {
             selectHistory, fiscalQuarterLabel, calendarCountdown,
-            nextCompanyEvent, quarterlyMetrics,
+            nextCompanyEvent, quarterlyMetrics, newYorkDate, matchesEarningsWindow, quarterSeries, quarterGrowth,
         } from './quarterly-history.mjs';
 
         const THEME_STORAGE_KEY = 'earningsTrackerTheme';
@@ -164,10 +176,14 @@
         let appData = [];
         let historicalData = {};
         let historyStatus = {};
+        let publicationHealth = null;
+        let lazyHistory = false;
+        const historyRequests = new Map();
         let currentFilteredData = [];
         let displayLimit = PAGE_SIZE;
         let starFilterActive = false;
         let windowFilter = 'all';
+        let sectorFilter = '';
         let searchQuery = '';
         let currentLanguage = 'en';
         let t = key => key;
@@ -203,6 +219,7 @@
                 });
 
             updateThemeToggleLabel();
+            updateSectorOptions();
         }
 
         function updateLanguageToggle() {
@@ -214,7 +231,7 @@
         function escapeHtml(value) {
             const div = document.createElement('div');
             div.textContent = String(value ?? '');
-            return div.innerHTML;
+            return div.innerHTML.replaceAll('"', '&quot;').replaceAll("'", '&#39;');
         }
 
         function sanitizeUrl(url) {
@@ -253,6 +270,44 @@
 
         function getHistory(ticker) {
             return selectHistory(ticker, historicalData[ticker] || []);
+        }
+
+        function buildTrendHtml(history, metric, metricLabel) {
+            const series = quarterSeries(history, metric);
+            const values = series.filter(row => row.value !== null).map(row => row.value);
+            if (values.length < 2) return '';
+            const low = Math.min(0, ...values);
+            const high = Math.max(0, ...values);
+            const span = high - low || 1;
+            const zero = high / span * 100;
+            const growth = quarterGrowth(series);
+            const formatter = new Intl.NumberFormat(currentLanguage, {
+                style: 'percent', maximumFractionDigits: 1, signDisplay: 'exceptZero',
+            });
+            const label = (key, value) => t(key, { value: value === null ? '—' : formatter.format(value) });
+
+            return `
+                <figure class="min-w-0 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+                    <figcaption class="flex flex-wrap justify-between gap-2 text-xs font-medium">
+                        <span>${escapeHtml(metricLabel)}</span>
+                        <span>${escapeHtml(label('history.growthQoq', growth.qoq))} ·
+                              ${escapeHtml(label('history.growthYoy', growth.yoy))}</span>
+                    </figcaption>
+                    <ol class="mt-2 flex gap-1">
+                        ${series.map(row => {
+                            const start = Math.min(zero, (high - row.value) / span * 100);
+                            const height = Math.abs(row.value / span * 100);
+                            return `<li class="flex-1 min-w-0 text-center text-xs">
+                                <div class="relative h-14" aria-hidden="true">
+                                    <span class="absolute inset-x-0 border-t border-gray-300 dark:border-gray-500" style="top:${zero}%"></span>
+                                    ${row.value === null ? '' : `<span class="absolute inset-x-[24%] rounded-sm bg-blue-500 dark:bg-blue-400" style="top:${start}%;height:${height}%"></span>`}
+                                </div>
+                                <span class="block mt-1 break-words">${escapeHtml(row.displayValue)}</span>
+                                <span class="block mt-0.5 text-gray-500 dark:text-gray-400">${escapeHtml(row.label)}</span>
+                            </li>`;
+                        }).join('')}
+                    </ol>
+                </figure>`;
         }
 
         function buildHistoryPanelHtml(ticker) {
@@ -350,6 +405,8 @@
                 `;
             });
 
+            const trends = buildTrendHtml(history, 'eps', t('earnings.gaapQuarterEps'))
+                + buildTrendHtml(history, 'revenue', t('history.quarterRevenue'));
             return `
                 <td colspan="6" class="p-0">
                     <div class="history-panel">
@@ -360,6 +417,7 @@
                             ${historyStatus[ticker]?.officialCheckedAt
                                 ? `<div class="mt-1 text-xs text-gray-400">${escapeHtml(t('history.lastChecked', { time: historyStatus[ticker].officialCheckedAt.slice(0, 16).replace('T', ' ') + ' UTC' }))}</div>` : ''}
                         </div>
+                        ${trends ? `<div class="grid gap-3 px-5 pt-4 md:grid-cols-2">${trends}</div>` : ''}
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-5 inner-shadow">
                             ${cardsHtml}
                         </div>
@@ -368,41 +426,49 @@
             `;
         }
 
-        function toggleHistory(ticker) {
+        function loadCompanyHistory(ticker) {
+            if (!lazyHistory || Object.hasOwn(historicalData, ticker)) return Promise.resolve();
+            if (!historyRequests.has(ticker)) {
+                historyRequests.set(ticker, fetchJson(`company-history/${encodeURIComponent(ticker)}.json`)
+                    .then(payload => {
+                        if (!Array.isArray(payload.history)) throw new Error('Invalid company history');
+                        historicalData[ticker] = payload.history;
+                        historyStatus[ticker] = payload.status;
+                    })
+                    .finally(() => historyRequests.delete(ticker)));
+            }
+            return historyRequests.get(ticker);
+        }
+
+        async function toggleHistory(ticker) {
             const row = document.getElementById(`history-${ticker}`);
             const icon = document.getElementById(`icon-${ticker}`);
             if (!row || !icon) return;
 
-            if (row.classList.contains('hidden')) {
-                if (!row.dataset.rendered) {
+            const open = row.classList.contains('hidden');
+            row.classList.toggle('hidden', !open);
+            icon.textContent = open ? '▲' : '▼';
+            ['bg-blue-100', 'text-blue-600', 'dark:bg-blue-900', 'dark:text-blue-400']
+                .forEach(name => icon.classList.toggle(name, open));
+            row.previousElementSibling?.querySelector('.history-toggle-btn')
+                ?.setAttribute('aria-expanded', String(open));
+            if (!open || row.dataset.rendered) return;
+            row.closest('table').parentElement.scrollLeft = 0;
+
+            const notice = key => `<td colspan="6" class="p-5 text-sm" role="status">${escapeHtml(t(key))}</td>`;
+            try {
+                if (lazyHistory && !Object.hasOwn(historicalData, ticker)) {
+                    row.innerHTML = notice('history.loadingPanel');
+                    await loadCompanyHistory(ticker);
+                }
+                if (row.isConnected) {
                     row.innerHTML = buildHistoryPanelHtml(ticker);
                     row.dataset.rendered = 'true';
                 }
-                row.classList.remove('hidden');
-                icon.textContent = '▲';
-                icon.classList.add(
-                    'bg-blue-100',
-                    'text-blue-600',
-                    'dark:bg-blue-900',
-                    'dark:text-blue-400'
-                );
-                const btn = row.previousElementSibling?.querySelector('.history-toggle-btn');
-                if (btn) btn.setAttribute('aria-expanded', 'true');
-                row.closest('table').parentElement.scrollLeft = 0;
-            } else {
-                row.classList.add('hidden');
-                icon.textContent = '▼';
-                icon.classList.remove(
-                    'bg-blue-100',
-                    'text-blue-600',
-                    'dark:bg-blue-900',
-                    'dark:text-blue-400'
-                );
-                const btn = row.previousElementSibling?.querySelector('.history-toggle-btn');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
+            } catch {
+                if (row.isConnected) row.innerHTML = notice('history.loadFailed');
             }
         }
-        window.toggleHistory = toggleHistory;
 
         function companyCountdown(company) {
             return calendarCountdown(nextCompanyEvent(company).date);
@@ -410,7 +476,6 @@
 
         function getTimingBadgeHtml(bmoAmc) {
             const raw = String(bmoAmc || '').trim();
-            if (!raw) return '';
             const upper = raw.toUpperCase();
             if (raw.includes('☀️') || upper === 'BMO') {
                 return `<span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-200 dark:border-amber-800">${escapeHtml(t('timing.bmo'))}</span>`;
@@ -427,7 +492,7 @@
             const label = event.kind === 'call' ? t('history.officialCall')
                 : event.kind === 'official' ? t('table.officialDate') : t('table.thirdPartyEstimate');
             const safeUrl = sanitizeUrl(event.url);
-            const timingHtml = getTimingBadgeHtml(company.bmo_amc);
+            const timingHtml = event.kind === 'official' ? getTimingBadgeHtml(company.bmo_amc) : '';
             return `
                 <div class="flex items-center flex-wrap gap-y-1">
                     <span>${escapeHtml(event.date)}</span>
@@ -509,14 +574,14 @@
                 || normalizeSearchValue(company.name).includes(normalizedQuery);
         }
 
-        function companyMatchesWindow(company) {
-            if (windowFilter === 'all') return true;
-            const countdown = companyCountdown(company);
-            if (countdown === null || countdown < 0) return false;
-            if (windowFilter === 'today') return countdown === 0;
-            if (windowFilter === 'week') return countdown >= 0 && countdown <= 7;
-            if (windowFilter === 'month') return countdown >= 0 && countdown <= 30;
-            return true;
+        function updateSectorOptions() {
+            const select = document.getElementById('sector-select');
+            const sectors = [...new Set(appData.map(company => company.sector || 'unknown'))].sort();
+            select.replaceChildren(new Option(t('sector.all'), ''));
+            for (const sector of sectors) {
+                select.add(new Option(t(`sector.${sector}`), sector));
+            }
+            select.value = sectorFilter;
         }
 
         function updateSearchUi(resultCount) {
@@ -568,18 +633,12 @@
         }
 
         function renderTable(data) {
-            const verified = Object.values(historicalData).flat().filter(row => row.verificationStatus === 'official_verified').length;
-            const failed = Object.values(historyStatus).filter(row => row.status === 'official_source_failed' || row.status === 'official_mapping_missing').length;
-            const pending = appData.filter(company => {
-                const row = historyStatus[company.ticker];
-                return !row || row.status !== 'official_source_checked' || row.officialQuarterCount < 5 || (row.metricsVerifiedQuarterCount || 0) < 5;
-            }).length;
-            document.getElementById('data-health').textContent = t('history.health', {
-                count: appData.length,
-                verified,
-                failed,
-                pending,
-            });
+            if (publicationHealth) {
+                document.getElementById('data-health').textContent = t('history.health', {
+                    count: appData.length,
+                    ...publicationHealth,
+                });
+            }
 
             const container = document.getElementById('data-container');
             container.innerHTML = '';
@@ -624,9 +683,8 @@
                 const countdown = companyCountdown(company);
                 const badgeHtml = getCountdownBadgeHtml(countdown);
 
-                const history = getHistory(company.ticker);
-                const hasHistory = history.length > 0;
-                const latestRecord = history[0] || null;
+                const latestRecord = company.latestRecord;
+                const hasHistory = Boolean(latestRecord);
                 const latestMetrics = latestRecord
                     ? quarterlyMetrics(latestRecord)
                     : { eps: '-', revenue: '-' };
@@ -707,13 +765,18 @@
                 )
                 : [...appData];
 
+            const today = newYorkDate();
             filtered = filtered.filter(company =>
-                companyMatchesWindow(company)
+                matchesEarningsWindow(company, windowFilter, today)
+                && (!sectorFilter || (company.sector || 'unknown') === sectorFilter)
                 && companyMatchesSearch(company, searchQuery)
             );
 
             if (sortValue === 'countdown_asc') {
                 filtered.sort((a, b) => {
+                    if (windowFilter === 'published') {
+                        return b.latestVerifiedReleaseDate.localeCompare(a.latestVerifiedReleaseDate);
+                    }
                     const valueA = companyCountdown(a);
                     const valueB = companyCountdown(b);
                     const normalizedA =
@@ -725,6 +788,9 @@
                 });
             } else if (sortValue === 'countdown_desc') {
                 filtered.sort((a, b) => {
+                    if (windowFilter === 'published') {
+                        return a.latestVerifiedReleaseDate.localeCompare(b.latestVerifiedReleaseDate);
+                    }
                     const valueA = companyCountdown(a);
                     const valueB = companyCountdown(b);
                     const normalizedA =
@@ -767,91 +833,77 @@
             return tickers.sort();
         }
 
-        function init() {
-            let dataLoaded = false;
-            let historicalLoaded = false;
-            let statusLoaded = false;
+        async function fetchJson(path) {
+            const response = await fetch(path);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.json();
+        }
 
-            function tryRender() {
-                if (dataLoaded && historicalLoaded && statusLoaded) {
-                    applySort(true);
+        async function init(retries = 3) {
+            try {
+                if (document.querySelector('link[href="./tracker.css"]')) {
+                    const summary = await fetchJson('site-summary.json');
+                    appData = summary.companies;
+                    publicationHealth = summary.health;
+                    lazyHistory = true;
+                } else {
+                    // Branch-based Pages and local checkouts still serve the unbundled data.
+                    const [companies, history, status, mapping] = await Promise.all([
+                        fetchJson('data.json'),
+                        fetchJson('historical_data.json').catch(() => ({})),
+                        fetchJson('history_status.json').catch(() => ({})),
+                        fetchJson('sp500_mapping.json').catch(() => ({})),
+                    ]);
+                    historicalData = history;
+                    historyStatus = status;
+                    appData = companies.map(company => {
+                        const rows = getHistory(company.ticker);
+                        return {
+                            ...company,
+                            sector: mapping[company.ticker]?.sector || null,
+                            latestRecord: rows[0] || null,
+                            latestVerifiedReleaseDate: rows.find(row => row.verificationStatus === 'official_verified')?.date || null,
+                        };
+                    });
+                    publicationHealth = {
+                        verified: Object.values(history).flat().filter(row => row.verificationStatus === 'official_verified').length,
+                        failed: Object.values(status).filter(row => ['official_source_failed', 'official_mapping_missing'].includes(row.status)).length,
+                        pending: appData.filter(company => {
+                            const row = status[company.ticker];
+                            return !row || row.status !== 'official_source_checked'
+                                || row.officialQuarterCount < 5 || row.metricsVerifiedQuarterCount < 5;
+                        }).length,
+                    };
+                }
+                updateSectorOptions();
+                applySort(true);
+            } catch {
+                if (retries > 0) {
+                    setTimeout(() => init(retries - 1), 2000);
+                } else {
+                    document.getElementById('data-container').innerHTML = `
+                        <tr><td colspan="6" data-i18n="data.error" class="p-8 text-center text-red-500 font-medium">
+                            ${escapeHtml(t('data.error'))}
+                        </td></tr>`;
                 }
             }
+        }
 
-            function fetchData(retries = 3) {
-                fetch('data.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        appData = data;
-                        dataLoaded = true;
-                        tryRender();
-                    })
-                    .catch(() => {
-                        if (retries > 0) {
-                            setTimeout(
-                                () => fetchData(retries - 1),
-                                2000
-                            );
-                        } else {
-                            document.getElementById(
-                                'data-container'
-                            ).innerHTML = `
-                                <tr>
-                                    <td colspan="6" data-i18n="data.error" class="p-8 text-center text-red-500 font-medium">
-                                        ${escapeHtml(t('data.error'))}
-                                    </td>
-                                </tr>
-                            `;
-                        }
-                    });
+        function importWatchlist(tickers) {
+            const validTickers = new Set(appData.map(company => company.ticker));
+            const selected = new Set(tickers.filter(ticker => typeof ticker === 'string')
+                .map(ticker => ticker.trim().toUpperCase().replaceAll('.', '-'))
+                .filter(ticker => validTickers.has(ticker)));
+            let added = 0;
+            for (const ticker of selected) {
+                const key = `star_${ticker}`;
+                if (localStorage.getItem(key) !== 'true') {
+                    localStorage.setItem(key, 'true');
+                    added += 1;
+                }
             }
-
-            function fetchHistorical() {
-                fetch('historical_data.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        historicalData = data;
-                        historicalLoaded = true;
-                        tryRender();
-                    })
-                    .catch(() => {
-                        console.warn(t('data.historyWarning'));
-                        historicalLoaded = true;
-                        tryRender();
-                    });
-            }
-
-            function fetchHistoryStatus() {
-                fetch('history_status.json')
-                    .then(response => {
-                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                        return response.json();
-                    })
-                    .then(data => {
-                        historyStatus = data;
-                        statusLoaded = true;
-                        tryRender();
-                    })
-                    .catch(() => {
-                        historyStatus = {};
-                        statusLoaded = true;
-                        tryRender();
-                    });
-            }
-
-            fetchData();
-            fetchHistorical();
-            fetchHistoryStatus();
+            showWatchlistFeedback(t('watchlist.imported', { count: added }));
+            applySort(false);
         }
 
         const languageController = createLanguageController({
@@ -913,6 +965,11 @@
                     applySort(true);
                 });
 
+            document.getElementById('sector-select').addEventListener('change', event => {
+                sectorFilter = event.target.value;
+                applySort(true);
+            });
+
             document.querySelectorAll('.window-filter-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     windowFilter = btn.dataset.window || 'all';
@@ -931,45 +988,43 @@
                 renderTable(currentFilteredData);
             });
 
-            document.getElementById('export-watchlist-btn').addEventListener('click', async () => {
+            document.getElementById('export-watchlist-btn').addEventListener('click', () => {
                 const tickers = getStarredTickers();
                 if (!tickers.length) {
                     showWatchlistFeedback(t('watchlist.emptyExport'));
                     return;
                 }
-                const text = tickers.join(', ');
-                try {
-                    await navigator.clipboard.writeText(text);
-                } catch {
-                    const blob = new Blob([JSON.stringify(tickers, null, 2)], { type: 'application/json' });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'watchlist.json';
-                    a.click();
-                    URL.revokeObjectURL(url);
-                }
+                const blob = new Blob([JSON.stringify(tickers, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'watchlist.json';
+                link.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
                 showWatchlistFeedback(t('watchlist.exported', { count: tickers.length }));
             });
 
             document.getElementById('import-watchlist-btn').addEventListener('click', () => {
                 const input = window.prompt(t('watchlist.importPrompt'));
-                if (!input) return;
-                const tokens = input
-                    .toUpperCase()
-                    .split(/[\s,;]+/)
-                    .map(s => s.replace(/[^A-Z0-9.-]/g, ''))
-                    .filter(Boolean);
-                const validTickers = new Set(appData.map(c => c.ticker));
-                let added = 0;
-                tokens.forEach(ticker => {
-                    if (!validTickers.size || validTickers.has(ticker)) {
-                        localStorage.setItem(`star_${ticker}`, 'true');
-                        added += 1;
+                if (input) importWatchlist(input.split(/[\s,;]+/));
+            });
+
+            const watchlistFile = document.getElementById('watchlist-file');
+            document.getElementById('import-watchlist-file-btn').addEventListener('click', () => watchlistFile.click());
+            watchlistFile.addEventListener('change', async () => {
+                const [file] = watchlistFile.files;
+                if (!file) return;
+                try {
+                    const tickers = JSON.parse(await file.text());
+                    if (!Array.isArray(tickers) || tickers.some(ticker => typeof ticker !== 'string')) {
+                        throw new Error('Invalid watchlist');
                     }
-                });
-                showWatchlistFeedback(t('watchlist.imported', { count: added }));
-                applySort(false);
+                    importWatchlist(tickers);
+                } catch {
+                    showWatchlistFeedback(t('watchlist.invalidFile'));
+                } finally {
+                    watchlistFile.value = '';
+                }
             });
 
             // 事件委派：收藏按鈕 & 歷史展開按鈕
@@ -982,6 +1037,7 @@
                         localStorage.removeItem(key);
                         starBtn.textContent = '☆';
                         starBtn.setAttribute('aria-pressed', 'false');
+                        if (starFilterActive) applySort(false);
                     } else {
                         localStorage.setItem(key, 'true');
                         starBtn.textContent = '⭐';
