@@ -2965,7 +2965,11 @@
     "accessionNumber": "0001748790-26-000031",
     "ticker": "AMCR",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
+    "metricNote": {
+      "en": "This quarter falls within the July–December 2026 transition to a December 31 fiscal year-end. The SEC quarterly filing tags it FY2027 Q1. The first full calendar fiscal year ends December 31, 2027.",
+      "zh-TW": "本季屬 2026 年 7 至 12 月改採 12 月 31 日為財年結束日的過渡期間。SEC 季報標記為 2027 財年第一季，首個完整曆年財年截至 2027 年 12 月 31 日。"
+    }
   },
   {
     "date": "2026-08-12",
@@ -2978,7 +2982,7 @@
     "revenue": 6398000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcr-20260812.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcor4q2026ex991-june302026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000020/amcor4q2026ex991-june302026.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2026-08-12",
@@ -3016,7 +3020,7 @@
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000016/amcr-20260331.htm"
   },
   {
-    "date": "2026-05-06",
+    "date": "2026-02-03",
     "periodEnd": "2025-12-31",
     "fiscalYear": 2026,
     "fiscalQuarter": 2,
@@ -3026,11 +3030,11 @@
     "revenue": 5449000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000014/amcr-20260506.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000004/exhibit991q22026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000006/amcr-20251231.htm",
     "verifiedAt": "2026-11-25",
-    "releaseFilingDate": "2026-05-06",
-    "releaseAccession": "0001748790-26-000014",
+    "releaseFilingDate": "2026-02-03",
+    "releaseAccession": "0001748790-26-000004",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000006/amcr-20251231.htm",
     "form": "10-Q",
     "filingDate": "2026-02-04",
@@ -3046,11 +3050,11 @@
     "fiscalQuarter": 1,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 0.113,
+    "epsGaapDiluted": 0.57,
     "revenue": 5745000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000034/amcr-20251105.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000034/exhibit991q12026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2025-11-05",
@@ -3060,8 +3064,12 @@
     "filingDate": "2025-11-06",
     "accessionNumber": "0001748790-25-000036",
     "ticker": "AMCR",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879026000031/amcr-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1748790/000174879025000036/amcr-20250930.htm",
+    "metricNote": {
+      "en": "Amcor recast diluted EPS for its January 14, 2026 one-for-five reverse stock split.",
+      "zh-TW": "Amcor 依 2026 年 1 月 14 日五合一反向拆股重列稀釋 EPS。"
+    }
   },
   {
     "date": "2026-11-03",
@@ -7366,7 +7374,7 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
-    "epsGaapDiluted": 44.22,
+    "epsGaapDiluted": 1.77,
     "revenue": 6349000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -7381,7 +7389,11 @@
     "accessionNumber": "0001075531-26-000009",
     "ticker": "BKNG",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000008/q4-25bkngearningsrelease.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+    "metricNote": {
+      "en": "The published $44.22 diluted EPS is divided by 25 to reflect the April 2, 2026 stock split.",
+      "zh-TW": "將原始公告的稀釋 EPS 44.22 美元除以 25，反映 2026 年 4 月 2 日的一拆二十五。"
+    }
   },
   {
     "date": "2025-10-28",
@@ -7390,7 +7402,7 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 84.41,
+    "epsGaapDiluted": 3.38,
     "revenue": 9008000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -7404,8 +7416,12 @@
     "filingDate": "2025-10-28",
     "accessionNumber": "0001075531-25-000051",
     "ticker": "BKNG",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000044/q3-26bkngearningsrelease.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000051/bkng-20250930.htm",
+    "metricNote": {
+      "en": "Booking Holdings recast diluted EPS for its April 2, 2026 twenty-five-for-one stock split.",
+      "zh-TW": "Booking Holdings 依 2026 年 4 月 2 日一拆二十五重列稀釋 EPS。"
+    }
   },
   {
     "date": "2026-10-27",
@@ -14161,7 +14177,7 @@
     "revenue": 1583419000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000035/crwd-20261123.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000035/crwd-20261123xex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000038/crwd-20261031.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2026-11-23",
@@ -14185,7 +14201,7 @@
     "revenue": 1470897000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2026-08-26",
@@ -14205,7 +14221,7 @@
     "fiscalQuarter": 1,
     "periodScope": "quarter",
     "periodStart": "2026-02-01",
-    "epsGaapDiluted": 0.11,
+    "epsGaapDiluted": 0.03,
     "revenue": 1385629000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -14220,7 +14236,11 @@
     "accessionNumber": "0001535527-26-000025",
     "ticker": "CRWD",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+    "metricNote": {
+      "en": "Quarterly attributable earnings of $27.774 million are divided by four times the original 257.881 million diluted shares to reflect the July 1, 2026 split.",
+      "zh-TW": "以季度歸屬淨利 2,777.4 萬美元除以拆股前稀釋股數 2.57881 億股的四倍，反映 2026 年 7 月 1 日的一拆四。"
+    }
   },
   {
     "date": "2026-03-03",
@@ -14229,11 +14249,11 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodStart": "2025-11-01",
-    "epsGaapDiluted": 0.15,
+    "epsGaapDiluted": 0.04,
     "revenue": 1305375000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2026-03-03",
@@ -14244,7 +14264,11 @@
     "accessionNumber": "0001535527-26-000010",
     "ticker": "CRWD",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+    "metricNote": {
+      "en": "Quarterly attributable earnings of $38.691 million are divided by four times the original 258.133 million diluted shares to reflect the July 1, 2026 split.",
+      "zh-TW": "以季度歸屬淨利 3,869.1 萬美元除以拆股前稀釋股數 2.58133 億股的四倍，反映 2026 年 7 月 1 日的一拆四。"
+    }
   },
   {
     "date": "2025-12-02",
@@ -14253,11 +14277,11 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-08-01",
-    "epsGaapDiluted": -0.14,
+    "epsGaapDiluted": -0.03,
     "revenue": 1234244000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
     "verifiedAt": "2026-11-25",
     "releaseFilingDate": "2025-12-02",
@@ -14267,8 +14291,12 @@
     "filingDate": "2025-12-03",
     "accessionNumber": "0001535527-25-000033",
     "ticker": "CRWD",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000038/crwd-20261031.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+    "metricNote": {
+      "en": "CrowdStrike’s later comparative quarter reflects its July 1, 2026 four-for-one stock split and its revision of share-based compensation expense.",
+      "zh-TW": "CrowdStrike 的後續比較季度反映 2026 年 7 月 1 日一拆四，以及股份獎酬費用的修訂。"
+    }
   },
   {
     "date": "2026-11-12",
@@ -32356,7 +32384,7 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2026-01-01",
-    "epsGaapDiluted": 9.12,
+    "epsGaapDiluted": 0.91,
     "revenue": 3415078000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -32370,8 +32398,12 @@
     "filingDate": "2026-04-30",
     "accessionNumber": "0000319201-26-000016",
     "ticker": "KLAC",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm",
+    "metricNote": {
+      "en": "KLA recast diluted EPS for its June 11, 2026 ten-for-one stock split.",
+      "zh-TW": "KLA 依 2026 年 6 月 11 日一拆十重列稀釋 EPS。"
+    }
   },
   {
     "date": "2026-01-29",
@@ -32380,7 +32412,7 @@
     "fiscalQuarter": 2,
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
-    "epsGaapDiluted": 8.68,
+    "epsGaapDiluted": 0.87,
     "revenue": 3297146000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -32394,8 +32426,12 @@
     "filingDate": "2026-01-30",
     "accessionNumber": "0000319201-26-000008",
     "ticker": "KLAC",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000008/klac-20251231.htm",
+    "metricNote": {
+      "en": "KLA recast diluted EPS for its June 11, 2026 ten-for-one stock split.",
+      "zh-TW": "KLA 依 2026 年 6 月 11 日一拆十重列稀釋 EPS。"
+    }
   },
   {
     "date": "2025-10-29",
@@ -32404,7 +32440,7 @@
     "fiscalQuarter": 1,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 8.47,
+    "epsGaapDiluted": 0.85,
     "revenue": 3209696000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -32418,8 +32454,12 @@
     "filingDate": "2025-10-31",
     "accessionNumber": "0000319201-25-000034",
     "ticker": "KLAC",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000034/klac-20250930.htm",
+    "metricNote": {
+      "en": "KLA recast diluted EPS for its June 11, 2026 ten-for-one stock split.",
+      "zh-TW": "KLA 依 2026 年 6 月 11 日一拆十重列稀釋 EPS。"
+    }
   },
   {
     "date": "2026-10-15",
@@ -39624,7 +39664,7 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 5.87,
+    "epsGaapDiluted": 0.59,
     "revenue": 11510307000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -39638,8 +39678,12 @@
     "filingDate": "2025-10-22",
     "accessionNumber": "0001065280-25-000406",
     "ticker": "NFLX",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+    "metricNote": {
+      "en": "Netflix’s comparative quarter presents diluted EPS after its November 2025 ten-for-one stock split.",
+      "zh-TW": "Netflix 的比較季度列示 2025 年 11 月一拆十後的稀釋 EPS。"
+    }
   },
   {
     "date": "2026-10-28",
@@ -40736,7 +40780,7 @@
     "epsBasis": "GAAP diluted",
     "revenue": 115844000000,
     "currency": "USD",
-    "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/supplementalfinancialinfor.htm",
     "verifiedAt": "2026-11-25",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/supplementalfinancialinfor.htm",
@@ -40756,7 +40800,7 @@
     "epsBasis": "GAAP diluted",
     "revenue": 96221000000,
     "currency": "USD",
-    "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
     "metricSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
     "verifiedAt": "2026-11-25",
     "epsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
@@ -40765,7 +40809,9 @@
     "filingDate": "2026-08-26",
     "form": "10-Q",
     "accessionNumber": "0001045810-26-000075",
-    "periodStart": "2026-04-27"
+    "periodStart": "2026-04-27",
+    "releaseFilingDate": "2026-08-26",
+    "releaseAccession": "0001045810-26-000073"
   },
   {
     "ticker": "NVDA",
@@ -40778,7 +40824,7 @@
     "epsBasis": "GAAP diluted",
     "revenue": 81615000000,
     "currency": "USD",
-    "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
     "metricSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
     "verifiedAt": "2026-11-25",
     "epsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
@@ -40787,7 +40833,9 @@
     "form": "10-Q",
     "filingDate": "2026-05-20",
     "accessionNumber": "0001045810-26-000052",
-    "periodStart": "2026-01-26"
+    "periodStart": "2026-01-26",
+    "releaseFilingDate": "2026-05-20",
+    "releaseAccession": "0001045810-26-000051"
   },
   {
     "ticker": "NVDA",
@@ -40800,7 +40848,7 @@
     "epsBasis": "GAAP diluted",
     "revenue": 68127000000,
     "currency": "USD",
-    "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
     "metricSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
     "verifiedAt": "2026-11-25",
     "epsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
@@ -40809,7 +40857,9 @@
     "form": "10-K",
     "filingDate": "2026-02-25",
     "accessionNumber": "0001045810-26-000021",
-    "periodStart": "2025-10-27"
+    "periodStart": "2025-10-27",
+    "releaseFilingDate": "2026-02-25",
+    "releaseAccession": "0001045810-26-000019"
   },
   {
     "ticker": "NVDA",
@@ -40822,7 +40872,7 @@
     "epsBasis": "GAAP diluted",
     "revenue": 57006000000,
     "currency": "USD",
-    "releaseSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
     "metricSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
     "verifiedAt": "2026-11-25",
     "epsSourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
@@ -40831,7 +40881,9 @@
     "form": "10-Q",
     "filingDate": "2025-11-19",
     "accessionNumber": "0001045810-25-000230",
-    "periodStart": "2025-07-28"
+    "periodStart": "2025-07-28",
+    "releaseFilingDate": "2025-11-19",
+    "releaseAccession": "0001045810-25-000228"
   },
   {
     "date": "2026-10-22",
@@ -47476,7 +47528,8 @@
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
     "verifiedAt": "2026-11-25",
-    "releaseAccession": "0000745732-26-000047"
+    "releaseAccession": "0000745732-26-000047",
+    "releaseFilingDate": "2026-11-19"
   },
   {
     "date": "2026-08-20",
@@ -47952,8 +48005,8 @@
     "periodScope": "quarter",
     "verifiedAt": "2026-11-25",
     "metricNote": {
-      "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026.",
-      "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。"
+      "en": "EchoStar changed its ticker from SATS to ECHO on June 24, 2026. The original results were published on EchoStar’s investor relations site. The SEC quarterly filing is linked separately.",
+      "zh-TW": "EchoStar 自 2026 年 6 月 24 日起由 SATS 改用 ECHO。原始財報發布於公司投資者關係網站，SEC 季報另附連結。"
     },
     "revenueSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
     "epsSourceUrl": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-financial-results-three-and-six-months-8",
@@ -49042,7 +49095,11 @@
     "accessionNumber": "0001628280-26-068601",
     "ticker": "SNDK",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026068601/sndk-20261002.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026068601/sndk-20261002.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026068601/sndk-20261002.htm",
+    "metricNote": {
+      "en": "The five reported quarters use pre-split GAAP EPS. Sandisk effected an eight-for-one stock split on November 19, 2026, after the release of this quarter.",
+      "zh-TW": "最近五季的 GAAP 稀釋 EPS 採原始公告的拆股前口徑。Sandisk 在本季財報發布後，於 2026 年 11 月 19 日實施一拆八。"
+    }
   },
   {
     "date": "2026-08-05",
