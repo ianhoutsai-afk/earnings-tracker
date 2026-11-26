@@ -5299,7 +5299,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.17,
-    "revenue": 757390000,
+    "revenue": 767856000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-991.htm",
@@ -5313,7 +5313,11 @@
     "accessionNumber": "0000915912-26-000004",
     "ticker": "AVB",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-992.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-991.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/915912/000091591226000002/q42025ex-991.htm",
+    "metricNote": {
+      "en": "Consolidated total revenue uses Attachment 1, Condensed Consolidated Operating Information. Attachment 3 presents community operating revenue separately.",
+      "zh-TW": "合併營收採財報附表 1 的簡明合併營運資料。附表 3 另列社區營運收入。"
+    }
   },
   {
     "date": "2025-10-29",
@@ -39730,11 +39734,11 @@
     "verifiedAt": "2026-11-25",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000026/ni-ex991_20251231.htm",
     "epsBasis": "GAAP diluted",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1111711/000111171126000027/nix-20251231.htm",
+    "revenueSourceUrl": "https://s1.q4cdn.com/829981032/files/doc_earnings/2025/q4/supplemental-info/NiSource-4Q2025-Supplemental-Financial-Information-FINAL.pdf",
     "periodStart": "2025-10-01",
     "metricNote": {
-      "en": "Quarterly operating revenue equals fiscal-year operating revenue of $6.6422 billion less $4.7393 billion for the first nine months.",
-      "zh-TW": "單季營收以全年營業收入 66.422 億美元減去前九個月的 47.393 億美元計算。"
+      "en": "Schedule 2 reports GAAP operating revenue of $1.9029 billion for the quarter. This equals full-year GAAP operating revenue of $6.6422 billion less $4.7393 billion for the first nine months.",
+      "zh-TW": "公司補充資料附表 2 列示單季 GAAP 營業收入 19.029 億美元，與全年 66.422 億美元減去前九個月 47.393 億美元一致。"
     }
   },
   {
@@ -40909,7 +40913,7 @@
     "periodEnd": "2025-12-31",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 121.54,
-    "revenue": 2635214000.0,
+    "revenue": 2712608000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "date": "2026-01-28",
@@ -40923,7 +40927,11 @@
     "releaseFilingDate": "2026-01-28",
     "releaseAccession": "0000906163-26-000004",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000004/q42025ex991_earningsrelease.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000004/q42025ex991_earningsrelease.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/906163/000090616326000004/q42025ex991_earningsrelease.htm",
+    "metricNote": {
+      "en": "Consolidated revenue adds $77.394 million in mortgage banking fees to $2.635214 billion in homebuilding revenue. The result reconciles to full-year consolidated revenue less the first nine months.",
+      "zh-TW": "合併營收由住宅建造營收 26.35214 億美元加上按揭銀行手續費 7,739.4 萬美元，與全年合併營收減去前九個月的金額一致。"
+    }
   },
   {
     "date": "2025-10-22",
