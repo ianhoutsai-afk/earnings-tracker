@@ -24,10 +24,12 @@ export function fiscalQuarterLabel(row) {
   return null;
 }
 
+const newYorkCalendar = new Intl.DateTimeFormat('en-US', {
+  timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit',
+});
+
 export function newYorkDate(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit',
-  }).formatToParts(now);
+  const parts = newYorkCalendar.formatToParts(now);
   const value = Object.fromEntries(parts.map(part=>[part.type,part.value]));
   return `${value.year}-${value.month}-${value.day}`;
 }
@@ -100,7 +102,7 @@ export function quarterSeries(rows, metric) {
     const displayValue = quarterlyMetrics(row)[metric];
     return {
       label, ordinal: Number(year) * 4 + Number(quarter),
-      value: numericMetric(displayValue), displayValue,
+      value: numericMetric(displayValue), displayValue, comparable: !row.metricNote,
     };
   }).sort((a, b) => a.ordinal - b.ordinal);
 }
@@ -109,7 +111,8 @@ export function quarterGrowth(series) {
   const latest = series.at(-1);
   const growth = lag => {
     const previous = series.find(row => row.ordinal === latest.ordinal - lag);
-    if (latest.value === null || !previous || previous.value === null || previous.value <= 0) return null;
+    if (!latest.comparable || latest.value === null
+        || !previous?.comparable || previous.value === null || previous.value <= 0) return null;
     return latest.value / previous.value - 1;
   };
   return latest ? { qoq: growth(1), yoy: growth(4) } : { qoq: null, yoy: null };

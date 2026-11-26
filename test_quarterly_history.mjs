@@ -94,4 +94,6 @@ test('quarterly growth matches fiscal periods and omits missing or nonpositive b
   assert.equal(quarterGrowth(series.filter(row => row.label !== 'FY2025 Q4')).qoq, null);
   const loss = quarterSeries([fiscalRow(2025, 4, '$0.00'), rows[0]], 'revenue');
   assert.equal(quarterGrowth(loss).qoq, null);
+  const annotated = [{ ...rows[0], metricNote: { en: 'Pre-split data' } }, ...rows.slice(1)];
+  assert.deepEqual(quarterGrowth(quarterSeries(annotated, 'revenue')), { qoq: null, yoy: null });
 });
