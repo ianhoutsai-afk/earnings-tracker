@@ -18670,6 +18670,32 @@
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1093557/000109355725000280/dxcm-20250930.htm"
   },
   {
+    "ticker": "EA",
+    "date": "2026-08-03",
+    "periodEnd": "2026-06-30",
+    "periodStart": "2026-04-01",
+    "periodScope": "quarter",
+    "fiscalYear": 2027,
+    "fiscalQuarter": 1,
+    "currency": "USD",
+    "revenue": 1986000000,
+    "epsGaapDiluted": 1.56,
+    "epsBasis": "GAAP diluted",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+    "form": "10-Q",
+    "accessionNumber": "0001628280-26-051829",
+    "filingDate": "2026-08-03",
+    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
+    "verifiedAt": "2026-11-27",
+    "metricNote": {
+      "en": "The Form 10-Q filed on August 3 uses June 30 as the reporting date. The fiscal quarter covered 14 weeks and ended on July 4, 2026.",
+      "zh-TW": "8 月 3 日提交的 10-Q 以 6 月 30 日為申報期末。本財季涵蓋 14 週，實際於 2026 年 7 月 4 日結束。"
+    }
+  },
+  {
     "date": "2026-05-05",
     "periodEnd": "2026-03-31",
     "fiscalYear": 2026,
@@ -18764,30 +18790,6 @@
     "ticker": "EA",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000030/ea-20250630.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000030/ea-20250630.htm"
-  },
-  {
-    "date": "2025-05-06",
-    "periodEnd": "2025-03-31",
-    "fiscalYear": 2025,
-    "fiscalQuarter": 4,
-    "periodScope": "quarter",
-    "periodStart": "2025-01-01",
-    "epsGaapDiluted": 0.98,
-    "revenue": 1895000000,
-    "epsBasis": "GAAP diluted",
-    "currency": "USD",
-    "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm",
-    "verifiedAt": "2026-11-25",
-    "releaseFilingDate": "2025-05-06",
-    "releaseAccession": "0000712515-25-000017",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000022/ea-20250331.htm",
-    "form": "10-K",
-    "filingDate": "2025-05-13",
-    "accessionNumber": "0000712515-25-000022",
-    "ticker": "EA",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/712515/000071251525000017/earningspressrelease2025_0.htm"
   },
   {
     "date": "2026-10-28",
