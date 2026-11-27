@@ -28121,13 +28121,13 @@
     "fiscalQuarter": 4,
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
-    "epsGaapDiluted": 0.46,
+    "epsGaapDiluted": -0.36,
     "revenue": 9758000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-01-29",
     "releaseAccession": "0000773840-26-000006",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
@@ -28135,11 +28135,11 @@
     "filingDate": "2026-02-17",
     "accessionNumber": "0000773840-26-000013",
     "ticker": "HON",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000006/exhibit991-q42025earningsr.htm",
     "metricNote": {
-      "en": "The original report gives $9.758 billion of net sales and $0.46 total GAAP diluted EPS before the June 2026 reverse split. The June 2026 supplement gives preliminary comparable continuing-operations sales of $5.242 billion.",
-      "zh-TW": "原始公告列示淨營收 97.58 億美元、反向拆股前合併 GAAP 稀釋 EPS 0.46 美元。2026 年 6 月補充資料另列初步可比的繼續營業淨營收 52.42 億美元。"
+      "en": "The 2025 Form 10-K includes additional impairments and reports a $115 million quarterly net loss and $0.18 diluted loss per share before the June 2026 one-for-two reverse split. This record reflects the post-split share basis. Net sales of $9.758 billion use the 10-K presentation before the Aerospace spin-off. The June 2026 supplement lists preliminary continuing-operations net sales of $5.242 billion.",
+      "zh-TW": "2025 年 10-K 納入追加減損，列示本季淨損 1.15 億美元，二合一反向拆股前的稀釋每股虧損為 0.18 美元。本筆 EPS 按 2026 年 6 月反向拆股後的股數口徑列示。97.58 億美元營收採 Aerospace 分拆前的 10-K 口徑。2026 年 6 月附表另列繼續營業淨營收初步數 52.42 億美元。"
     }
   },
   {
@@ -40388,7 +40388,7 @@
     "periodEnd": "2025-12-31",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.9,
-    "revenue": 2080000000.0,
+    "revenue": 2087000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "date": "2026-01-29",
@@ -40397,12 +40397,16 @@
     "form": "10-K",
     "filingDate": "2026-02-12",
     "accessionNumber": "0001628280-26-007703",
-    "verifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-27",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526028185/d103698dex991.htm",
     "releaseFilingDate": "2026-01-29",
     "releaseAccession": "0001193125-26-028185",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526028185/d103698dex991.htm",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526028185/d103698dex991.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000162828026007703/ndaq-20251231.htm",
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526028185/d103698dex991.htm",
+    "metricNote": {
+      "en": "Gross revenue before transaction-based expenses is derived at the published precision from $8.262 billion in the 2025 Form 10-K less $6.175 billion for the first nine months in the September 2026 Form 10-Q. The result also equals $1.392 billion in quarterly net revenue plus $695 million in quarterly transaction-based expenses derived on the same basis.",
+      "zh-TW": "依申報精度，以 2025 年 10-K 的全年總營收 82.62 億美元減去 2026 年 9 月期末 10-Q 所列的前九個月比較數 61.75 億美元。金額亦與當季淨營收 13.92 億美元加回同口徑的交易相關費用 6.95 億美元一致。"
+    }
   },
   {
     "date": "2025-10-21",
