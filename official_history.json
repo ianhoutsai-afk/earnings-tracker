@@ -6409,13 +6409,13 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 1.06,
-    "revenue": 28088000000.0,
+    "epsGaapDiluted": 1.04,
+    "revenue": 29040000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000390/bac093025ex991.htm",
-    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
-    "verifiedAt": "2026-11-26",
+    "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2025-10-15",
     "releaseAccession": "0000070858-25-000390",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
@@ -6423,8 +6423,12 @@
     "filingDate": "2025-10-31",
     "accessionNumber": "0000070858-25-000405",
     "ticker": "BAC",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
+    "metricNote": {
+      "en": "Revenue net of interest expense and diluted EPS reflect the retrospective change in accounting methods for certain tax-related equity investments.",
+      "zh-TW": "扣除利息費用後的營收及稀釋 EPS 採用美國銀行追溯調整特定租稅相關股權投資會計方法後的數字。"
+    }
   },
   {
     "date": "2026-11-03",
@@ -10037,7 +10041,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
     "epsGaapDiluted": 1.21,
-    "revenue": 10258000000.0,
+    "revenue": 10221000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000023/cbre-20251023x8kexx991.htm",
@@ -10051,7 +10055,11 @@
     "accessionNumber": "0001138118-25-000025",
     "ticker": "CBRE",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
+    "metricNote": {
+      "en": "Revenue uses the updated consolidated comparative in the September 2026 Form 10-Q.",
+      "zh-TW": "營收採用 2026 年 9 月期末 10-Q 所列的更新後合併比較數。"
+    }
   },
   {
     "date": "2026-10-21",
@@ -12889,12 +12897,12 @@
     "periodScope": "quarter",
     "periodStart": "2026-01-01",
     "epsGaapDiluted": 0.97,
-    "revenue": 1805600000.0,
+    "revenue": 1805641000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-05-06",
     "releaseAccession": "0001193125-26-208972",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
@@ -12903,7 +12911,7 @@
     "accessionNumber": "0000820318-26-000013",
     "ticker": "COHR",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080dex991.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm"
   },
   {
     "ticker": "COHR",
@@ -18894,7 +18902,7 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 1.35,
+    "epsGaapDiluted": 1.34,
     "revenue": 2820000000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -18908,8 +18916,12 @@
     "filingDate": "2025-10-30",
     "accessionNumber": "0001065088-25-000127",
     "ticker": "EBAY",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1065088/000106508825000127/ebay-20250930.htm",
+    "metricNote": {
+      "en": "Diluted EPS reflects eBay’s retrospective adoption of ASU 2025-06 on internal-use software costs.",
+      "zh-TW": "稀釋 EPS 採用 eBay 追溯適用內部使用軟體成本準則 ASU 2025-06 後的數字。"
+    }
   },
   {
     "date": "2026-10-27",
@@ -27266,7 +27278,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-06-30",
     "epsGaapDiluted": 1.64,
-    "revenue": 1590100000.0,
+    "revenue": 1387500000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000156/exhibit991q32025.htm",
@@ -27280,7 +27292,11 @@
     "accessionNumber": "0000046080-25-000164",
     "ticker": "HAS",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/46080/000004608025000164/has-20250928.htm",
+    "metricNote": {
+      "en": "Consolidated net revenues reflect the elimination of $202.6 million in intersegment revenue.",
+      "zh-TW": "合併淨營收已沖銷 2.026 億美元的部門間營收。"
+    }
   },
   {
     "date": "2026-10-22",
@@ -27698,7 +27714,7 @@
     "periodScope": "quarter",
     "periodStart": "2026-01-01",
     "epsGaapDiluted": 3.04,
-    "revenue": 7226000000.0,
+    "revenue": 6941000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000036/ex991earningsnewsrelease33.htm",
@@ -27712,7 +27728,11 @@
     "accessionNumber": "0000874766-26-000037",
     "ticker": "HIG",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000037/hig-20260331.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000037/hig-20260331.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000079/ex992ifs9302026.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations following the reclassification of Hartford Funds as discontinued operations. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採 Hartford Funds 重分類為停業單位後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2026-01-29",
@@ -27722,7 +27742,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 3.98,
-    "revenue": 7339000000,
+    "revenue": 7047000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
@@ -27736,7 +27756,11 @@
     "accessionNumber": "0000874766-26-000012",
     "ticker": "HIG",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000006/ex991earningsnewsrelease12.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000079/ex992ifs9302026.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations following the reclassification of Hartford Funds as discontinued operations. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採 Hartford Funds 重分類為停業單位後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2025-10-27",
@@ -27746,7 +27770,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
     "epsGaapDiluted": 3.77,
-    "revenue": 7232000000.0,
+    "revenue": 6946000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476625000106/ex991earningsnewsrelease93.htm",
@@ -27760,7 +27784,11 @@
     "accessionNumber": "0000874766-25-000107",
     "ticker": "HIG",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476625000107/hig-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476625000107/hig-20250930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/874766/000087476626000079/ex992ifs9302026.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations following the reclassification of Hartford Funds as discontinued operations. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採 Hartford Funds 重分類為停業單位後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2026-10-29",
@@ -30120,7 +30148,7 @@
     "periodScope": "quarter",
     "periodStart": "2026-01-01",
     "epsGaapDiluted": 0.66,
-    "revenue": 2741000000.0,
+    "revenue": 1906000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000015/q12026991pressreleaseofiff.htm",
@@ -30134,7 +30162,11 @@
     "accessionNumber": "0000051253-26-000017",
     "ticker": "IFF",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000017/iff-20260331.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000017/iff-20260331.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000032/exhibit991foodingredientsd.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations after the Food Ingredients and Soy Crush, Concentrates and Lecithin disposal groups were reclassified. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採食品配料及大豆壓榨、濃縮物與卵磷脂業務重分類後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2026-02-11",
@@ -30144,12 +30176,12 @@
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 0.07,
-    "revenue": 2589000000.0,
+    "revenue": 1792000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000003/q42025991pressreleaseofiff.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000006/iff-20251231.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-02-11",
     "releaseAccession": "0000051253-26-000003",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000006/iff-20251231.htm",
@@ -30158,7 +30190,11 @@
     "accessionNumber": "0000051253-26-000006",
     "ticker": "IFF",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000003/q42025991pressreleaseofiff.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000003/q42025991pressreleaseofiff.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000032/exhibit991foodingredientsd.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations after the Food Ingredients and Soy Crush, Concentrates and Lecithin disposal groups were reclassified. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採食品配料及大豆壓榨、濃縮物與卵磷脂業務重分類後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2025-11-04",
@@ -30168,7 +30204,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
     "epsGaapDiluted": 0.16,
-    "revenue": 2694000000.0,
+    "revenue": 1869000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125325000047/q32025991pressreleaseofiff.htm",
@@ -30182,7 +30218,11 @@
     "accessionNumber": "0000051253-25-000049",
     "ticker": "IFF",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125325000049/iff-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125325000049/iff-20250930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000032/exhibit991foodingredientsd.htm",
+    "metricNote": {
+      "en": "Revenue reflects continuing operations after the Food Ingredients and Soy Crush, Concentrates and Lecithin disposal groups were reclassified. Diluted EPS includes discontinued operations.",
+      "zh-TW": "營收採食品配料及大豆壓榨、濃縮物與卵磷脂業務重分類後的繼續營業口徑。稀釋 EPS 包含停業單位。"
+    }
   },
   {
     "date": "2026-10-29",
@@ -38779,7 +38819,7 @@
     "fiscalQuarter": 3,
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
-    "epsGaapDiluted": 3.71,
+    "epsGaapDiluted": 3.74,
     "revenue": 737176000.0,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
@@ -38793,8 +38833,12 @@
     "filingDate": "2025-11-05",
     "accessionNumber": "0001437749-25-033332",
     "ticker": "MPWR",
-    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm"
+    "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026069440/mpwr-20260930.htm",
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1280452/000143774925033332/mpwr20250930_10q.htm",
+    "metricNote": {
+      "en": "Diluted EPS reflects the company’s restatement of deferred income taxes related to a foreign tax incentive.",
+      "zh-TW": "稀釋 EPS 採用公司重編海外租稅優惠相關遞延所得稅後的數字。"
+    }
   },
   {
     "date": "2026-10-29",
@@ -40364,7 +40408,7 @@
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
     "epsGaapDiluted": 0.73,
-    "revenue": 1958000000.0,
+    "revenue": 1979000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000119312525244271/d46597dex991.htm",
@@ -40378,7 +40422,11 @@
     "accessionNumber": "0001628280-25-046006",
     "ticker": "NDAQ",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000162828025046006/ndaq-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000162828025046006/ndaq-20250930.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1120193/000112019326000020/ndaq-20260930.htm",
+    "metricNote": {
+      "en": "Revenue uses the gross consolidated comparative in the September 2026 Form 10-Q, before transaction-based expenses.",
+      "zh-TW": "營收採用 2026 年 9 月期末 10-Q 所列的合併總營收比較數，為扣除交易相關費用前的金額。"
+    }
   },
   {
     "date": "2026-08-19",
@@ -48146,12 +48194,12 @@
     "periodScope": "quarter",
     "periodStart": "2026-07-01",
     "epsGaapDiluted": 18.45,
-    "revenue": 5116000000,
+    "revenue": 5115800000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000032/exhibit991q32026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-10-30",
     "releaseAccession": "0000872589-26-000032",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
@@ -48160,7 +48208,7 @@
     "accessionNumber": "0000872589-26-000034",
     "ticker": "REGN",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000032/exhibit991q32026.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm"
   },
   {
     "date": "2026-07-30",
@@ -48170,12 +48218,12 @@
     "periodScope": "quarter",
     "periodStart": "2026-04-01",
     "epsGaapDiluted": 12.23,
-    "revenue": 4291000000,
+    "revenue": 4290700000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000023/exhibit991q22026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-07-30",
     "releaseAccession": "0000872589-26-000023",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm",
@@ -48184,7 +48232,7 @@
     "accessionNumber": "0000872589-26-000025",
     "ticker": "REGN",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000023/exhibit991q22026.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm"
   },
   {
     "date": "2026-04-29",
@@ -48194,12 +48242,12 @@
     "periodScope": "quarter",
     "periodStart": "2026-01-01",
     "epsGaapDiluted": 6.75,
-    "revenue": 3605000000,
+    "revenue": 3605400000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000014/exhibit991q12026.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-04-29",
     "releaseAccession": "0000872589-26-000014",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm",
@@ -48208,7 +48256,7 @@
     "accessionNumber": "0000872589-26-000016",
     "ticker": "REGN",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000014/exhibit991q12026.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm"
   },
   {
     "date": "2026-01-30",
@@ -48246,12 +48294,12 @@
     "periodScope": "quarter",
     "periodStart": "2025-07-01",
     "epsGaapDiluted": 13.62,
-    "revenue": 3754000000,
+    "revenue": 3754300000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000026/exhibit991q32025.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000028/regn-20250930.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2025-10-28",
     "releaseAccession": "0000872589-25-000026",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000028/regn-20250930.htm",
@@ -48260,7 +48308,7 @@
     "accessionNumber": "0000872589-25-000028",
     "ticker": "REGN",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000028/regn-20250930.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000026/exhibit991q32025.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258925000028/regn-20250930.htm"
   },
   {
     "ticker": "RF",
