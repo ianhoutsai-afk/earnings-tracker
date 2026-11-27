@@ -10017,12 +10017,12 @@
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 1.39,
-    "revenue": 11629000000,
+    "revenue": 11591000000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000002/cbre-20260212x8kexx991.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000005/cbre-20251231.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-02-12",
     "releaseAccession": "0001138118-26-000002",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000005/cbre-20251231.htm",
@@ -10031,7 +10031,11 @@
     "accessionNumber": "0001138118-26-000005",
     "ticker": "CBRE",
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000002/cbre-20260212x8kexx991.htm",
-    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000002/cbre-20260212x8kexx991.htm"
+    "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000015/cbre-20260331.htm",
+    "metricNote": {
+      "en": "Derived at the published precision from recast fiscal 2025 consolidated revenue of $40.404 billion less $28.813 billion for the first nine months in the September 2026 Form 10-Q. Both amounts deduct mortgage servicing rights amortization from the related revenue.",
+      "zh-TW": "依申報精度，以重列後 2025 全年合併營收 404.04 億美元減前九個月的 288.13 億美元（見 2026 年 9 月期末 10-Q）。兩項營收均已扣除房貸服務權攤銷。"
+    }
   },
   {
     "date": "2025-10-23",
@@ -10057,8 +10061,8 @@
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811825000025/cbre-20250930.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000031/cbre-20260930.htm",
     "metricNote": {
-      "en": "Revenue uses the updated consolidated comparative in the September 2026 Form 10-Q.",
-      "zh-TW": "營收採用 2026 年 9 月期末 10-Q 所列的更新後合併比較數。"
+      "en": "Revenue follows the September 2026 Form 10-Q comparative. CBRE reclassified amortization of mortgage servicing rights to offset commercial mortgage origination revenue.",
+      "zh-TW": "營收採用 2026 年 9 月期末 10-Q 的比較數。CBRE 將房貸服務權攤銷改列為商業房貸承作營收的抵減項。"
     }
   },
   {
@@ -48266,12 +48270,12 @@
     "periodScope": "quarter",
     "periodStart": "2025-10-01",
     "epsGaapDiluted": 7.86,
-    "revenue": 3884000000,
+    "revenue": 3884300000,
     "epsBasis": "GAAP diluted",
     "currency": "USD",
     "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000004/exhibit991q42025.htm",
     "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000008/regn-20251231.htm",
-    "verifiedAt": "2026-11-26",
+    "verifiedAt": "2026-11-27",
     "releaseFilingDate": "2026-01-30",
     "releaseAccession": "0000872589-26-000004",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000008/regn-20251231.htm",
@@ -48282,8 +48286,8 @@
     "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000004/exhibit991q42025.htm",
     "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000004/exhibit991q42025.htm",
     "metricNote": {
-      "en": "Revenue is shown at the precision stated in the official earnings release.",
-      "zh-TW": "營收採用官方財報公告所列精度。"
+      "en": "Revenue follows the consolidated statement of operations in the earnings release, which reports $3,884.3 million.",
+      "zh-TW": "營收採公告附錄合併損益表列示的 38.843 億美元。"
     }
   },
   {
