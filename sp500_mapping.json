@@ -1894,7 +1894,11 @@
     "cik": "0001944048",
     "sector": "Consumer Staples",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "officialName": "Kenvue LLC",
+    "officialTickers": [],
+    "tickerStatus": "unconfirmed",
+    "tickerIdentitySourceUrl": "https://www.sec.gov/Archives/edgar/data/1944048/000095015726001147/form8-k.htm"
   },
   "KDP": {
     "name": "Keurig Dr Pepper",
@@ -2510,7 +2514,13 @@
     "cik": "0002041610",
     "sector": "Communication Services",
     "fy_end": 12,
-    "filings": {}
+    "filings": {},
+    "officialName": "Skydance Corp",
+    "officialTickers": [
+      "SKYD"
+    ],
+    "tickerStatus": "historical_alias",
+    "tickerIdentitySourceUrl": "https://data.sec.gov/submissions/CIK0002041610.json"
   },
   "PH": {
     "name": "Parker Hannifin",
@@ -3604,6 +3614,27 @@
     "name": "The Trade Desk, Inc.",
     "cik": "0001671933",
     "cikSourceUrl": "https://www.sec.gov/files/company_tickers.json",
+    "filings": {}
+  },
+  "OKTA": {
+    "name": "Okta, Inc.",
+    "cik": "0001660134",
+    "sector": "Information Technology",
+    "fy_end": 1,
+    "filings": {}
+  },
+  "TWLO": {
+    "name": "Twilio Inc.",
+    "cik": "0001447669",
+    "sector": "Information Technology",
+    "fy_end": 12,
+    "filings": {}
+  },
+  "VYLR": {
+    "name": "Vylor Inc.",
+    "cik": "0002128626",
+    "sector": "Consumer Staples",
+    "fy_end": 12,
     "filings": {}
   }
 }
