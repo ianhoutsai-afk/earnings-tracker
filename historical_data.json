@@ -11397,14 +11397,14 @@
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9918-k123125.htm",
       "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000009/cvna-20251231.htm",
-      "verifiedAt": "2026-11-26",
+      "verifiedAt": "2026-11-27",
       "filingDate": "2026-02-18",
       "accessionNumber": "0001690820-26-000009",
       "releaseFilingDate": "2026-02-18",
       "releaseAccession": "0001690820-26-000008",
       "fiscalYear": 2025,
       "fiscalQuarter": 4,
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000009/cvna-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1690820/000169082026000008/a9918-k123125.htm",
       "metricNote": {
         "en": "Carvana’s original Class A diluted EPS was $4.22. The May 2026 five-for-one split yields $0.84 using quarterly net earnings and split-adjusted diluted shares.",
         "zh-TW": "Carvana 原始 A 股稀釋 EPS 為 4.22 美元。以該季淨利及一拆五後的稀釋股數計算，換算後為 0.84 美元。"
@@ -19862,7 +19862,7 @@
       "releaseFilingDate": "2026-02-23",
       "releaseAccession": "0001193125-26-062432",
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/715957/000119312526063120/d-20251231.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/715957/000119312526063120/d-20251231.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/715957/000119312526062432/d-ex99.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 4
     },
@@ -48383,15 +48383,15 @@
       "epsBasis": "GAAP diluted",
       "currency": "USD",
       "releaseSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526017256/pld-ex99_2.htm",
-      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526051453/pld-20251231.htm",
+      "metricSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526017256/pld-ex99_1.htm",
       "verifiedAt": "2026-11-27",
       "periodStart": "2025-10-01",
       "filingDate": "2026-02-13",
       "accessionNumber": "0001193125-26-051453",
       "releaseFilingDate": "2026-01-21",
       "releaseAccession": "0001193125-26-017256",
-      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526051453/pld-20251231.htm",
-      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526051453/pld-20251231.htm",
+      "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526017256/pld-ex99_1.htm",
+      "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526017256/pld-ex99_1.htm",
       "fiscalYear": 2025,
       "fiscalQuarter": 4
     },
@@ -57139,7 +57139,11 @@
       "epsSourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
       "revenueSourceUrl": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
       "fiscalYear": 2025,
-      "fiscalQuarter": 4
+      "fiscalQuarter": 4,
+      "metricNote": {
+        "en": "Fourth-quarter revenue is $1,037,995 thousand in the Form 10-K quarterly table, also equal to full-year revenue less the first nine months. The original release displayed $1,038.1 million.",
+        "zh-TW": "年報的第四季附表列示營收為 10.37995 億美元，與全年減前九個月的結果一致。原始公告列示 10.381 億美元。"
+      }
     },
     {
       "date": "2025-11-05",
